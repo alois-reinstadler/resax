@@ -82,6 +82,24 @@
 				{ "path": "src/lib/registry/ui/button/button.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/button/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "avatar", "title": "Resax Avatar", "description": "Images, fallbacks, badges, story rings, and context-counted groups.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"], "registryDependencies": ["local:theme", "local:utils-color"],
+			"files": [
+				{ "path": "src/lib/registry/ui/avatar/avatar.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/avatar/avatar-group.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/avatar/context.ts", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/avatar/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "card", "title": "Resax Card", "description": "Media cards with depth, accent, reveal, zoom, and link modes.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/card/card.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/card/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
