@@ -244,6 +244,23 @@
 				{ "path": "src/lib/registry/ui/calendar/date-picker.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/calendar/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "color-picker", "title": "Color Picker", "description": "Accessible HSV color selection with alpha, presets, and text input.", "type": "registry:ui",
+			"registryDependencies": ["local:theme", "local:utils-color"],
+			"files": [
+				{ "path": "src/lib/registry/ui/color-picker/color-picker.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/color-picker/hsv.ts", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/color-picker/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "upload-file", "title": "Upload File", "description": "File drop zone with validation, previews, and consumer-owned progress state.", "type": "registry:ui",
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/upload/upload.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/upload/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
