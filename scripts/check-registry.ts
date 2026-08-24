@@ -29,12 +29,18 @@ for (const [index, item] of registry.items.entries()) {
 
 }
 
+// Official shadcn-svelte base components we intentionally depend on by plain name, even when a
+// Resax item shares the name (plain names always resolve to the OFFICIAL registry). Extend this
+// list when a new stream adopts another official base.
+const officialBases = new Set([
+	'dialog', 'sheet', 'tooltip', 'dropdown-menu', 'context-menu', 'sonner'
+]);
+
 for (const item of registry.items) {
 	for (const dependency of item.registryDependencies ?? []) {
-		if (dependency.startsWith('local:') || URL.canParse(dependency)) continue;
-		// Plain names resolve to the OFFICIAL shadcn-svelte registry (intended for shadcn base
-		// components per AGENTS.md) — but a plain name matching one of our own items is the
-		// classic footgun: it silently targets the wrong registry.
+		if (dependency.startsWith('local:') || URL.canParse(dependency) || officialBases.has(dependency)) continue;
+		// A remaining plain name matching one of our own items is the classic footgun: it silently
+		// targets the wrong registry.
 		if (expectedNames.has(dependency)) {
 			throw new Error(
 				`registry.json: item "${item.name}" references our own item "${dependency}" without the "local:" prefix; ` +
