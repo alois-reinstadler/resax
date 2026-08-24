@@ -222,6 +222,18 @@
 				{ "path": "src/lib/registry/ui/radio-group/context.ts", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/radio-group/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "select", "title": "Select", "description": "Single, multiple, grouped, and filterable selection with floating labels and chips.", "type": "registry:ui",
+			"dependencies": ["bits-ui"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing", "local:chip"],
+			"files": [
+				{ "path": "src/lib/registry/ui/select/select.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/select/select-item.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/select/select-group.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/select/context.ts", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/select/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
