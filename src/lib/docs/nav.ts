@@ -5,7 +5,7 @@ export interface NavGroup {
 
 const groups: Record<string, string[]> = {
 	Disclosure: ['Accordion'],
-	Feedback: ['Alert', 'Badge', 'Notification', 'Popup', 'Progress', 'Skeleton', 'Spinner'],
+	Feedback: ['Alert', 'Badge', 'Notification', 'Popup', 'Progress', 'Skeleton', 'Spinner', 'Tooltip'],
 	'Data display': ['Avatar', 'Code', 'Indicator', 'List', 'Table'],
 	Inputs: ['Button', 'Calendar', 'Checkbox', 'Chip', 'ColorPicker', 'Input', 'Number', 'Otp', 'Radio', 'RadioGroup', 'Rating', 'Select', 'Slider', 'Switch', 'Textarea', 'UploadFile'],
 	Navigation: ['Breadcrumb', 'ContextMenu', 'Cursor', 'Dock', 'DotStepper', 'Dropdown', 'FileTree', 'InlineOverflow', 'LinkBar', 'NavMenu', 'Pagination', 'Sidebar', 'Steps', 'Tabs'],

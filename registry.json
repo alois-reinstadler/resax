@@ -261,6 +261,37 @@
 				{ "path": "src/lib/registry/ui/upload/upload.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/upload/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "tooltip", "title": "Tooltip", "description": "Accessible Vuesax-styled hints shown on focus or hover.", "type": "registry:ui",
+			"dependencies": ["bits-ui"], "registryDependencies": ["tooltip", "local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/tooltip/tooltip.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/tooltip/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "dropdown", "title": "Dropdown", "description": "Click and hover action menus with Vuesax styling.", "type": "registry:ui",
+			"dependencies": ["bits-ui"], "registryDependencies": ["dropdown-menu", "local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/dropdown/dropdown.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/dropdown/dropdown-item.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/dropdown/dropdown-group.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/dropdown/dropdown-separator.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/dropdown/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "context-menu", "title": "Context Menu", "description": "Right-click action menus with groups and one-level submenus.", "type": "registry:ui",
+			"dependencies": ["bits-ui"], "registryDependencies": ["context-menu", "local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/context-menu/context-menu.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/context-menu/context-menu-item.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/context-menu/context-menu-group.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/context-menu/context-menu-separator.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/context-menu/context-menu-sub.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/context-menu/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
