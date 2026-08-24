@@ -127,6 +127,24 @@
 				{ "path": "src/lib/registry/ui/chip/chip.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/chip/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "progress", "title": "Progress", "description": "Accessible line, circle, segmented, and animated progress indicators.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/progress/progress.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/progress/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "indicator", "title": "Indicator", "description": "Minimal standalone and overlay status markers in six variants.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/indicator/indicator.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/indicator/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
