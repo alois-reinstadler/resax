@@ -145,6 +145,30 @@
 				{ "path": "src/lib/registry/ui/indicator/indicator.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/indicator/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "input", "title": "Input", "description": "Text fields with floating labels, validation, icons, loading, and depth variants.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/input/input.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/input/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "textarea", "title": "Textarea", "description": "Multi-line fields with floating labels, validation, counters, and auto-resize.", "type": "registry:ui",
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/textarea/textarea.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/textarea/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "input-number", "title": "Input Number", "description": "A compact bounded number stepper with press-and-hold repeat.", "type": "registry:ui",
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/input-number/input-number.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/input-number/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
