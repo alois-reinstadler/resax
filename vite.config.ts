@@ -4,6 +4,7 @@ import adapter from '@sveltejs/adapter-auto';
 import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
+	resolve: { conditions: ['browser'] },
 	plugins: [
 		tailwindcss(),
 		sveltekit({
@@ -28,6 +29,15 @@ export default defineConfig({
 					environment: 'node',
 					include: ['src/**/*.{test,spec}.{js,ts}'],
 					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
+				}
+			},
+			{
+				extends: './vite.config.ts',
+				test: {
+					name: 'client',
+					environment: 'jsdom',
+					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
+					setupFiles: ['./src/test-setup.ts']
 				}
 			}
 		]

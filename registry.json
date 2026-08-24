@@ -41,7 +41,7 @@
 		},
 		{
 			"name": "spinner", "title": "Spinner", "description": "Animated loading indicators in ten visual styles.", "type": "registry:ui",
-			"registryDependencies": ["theme", "utils-color"],
+			"registryDependencies": ["local:theme", "local:utils-color"],
 			"files": [
 				{ "path": "src/lib/registry/ui/spinner/spinner.svelte", "type": "registry:ui", "target": "src/lib/components/ui/spinner/spinner.svelte" },
 				{ "path": "src/lib/registry/ui/spinner/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/spinner/index.ts" }
@@ -49,7 +49,7 @@
 		},
 		{
 			"name": "skeleton", "title": "Skeleton", "description": "Animated placeholders for loading content.", "type": "registry:ui",
-			"registryDependencies": ["theme"],
+			"registryDependencies": ["local:theme"],
 			"files": [
 				{ "path": "src/lib/registry/ui/skeleton/skeleton.svelte", "type": "registry:ui", "target": "src/lib/components/ui/skeleton/skeleton.svelte" },
 				{ "path": "src/lib/registry/ui/skeleton/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/skeleton/index.ts" }
@@ -57,7 +57,7 @@
 		},
 		{
 			"name": "separator", "title": "Separator", "description": "Horizontal and vertical content separators.", "type": "registry:ui",
-			"registryDependencies": ["theme", "utils-color"],
+			"registryDependencies": ["local:theme", "local:utils-color"],
 			"files": [
 				{ "path": "src/lib/registry/ui/separator/separator.svelte", "type": "registry:ui", "target": "src/lib/components/ui/separator/separator.svelte" },
 				{ "path": "src/lib/registry/ui/separator/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/separator/index.ts" }
@@ -65,10 +65,22 @@
 		},
 		{
 			"name": "spacer", "title": "Spacer", "description": "An accessible layout spacing primitive.", "type": "registry:ui",
-			"registryDependencies": ["theme"],
+			"registryDependencies": ["local:theme"],
 			"files": [
 				{ "path": "src/lib/registry/ui/spacer/spacer.svelte", "type": "registry:ui", "target": "src/lib/components/ui/spacer/spacer.svelte" },
 				{ "path": "src/lib/registry/ui/spacer/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/spacer/index.ts" }
+			]
+		},
+		{
+			"name": "button",
+			"title": "Resax Button",
+			"description": "A Vuesax-inspired button with color, style, shape, motion, loading, and link modes.",
+			"type": "registry:ui",
+			"dependencies": ["tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing", "local:ripple"],
+			"files": [
+				{ "path": "src/lib/registry/ui/button/button.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/button/index.ts", "type": "registry:component" }
 			]
 		}
 	]

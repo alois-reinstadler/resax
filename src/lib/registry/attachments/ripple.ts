@@ -20,6 +20,7 @@ export function ripple(options: RippleOptions = {}): Attachment<HTMLElement> {
 			const diameter = Math.hypot(rect.width, rect.height) * 2;
 			const circle = document.createElement('span');
 			circle.setAttribute('aria-hidden', 'true');
+			circle.setAttribute('data-rx-ripple', '');
 			Object.assign(circle.style, {
 				position: 'absolute', pointerEvents: 'none', borderRadius: '9999px',
 				width: `${diameter}px`, height: `${diameter}px`,
@@ -39,7 +40,7 @@ export function ripple(options: RippleOptions = {}): Attachment<HTMLElement> {
 		node.addEventListener('pointerdown', onPointerDown);
 		return () => {
 			node.removeEventListener('pointerdown', onPointerDown);
-			node.querySelectorAll(':scope > span[aria-hidden="true"]').forEach((circle) => circle.remove());
+			node.querySelectorAll(':scope > span[data-rx-ripple]').forEach((circle) => circle.remove());
 			if (changedPosition) node.style.position = previousPosition;
 			if (changedOverflow) node.style.overflow = previousOverflow;
 		};

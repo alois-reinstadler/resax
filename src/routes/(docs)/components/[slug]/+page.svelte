@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DemoSection from '$lib/docs/DemoSection.svelte';
+	import ButtonPage from '$lib/docs/ButtonPage.svelte';
 	import { Spinner } from '$lib/registry/ui/spinner';
 	import type { SpinnerSize, SpinnerType } from '$lib/registry/ui/spinner';
 	import { Skeleton } from '$lib/registry/ui/skeleton';
@@ -18,6 +19,9 @@
 </script>
 
 <svelte:head><title>{title} — Resax</title></svelte:head>
+{#if data.slug === 'button'}
+	<ButtonPage />
+{:else}
 <div class="page-heading"><p class="eyebrow">Component</p><h1>{title}</h1><p>Resax visual primitive with theme-token styling.</p></div>
 
 {#if data.slug === 'spinner'}
@@ -34,6 +38,7 @@
 	<DemoSection title="Fixed and flexible spacing" source={'<Spacer width="2rem" />'}><div class="spacer-demo"><span>Fixed</span><Spacer width="3rem" height="1rem" /><span>gap</span></div><div class="spacer-demo"><span>Flexible</span><Spacer grow /><span>edge</span></div></DemoSection>
 {:else}
 	<DemoSection title="Preview"><p class="coming-soon">Coming soon in a later Resax phase.</p></DemoSection>
+{/if}
 {/if}
 
 <style>
