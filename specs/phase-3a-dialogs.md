@@ -1,6 +1,8 @@
 # Spec: Phase 3a — Popup (Dialog), Drawer
 
-Status: blocked until the chore spec lands. Standard ground rules (AGENTS.md, own worktree, `pages/` demos, live bits-ui docs first, fidelity notes).
+Status: blocked until the chore spec lands. Standard ground rules (AGENTS.md, own worktree, `pages/` demos, fidelity notes).
+
+**AMENDMENT (overrides bits-ui references below):** per the new AGENTS.md directive, build on the OFFICIAL shadcn-svelte components: install the official `dialog` item as the base for Popup and the official `sheet` item as the base for Drawer (`npx shadcn-svelte add dialog sheet` into this repo's ui path; declare them as plain-name `registryDependencies` on our items). Our components wrap/compose the installed shadcn-svelte components and restyle them with the Vuesax skin (tokens, radii, transitions). Where the text below says "bits-ui Dialog handles X", read "the shadcn-svelte dialog/sheet (which wraps bits-ui) handles X". Keep our public Props API exactly as specced.
 
 ## popup — `src/lib/registry/ui/popup/`
 

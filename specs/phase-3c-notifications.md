@@ -2,6 +2,8 @@
 
 Status: blocked until the chore spec lands. Standard ground rules. This is the first component with an imperative API — design it carefully; it becomes the pattern for future imperative modules.
 
+**AMENDMENT:** per the new AGENTS.md directive, evaluate building this on the official shadcn-svelte `sonner` item (svelte-sonner) with our `notify()` API as a wrapper and Vuesax-styled custom toast components. Adopt it IF it can honestly support the spec: per-call positions, progress countdown with hover-pause, variants, sticky, update/close handles. If svelte-sonner cannot support a required behavior, fall back to the custom engine specced below and document exactly which limitation forced the fallback — do not ship a degraded API to fit sonner.
+
 ## notification — `src/lib/registry/ui/notification/`
 
 Vuesax family: VsNotification + Banner/Card/Glow/Inline/Snackbar.

@@ -1,6 +1,8 @@
 # Spec: Phase 3b — Tooltip, Dropdown, ContextMenu
 
-Status: blocked until the chore spec lands. Standard ground rules; live bits-ui docs first (Tooltip, DropdownMenu, ContextMenu).
+Status: blocked until the chore spec lands. Standard ground rules.
+
+**AMENDMENT (overrides bits-ui references below):** per the new AGENTS.md directive, install the official shadcn-svelte `tooltip`, `dropdown-menu`, and `context-menu` items as bases (plain-name `registryDependencies`), wrap them in the Resax components with the Vuesax skin, and keep the public Props APIs exactly as specced. Read "bits-ui X" below as "the official shadcn-svelte X component".
 
 ## tooltip — `src/lib/registry/ui/tooltip/`
 

@@ -26,6 +26,8 @@ Resax is a port of the Vuesax component library (vuesax.com/components) to Svelt
 
 ## Established conventions (learned in earlier phases — follow these)
 
+- **Build on official shadcn-svelte components** (user directive, 2026-08-24, applies from Phase 3 on): when the official shadcn-svelte registry has a matching component (dialog, tooltip, dropdown-menu, context-menu, sonner, sheet, …), install it as the base — declare it as a plain-name entry in `registryDependencies` (plain names resolve to the official registry; that is now the *intended* behavior for these deps) and build the Vuesax-skinned Resax component on top of it, importing from the consumer-standard path it installs to. Only build directly on bits-ui when no official component exists (or when the spec says so). The Phase 1–2 components predate this directive; do not retrofit them unless a spec asks.
+
 - **`registryDependencies` must use the `local:` prefix** for items in this registry (e.g. `"local:theme"`). Plain names resolve to the *official shadcn-svelte registry* and break consumer installs.
 - **Demo pages:** one file per component at `src/lib/docs/pages/<slug>.svelte`, auto-discovered by glob. Never edit `src/routes/(docs)/components/[slug]/+page.svelte` or `src/lib/docs/nav.ts` — built flags and routing derive from the glob.
 - **Exemplar:** `src/lib/registry/ui/button/button.svelte` shows the house style — module-script Props interface, `tv()` variants in `index.ts`, `styleColor()` for the color prop, easing tokens in inline style, snippets, `{@attach}`.
