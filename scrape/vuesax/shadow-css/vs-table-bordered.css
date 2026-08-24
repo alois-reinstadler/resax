@@ -1,0 +1,144 @@
+  /* The stacked layout below switches on the HOST's width, not the window's —
+     this table is just as likely to sit in a 320px sidebar of a 1440px page as
+     on a phone. */
+  :host { display: block; container-type: inline-size; }
+  .vbrd {
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    --py: 12px;
+    --r: var(--ctrl-r-md, 12px);
+    --accent: var(--vbrd-accent, var(--ui-accent, #ededed));
+    --line: var(--border, #2a2a2a);
+    --surface: var(--bg-card, #111);
+    --surface-2: var(--bg-elevated, #171717);
+    --txt: var(--text, #ededed);
+    --txt-2: var(--text-secondary, #a1a1a1);
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    color: var(--txt);
+    font-family: inherit;
+    font-size: var(--fs);
+    overflow: hidden;
+  }
+  .vbrd__bar { padding: calc(var(--py) + 2px) var(--px); border-bottom: 1px solid var(--line); }
+  .vbrd__title { margin: 0; font-size: calc(var(--fs) + 2px); font-weight: 600; }
+  .vbrd__scroll { width: 100%; overflow-x: auto; }
+  .vbrd__table { width: 100%; border-collapse: collapse; }
+
+  .vbrd__th {
+    padding: var(--py) var(--px);
+    background: var(--surface-2);
+    color: var(--txt-2);
+    font-size: calc(var(--fs) - 2px);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid var(--line);
+  }
+  .vbrd__th.is-center { text-align: center; }
+  .vbrd__th.is-right { text-align: right; }
+  .vbrd__sort {
+    display: inline-flex; align-items: center; gap: 6px;
+    /* The label line is 15px tall — under the 24px thumb floor. The padding
+       grows the hit box; the negative margin cancels it again in the header
+       row's height, so nothing moves. */
+    padding: 5px 0; margin: -5px 0;
+    border: 0; background: none; color: inherit; font: inherit;
+    letter-spacing: inherit; text-transform: inherit; cursor: pointer;
+    transition: color 160ms ease;
+  }
+  .vbrd__th.is-right .vbrd__sort { flex-direction: row-reverse; }
+  .vbrd__th.is-center .vbrd__sort { justify-content: center; }
+  .vbrd__sort:hover { color: var(--txt); }
+  .vbrd__sort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .vbrd__arrow { display: inline-flex; transition: opacity 160ms ease, transform 200ms ease; }
+  .vbrd__arrow svg { width: 13px; height: 13px; }
+  .vbrd__arrow.is-idle { opacity: 0; transform: scale(0.8); }
+  .vbrd__sort:hover .vbrd__arrow.is-idle { opacity: 0.4; }
+  .vbrd__arrow.is-asc { opacity: 1; transform: rotate(180deg); color: var(--accent); }
+  .vbrd__arrow.is-desc { opacity: 1; transform: rotate(0deg); color: var(--accent); }
+
+  /* full grid rules — the spreadsheet look */
+  .vbrd__td {
+    padding: var(--py) var(--px);
+    height: 48px;
+    vertical-align: middle;
+    text-align: left;
+    border: 1px solid var(--line);
+    transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+  }
+  .vbrd__td.is-center { text-align: center; }
+  .vbrd__td.is-right { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* hovered row: cell rules ignite in accent + inset glow */
+  .vbrd.is-hover .vbrd__row:hover .vbrd__td {
+    border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+    background: color-mix(in srgb, var(--accent) 7%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+
+  .vbrd__td--empty { height: 120px; text-align: center; color: var(--txt-2); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vbrd__td, .vbrd__arrow, .vbrd__sort { transition: none; }
+  }
+
+  /* Under ~480px the four columns stop fitting: the last one (Usage) ends up
+     parked inside .vbrd__scroll with nothing on screen to say it is there, and
+     every name breaks over two lines. So the grid turns 90 degrees — one card
+     per row, one line per field, the header's labels reprinted next to their
+     values. The rules stay on every edge, which is the whole point of this
+     variant. */
+  @container (max-width: 480px) {
+    .vbrd__head { display: none; }             /* its labels moved into the cells */
+    .vbrd__scroll { overflow-x: visible; }     /* stacked content never overflows */
+    .vbrd__table, .vbrd__body, .vbrd__row, .vbrd__td { display: block; }
+    /* A column group with no table to size spawns an anonymous one around itself. */
+    .vbrd__table colgroup { display: none; }
+
+    .vbrd__body { padding: 10px; }
+    .vbrd__row {
+      border: 1px solid var(--line);
+      border-radius: calc(var(--r) - 4px);
+      background: var(--surface-2);
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .vbrd__row + .vbrd__row { margin-top: 10px; }
+
+    .vbrd__td {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      height: auto; min-height: 40px;
+      padding: 8px var(--px);
+      border: 0;
+      text-align: right;
+      overflow-wrap: anywhere;                 /* an email or URL must not push the card wide */
+    }
+    .vbrd__td + .vbrd__td { border-top: 1px solid var(--line); }
+    .vbrd__td::before {
+      content: attr(data-label);
+      flex: none;
+      color: var(--txt-2);
+      font-size: calc(var(--fs) - 2px);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* hover moves up to the card: a ring per cell would draw five of them */
+    .vbrd.is-hover .vbrd__row:hover {
+      border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+    .vbrd.is-hover .vbrd__row:hover .vbrd__td { box-shadow: none; }
+
+    .vbrd__row--empty { border: 0; background: none; }
+    .vbrd__td--empty { display: block; text-align: center; }
+  }

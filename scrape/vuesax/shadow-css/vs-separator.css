@@ -1,0 +1,128 @@
+  :host { display: block; width: 100%; }
+  :host([orientation="vertical"]) { display: inline-flex; width: auto; height: 100%; align-self: stretch; }
+
+  .vsep {
+    --col: var(--vs-color, var(--border, #2a2a2a));
+    --gap: 14px;
+    --dash: 6px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  /* hide the far line + label when there is no label (single-line mode) */
+  .vsep:not(.has-label) .vsep__label,
+  .vsep:not(.has-label) .vsep__line--r { display: none; }
+
+  /* ── line: a true hairline ── */
+  .vsep__line {
+    flex: 1;
+    height: 1px;
+    background: var(--col);
+    border: 0;
+  }
+
+  /* full solid line (no label): fade from the center toward both ends */
+  .vsep--v-solid:not(.has-label) .vsep__line {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--col) 50%,
+      transparent 100%
+    );
+  }
+  .vsep--vertical.vsep--v-solid .vsep__line {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--col) 50%,
+      transparent 100%
+    );
+  }
+
+  /* variants */
+  .vsep--v-dashed .vsep__line {
+    background: repeating-linear-gradient(
+      to right,
+      var(--col) 0 var(--dash),
+      transparent var(--dash) calc(var(--dash) * 2)
+    );
+  }
+  .vsep--v-dotted .vsep__line {
+    background: repeating-linear-gradient(
+      to right,
+      var(--col) 0 1px,
+      transparent 1px 4px
+    );
+  }
+
+  /* ── label: line on each side, masked to fade toward the outer ends ── */
+  .vsep__label {
+    flex: none;
+    padding: 0 var(--gap);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    white-space: nowrap;
+    user-select: none;
+  }
+  .has-label .vsep__line--l {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 92%);
+    mask-image: linear-gradient(to right, transparent, #000 92%);
+  }
+  .has-label .vsep__line--r {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 92%);
+    mask-image: linear-gradient(to left, transparent, #000 92%);
+  }
+  /* alignment: shrink one side so the label sits near it */
+  .vsep--lbl-start.has-label .vsep__line--l { flex: 0 0 var(--gap); }
+  .vsep--lbl-end.has-label .vsep__line--r { flex: 0 0 var(--gap); }
+
+  /* ── vertical ── */
+  .vsep--vertical {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    min-height: 28px;
+    align-self: stretch;
+  }
+  .vsep--vertical .vsep__line {
+    width: 1px;
+    height: auto;
+    flex: 1;
+    align-self: center;
+  }
+  /* vertical label: text between top/bottom lines */
+  .vsep--vertical .vsep__label { padding: var(--gap) 0; }
+  .vsep--vertical.has-label .vsep__line--l {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 92%);
+    mask-image: linear-gradient(to bottom, transparent, #000 92%);
+  }
+  .vsep--vertical.has-label .vsep__line--r {
+    -webkit-mask-image: linear-gradient(to top, transparent, #000 92%);
+    mask-image: linear-gradient(to top, transparent, #000 92%);
+  }
+  .vsep--vertical.vsep--lbl-start.has-label .vsep__line--l { flex: 0 0 var(--gap); }
+  .vsep--vertical.vsep--lbl-end.has-label .vsep__line--r { flex: 0 0 var(--gap); }
+  .vsep--vertical.has-label { min-height: 96px; }
+  .vsep--vertical.vsep--v-dashed .vsep__line {
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--col) 0 var(--dash),
+      transparent var(--dash) calc(var(--dash) * 2)
+    );
+  }
+  .vsep--vertical.vsep--v-dotted .vsep__line {
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--col) 0 1px,
+      transparent 1px 4px
+    );
+  }
+
+  /* ── tones ── */
+  .vsep--t-danger { --col: #e5484d; }
+  .vsep--t-warn { --col: #f5a623; }
+  .vsep--t-success { --col: #30a46c; }

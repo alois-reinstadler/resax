@@ -3,8 +3,11 @@
 	"name": "resax",
 	"homepage": "http://localhost:5173",
 	"aliases": {
-		"lib": "src/lib/registry",
-		"ui": "src/lib/registry/ui"
+		"lib": "$lib",
+		"ui": "$lib/registry/ui",
+		"components": "$lib/components",
+		"utils": "$lib/utils",
+		"hooks": "$lib/hooks"
 	},
 	"items": [
 		{
@@ -13,7 +16,13 @@
 			"description": "Resax color tokens, Tailwind v4 mappings, and shared effect keyframes.",
 			"type": "registry:theme",
 			"registryDependencies": [],
-			"files": [{ "path": "src/lib/registry/theme/theme.css", "type": "registry:theme", "target": "src/lib/resax/theme.css" }]
+			"files": [
+				{
+					"path": "src/lib/registry/theme/theme.css",
+					"type": "registry:theme",
+					"target": "registry/theme.css"
+				}
+			]
 		},
 		{
 			"name": "utils-color",
@@ -21,7 +30,13 @@
 			"description": "Strict color normalization for Resax runtime colors.",
 			"type": "registry:lib",
 			"registryDependencies": [],
-			"files": [{ "path": "src/lib/registry/lib/color.ts", "type": "registry:lib", "target": "src/lib/resax/color.ts" }]
+			"files": [
+				{
+					"path": "src/lib/registry/lib/color.ts",
+					"type": "registry:lib",
+					"target": "registry/lib/color.ts"
+				}
+			]
 		},
 		{
 			"name": "utils-easing",
@@ -29,7 +44,13 @@
 			"description": "Shared Resax motion constants and Svelte transition presets.",
 			"type": "registry:lib",
 			"registryDependencies": [],
-			"files": [{ "path": "src/lib/registry/lib/easing.ts", "type": "registry:lib", "target": "src/lib/resax/easing.ts" }]
+			"files": [
+				{
+					"path": "src/lib/registry/lib/easing.ts",
+					"type": "registry:lib",
+					"target": "registry/lib/easing.ts"
+				}
+			]
 		},
 		{
 			"name": "ripple",
@@ -37,38 +58,98 @@
 			"description": "A reduced-motion-aware Svelte 5 pointer ripple attachment.",
 			"type": "registry:lib",
 			"registryDependencies": [],
-			"files": [{ "path": "src/lib/registry/attachments/ripple.ts", "type": "registry:lib", "target": "src/lib/resax/ripple.ts" }]
-		},
-		{
-			"name": "spinner", "title": "Spinner", "description": "Animated loading indicators in ten visual styles.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color"],
 			"files": [
-				{ "path": "src/lib/registry/ui/spinner/spinner.svelte", "type": "registry:ui", "target": "src/lib/components/ui/spinner/spinner.svelte" },
-				{ "path": "src/lib/registry/ui/spinner/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/spinner/index.ts" }
+				{
+					"path": "src/lib/registry/attachments/ripple.ts",
+					"type": "registry:lib",
+					"target": "registry/attachments/ripple.ts"
+				}
 			]
 		},
 		{
-			"name": "skeleton", "title": "Skeleton", "description": "Animated placeholders for loading content.", "type": "registry:ui",
-			"registryDependencies": ["local:theme"],
+			"name": "spinner",
+			"title": "Spinner",
+			"description": "Animated loading indicators in ten visual styles.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/skeleton/skeleton.svelte", "type": "registry:ui", "target": "src/lib/components/ui/skeleton/skeleton.svelte" },
-				{ "path": "src/lib/registry/ui/skeleton/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/skeleton/index.ts" }
+				{
+					"path": "src/lib/registry/ui/spinner/spinner.svelte",
+					"type": "registry:ui",
+					"target": "resax/spinner/spinner.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/spinner/index.ts",
+					"type": "registry:ui",
+					"target": "resax/spinner/index.ts"
+				}
 			]
 		},
 		{
-			"name": "separator", "title": "Separator", "description": "Horizontal and vertical content separators.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color"],
+			"name": "skeleton",
+			"title": "Skeleton",
+			"description": "Animated placeholders for loading content.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/separator/separator.svelte", "type": "registry:ui", "target": "src/lib/components/ui/separator/separator.svelte" },
-				{ "path": "src/lib/registry/ui/separator/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/separator/index.ts" }
+				{
+					"path": "src/lib/registry/ui/skeleton/skeleton.svelte",
+					"type": "registry:ui",
+					"target": "resax/skeleton/skeleton.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/skeleton/index.ts",
+					"type": "registry:ui",
+					"target": "resax/skeleton/index.ts"
+				}
 			]
 		},
 		{
-			"name": "spacer", "title": "Spacer", "description": "An accessible layout spacing primitive.", "type": "registry:ui",
-			"registryDependencies": ["local:theme"],
+			"name": "separator",
+			"title": "Separator",
+			"description": "Horizontal and vertical content separators.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/spacer/spacer.svelte", "type": "registry:ui", "target": "src/lib/components/ui/spacer/spacer.svelte" },
-				{ "path": "src/lib/registry/ui/spacer/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/spacer/index.ts" }
+				{
+					"path": "src/lib/registry/ui/separator/separator.svelte",
+					"type": "registry:ui",
+					"target": "resax/separator/separator.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/separator/index.ts",
+					"type": "registry:ui",
+					"target": "resax/separator/index.ts"
+				}
+			]
+		},
+		{
+			"name": "spacer",
+			"title": "Spacer",
+			"description": "An accessible layout spacing primitive.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/spacer/spacer.svelte",
+					"type": "registry:ui",
+					"target": "resax/spacer/spacer.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/spacer/index.ts",
+					"type": "registry:ui",
+					"target": "resax/spacer/index.ts"
+				}
 			]
 		},
 		{
@@ -76,231 +157,1798 @@
 			"title": "Resax Button",
 			"description": "A Vuesax-inspired button with color, style, shape, motion, loading, and link modes.",
 			"type": "registry:ui",
-			"dependencies": ["tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing", "local:ripple"],
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing",
+				"local:ripple"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/button/button.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/button/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/button/button.svelte",
+					"type": "registry:ui",
+					"target": "resax/button/button.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/button/index.ts",
+					"type": "registry:ui",
+					"target": "resax/button/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/button/button.svelte",
+					"type": "registry:ui",
+					"target": "button/button.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/button/index.ts",
+					"type": "registry:ui",
+					"target": "button/index.ts"
+				}
 			]
 		},
 		{
-			"name": "avatar", "title": "Resax Avatar", "description": "Images, fallbacks, badges, story rings, and context-counted groups.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"], "registryDependencies": ["local:theme", "local:utils-color"],
+			"name": "rx-button",
+			"title": "Resax Button (dependency alias)",
+			"description": "Internal collision-free dependency alias for Resax Button.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing",
+				"local:ripple"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/avatar/avatar.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/avatar/avatar-group.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/avatar/context.ts", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/avatar/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/button/button.svelte",
+					"type": "registry:ui",
+					"target": "resax/button/button.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/button/index.ts",
+					"type": "registry:ui",
+					"target": "resax/button/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/button/button.svelte",
+					"type": "registry:ui",
+					"target": "button/button.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/button/index.ts",
+					"type": "registry:ui",
+					"target": "button/index.ts"
+				}
 			]
 		},
 		{
-			"name": "card", "title": "Resax Card", "description": "Media cards with depth, accent, reveal, zoom, and link modes.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "rx-skeleton",
+			"title": "Resax Skeleton (dependency alias)",
+			"description": "Internal collision-free dependency alias for Resax Skeleton.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/card/card.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/card/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/skeleton/skeleton.svelte",
+					"type": "registry:ui",
+					"target": "resax/skeleton/skeleton.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/skeleton/index.ts",
+					"type": "registry:ui",
+					"target": "resax/skeleton/index.ts"
+				}
 			]
 		},
 		{
-			"name": "alert", "title": "Resax Alert", "description": "Closable feedback panels in six Vuesax-inspired presentations.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "rx-separator",
+			"title": "Resax Separator (dependency alias)",
+			"description": "Internal collision-free dependency alias for Resax Separator.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/alert/alert.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/alert/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/separator/separator.svelte",
+					"type": "registry:ui",
+					"target": "resax/separator/separator.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/separator/index.ts",
+					"type": "registry:ui",
+					"target": "resax/separator/index.ts"
+				}
 			]
 		},
 		{
-			"name": "badge", "title": "Resax Badge", "description": "Standalone and overlay badges with animated visual effects.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color"],
+			"name": "avatar",
+			"title": "Resax Avatar",
+			"description": "Images, fallbacks, badges, story rings, and context-counted groups.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/badge/badge.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/badge/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/avatar/avatar.svelte",
+					"type": "registry:ui",
+					"target": "resax/avatar/avatar.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/avatar/avatar-group.svelte",
+					"type": "registry:ui",
+					"target": "resax/avatar/avatar-group.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/avatar/context.ts",
+					"type": "registry:ui",
+					"target": "resax/avatar/context.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/avatar/index.ts",
+					"type": "registry:ui",
+					"target": "resax/avatar/index.ts"
+				}
 			]
 		},
 		{
-			"name": "chip", "title": "Resax Chip", "description": "Compact labels with icons, sizes, styles, and accessible dismissal.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color"],
+			"name": "card",
+			"title": "Resax Card",
+			"description": "Media cards with depth, accent, reveal, zoom, and link modes.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/chip/chip.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/chip/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/card/card.svelte",
+					"type": "registry:ui",
+					"target": "resax/card/card.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/card/index.ts",
+					"type": "registry:ui",
+					"target": "resax/card/index.ts"
+				}
 			]
 		},
 		{
-			"name": "progress", "title": "Progress", "description": "Accessible line, circle, segmented, and animated progress indicators.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "alert",
+			"title": "Resax Alert",
+			"description": "Closable feedback panels in six Vuesax-inspired presentations.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/progress/progress.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/progress/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/alert/alert.svelte",
+					"type": "registry:ui",
+					"target": "resax/alert/alert.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/alert/index.ts",
+					"type": "registry:ui",
+					"target": "resax/alert/index.ts"
+				}
 			]
 		},
 		{
-			"name": "indicator", "title": "Indicator", "description": "Minimal standalone and overlay status markers in six variants.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "badge",
+			"title": "Resax Badge",
+			"description": "Standalone and overlay badges with animated visual effects.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/indicator/indicator.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/indicator/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/badge/badge.svelte",
+					"type": "registry:ui",
+					"target": "resax/badge/badge.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/badge/index.ts",
+					"type": "registry:ui",
+					"target": "resax/badge/index.ts"
+				}
 			]
 		},
 		{
-			"name": "input", "title": "Input", "description": "Text fields with floating labels, validation, icons, loading, and depth variants.", "type": "registry:ui",
-			"dependencies": ["tailwind-variants"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "chip",
+			"title": "Resax Chip",
+			"description": "Compact labels with icons, sizes, styles, and accessible dismissal.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/input/input.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/input/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/chip/chip.svelte",
+					"type": "registry:ui",
+					"target": "resax/chip/chip.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/chip/index.ts",
+					"type": "registry:ui",
+					"target": "resax/chip/index.ts"
+				}
 			]
 		},
 		{
-			"name": "textarea", "title": "Textarea", "description": "Multi-line fields with floating labels, validation, counters, and auto-resize.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "progress",
+			"title": "Progress",
+			"description": "Accessible line, circle, segmented, and animated progress indicators.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/textarea/textarea.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/textarea/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/progress/progress.svelte",
+					"type": "registry:ui",
+					"target": "resax/progress/progress.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/progress/index.ts",
+					"type": "registry:ui",
+					"target": "resax/progress/index.ts"
+				}
 			]
 		},
 		{
-			"name": "input-number", "title": "Input Number", "description": "A compact bounded number stepper with press-and-hold repeat.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "indicator",
+			"title": "Indicator",
+			"description": "Minimal standalone and overlay status markers in six variants.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/input-number/input-number.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/input-number/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/indicator/indicator.svelte",
+					"type": "registry:ui",
+					"target": "resax/indicator/indicator.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/indicator/index.ts",
+					"type": "registry:ui",
+					"target": "resax/indicator/index.ts"
+				}
 			]
 		},
 		{
-			"name": "slider", "title": "Slider", "description": "Single and range value selection with tooltips and ticks.", "type": "registry:ui",
-			"dependencies": ["bits-ui"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "input",
+			"title": "Input",
+			"description": "Text fields with floating labels, validation, icons, loading, and depth variants.",
+			"type": "registry:ui",
+			"dependencies": [
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/slider/slider.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/slider/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/input/input.svelte",
+					"type": "registry:ui",
+					"target": "resax/input/input.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/input/index.ts",
+					"type": "registry:ui",
+					"target": "resax/input/index.ts"
+				}
 			]
 		},
 		{
-			"name": "rating", "title": "Rating", "description": "Accessible whole and half-star rating input.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "textarea",
+			"title": "Textarea",
+			"description": "Multi-line fields with floating labels, validation, counters, and auto-resize.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/rating/rating.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/rating/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/textarea/textarea.svelte",
+					"type": "registry:ui",
+					"target": "resax/textarea/textarea.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/textarea/index.ts",
+					"type": "registry:ui",
+					"target": "resax/textarea/index.ts"
+				}
 			]
 		},
 		{
-			"name": "input-otp", "title": "Input OTP", "description": "Paste-friendly one-time password input with masked and validation states.", "type": "registry:ui",
-			"dependencies": ["bits-ui"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "input-number",
+			"title": "Input Number",
+			"description": "A compact bounded number stepper with press-and-hold repeat.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/input-otp/input-otp.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/input-otp/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/input-number/input-number.svelte",
+					"type": "registry:ui",
+					"target": "resax/input-number/input-number.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/input-number/index.ts",
+					"type": "registry:ui",
+					"target": "resax/input-number/index.ts"
+				}
 			]
 		},
 		{
-			"name": "checkbox", "title": "Checkbox", "description": "Accessible animated checkboxes with indeterminate and line-through states.", "type": "registry:ui",
-			"dependencies": ["bits-ui", "tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "slider",
+			"title": "Slider",
+			"description": "Single and range value selection with tooltips and ticks.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/checkbox/checkbox.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/checkbox/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/slider/slider.svelte",
+					"type": "registry:ui",
+					"target": "resax/slider/slider.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/slider/index.ts",
+					"type": "registry:ui",
+					"target": "resax/slider/index.ts"
+				}
 			]
 		},
 		{
-			"name": "switch", "title": "Switch", "description": "Accessible pill and square switches with state content and loading feedback.", "type": "registry:ui",
-			"dependencies": ["bits-ui", "tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "rating",
+			"title": "Rating",
+			"description": "Accessible whole and half-star rating input.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/switch/switch.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/switch/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/rating/rating.svelte",
+					"type": "registry:ui",
+					"target": "resax/rating/rating.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/rating/index.ts",
+					"type": "registry:ui",
+					"target": "resax/rating/index.ts"
+				}
 			]
 		},
 		{
-			"name": "radio-group", "title": "Radio Group", "description": "Accessible radio groups with inherited Resax color and sizing.", "type": "registry:ui",
-			"dependencies": ["bits-ui", "tailwind-variants"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "input-otp",
+			"title": "Input OTP",
+			"description": "Paste-friendly one-time password input with masked and validation states.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/radio-group/radio-group.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/radio-group/radio.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/radio-group/context.ts", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/radio-group/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/input-otp/input-otp.svelte",
+					"type": "registry:ui",
+					"target": "resax/input-otp/input-otp.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/input-otp/index.ts",
+					"type": "registry:ui",
+					"target": "resax/input-otp/index.ts"
+				}
 			]
 		},
 		{
-			"name": "select", "title": "Select", "description": "Single, multiple, grouped, and filterable selection with floating labels and chips.", "type": "registry:ui",
-			"dependencies": ["bits-ui"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing", "local:chip"],
+			"name": "checkbox",
+			"title": "Checkbox",
+			"description": "Accessible animated checkboxes with indeterminate and line-through states.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui",
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/select/select.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/select/select-item.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/select/select-group.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/select/context.ts", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/select/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/checkbox/checkbox.svelte",
+					"type": "registry:ui",
+					"target": "resax/checkbox/checkbox.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/checkbox/index.ts",
+					"type": "registry:ui",
+					"target": "resax/checkbox/index.ts"
+				}
 			]
 		},
 		{
-			"name": "calendar", "title": "Calendar and DatePicker", "description": "Accessible single, multiple, and range calendars with a popover date input.", "type": "registry:ui",
-			"dependencies": ["bits-ui", "@internationalized/date", "@lucide/svelte"],
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "switch",
+			"title": "Switch",
+			"description": "Accessible pill and square switches with state content and loading feedback.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui",
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/calendar/calendar.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/calendar/date-picker.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/calendar/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/switch/switch.svelte",
+					"type": "registry:ui",
+					"target": "resax/switch/switch.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/switch/index.ts",
+					"type": "registry:ui",
+					"target": "resax/switch/index.ts"
+				}
 			]
 		},
 		{
-			"name": "color-picker", "title": "Color Picker", "description": "Accessible HSV color selection with alpha, presets, and text input.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color"],
+			"name": "radio-group",
+			"title": "Radio Group",
+			"description": "Accessible radio groups with inherited Resax color and sizing.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui",
+				"tailwind-variants"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/color-picker/color-picker.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/color-picker/hsv.ts", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/color-picker/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/radio-group/radio-group.svelte",
+					"type": "registry:ui",
+					"target": "resax/radio-group/radio-group.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/radio-group/radio.svelte",
+					"type": "registry:ui",
+					"target": "resax/radio-group/radio.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/radio-group/context.ts",
+					"type": "registry:ui",
+					"target": "resax/radio-group/context.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/radio-group/index.ts",
+					"type": "registry:ui",
+					"target": "resax/radio-group/index.ts"
+				}
 			]
 		},
 		{
-			"name": "upload-file", "title": "Upload File", "description": "File drop zone with validation, previews, and consumer-owned progress state.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "select",
+			"title": "Select",
+			"description": "Single, multiple, grouped, and filterable selection with floating labels and chips.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing",
+				"local:chip"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/upload/upload.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/upload/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/select/select.svelte",
+					"type": "registry:ui",
+					"target": "resax/select/select.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/select/select-item.svelte",
+					"type": "registry:ui",
+					"target": "resax/select/select-item.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/select/select-group.svelte",
+					"type": "registry:ui",
+					"target": "resax/select/select-group.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/select/context.ts",
+					"type": "registry:ui",
+					"target": "resax/select/context.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/select/index.ts",
+					"type": "registry:ui",
+					"target": "resax/select/index.ts"
+				}
 			]
 		},
 		{
-			"name": "tooltip", "title": "Tooltip", "description": "Accessible Vuesax-styled hints shown on focus or hover.", "type": "registry:ui",
-			"dependencies": ["bits-ui"], "registryDependencies": ["tooltip", "local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "calendar",
+			"title": "Calendar and DatePicker",
+			"description": "Accessible single, multiple, and range calendars with a popover date input.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui",
+				"@internationalized/date",
+				"@lucide/svelte"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/tooltip/tooltip.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/tooltip/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/calendar/calendar.svelte",
+					"type": "registry:ui",
+					"target": "resax/calendar/calendar.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/calendar/date-picker.svelte",
+					"type": "registry:ui",
+					"target": "resax/calendar/date-picker.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/calendar/index.ts",
+					"type": "registry:ui",
+					"target": "resax/calendar/index.ts"
+				}
 			]
 		},
 		{
-			"name": "dropdown", "title": "Dropdown", "description": "Click and hover action menus with Vuesax styling.", "type": "registry:ui",
-			"dependencies": ["bits-ui"], "registryDependencies": ["dropdown-menu", "local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "color-picker",
+			"title": "Color Picker",
+			"description": "Accessible HSV color selection with alpha, presets, and text input.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/dropdown/dropdown.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/dropdown/dropdown-item.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/dropdown/dropdown-group.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/dropdown/dropdown-separator.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/dropdown/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/color-picker/color-picker.svelte",
+					"type": "registry:ui",
+					"target": "resax/color-picker/color-picker.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/color-picker/hsv.ts",
+					"type": "registry:ui",
+					"target": "resax/color-picker/hsv.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/color-picker/index.ts",
+					"type": "registry:ui",
+					"target": "resax/color-picker/index.ts"
+				}
 			]
 		},
 		{
-			"name": "context-menu", "title": "Context Menu", "description": "Right-click action menus with groups and one-level submenus.", "type": "registry:ui",
-			"dependencies": ["bits-ui"], "registryDependencies": ["context-menu", "local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "upload-file",
+			"title": "Upload File",
+			"description": "File drop zone with validation, previews, and consumer-owned progress state.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/context-menu/context-menu.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/context-menu/context-menu-item.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/context-menu/context-menu-group.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/context-menu/context-menu-separator.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/context-menu/context-menu-sub.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/context-menu/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/upload/upload.svelte",
+					"type": "registry:ui",
+					"target": "resax/upload/upload.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/upload/index.ts",
+					"type": "registry:ui",
+					"target": "resax/upload/index.ts"
+				}
 			]
 		},
 		{
-			"name": "notification", "title": "Notification", "description": "Imperative queued notifications with variants, per-call positions, progress, and update handles.", "type": "registry:ui",
-			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"name": "tooltip",
+			"title": "Tooltip",
+			"description": "Accessible Vuesax-styled hints shown on focus or hover.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
 			"files": [
-				{ "path": "src/lib/registry/ui/notification/notification.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/notification/notification-outlet.svelte", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/notification/notify.svelte.ts", "type": "registry:component" },
-				{ "path": "src/lib/registry/ui/notification/index.ts", "type": "registry:component" }
+				{
+					"path": "src/lib/registry/ui/tooltip/tooltip.svelte",
+					"type": "registry:ui",
+					"target": "resax/tooltip/tooltip.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/tooltip/index.ts",
+					"type": "registry:ui",
+					"target": "resax/tooltip/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/tooltip/index.ts",
+					"type": "registry:ui",
+					"target": "tooltip/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/tooltip/tooltip-content.svelte",
+					"type": "registry:ui",
+					"target": "tooltip/tooltip-content.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/tooltip/tooltip-portal.svelte",
+					"type": "registry:ui",
+					"target": "tooltip/tooltip-portal.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/tooltip/tooltip-provider.svelte",
+					"type": "registry:ui",
+					"target": "tooltip/tooltip-provider.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/tooltip/tooltip-trigger.svelte",
+					"type": "registry:ui",
+					"target": "tooltip/tooltip-trigger.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/tooltip/tooltip.svelte",
+					"type": "registry:ui",
+					"target": "tooltip/tooltip.svelte"
+				}
+			]
+		},
+		{
+			"name": "dropdown",
+			"title": "Dropdown",
+			"description": "Click and hover action menus with Vuesax styling.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"dropdown-menu",
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/dropdown/dropdown.svelte",
+					"type": "registry:ui",
+					"target": "resax/dropdown/dropdown.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/dropdown/dropdown-item.svelte",
+					"type": "registry:ui",
+					"target": "resax/dropdown/dropdown-item.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/dropdown/dropdown-group.svelte",
+					"type": "registry:ui",
+					"target": "resax/dropdown/dropdown-group.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/dropdown/dropdown-separator.svelte",
+					"type": "registry:ui",
+					"target": "resax/dropdown/dropdown-separator.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/dropdown/index.ts",
+					"type": "registry:ui",
+					"target": "resax/dropdown/index.ts"
+				}
+			]
+		},
+		{
+			"name": "context-menu",
+			"title": "Context Menu",
+			"description": "Right-click action menus with groups and one-level submenus.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/context-menu/context-menu.svelte",
+					"type": "registry:ui",
+					"target": "resax/context-menu/context-menu.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/context-menu/context-menu-item.svelte",
+					"type": "registry:ui",
+					"target": "resax/context-menu/context-menu-item.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/context-menu/context-menu-group.svelte",
+					"type": "registry:ui",
+					"target": "resax/context-menu/context-menu-group.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/context-menu/context-menu-separator.svelte",
+					"type": "registry:ui",
+					"target": "resax/context-menu/context-menu-separator.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/context-menu/context-menu-sub.svelte",
+					"type": "registry:ui",
+					"target": "resax/context-menu/context-menu-sub.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/context-menu/index.ts",
+					"type": "registry:ui",
+					"target": "resax/context-menu/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-checkbox-item.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-checkbox-item.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-content.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-content.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-group-heading.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-group-heading.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-group.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-group.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-item.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-item.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-label.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-label.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-portal.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-portal.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-radio-group.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-radio-group.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-radio-item.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-radio-item.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-separator.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-separator.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-shortcut.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-shortcut.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-sub-content.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-sub-content.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-sub-trigger.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-sub-trigger.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-sub.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-sub.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu-trigger.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu-trigger.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/context-menu.svelte",
+					"type": "registry:ui",
+					"target": "context-menu/context-menu.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/context-menu/index.ts",
+					"type": "registry:ui",
+					"target": "context-menu/index.ts"
+				}
+			]
+		},
+		{
+			"name": "notification",
+			"title": "Notification",
+			"description": "Imperative queued notifications with variants, per-call positions, progress, and update handles.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/notification/notification.svelte",
+					"type": "registry:ui",
+					"target": "resax/notification/notification.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/notification/notification-outlet.svelte",
+					"type": "registry:ui",
+					"target": "resax/notification/notification-outlet.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/notification/notify.svelte.ts",
+					"type": "registry:ui",
+					"target": "resax/notification/notify.svelte.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/notification/index.ts",
+					"type": "registry:ui",
+					"target": "resax/notification/index.ts"
+				}
+			]
+		},
+		{
+			"name": "accordion",
+			"title": "Accordion",
+			"description": "Accessible Vuesax disclosure panels.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/accordion/accordion.svelte",
+					"type": "registry:ui",
+					"target": "resax/accordion/accordion.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/accordion/accordion-item.svelte",
+					"type": "registry:ui",
+					"target": "resax/accordion/accordion-item.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/accordion/context.ts",
+					"type": "registry:ui",
+					"target": "resax/accordion/context.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/accordion/index.ts",
+					"type": "registry:ui",
+					"target": "resax/accordion/index.ts"
+				}
+			]
+		},
+		{
+			"name": "tabs",
+			"title": "Tabs",
+			"description": "Measured, accessible Vuesax tabs.",
+			"type": "registry:ui",
+			"dependencies": [
+				"bits-ui"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/tabs/tabs.svelte",
+					"type": "registry:ui",
+					"target": "resax/tabs/tabs.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/tabs/tabs-list.svelte",
+					"type": "registry:ui",
+					"target": "resax/tabs/tabs-list.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/tabs/tabs-trigger.svelte",
+					"type": "registry:ui",
+					"target": "resax/tabs/tabs-trigger.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/tabs/tabs-content.svelte",
+					"type": "registry:ui",
+					"target": "resax/tabs/tabs-content.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/tabs/context.ts",
+					"type": "registry:ui",
+					"target": "resax/tabs/context.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/tabs/index.ts",
+					"type": "registry:ui",
+					"target": "resax/tabs/index.ts"
+				}
+			]
+		},
+		{
+			"name": "breadcrumb",
+			"title": "Breadcrumb",
+			"description": "Semantic breadcrumb trails with accessible collapse.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"dropdown-menu",
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/breadcrumb/breadcrumb.svelte",
+					"type": "registry:ui",
+					"target": "resax/breadcrumb/breadcrumb.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/breadcrumb/index.ts",
+					"type": "registry:ui",
+					"target": "resax/breadcrumb/index.ts"
+				}
+			]
+		},
+		{
+			"name": "pagination",
+			"title": "Pagination",
+			"description": "Responsive Vuesax page ranges and goto controls.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/pagination/pagination.svelte",
+					"type": "registry:ui",
+					"target": "resax/pagination/pagination.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/pagination/range.ts",
+					"type": "registry:ui",
+					"target": "resax/pagination/range.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/pagination/index.ts",
+					"type": "registry:ui",
+					"target": "resax/pagination/index.ts"
+				}
+			]
+		},
+		{
+			"name": "steps",
+			"title": "Steps",
+			"description": "Accessible workflow progress steps.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/steps/steps.svelte",
+					"type": "registry:ui",
+					"target": "resax/steps/steps.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/steps/step.svelte",
+					"type": "registry:ui",
+					"target": "resax/steps/step.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/steps/context.ts",
+					"type": "registry:ui",
+					"target": "resax/steps/context.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/steps/index.ts",
+					"type": "registry:ui",
+					"target": "resax/steps/index.ts"
+				}
+			]
+		},
+		{
+			"name": "dot-stepper",
+			"title": "Dot Stepper",
+			"description": "Compact dot-based progress navigation.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/dot-stepper/dot-stepper.svelte",
+					"type": "registry:ui",
+					"target": "resax/dot-stepper/dot-stepper.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/dot-stepper/index.ts",
+					"type": "registry:ui",
+					"target": "resax/dot-stepper/index.ts"
+				}
+			]
+		},
+		{
+			"name": "timeline",
+			"title": "Timeline",
+			"description": "Chronological Vuesax event timelines.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/timeline/timeline.svelte",
+					"type": "registry:ui",
+					"target": "resax/timeline/timeline.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/timeline/index.ts",
+					"type": "registry:ui",
+					"target": "resax/timeline/index.ts"
+				}
+			]
+		},
+		{
+			"name": "file-tree",
+			"title": "File Tree",
+			"description": "Keyboard-accessible hierarchical file navigation.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/file-tree/file-tree.svelte",
+					"type": "registry:ui",
+					"target": "resax/file-tree/file-tree.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/file-tree/index.ts",
+					"type": "registry:ui",
+					"target": "resax/file-tree/index.ts"
+				}
+			]
+		},
+		{
+			"name": "sidebar",
+			"title": "Sidebar",
+			"description": "Responsive collapsible Vuesax sidebar.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"sheet",
+				"tooltip",
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/sidebar/sidebar.svelte",
+					"type": "registry:ui",
+					"target": "resax/sidebar/sidebar.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/sidebar/index.ts",
+					"type": "registry:ui",
+					"target": "resax/sidebar/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/constants.ts",
+					"type": "registry:ui",
+					"target": "sidebar/constants.ts"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/context.svelte.ts",
+					"type": "registry:ui",
+					"target": "sidebar/context.svelte.ts"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/index.ts",
+					"type": "registry:ui",
+					"target": "sidebar/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-content.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-content.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-footer.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-footer.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-group-action.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-group-action.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-group-content.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-group-content.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-group-label.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-group-label.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-group.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-group.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-header.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-header.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-input.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-input.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-inset.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-inset.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-action.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-action.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-badge.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-badge.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-button.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-button.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-item.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-item.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-skeleton.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-skeleton.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-sub-button.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-sub-button.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-sub-item.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-sub-item.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu-sub.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu-sub.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-menu.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-menu.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-provider.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-provider.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-rail.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-rail.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-separator.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-separator.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar-trigger.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar-trigger.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/sidebar/sidebar.svelte",
+					"type": "registry:ui",
+					"target": "sidebar/sidebar.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/input/index.ts",
+					"type": "registry:ui",
+					"target": "input/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/input/input.svelte",
+					"type": "registry:ui",
+					"target": "input/input.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/skeleton/index.ts",
+					"type": "registry:ui",
+					"target": "skeleton/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/skeleton/skeleton.svelte",
+					"type": "registry:ui",
+					"target": "skeleton/skeleton.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/separator/index.ts",
+					"type": "registry:ui",
+					"target": "separator/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/separator/separator.svelte",
+					"type": "registry:ui",
+					"target": "separator/separator.svelte"
+				},
+				{
+					"path": "src/lib/hooks/is-mobile.svelte.ts",
+					"type": "registry:hook",
+					"target": "is-mobile.svelte.ts"
+				}
+			],
+			"dependencies": [
+				"bits-ui",
+				"@internationalized/date"
+			]
+		},
+		{
+			"name": "nav-menu",
+			"title": "Navigation Menu",
+			"description": "Vuesax navigation and mega-menu surfaces.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"navigation-menu",
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/nav-menu/nav-menu.svelte",
+					"type": "registry:ui",
+					"target": "resax/nav-menu/nav-menu.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/nav-menu/index.ts",
+					"type": "registry:ui",
+					"target": "resax/nav-menu/index.ts"
+				}
+			]
+		},
+		{
+			"name": "link-bar",
+			"title": "Link Bar",
+			"description": "Animated active-link navigation bars.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/link-bar/link-bar.svelte",
+					"type": "registry:ui",
+					"target": "resax/link-bar/link-bar.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/link-bar/index.ts",
+					"type": "registry:ui",
+					"target": "resax/link-bar/index.ts"
+				}
+			]
+		},
+		{
+			"name": "dock",
+			"title": "Dock",
+			"description": "Pointer-responsive application dock.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/dock/dock.svelte",
+					"type": "registry:ui",
+					"target": "resax/dock/dock.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/dock/index.ts",
+					"type": "registry:ui",
+					"target": "resax/dock/index.ts"
+				}
+			]
+		},
+		{
+			"name": "scrollbar",
+			"title": "Scrollbar",
+			"description": "Styled scroll-area behavior with Vuesax accents.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"scroll-area",
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/scrollbar/scrollbar.svelte",
+					"type": "registry:ui",
+					"target": "resax/scrollbar/scrollbar.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/scrollbar/index.ts",
+					"type": "registry:ui",
+					"target": "resax/scrollbar/index.ts"
+				}
+			]
+		},
+		{
+			"name": "cursor",
+			"title": "Cursor",
+			"description": "A Svelte attachment for Vuesax cursor effects.",
+			"type": "registry:lib",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/cursor/cursor.ts",
+					"type": "registry:lib",
+					"target": "registry/ui/cursor/cursor.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/cursor/index.ts",
+					"type": "registry:lib",
+					"target": "registry/ui/cursor/index.ts"
+				}
+			]
+		},
+		{
+			"name": "slide-confirm",
+			"title": "Slide Confirm",
+			"description": "Accessible drag or keyboard confirmation control.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/slide-confirm/slide-confirm.svelte",
+					"type": "registry:ui",
+					"target": "resax/slide-confirm/slide-confirm.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/slide-confirm/index.ts",
+					"type": "registry:ui",
+					"target": "resax/slide-confirm/index.ts"
+				}
+			]
+		},
+		{
+			"name": "table",
+			"title": "Table",
+			"description": "Type-safe Vuesax data tables.",
+			"type": "registry:ui",
+			"dependencies": [
+				"@tanstack/table-core"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color",
+				"local:checkbox",
+				"local:rx-skeleton",
+				"local:pagination"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/table/table.svelte",
+					"type": "registry:ui",
+					"target": "resax/table/table.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/table/index.ts",
+					"type": "registry:ui",
+					"target": "resax/table/index.ts"
+				}
+			]
+		},
+		{
+			"name": "list",
+			"title": "List",
+			"description": "Selectable Vuesax content lists.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/list/list.svelte",
+					"type": "registry:ui",
+					"target": "resax/list/list.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/list/index.ts",
+					"type": "registry:ui",
+					"target": "resax/list/index.ts"
+				}
+			]
+		},
+		{
+			"name": "code",
+			"title": "Code",
+			"description": "Highlighted code surfaces with copy controls.",
+			"type": "registry:ui",
+			"dependencies": [
+				"shiki"
+			],
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/code/code.svelte",
+					"type": "registry:ui",
+					"target": "resax/code/code.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/code/highlight.ts",
+					"type": "registry:ui",
+					"target": "resax/code/highlight.ts"
+				},
+				{
+					"path": "src/lib/registry/ui/code/index.ts",
+					"type": "registry:ui",
+					"target": "resax/code/index.ts"
+				}
+			]
+		},
+		{
+			"name": "inline-overflow",
+			"title": "Inline Overflow",
+			"description": "Responsive inline content overflow with an accessible menu.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"dropdown-menu",
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/inline-overflow/inline-overflow.svelte",
+					"type": "registry:ui",
+					"target": "resax/inline-overflow/inline-overflow.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/inline-overflow/index.ts",
+					"type": "registry:ui",
+					"target": "resax/inline-overflow/index.ts"
+				}
+			]
+		},
+		{
+			"name": "tick-rail",
+			"title": "Tick Rail",
+			"description": "Animated Vuesax tick-based selection rail.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/tick-rail/tick-rail.svelte",
+					"type": "registry:ui",
+					"target": "resax/tick-rail/tick-rail.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/tick-rail/index.ts",
+					"type": "registry:ui",
+					"target": "resax/tick-rail/index.ts"
+				}
+			]
+		},
+		{
+			"name": "transform",
+			"title": "Transform",
+			"description": "Composable reduced-motion-aware transform effects.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:theme",
+				"local:utils-easing"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/transform/transform.svelte",
+					"type": "registry:ui",
+					"target": "resax/transform/transform.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/transform/index.ts",
+					"type": "registry:ui",
+					"target": "resax/transform/index.ts"
+				}
+			]
+		},
+		{
+			"name": "ask-ai-button",
+			"title": "Ask AI Button",
+			"description": "AI-accented action button built on the Resax button.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:rx-button",
+				"local:theme"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/ask-ai-button/ask-ai-button.svelte",
+					"type": "registry:ui",
+					"target": "resax/ask-ai-button/ask-ai-button.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/ask-ai-button/index.ts",
+					"type": "registry:ui",
+					"target": "resax/ask-ai-button/index.ts"
+				}
+			]
+		},
+		{
+			"name": "button-group",
+			"title": "Button Group",
+			"description": "Grouped actions built on the official button-group base.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"local:rx-button",
+				"local:theme"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/button-group/button-group.svelte",
+					"type": "registry:ui",
+					"target": "resax/button-group/button-group.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/button-group/index.ts",
+					"type": "registry:ui",
+					"target": "resax/button-group/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/button-group/button-group-separator.svelte",
+					"type": "registry:ui",
+					"target": "button-group/button-group-separator.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/button-group/button-group-text.svelte",
+					"type": "registry:ui",
+					"target": "button-group/button-group-text.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/button-group/button-group.svelte",
+					"type": "registry:ui",
+					"target": "button-group/button-group.svelte"
+				},
+				{
+					"path": "src/lib/components/ui/button-group/index.ts",
+					"type": "registry:ui",
+					"target": "button-group/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/separator/index.ts",
+					"type": "registry:ui",
+					"target": "separator/index.ts"
+				},
+				{
+					"path": "src/lib/components/ui/separator/separator.svelte",
+					"type": "registry:ui",
+					"target": "separator/separator.svelte"
+				}
+			],
+			"dependencies": [
+				"bits-ui",
+				"@internationalized/date"
+			]
+		},
+		{
+			"name": "split-button",
+			"title": "Split Button",
+			"description": "Primary action with an accessible dropdown action menu.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"dropdown-menu",
+				"local:rx-button",
+				"local:button-group",
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/split-button/split-button.svelte",
+					"type": "registry:ui",
+					"target": "resax/split-button/split-button.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/split-button/index.ts",
+					"type": "registry:ui",
+					"target": "resax/split-button/index.ts"
+				}
+			]
+		},
+		{
+			"name": "popup",
+			"title": "Popup",
+			"description": "Accessible Vuesax dialogs and confirmation prompts.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"dialog",
+				"local:rx-button",
+				"local:theme",
+				"local:utils-color"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/popup/popup.svelte",
+					"type": "registry:ui",
+					"target": "resax/popup/popup.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/popup/confirm-popup.svelte",
+					"type": "registry:ui",
+					"target": "resax/popup/confirm-popup.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/popup/index.ts",
+					"type": "registry:ui",
+					"target": "resax/popup/index.ts"
+				}
+			]
+		},
+		{
+			"name": "drawer",
+			"title": "Drawer",
+			"description": "Accessible edge-mounted Vuesax drawer surfaces.",
+			"type": "registry:ui",
+			"registryDependencies": [
+				"sheet",
+				"local:theme"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/ui/drawer/drawer.svelte",
+					"type": "registry:ui",
+					"target": "resax/drawer/drawer.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/drawer/index.ts",
+					"type": "registry:ui",
+					"target": "resax/drawer/index.ts"
+				}
 			]
 		}
 	]

@@ -1,0 +1,201 @@
+  :host { all: initial; }
+  * { box-sizing: border-box; }
+
+  .drw-root { position: fixed; inset: 0; z-index: 1000; pointer-events: none; font-family: inherit; }
+  .drw-root.is-open { pointer-events: auto; }
+
+  .drw-ov {
+    position: absolute;
+    inset: 0;
+    background: var(--backdrop, rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 320ms ease;
+  }
+  .drw-ov.is-open { opacity: 1; }
+  /* overlay lingers on close (delayed transition) so the page is never
+     exposed while the panel is still mid-bounce off the edge */
+  .drw-ov--leaving { transition: opacity 360ms ease 120ms; }
+  /* gradient mode: no dim, no blur — only the feathered panel floats over
+     the page (overlay stays transparent so it still catches a click) */
+  .drw-ov--bare { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+  .drw-panel {
+    --drw-w: 380px;
+    --drw-spring: cubic-bezier(0.34, 2.5, 0.45, 1);
+    --accent: var(--inp-accent, #ededed);
+    --ring: var(--inp-ring, 255 255 255);
+    position: absolute;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card, #111);
+    color: var(--text, #ededed);
+    box-shadow: var(--drw-shadow, 0 24px 60px rgba(0, 0, 0, 0.45));
+    outline: none;
+    overflow: hidden; /* clip content while the measure springs open from 0 */
+  }
+  .drw-panel--left, .drw-panel--right { top: 0; height: 100%; width: min(var(--drw-w), calc(100vw - 48px)); }
+  .drw-panel--left { left: 0; border-right: 1px solid var(--border, #2a2a2a); }
+  .drw-panel--right { right: 0; border-left: 1px solid var(--border, #2a2a2a); }
+  .drw-panel--top, .drw-panel--bottom { left: 0; width: 100%; height: min(var(--drw-w), calc(100vh - 48px)); }
+  .drw-panel--top { top: 0; border-bottom: 1px solid var(--border, #2a2a2a); }
+  .drw-panel--bottom { bottom: 0; border-top: 1px solid var(--border, #2a2a2a); }
+
+  .drw-panel--sm { --drw-w: 300px; }
+  .drw-panel--md { --drw-w: 380px; }
+  .drw-panel--lg { --drw-w: 520px; }
+
+  /* proximity glow ring on the panel border (see the .fx-glow base rule
+     below — the same primitive vs-button.js / vs-badge.js use) */
+  /* neighbour light — a coloured element nearby throws ITS colour on this one.
+     Fed by the engine at the top of the file: --lit-fill / --lit-ring hold one
+     gradient per lamp in reach, --lit is the master fade so a lamp leaving
+     range dims out instead of cutting. Deliberately not on --glow: that one is
+     the cursor's and other rules read it as a 0..1 intensity. */
+  .drw-panel::before{ content:''; position:absolute; inset:0; z-index:0; border-radius:inherit; pointer-events:none;
+    background:var(--lit-fill,none); opacity:calc(var(--lit,0)*var(--lit-fill-amt,.3)); transition:opacity 140ms; }
+  .drw-panel::after{ content:''; position:absolute; inset:-1px; z-index:1; border-radius:inherit; padding:1px; pointer-events:none;
+    background:var(--lit-ring,none);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask-composite:exclude;
+    opacity:var(--lit,0); transition:opacity 140ms; }
+  .drw-panel__glow {
+    --glow-strength: 0.6;
+    --glow-ring: 1px;
+    --glow-inset: 0;
+    --glow-r-core: 90px;
+    --glow-r-soft: 280px;
+    border-radius: inherit;
+  }
+  .fx-glow {
+    position: absolute;
+    inset: var(--glow-inset, 0);
+    z-index: 1;
+    border-radius: inherit;
+    padding: var(--glow-ring, 1.5px);
+    pointer-events: none;
+    background:
+      radial-gradient(var(--glow-r-core, 60px) circle at var(--gx, 50%) var(--gy, 50%),
+        rgb(var(--fx-tint, 255 255 255) / 0.6), rgb(var(--fx-tint, 255 255 255) / 0.42) 30%, rgb(var(--fx-tint, 255 255 255) / 0.16) 58%, rgb(var(--fx-tint, 255 255 255) / 0) 82%),
+      radial-gradient(var(--glow-r-soft, 200px) circle at var(--gx, 50%) var(--gy, 50%),
+        rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / var(--glow-soft-a, 0.6)), rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / calc(var(--glow-soft-a, 0.6) * 0.45)) 42%, rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / calc(var(--glow-soft-a, 0.6) * 0.14)) 66%, rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / 0) 85%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: calc(var(--glow, 0) * var(--glow-strength, 0.4) * var(--glow-boost, 1));
+    transition: opacity 140ms ease;
+  }
+
+  .drw-panel__head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 18px 20px;
+    border-bottom: 1px solid var(--border, #2a2a2a);
+    flex: none;
+  }
+  .drw-panel__title { margin: 0; font-size: 16px; font-weight: 600; color: var(--text, #ededed); }
+  .drw-panel__x {
+    appearance: none; border: none; background: transparent;
+    color: var(--text, #ededed);
+    width: 30px; height: 30px; display: grid; place-items: center;
+    border-radius: var(--ctrl-r-sm, 8px); cursor: pointer;
+    transition: background 140ms ease;
+  }
+  .drw-panel__x svg { width: 18px; height: 18px; }
+  .drw-panel__x:hover { background: var(--bg-input, rgba(255, 255, 255, 0.06)); }
+  .drw-panel__x[hidden] { display: none; }
+
+  .drw-panel__body { flex: 1; padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.55; color: var(--text-secondary, #c4c4c4); }
+  .drw-panel__placeholder { margin: 0; }
+  .drw-panel__placeholder code {
+    font-family: var(--font-mono, monospace);
+    padding: 1px 6px; border-radius: 6px;
+    background: var(--bg-input, rgba(255, 255, 255, 0.06));
+    color: var(--text, #ededed);
+  }
+  .drw-panel__foot {
+    display: flex; justify-content: flex-end; gap: 10px;
+    padding: 16px 20px; border-top: 1px solid var(--border, #2a2a2a);
+    flex: none;
+  }
+  .drw-panel__foot[hidden] { display: none; }
+
+  .drw-panel--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --fx-tint: 255 99 105; }
+  .drw-panel--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; --fx-tint: 255 178 36; }
+  .drw-panel--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --fx-tint: 76 195 138; }
+
+  /* gradient mode: no hard inner border, no drop shadow — the panel color
+     feathers out to opacity 0 past the inner edge via a ::before gradient.
+     Needs overflow:visible so the feather can bleed beyond the panel box. */
+  .drw-panel--gradient { border: none; box-shadow: none; overflow: visible; }
+  .drw-panel--gradient .drw-panel__glow { display: none; }
+  .drw-panel--gradient::before {
+    content: ''; position: absolute; pointer-events: none; z-index: -1;
+  }
+  .drw-panel--gradient.drw-panel--right::before { top: 0; bottom: 0; right: 100%; width: 140px; background: linear-gradient(to left, var(--bg-card, #111), transparent); }
+  .drw-panel--gradient.drw-panel--left::before { top: 0; bottom: 0; left: 100%; width: 140px; background: linear-gradient(to right, var(--bg-card, #111), transparent); }
+  .drw-panel--gradient.drw-panel--top::before { left: 0; right: 0; top: 100%; height: 140px; background: linear-gradient(to bottom, var(--bg-card, #111), transparent); }
+  .drw-panel--gradient.drw-panel--bottom::before { left: 0; right: 0; bottom: 100%; height: 140px; background: linear-gradient(to top, var(--bg-card, #111), transparent); }
+
+  /* ── unique effect 1/2: punchy spring on enter — a slide-in (transform)
+     UNION a measure spring that overshoots the target size and settles
+     (width for left/right, height for top/bottom), floored at 300px so it
+     never starts fully collapsed. "--from" supplies the closed/floored
+     state; "--entering" supplies the transition and stays present through
+     the settle (removing "--from" is what triggers the animation). ── */
+  .drw-panel--entering {
+    transition:
+      transform 440ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+      width 560ms var(--drw-spring),
+      height 560ms var(--drw-spring);
+  }
+  .drw-panel--right.drw-panel--from { transform: translateX(100%); width: 300px; }
+  .drw-panel--left.drw-panel--from { transform: translateX(-100%); width: 300px; }
+  .drw-panel--bottom.drw-panel--from { transform: translateY(100%); height: 300px; }
+  .drw-panel--top.drw-panel--from { transform: translateY(-100%); height: 300px; }
+
+  /* ── unique effect 2/2: bounce-off-the-wall on leave — a single slide out
+     to the edge, then a bounce off the "wall": the panel overshoots fully
+     hidden, rebounds a sliver back into view, settles hidden. Keyframes,
+     not a transition — a single cubic-bezier can't come back into view
+     past its own endpoint. ── */
+  .drw-panel--right.drw-panel--leaving { animation: drw-out-right 500ms cubic-bezier(0.4, 0, 0.5, 1) both; }
+  .drw-panel--left.drw-panel--leaving { animation: drw-out-left 500ms cubic-bezier(0.4, 0, 0.5, 1) both; }
+  .drw-panel--bottom.drw-panel--leaving { animation: drw-out-bottom 500ms cubic-bezier(0.4, 0, 0.5, 1) both; }
+  .drw-panel--top.drw-panel--leaving { animation: drw-out-top 500ms cubic-bezier(0.4, 0, 0.5, 1) both; }
+
+  @keyframes drw-out-right {
+    0%   { transform: translateX(0); }
+    60%  { transform: translateX(100%); }  /* hits the wall, hidden */
+    78%  { transform: translateX(90%); }   /* bounces a sliver back into view */
+    100% { transform: translateX(100%); }  /* settles hidden */
+  }
+  @keyframes drw-out-left {
+    0%   { transform: translateX(0); }
+    60%  { transform: translateX(-100%); }
+    78%  { transform: translateX(-90%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes drw-out-bottom {
+    0%   { transform: translateY(0); }
+    60%  { transform: translateY(100%); }
+    78%  { transform: translateY(90%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes drw-out-top {
+    0%   { transform: translateY(0); }
+    60%  { transform: translateY(-100%); }
+    78%  { transform: translateY(-90%); }
+    100% { transform: translateY(-100%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .drw-ov, .drw-ov--leaving { transition: none; }
+    .drw-panel--entering { transition: none; }
+    .drw-panel--right.drw-panel--leaving,
+    .drw-panel--left.drw-panel--leaving,
+    .drw-panel--top.drw-panel--leaving,
+    .drw-panel--bottom.drw-panel--leaving { animation: none; }
+  }

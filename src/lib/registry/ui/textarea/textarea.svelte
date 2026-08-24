@@ -1,11 +1,11 @@
 <script lang="ts" module>
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface TextareaProps extends Omit<HTMLTextareaAttributes, 'value' | 'color'> {
 		value?: string;
-		variant?: 'default' | 'shadow' | 'border';
+		variant?: 'default' | 'shadow' | 'border' | 'filled' | 'gradient-border' | 'pulse' | 'spotlight' | 'underline' | 'code';
 		color?: RxColor;
 		size?: 'lg' | 'default' | 'sm';
 		label?: string;
@@ -17,8 +17,8 @@
 </script>
 
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE, rxSlideUp } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE, rxSlideUp } from '$lib/registry/lib/easing';
 
 	let { value = $bindable(''), variant = 'default', color, size = 'default', label, labelPlaceholder = false,
 		state: validationState = 'default', message, autoResize = false, maxlength, id: suppliedId, class: className, style, disabled, ...restProps }: TextareaProps = $props();
@@ -70,10 +70,18 @@
 	.rx-textarea--border .rx-textarea__control { background: transparent; }
 	.rx-textarea--border textarea { border-color: rgb(var(--rx-border)); }
 	.rx-textarea--border.rx-textarea--focused textarea { border-color: rgb(var(--rx-color)); }
+	.rx-textarea--filled .rx-textarea__control { background: rgb(var(--rx-color) / .12); }
+	.rx-textarea--gradient-border .rx-textarea__control { padding: 1px; background: linear-gradient(120deg, rgb(var(--rx-color)), rgb(var(--rx-color) / .18)); }
+	.rx-textarea--gradient-border textarea { background: rgb(var(--rx-surface)); }
+	.rx-textarea--pulse.rx-textarea--focused .rx-textarea__control { animation: rx-textarea-pulse .5s var(--rx-ease); }
+	.rx-textarea--spotlight.rx-textarea--focused .rx-textarea__control { box-shadow: 0 0 0 4px rgb(var(--rx-color) / .12), 0 10px 28px rgb(var(--rx-color) / .16); }
+	.rx-textarea--underline .rx-textarea__control { border-radius: 0; background: transparent; }
+	.rx-textarea--code textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; tab-size: 2; }
 	.rx-textarea__meta { display: flex; justify-content: space-between; gap: 1rem; padding: 0 .35rem; color: rgb(var(--rx-color)); font-size: .76rem; }
 	.rx-textarea__counter { margin-left: auto; color: rgb(var(--rx-text-muted)); }
 	.rx-textarea--lg textarea { min-height: 8rem; font-size: 1rem; }
 	.rx-textarea--sm textarea { min-height: 4.5rem; font-size: .82rem; }
 	.rx-textarea textarea:disabled { cursor: not-allowed; opacity: .55; }
-	@media (prefers-reduced-motion: reduce) { .rx-textarea__control, .rx-textarea__control::after, .rx-textarea label { transition-duration: 0ms; } }
+	@keyframes rx-textarea-pulse { 50% { box-shadow: 0 0 0 6px rgb(var(--rx-color) / .12); } }
+	@media (prefers-reduced-motion: reduce) { .rx-textarea__control, .rx-textarea__control::after, .rx-textarea label { transition-duration: 0ms; animation: none; } }
 </style>

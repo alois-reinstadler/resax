@@ -1,0 +1,101 @@
+  :host { display: block; }
+  :host([orientation="vertical"]) { display: inline-flex; align-self: stretch; height: 100%; }
+
+  .vszig {
+    --vszig-col: var(--vs-color, var(--border, #2a2a2a));
+    --vszig-gap: 14px;
+    --vszig-size: 8px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* zigzag drawn as two mirrored diagonal gradients forming chevrons */
+  .vszig__line {
+    flex: 1;
+    height: calc(var(--vszig-size) * 2);
+    border: 0;
+    background:
+      linear-gradient(135deg, var(--vszig-col) 1px, transparent 1px 50%),
+      linear-gradient(45deg, var(--vszig-col) 1px, transparent 1px 50%);
+    background-size: var(--vszig-size) var(--vszig-size);
+    background-repeat: repeat-x;
+    background-position: 0 50%;
+    animation: vszig-drift var(--vszig-speed, 3.5s) linear infinite;
+  }
+  @keyframes vszig-drift {
+    to { background-position: var(--vszig-size) 50%; }
+  }
+
+  .vszig__label {
+    flex: none;
+    padding: 0 var(--vszig-gap);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    white-space: nowrap;
+    user-select: none;
+  }
+  /* no-label: only the single leading line shows, spanning full width */
+  .vszig:not(.has-label) .vszig__label,
+  .vszig:not(.has-label) .vszig__line--r { display: none; }
+
+  .has-label .vszig__line--l {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 92%);
+    mask-image: linear-gradient(to right, transparent, #000 92%);
+  }
+  .has-label .vszig__line--r {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 92%);
+    mask-image: linear-gradient(to left, transparent, #000 92%);
+  }
+  .vszig--lbl-start.has-label .vszig__line--l { flex: 0 0 var(--vszig-gap); }
+  .vszig--lbl-end.has-label .vszig__line--r { flex: 0 0 var(--vszig-gap); }
+
+  /* vertical */
+  .vszig--vertical {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    min-height: 28px;
+    align-self: stretch;
+  }
+  .vszig--vertical .vszig__line {
+    width: calc(var(--vszig-size) * 2);
+    height: auto;
+    flex: 1;
+    align-self: center;
+    background:
+      linear-gradient(225deg, var(--vszig-col) 1px, transparent 1px 50%),
+      linear-gradient(315deg, var(--vszig-col) 1px, transparent 1px 50%);
+    background-size: var(--vszig-size) var(--vszig-size);
+    background-repeat: repeat-y;
+    background-position: 50% 0;
+    animation: vszig-drift-v var(--vszig-speed, 3.5s) linear infinite;
+  }
+  @keyframes vszig-drift-v {
+    to { background-position: 50% var(--vszig-size); }
+  }
+  .vszig--vertical .vszig__label { padding: var(--vszig-gap) 0; }
+  .vszig--vertical.has-label { min-height: 96px; }
+  .vszig--vertical.has-label .vszig__line--l {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 92%);
+    mask-image: linear-gradient(to bottom, transparent, #000 92%);
+  }
+  .vszig--vertical.has-label .vszig__line--r {
+    -webkit-mask-image: linear-gradient(to top, transparent, #000 92%);
+    mask-image: linear-gradient(to top, transparent, #000 92%);
+  }
+  .vszig--vertical.vszig--lbl-start.has-label .vszig__line--l { flex: 0 0 var(--vszig-gap); }
+  .vszig--vertical.vszig--lbl-end.has-label .vszig__line--r { flex: 0 0 var(--vszig-gap); }
+
+  /* tones */
+  .vszig--t-danger { --vszig-col: var(--accent-danger, #e5484d); }
+  .vszig--t-warn { --vszig-col: var(--accent-warn, #f5a623); }
+  .vszig--t-success { --vszig-col: var(--accent-success, #30a46c); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vszig__line { animation: none !important; }
+  }

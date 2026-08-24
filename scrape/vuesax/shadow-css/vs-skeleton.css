@@ -1,0 +1,142 @@
+  :host { display: block; }
+.sk {
+  --w: 100%;
+  --h: 14px;
+  --r: 6px;
+  --dur: 1.4s;
+  /* subtle light grey: visible over a dark surface (demo).
+     Consumers can override --inp-bg to match their background. */
+  --base: var(--vs-color-rgb, var(--inp-bg, 235 235 235));   /* space-separated rgb */
+  --bone-a: 0.10;                        /* bone opacity */
+  --bone: rgb(var(--base) / var(--bone-a));
+  /* cut: how much the band carves into the bone (0-1). It is a mask,
+     not a color: it reveals the backdrop → the "shadow" takes its color */
+  --sk-cut: 0.85;
+  /* tilt: px the notch shifts per row → band slanted across
+     the group (~30deg with rows about 24px tall) */
+  --sk-tilt: -20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  /* without this it collapses to 0 when the container sets no width (lines
+     have no intrinsic width). Consumers may override it freely. */
+  min-width: 240px;
+  /* container-query: bones measure the group width (cqw) → the
+     band sweeps at the same size/speed on all of them = ONE light */
+  container-type: inline-size;
+}
+
+.sk__bone {
+  display: block;
+  width: var(--w);
+  height: var(--h);
+  border-radius: var(--r);
+  background: var(--bone);
+  position: relative;
+  overflow: hidden;
+}
+
+.sk__bone--line { width: var(--w); height: var(--h); }
+.sk__bone--solid { width: var(--w); height: var(--h); }
+
+/* ── speed ───────────────────────────────────────────────────── */
+.sk--s-slow   { --dur: 2.1s; }
+.sk--s-normal { --dur: 1.4s; }
+.sk--s-fast   { --dur: 0.9s; }
+
+/* ── shimmer: ONE MASK-band that carves into the bone ────────────
+   The bone is masked by a transparent notch that sweeps. Where the
+   notch passes the bone turns transparent → the BACKDROP shows
+   through (if the backdrop is purple, the "shadow" is purple).
+   The mask spans the group width (100cqw) and moves in sync across
+   every bone → a single coherent sweep. repeat avoids unmasked
+   areas; sized in cqw only one notch is visible at a time.
+   --ox offsets the bone's horizontal position inside the group. */
+@keyframes sk-mask-move {
+  from {
+    -webkit-mask-position: calc(var(--ox, 0px) + var(--i, 0) * var(--sk-tilt)) 0;
+    mask-position: calc(var(--ox, 0px) + var(--i, 0) * var(--sk-tilt)) 0;
+  }
+  to {
+    -webkit-mask-position: calc(var(--ox, 0px) + var(--i, 0) * var(--sk-tilt) + 100cqw) 0;
+    mask-position: calc(var(--ox, 0px) + var(--i, 0) * var(--sk-tilt) + 100cqw) 0;
+  }
+}
+.sk--a-shimmer .sk__bone,
+.sk--a-both .sk__bone {
+  /* opaque across the whole group width except the transparent notch */
+  -webkit-mask-image: linear-gradient(
+    110deg,
+    rgb(0 0 0 / 1) 15%,
+    rgb(0 0 0 / calc(1 - var(--sk-cut))) 50%,
+    rgb(0 0 0 / 1) 85%
+  );
+  mask-image: linear-gradient(
+    110deg,
+    rgb(0 0 0 / 1) 15%,
+    rgb(0 0 0 / calc(1 - var(--sk-cut))) 50%,
+    rgb(0 0 0 / 1) 85%
+  );
+  -webkit-mask-size: 100cqw 100%;
+  mask-size: 100cqw 100%;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+}
+.sk--a-shimmer .sk__bone {
+  animation: sk-mask-move var(--dur) linear infinite;
+}
+
+/* ── pulse: opacity beat ─────────────────────────────────────── */
+@keyframes sk-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+.sk--a-pulse .sk__bone {
+  animation: sk-pulse var(--dur) ease-in-out infinite;
+}
+/* both: sweeping mask + opacity pulse at the same time */
+.sk--a-both .sk__bone {
+  animation:
+    sk-mask-move var(--dur) linear infinite,
+    sk-pulse var(--dur) ease-in-out infinite;
+}
+
+/* ── shapes ──────────────────────────────────────────────────── */
+.sk--rect   { --h: 120px; --r: 10px; }
+.sk--circle .sk__bone--solid,
+.sk--avatar .sk__bone--solid {
+  --w: 48px;
+  --h: 48px;
+  --r: 999px;
+}
+.sk--rect, .sk--circle, .sk--avatar { gap: 0; }
+
+/* card: horizontal layout avatar + stack */
+.sk--card {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+.sk__bone--avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+.sk__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+/* card lines sit avatar(48)+gap(14)=62px from the group edge; shift
+   the band so the light crosses avatar and lines perfectly aligned */
+.sk--card .sk__stack .sk__bone { --ox: -62px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk--a-shimmer .sk__bone,
+  .sk--a-pulse .sk__bone,
+  .sk--a-both .sk__bone { animation-duration: 3s; }
+}

@@ -1,0 +1,121 @@
+${m}
+:host { display: inline-flex; }
+.stp {
+  --h: var(--ctrl-h-md, 40px);
+  --r: var(--ctrl-r-md, 12px);
+  --fs: var(--ctrl-fs-md, 14px);
+  --accent: var(--ui-accent, #ededed);
+  --fx-tint: var(--ui-ring, 255 255 255);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: stretch;
+  gap: 4px;
+  height: var(--h);
+  padding: 4px;
+  border: 1px solid var(--inp-border, #2a2a2a);
+  border-radius: calc(var(--r) * 1.1);
+  background: var(--bg-elevated, #111);
+}
+.stp--left { flex-direction: row-reverse; }
+.stp--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --fs: var(--ctrl-fs-sm, 13px); }
+.stp--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --fs: calc(var(--ctrl-fs-lg, 15px) + 1px); }
+
+.stp__value {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3ch;
+  padding: 0 0.6ch;
+  color: var(--inp-text, #ededed);
+  font-size: var(--fs);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  user-select: none;
+  transition: transform 340ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.stp.is-bump-up .stp__value { transform: translateY(-14%) scale(1.08); }
+.stp.is-bump-down .stp__value { transform: translateY(14%) scale(1.08); }
+
+.stp__controls {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: none;
+}
+/* Two keys splitting a 40px column are 19px tall each — well under the 24px
+   thumb floor, and the column cannot grow without the control growing with it.
+   So the button box is padded past the floor and the padding handed back with
+   margin (4/3, not 4/4: the extra 1px replaces the border that moved to
+   ::before, which keeps the content box — and with it the 62%-sized chevron —
+   exactly the size it was). The key itself is ::before, pinned to the old
+   19px band so the 2px seam between the two reads the same. */
+.stp__btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--h) - 8px);
+  flex: 1 1 0;
+  min-height: 0;
+  padding: 4px 1px;
+  margin: -3px 0;
+  border: 0;
+  background: none;
+  color: var(--inp-text, #ededed);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: opacity 180ms ease;
+}
+.stp__btn::before {
+  content: '';
+  position: absolute;
+  inset: 3px 0;
+  border: 1px solid var(--inp-border, #2a2a2a);
+  border-radius: calc(var(--r) * 0.6);
+  background: var(--bg-input, #0d0d0d);
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+.stp__btn:hover:not(:disabled)::before {
+  border-color: var(--inp-border-hover, #3d3d3d);
+  background: var(--inp-hover-bg, rgba(255, 255, 255, 0.05));
+}
+.stp__btn:focus-visible { outline: none; }
+.stp__btn:focus-visible::before { border-color: var(--ui-accent, #ededed); }
+.stp__btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.stp__icon {
+  /* The key is an absolutely positioned ::before, which paints above ordinary
+     in-flow children — the chevron has to be positioned too or it goes under. */
+  position: relative;
+  width: 62%;
+  height: 62%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stp--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --fx-tint: 255 99 105; }
+.stp--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --fx-tint: 255 178 36; }
+.stp--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --fx-tint: 76 195 138; }
+
+.stp.is-disabled { opacity: 0.55; }
+
+/* glow — feathered ring on the container border, out of flow (position:absolute) */
+.stp__glow { z-index: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stp__btn,
+  .stp__btn::before,
+  .stp__value { transition: none; }
+  .stp.is-bump-up .stp__value,
+  .stp.is-bump-down .stp__value { transform: none; }
+}

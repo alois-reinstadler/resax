@@ -1,14 +1,14 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color' | 'content' | 'children'> {
 		variant?: 'default' | 'glow' | 'gradient' | 'pulse' | 'shimmer' | 'stripes'; color?: RxColor;
 		content?: string | number; dot?: boolean; position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'; children?: Snippet;
 	}
 </script>
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
+	import { styleColor } from '$lib/registry/lib/color';
 	import { badgeVariants } from './index';
 	let { variant = 'default', color, content, dot = false, position = 'top-right', children,
 		class: className, style, ...restProps }: BadgeProps = $props();

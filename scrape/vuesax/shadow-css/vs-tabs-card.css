@@ -1,0 +1,110 @@
+  :host { display: inline-block; max-width: 100%; }
+  :host([block]) { display: block; width: 100%; }
+  .tbc {
+    --fs: var(--ctrl-fs-md, 14px);
+    --h: var(--ctrl-h-md, 40px);
+    --tab-px: 16px;
+    --r: 10px;
+    --acc: var(--inp-accent, #ededed);
+    --panel: var(--bg-card, #111);
+    --line: var(--border, #2a2a2a);
+    display: inline-flex;
+    font-family: inherit;
+    font-size: var(--fs);
+    max-width: 100%;
+  }
+  .tbc--block { display: flex; width: 100%; }
+  .tbc--sm { --fs: var(--ctrl-fs-sm, 13px); --h: var(--ctrl-h-sm, 32px); --tab-px: 13px; }
+  .tbc--lg { --fs: var(--ctrl-fs-lg, 15px); --h: var(--ctrl-h-lg, 48px); --tab-px: 20px; }
+
+  /* the strip sits on a baseline; active tab merges into it (folder look) */
+  .tbc__list {
+    position: relative;
+    display: inline-flex;
+    gap: 4px;
+    width: 100%;
+    padding: 0 2px;
+    border-bottom: 1px solid var(--line);
+    /* More tabs than the box can hold become a rail: the cards sit on a single
+       shared baseline, so wrapping would leave a second row hanging off the
+       border. The top padding (with a matching negative margin) buys back the
+       vertical room overflow-x takes away — it forces overflow-y to auto, which
+       would otherwise clip the raised active card and the focus ring. */
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-top: 6px;
+    margin-top: -6px;
+  }
+  .tbc__list::-webkit-scrollbar { display: none; }
+
+  .tbc__tab {
+    position: relative;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: var(--h);
+    padding: 0 var(--tab-px);
+    margin-bottom: -1px; /* overlap the baseline */
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: var(--r) var(--r) 0 0;
+    background: transparent;
+    color: var(--text-muted, #8a8a8a);
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 200ms ease, background-color 200ms ease, transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .tbc--block .tbc__tab { flex: 1 1 0; }
+  .tbc__tab:hover:not(:disabled):not(.is-active) {
+    color: var(--text, #ededed);
+    background: color-mix(in srgb, var(--line) 30%, transparent);
+  }
+  /* active = raised folder tab connected to the panel below (covers the baseline) */
+  .tbc__tab.is-active {
+    color: var(--acc);
+    background: var(--panel);
+    border-color: var(--line);
+  }
+  /* the little tongue that hides the baseline under the active tab */
+  .tbc__tab.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--panel);
+  }
+  /* accent bar on top of the active tab */
+  .tbc__tab.is-active::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    height: 2px;
+    border-radius: var(--r) var(--r) 0 0;
+    background: var(--acc);
+  }
+  .tbc__tab:disabled { opacity: 0.4; cursor: not-allowed; }
+  .tbc__icon { display: inline-flex; }
+  .tbc__icon svg { width: 18px; height: 18px; display: block; }
+
+  /* tones */
+  .tbc--t-danger { --acc: #e5484d; }
+  .tbc--t-warn { --acc: #f5a623; }
+  .tbc--t-success { --acc: #30a46c; }
+
+  .is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tbc__tab { transition: color 200ms ease, background-color 200ms ease; }
+  }

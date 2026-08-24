@@ -1,0 +1,113 @@
+  :host { display: inline-flex; }
+  .sgw {
+    --sgw-w: 200px;
+    --sgw-h: 8px;
+    --sgw-thumb: 16px;
+    --sgw-color: var(--ui-accent, #ededed);
+    --sgw-i: 0.7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: var(--sgw-w);
+    font-family: inherit;
+    color: var(--text, #ededed);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sgw--sm { --sgw-w: 160px; --sgw-h: 6px; --sgw-thumb: 13px; }
+  .sgw--lg { --sgw-w: 260px; --sgw-h: 10px; --sgw-thumb: 20px; }
+
+  .sgw--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .sgw--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .sgw--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  .sgw__value {
+    margin: 0;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary, #a1a1a1);
+  }
+
+  .sgw__track {
+    position: relative;
+    width: 100%;
+    height: var(--sgw-h);
+    border-radius: var(--ctrl-r-full, 999px);
+    background: var(--bg-elevated, #161616);
+    border: 1px solid var(--border, #2a2a2a);
+    cursor: grab;
+    touch-action: none;
+    outline: none;
+  }
+  .sgw__track:active { cursor: grabbing; }
+  .sgw__track:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--ui-accent, #ededed) 80%, #fff);
+    outline-offset: 4px;
+  }
+
+  /* UNIQUE EFFECT: neon bloom — the fill and thumb radiate a pulsing glow */
+  .sgw__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    height: 100%;
+    border-radius: var(--ctrl-r-full, 999px);
+    background: var(--sgw-color);
+    box-shadow:
+      0 0 calc(6px * var(--sgw-i)) color-mix(in srgb, var(--sgw-color) 90%, transparent),
+      0 0 calc(16px * var(--sgw-i)) color-mix(in srgb, var(--sgw-color) 60%, transparent);
+  }
+  /* Perf: filter is not animated per frame. ::after is a copy of the fill (bg + glow
+     inherited) with the max brightness baked in; only its opacity pulses (compositable). */
+  .sgw__fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: inherit;
+    box-shadow: inherit;
+    filter: brightness(calc(1 + 0.35 * var(--sgw-i)));
+    opacity: 0;
+    animation: sgw-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes sgw-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .sgw__thumb {
+    position: absolute;
+    top: 50%;
+    width: var(--sgw-thumb);
+    height: var(--sgw-thumb);
+    border-radius: var(--ctrl-r-full, 999px);
+    background: var(--sgw-color);
+    transform: translate(-50%, -50%);
+    box-shadow:
+      0 0 calc(8px * var(--sgw-i)) color-mix(in srgb, var(--sgw-color) 90%, transparent),
+      0 0 calc(20px * var(--sgw-i)) color-mix(in srgb, var(--sgw-color) 55%, transparent);
+  }
+
+  .sgw__tip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 7px;
+    font-size: 11px;
+    border-radius: var(--ctrl-r-sm, 6px);
+    background: var(--bg-elevated, #161616);
+    border: 1px solid var(--border, #2a2a2a);
+    white-space: nowrap;
+  }
+
+  .is-disabled { opacity: 0.45; }
+  .is-disabled .sgw__track { cursor: not-allowed; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sgw__fill { animation: none; }
+    .sgw__fill::after { animation: none; opacity: 0; }
+  }

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface InputNumberProps {
 		value?: number;
 		min?: number;
@@ -13,8 +13,8 @@
 
 <script lang="ts">
 	import { onDestroy } from 'svelte';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 
 	let { value = $bindable(0), min, max, step = 1, color, size = 'default', disabled = false }: InputNumberProps = $props();
 	let repeatTimer: ReturnType<typeof setTimeout> | undefined;

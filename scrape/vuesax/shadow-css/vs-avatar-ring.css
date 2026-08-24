@@ -1,0 +1,100 @@
+  :host { display: inline-flex; }
+  .avr {
+    --sz: var(--ctrl-h-md, 40px);
+    --fs: var(--ctrl-fs-md, 15px);
+    --r: 50%;
+    --gap: 3px;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sz);
+    height: var(--sz);
+    border-radius: var(--r);
+    flex: none;
+    user-select: none;
+  }
+  .avr__face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    overflow: hidden;
+    z-index: 1;
+    background: var(--vs-color, hsl(var(--avr-hue, 220) 45% 22%));
+    color: var(--vs-color-fg, hsl(var(--avr-hue, 220) 70% 78%));
+    box-shadow: 0 0 0 var(--gap) var(--bg-card, #111);
+  }
+  /* sizes */
+  .avr--xs { --sz: var(--ctrl-h-xs, 24px); --fs: var(--ctrl-fs-xs, 10px); --gap: 2px; }
+  .avr--sm { --sz: var(--ctrl-h-sm, 32px); --fs: var(--ctrl-fs-sm, 12px); --gap: 2px; }
+  .avr--md { --sz: var(--ctrl-h-md, 40px); --fs: var(--ctrl-fs-md, 15px); --gap: 3px; }
+  .avr--lg { --sz: var(--ctrl-h-lg, 56px); --fs: var(--ctrl-fs-lg, 20px); --gap: 3px; }
+  .avr--xl { --sz: var(--ctrl-h-xl, 80px); --fs: var(--ctrl-fs-xl, 28px); --gap: 4px; }
+  /* shapes */
+  .avr--s-circle { --r: 50%; }
+  .avr--s-rounded { --r: var(--ctrl-r-md, 12px); }
+  .avr--s-squircle { --r: var(--ctrl-r-lg, 16px); }
+  @supports (corner-shape: squircle) {
+    .avr--s-squircle,
+    .avr--s-squircle .avr__face,
+    .avr--s-squircle .avr__ring { corner-shape: squircle; }
+  }
+  .avr--bordered .avr__face {
+    box-shadow:
+      0 0 0 var(--gap) var(--bg-card, #111),
+      0 0 0 calc(var(--gap) + 1px) var(--inp-border, #2a2a2a);
+  }
+  .avr__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+  .avr__initials {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: var(--fs);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .avr__placeholder {
+    width: 62%;
+    height: 62%;
+    color: var(--inp-text, #ededed);
+    opacity: 0.5;
+  }
+  /* ── the spinning gradient ring (position:absolute, out of flow) ─────────── */
+  @property --avr-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+  .avr__ring {
+    position: absolute;
+    inset: calc(-1 * (var(--gap) + var(--avr-ring-w, 3px)));
+    border-radius: inherit;
+    z-index: 0;
+    pointer-events: none;
+    background: conic-gradient(
+      from var(--avr-angle),
+      var(--accent, #5b8cff),
+      hsl(var(--avr-hue, 220) 80% 62%),
+      var(--accent, #5b8cff),
+      hsl(var(--avr-hue, 220) 80% 62%),
+      var(--accent, #5b8cff)
+    );
+    animation: avr-spin var(--avr-spin, 5s) linear infinite;
+  }
+  .avr:hover .avr__ring { animation-duration: calc(var(--avr-spin, 5s) / 2.5); }
+  @keyframes avr-spin {
+    to { --avr-angle: 360deg; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .avr__ring { animation: none; }
+  }

@@ -1,0 +1,151 @@
+  :host { display: inline-flex; }
+  .odo {
+    --odo-spring: cubic-bezier(0.22, 1, 0.36, 1);
+    --badge: 19px;
+    --dot: 10px;
+    --pushx: 35%;
+    --pushy: -35%;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    flex: none;
+    vertical-align: middle;
+  }
+  .odo--sm { --badge: 16px; --dot: 8px; }
+  .odo--md { --badge: 19px; --dot: 10px; }
+  .odo--lg { --badge: 24px; --dot: 13px; }
+
+  .odo__anchor { display: inline-flex; border-radius: inherit; }
+
+  .odo__demo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface-2, #1a1a1a);
+    color: var(--text-muted, #8a8a8a);
+    box-shadow: inset 0 0 0 1px var(--border, #2a2a2a);
+  }
+  .odo__demo svg { width: 60%; height: 60%; }
+  .odo--sm .odo__demo { width: 34px; height: 34px; }
+  .odo--lg .odo__demo { width: 60px; height: 60px; }
+
+  .odo--p-top-right    .odo__badge { top: 0; right: 0; }
+  .odo--p-top-left     .odo__badge { top: 0; left: 0; }
+  .odo--p-bottom-right .odo__badge { bottom: 0; right: 0; }
+  .odo--p-bottom-left  .odo__badge { bottom: 0; left: 0; }
+
+  .odo--p-top-right    { --pushx: 35%;  --pushy: -35%; }
+  .odo--p-top-left     { --pushx: -35%; --pushy: -35%; }
+  .odo--p-bottom-right { --pushx: 35%;  --pushy: 35%; }
+  .odo--p-bottom-left  { --pushx: -35%; --pushy: 35%; }
+
+  .odo__badge {
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: var(--badge);
+    min-width: var(--badge);
+    width: calc(var(--badge) + (var(--digits, 1) - 1) * 0.6em);
+    border-radius: 999px;
+    color: #fff;
+    font-size: calc(var(--badge) * 0.52);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    box-shadow: 0 0 0 2px var(--bg, #0a0a0a);
+    opacity: 1;
+    filter: none;
+    transform: translate(var(--pushx), var(--pushy)) scale(1);
+    transform-origin: var(--pushx) var(--pushy);
+    transition:
+      width 420ms var(--odo-spring),
+      border-radius 300ms var(--odo-spring),
+      background-color 300ms ease,
+      transform 420ms var(--odo-spring),
+      opacity 220ms ease,
+      filter 280ms ease;
+  }
+  /* hidden state — stands in for Vue's v-if unmount; the node stays mounted
+     (never rebuilt) so the entrance/exit pop can actually transition. */
+  .odo__badge.is-hidden {
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(7px);
+    transform: translate(var(--pushx), var(--pushy)) scale(0);
+    transition:
+      transform 200ms cubic-bezier(0.4, 0, 1, 1),
+      opacity 170ms ease,
+      filter 170ms ease;
+  }
+
+  .odo--m-dot { width: var(--dot); min-width: var(--dot); height: var(--dot); }
+  .odo--m-icon { width: var(--badge); min-width: var(--badge); }
+  .odo__content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 200ms ease, filter 200ms ease, transform 320ms var(--odo-spring);
+  }
+  .odo--m-icon .odo__content ::slotted(svg) {
+    width: calc(var(--badge) * 0.62);
+    height: calc(var(--badge) * 0.62);
+    display: block;
+  }
+  /* icon ↔ dot swap — mirrors <Transition name="odo-swap" mode="out-in"> */
+  .odo__content.is-swapping {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(0.35);
+    transition: opacity 150ms ease, filter 150ms ease, transform 150ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  /* ── odometer: digit reels that roll vertically ────────────────────── */
+  .odo__reels {
+    display: inline-flex;
+    align-items: stretch;
+    height: 1em;
+    overflow: hidden;
+  }
+  .odo__reel {
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    line-height: 1;
+  }
+  .odo__reel--fixed { line-height: 1em; }
+  .odo__strip {
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--roll, 620ms) var(--odo-spring);
+  }
+  .odo__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1em;
+    line-height: 1em;
+  }
+  .odo__cell--fixed { height: 1em; }
+
+  .odo--t-danger  { --tone-c: var(--tone-danger,  #f23f43); }
+  .odo--t-success { --tone-c: var(--tone-success, #23a55a); }
+  .odo--t-warn    { --tone-c: var(--tone-warn,    #f0b232); }
+  .odo--t-info    { --tone-c: var(--ui-accent, #ededed); }
+  .odo--t-neutral { --tone-c: var(--tone-neutral, var(--ui-accent, #ededed)); }
+  .odo__badge { background: var(--tone-c, var(--ui-accent, #ededed)); }
+  .odo--t-warn.odo__badge { color: #160f02; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .odo__badge,
+    .odo__badge.is-hidden,
+    .odo__strip,
+    .odo__content,
+    .odo__content.is-swapping { transition: none; }
+  }

@@ -1,0 +1,99 @@
+  :host { display: block; }
+  :host([orientation="vertical"]) { display: inline-flex; height: 100%; align-self: stretch; }
+
+  .vsgrad {
+    --vsgrad-col: var(--border, #2a2a2a);
+    --vsgrad-hi: var(--ui-accent, #ededed);
+    --vsgrad-gap: 14px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .vsgrad__line {
+    flex: 1;
+    height: 1px;
+    border: 0;
+    background: linear-gradient(90deg,
+      var(--vsgrad-col) 0%, var(--vsgrad-hi) 50%, var(--vsgrad-col) 100%);
+    background-size: 220% 100%;
+    animation: vsgrad-sweep var(--vsgrad-speed, 3s) linear infinite;
+  }
+  @keyframes vsgrad-sweep {
+    from { background-position: 220% 0; }
+    to { background-position: -220% 0; }
+  }
+
+  .vsgrad__label {
+    flex: none;
+    padding: 0 var(--vsgrad-gap);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* label mode: show the two flanking lines; no-label mode: show the single line */
+  .vsgrad:not(.has-label) .vsgrad__line--l,
+  .vsgrad:not(.has-label) .vsgrad__line--r,
+  .vsgrad:not(.has-label) .vsgrad__label { display: none; }
+  .vsgrad.has-label .vsgrad__line--single { display: none; }
+
+  .has-label .vsgrad__line--l {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 92%);
+    mask-image: linear-gradient(to right, transparent, #000 92%);
+  }
+  .has-label .vsgrad__line--r {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 92%);
+    mask-image: linear-gradient(to left, transparent, #000 92%);
+  }
+  .vsgrad--lbl-start.has-label .vsgrad__line--l { flex: 0 0 var(--vsgrad-gap); }
+  .vsgrad--lbl-end.has-label .vsgrad__line--r { flex: 0 0 var(--vsgrad-gap); }
+
+  /* vertical */
+  .vsgrad--vertical {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    min-height: 28px;
+    align-self: stretch;
+  }
+  .vsgrad--vertical .vsgrad__line {
+    width: 1px;
+    height: auto;
+    flex: 1;
+    align-self: center;
+    background: linear-gradient(180deg,
+      var(--vsgrad-col) 0%, var(--vsgrad-hi) 50%, var(--vsgrad-col) 100%);
+    background-size: 100% 220%;
+    animation: vsgrad-sweep-v var(--vsgrad-speed, 3s) linear infinite;
+  }
+  @keyframes vsgrad-sweep-v {
+    from { background-position: 0 220%; }
+    to { background-position: 0 -220%; }
+  }
+  .vsgrad--vertical .vsgrad__label { padding: var(--vsgrad-gap) 0; }
+  .vsgrad--vertical.has-label { min-height: 96px; }
+  .vsgrad--vertical.has-label .vsgrad__line--l {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 92%);
+    mask-image: linear-gradient(to bottom, transparent, #000 92%);
+  }
+  .vsgrad--vertical.has-label .vsgrad__line--r {
+    -webkit-mask-image: linear-gradient(to top, transparent, #000 92%);
+    mask-image: linear-gradient(to top, transparent, #000 92%);
+  }
+  .vsgrad--vertical.vsgrad--lbl-start.has-label .vsgrad__line--l { flex: 0 0 var(--vsgrad-gap); }
+  .vsgrad--vertical.vsgrad--lbl-end.has-label .vsgrad__line--r { flex: 0 0 var(--vsgrad-gap); }
+
+  /* tones override the highlight color */
+  .vsgrad--t-danger { --vsgrad-hi: var(--accent-danger, #e5484d); }
+  .vsgrad--t-warn { --vsgrad-hi: var(--accent-warn, #f5a623); }
+  .vsgrad--t-success { --vsgrad-hi: var(--accent-success, #30a46c); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vsgrad__line { animation: none !important; }
+  }

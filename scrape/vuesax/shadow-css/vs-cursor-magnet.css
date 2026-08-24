@@ -1,0 +1,93 @@
+  :host {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 160px;
+    min-height: 160px;
+    margin: 0;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+    font-family: inherit;
+    container-type: inline-size; /* lets the stage adapt to card-sized boxes */
+  }
+  :host([page]) {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2147483600;
+  }
+  :host([disabled]) { display: none; }
+
+  .hit { position: absolute; inset: 0; z-index: 3; }
+  :host(:not([page])) .hit { cursor: none; }
+  :host([page]) .hit { display: none; }
+
+  .plate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: var(--vs-cur-color, #fff);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, width, height, border-radius;
+    transition: opacity 200ms ease;
+  }
+  .plate.is-visible { opacity: 1; }
+  /* snapped: the plate becomes a translucent highlight over the element */
+  .plate.is-snapped { opacity: 0.16; }
+
+  /* field ring: shows the attraction radius reaching a target */
+  .ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 50%;
+    border: 1px solid var(--vs-cur-color, #fff);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  /* built-in demo stage (bounded mode only). Any light-DOM child replaces it. */
+  .stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 0 24px;
+    color: #fff;
+    pointer-events: none;
+  }
+  :host([page]) .stage { display: none; }
+  .stage .pill {
+    padding: 11px 22px;
+    border-radius: 999px;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    background: rgb(255 255 255 / 0.04);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    will-change: transform;
+  }
+  .stage .pill.wide { border-radius: 14px; padding: 14px 26px; }
+  .stage .hint { font-size: 11px; opacity: 0.4; letter-spacing: 0.04em; text-transform: uppercase; }
+  /* thumbnail-sized boxes: two targets, tighter, so nothing spills out */
+  @container (max-width: 300px) {
+    .stage { gap: 9px; padding: 0 12px; }
+    .stage .pill { padding: 7px 14px; font-size: 11px; }
+    .stage .pill.wide { padding: 9px 16px; border-radius: 11px; }
+    .stage .pill:nth-of-type(3),
+    .stage .hint { display: none; }
+  }

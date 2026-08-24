@@ -1,0 +1,364 @@
+  :host { display: inline-flex; max-width: 100%; }
+  :host([block]) { display: flex; width: 100%; }
+  .tabs {
+    --fs: var(--ctrl-fs-md, 14px);
+    --h: var(--ctrl-h-md, 40px);
+    --pad: 5px;
+    --gap: 2px;
+    --tab-px: 14px;
+    --r: var(--ctrl-r-md, 12px);
+    /* tab/pill radius — default pill (height/2). radius overrides it. */
+    --tr: calc(var(--h) / 2);
+    /* tone accent */
+    --acc: var(--t-acc, #ededed);
+    --acc-on: var(--t-on, #000);
+    /* water-drop ripple color — black on dark theme, white on light (override below) */
+    --drop-rgb: 10 10 10;
+    /* segmented "knob" surface (solid/pill, default tone) — clean, not an inverted
+       fill. Track is a muted surface, the knob is an elevated card, the icon keeps
+       its normal outline color. Light theme overrides these below. */
+    --seg-track: var(--bg-elevated, #111111);
+    --seg-track-border: var(--border, #1f1f1f);
+    --seg-knob: #2c2c2f;
+    --seg-knob-fg: var(--text, #ededed);
+    --seg-knob-shadow: 0 1px 2px rgba(0, 0, 0, 0.09), 0 1px 1px rgba(0, 0, 0, 0.06);
+    --seg-knob-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+    display: inline-flex;
+    font-family: inherit;
+    font-size: var(--fs);
+    max-width: 100%;
+  }
+  .tabs--block { display: flex; width: 100%; }
+
+  .tabs__list {
+    position: relative;
+    display: inline-flex;
+    gap: var(--gap);
+    padding: var(--pad);
+    border-radius: calc(var(--tr) + var(--pad));
+    width: 100%;
+  }
+
+  /* sizes */
+  .tabs--sm { --fs: var(--ctrl-fs-sm, 13px); --h: var(--ctrl-h-sm, 32px); --tab-px: 11px; --r: var(--ctrl-r-sm, 10px); }
+  .tabs--md { --fs: var(--ctrl-fs-md, 14px); --h: var(--ctrl-h-md, 40px); --tab-px: 14px; --r: var(--ctrl-r-md, 12px); }
+  .tabs--lg { --fs: var(--ctrl-fs-lg, 15px); --h: var(--ctrl-h-lg, 48px); --tab-px: 18px; --r: var(--ctrl-r-lg, 14px); }
+
+  /* radii — same as VsButton (solid/pill only; line ignores) */
+  .tabs--r-none .tabs__list,
+  .tabs--r-none .tabs__tab,
+  .tabs--r-none .tabs__indicator { --tr: 0px; }
+  .tabs--r-subtle .tabs__list,
+  .tabs--r-subtle .tabs__tab,
+  .tabs--r-subtle .tabs__indicator { --tr: 8px; }
+  .tabs--r-rounded .tabs__list,
+  .tabs--r-rounded .tabs__tab,
+  .tabs--r-rounded .tabs__indicator { --tr: var(--r); }
+  /* pill = default (height/2), no override needed */
+  @supports (corner-shape: squircle) {
+    .tabs--r-squircle .tabs__list,
+    .tabs--r-squircle .tabs__tab,
+    .tabs--r-squircle .tabs__indicator { corner-shape: squircle; --tr: calc(var(--r) * 1.7); }
+    /* the ripple clip must follow the same shape as the track */
+    .tabs--r-squircle .tabs__ripples { corner-shape: squircle; }
+  }
+
+  /* icon inside a tab (label replaced by SVG) */
+  .tabs__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tabs__icon svg { width: 18px; height: 18px; display: block; }
+
+  /* iconOnly: square tabs (width = height, no side padding) */
+  .tabs--icon { --tab-px: 0px; }
+  .tabs--icon .tabs__tab,
+  .tabs--icon .tabs__ind-label { width: var(--h); padding: 0; }
+
+  /* tab base */
+  .tabs__tab {
+    position: relative;
+    z-index: 0;
+    overflow: visible;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--h);
+    padding: 0 var(--tab-px);
+    border: 0;
+    background: transparent;
+    --lit: 0;
+    --mx: 50%;
+    --my: 50%;
+    /* radial focus clipped to the glyph: the letters under the cursor brighten,
+       the distant ones stay muted. The cursor is a light that sweeps the text. */
+    color: var(--text-muted, #8a8a8a);
+    background: radial-gradient(
+      140px circle at var(--mx) var(--my),
+      var(--text, #ededed),
+      var(--text, #ededed) 25%,
+      var(--text-muted, #8a8a8a) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: var(--tr);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      opacity 120ms linear,
+      transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  /* sinks in on press */
+  .tabs__tab:active:not(:disabled) { transform: scale(0.92); }
+  .tabs--block .tabs__tab { flex: 1 1 0; }
+
+  /* The label is its own box so it can be clipped: "text-overflow" needs a block
+     container, and the tab is a flex one — an inline-flex parent turns bare text
+     into an anonymous flex item that never truncates. Rendered in all three label
+     sites (tab, indicator mask clone, drop) so a truncated label stays identical
+     across them; the mask reveals the clone through the sliding pill, and any
+     mismatch would show as the active label jumping. */
+  .tabs__label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* block = fill the track, so a label that doesn't fit must SHRINK, not push the
+     list past its container. Flex items default to min-width:auto (never smaller
+     than their content), which is what let long labels overflow the panel. */
+  .tabs--block .tabs__tab,
+  .tabs--block .tabs__ind-label { min-width: 0; }
+  /* active in line: solid color (solid/pill use the sliding mask) */
+  .tabs--line .tabs__tab.is-active {
+    background: none;
+    -webkit-text-fill-color: var(--acc);
+    color: var(--acc);
+  }
+  .tabs__tab:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: none;
+    -webkit-text-fill-color: var(--text-muted, #8a8a8a);
+  }
+
+  /* ripple effect — container clips to the full track radius (.tabs__list) */
+  .tabs__ripples {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .tabs__ripple {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--text, #ededed) 22%, transparent) 0%,
+      color-mix(in srgb, var(--text, #ededed) 12%, transparent) 30%,
+      color-mix(in srgb, var(--text, #ededed) 4%, transparent) 55%,
+      transparent 72%
+    );
+    opacity: 0;
+    will-change: transform, opacity;
+    animation:
+      tabs-ripple-scale 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+      tabs-ripple-fade 720ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+  @keyframes tabs-ripple-scale {
+    from { transform: translate(-50%, -50%) scale(0); }
+    to   { transform: translate(-50%, -50%) scale(1); }
+  }
+  @keyframes tabs-ripple-fade {
+    from { opacity: 0.8; }
+    to   { opacity: 0; }
+  }
+
+  /* indicator — Apple-style spring */
+  .tabs__indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--h);
+    border-radius: var(--tr);
+    background: var(--acc);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+    transition:
+      transform 420ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      width 420ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 200ms ease;
+  }
+  .tabs__indicator.is-ready { opacity: 1; }
+  /* pop with Apple bounce on select (scale is independent from transform) */
+  .tabs__indicator.is-pop { animation: tabs-pop 460ms cubic-bezier(0.34, 1.4, 0.64, 1); }
+  @keyframes tabs-pop {
+    0% { scale: 1; }
+    38% { scale: 1.099; }
+    100% { scale: 1; }
+  }
+
+  /* mask: copy of the labels in inverted color, clipped to the pill.
+     Its translate compensates for the indicator's → the text stays "fixed" over the
+     track while the pill window slides, revealing it letter by letter. */
+  .tabs__ind-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: var(--gap);
+    padding: var(--pad);
+    box-sizing: border-box;
+    transition:
+      transform 420ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      width 420ms cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .tabs__ind-label {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--h);
+    padding: 0 var(--tab-px);
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--acc-on);
+  }
+  .tabs--block .tabs__ind-label { flex: 1 1 0; }
+  .tabs__ind-label.is-disabled { opacity: 0.4; }
+
+  /* variant: line — bottom bar, no background */
+  .tabs--line .tabs__list { padding: 0; border-radius: 0; gap: 4px; }
+  .tabs--line .tabs__tab { border-radius: 0; --acc-on: var(--acc); }
+  .tabs--line .tabs__tab.is-active { color: var(--acc); }
+  .tabs--line .tabs__indicator {
+    top: auto;
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--acc);
+  }
+
+  /* variant: solid — transparent track (border only) + pill = accent */
+  .tabs--solid .tabs__list {
+    background: transparent;
+    border: 1px solid var(--border, #2a2a2a);
+  }
+  .tabs--solid .tabs__indicator { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); }
+
+  /* variant: pill — no track, solid pill */
+  .tabs--pill .tabs__indicator { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
+
+  /* ── clean segmented "knob" — DEFAULT TONE only (solid & pill) ──────────────
+     Not an inverted block: the knob is a neutral elevated card (white in light,
+     raised gray in dark) and the icon/label keeps its normal outline color.
+     Tones (danger/warn/success) still get the colored accent pill below. */
+  .tabs--t-default.tabs--solid .tabs__list {
+    background: transparent;
+    border-color: var(--seg-track-border);
+  }
+  .tabs--t-default.tabs--solid .tabs__indicator,
+  .tabs--t-default.tabs--pill .tabs__indicator {
+    background: var(--seg-knob);
+    box-shadow: var(--seg-knob-shadow), var(--seg-knob-ring);
+  }
+  .tabs--t-default.tabs--solid .tabs__ind-label,
+  .tabs--t-default.tabs--pill .tabs__ind-label {
+    color: var(--seg-knob-fg);
+  }
+
+  /* tones — recolor the accent */
+  .tabs--t-default { --t-acc: var(--inp-accent, #ededed); --t-on: var(--bg, #0a0a0a); }
+  .tabs--t-danger { --t-acc: #e5484d; --t-on: #fff; }
+  .tabs--t-warn { --t-acc: #f5a623; --t-on: #1a1206; }
+  .tabs--t-success { --t-acc: #30a46c; --t-on: #fff; }
+  /* in line, the color accent also tints the active text */
+  .tabs--line.tabs--t-danger .tabs__tab.is-active,
+  .tabs--line.tabs--t-warn .tabs__tab.is-active,
+  .tabs--line.tabs--t-success .tabs__tab.is-active { color: var(--acc); }
+
+  /* water-drop ripple — expanding double ring punched into the bg color, clipped to
+     the tab's letters only (same effect as VsBreadcrumb). Slow & fluid. */
+  @property --tabs-r {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+  .tabs__drop {
+    position: absolute;
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--tab-px);
+    pointer-events: none;
+    white-space: nowrap;
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    --d2: calc(var(--tabs-r) * 0.52);
+    background:
+      radial-gradient(
+        circle at var(--rx, 50%) var(--ry, 50%),
+        transparent calc(var(--tabs-r) - 17px),
+        rgb(var(--drop-rgb, 10 10 10) / 0.12) calc(var(--tabs-r) - 13px),
+        rgb(var(--drop-rgb, 10 10 10) / 0.55) calc(var(--tabs-r) - 6px),
+        rgb(var(--drop-rgb, 10 10 10) / 0.98) calc(var(--tabs-r) - 1px),
+        rgb(var(--drop-rgb, 10 10 10) / 0.62) calc(var(--tabs-r) + 4px),
+        rgb(var(--drop-rgb, 10 10 10) / 0.14) calc(var(--tabs-r) + 11px),
+        transparent calc(var(--tabs-r) + 16px)
+      ),
+      radial-gradient(
+        circle at var(--rx, 50%) var(--ry, 50%),
+        transparent calc(var(--d2) - 12px),
+        rgb(var(--drop-rgb, 10 10 10) / 0.30) calc(var(--d2) - 5px),
+        rgb(var(--drop-rgb, 10 10 10) / 0.55) var(--d2),
+        rgb(var(--drop-rgb, 10 10 10) / 0.12) calc(var(--d2) + 7px),
+        transparent calc(var(--d2) + 12px)
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: tabs-drop 1820ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes tabs-drop {
+    0%   { --tabs-r: 0px; opacity: 0.4; }
+    12%  { opacity: 1; }
+    100% { --tabs-r: 150px; opacity: 0; }
+  }
+  /* light theme: bg is light → flip the drop to white so it reads on dark letters */
+  :host-context([data-theme='light']) .tabs {
+    --drop-rgb: 255 255 255;
+    /* clean segmented knob — light track, pure-white raised knob, dark outline icon */
+    --seg-track: #f3f5f7;
+    --seg-track-border: #e8ebef;
+    --seg-knob: #ffffff;
+    --seg-knob-fg: var(--text, #171717);
+    --seg-knob-shadow: 0 1px 2px rgba(0, 0, 0, 0.024), 0 2px 6px rgba(0, 0, 0, 0.016);
+    --seg-knob-ring: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+  }
+
+  .is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tabs__indicator { transition: opacity 200ms ease; }
+    .tabs__indicator.is-pop { animation: none; }
+    .tabs__tab { transition: none; }
+    .tabs__tab:active:not(:disabled) { transform: none; }
+  }

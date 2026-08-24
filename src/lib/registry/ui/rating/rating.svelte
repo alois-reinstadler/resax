@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface RatingProps {
 		value?: number; max?: number; halves?: boolean; color?: RxColor; size?: 'lg' | 'default' | 'sm';
 		readonly?: boolean; disabled?: boolean; icon?: Snippet<[{ filled: boolean; half: boolean }]>;
@@ -8,8 +8,8 @@
 	}
 </script>
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE_BOUNCE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE_BOUNCE } from '$lib/registry/lib/easing';
 	let { value = $bindable(0), max = 5, halves = false, color = 'warn', size = 'default', readonly = false, disabled = false, icon, onValueChange }: RatingProps = $props();
 	let preview = $state<number | null>(null); let popped = $state(0);
 	const shown = $derived(preview ?? value);

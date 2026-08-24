@@ -1,0 +1,98 @@
+  :host { display: block; }
+  .tst {
+    --accent: var(--inp-accent, #ededed);
+    --ring: var(--inp-ring, 255 255 255);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    position: relative;
+    isolation: isolate;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    max-width: 400px;
+    padding: 14px;
+    border: 1px solid rgb(var(--ring) / 0.14);
+    border-radius: 16px;
+    background: var(--bg-elevated, #191919);
+    color: var(--inp-text, #ededed);
+    font: inherit;
+    line-height: 1.45;
+    overflow: hidden;
+    box-shadow: 0 20px 48px -16px rgb(0 0 0 / 0.55), 0 2px 8px rgb(0 0 0 / 0.3);
+    /* enter state */
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+    filter: blur(6px);
+    transition: opacity 300ms ease, transform 480ms var(--spring), filter 320ms ease;
+  }
+  .tst.is-in { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+
+  /* icon in a tinted circle */
+  .tst__icon {
+    flex: 0 0 auto;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    color: var(--accent);
+    font-size: 16px;
+  }
+  .tst__icon svg { width: 1.1em; height: 1.1em; display: block; }
+
+  .tst__body { flex: 1 1 auto; min-width: 0; padding-top: 1px; }
+  .tst__title { margin: 0 0 2px; font-weight: 650; font-size: 14px; }
+  .tst__msg { margin: 0; font-size: 13px; color: var(--tint); }
+  .tst__action { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .tst__close {
+    flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+    width: 1.6em; height: 1.6em; margin: -2px -2px 0 0; padding: 0;
+    border: 0; border-radius: 8px; background: transparent; color: inherit; font-size: 15px;
+    cursor: pointer; opacity: 0.55; transition: opacity 160ms ease, background 160ms ease;
+  }
+  .tst__close:hover:not(:disabled) { opacity: 1; background: rgb(var(--ring) / 0.14); }
+  .tst__close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .tst__close svg { width: 1em; height: 1em; display: block; }
+
+  .tst__progress {
+    position: absolute; left: 0; bottom: 0; height: 3px; width: 100%;
+    transform-origin: left center; background: var(--accent);
+    animation: tst-count linear forwards;
+  }
+  .tst:hover .tst__progress { animation-play-state: paused; }
+  @keyframes tst-count { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+  .tst--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .tst--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; --tint: var(--inp-t-warn-hint, #f5b544); }
+  .tst--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  .tst.is-disabled { opacity: 0.55; }
+  .tst.is-disabled .tst__close { cursor: not-allowed; }
+
+  /* close: collapse height to 0 with anticipation bounce + blur */
+  .tst.is-closing {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(0.97);
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+    transition:
+      height 440ms cubic-bezier(0.5, -0.45, 0.55, 1),
+      opacity 300ms ease,
+      filter 340ms ease,
+      transform 440ms cubic-bezier(0.5, -0.45, 0.55, 1),
+      padding 440ms cubic-bezier(0.5, -0.45, 0.55, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tst { transition: opacity 200ms ease; transform: none; filter: none; }
+    .tst__close { transition: none; }
+    .tst__progress { animation: none; display: none; }
+  }

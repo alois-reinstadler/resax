@@ -1,0 +1,35 @@
+  :host { display:block; position:relative; width:100%; max-width:420px; height:340px;
+    border-radius:16px; background:var(--bg-elevated,#121212); border:1px solid var(--border,#222); overflow:hidden; }
+  /* embedded mode: no box of its own, adapts to the parent */
+  :host([bare]) { max-width:none; height:auto; border-radius:0; background:transparent; border:none; }
+  /* page mode: fixed full-viewport overlay; only the track is interactive */
+  :host([page]) { position:fixed; inset:0; width:auto; max-width:none; height:auto; border:none;
+    border-radius:0; background:transparent; overflow:visible; pointer-events:none; z-index:2147483600; }
+  :host([page]) .vs-sb__track { position:fixed; right:2px; pointer-events:auto; }
+  :host([page]) .vs-sb__vp { display:none; }
+
+  .vs-sb__vp { height:100%; overflow-y:auto; overflow-x:hidden; scrollbar-width:none; -ms-overflow-style:none;
+    overscroll-behavior:contain; }
+  :host([bare]) .vs-sb__vp { height:auto; }
+  .vs-sb__vp::-webkit-scrollbar { width:0; height:0; display:none; }
+
+  /* absolute track stuck to the right edge; consumers can push it further
+     right (e.g. out of a sidebar's badge column) via --vs-sb-right */
+  .vs-sb__track { position:absolute; right:var(--vs-sb-right,0px); width:16px; cursor:pointer; }
+
+  .vs-sb__thumb, .vs-sb__ghost { position:absolute; top:3px; right:3px; border-radius:999px;
+    scale:1; filter:blur(0px); will-change:transform,width,scale,filter,opacity;
+    transition:width 220ms cubic-bezier(.34,1.56,.64,1), background-color 220ms ease, opacity 360ms ease,
+      scale 420ms cubic-bezier(.34,1.56,.64,1), filter 360ms ease; }
+  /* hidden: shrinks, blurs and fades out */
+  .vs-sb__track--hidden .vs-sb__thumb, .vs-sb__track--hidden .vs-sb__ghost { opacity:0; scale:.35; filter:blur(5px); }
+
+  .vs-sb__thumb { cursor:grab; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .vs-sb__thumb:active { cursor:grabbing; }
+  .vs-sb__ghost { pointer-events:none; }
+
+  .vs-sb__demo { padding:22px 26px; color:var(--text-secondary,#c9c9c9); font-family:inherit; }
+  .vs-sb__demo h3 { margin:0 0 14px; color:var(--text,#fff); font-size:16px; font-weight:600; }
+  .vs-sb__demo p { margin:0 0 16px; font-size:13px; line-height:1.7; }
+
+  @media (prefers-reduced-motion:reduce) { .vs-sb__thumb { transition:none; } }

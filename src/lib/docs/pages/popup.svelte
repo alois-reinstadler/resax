@@ -1,0 +1,15 @@
+<script lang="ts">
+	import DemoSection from '../DemoSection.svelte';
+	import { Popup, ConfirmPopup } from '$lib/registry/ui/popup';
+	import { Button } from '$lib/registry/ui/button';
+	let open=$state(false), confirming=$state(false), fullscreen=$state(false), protectedOpen=$state(false), result=$state('No action yet');
+	let transition=$state<'zoom'|'bounce'|'flip'|'slide-up'|'fade'>('zoom');
+	function show(value:typeof transition){transition=value;open=true}
+</script>
+
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Popup</h1><p>Accessible dialogs with rounded Vuesax surfaces, expressive transitions, confirmation, fullscreen, and guarded-close states.</p></div>
+<DemoSection title="Transitions" source={'<Popup bind:open transition="flip" title="Welcome">...</Popup>'}><div class="row">{#each ['zoom','bounce','flip','slide-up','fade'] as value}<Button onclick={()=>show(value as typeof transition)}>{value}</Button>{/each}</div><Popup bind:open {transition} color="primary" title="Welcome" onOpenChange={(value)=>result=`Popup ${value?'opened':'closed'}`}><p>Focus is trapped inside while this popup is open.</p>{#snippet footer()}<Button onclick={()=>open=false}>Done</Button>{/snippet}</Popup></DemoSection>
+<DemoSection title="Confirm preset" source={'<ConfirmPopup bind:open message="This action cannot be undone." destructive />'}><Button color="danger" onclick={()=>confirming=true}>Delete project</Button><ConfirmPopup bind:open={confirming} title="Delete project?" message="This action cannot be undone." confirmLabel="Delete" cancelLabel="Keep project" destructive onConfirm={()=>result='Confirmed deletion'} onCancel={()=>result='Cancelled deletion'}/><output>{result}</output></DemoSection>
+<DemoSection title="Fullscreen and prevent close" source={'<Popup fullscreen preventClose title="Protected">...</Popup>'}><div class="row"><Button onclick={()=>fullscreen=true}>Fullscreen</Button><Button variant="border" onclick={()=>protectedOpen=true}>Protected popup</Button></div><Popup bind:open={fullscreen} fullscreen title="Fullscreen workspace"><p>This surface fills the viewport while retaining dialog semantics.</p></Popup><Popup bind:open={protectedOpen} preventClose title="Protected changes"><p>Escape and outside interaction are blocked. Use the explicit action.</p>{#snippet footer()}<Button onclick={()=>protectedOpen=false}>Close safely</Button>{/snippet}</Popup></DemoSection>
+<DemoSection title="Trigger snippet" source={'<Popup>{#snippet trigger()}Open inline{/snippet}...</Popup>'}><Popup title="Built-in trigger">{#snippet trigger()}<span class="trigger">Open from trigger snippet</span>{/snippet}<p>The optional trigger snippet is wired to the official dialog trigger.</p></Popup></DemoSection>
+<style>.row{display:flex;flex-wrap:wrap;gap:.75rem}.trigger{display:inline-flex;border-radius:var(--rx-radius);padding:.7rem 1rem;background:rgb(var(--rx-primary));color:rgb(var(--rx-light));font-weight:650}output{display:block;margin-top:.75rem;color:rgb(var(--rx-text-muted))}</style>

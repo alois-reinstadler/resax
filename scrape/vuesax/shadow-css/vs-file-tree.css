@@ -1,0 +1,222 @@
+  :host { display: block; }
+  .vft {
+    --rr: 14px;
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 340px;
+    border: 1px solid var(--border, #1f1f1f);
+    border-radius: var(--rr);
+    background: var(--bg-card, #0a0a0a);
+    color: var(--text, #ededed);
+    font-family: inherit;
+  }
+  .vft--r-subtle { --rr: 8px; }
+  .vft--r-pill { --rr: 22px; }
+  @supports (corner-shape: squircle) { .vft--r-squircle { corner-shape: squircle; --rr: 22px; } }
+
+  .vft__glow {
+    --glow-strength: 0.9;
+    --glow-ring: 1px;
+    --glow-inset: -1px;
+    --glow-r-core: 90px;
+    --glow-r-soft: 260px;
+    position: absolute;
+    inset: var(--glow-inset, 0);
+    z-index: 1;
+    border-radius: var(--rr);
+    padding: var(--glow-ring, 1.5px);
+    pointer-events: none;
+    background:
+      radial-gradient(
+        var(--glow-r-core, 60px) circle at var(--gx, 50%) var(--gy, 50%),
+        rgb(var(--fx-tint, 255 255 255) / 0.6),
+        rgb(var(--fx-tint, 255 255 255) / 0.42) 30%,
+        rgb(var(--fx-tint, 255 255 255) / 0.16) 58%,
+        rgb(var(--fx-tint, 255 255 255) / 0) 82%
+      ),
+      radial-gradient(
+        var(--glow-r-soft, 200px) circle at var(--gx, 50%) var(--gy, 50%),
+        rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / var(--glow-soft-a, 0.6)),
+        rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / calc(var(--glow-soft-a, 0.6) * 0.45)) 42%,
+        rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / calc(var(--glow-soft-a, 0.6) * 0.14)) 66%,
+        rgb(var(--fx-tint-soft, var(--fx-tint, 255 255 255)) / 0) 85%
+      );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: calc(var(--glow, 0) * var(--glow-strength, 0.4) * var(--glow-boost, 1) * var(--glow-soften, 0.7));
+    transition: opacity 140ms ease;
+  }
+  .vft--r-pill .vft__glow { border-radius: 999px; }
+  @supports (corner-shape: squircle) { .vft--r-squircle .vft__glow { corner-shape: squircle; } }
+
+  .vft__body {
+    position: relative;
+    padding: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-hover, #2e2e2e) transparent;
+  }
+  .vft__body::-webkit-scrollbar { width: 6px; }
+  .vft__body::-webkit-scrollbar-track { background: transparent; }
+  .vft__body::-webkit-scrollbar-thumb { background: var(--border-hover, #2e2e2e); border-radius: 999px; }
+  .vft__body::-webkit-scrollbar-thumb:hover { background: var(--border-strong, #3a3a3a); }
+
+  .vft__hl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    border-radius: 9px;
+    background: var(--bg-elevated, #111);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transform-origin: top left;
+    transition:
+      transform 360ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      width 360ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      height 360ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      opacity 200ms ease;
+    pointer-events: none;
+  }
+  .vft__hl.is-on { opacity: 1; }
+
+  .vft.is-disabled { opacity: 0.55; pointer-events: none; }
+  .vft.hide-icons .vft-icon { display: none; }
+
+  /* ── node / row (VsFileTreeNode.vue) ─────────────────────────────────── */
+  .vft-node { position: relative; z-index: 1; }
+
+  .vft-row {
+    --mx: 50%;
+    --my: 50%;
+    --lit: 0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--text, #ededed);
+    font: inherit;
+    font-size: 13.5px;
+    text-align: start;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+      color 200ms var(--ease-out, ease),
+      transform 180ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+  .vft-row.is-hl { font-weight: 600; }
+
+  .vft-name {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: calc(0.45 + 0.55 * var(--lit));
+    transition: opacity 180ms ease;
+  }
+  .vft-row.is-hl .vft-name { opacity: 1; }
+
+  .vft-chevron {
+    display: inline-flex;
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    color: var(--text-muted, #666);
+    transition: transform 360ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+  .vft-chevron svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+  .vft-chevron.is-open { transform: rotate(90deg); }
+  .vft-chevron--ghost { visibility: hidden; }
+
+  .vft-icon { position: relative; display: inline-flex; flex: 0 0 18px; width: 18px; height: 18px; color: var(--text-secondary, #a1a1a1); }
+  .vft-ico-svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .vft-ico-closed, .vft-ico-open {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(0.5) rotate(-15deg);
+    filter: blur(3px);
+    transition:
+      opacity 280ms var(--ease-out, ease),
+      transform 400ms var(--ease-spring, cubic-bezier(0.25, 1.6, 0.4, 1)),
+      filter 280ms ease;
+  }
+  .vft-ico-svg.is-on { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+  .vft-ico-open { transform: scale(0.5) rotate(15deg); color: var(--ui-accent, #ededed); }
+
+  .vft-collapse {
+    --spring: cubic-bezier(0.34, 1.8, 0.42, 1);
+    --spring-soft: cubic-bezier(0.22, 1.2, 0.36, 1);
+    position: relative;
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 600ms var(--spring);
+  }
+  .vft-collapse.is-open { grid-template-rows: 1fr; }
+  .vft-collapse__inner {
+    min-height: 0;
+    overflow: hidden;
+    transform-origin: top center;
+    will-change: filter, opacity, transform;
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(-6px) scale(0.97);
+    transition:
+      opacity 440ms cubic-bezier(0.6, 0, 0.9, 0.3),
+      filter 460ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 480ms var(--spring-soft);
+  }
+  .vft-collapse.is-open > .vft-collapse__inner {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+    transition:
+      opacity 320ms ease 40ms,
+      filter 420ms cubic-bezier(0.4, 0, 0.2, 1) 40ms,
+      transform 520ms var(--spring-soft) 40ms;
+  }
+
+  .vft-branch { position: relative; padding-left: 11px; }
+  .vft-branch::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent 0%, var(--border, #1f1f1f) 18%, var(--border, #1f1f1f) 82%, transparent 100%);
+  }
+
+  .vft-ripple {
+    position: absolute;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: rgb(var(--fx-tint, 255 255 255) / var(--fx-rip-a, 0.12));
+    pointer-events: none;
+    animation: vft-ripple 600ms ease-out forwards;
+  }
+  @keyframes vft-ripple {
+    from { transform: scale(0); opacity: 1; }
+    to   { transform: scale(1); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vft__hl { transition: opacity 160ms ease; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .vft-chevron, .vft-ico-closed, .vft-ico-open, .vft-collapse, .vft-collapse__inner, .vft-row { transition: none !important; }
+    .vft-collapse__inner { filter: none; transform: none; }
+    .vft-name { opacity: 1; }
+    .vft-ripple { display: none; }
+  }

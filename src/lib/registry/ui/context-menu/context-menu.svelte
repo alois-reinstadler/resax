@@ -1,18 +1,18 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
-	export interface ContextMenuProps { open?: boolean; color?: RxColor; children: Snippet; content: Snippet; }
+	import type { RxColor } from '$lib/registry/lib/color';
+	export interface ContextMenuProps { open?: boolean; color?: RxColor; variant?: 'default' | 'radial'; children: Snippet; content: Snippet; }
 </script>
 <script lang="ts">
 	import * as ContextBase from '$lib/components/ui/context-menu/index.js';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
-	let { open = $bindable(false), color, children, content }: ContextMenuProps = $props();
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
+	let { open = $bindable(false), color, variant = 'default', children, content }: ContextMenuProps = $props();
 	const inlineStyle = $derived(`${styleColor(color) ?? '--rx-color: var(--rx-primary)'}; --rx-duration: ${RX_DURATION.fast}ms; --rx-ease: ${RX_EASE}`);
 </script>
 <ContextBase.Root bind:open>
 	<ContextBase.Trigger class="rx-context-menu__trigger">{@render children()}</ContextBase.Trigger>
-	<ContextBase.Content class="rx-context-menu" style={inlineStyle}>{@render content()}</ContextBase.Content>
+	<ContextBase.Content class={`rx-context-menu rx-context-menu--${variant}`} style={inlineStyle}>{@render content()}</ContextBase.Content>
 </ContextBase.Root>
 <style>
 	:global(.rx-context-menu__trigger) { color: inherit; }
@@ -24,5 +24,7 @@
 	:global(.rx-context-menu__icon) { display: inline-flex; flex: 0 0 auto; }
 	:global(.rx-context-menu__group-label) { padding: .4rem .65rem .25rem; color: rgb(var(--rx-text) / .58); font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 	:global(.rx-context-menu__separator) { height: 1px; margin: .35rem .25rem; background: rgb(var(--rx-text) / .1); }
+	:global(.rx-context-menu--radial) { display: grid; grid-template-columns: repeat(2, minmax(5rem, 1fr)); gap: .3rem; min-width: 12rem; border-radius: 2rem; padding: .75rem; transform-origin: center; }
+	:global(.rx-context-menu--radial .rx-context-menu__item) { justify-content: center; border-radius: 9999px; text-align: center; }
 	@media (prefers-reduced-motion: reduce) { :global(.rx-context-menu), :global(.rx-context-menu__sub) { animation-duration: 1ms; } }
 </style>

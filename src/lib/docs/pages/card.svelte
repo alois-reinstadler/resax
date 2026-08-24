@@ -1,9 +1,9 @@
 <script lang="ts">
 	import DemoSection from '../DemoSection.svelte';
 	import { Card } from '$lib/registry/ui/card';
-	const variants = ['default', 'shadow', 'border', 'flat', 'reveal', 'zoom'] as const;
+	const variants = ['default', 'shadow', 'border', 'flat', 'reveal', 'zoom', 'spotlight', 'tilt-3d'] as const;
 	const mediaUri = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300"%3E%3Cdefs%3E%3ClinearGradient id="g" x2="1" y2="1"%3E%3Cstop stop-color="%23195bff"/%3E%3Cstop offset="1" stop-color="%2346c93a"/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="640" height="300" fill="url(%23g)"/%3E%3Ccircle cx="510" cy="72" r="110" fill="%23fff" fill-opacity=".18"/%3E%3Cpath d="M0 250 170 100l105 95 90-80 175 135" fill="none" stroke="%23fff" stroke-width="18" stroke-opacity=".72"/%3E%3C/svg%3E';
 </script>
-<div class="page-heading"><p class="eyebrow">Component</p><h1>Card</h1><p>Flexible media cards with depth, accent, reveal, and zoom treatments.</p></div>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Card</h1><p>Flexible media cards with depth, accent, reveal, zoom, spotlight, and 3D tilt treatments.</p></div>
 <DemoSection title="Variants" source={'<Card variant="shadow">…</Card>'}><div class="card-grid" data-demo-section="card-variants">{#each variants as variant}<Card {variant} color={variant === 'shadow' ? 'primary' : 'success'} href={variant === 'default' ? '#card-target' : undefined}>{#snippet media()}<img src={mediaUri} alt="Abstract landscape" />{/snippet}{#snippet header()}<strong>{variant} card</strong>{/snippet}<p>A Vuesax-inspired surface with reusable content snippets.</p>{#snippet footer()}<span>{variant === 'reveal' ? 'Focus the action to reveal' : 'Card footer'}</span>{#if variant === 'reveal'}<button type="button">View details</button>{/if}{/snippet}</Card>{/each}</div><span id="card-target" class="sr-only">Card link target</span></DemoSection>
 <style>.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 2rem; width: 100%; }.card-grid :global(.rx-card) { min-width: 0; }.card-grid :global(.rx-card__footer) { display: flex; justify-content: space-between; gap: .75rem; align-items: center; }</style>

@@ -1,0 +1,129 @@
+  :host { display: inline-flex; }
+  .spg {
+    --h: var(--ctrl-h-md, 40px);
+    --r: var(--ctrl-r-md, 12px);
+    --spg-w: 248px;
+    --item-h: 38px;
+    position: relative;
+    display: inline-flex;
+    font-size: var(--ctrl-fs-md, 14px);
+    font-family: inherit;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .spg--sm { --h: var(--ctrl-h-sm, 34px); --r: var(--ctrl-r-sm, 10px); --spg-w: 216px; --item-h: 34px; font-size: var(--ctrl-fs-sm, 13px); }
+  .spg--lg { --h: var(--ctrl-h-lg, 46px); --r: var(--ctrl-r-lg, 14px); --spg-w: 280px; --item-h: 42px; font-size: var(--ctrl-fs-lg, 15px); }
+
+  .spg__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: var(--h);
+    padding: 0 16px;
+    border-radius: var(--r);
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-elevated, #161616);
+    color: var(--text, #ededed);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 220ms var(--spring), border-color 160ms ease;
+  }
+  .spg__trigger:hover:not(:disabled) { border-color: var(--ui-accent, #ededed); }
+  .spg__trigger:disabled { opacity: 0.45; cursor: not-allowed; }
+  .spg__trigger:focus-visible { outline: 2px solid var(--ui-accent, #ededed); outline-offset: 2px; }
+  .is-open .spg__trigger { transform: scale(0.96); border-color: var(--ui-accent, #ededed); }
+  .spg__caret { width: 14px; height: 14px; opacity: 0.8; transition: transform 260ms var(--spring); }
+  .is-open .spg__caret { transform: rotate(180deg); }
+
+  .spg--r-none .spg__trigger, .spg--r-none .spg__panel { border-radius: 4px; }
+  .spg--r-subtle .spg__trigger, .spg--r-subtle .spg__panel { border-radius: 8px; }
+  .spg--r-rounded .spg__trigger, .spg--r-rounded .spg__panel { border-radius: 14px; }
+  .spg--r-pill .spg__trigger { border-radius: 999px; }
+  .spg--r-pill .spg__panel { border-radius: 20px; }
+  @supports (corner-shape: squircle) {
+    .spg--r-squircle .spg__trigger, .spg--r-squircle .spg__panel { corner-shape: squircle; border-radius: 16px; }
+  }
+
+  .spg__panel {
+    position: absolute;
+    z-index: 50;
+    width: var(--spg-w);
+    max-height: min(70vh, 420px);
+    padding: 6px;
+    border-radius: 16px;
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-elevated, #161616);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+  }
+  .spg__panel[hidden] { display: none; }
+  .spg--p-bottom-start .spg__panel { top: calc(var(--h) + 8px); left: 0; transform-origin: top left; }
+  .spg--p-bottom-end .spg__panel { top: calc(var(--h) + 8px); right: 0; transform-origin: top right; }
+  .spg--p-top-start .spg__panel { bottom: calc(var(--h) + 8px); left: 0; transform-origin: bottom left; }
+  .spg--p-top-end .spg__panel { bottom: calc(var(--h) + 8px); right: 0; transform-origin: bottom right; }
+
+  /* ── UNIQUE EFFECT: springy pop with elastic overshoot ── */
+  .spg-pop-enter-active {
+    transition:
+      transform calc(420ms + var(--bounce, 0.6) * 160ms) var(--spring),
+      opacity 180ms ease;
+  }
+  .spg-pop-leave-active {
+    transition: transform 200ms cubic-bezier(0.4, 0, 1, 1), opacity 160ms ease;
+  }
+  .spg-pop-enter-from { transform: scale(0.4); opacity: 0; }
+  .spg-pop-leave-to { transform: scale(0.85); opacity: 0; }
+
+  .spg__list { position: relative; margin: 0; padding: 0; list-style: none; }
+  .spg__divider { height: 1px; margin: 5px 6px; background: var(--border, #2a2a2a); }
+
+  .spg__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    height: var(--item-h, 38px);
+    border-radius: 9px;
+    color: var(--text-secondary, #c4c4c4);
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+  /* each item snaps in with a per-item spring delay */
+  .is-open .spg__item {
+    animation: spg-item-in calc(360ms + var(--bounce, 0.6) * 200ms) var(--spring) both;
+    animation-delay: calc(var(--i, 0) * 34ms + 60ms);
+  }
+  @keyframes spg-item-in {
+    0% { opacity: 0; transform: translateY(-10px) scale(0.9); }
+    100% { opacity: 1; transform: none; }
+  }
+  .spg__item.is-active:not(.is-disabled) { background: var(--sel-opt-hover, rgba(255,255,255,0.06)); color: var(--text, #ededed); }
+  .spg__item.is-selected { color: var(--ui-accent, #ededed); font-weight: 600; }
+  .spg__item.is-disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .spg__item-icon { flex: none; width: 17px; height: 17px; opacity: 0.85; }
+  .spg__item-label { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+  .spg__check { flex: none; width: 16px; height: 16px; color: var(--ui-accent, #ededed); }
+
+  .spg__item--t-danger { color: #ff8a8e; }
+  .spg__item--t-danger.is-active:not(.is-disabled) { color: #ff8a8e; }
+  .spg__item--t-warn { color: #ffce7a; }
+  .spg__item--t-warn.is-active:not(.is-disabled) { color: #ffce7a; }
+  .spg__item--t-success { color: #7ed4a6; }
+  .spg__item--t-success.is-active:not(.is-disabled) { color: #7ed4a6; }
+
+  .spg--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .spg--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .spg--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spg__trigger, .spg__caret,
+    .spg-pop-enter-active, .spg-pop-leave-active { transition: none; }
+    .spg-pop-enter-from, .spg-pop-leave-to { transform: none; opacity: 0; }
+    .is-open .spg__item { animation: none; }
+  }

@@ -1,17 +1,17 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children' | 'color'> {
-		variant?: 'default' | 'shadow' | 'border' | 'flat' | 'reveal' | 'zoom';
+		variant?: 'default' | 'shadow' | 'border' | 'flat' | 'reveal' | 'zoom' | 'spotlight' | 'tilt-3d';
 		color?: RxColor; href?: string; media?: Snippet; header?: Snippet; footer?: Snippet; children?: Snippet;
 	}
 </script>
 
 <script lang="ts">
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	import { cardVariants } from './index';
 	let { variant = 'default', color, href, media, header, footer, children, class: className, style, ...restProps }: CardProps = $props();
 	const classes = $derived(cardVariants({ variant, class: typeof className === 'string' ? className : undefined }));
@@ -45,5 +45,10 @@
 	.rx-card--zoom:hover .rx-card__media :global(img), .rx-card--zoom:focus-within .rx-card__media :global(img), .rx-card--zoom:hover .rx-card__media :global(svg), .rx-card--zoom:focus-within .rx-card__media :global(svg), .rx-card--zoom:hover .rx-card__media :global(video), .rx-card--zoom:focus-within .rx-card__media :global(video) { transform: scale(1.08); }
 	.rx-card--reveal .rx-card__footer { position: absolute; right: 0; bottom: 0; left: 0; color: rgb(var(--rx-text)); background: rgb(var(--rx-background) / .94); transform: translateY(100%); transition: transform var(--rx-duration) var(--rx-ease); }
 	.rx-card--reveal:hover .rx-card__footer, .rx-card--reveal:focus-within .rx-card__footer { transform: translateY(0); }
-	@media (prefers-reduced-motion: reduce) { .rx-card, .rx-card__media :global(*), .rx-card__footer { transition-duration: 0ms; } }
+	.rx-card--spotlight::before { content: ''; position: absolute; z-index: 0; inset: -40%; pointer-events: none; background: radial-gradient(circle at 50% 50%, rgb(var(--rx-color) / .24), transparent 38%); opacity: 0; transform: scale(.7); transition: opacity var(--rx-duration) var(--rx-ease), transform var(--rx-duration) var(--rx-ease); }
+	.rx-card--spotlight:hover::before, .rx-card--spotlight:focus-within::before { opacity: 1; transform: scale(1); }
+	.rx-card--spotlight > :global(*) { position: relative; z-index: 1; }
+	.rx-card--tilt-3d { transform-style: preserve-3d; perspective: 700px; }
+	.rx-card--tilt-3d:hover, .rx-card--tilt-3d:focus-within { transform: perspective(700px) rotateX(3deg) rotateY(-4deg) translateY(-.2rem); box-shadow: 0 1rem 2.5rem rgb(var(--rx-color) / .18); }
+	@media (prefers-reduced-motion: reduce) { .rx-card, .rx-card::before, .rx-card__media :global(*), .rx-card__footer { transition-duration: 0ms; } .rx-card--tilt-3d:hover, .rx-card--tilt-3d:focus-within { transform: none; } }
 </style>

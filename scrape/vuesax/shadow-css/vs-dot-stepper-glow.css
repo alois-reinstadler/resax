@@ -1,0 +1,115 @@
+  :host { display: inline-flex; }
+  .gl {
+    --dot: 10px;
+    --gap: 16px;
+    --pad-x: 22px;
+    --pad-y: 14px;
+    --accent: var(--ctrl-accent, var(--ui-accent, #ededed));
+    --off: var(--ctrl-dot-off, rgb(var(--ui-ring, 255 255 255) / 0.32));
+    display: inline-flex;
+    font-family: inherit;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .gl--sm { --dot: 8px; --gap: 12px; --pad-x: 18px; --pad-y: 12px; }
+  .gl--lg { --dot: 12px; --gap: 20px; --pad-x: 28px; --pad-y: 18px; }
+
+  .gl__track {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    padding: var(--pad-y) var(--pad-x);
+    border: 1px solid var(--ctrl-border, var(--border, #2a2a2a));
+    border-radius: 999px;
+    background: var(--ctrl-bg, var(--bg-elevated, rgba(20, 20, 20, 0.9)));
+    isolation: isolate;
+  }
+  .gl--vertical .gl__track { flex-direction: column; padding: var(--pad-x) var(--pad-y); }
+  .gl--has-labels.gl--horizontal .gl__track { align-items: flex-end; }
+  .gl--no-track .gl__track { padding: 0; border-color: transparent; background: transparent; }
+
+  .gl__dot {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    margin: -8px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    font: inherit;
+    color: var(--ctrl-text-muted, var(--text-muted, #8a8a8a));
+    z-index: 2;
+  }
+  .gl__dot:disabled { cursor: default; }
+  .gl__dot:focus-visible { outline: none; }
+  .gl__dot:focus-visible .gl__core { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent); }
+
+  .gl__core {
+    position: relative;
+    width: var(--dot);
+    height: var(--dot);
+    border-radius: 999px;
+    background: var(--off);
+    transition: background-color 260ms ease, box-shadow 260ms ease;
+  }
+  .gl__dot:hover:not(:disabled):not(.is-active) .gl__core { background: color-mix(in srgb, var(--off) 55%, var(--accent) 45%); }
+
+  /* active: breathing neon. Keyframes only animate transform/opacity (compositable).
+     The min shadow stays static on the core; the max one is baked into ::after (a
+     glow layer, absolutely positioned out of flow) and pulses its opacity in sync. */
+  .gl__dot.is-active .gl__core {
+    background: var(--accent);
+    box-shadow:
+      0 0 calc(6px * var(--gl-int, 1)) color-mix(in srgb, var(--accent) 85%, transparent),
+      0 0 calc(14px * var(--gl-int, 1)) color-mix(in srgb, var(--accent) 45%, transparent);
+    animation: gl-pulse 1600ms ease-in-out infinite;
+  }
+  .gl__dot.is-active .gl__core::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+      0 0 calc(12px * var(--gl-int, 1)) color-mix(in srgb, var(--accent) 95%, transparent),
+      0 0 calc(28px * var(--gl-int, 1)) color-mix(in srgb, var(--accent) 55%, transparent);
+    opacity: 0;
+    animation: gl-halo 1600ms ease-in-out infinite;
+  }
+  @keyframes gl-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+  }
+  @keyframes gl-halo {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .gl--vertical .gl__dot { flex-direction: row; }
+
+  .gl__label {
+    font-size: 0.78em;
+    white-space: nowrap;
+    transition: color 200ms ease;
+  }
+  .gl__dot.is-active .gl__label { color: var(--ctrl-text, var(--text, #ededed)); }
+
+  .gl--t-danger { --accent: var(--ctrl-danger, #ff6369); }
+  .gl--t-warn { --accent: var(--ctrl-warn, #ffb224); }
+  .gl--t-success { --accent: var(--ctrl-success, #4cc38a); }
+
+  .gl.is-disabled { opacity: 0.5; }
+  .gl.is-disabled .gl__dot { cursor: not-allowed; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gl__dot.is-active .gl__core {
+      animation: none;
+      box-shadow: 0 0 calc(8px * var(--gl-int, 1)) color-mix(in srgb, var(--accent) 70%, transparent);
+    }
+    .gl__dot.is-active .gl__core::after { animation: none; opacity: 0; }
+  }

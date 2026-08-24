@@ -1,0 +1,88 @@
+  :host { display: inline-flex; }
+  .vrn {
+    --sz: 28px;
+    --gap: 6px;
+    --fs: var(--ctrl-fs-sm, 13px);
+    --chip: var(--ui-accent, #ededed);
+    --muted: var(--text-muted, #8a8a8a);
+    --radius: 8px;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: inherit;
+    user-select: none;
+    outline: none;
+  }
+  .vrn__row { display: inline-flex; align-items: center; gap: var(--gap); perspective: 400px; }
+
+  .vrn--sm { --sz: 22px; --gap: 5px; --fs: var(--ctrl-fs-xs, 12px); }
+  .vrn--lg { --sz: 36px; --gap: 7px; --fs: var(--ctrl-fs-md, 15px); }
+
+  .vrn__chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sz);
+    height: var(--sz);
+    padding: 0;
+    border: 1.5px solid color-mix(in srgb, var(--muted) 55%, transparent);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .vrn__chip:disabled { cursor: default; }
+  .vrn.is-readonly .vrn__chip { cursor: default; }
+  .vrn__chip:hover:not(:disabled) { transform: translateY(-2px); }
+  .vrn__chip:focus-visible {
+    outline: 2px solid var(--chip);
+    outline-offset: 2px;
+  }
+
+  /* shape: circle rounds the tile fully (square is the default --radius) */
+  .vrn--circle { --radius: 50%; }
+
+  /* active: tile filled with the accent color */
+  .vrn__chip.is-on {
+    background: var(--chip);
+    border-color: var(--chip);
+    color: #fff;
+  }
+
+  .vrn__num {
+    font-size: var(--fs);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  /* 3D flip of the chosen tile */
+  .vrn__chip.is-flip { animation: vrn-flip 520ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  @keyframes vrn-flip {
+    0% { transform: rotateY(0) scale(1); }
+    50% { transform: rotateY(180deg) scale(1.12); }
+    100% { transform: rotateY(360deg) scale(1); }
+  }
+
+  .vrn__value {
+    font-size: var(--fs);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--chip);
+    min-width: 1.4em;
+  }
+
+  .vrn--t-danger { --chip: #ff6369; }
+  .vrn--t-warn { --chip: #ffb224; }
+  .vrn--t-success { --chip: #4cc38a; }
+
+  .vrn.is-disabled { opacity: 0.5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vrn__chip { transition: none; }
+    .vrn__chip:hover:not(:disabled) { transform: none; }
+    .vrn__chip.is-flip { animation: none; }
+  }

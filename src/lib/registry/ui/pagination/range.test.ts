@@ -1,0 +1,1 @@
+import{describe,it,expect}from'vitest';import{pageCount,clampPage,paginationRange}from'./range';describe('pagination range',()=>{it('counts and clamps',()=>{expect(pageCount(101,10)).toBe(11);expect(clampPage(20,11)).toBe(11);expect(clampPage(-2,11)).toBe(1)});it('adds stable ellipses',()=>expect(paginationRange(6,12,1)).toEqual([1,'ellipsis',5,6,7,'ellipsis',12]))});

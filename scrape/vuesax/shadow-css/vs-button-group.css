@@ -1,0 +1,16 @@
+  :host { display: inline-flex; vertical-align: middle; }
+  :host([block]) { display: flex; width: 100%; }
+  :host([hidden]) { display: none; }
+  .grp { display: inline-flex; align-items: center; gap: var(--vsg-gap, 0px); isolation: isolate; }
+  :host([block]) .grp { display: flex; width: 100%; }
+  .grp--v { flex-direction: column; align-items: stretch; }
+  /* the slotted buttons stack so a hovered/focused segment lifts its border +
+     glow above its neighbours instead of being clipped by the next one */
+  ::slotted(*) { position: relative; }
+  ::slotted(*:hover), ::slotted(*:focus-within) { z-index: 2; }
+  /* attached: pull each segment 1px onto the previous one so the two adjacent
+     1px borders collapse into a single hairline (never a 2px seam) */
+  .grp--attached:not(.grp--v) ::slotted(*:not(:first-child)) { margin-left: -1px; }
+  .grp--attached.grp--v ::slotted(*:not(:first-child)) { margin-top: -1px; }
+  .grp--v ::slotted(*) { width: 100%; }
+  :host([block]) ::slotted(*) { flex: 1 1 0; }

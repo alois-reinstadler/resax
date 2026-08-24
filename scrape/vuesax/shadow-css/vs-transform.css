@@ -1,0 +1,147 @@
+.vt__backdrop {
+  position: fixed;
+  inset: 0;
+  /* above the page's fixed chrome (sticky headers, bottom blur strips), which
+     would otherwise paint over the dialog */
+  z-index: 1200;
+  background: var(--backdrop, rgba(0, 0, 0, 0.5));
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.vt__panel {
+  --fs: var(--ctrl-fs-md, 14px);
+  --rr: 20px;
+  --accent: var(--ui-accent, #ededed);
+  --fx-tint: 255 255 255;
+  position: fixed;
+  z-index: 1210;
+  border-radius: var(--rr);
+  overflow: hidden;
+  isolation: isolate;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: var(--fs);
+  color: var(--text, #ededed);
+  /* the box itself never hit-tests (only .vt__content does, see below) — mid-morph
+     the trigger sits in dead space under the growing box; without this a click on
+     the panel before layout settles would hit nothing instead of falling through. */
+  pointer-events: none;
+}
+.vt__panel.vt--sm { --fs: var(--ctrl-fs-sm, 13px); }
+.vt__panel.vt--lg { --fs: var(--ctrl-fs-lg, 15px); }
+.vt__panel.vt--r-none { --rr: 8px; }
+.vt__panel.vt--r-subtle { --rr: 10px; }
+.vt__panel.vt--r-rounded { --rr: 20px; }
+.vt__panel.vt--r-pill { --rr: 30px; }
+.vt__panel.vt--r-squircle { --rr: 28px; }
+.vt__panel.vt--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --fx-tint: 255 99 105; }
+.vt__panel.vt--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --fx-tint: 255 178 36; }
+.vt__panel.vt--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --fx-tint: 76 195 138; }
+@supports (corner-shape: squircle) { .vt__panel.vt--r-squircle { corner-shape: squircle; } }
+.vt__panel.vt--test { border: 1px solid lime; }
+
+/* painting layer (border/bg/shadow) — kept separate so the box itself can morph */
+.vt__surface {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  border: 1px solid var(--sel-menu-border, rgba(255, 255, 255, 0.09));
+  background: var(--bg-card, #0a0a0a);
+  box-shadow: var(--sel-menu-shadow, 0 18px 50px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3));
+  pointer-events: none;
+}
+@supports (corner-shape: squircle) {
+  .vt__panel.vt--r-squircle .vt__panel-glow,
+  .vt__panel.vt--r-squircle .vt__surface,
+  .vt__panel.vt--r-squircle .vt__ghost { corner-shape: squircle; }
+}
+
+/* proximity border glow — shared engine, see attachGlow above */
+.fx-glow {
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    radial-gradient(60px circle at var(--gx, 50%) var(--gy, 50%),
+      rgb(var(--fx-tint, 255 255 255) / .6), rgb(var(--fx-tint, 255 255 255) / .42) 30%, rgb(var(--fx-tint, 255 255 255) / .16) 58%, rgb(var(--fx-tint, 255 255 255) / 0) 82%),
+    radial-gradient(200px circle at var(--gx, 50%) var(--gy, 50%),
+      rgb(var(--fx-tint, 255 255 255) / .6), rgb(var(--fx-tint, 255 255 255) / .27) 42%, rgb(var(--fx-tint, 255 255 255) / .08) 66%, rgb(var(--fx-tint, 255 255 255) / 0) 85%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: calc(var(--glow, 0) * .9 * .7);
+  transition: opacity 140ms;
+}
+
+/* ghost — the cloned trigger that expands trigger→panel */
+.vt__ghost {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center; /* clone centred → scales (zooms) from the box centre */
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+.vt__ghost-clone { display: inline-flex; will-change: transform; }
+
+/* content layer: absolutely centred so it SCALES (zoom) from the centre while
+   the box grows — not an unfold with text pinned at the top. */
+.vt__inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  will-change: transform;
+}
+.vt__content { width: max-content; pointer-events: auto; }
+
+/* ── demo card ─────────────────────────────────────────────────────────── */
+.vt__card { display: flex; flex-direction: column; gap: 14px; width: 300px; padding: 18px; }
+.vt__card-head { display: flex; align-items: center; gap: 12px; }
+.vt__card-avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--ui-accent-fg, #0b0b0b);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+@supports (corner-shape: squircle) { .vt__card-avatar { corner-shape: squircle; } }
+.vt__card-id { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vt__card-name { font-weight: 700; font-size: 1.05em; color: var(--text, #ededed); }
+.vt__card-role { font-size: 0.85em; color: var(--text-muted, #8a8a8a); }
+.vt__card-bio { margin: 0; font-size: 0.92em; line-height: 1.5; color: var(--text-secondary, #c4c4c4); }
+.vt__card-stats { display: flex; gap: 18px; font-size: 0.88em; color: var(--text-muted, #8a8a8a); }
+.vt__card-stats b { color: var(--text, #ededed); font-weight: 700; }
+.vt__card-actions { display: flex; gap: 8px; margin-top: 2px; }
+.vt__card-btn {
+  flex: 1;
+  height: 38px;
+  border: 0;
+  border-radius: 11px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 160ms ease, transform 140ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@supports (corner-shape: squircle) { .vt__card-btn { corner-shape: squircle; } }
+.vt__card-btn:active { transform: scale(0.96); }
+.vt__card-btn--ghost { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.06)); color: var(--text-secondary, #c4c4c4); }
+.vt__card-btn--primary { background: var(--accent); color: var(--ui-accent-fg, #0b0b0b); }
+.vt__card-btn--primary:hover { filter: brightness(1.06); }
+
+@media (prefers-reduced-motion: reduce) { .vt__card-btn { transition: none; } }

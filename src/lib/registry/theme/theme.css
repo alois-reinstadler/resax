@@ -3,6 +3,9 @@
 	--rx-success: 70 201 58;
 	--rx-danger: 255 71 87;
 	--rx-warn: 255 186 0;
+	--rx-ai-violet: 124 58 237;
+	--rx-ai-cyan: 6 182 212;
+	--rx-ai-pink: 236 72 153;
 	--rx-dark: 30 30 31;
 	--rx-light: 244 247 248;
 	--rx-gray: 235 238 242;
@@ -17,6 +20,9 @@
 	--rx-background: 22 22 24;
 	--rx-text: 208 210 214;
 	--rx-gray: 52 54 58;
+	--rx-ai-violet: 167 139 250;
+	--rx-ai-cyan: 34 211 238;
+	--rx-ai-pink: 244 114 182;
 }
 
 @theme inline {
@@ -24,6 +30,9 @@
 	--color-rx-success: rgb(var(--rx-success));
 	--color-rx-danger: rgb(var(--rx-danger));
 	--color-rx-warn: rgb(var(--rx-warn));
+	--color-rx-ai-violet: rgb(var(--rx-ai-violet));
+	--color-rx-ai-cyan: rgb(var(--rx-ai-cyan));
+	--color-rx-ai-pink: rgb(var(--rx-ai-pink));
 	--color-rx-dark: rgb(var(--rx-dark));
 	--color-rx-light: rgb(var(--rx-light));
 	--color-rx-gray: rgb(var(--rx-gray));

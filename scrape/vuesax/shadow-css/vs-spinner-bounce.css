@@ -1,0 +1,117 @@
+  :host { display: inline-flex; }
+  .bounce {
+    --sz: 32px;
+    --dur: 0.9s;
+    --gap: 10px;
+    --fs: 13px;
+    --ring: var(--inp-ring, 237 237 237);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+    --ball: calc(var(--sz) * 0.4);
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    color: var(--tint);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .bounce__dots {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: calc(var(--ball) * 0.55);
+  }
+
+  .bounce__box {
+    position: relative;
+    width: var(--ball);
+    height: var(--sz);
+    flex: 0 0 auto;
+    --fall: calc(var(--sz) - var(--ball));
+  }
+
+  .bounce__ball {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--ball);
+    height: var(--ball);
+    border-radius: 999px;
+    background: rgb(var(--ring));
+    transform-origin: center bottom;
+    animation: bounce-drop var(--dur) infinite;
+    animation-delay: calc(var(--dur) / var(--n, 3) * var(--i, 0) * -1);
+  }
+
+  .bounce__shadow {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--sz) * 0.03);
+    width: var(--ball);
+    height: calc(var(--ball) * 0.28);
+    border-radius: 999px;
+    background: rgb(var(--ring) / 0.5);
+    transform: translateX(-50%);
+    filter: blur(1px);
+    animation: bounce-shadow var(--dur) infinite;
+    animation-delay: calc(var(--dur) / var(--n, 3) * var(--i, 0) * -1);
+  }
+
+  /* Physics: falls accelerating (gravity), squashes on the floor, bounces
+     stretching and rises decelerating. Per-segment timing on each keyframe. */
+  @keyframes bounce-drop {
+    0%   { transform: translateY(0) scaleX(1) scaleY(1);
+           animation-timing-function: cubic-bezier(0.5, 0, 1, 0.42); }          /* accelerates on the fall */
+    38%  { transform: translateY(var(--fall)) scaleX(0.94) scaleY(1.1);
+           animation-timing-function: cubic-bezier(0.1, 0, 0.2, 1); }           /* stretched right before impact */
+    47%  { transform: translateY(var(--fall)) scaleX(1.35) scaleY(0.55);
+           animation-timing-function: cubic-bezier(0.6, 0, 0.9, 0.5); }         /* SQUASH — flattened on the floor */
+    56%  { transform: translateY(var(--fall)) scaleX(0.92) scaleY(1.12);
+           animation-timing-function: cubic-bezier(0.1, 0.5, 0.4, 1); }         /* takes off stretching */
+    100% { transform: translateY(0) scaleX(1) scaleY(1); }                      /* rises decelerating */
+  }
+  @keyframes bounce-shadow {
+    0%   { transform: translateX(-50%) scale(0.5);  opacity: 0.2;
+           animation-timing-function: cubic-bezier(0.5, 0, 1, 0.42); }
+    42%  { transform: translateX(-50%) scale(1.05); opacity: 0.62; }
+    47%  { transform: translateX(-50%) scale(1.2);  opacity: 0.7; }
+    56%  { transform: translateX(-50%) scale(1);    opacity: 0.6;
+           animation-timing-function: cubic-bezier(0.1, 0.5, 0.4, 1); }
+    100% { transform: translateX(-50%) scale(0.5);  opacity: 0.2; }
+  }
+
+  /* sizes */
+  .bounce--sm { --sz: 20px; --fs: 12px; --gap: 8px; }
+  .bounce--md { --sz: 32px; --fs: 13px; }
+  .bounce--lg { --sz: 44px; --fs: 14px; --gap: 12px; }
+  .bounce--xl { --sz: 60px; --fs: 16px; --gap: 14px; }
+
+  /* speed */
+  .bounce--s-slow   { --dur: 1.3s; }
+  .bounce--s-normal { --dur: 0.9s; }
+  .bounce--s-fast   { --dur: 0.6s; }
+
+  .bounce__label { color: var(--tint); white-space: nowrap; }
+
+  .bounce.is-overlay {
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+    z-index: 10;
+  }
+
+  /* tones */
+  .bounce--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .bounce--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+  .bounce--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bounce__ball, .bounce__shadow { animation-duration: 2.4s; }
+  }

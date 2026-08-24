@@ -1,0 +1,142 @@
+  :host { display: inline-flex; }
+  .rating {
+    --sz: 24px;
+    --gap: 4px;
+    --fs: 13px;
+    --accent: var(--inp-accent, #ededed);
+    --ring: var(--inp-ring, 255 255 255);
+    --track: var(--inp-track, 255 255 255);
+    --star: var(--rating-fg, var(--accent));
+
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    font: inherit;
+    user-select: none;
+    outline: none;
+  }
+
+  .rating__icons {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  /* sizes */
+  .rating--sm { --sz: 18px; --gap: 3px; --fs: 12px; }
+  .rating--lg { --sz: 30px; --gap: 6px; --fs: 15px; }
+
+  .rating__item {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    width: var(--sz);
+    height: var(--sz);
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 180ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  /* ripple layer (droplet of light) — blooms from the click, like VsButton */
+  .rating__ripples {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .rating__svg { position: relative; z-index: 1; }
+  .rating__ripple {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: radial-gradient(
+      circle,
+      rgb(var(--ring) / 0.42) 0%,
+      rgb(var(--ring) / 0.22) 26%,
+      rgb(var(--ring) / 0.08) 48%,
+      transparent 70%
+    );
+    opacity: 0;
+    will-change: transform, opacity;
+    animation:
+      rating-ripple-scale 640ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+      rating-ripple-fade 640ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+  @keyframes rating-ripple-scale {
+    from { transform: translate(-50%, -50%) scale(0); }
+    to   { transform: translate(-50%, -50%) scale(1); }
+  }
+  @keyframes rating-ripple-fade {
+    from { opacity: 0.8; }
+    to   { opacity: 0; }
+  }
+  .rating__item:disabled { cursor: default; }
+  .rating__item:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 5px;
+  }
+
+  .rating__svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .rating__bg {
+    fill: transparent;
+    stroke: rgb(var(--ring) / calc(0.28 + var(--p, 0) * 0.6));
+    stroke-width: calc(0.8 + var(--p, 0) * 0.7);
+    transition: fill 200ms ease, stroke 160ms ease, stroke-width 160ms ease;
+  }
+
+  /* partial fill: clip-path crops the icon at the --fill percentage */
+  .rating__fg {
+    fill: var(--star);
+    clip-path: inset(0 calc((1 - var(--fill)) * 100%) 0 0);
+    transition: clip-path 200ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  /* pop on select — sink + bounce: starts sunken, springs back w/ soft overshoot */
+  .rating__item.is-pop { animation: rating-pop 420ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  @keyframes rating-pop {
+    0% { transform: scale(0.82); }
+    45% { transform: scale(1.22); }
+    70% { transform: scale(0.94); }
+    100% { transform: scale(1); }
+  }
+
+  .rating__value {
+    font-size: var(--fs);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary, #a1a1a1);
+    min-width: 1.6em;
+  }
+
+  /* ── tones ── */
+  .rating--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --fx-tint: 255 99 105; --star: #ff6369; }
+  .rating--t-warn { --accent: var(--ui-accent, #ededed); --ring: 255 178 36; --fx-tint: 255 178 36; --star: var(--ui-accent, #ededed); }
+  .rating--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --fx-tint: 76 195 138; --star: #4cc38a; }
+
+  /* default: warm amber star when no token is set */
+  .rating--t-default { --star: var(--rating-fg, var(--ui-accent, #ededed)); }
+
+  /* readonly / disabled */
+  .rating.is-readonly .rating__item { cursor: default; }
+  .rating.is-disabled { opacity: 0.5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rating__item,
+    .rating__fg { transition: none; }
+    .rating__item.is-pop { animation: none; }
+    .rating__ripple { display: none; }
+  }

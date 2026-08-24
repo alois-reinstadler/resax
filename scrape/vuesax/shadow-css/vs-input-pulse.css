@@ -1,0 +1,122 @@
+.ipl {
+  --h: var(--ctrl-h-md, 40px);
+  --r: var(--ctrl-r-md, 12px);
+  --px: var(--ctrl-px-md, 14px);
+  --fs: var(--ctrl-fs-md, 14px);
+  --accent: var(--inp-accent, #ededed);
+  --ring: var(--inp-ring, 255 255 255);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 260px;
+  font-family: inherit;
+}
+.ipl--block { display: flex; width: 100%; min-width: 0; }
+.ipl--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --px: var(--ctrl-px-sm, 12px); --fs: var(--ctrl-fs-sm, 13px); }
+.ipl--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --px: var(--ctrl-px-lg, 18px); --fs: var(--ctrl-fs-lg, 15px); }
+
+.ipl__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--h);
+  border-radius: var(--rr, var(--r));
+  background: var(--btn-secondary-bg, #1a1a1a);
+}
+.ipl--r-none .ipl__field { --rr: 0px; }
+.ipl--r-subtle .ipl__field { --rr: 8px; }
+.ipl--r-pill .ipl__field { --rr: 999px; }
+
+/* the ping: a ring pinned over the field that expands + fades once on focus.
+   position:absolute → out of flow (does not shift the input) */
+.ipl__ping {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 2px solid rgb(var(--ring) / 0.7);
+  opacity: 0;
+}
+.ipl.is-focused .ipl__ping { animation: ipl-ping 620ms cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes ipl-ping {
+  0%   { opacity: 0.65; transform: scale(1); }
+  100% { opacity: 0;    transform: scale(1.12); }
+}
+
+/* border on a fieldset → the legend opens a real gap in the top line */
+.ipl__outline {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0 calc(var(--px) - 5px);
+  border: 1px solid var(--inp-border, #2a2a2a);
+  border-radius: inherit;
+  pointer-events: none;
+  min-inline-size: 0;
+  transition: border-color 200ms ease;
+}
+.ipl__legend {
+  display: block;
+  width: auto;
+  max-width: 0.01px;
+  height: 0;
+  padding: 0;
+  font-size: calc(var(--fs) * 0.82);
+  line-height: 0;
+  white-space: nowrap;
+  visibility: hidden;
+  transition: max-width 220ms cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+.ipl__legend span { display: inline-block; padding: 0 4px; }
+.ipl.has-label.is-focused .ipl__legend,
+.ipl.has-label.has-value .ipl__legend { max-width: 100%; }
+.ipl__field:hover .ipl__outline { border-color: var(--inp-border-hover, #3d3d3d); }
+.ipl.is-focused .ipl__outline { border-color: var(--accent); }
+
+.ipl__control {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0 var(--px);
+  border: none;
+  background: transparent;
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  font-size: var(--fs);
+  outline: none;
+}
+.ipl__control::placeholder { color: var(--inp-placeholder, #5a5a5a); transition: color 200ms ease; }
+
+/* floating label — NO background: the real gap is opened by the legend */
+.ipl__label {
+  position: absolute;
+  z-index: 2;
+  left: var(--px);
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  color: var(--inp-label, #6a6a6a);
+  font-size: var(--fs);
+  pointer-events: none;
+  transition: transform 240ms cubic-bezier(0.34, 1.4, 0.5, 1), color 220ms ease;
+}
+.ipl.is-focused .ipl__label,
+.ipl.has-value .ipl__label {
+  transform: translateY(calc(-50% - var(--h) / 2)) scale(0.82);
+}
+.ipl.is-focused .ipl__label { color: var(--accent); }
+
+.ipl__hint { margin: 0; padding: 0 2px; font-size: calc(var(--fs) - 1px); color: var(--inp-hint, #7a7a7a); }
+
+.ipl.is-disabled { opacity: 0.5; }
+.ipl.is-disabled .ipl__control { cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ipl.is-focused .ipl__ping { animation: none; }
+  .ipl__label, .ipl__legend { transition: none; }
+}

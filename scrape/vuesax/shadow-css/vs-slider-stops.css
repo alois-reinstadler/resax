@@ -1,0 +1,166 @@
+  :host { display: inline-flex; max-width: 100%; }
+  :host([block]) { display: flex; width: 100%; }
+
+  .sto {
+    --sto-w: 380px;
+    --sto-dot: 3px;
+    --sto-stop: 9px;
+    --sto-hw: 10px;
+    --sto-hh: 26px;
+    --sto-sw: 3px;
+    --sto-fs: 13px;
+    --accent: var(--ui-accent, #ededed);
+    --accent-fg: var(--ui-accent-fg, #0b0b0b);
+    box-sizing: border-box;
+    width: var(--sto-w);
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 20px 18px;
+    border-radius: var(--ctrl-r-lg, 14px);
+    background: var(--bg-elevated, #111111);
+    border: 1px solid var(--border, #1f1f1f);
+    font-family: inherit;
+    color: var(--text, #ededed);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sto--sm { --sto-w: 300px; --sto-stop: 8px; --sto-hw: 9px; --sto-hh: 22px; --sto-sw: 2.5px; --sto-fs: 12px; padding: 12px 16px 15px; }
+  .sto--lg { --sto-w: 460px; --sto-stop: 10px; --sto-hw: 12px; --sto-hh: 30px; --sto-sw: 3.5px; --sto-fs: 14px; padding: 16px 24px 21px; }
+  .sto--block { width: 100%; }
+  .sto--bare { background: transparent; border-color: transparent; padding: 0; }
+
+  /* ── named stops ───────────────────────────────────────────────── */
+  .sto__labels { position: relative; height: 28px; }
+  .sto__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border: 0;
+    appearance: none;
+    font: inherit;
+    font-size: var(--sto-fs);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    padding: 4px 12px;
+    border-radius: var(--ctrl-r-full, 999px);
+    cursor: pointer;
+    will-change: transform;
+    /* --pp is written by the spring loop as a percentage string ("42.0%") */
+    color: color-mix(in srgb, var(--accent-fg) var(--pp, 0%), var(--text-secondary, #a1a1a1));
+    background: color-mix(in srgb, var(--accent) var(--pp, 0%), transparent);
+  }
+  .sto__label:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 80%, transparent);
+    outline-offset: 2px;
+  }
+
+  /* ── dotted track ──────────────────────────────────────────────── */
+  .sto__track {
+    position: relative;
+    height: 28px;
+    cursor: pointer;
+    touch-action: none;
+    outline: none;
+    border-radius: var(--ctrl-r-sm, 6px);
+  }
+  .sto__track:active { cursor: grabbing; }
+  .sto__track:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 80%, transparent);
+    outline-offset: 5px;
+  }
+
+  .sto__dot {
+    position: absolute;
+    top: 50%;
+    width: var(--sto-dot);
+    height: var(--sto-dot);
+    border-radius: var(--ctrl-r-full, 999px);
+    background: var(--border-hover, #333333);
+    transform: translate(-50%, -50%);
+  }
+
+  .sto__stop {
+    position: absolute;
+    top: 50%;
+    width: var(--sto-stop);
+    height: var(--sto-stop);
+    box-sizing: border-box;
+    border-radius: var(--ctrl-r-full, 999px);
+    border: 1px solid color-mix(in srgb, var(--accent) var(--pp, 0%), var(--border-hover, #333333));
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sto__stop::after {
+    content: '';
+    width: 3px;
+    height: 3px;
+    border-radius: var(--ctrl-r-full, 999px);
+    background: color-mix(in srgb, var(--accent) var(--pp, 0%), var(--border-hover, #333333));
+  }
+
+  /* full-width rail: translateX(p%) of itself == p% of the track */
+  .sto__rail {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform, filter;
+  }
+  .sto__handle {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: var(--sto-hw);
+    height: var(--sto-hh);
+    box-sizing: border-box;
+    border-radius: var(--ctrl-r-full, 999px);
+    background: var(--accent);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.28);
+    will-change: transform;
+  }
+  .sto__slot {
+    width: var(--sto-sw, 3px);
+    height: 34%;
+    border-radius: var(--ctrl-r-full, 999px);
+    background: var(--accent-fg);
+    opacity: 0.92;
+    will-change: transform;
+  }
+
+  .sto__ripple {
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--ctrl-r-full, 999px);
+    background: rgb(var(--ui-ring, 255 255 255) / 0.35);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: sto-rip 520ms ease-out forwards;
+  }
+  @keyframes sto-rip {
+    from { opacity: 0.45; transform: translate(-50%, -50%) scale(1); }
+    to { opacity: 0; transform: translate(-50%, -50%) scale(6); }
+  }
+
+  .sto--t-danger { --accent: #ff6369; --accent-fg: #ffffff; }
+  .sto--t-warn { --accent: #ffb224; --accent-fg: #160f02; }
+  .sto--t-success { --accent: #4cc38a; --accent-fg: #06120c; }
+
+  .is-disabled { opacity: 0.45; }
+  .is-disabled .sto__track { cursor: not-allowed; pointer-events: none; }
+  .is-disabled .sto__label { cursor: not-allowed; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sto__ripple { display: none; }
+  }

@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	import type { DateValue } from '@internationalized/date';
 	import type { CalendarValue } from './calendar.svelte';
 
@@ -27,8 +27,8 @@
 	import { DateFormatter, getLocalTimeZone } from '@internationalized/date';
 	import { CalendarDays } from '@lucide/svelte';
 	import Calendar from './calendar.svelte';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 
 	let {
 		value = $bindable(), mode = 'single', color, minValue, maxValue, disabled = false,

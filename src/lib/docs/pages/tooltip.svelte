@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DemoSection from '../DemoSection.svelte';
-	import { Tooltip } from '$lib/registry/ui/tooltip';
+	import { Tooltip, TooltipProvider } from '$lib/registry/ui/tooltip';
 </script>
 <div class="page-heading"><p class="eyebrow">Component</p><h1>Tooltip</h1><p>Focus- and hover-accessible hints with Vuesax surface styles.</p></div>
 <DemoSection title="Variants and placement" source={'<Tooltip content="Helpful detail">...</Tooltip>'}>
@@ -10,4 +10,5 @@
 		<Tooltip content="Elevated success hint" variant="shadow" color="success" side="right">Shadow</Tooltip>
 	</div>
 </DemoSection>
+<DemoSection title="Provider and delay" source={'<TooltipProvider><Tooltip delayDuration={500} content="Delayed">...</Tooltip></TooltipProvider>'}><TooltipProvider><Tooltip delayDuration={500} content="Appears after 500ms">Delayed tooltip</Tooltip></TooltipProvider></DemoSection>
 <style>.demo-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }</style>

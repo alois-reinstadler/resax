@@ -1,14 +1,14 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { RxColor } from '../../lib/color.js';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export type SeparatorOrientation = 'horizontal' | 'vertical';
 	export type SeparatorVariant = 'solid' | 'dashed' | 'dotted' | 'gradient';
 	export interface SeparatorProps extends HTMLAttributes<HTMLDivElement> { orientation?: SeparatorOrientation; variant?: SeparatorVariant; color?: RxColor; children?: Snippet; }
 </script>
 <script lang="ts">
-	import { styleColor } from '../../lib/color.js';
-	import { cn } from '../../../utils.js';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { cn } from '$lib/utils.js';
 	let { orientation = 'horizontal', variant = 'solid', color, children, class: className, style, ...rest }: SeparatorProps = $props();
 	const colorStyle = $derived([color ? styleColor(color) : '--rx-color: var(--rx-gray)', typeof style === 'string' ? style : undefined].filter(Boolean).join('; '));
 </script>

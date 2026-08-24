@@ -1,0 +1,145 @@
+  /* max-width, not a breakpoint: the bar is shrink-to-fit, so without this it
+     keeps its widest natural size and hangs out of any box narrower than the
+     triggers laid end to end. */
+  :host { display: inline-flex; max-width: 100%; }
+  .vnm2 {
+    --accent: var(--ui-accent, #ededed);
+    --rr: 14px;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    font-family: inherit;
+    color: var(--text, #ededed);
+  }
+  .vnm2--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .vnm2--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .vnm2--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  .vnm2--r-subtle { --rr: 10px; }
+  .vnm2--r-pill { --rr: 22px; }
+  @supports (corner-shape: squircle) { .vnm2--r-squircle { --rr: 22px; } }
+
+  .vnm2__list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Wrap rather than scroll: the pill and the viewport are positioned from
+       measured trigger rects, so a second row lands correctly, and every
+       trigger stays reachable without a hidden scroll gesture. */
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    gap: 2px;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: calc(var(--rr) + 4px);
+    background: var(--bg-card, #0a0a0a);
+  }
+  .vnm2--ghost .vnm2__list { border-color: transparent; background: transparent; }
+  .vnm2__item { position: relative; z-index: 1; }
+
+  .vnm2__trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 36px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: var(--rr);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--text-muted, #888);
+    background: transparent;
+    transition: color 200ms ease, background 200ms ease;
+  }
+  .vnm2__trigger:hover,
+  .vnm2__trigger[data-state='open'] { color: var(--text, #ededed); background: var(--bg-elevated, #161616); }
+  .vnm2__trigger:focus-visible { outline: 2px solid var(--ui-accent, #ededed); outline-offset: 2px; }
+  .vnm2__chev { width: 13px; height: 13px; color: var(--text-secondary, #a1a1a1); transition: transform 300ms var(--spring, ease); }
+  .vnm2__chev.is-open { transform: rotate(180deg); }
+
+  .vnm2__bridge { position: absolute; top: 100%; left: 0; width: 100%; height: 12px; z-index: 49; }
+  .vnm2__bridge[hidden] { display: none; }
+
+  /* fixed-width mega-panel, centered */
+  .vnm2__panel-wrap {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 50;
+    margin-top: 8px;
+    transform: translateX(-50%);
+    border-radius: var(--rr);
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-elevated, #161616);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 22px 50px -22px rgba(0, 0, 0, 0.65);
+  }
+  .vnm2__panel-wrap[hidden] { display: none; }
+  @supports (corner-shape: squircle) { .vnm2--r-squircle .vnm2__panel-wrap { corner-shape: squircle; } }
+
+  /* only the active column is shown; others stay mounted but hidden in place */
+  .vnm2__col[hidden] { display: none; }
+
+  .vnm2__mega { display: grid; gap: 4px; padding: 10px; }
+  .vnm2__mega--grid { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 560px; }
+  .vnm2__mega--list { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 440px; }
+
+  .vnm2__link {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 11px 13px;
+    border-radius: calc(var(--rr) - 3px);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid transparent;
+    transition: background 160ms ease, border-color 160ms ease;
+    /* staggered reveal — unique effect */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: vnm2-rise 420ms var(--spring, cubic-bezier(0.34, 1.4, 0.4, 1)) forwards;
+    animation-delay: calc(var(--i, 0) * var(--stagger, 40ms));
+  }
+  .vnm2__link:hover {
+    background: var(--bg-card, #0a0a0a);
+    border-color: color-mix(in srgb, var(--ui-accent, #ededed) 40%, transparent);
+  }
+  .vnm2__link-title { font-size: 14px; font-weight: 600; line-height: 1.2; color: var(--text, #ededed); }
+  .vnm2__link-desc { font-size: 12.5px; line-height: 1.35; color: var(--text-muted, #888); }
+
+  @keyframes vnm2-rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* directional transition of the mega container */
+  .vnm2__panel-wrap.vnm2-r-enter-active, .vnm2__panel-wrap.vnm2-l-enter-active { transition: transform 340ms var(--spring, ease), opacity 260ms ease; }
+  .vnm2__panel-wrap.vnm2-r-leave-active, .vnm2__panel-wrap.vnm2-l-leave-active { transition: transform 260ms var(--spring, ease), opacity 180ms ease; }
+  .vnm2__panel-wrap.vnm2-r-enter-from { transform: translateX(-50%) translateX(28px); opacity: 0; }
+  .vnm2__panel-wrap.vnm2-r-leave-to { transform: translateX(-50%) translateX(-28px); opacity: 0; }
+  .vnm2__panel-wrap.vnm2-l-enter-from { transform: translateX(-50%) translateX(-28px); opacity: 0; }
+  .vnm2__panel-wrap.vnm2-l-leave-to { transform: translateX(-50%) translateX(28px); opacity: 0; }
+
+  .vnm2.is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vnm2__link {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .vnm2__chev,
+    .vnm2__panel-wrap.vnm2-r-enter-active, .vnm2__panel-wrap.vnm2-r-leave-active,
+    .vnm2__panel-wrap.vnm2-l-enter-active, .vnm2__panel-wrap.vnm2-l-leave-active { transition-duration: 1ms; }
+    .vnm2__panel-wrap { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  }

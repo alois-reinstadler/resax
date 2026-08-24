@@ -1,0 +1,117 @@
+  :host { display: inline-flex; }
+  .avg {
+    --sz: 40px;
+    --fs: 15px;
+    --ov: 0.38;
+    display: inline-flex;
+    align-items: center;
+    isolation: isolate;
+    /* 3D depth → the avatar can "come closer" (animatable translateZ) */
+    perspective: 620px;
+    transform-style: preserve-3d;
+  }
+  .avg--xs { --sz: 24px; --fs: 10px; }
+  .avg--sm { --sz: 32px; --fs: 12px; }
+  .avg--md { --sz: 40px; --fs: 15px; }
+  .avg--lg { --sz: 56px; --fs: 20px; }
+  .avg--xl { --sz: 80px; --fs: 28px; }
+  .avg--ov-sm { --ov: 0.25; }
+  .avg--ov-md { --ov: 0.38; }
+  .avg--ov-lg { --ov: 0.52; }
+
+  .avg__item {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: var(--sz);
+    height: var(--sz);
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--bg, #000);
+    --avg-bounce: cubic-bezier(0.34, 1.8, 0.5, 1);
+    --spread-x: 0px;
+    --lift: 0px;
+    --tz: 0px;
+    --pop: 1;
+    transform: translateX(var(--spread-x)) translateY(var(--lift)) translateZ(var(--tz)) scale(var(--pop));
+    transition: transform 460ms var(--avg-bounce);
+  }
+  .avg__item + .avg__item,
+  .avg__item + .avg__more-anchor { margin-left: calc(var(--sz) * var(--ov) * -1); }
+
+  /* In this port the anchor and the +N chip are the SAME button, so this
+     display:inline-flex overrides the display:grid on .avg__item — and
+     place-items does not center along the inline axis in a flex container.
+     Center explicitly here or the +N label sits flush against the left edge. */
+  .avg__more-anchor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    --spread-x: 0px;
+    transform: translateX(var(--spread-x));
+    transition: transform 460ms cubic-bezier(0.34, 1.8, 0.5, 1);
+  }
+
+  /* ring shape so it matches the avatar — mirrors the SFC's :has(.avt--*):
+     the shape class rides the avatar FACE, the button rounds via :has(). */
+  .avg__item:has(.avt--rounded),
+  .avg__more--rounded { border-radius: 30%; }
+  .avg__more--squircle { border-radius: 26%; }
+  @supports (corner-shape: squircle) {
+    .avg__item:has(.avt--squircle),
+    .avg__more--squircle { corner-shape: squircle; }
+  }
+
+  /* hover: the group fans out and the avatar under the cursor lifts */
+  .avg--spread:hover .avg__item,
+  .avg--spread:hover .avg__more-anchor,
+  .avg--spread.avg--open .avg__item,
+  .avg--spread.avg--open .avg__more-anchor {
+    --spread-x: calc(var(--i, 0) * var(--sz) * 0.16);
+    --lift: -2px;
+  }
+  .avg__item:hover { --lift: -5px; --tz: 38px; z-index: 50 !important; }
+
+  .avg__av {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    background: var(--vs-color, var(--bg-elevated, #161616));
+    color: var(--text, #ededed);
+    font-size: calc(var(--fs) * 0.9);
+    font-weight: 600;
+  }
+  .avg__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .avg__ini { color: var(--text-secondary, #aaa); letter-spacing: -0.02em; }
+
+  /* +N overflow chip */
+  .avg__more {
+    background: var(--vs-color, var(--bg-elevated, #161616));
+    color: var(--text-secondary, #aaa);
+    /* .avg__item zeroes line-height for the <img> faces; the chip holds real
+       text, so give it a line box back. */
+    line-height: 1;
+    font-size: calc(var(--fs) * 0.82);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .avg__more:hover,
+  .avg__more.is-open {
+    color: var(--text, #ededed);
+    background: var(--bg-card, #1d1d1d);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .avg__item { transition: none; }
+    .avg__item:hover { transform: none; }
+  }

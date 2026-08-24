@@ -1,0 +1,98 @@
+  :host { display: inline-block; }
+  .stc {
+    --sz: 120px;
+    --fs: var(--ctrl-fs-md, 14px);
+    --dotsz: 20px;
+    --accent: var(--ui-accent, #ededed);
+    --ring: var(--ui-ring, 255 255 255);
+    --done-fg: var(--ui-accent-fg, #0b0b0b);
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-family: inherit;
+    color: var(--text, #ededed);
+  }
+  .stc--sm { --sz: 92px; --fs: 13px; --dotsz: 16px; }
+  .stc--lg { --sz: 148px; --fs: 15px; --dotsz: 24px; }
+  .stc--vertical { flex-direction: column; text-align: center; }
+
+  .stc__ring { position: relative; width: var(--sz); height: var(--sz); flex: none; }
+  .stc__svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .stc__track { fill: none; stroke: var(--border, #2a2a2a); stroke-width: 8; }
+  .stc__fill {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 8;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 55%, transparent));
+    transition: stroke-dashoffset 620ms cubic-bezier(0.22, 1, 0.36, 1), stroke 260ms ease;
+  }
+
+  .stc__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+  }
+  .stc__count { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .stc__count strong { font-size: calc(var(--sz) * 0.26); font-weight: 700; color: var(--text, #ededed); }
+  .stc__count span { font-size: calc(var(--sz) * 0.13); color: var(--text-muted, #8a8a8a); }
+  .stc__step { font-size: calc(var(--fs) - 3px); text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted, #8a8a8a); }
+
+  .stc__meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .stc--vertical .stc__meta { align-items: center; }
+  .stc__label { font-size: calc(var(--fs) + 2px); font-weight: 600; color: var(--text, #ededed); }
+  .stc__next { font-size: calc(var(--fs) - 1px); color: var(--text-muted, #8a8a8a); }
+  .stc__next--done { color: var(--accent); }
+
+  /* ---- back-nav marker row (family addition) ---- */
+  .stc__dots { display: flex; align-items: center; gap: 6px; margin-top: 2px; flex-wrap: wrap; }
+  .stc--vertical .stc__dots { justify-content: center; }
+  .stc__dot {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--dotsz);
+    height: var(--dotsz);
+    padding: 0;
+    border: 1.5px solid var(--border, #2a2a2a);
+    border-radius: 999px;
+    background: var(--bg-card, #141414);
+    color: var(--text-muted, #8a8a8a);
+    font: inherit;
+    font-size: calc(var(--dotsz) * 0.42);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    cursor: default;
+    transition: background-color 240ms ease, border-color 240ms ease, color 240ms ease, transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .stc__dot-ico { width: 58%; height: 58%; display: none; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+  .stc__dot-num { display: block; line-height: 1; }
+  .stc__dot.is-completed { background: var(--accent); border-color: var(--accent); color: var(--done-fg); }
+  .stc__dot.is-completed .stc__dot-ico--check { display: block; }
+  .stc__dot.is-completed .stc__dot-num { display: none; }
+  .stc__dot.is-active { border-color: var(--accent); color: var(--accent); transform: scale(1.25); box-shadow: 0 0 0 3px rgb(var(--ring) / 0.18); }
+  .stc__dot.is-error { background: var(--steps-err, #ff6369); border-color: var(--steps-err, #ff6369); color: #fff; }
+  .stc__dot.is-error .stc__dot-ico--err { display: block; }
+  .stc__dot.is-error .stc__dot-num { display: none; }
+  .stc--clickable .stc__dot.is-nav { cursor: pointer; }
+  .stc--clickable .stc__dot.is-nav:hover { filter: brightness(1.15); }
+  .stc--clickable .stc__dot.is-nav:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* tones */
+  .stc--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --done-fg: #fff; }
+  .stc--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; }
+  .stc--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; }
+  .stc.is-error { --accent: #ff6369; --ring: 255 99 105; }
+
+  .is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stc__fill { transition: stroke 260ms ease; }
+    .stc__dot { transition: none; }
+    .stc__dot.is-active { transform: none; }
+  }

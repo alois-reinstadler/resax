@@ -1,0 +1,85 @@
+  .blr-root { position: fixed; inset: 0; z-index: 1000; pointer-events: none; }
+  .blr-root.is-open { pointer-events: auto; }
+
+  .blr-ov {
+    position: absolute;
+    inset: 0;
+    background: var(--backdrop, rgba(0, 0, 0, 0.5));
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .blr-panel {
+    --blr-w: 380px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card, #111);
+    color: var(--text, #ededed);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    outline: none;
+    overflow: hidden;
+    will-change: filter, opacity, transform;
+  }
+  .blr-panel--left, .blr-panel--right { top: 0; height: 100%; width: min(var(--blr-w), calc(100vw - 48px)); }
+  .blr-panel--left { left: 0; border-right: 1px solid var(--border, #2a2a2a); }
+  .blr-panel--right { right: 0; border-left: 1px solid var(--border, #2a2a2a); }
+  .blr-panel--top, .blr-panel--bottom { left: 0; width: 100%; height: min(var(--blr-w), calc(100vh - 48px)); }
+  .blr-panel--top { top: 0; border-bottom: 1px solid var(--border, #2a2a2a); }
+  .blr-panel--bottom { bottom: 0; border-top: 1px solid var(--border, #2a2a2a); }
+
+  .blr-panel--sm { --blr-w: 300px; }
+  .blr-panel--md { --blr-w: 380px; }
+  .blr-panel--lg { --blr-w: 520px; }
+
+  .blr-panel__head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 18px 20px;
+    border-bottom: 1px solid var(--border, #2a2a2a);
+  }
+  .blr-panel__title { margin: 0; font-size: 16px; font-weight: 600; color: var(--text, #ededed); }
+  .blr-panel__x {
+    appearance: none; border: none; background: transparent;
+    color: var(--text, #ededed);
+    width: 30px; height: 30px; display: grid; place-items: center;
+    border-radius: var(--ctrl-r-sm, 8px); cursor: pointer;
+    transition: background 140ms ease;
+  }
+  .blr-panel__x svg { width: 18px; height: 18px; }
+  .blr-panel__x:hover { background: var(--bg-input, rgba(255, 255, 255, 0.06)); }
+
+  .blr-panel__body { flex: 1; padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.55; color: var(--text-secondary, #c4c4c4); }
+  .blr-panel__placeholder { margin: 0; }
+  .blr-panel__placeholder code {
+    font-family: var(--font-mono, monospace);
+    padding: 1px 6px; border-radius: 6px;
+    background: var(--bg-input, rgba(255, 255, 255, 0.06));
+    color: var(--text, #ededed);
+  }
+  .blr-panel__foot {
+    display: flex; justify-content: flex-end; gap: 10px;
+    padding: 16px 20px; border-top: 1px solid var(--border, #2a2a2a);
+  }
+
+  .blr-panel--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .blr-panel--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .blr-panel--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  /* unique effect: focus-pull. panel de-blurs + fades into sharpness with a
+     tiny directional nudge, per the side it's docked on. */
+  .blr-ov-enter-active, .blr-ov-leave-active { transition: opacity 340ms ease; }
+  .blr-ov-enter-from, .blr-ov-leave-to { opacity: 0; }
+
+  .blr-panel-t-enter-active { transition: filter 420ms ease, opacity 420ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .blr-panel-t-leave-active { transition: filter 300ms ease, opacity 300ms ease, transform 300ms ease; }
+  .blr-panel-t-enter-from, .blr-panel-t-leave-to { filter: blur(var(--blr-amt, 16px)); opacity: 0; }
+  .blr-panel-t-enter-from.blr-panel--right, .blr-panel-t-leave-to.blr-panel--right { transform: translateX(8%); }
+  .blr-panel-t-enter-from.blr-panel--left, .blr-panel-t-leave-to.blr-panel--left { transform: translateX(-8%); }
+  .blr-panel-t-enter-from.blr-panel--top, .blr-panel-t-leave-to.blr-panel--top { transform: translateY(-8%); }
+  .blr-panel-t-enter-from.blr-panel--bottom, .blr-panel-t-leave-to.blr-panel--bottom { transform: translateY(8%); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blr-ov-enter-active, .blr-ov-leave-active,
+    .blr-panel-t-enter-active, .blr-panel-t-leave-active { transition: none; }
+    .blr-panel-t-enter-from, .blr-panel-t-leave-to { filter: none; }
+  }

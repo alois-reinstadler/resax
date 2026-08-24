@@ -1,0 +1,69 @@
+  :host { display: block; }
+  .vsls {
+    --accent: var(--inp-accent, var(--ui-accent, #ededed));
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    background: var(--bg-card, #111);
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: var(--vsls-radius, 12px);
+    overflow: hidden;
+  }
+  .vsls--plain { border: none; background: transparent; border-radius: 0; }
+  .vsls--r-none { --vsls-radius: 0px; }
+  .vsls--r-subtle { --vsls-radius: 8px; }
+  .vsls--r-rounded { --vsls-radius: var(--ctrl-radius, 12px); }
+  .vsls--r-pill { --vsls-radius: 26px; }
+  @supports (corner-shape: squircle) { .vsls--r-squircle { corner-shape: squircle; --vsls-radius: 22px; } }
+
+  /* sliding highlighter */
+  .vsls-marker {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    border-left: 2px solid var(--accent);
+    opacity: 0;
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      height 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease;
+  }
+  .vsls-marker.is-on { opacity: 1; }
+
+  .vsls-row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--vsls-py, 14px) var(--vsls-px, 16px);
+    color: var(--text, #ededed);
+    cursor: pointer;
+    outline: none;
+  }
+  /* zebra: even rows tinted proportionally to --vsls-stripe */
+  .vsls-row:nth-child(even) {
+    background: rgba(255, 255, 255, calc(0.05 * var(--vsls-stripe)));
+  }
+  .vsls-row.is-selected { box-shadow: inset 2px 0 0 var(--accent); }
+  .vsls-row.is-active { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  .vsls-row:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+  .vsls-row.is-disabled { opacity: 0.5; cursor: default; pointer-events: none; }
+
+  .vsls--sm .vsls-row { --vsls-py: 10px; --vsls-px: 12px; }
+  .vsls--lg .vsls-row { --vsls-py: 18px; --vsls-px: 20px; }
+
+  .vsls-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .vsls-title { font-size: var(--vsls-fs, 14px); font-weight: 560; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vsls--sm .vsls-title { --vsls-fs: 13px; }
+  .vsls--lg .vsls-title { --vsls-fs: 15px; }
+  .vsls-subtitle { font-size: 12.5px; color: var(--text-secondary, #a1a1a1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vsls-meta { flex: none; font-size: 12px; color: var(--text-muted, #666); }
+
+  .vsls-empty { margin: 0; padding: 24px 16px; text-align: center; font-size: 13px; color: var(--text-muted, #666); }
+  .vsls.is-disabled { opacity: 0.6; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vsls-marker { transition: opacity 180ms ease; }
+  }

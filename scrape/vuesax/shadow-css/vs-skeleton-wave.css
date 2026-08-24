@@ -1,0 +1,79 @@
+  :host { display: block; }
+.skw {
+  --w: 100%;
+  --h: 14px;
+  --r: var(--ctrl-r-sm, 6px);
+  --dur: 1.4s;
+  --skw-stagger: 120ms;
+  --skw-base: var(--bg-elevated, #161616);
+  --skw-bone: var(--vs-color, var(--border, #2a2a2a));
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 240px;
+}
+
+.skw__bone {
+  display: block;
+  width: var(--w);
+  height: var(--h);
+  border-radius: var(--r);
+  background: var(--skw-bone);
+  position: relative;
+  transform-origin: center;
+}
+
+.skw__bone--line { width: var(--w); height: var(--h); }
+.skw__bone--solid { width: var(--w); height: var(--h); }
+
+.skw--s-slow   { --dur: 2.1s; }
+.skw--s-normal { --dur: 1.4s; }
+.skw--s-fast   { --dur: 0.9s; }
+
+/* ── wave: staggered wave of opacity + vertical scale ───────────── */
+@keyframes skw-wave {
+  0%, 100% { opacity: 0.55; transform: scaleY(0.85); }
+  50%      { opacity: 1;    transform: scaleY(1.05); }
+}
+.skw--a-wave .skw__bone {
+  animation: skw-wave var(--dur) ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * var(--skw-stagger));
+}
+
+/* ── shapes ──────────────────────────────────────────────────── */
+.skw--rect   { --h: 120px; --r: var(--ctrl-r-md, 10px); }
+.skw--circle .skw__bone--solid,
+.skw--avatar .skw__bone--solid {
+  --w: 48px;
+  --h: 48px;
+  --r: 999px;
+}
+.skw--rect, .skw--circle, .skw--avatar { gap: 0; }
+
+.skw--card {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+.skw__bone--avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+.skw__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skw__bone {
+    animation: none !important;
+    opacity: 0.85;
+    transform: none;
+  }
+}

@@ -1,0 +1,89 @@
+  :host { display: block; }
+  .vsicon {
+    --vsicon-col: var(--border, #2a2a2a);
+    --vsicon-hi: var(--ui-accent, #ededed);
+    --vsicon-gap: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .vsicon__line {
+    flex: 1;
+    height: 1px;
+    border: 0;
+    background: var(--vsicon-col);
+  }
+  .vsicon__line--l {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 92%);
+    mask-image: linear-gradient(to right, transparent, #000 92%);
+  }
+  .vsicon__line--r {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 92%);
+    mask-image: linear-gradient(to left, transparent, #000 92%);
+  }
+
+  .vsicon__node {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--vsicon-gap);
+    padding: 0 var(--vsicon-gap);
+    color: var(--vsicon-hi);
+  }
+  .vsicon__mark {
+    display: block;
+    animation: vsicon-spin 6s linear infinite;
+    transform-origin: center;
+  }
+  @keyframes vsicon-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .vsicon__label {
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    white-space: nowrap;
+    user-select: none;
+  }
+  .vsicon__label[hidden] { display: none; }
+
+  /* vertical */
+  .vsicon--vertical {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    min-height: 64px;
+    align-self: stretch;
+  }
+  .vsicon--vertical .vsicon__line {
+    width: 1px;
+    height: auto;
+    flex: 1;
+    align-self: center;
+  }
+  .vsicon--vertical .vsicon__line--l {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 92%);
+    mask-image: linear-gradient(to bottom, transparent, #000 92%);
+  }
+  .vsicon--vertical .vsicon__line--r {
+    -webkit-mask-image: linear-gradient(to top, transparent, #000 92%);
+    mask-image: linear-gradient(to top, transparent, #000 92%);
+  }
+  .vsicon--vertical .vsicon__node {
+    flex-direction: column;
+    padding: var(--vsicon-gap) 0;
+  }
+
+  /* tones override the node color */
+  .vsicon--t-danger { --vsicon-hi: var(--accent-danger, #e5484d); }
+  .vsicon--t-warn { --vsicon-hi: var(--accent-warn, #f5a623); }
+  .vsicon--t-success { --vsicon-hi: var(--accent-success, #30a46c); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vsicon__mark { animation: none !important; }
+  }

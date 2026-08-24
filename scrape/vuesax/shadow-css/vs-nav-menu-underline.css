@@ -1,0 +1,143 @@
+  /* max-width, not a breakpoint: the bar is shrink-to-fit, so without this it
+     keeps its widest natural size and hangs out of any box narrower than the
+     triggers laid end to end. */
+  :host { display: inline-flex; max-width: 100%; }
+  .vnu {
+    --accent: var(--ui-accent, #ededed);
+    --rr: 14px;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    font-family: inherit;
+    color: var(--text, #ededed);
+  }
+  .vnu--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .vnu--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .vnu--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  .vnu--r-subtle { --rr: 10px; }
+  .vnu--r-pill { --rr: 22px; }
+  @supports (corner-shape: squircle) { .vnu--r-squircle { --rr: 22px; } }
+
+  .vnu__list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Wrap rather than scroll: the pill and the viewport are positioned from
+       measured trigger rects, so a second row lands correctly, and every
+       trigger stays reachable without a hidden scroll gesture. */
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    gap: 2px;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: calc(var(--rr) + 4px);
+    background: var(--bg-card, #0a0a0a);
+  }
+  .vnu--ghost .vnu__list { border-color: transparent; background: transparent; }
+  .vnu__item { position: relative; z-index: 1; }
+
+  .vnu__trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 36px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: var(--rr);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--text-muted, #888);
+    background: transparent;
+    transition: color 200ms ease;
+  }
+  .vnu__trigger:hover,
+  .vnu__trigger[data-state='open'] { color: var(--text, #ededed); }
+  .vnu__trigger:focus-visible { outline: 2px solid var(--ui-accent, #ededed); outline-offset: 2px; }
+  .vnu__chev { width: 13px; height: 13px; color: var(--text-secondary, #a1a1a1); transition: transform 300ms var(--spring, ease); }
+  .vnu__chev.is-open { transform: rotate(180deg); }
+
+  /* sliding underline bar — unique effect */
+  .vnu__bar {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    height: var(--bar-h, 2px);
+    border-radius: 999px;
+    background: var(--ui-accent, #ededed);
+    box-shadow: 0 0 8px -1px var(--ui-accent, #ededed);
+    opacity: 0;
+    transform-origin: center;
+    pointer-events: none;
+    transition:
+      transform 340ms var(--spring, cubic-bezier(0.34, 1.4, 0.4, 1)),
+      width 340ms var(--spring, cubic-bezier(0.34, 1.4, 0.4, 1)),
+      opacity 180ms ease;
+  }
+  .vnu__bar.is-on { opacity: 1; }
+
+  .vnu__bridge { position: absolute; top: 100%; left: 0; width: 100%; height: 12px; z-index: 49; }
+  .vnu__bridge[hidden] { display: none; }
+
+  /* submenu panel */
+  .vnu__panel-wrap {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 50;
+    margin-top: 8px;
+    transform: translateX(-50%);
+    border-radius: var(--rr);
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-elevated, #161616);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.6);
+  }
+  .vnu__panel-wrap[hidden] { display: none; }
+  @supports (corner-shape: squircle) { .vnu--r-squircle .vnu__panel-wrap { corner-shape: squircle; } }
+
+  .vnu__panel { display: grid; gap: 2px; padding: 6px; }
+  .vnu__panel--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 440px; }
+  .vnu__panel--list { width: 280px; }
+
+  .vnu__link {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 9px 12px;
+    border-radius: calc(var(--rr) - 4px);
+    text-decoration: none;
+    color: inherit;
+    transition: background 160ms ease;
+  }
+  .vnu__link:hover { background: var(--bg-card, #0a0a0a); }
+  .vnu__link-title { font-size: 14px; font-weight: 600; line-height: 1.2; color: var(--text, #ededed); }
+  .vnu__link-desc { font-size: 12.5px; line-height: 1.35; color: var(--text-muted, #888); }
+
+  /* directional panel transition */
+  .vnu-r-enter-active, .vnu-l-enter-active { transition: transform 320ms var(--spring, ease), opacity 240ms ease; }
+  .vnu-r-leave-active, .vnu-l-leave-active { transition: transform 260ms var(--spring, ease), opacity 180ms ease; }
+  .vnu-r-enter-from { transform: translateX(-50%) translateX(24px); opacity: 0; }
+  .vnu-r-leave-to { transform: translateX(-50%) translateX(-24px); opacity: 0; }
+  .vnu-l-enter-from { transform: translateX(-50%) translateX(-24px); opacity: 0; }
+  .vnu-l-leave-to { transform: translateX(-50%) translateX(24px); opacity: 0; }
+
+  .vnu.is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vnu__bar, .vnu__chev,
+    .vnu-r-enter-active, .vnu-r-leave-active,
+    .vnu-l-enter-active, .vnu-l-leave-active { transition-duration: 1ms; }
+    .vnu__panel-wrap { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  }

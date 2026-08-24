@@ -1,0 +1,166 @@
+const y=new Set;let _=0,w=0,M=!1,k=0,P=!1,A=null;function H(){if(k=0,!!M)for(const i of y){if(!i.visible)continue;if(i.disabled()){i.lastI!==0&&(i.el.style.setProperty("--glow","0"),i.lastI=0);continue}i.rect||(i.rect=i.el.getBoundingClientRect());const e=i.rect,t=Math.max(e.left,Math.min(_,e.right)),a=Math.max(e.top,Math.min(w,e.bottom)),s=Math.max(0,1-Math.hypot(_-t,w-a)/i.radius);s===0&&i.lastI===0||(i.el.style.setProperty("--gx",`${_-e.left}px`),i.el.style.setProperty("--gy",`${w-e.top}px`),i.el.style.setProperty("--glow",s.toFixed(3)),i.lastI=s)}}function T(i){_=i.clientX,w=i.clientY,M=!0,k||(k=requestAnimationFrame(H))}function I(){for(const i of y)i.rect=null;M&&!k&&(k=requestAnimationFrame(H))}function B(i,e,t){P||(P=!0,addEventListener("pointermove",T,{passive:!0}),addEventListener("scroll",I,{passive:!0,capture:!0}),addEventListener("resize",I,{passive:!0}),A=new IntersectionObserver(r=>{for(const d of r)for(const c of y)c.el===d.target&&(c.visible=d.isIntersecting,d.isIntersecting&&(c.rect=null))}));const a={el:i,radius:e,disabled:t,rect:null,visible:!0,lastI:0};y.add(a),A.observe(i);const s=j.add(i);return()=>{y.delete(a),A.unobserve(i),s()}}const S=[{label:"Home",linear:["M9.02 2.84016L3.63 7.04016C2.73 7.74016 2 9.23016 2 10.3602V17.7702C2 20.0902 3.89 21.9902 6.21 21.9902H17.79C20.11 21.9902 22 20.0902 22 17.7802V10.5002C22 9.29016 21.19 7.74016 20.2 7.05016L14.02 2.72016C12.62 1.74016 10.37 1.79016 9.02 2.84016Z","M12 17.9902V14.9902"],bold:["M20.04 6.81969L14.28 2.78969C12.71 1.68969 10.3 1.74969 8.78999 2.91969L3.77999 6.82969C2.77999 7.60969 1.98999 9.20969 1.98999 10.4697V17.3697C1.98999 19.9197 4.05999 21.9997 6.60999 21.9997H17.39C19.94 21.9997 22.01 19.9297 22.01 17.3797V10.5997C22.01 9.24969 21.14 7.58969 20.04 6.81969ZM12.75 17.9997C12.75 18.4097 12.41 18.7497 12 18.7497C11.59 18.7497 11.25 18.4097 11.25 17.9997V14.9997C11.25 14.5897 11.59 14.2497 12 14.2497C12.41 14.2497 12.75 14.5897 12.75 14.9997V17.9997Z"]},{label:"Profile",linear:["M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z","M20.5901 22C20.5901 18.13 16.7402 15 12.0002 15C7.26015 15 3.41016 18.13 3.41016 22"],bold:["M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z","M11.9999 14.5C6.98991 14.5 2.90991 17.86 2.90991 22C2.90991 22.28 3.12991 22.5 3.40991 22.5H20.5899C20.8699 22.5 21.0899 22.28 21.0899 22C21.0899 17.86 17.0099 14.5 11.9999 14.5Z"]},{label:"Messages",linear:["M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z","M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9"],bold:["M17 3.5H7C4 3.5 2 5 2 8.5V15.5C2 19 4 20.5 7 20.5H17C20 20.5 22 19 22 15.5V8.5C22 5 20 3.5 17 3.5ZM17.47 9.59L14.34 12.09C13.68 12.62 12.84 12.88 12 12.88C11.16 12.88 10.31 12.62 9.66 12.09L6.53 9.59C6.21 9.33 6.16 8.85 6.41 8.53C6.67 8.21 7.14 8.15 7.46 8.41L10.59 10.91C11.35 11.52 12.64 11.52 13.4 10.91L16.53 8.41C16.85 8.15 17.33 8.2 17.58 8.53C17.84 8.85 17.79 9.33 17.47 9.59Z"]},{label:"Photos",linear:["M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z","M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z","M2.67004 18.9496L7.60004 15.6396C8.39004 15.1096 9.53004 15.1696 10.24 15.7796L10.57 16.0696C11.35 16.7396 12.61 16.7396 13.39 16.0696L17.55 12.4996C18.33 11.8296 19.59 11.8296 20.37 12.4996L22 13.8996"],bold:["M9.00012 10.3801C10.3146 10.3801 11.3801 9.31456 11.3801 8.00012C11.3801 6.68568 10.3146 5.62012 9.00012 5.62012C7.68568 5.62012 6.62012 6.68568 6.62012 8.00012C6.62012 9.31456 7.68568 10.3801 9.00012 10.3801Z","M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.19C2 17.28 2.19 18.23 2.56 19.03C3.42 20.93 5.26 22 7.81 22H16.19C19.83 22 22 19.83 22 16.19V7.81C22 4.17 19.83 2 16.19 2ZM20.37 12.5C19.59 11.83 18.33 11.83 17.55 12.5L13.39 16.07C12.61 16.74 11.35 16.74 10.57 16.07L10.23 15.79C9.52 15.17 8.39 15.11 7.59 15.65L3.85 18.16C3.63 17.6 3.5 16.95 3.5 16.19V7.81C3.5 4.99 4.99 3.5 7.81 3.5H16.19C19.01 3.5 20.5 4.99 20.5 7.81V12.61L20.37 12.5Z"]},{label:"Music",linear:["M6.28003 21.9998C8.00316 21.9998 9.40003 20.6029 9.40003 18.8798C9.40003 17.1566 8.00316 15.7598 6.28003 15.7598C4.55691 15.7598 3.16003 17.1566 3.16003 18.8798C3.16003 20.6029 4.55691 21.9998 6.28003 21.9998Z","M20.84 16.8003V4.60034C20.84 2.00034 19.21 1.64034 17.56 2.09034L11.32 3.79034C10.18 4.10034 9.40002 5.00034 9.40002 6.30034V8.47034V9.93034V18.8703","M17.72 19.9197C19.4431 19.9197 20.84 18.5228 20.84 16.7997C20.84 15.0766 19.4431 13.6797 17.72 13.6797C15.9968 13.6797 14.6 15.0766 14.6 16.7997C14.6 18.5228 15.9968 19.9197 17.72 19.9197Z","M9.40002 9.52039L20.84 6.40039"],bold:["M20.8901 5.17958V16.4796C20.8901 18.4596 19.2801 20.0696 17.3001 20.0696C15.3301 20.0696 13.7101 18.4596 13.7101 16.4796C13.7101 14.5096 15.3301 12.8996 17.3001 12.8996C18.1401 12.8996 18.8901 13.1896 19.5001 13.6696V7.71958L10.2901 10.3396V18.4096C10.2901 20.3896 8.67011 21.9996 6.70011 21.9996C4.72011 21.9996 3.11011 20.3896 3.11011 18.4096C3.11011 16.4396 4.72011 14.8296 6.70011 14.8296C7.53011 14.8296 8.28011 15.1196 8.89011 15.5896V6.74958C8.89011 5.27958 9.78011 4.13958 11.1901 3.75958L16.9701 2.17958C18.1401 1.85958 19.1301 1.96958 19.8301 2.50958C20.5401 3.03958 20.8901 3.93958 20.8901 5.17958Z"]},{label:"Settings",linear:["M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z","M2 12.8794V11.1194C2 10.0794 2.85 9.21945 3.9 9.21945C5.71 9.21945 6.45 7.93945 5.54 6.36945C5.02 5.46945 5.33 4.29945 6.24 3.77945L7.97 2.78945C8.76 2.31945 9.78 2.59945 10.25 3.38945L10.36 3.57945C11.26 5.14945 12.74 5.14945 13.65 3.57945L13.76 3.38945C14.23 2.59945 15.25 2.31945 16.04 2.78945L17.77 3.77945C18.68 4.29945 18.99 5.46945 18.47 6.36945C17.56 7.93945 18.3 9.21945 20.11 9.21945C21.15 9.21945 22.01 10.0694 22.01 11.1194V12.8794C22.01 13.9194 21.16 14.7794 20.11 14.7794C18.3 14.7794 17.56 16.0594 18.47 17.6294C18.99 18.5394 18.68 19.6994 17.77 20.2194L16.04 21.2094C15.25 21.6794 14.23 21.3994 13.76 20.6094L13.65 20.4194C12.75 18.8494 11.27 18.8494 10.36 20.4194L10.25 20.6094C9.78 21.3994 8.76 21.6794 7.97 21.2094L6.24 20.2194C5.33 19.6994 5.02 18.5294 5.54 17.6294C6.45 16.0594 5.71 14.7794 3.9 14.7794C2.85 14.7794 2 13.9194 2 12.8794Z"],bold:["M20.1 9.21945C18.29 9.21945 17.55 7.93945 18.45 6.36945C18.97 5.45945 18.66 4.29945 17.75 3.77945L16.02 2.78945C15.23 2.31945 14.21 2.59945 13.74 3.38945L13.63 3.57945C12.73 5.14945 11.25 5.14945 10.34 3.57945L10.23 3.38945C9.78 2.59945 8.76 2.31945 7.97 2.78945L6.24 3.77945C5.33 4.29945 5.02 5.46945 5.54 6.37945C6.45 7.93945 5.71 9.21945 3.9 9.21945C2.86 9.21945 2 10.0694 2 11.1194V12.8794C2 13.9194 2.85 14.7794 3.9 14.7794C5.71 14.7794 6.45 16.0594 5.54 17.6294C5.02 18.5394 5.33 19.6994 6.24 20.2194L7.97 21.2094C8.76 21.6794 9.78 21.3995 10.25 20.6094L10.36 20.4194C11.26 18.8494 12.74 18.8494 13.65 20.4194L13.76 20.6094C14.23 21.3995 15.25 21.6794 16.04 21.2094L17.77 20.2194C18.68 19.6994 18.99 18.5294 18.47 17.6294C17.56 16.0594 18.3 14.7794 20.11 14.7794C21.15 14.7794 22.01 13.9294 22.01 12.8794V11.1194C22 10.0794 21.15 9.21945 20.1 9.21945ZM12 15.2494C10.21 15.2494 8.75 13.7894 8.75 11.9994C8.75 10.2094 10.21 8.74945 12 8.74945C13.79 8.74945 15.25 10.2094 15.25 11.9994C15.25 13.7894 13.79 15.2494 12 15.2494Z"]}],F="http://www.w3.org/2000/svg";function Z(i,e){const t=document.createElementNS(F,"svg");t.setAttribute("viewBox","0 0 24 24"),t.setAttribute("aria-hidden","true");const a=(e?i.bold:i.linear)||[];t.setAttribute("fill",e?"currentColor":"none");for(const s of a){const r=document.createElementNS(F,"path");r.setAttribute("d",s),e||(r.setAttribute("stroke","currentColor"),r.setAttribute("stroke-width","1.5"),r.setAttribute("stroke-linecap","round"),r.setAttribute("stroke-linejoin","round")),t.appendChild(r)}return t}const j=globalThis[Symbol.for("vs-light")]||=(()=>{const i=new Set,e=110,t=1.6,a=1.7,s=34,r=72,d=[[.6,0],[.42,30],[.16,58],[0,82]],c=[[.6,0],[.27,42],[.08,66],[0,85]],u=[[.85,0],[.4,42],[.12,66],[0,84]];let o=0,v=null;const L=(p,n,h)=>{const b=n.w/2+p,g=n.h/2+p,f=n.h/2/g;return`radial-gradient(${b.toFixed(1)}px ${g.toFixed(1)}px at ${n.x.toFixed(1)}px ${n.y.toFixed(1)}px,`+h.map(([l,m])=>` rgb(${n.rgb} / ${(l*n.k).toFixed(3)}) ${((f+m/100*(1-f))*100).toFixed(1)}%`).join(",")+")"};function N(){const p=[];for(const n of document.querySelectorAll("[color],[data-lamp]")){const h=getComputedStyle(n),b=h.getPropertyValue("--vs-color-rgb").trim()||(n.hasAttribute("data-lamp")?(h.backgroundColor.match(/[\d.]+/g)||[]).slice(0,3).join(" "):"");b&&p.push({el:n,rgb:b,rect:n.getBoundingClientRect()})}return p}function z(){if(o=0,!i.size)return;const p=N();for(const n of i){if(!n.visible)continue;if(!p.length){n.on&&(n.el.style.setProperty("--lit","0"),n.on=!1);continue}const h=n.el.getBoundingClientRect(),b=h.left+h.width/2,g=h.top+h.height/2,f=[];for(const l of p){if(l.el===n.el||l.el.contains(n.el)||n.el.contains(l.el))continue;const m=Math.max(l.rect.left,Math.min(b,l.rect.right)),E=Math.max(l.rect.top,Math.min(g,l.rect.bottom)),R=Math.max(h.left,Math.min(m,h.right)),q=Math.max(h.top,Math.min(E,h.bottom)),V=Math.max(0,1-Math.hypot(m-R,E-q)/e)**t*a;V&&f.push({rgb:l.rgb,k:Math.min(1,V),w:l.rect.width,h:l.rect.height,x:l.rect.left+l.rect.width/2-h.left,y:l.rect.top+l.rect.height/2-h.top})}if(!f.length){n.on&&(n.el.style.setProperty("--lit","0"),n.on=!1);continue}f.sort((l,m)=>l.k-m.k),n.el.style.setProperty("--lit-ring",f.flatMap(l=>[L(s,l,d),L(r,l,c)]).join(",")),n.el.style.setProperty("--lit-fill",f.map(l=>L(r,l,u)).join(",")),n.el.style.setProperty("--lit","1"),n.on=!0}}const x=()=>{o||(o=requestAnimationFrame(z))};return addEventListener("scroll",x,{passive:!0,capture:!0}),addEventListener("resize",x,{passive:!0}),globalThis.vsLight=x,{add(p){v||=new IntersectionObserver(h=>{for(const b of h)for(const g of i)g.el===b.target&&(g.visible=b.isIntersecting);x()});const n={el:p,visible:!0,on:!1};return i.add(n),v.observe(p),x(),()=>{i.delete(n),v.unobserve(p)}}}})(),D=`
+  :host { display: inline-flex; max-width: 100%; }
+  .dock {
+    --box: 52px; --icon: 24px; --gap: 6px; --pad: 8px; --rr: 26px; --bleed: 34px;
+    --accent: var(--text, #ededed);
+    --ring: 255 255 255;
+    --fx-tint: 255 255 255;
+    --au-deep: #1a1a1a; --au-mid: #6f6f6f; --au-crest: #b4b4b4;
+    display: inline-flex; justify-content: center;
+    padding-top: calc(var(--box) * 0.9);
+    max-width: 100%;
+  }
+  .dock--sm { --box: 44px; --icon: 20px; --gap: 5px; --pad: 6px; --rr: 20px; --bleed: 28px; }
+  .dock--lg { --box: 60px; --icon: 28px; --gap: 8px; --pad: 10px; --rr: 30px; --bleed: 40px; }
+
+  /* ── Stage: holds the aurora layer behind + the capsule in front ── */
+  .dock__stage { position: relative; display: inline-flex; max-width: 100%; flex-wrap: wrap; justify-content: center; padding: var(--bleed); }
+
+  /* the CSS aurora — a living light behind the capsule; absolute + out of flow,
+     never eats pointer events. Two counter-rotating gradient layers fold into a
+     liquid-metal glow (the WebGL domain-warp's dependency-free stand-in). */
+  .dock__aurora {
+    position: absolute; inset: 0; z-index: 0; display: block; pointer-events: none;
+    overflow: hidden; opacity: var(--au-op, 0.9);
+    border-radius: calc(var(--rr) + var(--bleed));
+    filter: blur(18px) saturate(160%);
+    -webkit-mask: radial-gradient(78% 78% at 50% 55%, #000 38%, transparent 100%);
+    mask: radial-gradient(78% 78% at 50% 55%, #000 38%, transparent 100%);
+  }
+  .dock__aurora::before, .dock__aurora::after { content: ''; position: absolute; inset: -35%; }
+  .dock__aurora::before {
+    background:
+      radial-gradient(40% 55% at 32% 40%, var(--au-crest) 0%, transparent 60%),
+      radial-gradient(45% 60% at 68% 55%, var(--au-mid) 0%, transparent 62%),
+      radial-gradient(62% 78% at 50% 60%, var(--au-deep) 0%, transparent 74%);
+    animation: dock-aurora-a 17s linear infinite;
+  }
+  .dock__aurora::after {
+    mix-blend-mode: screen;
+    background:
+      radial-gradient(36% 50% at 60% 34%, var(--au-mid) 0%, transparent 60%),
+      radial-gradient(46% 56% at 34% 64%, var(--au-crest) 0%, transparent 64%);
+    animation: dock-aurora-b 23s linear infinite;
+  }
+  @keyframes dock-aurora-a {
+    0%   { transform: rotate(0deg)   scale(1.16) translate(0, 0); }
+    50%  { transform: rotate(180deg) scale(1.30) translate(3%, -2%); }
+    100% { transform: rotate(360deg) scale(1.16) translate(0, 0); }
+  }
+  @keyframes dock-aurora-b {
+    0%   { transform: rotate(0deg)    scale(1.22) translate(0, 0); }
+    50%  { transform: rotate(-200deg) scale(1.38) translate(-3%, 2%); }
+    100% { transform: rotate(-360deg) scale(1.22) translate(0, 0); }
+  }
+
+  /* pointer halo — a warm bump that trails the cursor over the aurora */
+  .dock__halo {
+    position: absolute; inset: 0; z-index: 0; display: block; pointer-events: none;
+    border-radius: calc(var(--rr) + var(--bleed));
+    opacity: var(--au-a, 0); transition: opacity 320ms ease; mix-blend-mode: screen;
+    background: radial-gradient(120px circle at var(--aux, 50%) var(--auy, 50%),
+      var(--au-crest) 0%, transparent 60%);
+    filter: blur(20px) saturate(160%);
+  }
+
+  /* ── The frosted glass capsule ── */
+  .dock__bar {
+    position: relative; z-index: 1; isolation: isolate;
+    display: inline-flex; align-items: flex-end;
+    flex-wrap: wrap; justify-content: center; max-width: 100%; gap: var(--gap); padding: var(--pad);
+    border: 1px solid var(--border, #262626); border-radius: var(--rr);
+    background: color-mix(in srgb, var(--bg-elevated, #141416) 68%, transparent);
+    backdrop-filter: blur(16px) saturate(165%);
+    -webkit-backdrop-filter: blur(16px) saturate(165%);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 26px 64px -24px rgba(0, 0, 0, 0.62);
+    overflow: visible;
+  }
+  .dock--r-none .dock__bar { --rr: 0px; }
+  .dock--r-subtle .dock__bar { --rr: 14px; }
+  .dock--r-rounded .dock__bar { --rr: 20px; }
+  .dock--r-pill .dock__bar { --rr: 999px; }
+  @supports (corner-shape: squircle) { .dock--r-squircle .dock__bar { corner-shape: squircle; } }
+
+  /* proximity glow — a soft feathered ring on the capsule border (fx-glow) */
+  /* neighbour light — a coloured element nearby throws ITS colour on this one.
+     Fed by the engine at the top of the file: --lit-fill / --lit-ring hold one
+     gradient per lamp in reach, --lit is the master fade so a lamp leaving
+     range dims out instead of cutting. Deliberately not on --glow: that one is
+     the cursor's and other rules read it as a 0..1 intensity. */
+  .dock__bar::before{ content:''; position:absolute; inset:0; z-index:0; border-radius:inherit; pointer-events:none;
+    background:var(--lit-fill,none); opacity:calc(var(--lit,0)*var(--lit-fill-amt,.3)); transition:opacity 140ms; }
+  .dock__bar::after{ content:''; position:absolute; inset:-1px; z-index:1; border-radius:inherit; padding:1px; pointer-events:none;
+    background:var(--lit-ring,none);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask-composite:exclude;
+    opacity:var(--lit,0); transition:opacity 140ms; }
+  .dock__glow {
+    position: absolute; inset: -1px; z-index: 1; border-radius: inherit; padding: 1px; pointer-events: none;
+    background:
+      radial-gradient(60px circle at var(--gx,50%) var(--gy,50%),
+        rgb(var(--fx-tint,255 255 255)/.6), rgb(var(--fx-tint,255 255 255)/.42) 30%, rgb(var(--fx-tint,255 255 255)/.16) 58%, rgb(var(--fx-tint,255 255 255)/0) 82%),
+      radial-gradient(200px circle at var(--gx,50%) var(--gy,50%),
+        rgb(var(--fx-tint,255 255 255)/.6), rgb(var(--fx-tint,255 255 255)/.27) 42%, rgb(var(--fx-tint,255 255 255)/.08) 66%, rgb(var(--fx-tint,255 255 255)/0) 85%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude;
+    opacity: calc(var(--glow,0) * 0.63); transition: opacity 140ms;
+  }
+  @supports (corner-shape: squircle) { .dock--r-squircle .dock__glow { corner-shape: squircle; } }
+
+  /* ── Each icon ── */
+  .dock__item {
+    position: relative; flex: 0 0 auto; display: grid; place-items: center;
+    width: var(--box); height: var(--box); padding: 0; border: 0;
+    border-radius: calc(var(--box) * 0.3);
+    background: transparent; color: var(--text-secondary, #a6a6a6); cursor: pointer;
+    transform: translate(var(--tx, 0), var(--ty, 0)) scale(var(--s, 1));
+    transform-origin: bottom center;
+    transition:
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 200ms var(--ease-out, ease),
+      color 200ms var(--ease-out, ease);
+    -webkit-tap-highlight-color: transparent;
+    font: inherit;
+  }
+  @supports (corner-shape: squircle) {
+    .dock__item { corner-shape: squircle; border-radius: calc(var(--box) * 0.42); }
+  }
+  /* tone-aware tint (was hard-coded white, so danger/warn/success hovered grey) */
+  .dock__item:hover { color: var(--text, #ededed); background: rgb(var(--ring) / 0.08); }
+  .dock__item:focus-visible { outline: none; color: var(--text, #ededed); box-shadow: 0 0 0 2px rgb(var(--ring) / 0.75); }
+  .dock__item:active { background: rgb(var(--ring) / 0.14); }
+  .dock__item.is-active { color: var(--accent); }
+
+  .dock__ico { display: grid; place-items: center; width: var(--icon); height: var(--icon); }
+  .dock__ico svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.28)); }
+
+  /* running-app dot under the active icon */
+  .dock__dot {
+    position: absolute; bottom: calc(var(--pad) * -0.5 - 2px); left: 50%;
+    width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+    translate: -50% 0; scale: 0; opacity: 0;
+    transition: scale 260ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)), opacity 200ms ease;
+  }
+  .dock__item.is-active .dock__dot { scale: 1; opacity: 1; }
+
+  /* ── Tones — recolor accent + glow + aurora palette ── */
+  .dock--t-danger  { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --fx-tint: 255 99 105; --au-deep: #461521; --au-mid: #e14b57; --au-crest: #f6aab2; }
+  .dock--t-warn    { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; --fx-tint: 255 178 36; --au-deep: #4a3410; --au-mid: #e6a21e; --au-crest: #f7d79a; }
+  .dock--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --fx-tint: 76 195 138; --au-deep: #123b2a; --au-mid: #3ea97a; --au-crest: #a9e7c9; }
+
+  /* light theme — lift the aurora toward a soft pastel wash */
+  :host-context([data-theme='light']) .dock__aurora { opacity: 0.72; filter: blur(18px) saturate(120%) brightness(1.28); }
+
+  /* ── Disabled ── */
+  .dock.is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dock__aurora::before, .dock__aurora::after { animation: none; }
+    .dock__halo { transition: none; }
+    .dock__item { transition: color 160ms ease, background-color 160ms ease; transform: none !important; }
+    .dock__dot { transition: none; }
+  }
+`,O=.5,G=.3,W=.14;let C;function X(i){if(C||=document.createElement("canvas").getContext("2d"),!C)return null;C.fillStyle="#000",C.fillStyle=i;const e=C.fillStyle;if(e.charAt(0)==="#")return[parseInt(e.slice(1,3),16),parseInt(e.slice(3,5),16),parseInt(e.slice(5,7),16)];const t=e.match(/[\d.]+/g);return t&&t.length>=3?[+t[0],+t[1],+t[2]]:null}const K=["--ui-accent","--inp-accent","--btn-primary-bg","--card-ink","--ui-ring","--inp-ring","--fx-tint","--ring","--rip","--ui-accent-fg","--badge-solid-fg","--btn-primary-fg","--accent-fg","--btn-primary-rip","--btn-primary-glow","--btn-primary-bg-hover","--vs-color","--vs-color-rgb","--vs-color-fg"];function $(i,e){const t=e?X(String(e).trim()):null;if(!t){for(const o of K)i.style.removeProperty(o);return}const a=o=>(o/=255,o<=.03928?o/12.92:((o+.055)/1.055)**2.4),r=.2126*a(t[0])+.7152*a(t[1])+.0722*a(t[2])>.45,d=`rgb(${t[0]} ${t[1]} ${t[2]})`,c=t.map(o=>Math.round(r?o*.92:o+(255-o)*.16)),u=(o,v)=>i.style.setProperty(o,v);for(const o of["--ui-accent","--inp-accent","--btn-primary-bg","--card-ink"])u(o,d);u("--btn-primary-bg-hover",`rgb(${c[0]} ${c[1]} ${c[2]})`);for(const o of["--ui-ring","--inp-ring","--fx-tint","--ring","--rip"])u(o,t.join(" "));for(const o of["--ui-accent-fg","--badge-solid-fg","--btn-primary-fg","--accent-fg"])u(o,r?"#0b0b0b":"#ffffff");for(const o of["--btn-primary-rip","--btn-primary-glow"])u(o,r?"0 0 0":"255 255 255");u("--vs-color",d),u("--vs-color-rgb",t.join(" ")),u("--vs-color-fg",r?"#0b0b0b":"#ffffff")}class U extends HTMLElement{static observedAttributes=["active","size","radius","tone","magnify","tooltips","disabled","color"];#a;#n;#o;#i;#t;#s;#l=null;#e=[];#c=0;#v;#x=62;#C=0;#d=!1;#r=0;#u=null;#h;#p;#b;#f;constructor(){super();const e=this.attachShadow({mode:"open"}),t=document.createElement("style");t.textContent=D,this.#a=document.createElement("nav"),this.#a.setAttribute("aria-label","Dock"),this.#n=document.createElement("div"),this.#n.className="dock__stage",this.#o=document.createElement("span"),this.#o.className="dock__aurora",this.#o.setAttribute("aria-hidden","true"),this.#i=document.createElement("span"),this.#i.className="dock__halo",this.#i.setAttribute("aria-hidden","true"),this.#t=document.createElement("div"),this.#t.className="dock__bar",this.#t.setAttribute("role","toolbar"),this.#t.setAttribute("aria-label","Dock"),this.#s=document.createElement("span"),this.#s.className="dock__glow",this.#s.setAttribute("aria-hidden","true"),this.#t.appendChild(this.#s),this.#n.append(this.#o,this.#i,this.#t),this.#a.appendChild(this.#n),e.append(t,this.#a),this.#h=a=>{this.#u=a,this.#d=!0,this.#r||(this.#r=requestAnimationFrame(()=>{this.#r=0,this.#S()}))},this.#p=()=>{this.#d=!1,this.#u=null,this.#r&&(cancelAnimationFrame(this.#r),this.#r=0),this.#M(),this.#i.style.setProperty("--au-a","0")},this.#b=()=>this.#A(),this.#f=a=>{const s={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},r=this.#e.length;if(!r||this.hasAttribute("disabled"))return;const d=this.#e.findIndex(u=>u.btn===e.activeElement);if(d<0)return;let c=-1;a.key in s?c=(d+s[a.key]+r)%r:a.key==="Home"?c=0:a.key==="End"&&(c=r-1),!(c<0)&&(a.preventDefault(),this.#e.forEach((u,o)=>{u.btn.tabIndex=o===c?0:-1}),this.#e[c].btn.focus())},this.#t.addEventListener("pointermove",this.#h,{passive:!0}),this.#t.addEventListener("pointerleave",this.#p,{passive:!0}),this.#t.addEventListener("keydown",this.#f)}connectedCallback(){$(this,this.getAttribute("color")),this.#_(),this.#w(),this.#v=B(this.#t,280,()=>this.hasAttribute("disabled")),addEventListener("resize",this.#b,{passive:!0})}disconnectedCallback(){this.#v?.(),this.#t.removeEventListener("pointermove",this.#h),this.#t.removeEventListener("pointerleave",this.#p),this.#t.removeEventListener("keydown",this.#f),removeEventListener("resize",this.#b),this.#r&&cancelAnimationFrame(this.#r),this.#r=0}attributeChangedCallback(e){$(this,this.getAttribute("color")),this.#a&&(this.#_(),e==="active"?this.#L(this.#m(this.#y("active",0))):e==="tooltips"&&this.#P())}set items(e){this.#l=Array.isArray(e)&&e.length?e:null,this.#a&&this.#w()}get items(){return this.#l??S}#g(){return this.#l??S}#y(e,t){const a=parseInt(this.getAttribute(e)??"",10);return Number.isFinite(a)?a:t}#m(e){const t=this.#g().length;return Math.max(0,Math.min(t-1,e|0))}#E(){return this.hasAttribute("magnify")&&!this.hasAttribute("disabled")}#k(){return this.hasAttribute("tooltips")&&!this.hasAttribute("disabled")}#V(){return typeof window<"u"&&window.matchMedia("(prefers-reduced-motion: reduce)").matches}#_(){const e=(a,s)=>this.getAttribute(a)??s,t=this.hasAttribute("disabled");this.#a.className=`dock dock--${e("size","md")} dock--r-${e("radius","squircle")} dock--t-${e("tone","default")}${t?" is-disabled":""}`}#w(){const e=this.#g();this.#c=this.#m(this.#y("active",0));for(const t of this.#e)t.btn.remove();this.#e=[],e.forEach((t,a)=>{const s=a===this.#c,r=document.createElement("button");r.type="button",r.className="dock__item"+(s?" is-active":""),r.setAttribute("aria-label",t.label),s&&r.setAttribute("aria-current","page"),r.tabIndex=s?0:-1,this.hasAttribute("disabled")&&(r.disabled=!0),this.#k()&&(r.title=t.label),r.style.setProperty("--s","1"),r.style.setProperty("--ty","0px"),r.style.setProperty("--tx","0px");const d=document.createElement("span");d.className="dock__ico",d.appendChild(Z(t,s));const c=document.createElement("span");c.className="dock__dot",c.setAttribute("aria-hidden","true"),r.append(d,c),r.addEventListener("click",()=>this.#I(a)),this.#t.appendChild(r),this.#e.push({btn:r,ico:d,item:t,index:a,active:s})}),this.#A()}#L(e){if(!(e===this.#c&&this.#e.every(t=>t.active===(t.index===e)))){this.#c=e;for(const t of this.#e){const a=t.index===e;t.active!==a&&(t.active=a,t.btn.classList.toggle("is-active",a),a?t.btn.setAttribute("aria-current","page"):t.btn.removeAttribute("aria-current"),t.ico.replaceChildren(Z(t.item,a)))}for(const t of this.#e)t.btn.tabIndex=t.index===e?0:-1}}#P(){const e=this.#k();for(const t of this.#e)e?t.btn.title=t.item.label:t.btn.removeAttribute("title")}#I(e){if(this.hasAttribute("disabled"))return;const t=this.#m(e);this.#L(t),this.dispatchEvent(new CustomEvent("select",{bubbles:!0,composed:!0,detail:{item:this.#g()[t],index:t}}))}#A(){const e=this.#e[0]?.btn;this.#x=(e?.offsetWidth||52)*1.15}#S(){const e=this.#u;if(!e)return;const t=this.#n.getBoundingClientRect();if(this.#i.style.setProperty("--aux",`${e.clientX-t.left}px`),this.#i.style.setProperty("--auy",`${e.clientY-t.top}px`),this.#i.style.setProperty("--au-a","1"),!this.#d||!this.#E()||this.#V()){this.#M();return}this.#C=e.clientX;const a=this.#t.getBoundingClientRect().left,s=this.#x;for(const{btn:r}of this.#e){const d=a+r.offsetLeft+r.offsetWidth/2,c=this.#C-d,u=Math.exp(-(c*c)/(2*s*s));r.style.setProperty("--s",(1+O*u).toFixed(3)),r.style.setProperty("--ty",(-(G*r.offsetWidth)*u).toFixed(2)+"px"),r.style.setProperty("--tx",(-Math.sign(c)*W*r.offsetWidth*u).toFixed(2)+"px")}}#M(){for(const{btn:e}of this.#e)e.style.setProperty("--s","1"),e.style.setProperty("--ty","0px"),e.style.setProperty("--tx","0px")}}customElements.define("vs-dock-aurora",U);

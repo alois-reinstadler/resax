@@ -1,0 +1,253 @@
+  :host {
+    display: inline-flex;
+    /* shrink-to-fit host: without this it insists on ticks + gap + the full card
+       width and hangs the card's right corner out of a narrow column */
+    max-width: 100%;
+    /* metrics only — the tick geometry and the card share one scale */
+    --tick-h: 3px;
+    --gap: 18px;
+    --w-min: 10px;
+    --w-max: 27px;
+    --card-w: 252px;
+    --card-offset: 18px;
+    --fs: 13px;
+    --fs-2: 12px;
+    --fs-idx: 10px;
+    --pad: 14px;
+    --r: 15px;
+    --body-min: 32px;
+    /* accent as an rgb triple so the hot tick can tint its own glow; the tones
+       below swap it. Kept separate from --accent (a hex token) on purpose. */
+    --tr-hot: var(--ui-ring, 255 255 255);
+    --tr-card: var(--bg-elevated, #111111);
+    --tr-card-tint: color-mix(in srgb, var(--bg-elevated, #111111) 88%, transparent);
+    --tr-border: var(--border, #1f1f1f);
+    --tr-shadow-rgb: 0 0 0;
+    --tr-shadow-a: 0.34;
+    --tr-lite: 0;
+    --rip: 255 255 255;
+  }
+  :host([size='sm']) {
+    --tick-h: 2px; --gap: 14px; --w-min: 8px; --w-max: 21px;
+    --card-w: 216px; --card-offset: 14px;
+    --fs: 12px; --fs-2: 11px; --pad: 12px; --r: 13px; --body-min: 28px;
+  }
+  :host([size='lg']) {
+    --tick-h: 4px; --gap: 24px; --w-min: 13px; --w-max: 35px;
+    --card-w: 292px; --card-offset: 22px;
+    --fs: 15px; --fs-2: 13px; --pad: 17px; --r: 18px; --body-min: 36px;
+  }
+
+  /* block: the rail is edge furniture, so it pins to the side of its container
+     instead of sitting centred. The :not() is load-bearing — the playground
+     turns a flag off by writing the string "false", not by removing it. */
+  :host([block]:not([block='false'])) { display: flex; width: 100%; }
+  :host([block]:not([block='false'])) .rail { margin-right: auto; }
+  :host([block]:not([block='false'])[side='left']) .rail {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  :host([tone='danger'])  { --tr-hot: 255 99 105; }
+  :host([tone='warn'])    { --tr-hot: 245 176 66; }
+  :host([tone='success']) { --tr-hot: 46 196 122; }
+
+  /* light theme: the card goes to the page surface and the shadow gets short
+     and soft, the way an elevated surface behaves on white. */
+  :host-context([data-theme='light']) {
+    --tr-card: #ffffff;
+    --tr-card-tint: color-mix(in srgb, #ffffff 90%, transparent);
+    --tr-border: var(--border, #e4e4e4);
+    --tr-shadow-rgb: 17 24 39;
+    --tr-shadow-a: 0.14;
+    --tr-lite: 1;
+    --rip: 20 20 20;
+  }
+
+  .rail {
+    position: relative;
+    display: grid;
+    /* the track column is the HOT width, not the resting one: a magnified tick
+       must never slide under the card, and the card must not shift when the
+       magnify knob moves. JS writes --hot-w. */
+    /* --card-w is the card's DESIGN width, not a floor: as a bare track it also
+       becomes the rail's minimum and the card gets sliced by the container edge.
+       minmax(0, …) keeps the design width wherever it fits and gives it up first
+       when it does not — the tick column is fixed and never yields. */
+    grid-template-columns: var(--hot-w, auto) minmax(0, var(--card-w));
+    column-gap: var(--card-offset);
+    align-items: start;
+    box-sizing: border-box;
+    font-family: inherit;
+    /* the card and the hot ticks travel past their own column — clipping any of
+       it kills the lag, which is the effect */
+    overflow: visible;
+    -webkit-tap-highlight-color: transparent;
+    /* JS owns every transform; stay invisible until the first measurement */
+    opacity: 0;
+    transition: opacity 160ms linear;
+  }
+  .rail--ready { opacity: 1; }
+  :host([side='left']) .rail { grid-template-columns: minmax(0, var(--card-w)) var(--hot-w, auto); }
+  :host([disabled]) .rail { opacity: 0.45; pointer-events: none; }
+
+  .rail__track {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: var(--gap);
+    grid-column: 1;
+  }
+  :host([side='left']) .rail__track { grid-column: 2; align-items: flex-end; }
+
+  /* the button IS the tick: 4px tall, so the hit area is widened by a
+     pseudo-element instead of by layout (which would change the row pitch) */
+  .rail__tick {
+    position: relative;
+    flex: 0 0 auto;
+    height: var(--tick-h);
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text, #ededed);
+    cursor: pointer;
+    transform-origin: left center;
+    will-change: transform, opacity, filter;
+  }
+  :host([side='left']) .rail__tick { transform-origin: right center; }
+  .rail__tick::after {
+    content: '';
+    position: absolute;
+    inset: calc(var(--gap) / -2 - 1px) -6px;
+  }
+  .rail__tick:focus { outline: none; }
+  .rail__tick:focus-visible .rail__bar {
+    box-shadow: 0 0 0 2px var(--ui-accent, #ededed), 0 0 0 4px rgb(var(--tr-hot) / 0.22);
+  }
+
+  .rail__bar {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: currentColor;
+  }
+  /* the hot layer only fades its own opacity, so a per-frame colour ramp costs
+     nothing — no background recompute, no paint of a new gradient */
+  .rail__bar--hot {
+    background: rgb(var(--tr-hot));
+    box-shadow: 0 0 10px rgb(var(--tr-hot) / 0.55);
+    opacity: 0;
+  }
+
+  /* The card is out of flow, so the track above only reserves its space — the
+     card has to follow that column down on its own. Anchored to the rail edge
+     (identical to the old left: calc(100% - --card-w) while it fits) and capped
+     by what the ticks and their gap leave behind, so it never crosses the track
+     and never sticks out of the box. */
+  .rail__card {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: min(var(--card-w), 100% - var(--hot-w, 0px) - var(--card-offset));
+    border-radius: var(--r);
+    will-change: transform, filter;
+  }
+  :host([side='left']) .rail__card { left: 0; right: auto; }
+
+  .rail__bg {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--tr-card-tint);
+    border: 1px solid var(--tr-border);
+    backdrop-filter: blur(10px) saturate(1.4);
+    -webkit-backdrop-filter: blur(10px) saturate(1.4);
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / calc(0.05 * (1 - var(--tr-lite, 0)))) inset,
+      0 10px 30px rgb(var(--tr-shadow-rgb) / calc(var(--tr-shadow-a) * (0.55 + 0.45 * var(--e, 0))));
+  }
+
+  .rail__inner {
+    position: relative;
+    z-index: 2;
+    padding: var(--pad);
+    will-change: transform;
+  }
+  /* Height is a SPRING, written by JS from the incoming layer's own content —
+     so a two-line and a four-line item both fit and the card grows into it.
+     min-height is only the floor for a one-line item. */
+  .rail__body {
+    position: relative;
+    min-height: var(--body-min);
+    will-change: height;
+  }
+
+  /* two stacked layers so the label HANDS OVER instead of cross-fading: the
+     outgoing one blurs down and out fast, then a dead window, then the incoming
+     one lands. Delays live in CSS; the class flip is the only JS involved. */
+  /* top/left/right but NO bottom: the layer is as tall as its own text, which
+     is exactly what the height spring measures. */
+  .rail__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translate3d(0, -7px, 0) scale(0.985);
+    filter: blur(7px);
+    transition:
+      opacity 170ms linear,
+      transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 200ms linear;
+    pointer-events: none;
+  }
+  .rail__layer.is-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition-delay: 90ms;
+  }
+  .rail__layer.is-out {
+    opacity: 0;
+    transform: translate3d(0, 7px, 0) scale(0.99);
+    filter: blur(6px);
+    transition-duration: 120ms, 200ms, 120ms;
+    transition-delay: 0ms;
+  }
+
+  .rail__idx {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-muted, #666666);
+    font-size: var(--fs-idx);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+  }
+  .rail__title {
+    display: block;
+    color: var(--text, #ededed);
+    font-size: var(--fs);
+    font-weight: 560;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  /* No line clamp: the card is sized from the text, not the text from the card. */
+  .rail__text {
+    display: block;
+    margin-top: 4px;
+    color: var(--text-secondary, #a1a1a1);
+    font-size: var(--fs-2);
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+  .rail__text:empty { display: none; }
+
+  ${L}
+  .fx-ripples { z-index: 1; border-radius: inherit; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rail, .rail__layer { transition: none; }
+    .rail__layer.is-in { transition-delay: 0ms; }
+  }

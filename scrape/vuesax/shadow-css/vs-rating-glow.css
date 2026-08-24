@@ -1,0 +1,103 @@
+  :host { display: inline-flex; }
+  .vrg {
+    --sz: 24px;
+    --gap: 6px;
+    --fs: var(--ctrl-fs-sm, 13px);
+    --neon: var(--ui-accent, #ededed);
+    --muted: var(--text-muted, #8a8a8a);
+    --glow: 9px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: inherit;
+    user-select: none;
+    outline: none;
+  }
+  .vrg:focus-visible { outline: 2px solid var(--neon); outline-offset: 3px; border-radius: 6px; }
+  .vrg__row { display: inline-flex; align-items: center; gap: var(--gap); }
+
+  .vrg--sm { --sz: 18px; --gap: 5px; --fs: var(--ctrl-fs-xs, 12px); }
+  .vrg--lg { --sz: 32px; --gap: 8px; --fs: var(--ctrl-fs-md, 15px); }
+
+  .vrg--i-low { --glow: 4px; }
+  .vrg--i-high { --glow: 9px; }
+
+  .vrg__item {
+    position: relative;
+    display: inline-flex;
+    width: var(--sz);
+    height: var(--sz);
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .vrg__item:disabled { cursor: default; }
+  .vrg.is-readonly .vrg__item { cursor: default; }
+  .vrg__item:hover:not(:disabled) { transform: scale(1.08); }
+
+  .vrg__svg { width: 100%; height: 100%; overflow: visible; }
+  .vrg__bg {
+    fill: transparent;
+    stroke: var(--muted);
+    stroke-width: 1.1;
+    opacity: 0.5;
+  }
+  .vrg__fg {
+    fill: var(--neon);
+    clip-path: inset(0 calc((1 - var(--fill)) * 100%) 0 0);
+    transition: clip-path 200ms cubic-bezier(0.22, 1, 0.36, 1), filter 220ms ease;
+    filter: none;
+  }
+  /* pulsing glow on the lit stars.
+     Perf: the filter is not animated per frame. The min state stays static on .vrg__fg;
+     the max is baked into .vrg__halo (twin path under the fg, same clip) and only
+     its opacity is animated (compositable). */
+  .vrg__item.is-lit .vrg__fg {
+    filter: drop-shadow(0 0 var(--glow) var(--neon)) drop-shadow(0 0 calc(var(--glow) * 2) var(--neon));
+  }
+  .vrg__halo {
+    fill: var(--neon);
+    clip-path: inset(0 calc((1 - var(--fill)) * 100%) 0 0);
+    filter: drop-shadow(0 0 calc(var(--glow) * 1.6) var(--neon)) drop-shadow(0 0 calc(var(--glow) * 3) var(--neon));
+    opacity: 0;
+    pointer-events: none;
+  }
+  .vrg__item.is-lit .vrg__halo { animation: vrg-pulse 2.4s ease-in-out infinite; }
+  @keyframes vrg-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  /* neon flash on select */
+  .vrg__item.is-flash { animation: vrg-flash 520ms ease-out; }
+  @keyframes vrg-flash {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.32); }
+    100% { transform: scale(1); }
+  }
+
+  .vrg__value {
+    font-size: var(--fs);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--neon);
+    text-shadow: 0 0 8px color-mix(in srgb, var(--neon) 60%, transparent);
+    min-width: 1.6em;
+  }
+
+  .vrg--t-danger { --neon: #ff6369; }
+  .vrg--t-warn { --neon: #ffb224; }
+  .vrg--t-success { --neon: #4cc38a; }
+
+  .vrg.is-disabled { opacity: 0.5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vrg__item, .vrg__fg { transition: none; }
+    .vrg__item:hover:not(:disabled) { transform: none; }
+    .vrg__item.is-lit .vrg__fg { animation: none; }
+    .vrg__item.is-lit .vrg__halo { animation: none; opacity: 0; }
+    .vrg__item.is-flash { animation: none; }
+  }

@@ -1,0 +1,89 @@
+  :host { display: inline-flex; }
+  .vstg-wrap {
+    position: relative;
+    display: inline-flex;
+  }
+  .vstg-trigger {
+    display: inline-flex;
+    align-items: center;
+    outline: none;
+    border-radius: var(--ctrl-r-sm, 8px);
+    color: var(--text, #ededed);
+    cursor: default;
+  }
+  .vstg-trigger:focus-visible {
+    box-shadow: 0 0 0 2px var(--ui-accent, #ededed);
+  }
+
+  .vstg-tip {
+    --vstg-glow: var(--ui-accent, #ededed);
+    position: absolute;
+    z-index: 10000;
+    display: inline-flex;
+    align-items: center;
+    max-width: 240px;
+    padding: 7px 11px;
+    border-radius: var(--ctrl-r-md, 10px);
+    border: 1px solid color-mix(in srgb, var(--vstg-glow) 45%, var(--border, #2a2a2a));
+    background: var(--bg-elevated, #161616);
+    color: var(--text, #ededed);
+    font-size: var(--ctrl-fs-sm, 12.5px);
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: normal;
+    pointer-events: none;
+    /* GLOW: fade in while an accent aura flares then settles */
+    /* Perf: the shadow is never transitioned nor animated per frame. The settled
+       state is static on .is-open; the flare peak is baked into ::before and only
+       its opacity (compositable) animates, with the same timing. */
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .vstg-tip[hidden] { display: none; }
+  .vstg-tip::before {
+    content: '';
+    position: absolute;
+    inset: -1px; /* starts at the border-box, like the original shadow */
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+      0 0 0 3px color-mix(in srgb, var(--vstg-glow) 45%, transparent),
+      0 0 28px 2px color-mix(in srgb, var(--vstg-glow) 70%, transparent);
+    opacity: 0;
+  }
+  .vstg-tip.is-open {
+    opacity: 1;
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--vstg-glow) 30%, transparent),
+      0 0 16px -2px color-mix(in srgb, var(--vstg-glow) 55%, transparent);
+  }
+  .vstg-tip.is-open::before {
+    animation: vstg-flare 620ms ease-out;
+  }
+  @keyframes vstg-flare {
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .vstg-tip__content :where(b, strong) { font-weight: 700; }
+
+  .vstg-tip__arrow {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: var(--bg-elevated, #161616);
+    border: 1px solid color-mix(in srgb, var(--vstg-glow) 45%, var(--border, #2a2a2a));
+    border-right: none;
+    border-bottom: none;
+  }
+  .vstg-tip--top .vstg-tip__arrow { bottom: -5px; left: 50%; transform: translateX(-50%) rotate(225deg); }
+  .vstg-tip--bottom .vstg-tip__arrow { top: -5px; left: 50%; transform: translateX(-50%) rotate(45deg); }
+  .vstg-tip--left .vstg-tip__arrow { right: -5px; top: 50%; transform: translateY(-50%) rotate(135deg); }
+  .vstg-tip--right .vstg-tip__arrow { left: -5px; top: 50%; transform: translateY(-50%) rotate(315deg); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vstg-tip { transition: opacity 120ms ease; }
+    .vstg-tip.is-open { animation: none; }
+    .vstg-tip.is-open::before { animation: none; opacity: 0; }
+  }

@@ -1,0 +1,141 @@
+  :host {
+    display: inline-block;
+    width: min(100%, 360px);
+    max-width: var(--sc-max-w, 420px);
+    box-sizing: border-box;
+  }
+  :host([block]) { display: block; width: 100%; }
+  :host([hidden]) { display: none; }
+
+  .sc {
+    --h: var(--sc-h, 64px);
+    --pad: 6px;
+    --r: 999px;
+    --tint: var(--vs-color-rgb, 31 116 255);
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--h);
+    padding: var(--pad);
+    border: 1px solid var(--sc-border, rgb(var(--tint) / 0.12));
+    border-radius: var(--r);
+    background: var(--sc-track, color-mix(in srgb, rgb(var(--tint)) 5%, var(--bg-card, #101013)));
+    box-sizing: border-box;
+    overflow: hidden;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: inherit;
+  }
+  .sc--sm { --sc-h: 52px; --pad: 5px; }
+  .sc--lg { --sc-h: 74px; --pad: 7px; }
+
+  .sc--r-none    { --r: 0; }
+  .sc--r-subtle  { --r: 10px; }
+  .sc--r-rounded { --r: 18px; }
+  .sc--r-pill    { --r: 999px; }
+  .sc--r-squircle { --r: 26px; }
+  @supports (corner-shape: squircle) {
+    .sc--r-squircle { corner-shape: squircle; --r: 34px; }
+  }
+
+  /* The trail the knob leaves behind: it is the progress bar, so it is drawn
+     from the same number that positions the knob. */
+  .sc__fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transform-origin: left center;
+    transform: scaleX(var(--p, 0));
+    background: var(--sc-fill,
+      linear-gradient(90deg,
+        rgb(var(--tint) / 0.06) 0%,
+        rgb(var(--tint) / 0.18) 48%,
+        rgb(var(--tint) / 0.5) 100%));
+    pointer-events: none;
+  }
+  .sc--done .sc__fill {
+    background: var(--sc-fill-done,
+      linear-gradient(90deg, rgb(var(--tint) / 0.18), rgb(var(--tint) / 0.48)));
+  }
+
+  .sc__label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--sc-label, var(--text-muted, #8b8b93));
+    pointer-events: none;
+    /* Fades out as the knob covers it: a label the knob is sitting on top of
+       is noise, and at the end the confirm label takes the whole track. */
+    opacity: calc(1 - var(--p, 0) * 1.35);
+    transition: color var(--dur-fast, 160ms) var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .sc__label--done {
+    opacity: calc(var(--p, 0) * 1.2 - 0.2);
+    color: var(--text, #f4f4f5);
+    font-weight: 600;
+  }
+  .sc.is-dragging .sc__label { color: var(--text, #f4f4f5); }
+
+  .sc__knob {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: calc(var(--h) - var(--pad) * 2);
+    height: calc(var(--h) - var(--pad) * 2);
+    padding: 0;
+    border: 0;
+    border-radius: calc(var(--r) - var(--pad));
+    background: var(--sc-knob, var(--bg-card, #0f0f12));
+    color: var(--text, #f4f4f5);
+    box-shadow:
+      -14px 0 26px -18px rgb(var(--tint) / 0.9),
+      0 8px 22px -10px rgba(0, 0, 0, 0.7),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.055);
+    cursor: grab;
+    touch-action: none;
+    transform: translateX(var(--x, 0px)) scaleX(var(--sx, 1)) scaleY(var(--sy, 1));
+    font: inherit;
+  }
+  @supports (corner-shape: squircle) {
+    .sc--r-squircle .sc__knob, .sc--r-pill .sc__knob { corner-shape: squircle; }
+  }
+  .sc__knob:active { cursor: grabbing; }
+  .sc.is-dragging .sc__knob {
+    box-shadow:
+      -22px 0 34px -18px rgb(var(--tint) / 0.95),
+      0 10px 28px -12px rgba(0, 0, 0, 0.78),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+  .sc__knob:focus-visible {
+    outline: 2px solid rgb(var(--tint) / 0.9);
+    outline-offset: 2px;
+  }
+  .sc__knob svg { width: 22px; height: 22px; display: block; }
+  .sc__knob .sc__tick { position: absolute; opacity: 0; transform: scale(0.7); }
+  .sc--done .sc__knob .sc__tick { opacity: 1; transform: scale(1); }
+  .sc--done .sc__knob .sc__arrow { opacity: 0; transform: scale(0.7); }
+  .sc__arrow, .sc__tick {
+    transition:
+      opacity var(--dur-fast, 160ms) var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+      transform var(--dur, 220ms) var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  /* Tones recolour the trail, the ring and the glow together. */
+  .sc--t-success { --tint: 52 199 123; }
+  .sc--t-danger  { --tint: 255 99 105; }
+  .sc--t-warn    { --tint: 245 176 65; }
+
+  .sc.is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sc__label, .sc__arrow, .sc__tick { transition: none; }
+  }

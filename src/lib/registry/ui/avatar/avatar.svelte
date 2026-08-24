@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface AvatarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children' | 'color'> {
 		src?: string;
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 	import { getContext, onDestroy } from 'svelte';
-	import { styleColor } from '../../lib/color';
+	import { styleColor } from '$lib/registry/lib/color';
 	import { AVATAR_GROUP, type AvatarGroupContext } from './context';
 	import { avatarVariants } from './index';
 

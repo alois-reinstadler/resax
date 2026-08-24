@@ -1,9 +1,10 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface SelectProps {
 		value?: string | string[]; multiple?: boolean; filter?: boolean; chips?: boolean;
 		label?: string; placeholder?: string; color?: RxColor; size?: 'lg' | 'default' | 'sm';
+		variant?: 'default' | 'floating' | 'pill' | 'search' | 'slide' | 'underline';
 		state?: 'default' | 'success' | 'danger' | 'warn'; message?: string | Snippet;
 		disabled?: boolean; loading?: boolean; children: Snippet;
 		onValueChange?: (value: string | string[]) => void;
@@ -13,11 +14,11 @@
 <script lang="ts">
 	import { Combobox, Select as BitsSelect } from 'bits-ui';
 	import { Chip } from '../chip';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE, rxSlideUp } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE, rxSlideUp } from '$lib/registry/lib/easing';
 	import { setSelectContext } from './context';
 	let { value = $bindable(''), multiple = false, filter = false, chips = false, label, placeholder = 'Select an option',
-		color, size = 'default', state: validationState = 'default', message, disabled = false, loading = false,
+		color, size = 'default', variant = 'default', state: validationState = 'default', message, disabled = false, loading = false,
 		children, onValueChange }: SelectProps = $props();
 	let open = $state(false);
 	let query = $state('');
@@ -31,7 +32,7 @@
 	setSelectContext({ filter: () => filter, query: () => query, remove });
 </script>
 
-<div class="rx-select rx-select--{size}" class:rx-select--open={open} class:rx-select--floated={open || hasValue || (filter && query.length > 0)} class:rx-select--chips={multiple && chips} class:rx-select--loading={loading} style={inlineStyle}>
+<div class="rx-select rx-select--{size} rx-select--{variant}" class:rx-select--open={open} class:rx-select--floated={open || hasValue || (filter && query.length > 0)} class:rx-select--chips={multiple && chips} class:rx-select--loading={loading} style={inlineStyle}>
 	{#if filter}
 		{#if multiple}
 			<Combobox.Root type="multiple" value={Array.isArray(value) ? value : []} onValueChange={change} bind:open {disabled}>
@@ -85,6 +86,11 @@
 	.rx-select--lg .rx-select__control { min-height: 3.5rem; font-size: 1rem; }
 	.rx-select--size-default .rx-select__control { min-height: 3rem; font-size: .9rem; }
 	.rx-select--sm .rx-select__control { min-height: 2.5rem; font-size: .82rem; }
+	.rx-select--pill .rx-select__control { border-radius: 9999px; }
+	.rx-select--search .rx-select__control { box-shadow: 0 8px 24px rgb(var(--rx-dark) / var(--rx-shadow-opacity)); }
+	.rx-select--slide .rx-select__control::after { transform-origin: left; }
+	.rx-select--underline .rx-select__control { border-radius: 0; background: transparent; }
+	.rx-select--floating .rx-select__control { box-shadow: 0 12px 30px rgb(var(--rx-color) / .14); transform: translateY(-1px); }
 	:global(.rx-select__control[data-disabled]), :global(.rx-select__control:disabled) { cursor: not-allowed; opacity: .55; }
 	@keyframes rx-select-spin { to { transform: rotate(1turn); } }
 	@media (prefers-reduced-motion: reduce) { .rx-select__control, .rx-select__control::after, .rx-select__label, .rx-select__chevron { transition-duration: 0ms; } .rx-select__loader { animation-duration: 1ms; animation-iteration-count: 1; } }

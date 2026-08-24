@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface ProgressProps extends Omit<HTMLAttributes<HTMLDivElement>, 'color'> {
 		value?: number;
@@ -16,8 +16,8 @@
 </script>
 
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	import { progressVariants } from './index';
 
 	let { value, max = 100, variant = 'default', shape = 'line', segments = 5, color,

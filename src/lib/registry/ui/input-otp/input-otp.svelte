@@ -1,11 +1,11 @@
 <script lang="ts" module>
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface InputOtpProps { value?: string; length?: number; type?: 'numeric' | 'text'; color?: RxColor; size?: 'lg' | 'default' | 'sm'; masked?: boolean; state?: 'default' | 'success' | 'danger'; disabled?: boolean; onComplete?: (value: string) => void; }
 </script>
 <script lang="ts">
 	import { PinInput, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS } from 'bits-ui';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	let { value = $bindable(''), length = 6, type = 'numeric', color, size = 'default', masked = false, state = 'default', disabled = false, onComplete }: InputOtpProps = $props();
 	const effectiveColor = $derived(state === 'success' ? 'success' : state === 'danger' ? 'danger' : color);
 	const inlineStyle = $derived(`${styleColor(effectiveColor) ?? '--rx-color: var(--rx-primary)'}; --rx-duration: ${RX_DURATION.base}ms; --rx-ease: ${RX_EASE}`);

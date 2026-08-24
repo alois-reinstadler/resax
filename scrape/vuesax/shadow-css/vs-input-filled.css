@@ -1,0 +1,97 @@
+:host { display: inline-flex; }
+:host([block]) { display: flex; width: 100%; }
+.ifl {
+  --h: var(--ctrl-h-md, 40px);
+  --r: var(--ctrl-r-md, 12px);
+  --px: var(--ctrl-px-md, 14px);
+  --fs: var(--ctrl-fs-md, 14px);
+  --accent: var(--inp-accent, #ededed);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 260px;
+  font-family: inherit;
+}
+.ifl--block { display: flex; width: 100%; min-width: 0; }
+.ifl--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --px: var(--ctrl-px-sm, 12px); --fs: var(--ctrl-fs-sm, 13px); }
+.ifl--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --px: var(--ctrl-px-lg, 18px); --fs: var(--ctrl-fs-lg, 15px); }
+
+/* filled surface: rounded only on top so the accent bar sits on a flat bottom */
+.ifl__field {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: calc(var(--h) + 8px);
+  overflow: hidden;
+  border-radius: var(--rr, var(--r)) var(--rr, var(--r)) 0 0;
+  background: var(--inp-hover-bg, rgba(255, 255, 255, 0.06));
+  transition: background-color 200ms ease;
+}
+.ifl--r-none .ifl__field { --rr: 0px; }
+.ifl--r-subtle .ifl__field { --rr: 8px; }
+.ifl--r-rounded .ifl__field { --rr: var(--r); }
+.ifl__field:hover { background: color-mix(in srgb, var(--inp-hover-bg, rgba(255,255,255,0.06)) 160%, transparent); }
+.ifl.is-focused .ifl__field { background: color-mix(in srgb, var(--inp-hover-bg, rgba(255,255,255,0.06)) 200%, transparent); }
+
+.ifl__control {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  height: calc(100% - 16px);
+  padding: 0 var(--px);
+  border: none;
+  background: transparent;
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  font-size: var(--fs);
+  outline: none;
+}
+.ifl__control::placeholder { color: var(--inp-placeholder, #5a5a5a); transition: color 200ms ease; }
+
+/* resting bottom line + growing accent bar */
+.ifl__field::before {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: var(--inp-border, #2a2a2a);
+  pointer-events: none;
+}
+.ifl__bar {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ifl.is-focused .ifl__bar { transform: scaleX(1); }
+
+/* label floats inside, toward the top of the filled box */
+.ifl__label {
+  position: absolute;
+  left: var(--px);
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  color: var(--inp-label, #6a6a6a);
+  font-size: var(--fs);
+  pointer-events: none;
+  transition: transform 240ms cubic-bezier(0.34, 1.4, 0.5, 1), color 220ms ease;
+}
+.ifl.is-focused .ifl__label,
+.ifl.has-value .ifl__label {
+  transform: translateY(calc(-50% - var(--h) / 2 + 2px)) scale(0.8);
+}
+.ifl.is-focused .ifl__label { color: var(--accent); }
+
+.ifl__hint { margin: 0; padding: 0 2px; font-size: calc(var(--fs) - 1px); color: var(--inp-hint, #7a7a7a); }
+
+.ifl.is-disabled { opacity: 0.5; }
+.ifl.is-disabled .ifl__control { cursor: not-allowed; }
+.ifl.is-readonly .ifl__field { background: var(--inp-readonly-bg, rgba(255, 255, 255, 0.02)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ifl__field, .ifl__bar, .ifl__label { transition: none; }
+}

@@ -1,11 +1,11 @@
 <script lang="ts" module>
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface InputProps extends Omit<HTMLInputAttributes, 'size' | 'value' | 'color'> {
 		value?: string;
-		variant?: 'default' | 'shadow' | 'border';
+		variant?: 'default' | 'shadow' | 'border' | 'filled' | 'gradient-border' | 'pulse' | 'spotlight' | 'underline';
 		color?: RxColor;
 		size?: 'lg' | 'default' | 'sm';
 		label?: string;
@@ -19,8 +19,8 @@
 </script>
 
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE, rxSlideUp } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE, rxSlideUp } from '$lib/registry/lib/easing';
 	import { inputVariants } from './index';
 
 	let {
@@ -72,6 +72,12 @@
 	.rx-input--border .rx-input__control { background: transparent; }
 	.rx-input--border input { border-color: rgb(var(--rx-border)); }
 	.rx-input--border.rx-input--focused input { border-color: rgb(var(--rx-color)); }
+	.rx-input--filled .rx-input__control { background: rgb(var(--rx-color) / .12); }
+	.rx-input--gradient-border .rx-input__control { padding: 1px; background: linear-gradient(120deg, rgb(var(--rx-color)), rgb(var(--rx-color) / .18)); }
+	.rx-input--gradient-border input { background: rgb(var(--rx-surface)); }
+	.rx-input--pulse.rx-input--focused .rx-input__control { animation: rx-input-pulse .5s var(--rx-ease); }
+	.rx-input--spotlight.rx-input--focused .rx-input__control { box-shadow: 0 0 0 4px rgb(var(--rx-color) / .12), 0 10px 28px rgb(var(--rx-color) / .16); }
+	.rx-input--underline .rx-input__control { border-radius: 0; background: transparent; }
 	.rx-input__icon { position: absolute; left: .85rem; z-index: 1; display: inline-flex; color: rgb(var(--rx-color)); }
 	.rx-input--has-icon input { padding-left: 2.65rem; }
 	.rx-input--has-icon label { left: 2.65rem; }
@@ -85,5 +91,6 @@
 	.rx-input--sm input { min-height: 2.5rem; font-size: .82rem; }
 	.rx-input input:disabled { cursor: not-allowed; opacity: .55; }
 	@keyframes rx-input-spin { to { transform: rotate(1turn); } }
+	@keyframes rx-input-pulse { 50% { box-shadow: 0 0 0 6px rgb(var(--rx-color) / .12); } }
 	@media (prefers-reduced-motion: reduce) { .rx-input__control, .rx-input__control::after, .rx-input label { transition-duration: 0ms; } .rx-input__loader { animation-duration: 1ms; animation-iteration-count: 1; } }
 </style>

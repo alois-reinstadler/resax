@@ -1,0 +1,29 @@
+  :host { display: block; }
+  .vsgw-sb { position: relative; width: 100%; max-width: 420px; height: 340px;
+    border-radius: var(--ctrl-r-lg, 16px); background: var(--bg-card, #111);
+    border: 1px solid var(--border, #2a2a2a); overflow: hidden; }
+  .vsgw-sb--bare { max-width: none; height: auto; border-radius: 0; background: transparent; border: none; }
+  .vsgw-sb__vp { height: 100%; overflow-y: auto; overflow-x: hidden;
+    scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior: contain; }
+  .vsgw-sb--bare .vsgw-sb__vp { height: auto; }
+  .vsgw-sb__vp::-webkit-scrollbar { width: 0; height: 0; display: none; }
+  .vsgw-sb__track { position: absolute; top: 3px; bottom: 3px; right: 4px; width: 14px;
+    cursor: pointer; transition: opacity 320ms ease; }
+  .vsgw-sb__track--hidden { opacity: 0; }
+  .vsgw-sb__thumb { position: absolute; top: 0; right: 0; border-radius: var(--ctrl-r-md, 999px);
+    cursor: grab; will-change: transform, width; transition: width 220ms cubic-bezier(.34,1.56,.64,1); }
+  /* Perf: filter is not animated per frame. ::after is a copy of the thumb (bg +
+     glow inherited) with brightness(1.35) baked in; only its opacity pulses
+     (compositable) at the same rhythm. */
+  .vsgw-sb__thumb::after { content: ''; position: absolute; inset: 0; border-radius: inherit;
+    pointer-events: none; background: inherit; box-shadow: inherit; filter: brightness(1.35);
+    opacity: 0; animation: vsgw-breathe 2.4s ease-in-out infinite; }
+  .vsgw-sb__thumb:active { cursor: grabbing; }
+  @keyframes vsgw-breathe { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+  .vsgw-sb__demo { padding: 22px 26px; color: var(--text-secondary, #c9c9c9); font-family: inherit; }
+  .vsgw-sb__demo h3 { margin: 0 0 14px; color: var(--text, #fff); font-size: 16px; font-weight: 600; }
+  .vsgw-sb__demo p { margin: 0 0 16px; font-size: 13px; line-height: 1.7; }
+  @media (prefers-reduced-motion: reduce) {
+    .vsgw-sb__thumb { animation: none; transition: none; }
+    .vsgw-sb__thumb::after { animation: none; opacity: 0; }
+  }

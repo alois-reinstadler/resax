@@ -1,0 +1,58 @@
+  :host { display: block; }
+  .nin {
+    --acc: var(--ui-accent, #ededed);
+    --acc-rgb: var(--ui-ring, 255 255 255);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    max-width: 480px;
+    padding: 14px 14px 14px 18px;
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, rgb(var(--acc-rgb)) 30%, var(--border, #2a2a2a));
+    background: color-mix(in srgb, rgb(var(--acc-rgb)) 9%, var(--bg-card, #141414));
+    color: var(--text, #ededed);
+    overflow: hidden;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+  .nin--success { --acc: #4cc38a; --acc-rgb: 76 195 138; }
+  .nin--error { --acc: #ff6369; --acc-rgb: 255 99 105; }
+  .nin--warn { --acc: #ffb224; --acc-rgb: 255 178 36; }
+  .nin--info { --acc: #6e9bff; --acc-rgb: 110 155 255; }
+
+  /* left accent bar */
+  .nin__bar { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--acc); }
+
+  .nin__icon { display: inline-flex; flex: none; color: var(--acc); padding-top: 1px; }
+  .nin__icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .nin__text { display: flex; flex-direction: column; gap: 3px; flex: 1 1 auto; min-width: 0; }
+  .nin__title { font-size: 14px; font-weight: 600; }
+  .nin__desc { font-size: 13px; line-height: 1.55; color: var(--text-secondary, #b4b4b4); }
+  .nin__close {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin: -2px -2px 0 0;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary, #a1a1a1);
+    cursor: pointer;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+  .nin__close:hover { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.08)); color: var(--text, #ededed); }
+  .nin__close svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+  /* collapse out on dismiss (matches the SFC's <Transition name="nin"> leave — fade + lift, no height collapse) */
+  .nin-leave-active { transition: opacity 220ms ease, transform 220ms ease; }
+  .nin-leave-to { opacity: 0; transform: translateY(-4px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nin-leave-active { transition: none; }
+  }

@@ -1,0 +1,2954 @@
+{
+  "vs-accordion-bounce": {
+    "slug": "vs-accordion-bounce",
+    "title": "VsAccordionBounce",
+    "url": "https://vuesax.com/c/vs-accordion-bounce",
+    "description": "Accordion with an exaggerated elastic rebound: the item squashes and springs back, and the chevron pops on every toggle (bounce effect).",
+    "family": "VsAccordion",
+    "familyLabel": "Accordion",
+    "wc": "vs-accordion-bounce.DGLUbFiX.js"
+  },
+  "vs-accordion-filled": {
+    "slug": "vs-accordion-filled",
+    "title": "VsAccordionFilled",
+    "url": "https://vuesax.com/c/vs-accordion-filled",
+    "description": "Accordion where an accent color wash rises from the bottom and floods the item as it opens (fill effect).",
+    "family": "VsAccordion",
+    "familyLabel": "Accordion",
+    "wc": "vs-accordion-filled.Bbo_LPgZ.js"
+  },
+  "vs-accordion-ghost": {
+    "slug": "vs-accordion-ghost",
+    "title": "VsAccordionGhost",
+    "url": "https://vuesax.com/c/vs-accordion-ghost",
+    "description": "Ghost accordion: invisible at rest, it materializes a frosted glass surface (backdrop-blur) on hover or when opened.",
+    "family": "VsAccordion",
+    "familyLabel": "Accordion",
+    "wc": "vs-accordion-ghost.DmsUSXja.js"
+  },
+  "vs-accordion-glow": {
+    "slug": "vs-accordion-glow",
+    "title": "VsAccordionGlow",
+    "url": "https://vuesax.com/c/vs-accordion-glow",
+    "description": "Accordion with a conic gradient ring spinning around the open item (luminous glow effect).",
+    "family": "VsAccordion",
+    "familyLabel": "Accordion",
+    "wc": "vs-accordion-glow.CLa4qyjX.js"
+  },
+  "vs-accordion-slide": {
+    "slug": "vs-accordion-slide",
+    "title": "VsAccordionSlide",
+    "url": "https://vuesax.com/c/vs-accordion-slide",
+    "description": "Accordion whose content slides in from the left behind an accent rail, with a rotating +/- icon (slide effect).",
+    "family": "VsAccordion",
+    "familyLabel": "Accordion",
+    "wc": "vs-accordion-slide.CMBEdd3u.js"
+  },
+  "vs-accordion": {
+    "slug": "vs-accordion",
+    "title": "VsAccordion",
+    "url": "https://vuesax.com/c/vs-accordion",
+    "description": "Accordion with fluid spring height, bouncy chevron and blur-in content.",
+    "family": "VsAccordion",
+    "familyLabel": "Accordion",
+    "wc": "vs-accordion.BZmT3C-J.js"
+  },
+  "vs-alert-banner": {
+    "slug": "vs-alert-banner",
+    "title": "VsAlertBanner",
+    "url": "https://vuesax.com/c/vs-alert-banner",
+    "description": "Full-width banner alert with a side accent bar and an auto-dismiss progress bar that pauses on hover.",
+    "family": "VsAlert",
+    "familyLabel": "Alert",
+    "wc": "vs-alert-banner.B5y84ABG.js"
+  },
+  "vs-alert-inline": {
+    "slug": "vs-alert-inline",
+    "title": "VsAlertInline",
+    "url": "https://vuesax.com/c/vs-alert-inline",
+    "description": "Ultra compact one-line alert: pulsing status dot + optional bold prefix + message, with no box. For form footers and inline use.",
+    "family": "VsAlert",
+    "familyLabel": "Alert",
+    "wc": "vs-alert-inline.C_dtrDOP.js"
+  },
+  "vs-alert-neon": {
+    "slug": "vs-alert-neon",
+    "title": "VsAlertNeon",
+    "url": "https://vuesax.com/c/vs-alert-neon",
+    "description": "Neon-bordered alert: a lit tube outlines the card, a bright hot-spot travels around it and a blurred copy of the ring breathes underneath as bloom. Recolors by tone.",
+    "family": "VsAlert",
+    "familyLabel": "Alert",
+    "wc": "vs-alert-neon.BMUKcEFn.js"
+  },
+  "vs-alert-split": {
+    "slug": "vs-alert-split",
+    "title": "VsAlertSplit",
+    "url": "https://vuesax.com/c/vs-alert-split",
+    "description": "Two-tone alert: solid color panel with the icon on the left and the body (title + message) over the card on the right.",
+    "family": "VsAlert",
+    "familyLabel": "Alert",
+    "wc": "vs-alert-split.DqkmccAy.js"
+  },
+  "vs-alert-toast": {
+    "slug": "vs-alert-toast",
+    "title": "VsAlertToast",
+    "url": "https://vuesax.com/c/vs-alert-toast",
+    "description": "Elevated floating card (toast style) that enters with slide-up + blur, icon in a tinted circle and an auto-dismiss progress bar.",
+    "family": "VsAlert",
+    "familyLabel": "Alert",
+    "wc": "vs-alert-toast.D2JGupeV.js"
+  },
+  "vs-alert": {
+    "slug": "vs-alert",
+    "title": "VsAlert",
+    "url": "https://vuesax.com/c/vs-alert",
+    "description": "Persistent inline message with icon, title, action and dismiss.",
+    "family": "VsAlert",
+    "familyLabel": "Alert",
+    "wc": "vs-alert.BiUPMafk.js"
+  },
+  "vs-ask-ai-button": {
+    "slug": "vs-ask-ai-button",
+    "title": "VsButtonAskAi",
+    "url": "https://vuesax.com/c/vs-ask-ai-button",
+    "description": "AI call-to-action pill: a mesh gradient (orange to pink to violet to blue) drifts inside the fill and bleeds past the light frame as a coloured halo. The cursor drags a specular highlight across it, the four-point sparkle springs on hover and squashes on press, and loading speeds the mesh up while a shine sweeps the pill.",
+    "family": "VsAskAiButton",
+    "familyLabel": "AskAiButton",
+    "wc": "vs-ask-ai-button.D9Z6X8U7.js"
+  },
+  "vs-avatar-glow": {
+    "slug": "vs-avatar-glow",
+    "title": "VsAvatarGlow",
+    "url": "https://vuesax.com/c/vs-avatar-glow",
+    "description": "Avatar wrapped in a diffuse neon halo that breathes (soft pulse) and intensifies on hover. Standalone variant of VsAvatar.",
+    "family": "VsAvatar",
+    "familyLabel": "Avatar",
+    "wc": "vs-avatar-glow.QJzeWLjt.js"
+  },
+  "vs-avatar-group-fan": {
+    "slug": "vs-avatar-group-fan",
+    "title": "VsAvatarGroupFan",
+    "url": "https://vuesax.com/c/vs-avatar-group-fan",
+    "description": "Stacked avatars that FAN OUT in an arc on hover (card-deck rotation) from a bottom pivot.",
+    "family": "VsAvatarGroup",
+    "familyLabel": "AvatarGroup",
+    "wc": "vs-avatar-group-fan.DarUthrD.js"
+  },
+  "vs-avatar-group-flip": {
+    "slug": "vs-avatar-group-flip",
+    "title": "VsAvatarGroupFlip",
+    "url": "https://vuesax.com/c/vs-avatar-group-flip",
+    "description": "Each avatar is a 3D card that FLIPS (Y-axis rotation) on hover, revealing the initials on the back.",
+    "family": "VsAvatarGroup",
+    "familyLabel": "AvatarGroup",
+    "wc": "vs-avatar-group-flip.CwKQLSGn.js"
+  },
+  "vs-avatar-group-grid": {
+    "slug": "vs-avatar-group-grid",
+    "title": "VsAvatarGroupGrid",
+    "url": "https://vuesax.com/c/vs-avatar-group-grid",
+    "description": "Overlapped stack that UNFOLDS on hover into a tidy N-column grid, staggered by index.",
+    "family": "VsAvatarGroup",
+    "familyLabel": "AvatarGroup",
+    "wc": "vs-avatar-group-grid.CEiU_QU3.js"
+  },
+  "vs-avatar-group-ring": {
+    "slug": "vs-avatar-group-ring",
+    "title": "VsAvatarGroupRing",
+    "url": "https://vuesax.com/c/vs-avatar-group-ring",
+    "description": "Every avatar wears a spinning conic RING (story/progress style) that speeds up and pulses on hover.",
+    "family": "VsAvatarGroup",
+    "familyLabel": "AvatarGroup",
+    "wc": "vs-avatar-group-ring.CEjzwGJn.js"
+  },
+  "vs-avatar-group-wave": {
+    "slug": "vs-avatar-group-wave",
+    "title": "VsAvatarGroupWave",
+    "url": "https://vuesax.com/c/vs-avatar-group-wave",
+    "description": "On hover a vertical WAVE travels across: each avatar bobs up and down offset by index, like a stadium \"wave\".",
+    "family": "VsAvatarGroup",
+    "familyLabel": "AvatarGroup",
+    "wc": "vs-avatar-group-wave.Dqzeqxun.js"
+  },
+  "vs-avatar-group": {
+    "slug": "vs-avatar-group",
+    "title": "VsAvatarGroup",
+    "url": "https://vuesax.com/c/vs-avatar-group",
+    "description": "Stacked overlapping avatars with a +N overflow chip and fan-out (spread) on hover. Reuses VsAvatar.",
+    "family": "VsAvatarGroup",
+    "familyLabel": "AvatarGroup",
+    "wc": "vs-avatar-group.CBdRYnA-.js"
+  },
+  "vs-avatar-ring": {
+    "slug": "vs-avatar-ring",
+    "title": "VsAvatarRing",
+    "url": "https://vuesax.com/c/vs-avatar-ring",
+    "description": "Avatar wrapped by a conic-gradient ring that spins nonstop and speeds up on hover. Standalone variant of VsAvatar.",
+    "family": "VsAvatar",
+    "familyLabel": "Avatar",
+    "wc": "vs-avatar-ring.DT5DlzI9.js"
+  },
+  "vs-avatar-squircle": {
+    "slug": "vs-avatar-squircle",
+    "title": "VsAvatarSquircle",
+    "url": "https://vuesax.com/c/vs-avatar-squircle",
+    "description": "Avatar with Apple-style squircle clipping (corner-shape) and an elastic gummy-spring pop that bounces on hover. Standalone variant of VsAvatar.",
+    "family": "VsAvatar",
+    "familyLabel": "Avatar",
+    "wc": "vs-avatar-squircle.48GStO6f.js"
+  },
+  "vs-avatar-status": {
+    "slug": "vs-avatar-status",
+    "title": "VsAvatarStatus",
+    "url": "https://vuesax.com/c/vs-avatar-status",
+    "description": "Avatar with a corner presence dot that pulses with an expanding radial halo when online. Standalone variant of VsAvatar.",
+    "family": "VsAvatar",
+    "familyLabel": "Avatar",
+    "wc": "vs-avatar-status.DjVTViBQ.js"
+  },
+  "vs-avatar-tilt": {
+    "slug": "vs-avatar-tilt",
+    "title": "VsAvatarTilt",
+    "url": "https://vuesax.com/c/vs-avatar-tilt",
+    "description": "Avatar with a 3D parallax tilt that follows the cursor and a specular glare that moves with the pointer. Standalone variant of VsAvatar.",
+    "family": "VsAvatar",
+    "familyLabel": "Avatar",
+    "wc": "vs-avatar-tilt.BpocLLT8.js"
+  },
+  "vs-avatar": {
+    "slug": "vs-avatar",
+    "title": "VsAvatar",
+    "url": "https://vuesax.com/c/vs-avatar",
+    "description": "Avatar with image, initials fallback, Discord-style status, Instagram story/seen/live rings, circular progress (with % pill), number badge, a custom #badge slot (auto circle/pill, your color + icon/text), plus Apple-style press (3D sink + water-drop ripple + proximity glow).",
+    "family": "VsAvatar",
+    "familyLabel": "Avatar",
+    "wc": "vs-avatar.D4EdWMha.js"
+  },
+  "vs-badge-glow": {
+    "slug": "vs-badge-glow",
+    "title": "VsBadgeGlow",
+    "url": "https://vuesax.com/c/vs-badge-glow",
+    "description": "Badge with a soft diffuse halo around it that gently breathes in a loop (breathing glow).",
+    "family": "VsBadge",
+    "familyLabel": "Badge",
+    "wc": "vs-badge-glow.DrSS7KJZ.js"
+  },
+  "vs-badge-gradient": {
+    "slug": "vs-badge-gradient",
+    "title": "VsBadgeGradient",
+    "url": "https://vuesax.com/c/vs-badge-gradient",
+    "description": "Badge with an animated gradient fill that shifts from side to side (shifting gradient).",
+    "family": "VsBadge",
+    "familyLabel": "Badge",
+    "wc": "vs-badge-gradient.CKtuh1YU.js"
+  },
+  "vs-badge-pulse": {
+    "slug": "vs-badge-pulse",
+    "title": "VsBadgePulse",
+    "url": "https://vuesax.com/c/vs-badge-pulse",
+    "description": "Badge with a pulsing ring radiating from the edge \u2014 ideal for live states like online or new.",
+    "family": "VsBadge",
+    "familyLabel": "Badge",
+    "wc": "vs-badge-pulse.CgOc8SRL.js"
+  },
+  "vs-badge-shimmer": {
+    "slug": "vs-badge-shimmer",
+    "title": "VsBadgeShimmer",
+    "url": "https://vuesax.com/c/vs-badge-shimmer",
+    "description": "Badge with a bright light sweep (shimmer) crossing on a loop, premium loading-style finish.",
+    "family": "VsBadge",
+    "familyLabel": "Badge",
+    "wc": "vs-badge-shimmer.Cm_26PmZ.js"
+  },
+  "vs-badge-stripes": {
+    "slug": "vs-badge-stripes",
+    "title": "VsBadgeStripes",
+    "url": "https://vuesax.com/c/vs-badge-stripes",
+    "description": "Badge with diagonal hazard-tape stripes that march on a loop (marching stripes) \u2014 ideal for in-progress states.",
+    "family": "VsBadge",
+    "familyLabel": "Badge",
+    "wc": "vs-badge-stripes.CjJ7-cqZ.js"
+  },
+  "vs-badge": {
+    "slug": "vs-badge",
+    "title": "VsBadge",
+    "url": "https://vuesax.com/c/vs-badge",
+    "description": "Etiqueta de estado compacta \u2014 variants solid/soft/outline, tones, dot y removable.",
+    "family": "VsBadge",
+    "familyLabel": "Badge",
+    "wc": "vs-badge.C0-Opjdu.js"
+  },
+  "vs-breadcrumb-arrow": {
+    "slug": "vs-breadcrumb-arrow",
+    "title": "VsBreadcrumbArrow",
+    "url": "https://vuesax.com/c/vs-breadcrumb-arrow",
+    "description": "Pipeline-style navigation trail: each crumb is a chained chevron tag that steps forward and fills with accent on hover.",
+    "family": "VsBreadcrumb",
+    "familyLabel": "Breadcrumb",
+    "wc": "vs-breadcrumb-arrow.nIk75gCi.js"
+  },
+  "vs-breadcrumb-collapse": {
+    "slug": "vs-breadcrumb-collapse",
+    "title": "VsBreadcrumbCollapse",
+    "url": "https://vuesax.com/c/vs-breadcrumb-collapse",
+    "description": "Long trail that collapses the middle crumbs behind a \"\u2026\" button; clicking it expands the hidden ones with a staggered reveal.",
+    "family": "VsBreadcrumb",
+    "familyLabel": "Breadcrumb",
+    "wc": "vs-breadcrumb-collapse.BoHBy9jj.js"
+  },
+  "vs-breadcrumb-glow": {
+    "slug": "vs-breadcrumb-glow",
+    "title": "VsBreadcrumbGlow",
+    "url": "https://vuesax.com/c/vs-breadcrumb-glow",
+    "description": "Navigation trail with neon crumbs: on hover the text ignites with a pulsing halo and the separator radiates accent light.",
+    "family": "VsBreadcrumb",
+    "familyLabel": "Breadcrumb",
+    "wc": "vs-breadcrumb-glow.DJ-9as9C.js"
+  },
+  "vs-breadcrumb-pill": {
+    "slug": "vs-breadcrumb-pill",
+    "title": "VsBreadcrumbPill",
+    "url": "https://vuesax.com/c/vs-breadcrumb-pill",
+    "description": "Navigation trail whose crumbs are capsules: on hover they swell with an elastic bounce and fill with an accent background.",
+    "family": "VsBreadcrumb",
+    "familyLabel": "Breadcrumb",
+    "wc": "vs-breadcrumb-pill.B7_edqXl.js"
+  },
+  "vs-breadcrumb-slash": {
+    "slug": "vs-breadcrumb-slash",
+    "title": "VsBreadcrumbSlash",
+    "url": "https://vuesax.com/c/vs-breadcrumb-slash",
+    "description": "Path-style navigation trail with slanted italic \"/\" separators; on hover an underline sweeps from left to right.",
+    "family": "VsBreadcrumb",
+    "familyLabel": "Breadcrumb",
+    "wc": "vs-breadcrumb-slash.DiJYHkRd.js"
+  },
+  "vs-breadcrumb": {
+    "slug": "vs-breadcrumb",
+    "title": "VsBreadcrumb",
+    "url": "https://vuesax.com/c/vs-breadcrumb",
+    "description": "Navigation trail with dual proximity light: the cursor lights up letters and separators as it gets closer.",
+    "family": "VsBreadcrumb",
+    "familyLabel": "Breadcrumb",
+    "wc": "vs-breadcrumb.DqiQYSsI.js"
+  },
+  "vs-button-border-draw": {
+    "slug": "vs-button-border-draw",
+    "title": "VsButtonBorderDraw",
+    "url": "https://vuesax.com/c/vs-button-border-draw",
+    "description": "Button whose border draws itself around the perimeter on hover (conic sweep) + glow.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-border-draw.B2qmAEAe.js"
+  },
+  "vs-button-chrome": {
+    "slug": "vs-button-chrome",
+    "title": "VsButtonChrome",
+    "url": "https://vuesax.com/c/vs-button-chrome",
+    "description": "Transparent button whose whole body is a liquid-metal rim: a shared rAF walks bright flares, dark blackouts and prism arcs around the perimeter on layered noise, each with its own drifting position, width and opacity, so the light pools on one side, goes out on another and never repeats a pose. On hover it fills with the theme\u2019s pure ink \u2014 white plate with black label on dark, black plate with white label on light \u2014 the metal dissolving as the fill reaches the edge.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-chrome.DYdIvmGN.js"
+  },
+  "vs-button-glitch": {
+    "slug": "vs-button-glitch",
+    "title": "VsButtonGlitch",
+    "url": "https://vuesax.com/c/vs-button-glitch",
+    "description": "Glitch button: on hover the text splits into RGB channels (cyan/magenta) with cyberpunk jitter.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-glitch.BA1xNH52.js"
+  },
+  "vs-button-gooey": {
+    "slug": "vs-button-gooey",
+    "title": "VsButtonGooey",
+    "url": "https://vuesax.com/c/vs-button-gooey",
+    "description": "Sticky liquid button with a spring-driven membrane, a separate spiderweb filament and gravity-driven drops that spill from the pointer exit point.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-gooey.BTgDosDZ.js"
+  },
+  "vs-button-gradient": {
+    "slug": "vs-button-gradient",
+    "title": "VsButtonGradient",
+    "url": "https://vuesax.com/c/vs-button-gradient",
+    "description": "Button with animated color blobs behind a dark glass layer; reveals a crisp border on hover.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-gradient.CThuEoxa.js"
+  },
+  "vs-button-group": {
+    "slug": "vs-button-group",
+    "title": "VsButtonGroup",
+    "url": "https://vuesax.com/c/vs-button-group",
+    "description": "Wraps VsButton children into one segmented control: the corners that touch a neighbour go flat, the adjacent 1px borders collapse into a single hairline, and size / variant / tone / radius / disabled cascade down to every button that did not set its own.",
+    "family": "VsButtonGroup",
+    "familyLabel": "ButtonGroup",
+    "wc": "vs-button-group.ddldXnrc.js"
+  },
+  "vs-button-invert": {
+    "slug": "vs-button-invert",
+    "title": "VsButtonInvert",
+    "url": "https://vuesax.com/c/vs-button-invert",
+    "description": "Hairline button that floods on hover: a solid ink circle springs out from the exact point the pointer crossed the edge and drains back toward the point it left through, while a softer spring lags behind and wobbles the whole body \u2014 net white with black text on dark, net black with white text on light. An inverted copy of the label rides under the same clip, so the text flips colour exactly as the wave passes it.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-invert.D-5WJ06M.js"
+  },
+  "vs-button-liquid": {
+    "slug": "vs-button-liquid",
+    "title": "VsButtonLiquid",
+    "url": "https://vuesax.com/c/vs-button-liquid",
+    "description": "Liquid button: a blob rises from below and fills the button with a wobble; the text inverts color.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-liquid.BrJ0WRHV.js"
+  },
+  "vs-button-magnetic": {
+    "slug": "vs-button-magnetic",
+    "title": "VsButtonMagnetic",
+    "url": "https://vuesax.com/c/vs-button-magnetic",
+    "description": "Magnetic button: pulled toward the cursor with label parallax and a spring-back on leave.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-magnetic.fuLN9xHK.js"
+  },
+  "vs-button-plasma": {
+    "slug": "vs-button-plasma",
+    "title": "VsButtonPlasma",
+    "url": "https://vuesax.com/c/vs-button-plasma",
+    "description": "Autonomous plasma button rendered by a transparent WebGL2 membrane: a magenta-cyan energy current continuously orbits its clean outline, occasional mountain crests ride that current, and hover or keyboard focus accelerates the flow while revealing animated filaments and a translucent plate. It keeps native button semantics, slots, disabled behaviour, reduced motion and a CSS fallback.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-plasma.Cya-Jo6B.js"
+  },
+  "vs-button-push": {
+    "slug": "vs-button-push",
+    "title": "VsButtonPush",
+    "url": "https://vuesax.com/c/vs-button-push",
+    "description": "A physical 3D push button: the bordered cap rides on a solid accent base that sticks out below, and on press the cap sinks flush onto the base (near-instant 70 ms down, springy release). Hover lifts the cap a notch. Default dress is a black face with white border and relief; accent and surface props recolor the pair, and depth is per-size or overridden by hand.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "VsButtonPush.Dc6c-YcO.js"
+  },
+  "vs-button-shine": {
+    "slug": "vs-button-shine",
+    "title": "VsButtonShine",
+    "url": "https://vuesax.com/c/vs-button-shine",
+    "description": "Button with a diagonal light sweep (gleam) crossing on hover, plus a subtle lift.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-shine.N88smqkq.js"
+  },
+  "vs-button-v2": {
+    "slug": "vs-button-v2",
+    "title": "VsButtonV2",
+    "url": "https://vuesax.com/c/vs-button-v2",
+    "description": "Button with the same height/padding/radius as VsButton; on hover the label rises and exits while a copy enters from below.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button-v2.DxURqw6X.js"
+  },
+  "vs-button": {
+    "slug": "vs-button",
+    "title": "VsButton",
+    "url": "https://vuesax.com/c/vs-button",
+    "description": "Button with variants, sizes and loading state. Press with Apple-style spring.",
+    "family": "VsButton",
+    "familyLabel": "Button",
+    "wc": "vs-button.ByL_ww26.js"
+  },
+  "vs-calendar-compact": {
+    "slug": "vs-calendar-compact",
+    "title": "VsCalendarCompact",
+    "url": "https://vuesax.com/c/vs-calendar-compact",
+    "description": "Dense, compact calendar (small cells, slim header) meant for popovers and tight spaces. In single mode, one accent pill slides between cells to the chosen day instead of painting a chip per cell.",
+    "family": "VsCalendar",
+    "familyLabel": "Calendar",
+    "wc": "vs-calendar-compact.D9a1G349.js"
+  },
+  "vs-calendar-dots": {
+    "slug": "vs-calendar-dots",
+    "title": "VsCalendarDots",
+    "url": "https://vuesax.com/c/vs-calendar-dots",
+    "description": "Agenda-style calendar: instead of a filled chip, every selected day shows an accent dot that springs in below the number. Today, when unselected, shows a muted dot. Ideal for marking multiple days.",
+    "family": "VsCalendar",
+    "familyLabel": "Calendar",
+    "wc": "vs-calendar-dots.DGZ600RV.js"
+  },
+  "vs-calendar-glow": {
+    "slug": "vs-calendar-glow",
+    "title": "VsCalendarGlow",
+    "url": "https://vuesax.com/c/vs-calendar-glow",
+    "description": "Calendar where the selected day is marked with an accent-colored chip that emits a pulsing glow halo (a breathing box-shadow). The pulse is turned off via the `glow` prop and under reduced-motion.",
+    "family": "VsCalendar",
+    "familyLabel": "Calendar",
+    "wc": "vs-calendar-glow.B-7H8tsc.js"
+  },
+  "vs-calendar-minimal": {
+    "slug": "vs-calendar-minimal",
+    "title": "VsCalendarMinimal",
+    "url": "https://vuesax.com/c/vs-calendar-minimal",
+    "description": "Minimal calendar with no borders or shadows: the selected day is marked by a thin underline bar that slides horizontally to the picked cell, instead of a filled chip.",
+    "family": "VsCalendar",
+    "familyLabel": "Calendar",
+    "wc": "vs-calendar-minimal.Dd_XE9Bm.js"
+  },
+  "vs-calendar-range-fill": {
+    "slug": "vs-calendar-range-fill",
+    "title": "VsCalendarRangeFill",
+    "url": "https://vuesax.com/c/vs-calendar-range-fill",
+    "description": "Range-first calendar: once start and end are picked, a liquid fill bar with an accent gradient expands between the endpoints and a sheen sweeps continuously along the range. Dimmed preview while hovering.",
+    "family": "VsCalendar",
+    "familyLabel": "Calendar",
+    "wc": "vs-calendar-range-fill.CdKxkent.js"
+  },
+  "vs-calendar": {
+    "slug": "vs-calendar",
+    "title": "VsCalendar",
+    "url": "https://vuesax.com/c/vs-calendar",
+    "description": "Date picker with a month grid: single day, range (with hover preview) or multiple days via the `mode` prop. Inline panel or popover anchored to an input. Keyboard navigation, today marked, proximity glow and a ripple per cell.",
+    "family": "VsCalendar",
+    "familyLabel": "Calendar",
+    "wc": "vs-calendar.DrCnCYbx.js"
+  },
+  "vs-card-asset": {
+    "slug": "vs-card-asset",
+    "title": "VsCardAsset",
+    "url": "https://vuesax.com/c/vs-card-asset",
+    "description": "Gallery card for a file: an inset framed cover that eases into a slow zoom, a \"New\" flag, glass download + copy actions that grow in from a blur on hover, and a foot pairing the name and its meta with an arrow disc that inverts into pure ink. No lift \u2014 the 1px border carries a cursor-proximity ink ring instead, so a grid of them stays perfectly still.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card-asset.BB0mDeOi.js"
+  },
+  "vs-card-glow": {
+    "slug": "vs-card-glow",
+    "title": "VsCardGlow",
+    "url": "https://vuesax.com/c/vs-card-glow",
+    "description": "Content card with an ambient accent aura that breathes behind the card and intensifies on hover (neon glow). Same elevated/outlined/soft variants and slots as VsCard.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card-glow.CRj-pIb4.js"
+  },
+  "vs-card-gradient-border": {
+    "slug": "vs-card-gradient-border",
+    "title": "VsCardGradientBorder",
+    "url": "https://vuesax.com/c/vs-card-gradient-border",
+    "description": "Content card with an animated conic-gradient border (aurora ring) that rotates around it and brightens on hover. Same elevated/outlined/soft variants and slots as VsCard.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card-gradient-border.M0utS9ZW.js"
+  },
+  "vs-card-lift": {
+    "slug": "vs-card-lift",
+    "title": "VsCardLift",
+    "url": "https://vuesax.com/c/vs-card-lift",
+    "description": "Content card that lifts on hover with an elastic pop, a deepening drop shadow and a subtle zoom/parallax on the media. Same elevated/outlined/soft variants and slots as VsCard.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card-lift.txVmX_YT.js"
+  },
+  "vs-card-slider": {
+    "slug": "vs-card-slider",
+    "title": "VsCardSlider",
+    "url": "https://vuesax.com/c/vs-card-slider",
+    "description": "Card whose media is a real image slider: drag/swipe with rubber-band edges, glass arrows that fade in on hover, a counter pill and progress dots whose active pill fills as autoplay runs. Each photo travels against the slide it rides on (parallax) and settles out of a slight zoom, so a flip reads as depth instead of a cut. Autoplay pauses on hover, focus, offscreen and hidden tabs.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card-slider.CGutxK_V.js"
+  },
+  "vs-card-spotlight": {
+    "slug": "vs-card-spotlight",
+    "title": "VsCardSpotlight",
+    "url": "https://vuesax.com/c/vs-card-spotlight",
+    "description": "Content card with a radial accent spotlight that follows the cursor across the surface (pointer-tracked), lighting only where the pointer aims. Same elevated/outlined/soft variants and slots as VsCard.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card-spotlight.C8n5yrqe.js"
+  },
+  "vs-card-tilt-3d": {
+    "slug": "vs-card-tilt-3d",
+    "title": "VsCardTilt3D",
+    "url": "https://vuesax.com/c/vs-card-tilt-3d",
+    "description": "Content card that tilts in 3D toward the cursor (pointer-tracked) with a depth shadow and a smooth return on leave. Same elevated/outlined/soft variants and slots as VsCard.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card-tilt3-d.DzZpqll-.js"
+  },
+  "vs-card": {
+    "slug": "vs-card",
+    "title": "VsCard",
+    "url": "https://vuesax.com/c/vs-card",
+    "description": "Content card with media (image or slot), title, subtitle, text and an actions footer. Interactive mode: clickable with 3D tilt + ripple (usePress) and a proximity glow on the border. Elevated/outlined/soft variants.",
+    "family": "VsCard",
+    "familyLabel": "Card",
+    "wc": "vs-card.CMX2he3I.js"
+  },
+  "vs-checkbox-bounce": {
+    "slug": "vs-checkbox-bounce",
+    "title": "VsCheckboxBounce",
+    "url": "https://vuesax.com/c/vs-checkbox-bounce",
+    "description": "Checkbox whose check mark springs in with overshoot plus a soft wave on check.",
+    "family": "VsCheckbox",
+    "familyLabel": "Checkbox",
+    "wc": "vs-checkbox-bounce.DvFaKocv.js"
+  },
+  "vs-checkbox-card": {
+    "slug": "vs-checkbox-card",
+    "title": "VsCheckboxCard",
+    "url": "https://vuesax.com/c/vs-checkbox-card",
+    "description": "Selectable tile/card checkbox: label (and description) inside; checking tints the border/background and shows a check in the corner.",
+    "family": "VsCheckbox",
+    "familyLabel": "Checkbox",
+    "wc": "vs-checkbox-card.BUBCe1zX.js"
+  },
+  "vs-checkbox-fill": {
+    "slug": "vs-checkbox-fill",
+    "title": "VsCheckboxFill",
+    "url": "https://vuesax.com/c/vs-checkbox-fill",
+    "description": "Checkbox where the accent fill expands from the center and then the check draws in.",
+    "family": "VsCheckbox",
+    "familyLabel": "Checkbox",
+    "wc": "vs-checkbox-fill.DND9Wjl1.js"
+  },
+  "vs-checkbox-flip": {
+    "slug": "vs-checkbox-flip",
+    "title": "VsCheckboxFlip",
+    "url": "https://vuesax.com/c/vs-checkbox-flip",
+    "description": "Checkbox that does a 3D flip (rotateY) between the empty face and the checked one.",
+    "family": "VsCheckbox",
+    "familyLabel": "Checkbox",
+    "wc": "vs-checkbox-flip.Dp493DSR.js"
+  },
+  "vs-checkbox-neon": {
+    "slug": "vs-checkbox-neon",
+    "title": "VsCheckboxNeon",
+    "url": "https://vuesax.com/c/vs-checkbox-neon",
+    "description": "Checkbox whose outline lights up in neon (color bloom) with a glowing check when marked.",
+    "family": "VsCheckbox",
+    "familyLabel": "Checkbox",
+    "wc": "vs-checkbox-neon.DRFcGa9W.js"
+  },
+  "vs-checkbox": {
+    "slug": "vs-checkbox",
+    "title": "VsCheckbox",
+    "url": "https://vuesax.com/c/vs-checkbox",
+    "description": "Checkbox with an animated stroke check, indeterminate state, tones and light/ripple.",
+    "family": "VsCheckbox",
+    "familyLabel": "Checkbox",
+    "wc": "vs-checkbox.CKJVhFDq.js"
+  },
+  "vs-chip-bounce": {
+    "slug": "vs-chip-bounce",
+    "title": "VsChipBounce",
+    "url": "https://vuesax.com/c/vs-chip-bounce",
+    "description": "Chip with an elastic bounce (squash & stretch) on click and on selection; the check pops in.",
+    "family": "VsChip",
+    "familyLabel": "Chip",
+    "wc": "vs-chip-bounce.B1_54cPd.js"
+  },
+  "vs-chip-fill": {
+    "slug": "vs-chip-fill",
+    "title": "VsChipFill",
+    "url": "https://vuesax.com/c/vs-chip-fill",
+    "description": "Chip with a liquid fill that sweeps from left to right on hover and stays put once selected.",
+    "family": "VsChip",
+    "familyLabel": "Chip",
+    "wc": "vs-chip-fill.Ci38xvOW.js"
+  },
+  "vs-chip-glow": {
+    "slug": "vs-chip-glow",
+    "title": "VsChipGlow",
+    "url": "https://vuesax.com/c/vs-chip-glow",
+    "description": "Chip with a pulsing halo of light (a breathing box-shadow) on select and on hover.",
+    "family": "VsChip",
+    "familyLabel": "Chip",
+    "wc": "vs-chip-glow.D1kwq_Ob.js"
+  },
+  "vs-chip-gradient": {
+    "slug": "vs-chip-gradient",
+    "title": "VsChipGradient",
+    "url": "https://vuesax.com/c/vs-chip-gradient",
+    "description": "Chip with an animated gradient background that pans in a loop and intensifies on select.",
+    "family": "VsChip",
+    "familyLabel": "Chip",
+    "wc": "vs-chip-gradient.C2fpCVlo.js"
+  },
+  "vs-chip-outline": {
+    "slug": "vs-chip-outline",
+    "title": "VsChipOutline",
+    "url": "https://vuesax.com/c/vs-chip-outline",
+    "description": "Chip with a conic border spinning around it (marching outline) on hover and when selected.",
+    "family": "VsChip",
+    "familyLabel": "Chip",
+    "wc": "vs-chip-outline.BAKAZIai.js"
+  },
+  "vs-chip": {
+    "slug": "vs-chip",
+    "title": "VsChip",
+    "url": "https://vuesax.com/c/vs-chip",
+    "description": "Interactive tag: filter, selection or removable tag.",
+    "family": "VsChip",
+    "familyLabel": "Chip",
+    "wc": "vs-chip.BfleL7EF.js"
+  },
+  "vs-code-glow": {
+    "slug": "vs-code-glow",
+    "title": "VsCodeGlow",
+    "url": "https://vuesax.com/c/vs-code-glow",
+    "description": "VsCode variant with a radial spotlight that tracks the cursor over the code surface and lifts the border. Working code block with in-house highlighting, copy, language badge and line numbers.",
+    "family": "VsCode",
+    "familyLabel": "Code",
+    "wc": "vs-code-glow.Cqe4xgBv.js"
+  },
+  "vs-code-gradient-border": {
+    "slug": "vs-code-gradient-border",
+    "title": "VsCodeGradientBorder",
+    "url": "https://vuesax.com/c/vs-code-gradient-border",
+    "description": "VsCode variant with a conic gradient frame slowly rotating around the window. Working code block with its own highlighting, copy, language tag and line numbers.",
+    "family": "VsCode",
+    "familyLabel": "Code",
+    "wc": "vs-code-gradient-border.DEgte8va.js"
+  },
+  "vs-code-minimal": {
+    "slug": "vs-code-minimal",
+    "title": "VsCodeMinimal",
+    "url": "https://vuesax.com/c/vs-code-minimal",
+    "description": "Minimal VsCode variant: no chrome or traffic lights, clean translucent surface with a language badge and a floating copy button that fades in on hover. Working code block with its own highlighting and line numbers.",
+    "family": "VsCode",
+    "familyLabel": "Code",
+    "wc": "vs-code-minimal.B2zs1KQb.js"
+  },
+  "vs-code-terminal": {
+    "slug": "vs-code-terminal",
+    "title": "VsCodeTerminal",
+    "url": "https://vuesax.com/c/vs-code-terminal",
+    "description": "VsCode variant with a terminal look: per-line prompt ($) and a blinking caret cursor at the end of the block, TTY-style header. Working code block with its own highlighting, copy and language tag.",
+    "family": "VsCode",
+    "familyLabel": "Code",
+    "wc": "vs-code-terminal.BHQ0fkQz.js"
+  },
+  "vs-code-window": {
+    "slug": "vs-code-window",
+    "title": "VsCodeWindow",
+    "url": "https://vuesax.com/c/vs-code-window",
+    "description": "VsCode variant as an elevated macOS window with a file tab and a subtle 3D tilt on hover (perspective + layered shadow) that makes it float. Working code block with its own highlighting, copy, language badge and line numbers.",
+    "family": "VsCode",
+    "familyLabel": "Code",
+    "wc": "vs-code-window.BHPuVoPS.js"
+  },
+  "vs-code": {
+    "slug": "vs-code",
+    "title": "VsCode",
+    "url": "https://vuesax.com/c/vs-code",
+    "description": "Editor-style code block (VSCode Dark+/Light+): title bar with mac traffic lights, line-number gutter, in-house syntax highlighting (ts/js/vue/html/css/json/bash/python), copy to clipboard, highlighted lines, theme-aware and proximity glow.",
+    "family": "VsCode",
+    "familyLabel": "Code",
+    "wc": "vs-code.CHn-6WpN.js"
+  },
+  "vs-color-picker-compact": {
+    "slug": "vs-color-picker-compact",
+    "title": "VsColorPickerCompact",
+    "url": "https://vuesax.com/c/vs-color-picker-compact",
+    "description": "Compact variant: chip trigger (swatch + hex) that opens a popover with a swatch grid and a hex field; great for toolbars. v-model = hex.",
+    "family": "VsColorPicker",
+    "familyLabel": "ColorPicker",
+    "wc": "vs-color-picker-compact.DuW7Jvb8.js"
+  },
+  "vs-color-picker-palette": {
+    "slug": "vs-color-picker-palette",
+    "title": "VsColorPickerPalette",
+    "url": "https://vuesax.com/c/vs-color-picker-palette",
+    "description": "Palette variant: named palettes in rows of ramps (scale); pick a hue and a step, the active cell lifts. v-model = hex.",
+    "family": "VsColorPicker",
+    "familyLabel": "ColorPicker",
+    "wc": "vs-color-picker-palette.Zlc49PjT.js"
+  },
+  "vs-color-picker-ring": {
+    "slug": "vs-color-picker-ring",
+    "title": "VsColorPickerRing",
+    "url": "https://vuesax.com/c/vs-color-picker-ring",
+    "description": "Ring variant: conic hue ring dragged with the pointer, central preview disc and a lightness ramp. v-model = hex.",
+    "family": "VsColorPicker",
+    "familyLabel": "ColorPicker",
+    "wc": "vs-color-picker-ring.-b7mpo8a.js"
+  },
+  "vs-color-picker-slider": {
+    "slug": "vs-color-picker-slider",
+    "title": "VsColorPickerSlider",
+    "url": "https://vuesax.com/c/vs-color-picker-slider",
+    "description": "Slider variant: three HSL sliders (hue, saturation, lightness) with live gradient tracks and thumbs that bounce while dragging. v-model = hex.",
+    "family": "VsColorPicker",
+    "familyLabel": "ColorPicker",
+    "wc": "vs-color-picker-slider.CwNPRrNB.js"
+  },
+  "vs-color-picker-swatches": {
+    "slug": "vs-color-picker-swatches",
+    "title": "VsColorPickerSwatches",
+    "url": "https://vuesax.com/c/vs-color-picker-swatches",
+    "description": "Swatches variant: color grid with cells that pop on hover and an animated check on the active one; large preview + hex field. v-model = hex.",
+    "family": "VsColorPicker",
+    "familyLabel": "ColorPicker",
+    "wc": "vs-color-picker-swatches.BX67r3g8.js"
+  },
+  "vs-color-picker": {
+    "slug": "vs-color-picker",
+    "title": "VsColorPicker",
+    "url": "https://vuesax.com/c/vs-color-picker",
+    "description": "HSV color picker: saturation/brightness area, hue slider, hex field, RGB/HSL readout and swatches. v-model = hex.",
+    "family": "VsColorPicker",
+    "familyLabel": "ColorPicker",
+    "wc": "vs-color-picker.wTnI7tD_.js"
+  },
+  "vs-context-menu-blur": {
+    "slug": "vs-context-menu-blur",
+    "title": "VsContextMenuBlur",
+    "url": "https://vuesax.com/c/vs-context-menu-blur",
+    "description": "Right-click menu with a frosted blur effect: the panel enters from blurred to sharp and the items reveal in a domino cascade out of the blur. Same API as VsContextMenu (Esc/click-outside closes, keyboard navigation).",
+    "family": "VsContextMenu",
+    "familyLabel": "ContextMenu",
+    "wc": "vs-context-menu-blur.DArx598k.js"
+  },
+  "vs-context-menu-glow": {
+    "slug": "vs-context-menu-glow",
+    "title": "VsContextMenuGlow",
+    "url": "https://vuesax.com/c/vs-context-menu-glow",
+    "description": "Right-click menu with a glow effect: an accent halo pulses on the panel border and the active item lights up a band of light sweeping across it. Same API as VsContextMenu (Esc/click-outside closes, keyboard navigation).",
+    "family": "VsContextMenu",
+    "familyLabel": "ContextMenu",
+    "wc": "vs-context-menu-glow.B_3wD0jg.js"
+  },
+  "vs-context-menu-radial": {
+    "slug": "vs-context-menu-radial",
+    "title": "VsContextMenuRadial",
+    "url": "https://vuesax.com/c/vs-context-menu-radial",
+    "description": "Right-click menu with a radial effect: the panel reveals with a circular iris (clip-path) growing from the corner nearest the cursor and the items enter staggered. Same API as VsContextMenu (Esc/click-outside closes, keyboard navigation).",
+    "family": "VsContextMenu",
+    "familyLabel": "ContextMenu",
+    "wc": "vs-context-menu-radial.C9Z470q1.js"
+  },
+  "vs-context-menu-slide": {
+    "slug": "vs-context-menu-slide",
+    "title": "VsContextMenuSlide",
+    "url": "https://vuesax.com/c/vs-context-menu-slide",
+    "description": "Right-click menu with a slide effect: the panel slides in from the origin and each item slides in horizontally in a cascade. Same API as VsContextMenu (Esc/outside-click closes, keyboard navigation).",
+    "family": "VsContextMenu",
+    "familyLabel": "ContextMenu",
+    "wc": "vs-context-menu-slide.KCHnDHfC.js"
+  },
+  "vs-context-menu-spring": {
+    "slug": "vs-context-menu-spring",
+    "title": "VsContextMenuSpring",
+    "url": "https://vuesax.com/c/vs-context-menu-spring",
+    "description": "Right-click menu with a spring effect: the panel is born as a dot and springs out with an elastic overshoot, and the items drop in with a small bounce. Same API as VsContextMenu (Esc/outside-click closes, keyboard navigation).",
+    "family": "VsContextMenu",
+    "familyLabel": "ContextMenu",
+    "wc": "vs-context-menu-spring.BwgYc0p5.js"
+  },
+  "vs-context-menu": {
+    "slug": "vs-context-menu",
+    "title": "VsContextMenu",
+    "url": "https://vuesax.com/c/vs-context-menu",
+    "description": "Right-click menu that opens at the cursor position (similar to VsDropdown, but anchored to the pointer). Born as a dot where you click, it grows with a spring; auto-flip so it never leaves the screen. Items with icons/shortcuts/tones/dividers, sliding highlight, click ripples and keyboard navigation.",
+    "family": "VsContextMenu",
+    "familyLabel": "ContextMenu",
+    "wc": "vs-context-menu.DHvXTK4T.js"
+  },
+  "vs-cursor-blend": {
+    "slug": "vs-cursor-blend",
+    "title": "VsCursorBlend",
+    "url": "https://vuesax.com/c/vs-cursor-blend",
+    "description": "Difference-blend cursor: a disc that inverts whatever sits under it, squashed along its velocity with a lagging wake ring. Grows on `data-cursor-grow`.",
+    "family": "VsCursor",
+    "familyLabel": "Cursor",
+    "wc": "vs-cursor-blend.DuX6lv1n.js"
+  },
+  "vs-cursor-blob": {
+    "slug": "vs-cursor-blob",
+    "title": "VsCursorBlob",
+    "url": "https://vuesax.com/c/vs-cursor-blob",
+    "description": "Jelly blob cursor that squashes and stretches along its direction of travel based on pointer velocity, springing back to a circle at rest.",
+    "family": "VsCursor",
+    "familyLabel": "Cursor",
+    "wc": "vs-cursor-blob.LS6lrweD.js"
+  },
+  "vs-cursor-glow": {
+    "slug": "vs-cursor-glow",
+    "title": "VsCursorGlow",
+    "url": "https://vuesax.com/c/vs-cursor-glow",
+    "description": "Canvas pointer light: the last pointer samples are stamped back additively, so slow moves pool into a lamp and fast moves smear into a comet.",
+    "family": "VsCursor",
+    "familyLabel": "Cursor",
+    "wc": "vs-cursor-glow.C9VjX9oJ.js"
+  },
+  "vs-cursor-label": {
+    "slug": "vs-cursor-label",
+    "title": "VsCursorLabel",
+    "url": "https://vuesax.com/c/vs-cursor-label",
+    "description": "Cursor that morphs from a dot into a text pill reading `data-cursor-text` on the hovered element \u2014 the \"View\" / \"Drag\" reveal.",
+    "family": "VsCursor",
+    "familyLabel": "Cursor",
+    "wc": "vs-cursor-label.06_raTjf.js"
+  },
+  "vs-cursor-magnet": {
+    "slug": "vs-cursor-magnet",
+    "title": "VsCursorMagnet",
+    "url": "https://vuesax.com/c/vs-cursor-magnet",
+    "description": "Two-body magnetic cursor: `data-cursor-magnet` elements bend the pointer path toward them and slide toward the pointer, then the dot snaps onto their bounds.",
+    "family": "VsCursor",
+    "familyLabel": "Cursor",
+    "wc": "vs-cursor-magnet.DHHCY5v4.js"
+  },
+  "vs-cursor-reticle": {
+    "slug": "vs-cursor-reticle",
+    "title": "VsCursorReticle",
+    "url": "https://vuesax.com/c/vs-cursor-reticle",
+    "description": "Camera-viewfinder cursor: a slowly spinning dashed ring with corner brackets that expands on `data-cursor-grow` elements.",
+    "family": "VsCursor",
+    "familyLabel": "Cursor",
+    "wc": "vs-cursor-reticle.SOM-RKxq.js"
+  },
+  "vs-cursor": {
+    "slug": "vs-cursor",
+    "title": "VsCursor",
+    "url": "https://vuesax.com/c/vs-cursor",
+    "description": "Two-circle custom cursor: an inner dot tracks the pointer almost instantly, an outer ring trails behind with lag.",
+    "family": "VsCursor",
+    "familyLabel": "Cursor",
+    "wc": "vs-cursor.BRqrnSm8.js"
+  },
+  "vs-dock-aurora": {
+    "slug": "vs-dock-aurora",
+    "title": "VsDockAurora",
+    "url": "https://vuesax.com/c/vs-dock-aurora",
+    "description": "macOS-style dock over a living light: a Three.js shader plane paints a slow, iridescent aurora (domain-warped simplex noise) behind a frosted-glass capsule. Six icons float in the frost, the pointer stirs the aurora and magnifies the icons through one visibility-gated rAF, and the tone recolors the flowing bands. Reads on both themes; a single frozen frame under reduced motion.",
+    "family": "VsDock",
+    "familyLabel": "Dock",
+    "wc": "vs-dock-aurora.C2ewKTX7.js"
+  },
+  "vs-dock-bounce": {
+    "slug": "vs-dock-bounce",
+    "title": "VsDockBounce",
+    "url": "https://vuesax.com/c/vs-dock-bounce",
+    "description": "Springy dock: hovering an icon makes it bounce up with squash-and-stretch while its neighbours ripple in a distance-staggered wave; clicking fires a satisfying squash \u2192 spring-back. Shared tooltip label and a running-app dot.",
+    "family": "VsDock",
+    "familyLabel": "Dock",
+    "wc": "vs-dock-bounce.CbtpZmCH.js"
+  },
+  "vs-dock-glass": {
+    "slug": "vs-dock-glass",
+    "title": "VsDockGlass",
+    "url": "https://vuesax.com/c/vs-dock-glass",
+    "description": "Liquid-glass dock: six icons in a heavy frosted capsule where a specular highlight tracks the cursor, the slab tilts in 3D toward the pointer, and nearby icons brighten and lift \u2014 calm, iOS-26 glass.",
+    "family": "VsDock",
+    "familyLabel": "Dock",
+    "wc": "vs-dock-glass.CKxMHMFW.js"
+  },
+  "vs-dock-gooey": {
+    "slug": "vs-dock-gooey",
+    "title": "VsDockGooey",
+    "url": "https://vuesax.com/c/vs-dock-gooey",
+    "description": "Floating dock with a liquid indicator: an accent blob rests under the active icon and stretches toward the hovered one, its ends merging (SVG goo filter) before settling with a spring. Shared tooltip, running-app dot, tones and reduced-motion fallback.",
+    "family": "VsDock",
+    "familyLabel": "Dock",
+    "wc": "vs-dock-gooey.DLlaCR0e.js"
+  },
+  "vs-dock-magnet": {
+    "slug": "vs-dock-magnet",
+    "title": "VsDockMagnet",
+    "url": "https://vuesax.com/c/vs-dock-magnet",
+    "description": "Magnetic dock: six icons in a clean glass capsule that are pulled toward the cursor \u2014 each leans and swells by proximity, then springs back to rest. Shared tooltip label on hover and a running-app dot on the active icon.",
+    "family": "VsDock",
+    "familyLabel": "Dock",
+    "wc": "vs-dock-magnet.Dt09cGRF.js"
+  },
+  "vs-dock-neon": {
+    "slug": "vs-dock-neon",
+    "title": "VsDockNeon",
+    "url": "https://vuesax.com/c/vs-dock-neon",
+    "description": "Neon dock: six icons in a dark glass capsule, each emitting a colored neon bloom that intensifies on hover and on the active icon, while a luminous rail springs horizontally to sit under the hovered icon and snaps back to the active one. Legible in light theme, with the shared tooltip and a running-app dot.",
+    "family": "VsDock",
+    "familyLabel": "Dock",
+    "wc": "vs-dock-neon.BOfA0b-H.js"
+  },
+  "vs-dock": {
+    "slug": "vs-dock",
+    "title": "VsDock",
+    "url": "https://vuesax.com/c/vs-dock",
+    "description": "macOS-style floating dock: six icons in a glass capsule that magnify by cursor distance (gaussian lift + neighbour spread). No hover box, label or dot \u2014 only the icons animate.",
+    "family": "VsDock",
+    "familyLabel": "Dock",
+    "wc": "vs-dock.DnNYRqIU.js"
+  },
+  "vs-dot-stepper-bars": {
+    "slug": "vs-dot-stepper-bars",
+    "title": "VsDotStepperBars",
+    "url": "https://vuesax.com/c/vs-dot-stepper-bars",
+    "description": "Equalizer-style dot stepper: every step is a bar; the active one grows to its peak and visited ones sit at half height.",
+    "family": "VsDotStepper",
+    "familyLabel": "DotStepper",
+    "wc": "vs-dot-stepper-bars.WOgf9ENs.js"
+  },
+  "vs-dot-stepper-elastic": {
+    "slug": "vs-dot-stepper-elastic",
+    "title": "VsDotStepperElastic",
+    "url": "https://vuesax.com/c/vs-dot-stepper-elastic",
+    "description": "Dot stepper with an elastic bounce: the active dot swells with spring-like overshoot and its neighbors react with a nudge.",
+    "family": "VsDotStepper",
+    "familyLabel": "DotStepper",
+    "wc": "vs-dot-stepper-elastic.Cb-_Po1o.js"
+  },
+  "vs-dot-stepper-glow": {
+    "slug": "vs-dot-stepper-glow",
+    "title": "VsDotStepperGlow",
+    "url": "https://vuesax.com/c/vs-dot-stepper-glow",
+    "description": "Dot stepper with a neon halo: the active dot emits a glow that pulses/breathes via an animated box-shadow.",
+    "family": "VsDotStepper",
+    "familyLabel": "DotStepper",
+    "wc": "vs-dot-stepper-glow.ByIbGPdN.js"
+  },
+  "vs-dot-stepper-ring": {
+    "slug": "vs-dot-stepper-ring",
+    "title": "VsDotStepperRing",
+    "url": "https://vuesax.com/c/vs-dot-stepper-ring",
+    "description": "Dot stepper whose active step is wrapped by a conic-gradient ring that spins in orbit around the dot.",
+    "family": "VsDotStepper",
+    "familyLabel": "DotStepper",
+    "wc": "vs-dot-stepper-ring.NBW0x2bI.js"
+  },
+  "vs-dot-stepper-worm": {
+    "slug": "vs-dot-stepper-worm",
+    "title": "VsDotStepperWorm",
+    "url": "https://vuesax.com/c/vs-dot-stepper-worm",
+    "description": "Dot stepper whose focus travels like a \"worm\": it stretches along the jump direction and contracts on reaching the target dot.",
+    "family": "VsDotStepper",
+    "familyLabel": "DotStepper",
+    "wc": "vs-dot-stepper-worm.D27QfOlk.js"
+  },
+  "vs-dot-stepper": {
+    "slug": "vs-dot-stepper",
+    "title": "VsDotStepper",
+    "url": "https://vuesax.com/c/vs-dot-stepper",
+    "description": "Dot-style steps with a single focus that slides between the dots; manual or timed mode (autoplay + progress ring).",
+    "family": "VsDotStepper",
+    "familyLabel": "DotStepper",
+    "wc": "vs-dot-stepper.Pt0mo3ni.js"
+  },
+  "vs-drawer-blur": {
+    "slug": "vs-drawer-blur",
+    "title": "VsDrawerBlur",
+    "url": "https://vuesax.com/c/vs-drawer-blur",
+    "description": "Side sheet with a FOCUS-PULL effect: the panel materialises in place, starting heavily blurred and transparent then sharpening into focus with a small directional nudge. v-model:open, side/size/tone, blurred backdrop, Esc/overlay dismiss, trapped focus, reduced-motion.",
+    "family": "VsDrawer",
+    "familyLabel": "Drawer",
+    "wc": "vs-drawer-blur.aEfTjzND.js"
+  },
+  "vs-drawer-bounce": {
+    "slug": "vs-drawer-bounce",
+    "title": "VsDrawerBounce",
+    "url": "https://vuesax.com/c/vs-drawer-bounce",
+    "description": "Side sheet with an ELASTIC BOUNCE effect: the panel springs in, overshoots past its resting edge and rebounds a couple of times before settling (keyframed multi-bounce). v-model:open, side/size/tone, blurred backdrop, Esc/overlay dismiss, trapped focus, reduced-motion.",
+    "family": "VsDrawer",
+    "familyLabel": "Drawer",
+    "wc": "vs-drawer-bounce.afQMfy_q.js"
+  },
+  "vs-drawer-glass": {
+    "slug": "vs-drawer-glass",
+    "title": "VsDrawerGlass",
+    "url": "https://vuesax.com/c/vs-drawer-glass",
+    "description": "Side sheet with a GLASSMORPHISM effect: the panel is a translucent frosted surface (backdrop blur + saturate + inner sheen) that slides in so the page shows through it. Frost strength is adjustable. v-model:open, side/size/tone, Esc/overlay dismiss, trapped focus, reduced-motion.",
+    "family": "VsDrawer",
+    "familyLabel": "Drawer",
+    "wc": "vs-drawer-glass.XctIFS4l.js"
+  },
+  "vs-drawer-push": {
+    "slug": "vs-drawer-push",
+    "title": "VsDrawerPush",
+    "url": "https://vuesax.com/c/vs-drawer-push",
+    "description": "Side sheet with a PUSH effect: as the drawer opens it physically shoves the whole page aside (and optionally scales it down for depth) instead of floating over it. v-model:open, side/size/tone, Esc/overlay dismiss, trapped focus, reduced-motion.",
+    "family": "VsDrawer",
+    "familyLabel": "Drawer",
+    "wc": "vs-drawer-push.DmyWgLTT.js"
+  },
+  "vs-drawer-slide": {
+    "slug": "vs-drawer-slide",
+    "title": "VsDrawerSlide",
+    "url": "https://vuesax.com/c/vs-drawer-slide",
+    "description": "Side sheet with a clean linear SLIDE-IN effect: the panel translates in from any edge on a smooth ease-out with no spring or overshoot. v-model:open, side/size/tone, blurred backdrop, Esc/overlay dismiss, trapped focus, reduced-motion.",
+    "family": "VsDrawer",
+    "familyLabel": "Drawer",
+    "wc": "vs-drawer-slide.CBRMGslK.js"
+  },
+  "vs-drawer": {
+    "slug": "vs-drawer",
+    "title": "VsDrawer",
+    "url": "https://vuesax.com/c/vs-drawer",
+    "description": "Sliding side sheet: v-model:active, slides from any edge (left/right/top/bottom) over a blurred overlay. Trapped focus, Esc/overlay to close, tones, sizes, proximity glow on the panel border. The trigger button carries proximity light and click ripple.",
+    "family": "VsDrawer",
+    "familyLabel": "Drawer",
+    "wc": "vs-drawer.BgC4gtbk.js"
+  },
+  "vs-dropdown-blur": {
+    "slug": "vs-dropdown-blur",
+    "title": "VsDropdownBlur",
+    "url": "https://vuesax.com/c/vs-dropdown-blur",
+    "description": "Standalone dropdown with a BLUR effect: the panel condenses out of a frosted-glass blur until it is crisp, and each item focuses from blurry to sharp in a cascade. Real state (Esc, arrows, click-outside) and a11y (role=menu, aria-expanded).",
+    "family": "VsDropdown",
+    "familyLabel": "Dropdown",
+    "wc": "vs-dropdown-blur.BnYVWRUg.js"
+  },
+  "vs-dropdown-fold": {
+    "slug": "vs-dropdown-fold",
+    "title": "VsDropdownFold",
+    "url": "https://vuesax.com/c/vs-dropdown-fold",
+    "description": "Standalone dropdown with a FOLD effect: the panel unfolds in 3D like origami (rotateX with perspective around its hinge edge) and each item drops in from -90deg in sequence. Real state (Esc, arrows, click-outside) and a11y (role=menu, aria-expanded).",
+    "family": "VsDropdown",
+    "familyLabel": "Dropdown",
+    "wc": "vs-dropdown-fold.GADriUVN.js"
+  },
+  "vs-dropdown-glow": {
+    "slug": "vs-dropdown-glow",
+    "title": "VsDropdownGlow",
+    "url": "https://vuesax.com/c/vs-dropdown-glow",
+    "description": "Standalone dropdown with a GLOW effect: on open the panel border ignites with a neon pulse in the accent color and the active item carries a luminous halo that follows the highlight. Real state (Esc, arrows, click-outside) and a11y (role=menu, aria-expanded).",
+    "family": "VsDropdown",
+    "familyLabel": "Dropdown",
+    "wc": "vs-dropdown-glow.DGTObr0v.js"
+  },
+  "vs-dropdown-slide": {
+    "slug": "vs-dropdown-slide",
+    "title": "VsDropdownSlide",
+    "url": "https://vuesax.com/c/vs-dropdown-slide",
+    "description": "Standalone dropdown with a SLIDE effect: the panel slides in and is revealed by a clip-path wipe from the trigger edge, while the items enter one by one from that same side. Real state (Esc, arrow keys, click-outside) and a11y (role=menu, aria-expanded).",
+    "family": "VsDropdown",
+    "familyLabel": "Dropdown",
+    "wc": "vs-dropdown-slide.DQUvbWa_.js"
+  },
+  "vs-dropdown-spring": {
+    "slug": "vs-dropdown-spring",
+    "title": "VsDropdownSpring",
+    "url": "https://vuesax.com/c/vs-dropdown-spring",
+    "description": "Standalone dropdown with a SPRING effect: the panel pops out with an elastic bounce from the trigger corner and each item enters on a staggered spring. Real state (Esc, arrow keys, click-outside) and a11y (role=menu, aria-expanded).",
+    "family": "VsDropdown",
+    "familyLabel": "Dropdown",
+    "wc": "vs-dropdown-spring.Do2L_33H.js"
+  },
+  "vs-dropdown": {
+    "slug": "vs-dropdown",
+    "title": "VsDropdown",
+    "url": "https://vuesax.com/c/vs-dropdown",
+    "description": "Anchored menu that morphs out of its trigger: it clones the element that opened it and grows into the panel, then shrinks back on close. The demo uses VsAvatar as the trigger.",
+    "family": "VsDropdown",
+    "familyLabel": "Dropdown",
+    "wc": "vs-dropdown.DskplGV4.js"
+  },
+  "vs-file-tree-compact": {
+    "slug": "vs-file-tree-compact",
+    "title": "VsFileTreeCompact",
+    "url": "https://vuesax.com/c/vs-file-tree-compact",
+    "description": "Dense IDE-style file tree with row heights tunable by density (comfortable / cozy / compact) and an accent indicator bar that slides vertically to the selected row.",
+    "family": "VsFileTree",
+    "familyLabel": "FileTree",
+    "wc": "vs-file-tree-compact.BCeV1Jki.js"
+  },
+  "vs-file-tree-glow": {
+    "slug": "vs-file-tree-glow",
+    "title": "VsFileTreeGlow",
+    "url": "https://vuesax.com/c/vs-file-tree-glow",
+    "description": "File tree with proximity light: an accent radial halo follows the cursor inside the hovered row and nearby rows brighten progressively based on their distance to the pointer. The active row gets an accent ring.",
+    "family": "VsFileTree",
+    "familyLabel": "FileTree",
+    "wc": "vs-file-tree-glow.SuBRw6Kv.js"
+  },
+  "vs-file-tree-guides": {
+    "slug": "vs-file-tree-guides",
+    "title": "VsFileTreeGuides",
+    "url": "https://vuesax.com/c/vs-file-tree-guides",
+    "description": "File tree with animated indentation guides: the guide line of each ancestor folder lights up and thickens in the accent color when hovering a descendant row, tracing the path from the root down to the file.",
+    "family": "VsFileTree",
+    "familyLabel": "FileTree",
+    "wc": "vs-file-tree-guides.KxTfFk2c.js"
+  },
+  "vs-file-tree-highlight": {
+    "slug": "vs-file-tree-highlight",
+    "title": "VsFileTreeHighlight",
+    "url": "https://vuesax.com/c/vs-file-tree-highlight",
+    "description": "File tree with a shared highlight pill (accent + blur) that slides and resizes with a bounce between rows as the cursor moves, measuring the real bounds of each row FLIP-style.",
+    "family": "VsFileTree",
+    "familyLabel": "FileTree",
+    "wc": "vs-file-tree-highlight.CU16Ik1s.js"
+  },
+  "vs-file-tree-reveal": {
+    "slug": "vs-file-tree-reveal",
+    "title": "VsFileTreeReveal",
+    "url": "https://vuesax.com/c/vs-file-tree-reveal",
+    "description": "File tree with a cascading reveal: opening a folder staggers its children in with a fade + slide from the left and a blur, the delay growing by index for a top-to-bottom sweep.",
+    "family": "VsFileTree",
+    "familyLabel": "FileTree",
+    "wc": "vs-file-tree-reveal.MttPINYv.js"
+  },
+  "vs-file-tree": {
+    "slug": "vs-file-tree",
+    "title": "VsFileTree",
+    "url": "https://vuesax.com/c/vs-file-tree",
+    "description": "Animated file tree: collapsible folders with bounce (grid-rows + icon scale/rotate), hover highlight that slides between rows (blur + opacity), automatic icons by extension and proximity glow. No external dependencies.",
+    "family": "VsFileTree",
+    "familyLabel": "FileTree",
+    "wc": "vs-file-tree.C6md_Iv8.js"
+  },
+  "vs-indicator-bounce": {
+    "slug": "vs-indicator-bounce",
+    "title": "VsIndicatorBounce",
+    "url": "https://vuesax.com/c/vs-indicator-bounce",
+    "description": "Indicator variant with a \"Bounce\" effect: the badge hops vertically with an elastic squash-and-stretch, drawing the eye by jumping in place. Anchors a dot/number/icon badge to any child corner. Same core API as VsIndicator (count, max, dot, showZero, position, tone, size) plus `hops` for seconds per jump cycle. Respects prefers-reduced-motion.",
+    "family": "VsIndicator",
+    "familyLabel": "Indicator",
+    "wc": "vs-indicator-bounce.DGQMIjsD.js"
+  },
+  "vs-indicator-odometer": {
+    "slug": "vs-indicator-odometer",
+    "title": "VsIndicatorOdometer",
+    "url": "https://vuesax.com/c/vs-indicator-odometer",
+    "description": "Indicator variant with a \"Count\" (odometer) effect: when the number changes each digit rolls vertically like a mechanical counter / slot reel instead of a blur-swap. Anchors a dot/number/icon badge to any child corner. Same core API as VsIndicator (count, max, dot, showZero, position, tone, size) plus `roll` for the digit-roll duration in ms. Respects prefers-reduced-motion.",
+    "family": "VsIndicator",
+    "familyLabel": "Indicator",
+    "wc": "vs-indicator-odometer.BgYwhDsm.js"
+  },
+  "vs-indicator-ping": {
+    "slug": "vs-indicator-ping",
+    "title": "VsIndicatorPing",
+    "url": "https://vuesax.com/c/vs-indicator-ping",
+    "description": "Indicator variant with a \"Ping\" (radar/sonar) effect: concentric rings expand outward from the badge in a staggered cascade, signalling live activity. Anchors a dot/number/icon badge to any child corner. Same core API as VsIndicator (count, max, dot, showZero, position, tone, size) plus `rings` to set how many rings ripple. Respects prefers-reduced-motion.",
+    "family": "VsIndicator",
+    "familyLabel": "Indicator",
+    "wc": "vs-indicator-ping.CTncpNyF.js"
+  },
+  "vs-indicator-ring": {
+    "slug": "vs-indicator-ring",
+    "title": "VsIndicatorRing",
+    "url": "https://vuesax.com/c/vs-indicator-ring",
+    "description": "Indicator variant with a \"Ring\" (orbit) effect: a conic-gradient arc spins endlessly around the badge like a spinner hugging it, signalling an in-progress / live process. Anchors a dot/number/icon badge to any child corner. Same core API as VsIndicator (count, max, dot, showZero, position, tone, size) plus `spin` for seconds per revolution. Respects prefers-reduced-motion.",
+    "family": "VsIndicator",
+    "familyLabel": "Indicator",
+    "wc": "vs-indicator-ring.SUoYWzyP.js"
+  },
+  "vs-indicator-shake": {
+    "slug": "vs-indicator-shake",
+    "title": "VsIndicatorShake",
+    "url": "https://vuesax.com/c/vs-indicator-shake",
+    "description": "Indicator variant with a \"Shake\" (bell) effect: the badge wobbles side to side in bursts like a ringing bell, then rests before the next burst. Anchors a dot/number/icon badge to any child corner. Same core API as VsIndicator (count, max, dot, showZero, position, tone, size) plus `every` for seconds per shake cycle. Respects prefers-reduced-motion.",
+    "family": "VsIndicator",
+    "familyLabel": "Indicator",
+    "wc": "vs-indicator-shake.DDN1t2l_.js"
+  },
+  "vs-indicator": {
+    "slug": "vs-indicator",
+    "title": "VsIndicator",
+    "url": "https://vuesax.com/c/vs-indicator",
+    "description": "Anchors a badge \u2014 dot, number or icon \u2014 to the corner of any child (avatar, icon, button) via the default slot. ONE persistent capsule that morphs (size/shape/color with an Apple gummy spring) while its content swaps: dot \u2192 number \u2192 icon. Width grows with digit count (1 \u2192 circle, 2+ \u2192 pill), caps at `max+`. Tones, four corner positions, and an optional pulsing halo. Wrap a child: <VsIndicator :count=\"3\"><VsAvatar /></VsIndicator>.",
+    "family": "VsIndicator",
+    "familyLabel": "Indicator",
+    "wc": "vs-indicator.C3rrDnNF.js"
+  },
+  "vs-inline-overflow": {
+    "slug": "vs-inline-overflow",
+    "title": "VsInlineOverflow",
+    "url": "https://vuesax.com/c/vs-inline-overflow",
+    "description": "Pill toolbar that keeps the first actions out and tucks the rest behind a \"\u2026\". Opening springs the bar wide: the shell trails the pills so they overhang and get pulled back in, each pill rides its own staggered spring, and the motion blur and squash come from real velocity \u2014 strongest mid-flight, exactly zero at rest.",
+    "family": "VsInlineOverflow",
+    "familyLabel": "InlineOverflow",
+    "wc": "vs-inline-overflow.DcysQyzf.js"
+  },
+  "vs-input-filled": {
+    "slug": "vs-input-filled",
+    "title": "VsInputFilled",
+    "url": "https://vuesax.com/c/vs-input-filled",
+    "description": "Filled-style input: soft solid surface, the label floats up inside and a bottom bar grows from the center on focus.",
+    "family": "VsInput",
+    "familyLabel": "Input",
+    "wc": "vs-input-filled.iDDlyKAV.js"
+  },
+  "vs-input-gradient-border": {
+    "slug": "vs-input-gradient-border",
+    "title": "VsInputGradientBorder",
+    "url": "https://vuesax.com/c/vs-input-gradient-border",
+    "description": "Input with a gradient border that spins around the field on focus (conic sweep).",
+    "family": "VsInput",
+    "familyLabel": "Input",
+    "wc": "vs-input-gradient-border.B9IZmz7v.js"
+  },
+  "vs-input-pulse": {
+    "slug": "vs-input-pulse",
+    "title": "VsInputPulse",
+    "url": "https://vuesax.com/c/vs-input-pulse",
+    "description": "Input that emits an outward pulsing ring on focus and turns on the accent border.",
+    "family": "VsInput",
+    "familyLabel": "Input",
+    "wc": "vs-input-pulse.DYEQTuv0.js"
+  },
+  "vs-input-spotlight": {
+    "slug": "vs-input-spotlight",
+    "title": "VsInputSpotlight",
+    "url": "https://vuesax.com/c/vs-input-spotlight",
+    "description": "Input with a radial spotlight that tracks the cursor inside the field; crisp accent on focus.",
+    "family": "VsInput",
+    "familyLabel": "Input",
+    "wc": "vs-input-spotlight.CeRrrKzK.js"
+  },
+  "vs-input-underline": {
+    "slug": "vs-input-underline",
+    "title": "VsInputUnderline",
+    "url": "https://vuesax.com/c/vs-input-underline",
+    "description": "Minimal underline-only input; on focus the accent draws from the center and the label floats.",
+    "family": "VsInput",
+    "familyLabel": "Input",
+    "wc": "vs-input-underline.Dsb6TEr3.js"
+  },
+  "vs-input": {
+    "slug": "vs-input",
+    "title": "VsInput",
+    "url": "https://vuesax.com/c/vs-input",
+    "description": "Text field with animated floating label, Apple-style spring focus ring, tones, squircle radii, clearable, password toggle, prefix and hint.",
+    "family": "VsInput",
+    "familyLabel": "Input",
+    "wc": "vs-input.D7WdwlOc.js"
+  },
+  "vs-link-bar-glow": {
+    "slug": "vs-link-bar-glow",
+    "title": "VsLinkBarGlow",
+    "url": "https://vuesax.com/c/vs-link-bar-glow",
+    "description": "Link bar where the text emits an accent glow (text-shadow) on hover and the active link pulses gently.",
+    "family": "VsLinkBar",
+    "familyLabel": "LinkBar",
+    "wc": "vs-link-bar-glow.NE5GNlUz.js"
+  },
+  "vs-link-bar-magnet": {
+    "slug": "vs-link-bar-magnet",
+    "title": "VsLinkBarMagnet",
+    "url": "https://vuesax.com/c/vs-link-bar-magnet",
+    "description": "Link bar with a magnet effect: the hovered link follows the cursor with a soft translate and springs back on leave.",
+    "family": "VsLinkBar",
+    "familyLabel": "LinkBar",
+    "wc": "vs-link-bar-magnet.cc8htNs4.js"
+  },
+  "vs-link-bar-pill": {
+    "slug": "vs-link-bar-pill",
+    "title": "VsLinkBarPill",
+    "url": "https://vuesax.com/c/vs-link-bar-pill",
+    "description": "Link bar where each item gains a pill background on hover and the active link keeps a filled accent pill.",
+    "family": "VsLinkBar",
+    "familyLabel": "LinkBar",
+    "wc": "vs-link-bar-pill.DHhxFC9C.js"
+  },
+  "vs-link-bar-slide": {
+    "slug": "vs-link-bar-slide",
+    "title": "VsLinkBarSlide",
+    "url": "https://vuesax.com/c/vs-link-bar-slide",
+    "description": "Link bar with a vertical flip: on hover the label rises and an accent copy enters from below (masked marquee).",
+    "family": "VsLinkBar",
+    "familyLabel": "LinkBar",
+    "wc": "vs-link-bar-slide.BLa77AXd.js"
+  },
+  "vs-link-bar-underline": {
+    "slug": "vs-link-bar-underline",
+    "title": "VsLinkBarUnderline",
+    "url": "https://vuesax.com/c/vs-link-bar-underline",
+    "description": "Link bar with an accent underline that grows from the center on hover and stays under the active link.",
+    "family": "VsLinkBar",
+    "familyLabel": "LinkBar",
+    "wc": "vs-link-bar-underline.BCMDa7hV.js"
+  },
+  "vs-link-bar": {
+    "slug": "vs-link-bar",
+    "title": "VsLinkBar",
+    "url": "https://vuesax.com/c/vs-link-bar",
+    "description": "A row of links with an animated underline on hover, optionally divided by vertical separators.",
+    "family": "VsLinkBar",
+    "familyLabel": "LinkBar",
+    "wc": "vs-link-bar.bkyuWThW.js"
+  },
+  "vs-list-cards": {
+    "slug": "vs-list-cards",
+    "title": "VsListCards",
+    "url": "https://vuesax.com/c/vs-list-cards",
+    "description": "List where every row is a separate, raised card; on hover the card lifts with a shadow and a subtle 3D tilt that follows the cursor. Selected/active via props and reduced-motion.",
+    "family": "VsList",
+    "familyLabel": "List",
+    "wc": "vs-list-cards.DyqrrMko.js"
+  },
+  "vs-list-glow": {
+    "slug": "vs-list-glow",
+    "title": "VsListGlow",
+    "url": "https://vuesax.com/c/vs-list-glow",
+    "description": "List with a proximity halo that lights up and follows the cursor position inside each row. Selected/active via props, keyboard and reduced-motion.",
+    "family": "VsList",
+    "familyLabel": "List",
+    "wc": "vs-list-glow.CgOQZfBz.js"
+  },
+  "vs-list-hover": {
+    "slug": "vs-list-hover",
+    "title": "VsListHover",
+    "url": "https://vuesax.com/c/vs-list-hover",
+    "description": "List with a magnetic lift on hover: the row under the cursor rises and slides forward while its neighbours dim. Selected/active via props, keyboard and reduced-motion.",
+    "family": "VsList",
+    "familyLabel": "List",
+    "wc": "vs-list-hover.BA_5379W.js"
+  },
+  "vs-list-reveal": {
+    "slug": "vs-list-reveal",
+    "title": "VsListReveal",
+    "url": "https://vuesax.com/c/vs-list-reveal",
+    "description": "List whose rows slide in with a staggered reveal on mount; each row appears with an incremental delay. Selected/active via props, keyboard support and reduced-motion.",
+    "family": "VsList",
+    "familyLabel": "List",
+    "wc": "vs-list-reveal.DeR4Xo6i.js"
+  },
+  "vs-list-stripe": {
+    "slug": "vs-list-stripe",
+    "title": "VsListStripe",
+    "url": "https://vuesax.com/c/vs-list-stripe",
+    "description": "Zebra-striped list with a highlighter that slides between rows following the cursor or focus. Selected/active via props, keyboard support and reduced-motion.",
+    "family": "VsList",
+    "familyLabel": "List",
+    "wc": "vs-list-stripe.kZpmctWP.js"
+  },
+  "vs-list": {
+    "slug": "vs-list",
+    "title": "VsList",
+    "url": "https://vuesax.com/c/vs-list",
+    "description": "iOS-style list: drag a row sideways to reveal action buttons behind it (edit, archive, delete\u2026). A full swipe fires the edge action; actions with confirm ask for a second tap. Keyboard: Tab on the row, arrows open the tray, Escape closes.",
+    "family": "VsList",
+    "familyLabel": "List",
+    "wc": "vs-list.CnFrk56k.js"
+  },
+  "vs-nav-menu-glow": {
+    "slug": "vs-nav-menu-glow",
+    "title": "VsNavMenuGlow",
+    "url": "https://vuesax.com/c/vs-nav-menu-glow",
+    "description": "Navigation menu with a pulsing neon aura: the active trigger breathes with an accent-colored halo and a glowing border frames the submenu panel.",
+    "family": "VsNavMenu",
+    "familyLabel": "NavMenu",
+    "wc": "vs-nav-menu-glow.BFhUBh-t.js"
+  },
+  "vs-nav-menu-mega": {
+    "slug": "vs-nav-menu-mega",
+    "title": "VsNavMenuMega",
+    "url": "https://vuesax.com/c/vs-nav-menu-mega",
+    "description": "Navigation menu with a mega-panel: the submenu opens as a wide grid whose cards show up with a staggered reveal, rising with a fade one after another.",
+    "family": "VsNavMenu",
+    "familyLabel": "NavMenu",
+    "wc": "vs-nav-menu-mega.GeAkcGGT.js"
+  },
+  "vs-nav-menu-pill": {
+    "slug": "vs-nav-menu-pill",
+    "title": "VsNavMenuPill",
+    "url": "https://vuesax.com/c/vs-nav-menu-pill",
+    "description": "Navigation menu with a sliding filled pill: an accent-colored pill slides and resizes between the triggers, with the text inverting to a contrast color on top of it.",
+    "family": "VsNavMenu",
+    "familyLabel": "NavMenu",
+    "wc": "vs-nav-menu-pill.DysmmzSs.js"
+  },
+  "vs-nav-menu-spotlight": {
+    "slug": "vs-nav-menu-spotlight",
+    "title": "VsNavMenuSpotlight",
+    "url": "https://vuesax.com/c/vs-nav-menu-spotlight",
+    "description": "Navigation menu with a radial spotlight that follows the cursor: an accent-colored beam lights the trigger bar and the submenu panel under the pointer.",
+    "family": "VsNavMenu",
+    "familyLabel": "NavMenu",
+    "wc": "vs-nav-menu-spotlight.DaAYoxA2.js"
+  },
+  "vs-nav-menu-underline": {
+    "slug": "vs-nav-menu-underline",
+    "title": "VsNavMenuUnderline",
+    "url": "https://vuesax.com/c/vs-nav-menu-underline",
+    "description": "Navigation menu with a sliding underline bar: an accent-glow underline slides under the hovered/active trigger while the submenu appears with a directional slide.",
+    "family": "VsNavMenu",
+    "familyLabel": "NavMenu",
+    "wc": "vs-nav-menu-underline.CjJFc0Dq.js"
+  },
+  "vs-nav-menu": {
+    "slug": "vs-nav-menu",
+    "title": "VsNavMenu",
+    "url": "https://vuesax.com/c/vs-nav-menu",
+    "description": "Navigation menu built on a single morphing container: the viewport slides under the active trigger and resizes to its content with bounce, blur and a directional transition.",
+    "family": "VsNavMenu",
+    "familyLabel": "NavMenu",
+    "wc": "vs-nav-menu.BckeVWlF.js"
+  },
+  "vs-notification-banner": {
+    "slug": "vs-notification-banner",
+    "title": "VsNotificationBanner",
+    "url": "https://vuesax.com/c/vs-notification-banner",
+    "description": "Full-width banner that slides down from the top; per-state tint, optional action and dismiss. Auto-dismiss.",
+    "family": "VsNotification",
+    "familyLabel": "Notification",
+    "wc": "vs-notification-banner.Zdws40cy.js"
+  },
+  "vs-notification-card": {
+    "slug": "vs-notification-card",
+    "title": "VsNotificationCard",
+    "url": "https://vuesax.com/c/vs-notification-card",
+    "description": "Corner notification card: state icon, title, description and a progress bar counting down the auto-dismiss. Slides in from the right.",
+    "family": "VsNotification",
+    "familyLabel": "Notification",
+    "wc": "vs-notification-card.rIJM6Lpv.js"
+  },
+  "vs-notification-glow": {
+    "slug": "vs-notification-glow",
+    "title": "VsNotificationGlow",
+    "url": "https://vuesax.com/c/vs-notification-glow",
+    "description": "Dark corner toast with a neon accent: pulsing icon, border/bloom in the state color. Slides in from the right. Auto-dismiss.",
+    "family": "VsNotification",
+    "familyLabel": "Notification",
+    "wc": "vs-notification-glow.DXfej0gB.js"
+  },
+  "vs-notification-inline": {
+    "slug": "vs-notification-inline",
+    "title": "VsNotificationInline",
+    "url": "https://vuesax.com/c/vs-notification-inline",
+    "description": "Alert embedded in the page flow (not floating): left accent bar, state icon, title/description and dismiss. v-model:visible.",
+    "family": "VsNotification",
+    "familyLabel": "Notification",
+    "wc": "vs-notification-inline.CozWRTU4.js"
+  },
+  "vs-notification-snackbar": {
+    "slug": "vs-notification-snackbar",
+    "title": "VsNotificationSnackbar",
+    "url": "https://vuesax.com/c/vs-notification-snackbar",
+    "description": "Material-style snackbar: dark pill bottom-center with an action; rises from the bottom edge. Auto-dismiss.",
+    "family": "VsNotification",
+    "familyLabel": "Notification",
+    "wc": "vs-notification-snackbar.CbVORG4s.js"
+  },
+  "vs-notification": {
+    "slug": "vs-notification",
+    "title": "VsNotification",
+    "url": "https://vuesax.com/c/vs-notification",
+    "description": "Apple/Dynamic Island-style liquid notification: invocable notify() API from anywhere. Capsule\u2194card morph with SVG goo, blur, and fluid state changes (loading\u2192success) on the fly.",
+    "family": "VsNotification",
+    "familyLabel": "Notification",
+    "wc": "vs-notification.LPjldZ0R.js"
+  },
+  "vs-number-glow": {
+    "slug": "vs-number-glow",
+    "title": "VsNumberGlow",
+    "url": "https://vuesax.com/c/vs-number-glow",
+    "description": "Stepper with an accent halo that pulses on every change: the border and the number emit a brief neon glow when incrementing or decrementing.",
+    "family": "VsNumber",
+    "familyLabel": "Number",
+    "wc": "vs-number-glow.B-3UNcr6.js"
+  },
+  "vs-number-roll-digits": {
+    "slug": "vs-number-roll-digits",
+    "title": "VsNumberRollDigits",
+    "url": "https://vuesax.com/c/vs-number-roll-digits",
+    "description": "Odometer stepper: each digit is a 0-9 strip that rolls vertically to the correct value, like a mileage counter.",
+    "family": "VsNumber",
+    "familyLabel": "Number",
+    "wc": "vs-number-roll-digits.2WsAZwkD.js"
+  },
+  "vs-number-segment": {
+    "slug": "vs-number-segment",
+    "title": "VsNumberSegment",
+    "url": "https://vuesax.com/c/vs-number-segment",
+    "description": "Stepper with the number in LED-panel style segment cells: each digit gets its own box and does a brief vertical flip on change.",
+    "family": "VsNumber",
+    "familyLabel": "Number",
+    "wc": "vs-number-segment.CTtdIpAD.js"
+  },
+  "vs-number-slider": {
+    "slug": "vs-number-slider",
+    "title": "VsNumberSlider",
+    "url": "https://vuesax.com/c/vs-number-slider",
+    "description": "Stepper with a draggable fill track under the number: the accented fill maps value between min/max and can be dragged to set it.",
+    "family": "VsNumber",
+    "familyLabel": "Number",
+    "wc": "vs-number-slider.CdxfL9AQ.js"
+  },
+  "vs-number-stepper": {
+    "slug": "vs-number-stepper",
+    "title": "VsNumberStepper",
+    "url": "https://vuesax.com/c/vs-number-stepper",
+    "description": "Stepper with stacked vertical controls (up/down chevrons) beside the number, giving a directional elastic bump on every step.",
+    "family": "VsNumber",
+    "familyLabel": "Number",
+    "wc": "vs-number-stepper.DWXAwu3V.js"
+  },
+  "vs-number": {
+    "slug": "vs-number",
+    "title": "VsNumber",
+    "url": "https://vuesax.com/c/vs-number",
+    "description": "[ \u2212 n + ] stepper with an animated center number (fluid count-up), accelerating press-and-hold and proximity glow on the icons.",
+    "family": "VsNumber",
+    "familyLabel": "Number",
+    "wc": "vs-number.Cl9PVvVy.js"
+  },
+  "vs-otp-dots": {
+    "slug": "vs-otp-dots",
+    "title": "VsOtpDots",
+    "url": "https://vuesax.com/c/vs-otp-dots",
+    "description": "PIN-style dot OTP \u2014 each cell is a hollow dot that turns solid with an elastic pop once filled (digit masked like a passcode). Typing advances, Backspace goes back, pasting fills.",
+    "family": "VsOtp",
+    "familyLabel": "Otp",
+    "wc": "vs-otp-dots.eitczesb.js"
+  },
+  "vs-otp-filled": {
+    "slug": "vs-otp-filled",
+    "title": "VsOtpFilled",
+    "url": "https://vuesax.com/c/vs-otp-filled",
+    "description": "OTP with solid cells \u2014 each digit fills its tile with the accent color and pops in scale. Typing advances, Backspace goes back, paste fills.",
+    "family": "VsOtp",
+    "familyLabel": "Otp",
+    "wc": "vs-otp-filled.JQJ5qcFQ.js"
+  },
+  "vs-otp-flip": {
+    "slug": "vs-otp-flip",
+    "title": "VsOtpFlip",
+    "url": "https://vuesax.com/c/vs-otp-flip",
+    "description": "Split-flap style OTP \u2014 each cell spins in 3D around its horizontal axis when a digit is entered or cleared, like an airport board. Typing advances, Backspace goes back, paste fills.",
+    "family": "VsOtp",
+    "familyLabel": "Otp",
+    "wc": "vs-otp-flip.Dk6UfYHT.js"
+  },
+  "vs-otp-glow": {
+    "slug": "vs-otp-glow",
+    "title": "VsOtpGlow",
+    "url": "https://vuesax.com/c/vs-otp-glow",
+    "description": "OTP with a neon aura \u2014 the focused cell pulses with a halo of light and the filled ones keep a soft glow. Typing advances, Backspace goes back, paste fills.",
+    "family": "VsOtp",
+    "familyLabel": "Otp",
+    "wc": "vs-otp-glow.DPXSXiCH.js"
+  },
+  "vs-otp-underline": {
+    "slug": "vs-otp-underline",
+    "title": "VsOtpUnderline",
+    "url": "https://vuesax.com/c/vs-otp-underline",
+    "description": "Minimal underline-style OTP \u2014 no box, just a bottom line that thickens and lights up under the active cell. Typing advances, Backspace goes back, paste fills.",
+    "family": "VsOtp",
+    "familyLabel": "Otp",
+    "wc": "vs-otp-underline.DH1NuNGH.js"
+  },
+  "vs-otp": {
+    "slug": "vs-otp",
+    "title": "VsOtp",
+    "url": "https://vuesax.com/c/vs-otp",
+    "description": "One-time code input (OTP / PIN) \u2014 one cell per digit, typing advances, Backspace goes back, pasting fills everything. Numeric/alphanumeric types, mask, tones.",
+    "family": "VsOtp",
+    "familyLabel": "Otp",
+    "wc": "vs-otp.BsHxsR5p.js"
+  },
+  "vs-pagination-compact": {
+    "slug": "vs-pagination-compact",
+    "title": "VsPaginationCompact",
+    "url": "https://vuesax.com/c/vs-pagination-compact",
+    "description": "Minimal \"\u2039 4 / 12 \u203a\" pagination with the current digit rolling like a directional odometer. For toolbars and dense tables.",
+    "family": "VsPagination",
+    "familyLabel": "Pagination",
+    "wc": "vs-pagination-compact.YCxpuSic.js"
+  },
+  "vs-pagination-dots": {
+    "slug": "vs-pagination-dots",
+    "title": "VsPaginationDots",
+    "url": "https://vuesax.com/c/vs-pagination-dots",
+    "description": "Carousel-style dot pagination: the active dot turns into a worm that glides with a liquid stretch.",
+    "family": "VsPagination",
+    "familyLabel": "Pagination",
+    "wc": "vs-pagination-dots.CjnQrs5z.js"
+  },
+  "vs-pagination-gooey": {
+    "slug": "vs-pagination-gooey",
+    "title": "VsPaginationGooey",
+    "url": "https://vuesax.com/c/vs-pagination-gooey",
+    "description": "Liquid indicator (SVG goo filter) that stretches and melts as it jumps between numbers, with a carousel window.",
+    "family": "VsPagination",
+    "familyLabel": "Pagination",
+    "wc": "vs-pagination-gooey.SE9SL8gH.js"
+  },
+  "vs-pagination-ink": {
+    "slug": "vs-pagination-ink",
+    "title": "VsPaginationInk",
+    "url": "https://vuesax.com/c/vs-pagination-ink",
+    "description": "Editorial pagination with ellipsis truncation and a sliding ink bar (spring) under the active number.",
+    "family": "VsPagination",
+    "familyLabel": "Pagination",
+    "wc": "vs-pagination-ink.CFbfB9ag.js"
+  },
+  "vs-pagination-segments": {
+    "slug": "vs-pagination-segments",
+    "title": "VsPaginationSegments",
+    "url": "https://vuesax.com/c/vs-pagination-segments",
+    "description": "Pagination as a segmented progress bar: visited segments fill in a cascade and the current one glows as the leading head.",
+    "family": "VsPagination",
+    "familyLabel": "Pagination",
+    "wc": "vs-pagination-segments.BSotrl8B.js"
+  },
+  "vs-pagination": {
+    "slug": "vs-pagination",
+    "title": "VsPagination",
+    "url": "https://vuesax.com/c/vs-pagination",
+    "description": "Page navigation with ellipsis truncation, variants, sizes and jumps to first/last.",
+    "family": "VsPagination",
+    "familyLabel": "Pagination",
+    "wc": "vs-pagination.B3xh53Om.js"
+  },
+  "vs-popup-bounce": {
+    "slug": "vs-popup-bounce",
+    "title": "VsPopupBounce",
+    "url": "https://vuesax.com/c/vs-popup-bounce",
+    "description": "Modal that drops in from above with a bounce (overshoot); backdrop fades in. v-model:active, Esc, scroll-lock, focus trap.",
+    "family": "VsPopup",
+    "familyLabel": "Popup",
+    "wc": "vs-popup-bounce.BGCxV2Wq.js"
+  },
+  "vs-popup-confirm": {
+    "slug": "vs-popup-confirm",
+    "title": "VsPopupConfirm",
+    "url": "https://vuesax.com/c/vs-popup-confirm",
+    "description": "Compact confirmation dialog: tone-colored icon badge, centered title + message and Cancel/Confirm buttons. Emits confirm/cancel. v-model:active, Esc, scroll-lock, focus-trap.",
+    "family": "VsPopup",
+    "familyLabel": "Popup",
+    "wc": "vs-popup-confirm.DUmZJWjS.js"
+  },
+  "vs-popup-flip": {
+    "slug": "vs-popup-flip",
+    "title": "VsPopupFlip",
+    "url": "https://vuesax.com/c/vs-popup-flip",
+    "description": "Modal that enters with a 3D flip (rotateX) over perspective; backdrop with blur. v-model:active, Esc, scroll-lock, focus trap.",
+    "family": "VsPopup",
+    "familyLabel": "Popup",
+    "wc": "vs-popup-flip.CtjoCK-m.js"
+  },
+  "vs-popup-slide-up": {
+    "slug": "vs-popup-slide-up",
+    "title": "VsPopupSlideUp",
+    "url": "https://vuesax.com/c/vs-popup-slide-up",
+    "description": "Bottom-sheet modal: springs up from the bottom; backdrop with fade. v-model:active, Esc, scroll-lock, focus trap.",
+    "family": "VsPopup",
+    "familyLabel": "Popup",
+    "wc": "vs-popup-slide-up.DWhC3vLr.js"
+  },
+  "vs-popup-zoom": {
+    "slug": "vs-popup-zoom",
+    "title": "VsPopupZoom",
+    "url": "https://vuesax.com/c/vs-popup-zoom",
+    "description": "Modal that enters with a spring zoom from the center and a blurred backdrop. v-model:active, Esc, scroll-lock, focus trap.",
+    "family": "VsPopup",
+    "familyLabel": "Popup",
+    "wc": "vs-popup-zoom.DSSLgFkE.js"
+  },
+  "vs-popup": {
+    "slug": "vs-popup",
+    "title": "VsPopup",
+    "url": "https://vuesax.com/c/vs-popup",
+    "description": "Modal dialog with blurred overlay: v-model:active, trapped focus, Esc to close, tones, sizes, fullscreen and spring transition. The trigger button brings proximity light and click ripple.",
+    "family": "VsPopup",
+    "familyLabel": "Popup",
+    "wc": "vs-popup.BljH1I7u.js"
+  },
+  "vs-progress-circular": {
+    "slug": "vs-progress-circular",
+    "title": "VsProgressCircular",
+    "url": "https://vuesax.com/c/vs-progress-circular",
+    "description": "Radial progress painted with a conic-gradient over a disc (dial), with value% at the center; determinate or indeterminate (spin), tones and label.",
+    "family": "VsProgress",
+    "familyLabel": "Progress",
+    "wc": "vs-progress-circular.DB2EVz0s.js"
+  },
+  "vs-progress-glow": {
+    "slug": "vs-progress-glow",
+    "title": "VsProgressGlow",
+    "url": "https://vuesax.com/c/vs-progress-glow",
+    "description": "Progress bar with a pulsing halo (neon glow) and a flare sweeping across the fill; determinate or indeterminate, tones, label and value%.",
+    "family": "VsProgress",
+    "familyLabel": "Progress",
+    "wc": "vs-progress-glow.Ct1Q3WtW.js"
+  },
+  "vs-progress-gradient": {
+    "slug": "vs-progress-gradient",
+    "title": "VsProgressGradient",
+    "url": "https://vuesax.com/c/vs-progress-gradient",
+    "description": "Progress bar with a gradient that flows horizontally (animated gradient sweep); determinate or indeterminate, tones, label and value%.",
+    "family": "VsProgress",
+    "familyLabel": "Progress",
+    "wc": "vs-progress-gradient.CNbxSLsU.js"
+  },
+  "vs-progress-segments": {
+    "slug": "vs-progress-segments",
+    "title": "VsProgressSegments",
+    "url": "https://vuesax.com/c/vs-progress-segments",
+    "description": "Progress bar split into discrete cells that light up step by step (segmented/LED); determinate or cascading indeterminate, tones, label and value%.",
+    "family": "VsProgress",
+    "familyLabel": "Progress",
+    "wc": "vs-progress-segments.DvgKTERl.js"
+  },
+  "vs-progress-striped": {
+    "slug": "vs-progress-striped",
+    "title": "VsProgressStriped",
+    "url": "https://vuesax.com/c/vs-progress-striped",
+    "description": "Progress bar with animated diagonal stripes (candy-cane) that scroll continuously; determinate or indeterminate, tones, label and value%.",
+    "family": "VsProgress",
+    "familyLabel": "Progress",
+    "wc": "vs-progress-striped.CgIcyVsQ.js"
+  },
+  "vs-progress": {
+    "slug": "vs-progress",
+    "title": "VsProgress",
+    "url": "https://vuesax.com/c/vs-progress",
+    "description": "Linear/circular progress indicator \u2014 determinate or indeterminate, tones, buffer, striped, label and value%.",
+    "family": "VsProgress",
+    "familyLabel": "Progress",
+    "wc": "vs-progress.Cnpu1Mj5.js"
+  },
+  "vs-radio-bounce": {
+    "slug": "vs-radio-bounce",
+    "title": "VsRadioBounce",
+    "url": "https://vuesax.com/c/vs-radio-bounce",
+    "description": "Radio whose dot drops and bounces with squash-and-stretch (damped bounces) on select, with ball physics.",
+    "family": "VsRadio",
+    "familyLabel": "Radio",
+    "wc": "vs-radio-bounce.ewUunXHz.js"
+  },
+  "vs-radio-card": {
+    "slug": "vs-radio-card",
+    "title": "VsRadioCard",
+    "url": "https://vuesax.com/c/vs-radio-card",
+    "description": "Radio presented as a selectable card: on choosing, the panel gets tinted, the accent border lights up and it lifts.",
+    "family": "VsRadio",
+    "familyLabel": "Radio",
+    "wc": "vs-radio-card.DxSe2FiT.js"
+  },
+  "vs-radio-fill": {
+    "slug": "vs-radio-fill",
+    "title": "VsRadioFill",
+    "url": "https://vuesax.com/c/vs-radio-fill",
+    "description": "Radio where the accent color floods the circle from the center on select, with an empty dot punched in the middle.",
+    "family": "VsRadio",
+    "familyLabel": "Radio",
+    "wc": "vs-radio-fill.C7kwPVLc.js"
+  },
+  "vs-radio-glow": {
+    "slug": "vs-radio-glow",
+    "title": "VsRadioGlow",
+    "url": "https://vuesax.com/c/vs-radio-glow",
+    "description": "Radio whose dot lights up with a pulsing halo that breathes (color bloom on loop) when selected.",
+    "family": "VsRadio",
+    "familyLabel": "Radio",
+    "wc": "vs-radio-glow.POOQD-0g.js"
+  },
+  "vs-radio-group-cards": {
+    "slug": "vs-radio-group-cards",
+    "title": "VsRadioGroupCards",
+    "url": "https://vuesax.com/c/vs-radio-group-cards",
+    "description": "Radio group of selectable tiles: each card lifts on hover and, once active, draws an accent border with a check that springs in.",
+    "family": "VsRadioGroup",
+    "familyLabel": "RadioGroup",
+    "wc": "vs-radio-group-cards.dVS3QHBf.js"
+  },
+  "vs-radio-group-glow": {
+    "slug": "vs-radio-group-glow",
+    "title": "VsRadioGroupGlow",
+    "url": "https://vuesax.com/c/vs-radio-group-glow",
+    "description": "Radio group with a neon dot: the active dot lights a core with a soft halo and fires an expanding ripple ring on select.",
+    "family": "VsRadioGroup",
+    "familyLabel": "RadioGroup",
+    "wc": "vs-radio-group-glow.CiasuFr0.js"
+  },
+  "vs-radio-group-pill": {
+    "slug": "vs-radio-group-pill",
+    "title": "VsRadioGroupPill",
+    "url": "https://vuesax.com/c/vs-radio-group-pill",
+    "description": "Radio group of pills with ink-fill: the accent fill grows from the leading dot until it covers the whole pill on select.",
+    "family": "VsRadioGroup",
+    "familyLabel": "RadioGroup",
+    "wc": "vs-radio-group-pill.lqR4luio.js"
+  },
+  "vs-radio-group-segment": {
+    "slug": "vs-radio-group-segment",
+    "title": "VsRadioGroupSegment",
+    "url": "https://vuesax.com/c/vs-radio-group-segment",
+    "description": "Radio group as a segmented control: a sliding thumb glides behind the active option with elastic easing.",
+    "family": "VsRadioGroup",
+    "familyLabel": "RadioGroup",
+    "wc": "vs-radio-group-segment.DPPI0QLG.js"
+  },
+  "vs-radio-group-slide": {
+    "slug": "vs-radio-group-slide",
+    "title": "VsRadioGroupSlide",
+    "url": "https://vuesax.com/c/vs-radio-group-slide",
+    "description": "Radio group with an accent bar that slides along a rail to the active row (side-bar when vertical, underline when horizontal) as the label enters.",
+    "family": "VsRadioGroup",
+    "familyLabel": "RadioGroup",
+    "wc": "vs-radio-group-slide.ku86b9z1.js"
+  },
+  "vs-radio-group": {
+    "slug": "vs-radio-group",
+    "title": "VsRadioGroup",
+    "url": "https://vuesax.com/c/vs-radio-group",
+    "description": "A single-select group of VsRadio options with shared v-model, sizes, tones and layout.",
+    "family": "VsRadioGroup",
+    "familyLabel": "RadioGroup",
+    "wc": "vs-radio-group.zy2OO25-.js"
+  },
+  "vs-radio-ring": {
+    "slug": "vs-radio-ring",
+    "title": "VsRadioRing",
+    "url": "https://vuesax.com/c/vs-radio-ring",
+    "description": "Radio where an accent ring traces clockwise around the circle while the center dot pops in.",
+    "family": "VsRadio",
+    "familyLabel": "Radio",
+    "wc": "vs-radio-ring.Cj2EL1zl.js"
+  },
+  "vs-radio": {
+    "slug": "vs-radio",
+    "title": "VsRadio",
+    "url": "https://vuesax.com/c/vs-radio",
+    "description": "Radio with a spring-in dot, proximity glow, click ripple, tones and a label water-drop.",
+    "family": "VsRadio",
+    "familyLabel": "Radio",
+    "wc": "vs-radio.B5a-S65J.js"
+  },
+  "vs-rating-bars": {
+    "slug": "vs-rating-bars",
+    "title": "VsRatingBars",
+    "url": "https://vuesax.com/c/vs-rating-bars",
+    "description": "Equalizer-style rating \u2014 vertical bars of ascending height that fill with a sweep and an elastic rise on select. allowHalf, clearable and a11y keyboard.",
+    "family": "VsRating",
+    "familyLabel": "Rating",
+    "wc": "vs-rating-bars.BRieOks8.js"
+  },
+  "vs-rating-emoji": {
+    "slug": "vs-rating-emoji",
+    "title": "VsRatingEmoji",
+    "url": "https://vuesax.com/c/vs-rating-emoji",
+    "description": "Rating with mood emoji faces (from sad to happy) \u2014 the chosen face bounces; the rest stay grayed out. Hover previews, clearable and a11y keyboard.",
+    "family": "VsRating",
+    "familyLabel": "Rating",
+    "wc": "vs-rating-emoji.2i6fEuxb.js"
+  },
+  "vs-rating-glow": {
+    "slug": "vs-rating-glow",
+    "title": "VsRatingGlow",
+    "url": "https://vuesax.com/c/vs-rating-glow",
+    "description": "Neon star rating \u2014 lit stars emit a pulsing glow and a flash of light runs across the row on select. allowHalf, clearable and a11y keyboard.",
+    "family": "VsRating",
+    "familyLabel": "Rating",
+    "wc": "vs-rating-glow.C8gJCZDg.js"
+  },
+  "vs-rating-hearts": {
+    "slug": "vs-rating-hearts",
+    "title": "VsRatingHearts",
+    "url": "https://vuesax.com/c/vs-rating-hearts",
+    "description": "Rating with beating hearts \u2014 the selected heart fires a heartbeat with an aura halo; hover previews, allowHalf, clearable and a11y keyboard.",
+    "family": "VsRating",
+    "familyLabel": "Rating",
+    "wc": "vs-rating-hearts.BVo5VvoN.js"
+  },
+  "vs-rating-numbers": {
+    "slug": "vs-rating-numbers",
+    "title": "VsRatingNumbers",
+    "url": "https://vuesax.com/c/vs-rating-numbers",
+    "description": "Rating with numbered tiles (chips 1..N) \u2014 the chosen tile does a 3D flip and the scale fills up to that value. Square/circle shapes, clearable and a11y keyboard.",
+    "family": "VsRating",
+    "familyLabel": "Rating",
+    "wc": "vs-rating-numbers.DUJ8lTge.js"
+  },
+  "vs-rating": {
+    "slug": "vs-rating",
+    "title": "VsRating",
+    "url": "https://vuesax.com/c/vs-rating",
+    "description": "Star rating \u2014 click/hover sets the value, supports half steps (allowHalf), star/heart/circle icons, tones, readonly and a11y keyboard support.",
+    "family": "VsRating",
+    "familyLabel": "Rating",
+    "wc": "vs-rating.B9DX78j_.js"
+  },
+  "vs-scrollbar-dots": {
+    "slug": "vs-scrollbar-dots",
+    "title": "VsScrollbarDots",
+    "url": "https://vuesax.com/c/vs-scrollbar-dots",
+    "description": "Native-scroll scrollbar whose thumb is a column of dots that ripple in a wave while idle and swell on hover. The dot count adapts to the scroll length.",
+    "family": "VsScrollbar",
+    "familyLabel": "Scrollbar",
+    "wc": "vs-scrollbar-dots.DYlS-m1Z.js"
+  },
+  "vs-scrollbar-glow": {
+    "slug": "vs-scrollbar-glow",
+    "title": "VsScrollbarGlow",
+    "url": "https://vuesax.com/c/vs-scrollbar-glow",
+    "description": "Native-scroll scrollbar with a neon thumb that softly breathes and flares brighter the faster you scroll, a velocity-reactive halo that blooms then settles.",
+    "family": "VsScrollbar",
+    "familyLabel": "Scrollbar",
+    "wc": "vs-scrollbar-glow.CO4MAQeM.js"
+  },
+  "vs-scrollbar-gradient": {
+    "slug": "vs-scrollbar-gradient",
+    "title": "VsScrollbarGradient",
+    "url": "https://vuesax.com/c/vs-scrollbar-gradient",
+    "description": "Native-scroll scrollbar whose thumb is filled with a continuously flowing two-color gradient that drifts along its length. The color river never stops. Pick both hues.",
+    "family": "VsScrollbar",
+    "familyLabel": "Scrollbar",
+    "wc": "vs-scrollbar-gradient.DZdn2Pwb.js"
+  },
+  "vs-scrollbar-minimal": {
+    "slug": "vs-scrollbar-minimal",
+    "title": "VsScrollbarMinimal",
+    "url": "https://vuesax.com/c/vs-scrollbar-minimal",
+    "description": "Ultra-thin hairline scrollbar with native scroll. The thumb is a barely-there line that thickens and brightens on hover, then fades out when idle. Zero dependencies, zero noise.",
+    "family": "VsScrollbar",
+    "familyLabel": "Scrollbar",
+    "wc": "vs-scrollbar-minimal.omoY5c2d.js"
+  },
+  "vs-scrollbar-rounded": {
+    "slug": "vs-scrollbar-rounded",
+    "title": "VsScrollbarRounded",
+    "url": "https://vuesax.com/c/vs-scrollbar-rounded",
+    "description": "Native-scroll scrollbar with a chunky full-pill thumb gliding inside a soft rounded capsule track. Springy hover growth; the capsule can be toggled off for a floating pill.",
+    "family": "VsScrollbar",
+    "familyLabel": "Scrollbar",
+    "wc": "vs-scrollbar-rounded.CwJvOGuy.js"
+  },
+  "vs-scrollbar": {
+    "slug": "vs-scrollbar",
+    "title": "VsScrollbar",
+    "url": "https://vuesax.com/c/vs-scrollbar",
+    "description": "Apple-style overlay scrollbar: absolute-positioned thumb with spring tracking, elastic squash at the edges and growth on hover. Replaces the native bar.",
+    "family": "VsScrollbar",
+    "familyLabel": "Scrollbar",
+    "wc": "vs-scrollbar.vNxNWrCw.js"
+  },
+  "vs-select-floating": {
+    "slug": "vs-select-floating",
+    "title": "VsSelectFloating",
+    "url": "https://vuesax.com/c/vs-select-floating",
+    "description": "Select with a floating label (VsInput style): the label rises into the border gap on open or with a value.",
+    "family": "VsSelect",
+    "familyLabel": "Select",
+    "wc": "vs-select-floating.DYSMO43J.js"
+  },
+  "vs-select-pill": {
+    "slug": "vs-select-pill",
+    "title": "VsSelectPill",
+    "url": "https://vuesax.com/c/vs-select-pill",
+    "description": "Select with a pill-shaped trigger and a dropdown whose highlight slides between options.",
+    "family": "VsSelect",
+    "familyLabel": "Select",
+    "wc": "vs-select-pill.BApjinmW.js"
+  },
+  "vs-select-search": {
+    "slug": "vs-select-search",
+    "title": "VsSelectSearch",
+    "url": "https://vuesax.com/c/vs-select-search",
+    "description": "Searchable select: open it and type to filter the options live (combobox).",
+    "family": "VsSelect",
+    "familyLabel": "Select",
+    "wc": "vs-select-search.1UbQ1GiQ.js"
+  },
+  "vs-select-slide": {
+    "slug": "vs-select-slide",
+    "title": "VsSelectSlide",
+    "url": "https://vuesax.com/c/vs-select-slide",
+    "description": "Select whose dropdown unfolds from the trigger with blur + spring while the caret flips; options cascade in.",
+    "family": "VsSelect",
+    "familyLabel": "Select",
+    "wc": "vs-select-slide.De5Wru_q.js"
+  },
+  "vs-select-underline": {
+    "slug": "vs-select-underline",
+    "title": "VsSelectUnderline",
+    "url": "https://vuesax.com/c/vs-select-underline",
+    "description": "Minimal bottom-line-only select; the accent draws itself on open and the dropdown unfolds cleanly.",
+    "family": "VsSelect",
+    "familyLabel": "Select",
+    "wc": "vs-select-underline.Z_0BggBR.js"
+  },
+  "vs-select": {
+    "slug": "vs-select",
+    "title": "VsSelect",
+    "url": "https://vuesax.com/c/vs-select",
+    "description": "Custom dropdown with keyboard navigation, focus ring and Apple-style spring pop.",
+    "family": "VsSelect",
+    "familyLabel": "Select",
+    "wc": "vs-select.YemfOb1j.js"
+  },
+  "vs-separator-flow": {
+    "slug": "vs-separator-flow",
+    "title": "VsSeparatorFlow",
+    "url": "https://vuesax.com/c/vs-separator-flow",
+    "description": "Hairline divider with marching-dash flow \u2014 dashes glide continuously along the line, horizontal or vertical, with an optional inline label and tones.",
+    "family": "VsSeparator",
+    "familyLabel": "Separator",
+    "wc": "vs-separator-flow.BJwQf5km.js"
+  },
+  "vs-separator-glow": {
+    "slug": "vs-separator-glow",
+    "title": "VsSeparatorGlow",
+    "url": "https://vuesax.com/c/vs-separator-glow",
+    "description": "Hairline divider with a soft accent glow that gently pulses in and out, horizontal or vertical, with an optional inline label and tones.",
+    "family": "VsSeparator",
+    "familyLabel": "Separator",
+    "wc": "vs-separator-glow.DjCHpehk.js"
+  },
+  "vs-separator-gradient": {
+    "slug": "vs-separator-gradient",
+    "title": "VsSeparatorGradient",
+    "url": "https://vuesax.com/c/vs-separator-gradient",
+    "description": "Hairline divider with an accent shimmer that sweeps a bright band across a gradient line, horizontal or vertical, with an optional inline label and tones.",
+    "family": "VsSeparator",
+    "familyLabel": "Separator",
+    "wc": "vs-separator-gradient.BE_3NSke.js"
+  },
+  "vs-separator-icon": {
+    "slug": "vs-separator-icon",
+    "title": "VsSeparatorIcon",
+    "url": "https://vuesax.com/c/vs-separator-icon",
+    "description": "Divider with a centered accent node (slottable icon, defaults to a slowly rotating diamond) flanked by fading lines, horizontal or vertical, with an optional label and tones.",
+    "family": "VsSeparator",
+    "familyLabel": "Separator",
+    "wc": "vs-separator-icon.DhGu4I07.js"
+  },
+  "vs-separator-zigzag": {
+    "slug": "vs-separator-zigzag",
+    "title": "VsSeparatorZigzag",
+    "url": "https://vuesax.com/c/vs-separator-zigzag",
+    "description": "Divider drawn as a repeating chevron zigzag pattern that slowly drifts along its length, horizontal or vertical, with an optional inline label and tones.",
+    "family": "VsSeparator",
+    "familyLabel": "Separator",
+    "wc": "vs-separator-zigzag.B21oiom1.js"
+  },
+  "vs-separator": {
+    "slug": "vs-separator",
+    "title": "VsSeparator",
+    "url": "https://vuesax.com/c/vs-separator",
+    "description": "Hairline divider, horizontal/vertical, with variants, an optional inline label masked into the line, and tones.",
+    "family": "VsSeparator",
+    "familyLabel": "Separator",
+    "wc": "vs-separator.84VQMrpL.js"
+  },
+  "vs-sidebar-classic": {
+    "slug": "vs-sidebar-classic",
+    "title": "VsSidebarClassic",
+    "url": "https://vuesax.com/c/vs-sidebar-classic",
+    "description": "Sidebar with the classic active bar on the left; the active item keeps its icon in place (no indent shift).",
+    "family": "VsSidebar",
+    "familyLabel": "Sidebar",
+    "wc": "vs-sidebar-classic.DCC1rziT.js"
+  },
+  "vs-sidebar-floating": {
+    "slug": "vs-sidebar-floating",
+    "title": "VsSidebarFloating",
+    "url": "https://vuesax.com/c/vs-sidebar-floating",
+    "description": "Floating macOS-style icon dock: tiles that magnify on hover with a tooltip, child flyout on the right and a filled tile for the active item.",
+    "family": "VsSidebar",
+    "familyLabel": "Sidebar",
+    "wc": "vs-sidebar-floating.CAI3Fepo.js"
+  },
+  "vs-sidebar-glow": {
+    "slug": "vs-sidebar-glow",
+    "title": "VsSidebarGlow",
+    "url": "https://vuesax.com/c/vs-sidebar-glow",
+    "description": "HUD/terminal style sidebar: uppercase monospace, \u25b8 markers, section headers and a neon active item, lit border and animated scanline (--sb-neon).",
+    "family": "VsSidebar",
+    "familyLabel": "Sidebar",
+    "wc": "vs-sidebar-glow.BBMiv-oH.js"
+  },
+  "vs-sidebar-gradient": {
+    "slug": "vs-sidebar-gradient",
+    "title": "VsSidebarGradient",
+    "url": "https://vuesax.com/c/vs-sidebar-gradient",
+    "description": "Color panel: the whole sidebar sits on an animated brand gradient, with white text and frosted glass items; the active one is a white pill. Overridable via --sb-grad-a/-b.",
+    "family": "VsSidebar",
+    "familyLabel": "Sidebar",
+    "wc": "vs-sidebar-gradient.D3CqtBj9.js"
+  },
+  "vs-sidebar-minimal": {
+    "slug": "vs-sidebar-minimal",
+    "title": "VsSidebarMinimal",
+    "url": "https://vuesax.com/c/vs-sidebar-minimal",
+    "description": "Ghost sidebar: no frame, just bare icons. The active one gets a filled circle and on hover the label appears as a tooltip (flyout for children).",
+    "family": "VsSidebar",
+    "familyLabel": "Sidebar",
+    "wc": "vs-sidebar-minimal.yFMg_hGO.js"
+  },
+  "vs-sidebar-rail": {
+    "slug": "vs-sidebar-rail",
+    "title": "VsSidebarRail",
+    "url": "https://vuesax.com/c/vs-sidebar-rail",
+    "description": "Vertical segmented control: chunky tabs in a track and a solid pill that slides to the active one with a spring (Apple-like), inverting the text under the pill.",
+    "family": "VsSidebar",
+    "familyLabel": "Sidebar",
+    "wc": "vs-sidebar-rail.D2p5l9mx.js"
+  },
+  "vs-sidebar": {
+    "slug": "vs-sidebar",
+    "title": "VsSidebar",
+    "url": "https://vuesax.com/c/vs-sidebar",
+    "description": "Vertical nav collapsible to icons, with accordion submenus (bounce + blur).",
+    "family": "VsSidebar",
+    "familyLabel": "Sidebar",
+    "wc": "vs-sidebar.oHayP09v.js"
+  },
+  "vs-skeleton-blink": {
+    "slug": "vs-skeleton-blink",
+    "title": "VsSkeletonBlink",
+    "url": "https://vuesax.com/c/vs-skeleton-blink",
+    "description": "Loading placeholder with a Blink effect \u2014 hard staggered blink (steps) cascading line by line; shapes text/rect/circle/avatar/card.",
+    "family": "VsSkeleton",
+    "familyLabel": "Skeleton",
+    "wc": "vs-skeleton-blink.C5OGbOKp.js"
+  },
+  "vs-skeleton-gradient": {
+    "slug": "vs-skeleton-gradient",
+    "title": "VsSkeletonGradient",
+    "url": "https://vuesax.com/c/vs-skeleton-gradient",
+    "description": "Loading placeholder with a Gradient effect \u2014 a vein of color loops horizontally (animated background-position); shapes text/rect/circle/avatar/card.",
+    "family": "VsSkeleton",
+    "familyLabel": "Skeleton",
+    "wc": "vs-skeleton-gradient.CzGpaxHZ.js"
+  },
+  "vs-skeleton-pulse": {
+    "slug": "vs-skeleton-pulse",
+    "title": "VsSkeletonPulse",
+    "url": "https://vuesax.com/c/vs-skeleton-pulse",
+    "description": "Loading placeholder with a Pulse effect \u2014 uniform beat with an expanding halo (box-shadow) and opacity; shapes text/rect/circle/avatar/card.",
+    "family": "VsSkeleton",
+    "familyLabel": "Skeleton",
+    "wc": "vs-skeleton-pulse.ipOX9IBq.js"
+  },
+  "vs-skeleton-shine": {
+    "slug": "vs-skeleton-shine",
+    "title": "VsSkeletonShine",
+    "url": "https://vuesax.com/c/vs-skeleton-shine",
+    "description": "Loading placeholder with a Shine effect \u2014 a diagonal glass glint sweeps across each bone from left to right; shapes text/rect/circle/avatar/card.",
+    "family": "VsSkeleton",
+    "familyLabel": "Skeleton",
+    "wc": "vs-skeleton-shine.3_d5Maqt.js"
+  },
+  "vs-skeleton-wave": {
+    "slug": "vs-skeleton-wave",
+    "title": "VsSkeletonWave",
+    "url": "https://vuesax.com/c/vs-skeleton-wave",
+    "description": "Loading placeholder with a Wave effect \u2014 each line breathes in a staggered wave (opacity + vertical scale); shapes text/rect/circle/avatar/card.",
+    "family": "VsSkeleton",
+    "familyLabel": "Skeleton",
+    "wc": "vs-skeleton-wave.DsGDIY5S.js"
+  },
+  "vs-skeleton": {
+    "slug": "vs-skeleton",
+    "title": "VsSkeleton",
+    "url": "https://vuesax.com/c/vs-skeleton",
+    "description": "Loading placeholder \u2014 shimmer (sweeping light) or opacity pulse; shapes text/rect/circle/avatar/card.",
+    "family": "VsSkeleton",
+    "familyLabel": "Skeleton",
+    "wc": "vs-skeleton.-R-fjCHl.js"
+  },
+  "vs-slide-confirm": {
+    "slug": "vs-slide-confirm",
+    "title": "VsSlideConfirm",
+    "url": "https://vuesax.com/c/vs-slide-confirm",
+    "description": "A confirmation you have to mean: drag the knob to the end of the track and the action fires; let go short of the threshold and it springs back. Real spring motion (velocity survives a mid-flight reversal) with velocity-driven squash, keyboard equivalents (Arrow/Enter to confirm, Escape to undo) and a confirmed state you can also drive from the outside. Emits confirm / cancel / input / reset.",
+    "family": "VsSlideConfirm",
+    "familyLabel": "SlideConfirm",
+    "wc": "vs-slide-confirm.Ca5VyYI_.js"
+  },
+  "vs-slider-fluent": {
+    "slug": "vs-slider-fluent",
+    "title": "VsSliderFluent",
+    "url": "https://vuesax.com/c/vs-slider-fluent",
+    "description": "Fluent flat blur slider: frosted glass track (glassmorphism), flat grey fill that grows with an Apple-style sticky bounce, step pips along the whole track and elastic dragging that stretches past the edges. The label and value live INSIDE the slider; the label sits on a background-colored gradient that hides the pips behind it.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider-fluent.C-7Gid7S.js"
+  },
+  "vs-slider-glow": {
+    "slug": "vs-slider-glow",
+    "title": "VsSliderGlow",
+    "url": "https://vuesax.com/c/vs-slider-glow",
+    "description": "Functional slider with a neon effect: the fill and thumb radiate a bloom that pulses gently. v-model, min/max/step, dragging, keyboard and an optional tooltip.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider-glow.BaHByDjZ.js"
+  },
+  "vs-slider-gradient": {
+    "slug": "vs-slider-gradient",
+    "title": "VsSliderGradient",
+    "url": "https://vuesax.com/c/vs-slider-gradient",
+    "description": "Functional slider with a multicolor gradient fill that pans continuously along the bar. v-model, min/max/step, dragging, keyboard and an optional tooltip.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider-gradient.GCFwDnk8.js"
+  },
+  "vs-slider-ripple": {
+    "slug": "vs-slider-ripple",
+    "title": "VsSliderRipple",
+    "url": "https://vuesax.com/c/vs-slider-ripple",
+    "description": "Working slider that emits an expanding ring (ripple) from the thumb every time the value changes, giving tactile feedback. v-model, min/max/step, dragging, keyboard and optional tooltip.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider-ripple.08r22GxL.js"
+  },
+  "vs-slider-stepped": {
+    "slug": "vs-slider-stepped",
+    "title": "VsSliderStepped",
+    "url": "https://vuesax.com/c/vs-slider-stepped",
+    "description": "Working slider with magnetic steps: the value snaps to the nearest notch with an elastic glide and a pulse on the thumb as it locks in. v-model, min/max/step, dragging, keyboard and optional tooltip.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider-stepped.BeDDen3K.js"
+  },
+  "vs-slider-stops": {
+    "slug": "vs-slider-stops",
+    "title": "VsSliderStops",
+    "url": "https://vuesax.com/c/vs-slider-stops",
+    "description": "Continuous slider on a dotted track with NAMED stops: a stop label inflates into a filled pill on its own spring while the handle is within snapping distance, and deflates the moment it leaves. Capsule handle whose inner slot leads while the capsule trails. Free or magnetic, keyboard, v-model.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider-stops.BVIQWt-3.js"
+  },
+  "vs-slider-ticks": {
+    "slug": "vs-slider-ticks",
+    "title": "VsSliderTicks",
+    "url": "https://vuesax.com/c/vs-slider-ticks",
+    "description": "Working ruler-style slider: ticks along the bar light up in the accent color as the fill crosses them. v-model, min/max/step, dragging, keyboard and optional tooltip.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider-ticks.DqoOwjiX.js"
+  },
+  "vs-slider": {
+    "slug": "vs-slider",
+    "title": "VsSlider",
+    "url": "https://vuesax.com/c/vs-slider",
+    "description": "Elastic slider: the track stretches with resistance (spring) when dragging past the edges, grows on hover, icons that react to overflow, optional steps, color tones and v-model.",
+    "family": "VsSlider",
+    "familyLabel": "Slider",
+    "wc": "vs-slider.D_Pz_9W_.js"
+  },
+  "vs-spacer": {
+    "slug": "vs-spacer",
+    "title": "VsSpacer",
+    "url": "https://vuesax.com/c/vs-spacer",
+    "description": "Eats the free space between two siblings of a VsRow or VsColumn \u2014 the Flutter Spacer. The honest way to push a sign-in button to the far end of a bar, instead of a margin-left:auto nobody can find later. Give it a size and it becomes a fixed gap instead.",
+    "family": "VsSpacer",
+    "familyLabel": "Spacer",
+    "wc": "vs-spacer.DV06MRmh.js"
+  },
+  "vs-spinner-bars": {
+    "slug": "vs-spinner-bars",
+    "title": "VsSpinnerBars",
+    "url": "https://vuesax.com/c/vs-spinner-bars",
+    "description": "Four-bar equalizer-style spinner with staggered scaleY.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-bars.B94j1Qu8.js"
+  },
+  "vs-spinner-bounce": {
+    "slug": "vs-spinner-bounce",
+    "title": "VsSpinnerBounce",
+    "url": "https://vuesax.com/c/vs-spinner-bounce",
+    "description": "Ball spinner: bounces with squash&stretch and a shadow that reacts on contact.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-bounce.B6-IDqVj.js"
+  },
+  "vs-spinner-comet": {
+    "slug": "vs-spinner-comet",
+    "title": "VsSpinnerComet",
+    "url": "https://vuesax.com/c/vs-spinner-comet",
+    "description": "Comet spinner: conic trail that fades out with a glowing head leading it.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-comet.C1yURC-b.js"
+  },
+  "vs-spinner-dots": {
+    "slug": "vs-spinner-dots",
+    "title": "VsSpinnerDots",
+    "url": "https://vuesax.com/c/vs-spinner-dots",
+    "description": "Three-dot spinner bouncing in a staggered wave. Minimal and fluid.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-dots.D0om3a-N.js"
+  },
+  "vs-spinner-flip": {
+    "slug": "vs-spinner-flip",
+    "title": "VsSpinnerFlip",
+    "url": "https://vuesax.com/c/vs-spinner-flip",
+    "description": "Cube spinner: squircle flipping in 3D (rotateX\u2192rotateY) continuously.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-flip.C4VR_2VR.js"
+  },
+  "vs-spinner-grid": {
+    "slug": "vs-spinner-grid",
+    "title": "VsSpinnerGrid",
+    "url": "https://vuesax.com/c/vs-spinner-grid",
+    "description": "3\u00d73 grid spinner of dots that scale and fade in a diagonal wave.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-grid.BktWIZaX.js"
+  },
+  "vs-spinner-orbit": {
+    "slug": "vs-spinner-orbit",
+    "title": "VsSpinnerOrbit",
+    "url": "https://vuesax.com/c/vs-spinner-orbit",
+    "description": "Orbital spinner: two counter-rotating rings with dots orbiting over a faint track. Soft glow.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-orbit.vypgmujC.js"
+  },
+  "vs-spinner-pulse": {
+    "slug": "vs-spinner-pulse",
+    "title": "VsSpinnerPulse",
+    "url": "https://vuesax.com/c/vs-spinner-pulse",
+    "description": "Ripple spinner: concentric rings that expand and fade over a pulsing core.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-pulse._zgU8eBt.js"
+  },
+  "vs-spinner-ring": {
+    "slug": "vs-spinner-ring",
+    "title": "VsSpinnerRing",
+    "url": "https://vuesax.com/c/vs-spinner-ring",
+    "description": "iOS-style spoke spinner: 12 radial bars with chasing opacity.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-ring.B3xAriRB.js"
+  },
+  "vs-spinner-wave": {
+    "slug": "vs-spinner-wave",
+    "title": "VsSpinnerWave",
+    "url": "https://vuesax.com/c/vs-spinner-wave",
+    "description": "Five-dot spinner with translateY on a continuous sine wave.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner-wave.bqCxG_TK.js"
+  },
+  "vs-spinner": {
+    "slug": "vs-spinner",
+    "title": "VsSpinner",
+    "url": "https://vuesax.com/c/vs-spinner",
+    "description": "Indicador de carga ring \u2014 variants arc/dual/gradient, tones, velocidad, label y overlay.",
+    "family": "VsSpinner",
+    "familyLabel": "Spinner",
+    "wc": "vs-spinner.B7b48ILA.js"
+  },
+  "vs-split-button": {
+    "slug": "vs-split-button",
+    "title": "VsSplitButton",
+    "url": "https://vuesax.com/c/vs-split-button",
+    "description": "One pill that splits into a row of choices and melts back: each choice rides its own blob on an SVG goo layer, so they peel apart through stretching liquid necks that thin out and snap.",
+    "family": "VsSplitButton",
+    "familyLabel": "SplitButton",
+    "wc": "vs-split-button.5kSTmn9p.js"
+  },
+  "vs-steps-arrow": {
+    "slug": "vs-steps-arrow",
+    "title": "VsStepsArrow",
+    "url": "https://vuesax.com/c/vs-steps-arrow",
+    "description": "Stepper as a flow of interlocking chevrons; the active step fills with the accent color (process flow).",
+    "family": "VsSteps",
+    "familyLabel": "Steps",
+    "wc": "vs-steps-arrow.CkxulzWG.js"
+  },
+  "vs-steps-bar": {
+    "slug": "vs-steps-bar",
+    "title": "VsStepsBar",
+    "url": "https://vuesax.com/c/vs-steps-bar",
+    "description": "Stepper as a progress bar: nodes on a line that fills up to the current step, with title and N/M counter.",
+    "family": "VsSteps",
+    "familyLabel": "Steps",
+    "wc": "vs-steps-bar.CcYQIzLd.js"
+  },
+  "vs-steps-circular": {
+    "slug": "vs-steps-circular",
+    "title": "VsStepsCircular",
+    "url": "https://vuesax.com/c/vs-steps-circular",
+    "description": "Radial stepper: progress ring with an \"N / M\" counter at its center, the step label and a hint of the next one.",
+    "family": "VsSteps",
+    "familyLabel": "Steps",
+    "wc": "vs-steps-circular.BXHD8ggC.js"
+  },
+  "vs-steps-pills": {
+    "slug": "vs-steps-pills",
+    "title": "VsStepsPills",
+    "url": "https://vuesax.com/c/vs-steps-pills",
+    "description": "Pill stepper: every step is a pill collapsed down to its number; the active one expands to reveal its label.",
+    "family": "VsSteps",
+    "familyLabel": "Steps",
+    "wc": "vs-steps-pills.DH2lpC83.js"
+  },
+  "vs-steps-timeline": {
+    "slug": "vs-steps-timeline",
+    "title": "VsStepsTimeline",
+    "url": "https://vuesax.com/c/vs-steps-timeline",
+    "description": "Stepper as a vertical timeline: dots over a connector that fills in, with title and description cards.",
+    "family": "VsSteps",
+    "familyLabel": "Steps",
+    "wc": "vs-steps-timeline.DEgIyplO.js"
+  },
+  "vs-steps": {
+    "slug": "vs-steps",
+    "title": "VsSteps",
+    "url": "https://vuesax.com/c/vs-steps",
+    "description": "Horizontal or vertical stepper/wizard. Per-step states (completed/active/pending/error), connector line with animated progress, numbered \u00b7 check \u00b7 dot marker, and a clickable mode for navigation (emits update:current).",
+    "family": "VsSteps",
+    "familyLabel": "Steps",
+    "wc": "vs-steps.D_2kKjKo.js"
+  },
+  "vs-switch-day-night": {
+    "slug": "vs-switch-day-night",
+    "title": "VsSwitchDayNight",
+    "url": "https://vuesax.com/c/vs-switch-day-night",
+    "description": "Day/night toggle: starry sky \u2194 daytime with clouds and the thumb morphs from moon to glowing sun.",
+    "family": "VsSwitch",
+    "familyLabel": "Switch",
+    "wc": "vs-switch-day-night.Bmve67jU.js"
+  },
+  "vs-switch-dot": {
+    "slug": "vs-switch-dot",
+    "title": "VsSwitchDot",
+    "url": "https://vuesax.com/c/vs-switch-dot",
+    "description": "Minimal outline capsule: a thin ring track with a solid dot knob and nothing else. Off is a hollow track with a filled dot; on inverts the pair \u2014 solid track, punched-out dot. Monochrome by default via --text/--bg tokens (black-on-white in light, white-on-black in dark), with a color prop for the ON fill. Spring slide, elastic stretch on press, and the dot swells a notch on hover.",
+    "family": "VsSwitch",
+    "familyLabel": "Switch",
+    "wc": "VsSwitchDot.Mtl0OUZG.js"
+  },
+  "vs-switch-glow": {
+    "slug": "vs-switch-glow",
+    "title": "VsSwitchGlow",
+    "url": "https://vuesax.com/c/vs-switch-glow",
+    "description": "Neon switch: when on the track radiates glow and the thumb carries a softly pulsing halo.",
+    "family": "VsSwitch",
+    "familyLabel": "Switch",
+    "wc": "vs-switch-glow.DvarWGLm.js"
+  },
+  "vs-switch-label": {
+    "slug": "vs-switch-label",
+    "title": "VsSwitchLabel",
+    "url": "https://vuesax.com/c/vs-switch-label",
+    "description": "Switch with ON/OFF text inside the track: the thumb covers one side and the state reads on the other.",
+    "family": "VsSwitch",
+    "familyLabel": "Switch",
+    "wc": "vs-switch-label.Cr8ejkTN.js"
+  },
+  "vs-switch-liquid": {
+    "slug": "vs-switch-liquid",
+    "title": "VsSwitchLiquid",
+    "url": "https://vuesax.com/c/vs-switch-liquid",
+    "description": "Liquid switch: two blobs with a goo (metaball) filter that stretch like gel while sliding and then merge.",
+    "family": "VsSwitch",
+    "familyLabel": "Switch",
+    "wc": "vs-switch-liquid.C61za2Br.js"
+  },
+  "vs-switch-material": {
+    "slug": "vs-switch-material",
+    "title": "VsSwitchMaterial",
+    "url": "https://vuesax.com/c/vs-switch-material",
+    "description": "Material 3 style switch: off is a small dot on an outlined track, on is a filled track with a checked thumb.",
+    "family": "VsSwitch",
+    "familyLabel": "Switch",
+    "wc": "vs-switch-material.Brmr40He.js"
+  },
+  "vs-switch": {
+    "slug": "vs-switch",
+    "title": "VsSwitch",
+    "url": "https://vuesax.com/c/vs-switch",
+    "description": "iOS-style toggle: spring thumb, elastic stretch on press, drag to toggle, check/line icons, color tones, loading and disabled states.",
+    "family": "VsSwitch",
+    "familyLabel": "Switch",
+    "wc": "vs-switch.vm17my0e.js"
+  },
+  "vs-table-bordered": {
+    "slug": "vs-table-bordered",
+    "title": "VsTableBordered",
+    "url": "https://vuesax.com/c/vs-table-bordered",
+    "description": "Data table with a full spreadsheet-style grid: on hover, the borders of the row cells light up in the accent color with an inner glow. Functional: columns, rows, per-column sorting and hover. Standalone and portable via tokens.",
+    "family": "VsTable",
+    "familyLabel": "Table",
+    "wc": "vs-table-bordered.UPE5F-hU.js"
+  },
+  "vs-table-cards": {
+    "slug": "vs-table-cards",
+    "title": "VsTableCards",
+    "url": "https://vuesax.com/c/vs-table-cards",
+    "description": "Data table where each row is a detached, raised card (separated rows with rounded ends) that lifts and gains an accent ring on hover. Functional: columns, rows, per-column sorting and hover. Standalone and portable via tokens.",
+    "family": "VsTable",
+    "familyLabel": "Table",
+    "wc": "vs-table-cards.CwsD9YnF.js"
+  },
+  "vs-table-glow": {
+    "slug": "vs-table-glow",
+    "title": "VsTableGlow",
+    "url": "https://vuesax.com/c/vs-table-glow",
+    "description": "Data table with a soft accent radial glow that follows the cursor across the surface; the hovered row lights up with an accent tint and inset edge light. Functional: columns, rows, click-to-sort and row hover. Standalone and token-portable.",
+    "family": "VsTable",
+    "familyLabel": "Table",
+    "wc": "vs-table-glow.D2U8KD0D.js"
+  },
+  "vs-table-minimal": {
+    "slug": "vs-table-minimal",
+    "title": "VsTableMinimal",
+    "url": "https://vuesax.com/c/vs-table-minimal",
+    "description": "Borderless data table driven by whitespace: just a hairline under the header and a thin accent underline that sweeps left to right beneath the hovered row. Functional: columns, rows, click-to-sort and row hover. Standalone and token-portable.",
+    "family": "VsTable",
+    "familyLabel": "Table",
+    "wc": "vs-table-minimal.ZyOfW8_1.js"
+  },
+  "vs-table-striped": {
+    "slug": "vs-table-striped",
+    "title": "VsTableStriped",
+    "url": "https://vuesax.com/c/vs-table-striped",
+    "description": "Data table with high-contrast zebra rows and an accent bar that unfurls vertically along the left edge of the row on hover. Functional: columns, rows, click-to-sort and row hover. Standalone and token-portable.",
+    "family": "VsTable",
+    "familyLabel": "Table",
+    "wc": "vs-table-striped.BTL_7YIf.js"
+  },
+  "vs-table": {
+    "slug": "vs-table",
+    "title": "VsTable",
+    "url": "https://vuesax.com/c/vs-table",
+    "description": "Data table with column sorting, row selection (v-model), built-in user/badge/number cell renderers, sticky header, striped rows, loading skeletons, an empty state and squircle radii. Self-contained and theme-token portable.",
+    "family": "VsTable",
+    "familyLabel": "Table",
+    "wc": "vs-table.CCeqyg7l.js"
+  },
+  "vs-tabs-bubble": {
+    "slug": "vs-tabs-bubble",
+    "title": "VsTabsBubble",
+    "url": "https://vuesax.com/c/vs-tabs-bubble",
+    "description": "Text tabs with a bubble that hops in an arc to the active tab.",
+    "family": "VsTabs",
+    "familyLabel": "Tabs",
+    "wc": "vs-tabs-bubble.BuHdLoL4.js"
+  },
+  "vs-tabs-card": {
+    "slug": "vs-tabs-card",
+    "title": "VsTabsCard",
+    "url": "https://vuesax.com/c/vs-tabs-card",
+    "description": "Browser-folder style tabs: the active tab lifts and joins the baseline like a file folder.",
+    "family": "VsTabs",
+    "familyLabel": "Tabs",
+    "wc": "vs-tabs-card.BibQnXtD.js"
+  },
+  "vs-tabs-chrome": {
+    "slug": "vs-tabs-chrome",
+    "title": "VsTabsChrome",
+    "url": "https://vuesax.com/c/vs-tabs-chrome",
+    "description": "Browser tabs with the real shape: the active tab is one sled whose bottom corners flare outward into the toolbar lip with a concave arc, so tab and surface read as a single sheet. Selecting another tab does not swap two states \u2014 the sled travels there on a spring, and because its two edges run on two different springs it stretches on the way out and squashes as it lands. Optional per-tab badges, close buttons and a new-tab plus; full roving-tabindex keyboard navigation.",
+    "family": "VsTabs",
+    "familyLabel": "Tabs",
+    "wc": "vs-tabs-chrome.CJ3-Wt3t.js"
+  },
+  "vs-tabs-gooey": {
+    "slug": "vs-tabs-gooey",
+    "title": "VsTabsGooey",
+    "url": "https://vuesax.com/c/vs-tabs-gooey",
+    "description": "Segmented tabs with a liquid indicator that stretches between tabs and settles (gooey effect).",
+    "family": "VsTabs",
+    "familyLabel": "Tabs",
+    "wc": "vs-tabs-gooey.IogahOPr.js"
+  },
+  "vs-tabs-neon": {
+    "slug": "vs-tabs-neon",
+    "title": "VsTabsNeon",
+    "url": "https://vuesax.com/c/vs-tabs-neon",
+    "description": "Tabs with a neon underline: a gradient bar slides across, sweeps its color and glows under the active one.",
+    "family": "VsTabs",
+    "familyLabel": "Tabs",
+    "wc": "vs-tabs-neon.BwnpoNI1.js"
+  },
+  "vs-tabs-vertical": {
+    "slug": "vs-tabs-vertical",
+    "title": "VsTabsVertical",
+    "url": "https://vuesax.com/c/vs-tabs-vertical",
+    "description": "Vertically oriented tabs with an accent rail and fill that slide to the active row.",
+    "family": "VsTabs",
+    "familyLabel": "Tabs",
+    "wc": "vs-tabs-vertical.Bu70hanl.js"
+  },
+  "vs-tabs": {
+    "slug": "vs-tabs",
+    "title": "VsTabs",
+    "url": "https://vuesax.com/c/vs-tabs",
+    "description": "Tabs with a sliding indicator (Apple-style spring), variants and sizes.",
+    "family": "VsTabs",
+    "familyLabel": "Tabs",
+    "wc": "vs-tabs.CIPlylY4.js"
+  },
+  "vs-textarea-code": {
+    "slug": "vs-textarea-code",
+    "title": "VsTextareaCode",
+    "url": "https://vuesax.com/c/vs-textarea-code",
+    "description": "Code-editor style textarea: mono font, synced line-number gutter and Tab inserting two spaces.",
+    "family": "VsTextarea",
+    "familyLabel": "Textarea",
+    "wc": "vs-textarea-code.Dxp2Cgsv.js"
+  },
+  "vs-textarea-filled": {
+    "slug": "vs-textarea-filled",
+    "title": "VsTextareaFilled",
+    "url": "https://vuesax.com/c/vs-textarea-filled",
+    "description": "Textarea with a material-style filled surface: label shrinks upward and a bottom accent line on focus.",
+    "family": "VsTextarea",
+    "familyLabel": "Textarea",
+    "wc": "vs-textarea-filled.BroW88Is.js"
+  },
+  "vs-textarea-gradient-border": {
+    "slug": "vs-textarea-gradient-border",
+    "title": "VsTextareaGradientBorder",
+    "url": "https://vuesax.com/c/vs-textarea-gradient-border",
+    "description": "Textarea with a conic gradient border that spins while focused.",
+    "family": "VsTextarea",
+    "familyLabel": "Textarea",
+    "wc": "vs-textarea-gradient-border.DQunkzVW.js"
+  },
+  "vs-textarea-spotlight": {
+    "slug": "vs-textarea-spotlight",
+    "title": "VsTextareaSpotlight",
+    "url": "https://vuesax.com/c/vs-textarea-spotlight",
+    "description": "Textarea with a radial spotlight that follows the cursor across the surface.",
+    "family": "VsTextarea",
+    "familyLabel": "Textarea",
+    "wc": "vs-textarea-spotlight.Ba-Ws29L.js"
+  },
+  "vs-textarea-underline": {
+    "slug": "vs-textarea-underline",
+    "title": "VsTextareaUnderline",
+    "url": "https://vuesax.com/c/vs-textarea-underline",
+    "description": "Boxless textarea: just an underline that grows from the center on focus, with a floating label.",
+    "family": "VsTextarea",
+    "familyLabel": "Textarea",
+    "wc": "vs-textarea-underline.CYZN5Dlh.js"
+  },
+  "vs-textarea": {
+    "slug": "vs-textarea",
+    "title": "VsTextarea",
+    "url": "https://vuesax.com/c/vs-textarea",
+    "description": "Multi-line text field with animated floating label, spring focus ring, tones, squircle radii, auto-resize, clearable and a live character counter.",
+    "family": "VsTextarea",
+    "familyLabel": "Textarea",
+    "wc": "vs-textarea.DjOGmb7e.js"
+  },
+  "vs-tick-rail": {
+    "slug": "vs-tick-rail",
+    "title": "VsTickRail",
+    "url": "https://vuesax.com/c/vs-tick-rail",
+    "description": "A column of thin ticks that magnifies under the pointer and drags one sticky card along with it. Each tick rides its own spring and lerps toward a shared hot width, so whatever the cursor touches reaches the card edge; the card runs on a softer spring than the text it carries, so the label leads and gets pulled back in. Blur and squash come from real velocity and the label hands over through a dead window instead of cross-fading.",
+    "family": "VsTickRail",
+    "familyLabel": "TickRail",
+    "wc": "vs-tick-rail.3Hi333Qt.js"
+  },
+  "vs-timeline-alternating": {
+    "slug": "vs-timeline-alternating",
+    "title": "VsTimelineAlternating",
+    "url": "https://vuesax.com/c/vs-timeline-alternating",
+    "description": "Timeline with a central spine \u2014 items alternate left/right and slide in from their own side. Markers fill in as steps complete.",
+    "family": "VsTimeline",
+    "familyLabel": "Timeline",
+    "wc": "vs-timeline-alternating.Dv7QpRoH.js"
+  },
+  "vs-timeline-cards": {
+    "slug": "vs-timeline-cards",
+    "title": "VsTimelineCards",
+    "url": "https://vuesax.com/c/vs-timeline-cards",
+    "description": "Timeline where each step is a raised card joined to the spine by a small stem; cards lift on hover.",
+    "family": "VsTimeline",
+    "familyLabel": "Timeline",
+    "wc": "vs-timeline-cards.C5ESphOJ.js"
+  },
+  "vs-timeline-compact": {
+    "slug": "vs-timeline-compact",
+    "title": "VsTimelineCompact",
+    "url": "https://vuesax.com/c/vs-timeline-compact",
+    "description": "Dense one-line-per-row timeline \u2014 time, tiny dot and inline title with the description as a note; optionally reveal the description on hover.",
+    "family": "VsTimeline",
+    "familyLabel": "Timeline",
+    "wc": "vs-timeline-compact.B1GyDlCn.js"
+  },
+  "vs-timeline-glow": {
+    "slug": "vs-timeline-glow",
+    "title": "VsTimelineGlow",
+    "url": "https://vuesax.com/c/vs-timeline-glow",
+    "description": "Timeline with a neon halo \u2014 completed markers radiate a glow, the line up to the active step lights up and the active dot pulses.",
+    "family": "VsTimeline",
+    "familyLabel": "Timeline",
+    "wc": "vs-timeline-glow.RDfYp77h.js"
+  },
+  "vs-timeline-gradient": {
+    "slug": "vs-timeline-gradient",
+    "title": "VsTimelineGradient",
+    "url": "https://vuesax.com/c/vs-timeline-gradient",
+    "description": "A lit fuse rather than a coloured list: a dim track shows the whole route and a gradient BEAM on top is clipped to how far the process got, so the gradient means distance instead of decoration. `progress` is fractional \u2014 2 lands on the second marker, 2.5 leaves the beam mid-flight \u2014 and the stop is measured from the markers real offsets (rows change height when a description wraps), with an even-rows formula as the pre-layout fallback. A bright head with a soft halo parks at the tip, which is where the eye looks for \"where are we\". Markers read three states, not two: covered dots carry the gradient and a check, the current one is a ring with a conic sweep running inside it, future ones stay hollow and dim \u2014 and the row text follows the same hierarchy. `flow` sends a travelling sheen along the beam (a moving mask over the gradient that is really there) and breathes the head.",
+    "family": "VsTimeline",
+    "familyLabel": "Timeline",
+    "wc": "vs-timeline-gradient.BFV5IM82.js"
+  },
+  "vs-timeline": {
+    "slug": "vs-timeline",
+    "title": "VsTimeline",
+    "url": "https://vuesax.com/c/vs-timeline",
+    "description": "Vertical timeline \u2014 items with a marker on a line and a content card. Left/right/alternate alignment, solid/dashed line, per-item tones and proximity glow.",
+    "family": "VsTimeline",
+    "familyLabel": "Timeline",
+    "wc": "vs-timeline.Da9h86rW.js"
+  },
+  "vs-tooltip-blur": {
+    "slug": "vs-tooltip-blur",
+    "title": "VsTooltipBlur",
+    "url": "https://vuesax.com/c/vs-tooltip-blur",
+    "description": "Functional tooltip (hover/focus, placement, delay, arrow) that reveals with a BLUR-to-focus \u2014 the bubble materializes from a heavy gaussian blur and sharpens into view.",
+    "family": "VsTooltip",
+    "familyLabel": "Tooltip",
+    "wc": "vs-tooltip-blur.D2NVEUyM.js"
+  },
+  "vs-tooltip-fade": {
+    "slug": "vs-tooltip-fade",
+    "title": "VsTooltipFade",
+    "url": "https://vuesax.com/c/vs-tooltip-fade",
+    "description": "Functional tooltip (hover/focus, placement, delay, arrow) that reveals with a clean opacity FADE \u2014 a soft cross-dissolve, no movement or scale.",
+    "family": "VsTooltip",
+    "familyLabel": "Tooltip",
+    "wc": "vs-tooltip-fade.CP7wLlcU.js"
+  },
+  "vs-tooltip-glow": {
+    "slug": "vs-tooltip-glow",
+    "title": "VsTooltipGlow",
+    "url": "https://vuesax.com/c/vs-tooltip-glow",
+    "description": "Functional tooltip (hover/focus, placement, delay, arrow) that reveals with a GLOW \u2014 an accent-colored aura that flares up then settles into a soft halo. The glowColor prop tunes the hue.",
+    "family": "VsTooltip",
+    "familyLabel": "Tooltip",
+    "wc": "vs-tooltip-glow.nlOdmmAB.js"
+  },
+  "vs-tooltip-scale": {
+    "slug": "vs-tooltip-scale",
+    "title": "VsTooltipScale",
+    "url": "https://vuesax.com/c/vs-tooltip-scale",
+    "description": "Functional tooltip (hover/focus, placement, delay, arrow) that reveals with a springy SCALE pop-in, growing from the edge nearest the trigger with a subtle overshoot.",
+    "family": "VsTooltip",
+    "familyLabel": "Tooltip",
+    "wc": "vs-tooltip-scale.CTHwKBnP.js"
+  },
+  "vs-tooltip-slide": {
+    "slug": "vs-tooltip-slide",
+    "title": "VsTooltipSlide",
+    "url": "https://vuesax.com/c/vs-tooltip-slide",
+    "description": "Functional tooltip (hover/focus, placement, delay, arrow) that reveals with a directional SLIDE \u2014 the bubble glides in from the side of the trigger while fading in.",
+    "family": "VsTooltip",
+    "familyLabel": "Tooltip",
+    "wc": "vs-tooltip-slide.BjgJSvcG.js"
+  },
+  "vs-tooltip": {
+    "slug": "vs-tooltip",
+    "title": "VsTooltip",
+    "url": "https://vuesax.com/c/vs-tooltip",
+    "description": "Liquid and modular tooltip: there is ONE single shared tooltip. When moving from one anchor to another, the same tooltip slides to the new position and blur-swaps its content (Dynamic Island philosophy, like VsNotification). Invokable API showTip()/hideTip() from anywhere.",
+    "family": "VsTooltip",
+    "familyLabel": "Tooltip",
+    "wc": "vs-tooltip.CmCjxRRA.js"
+  },
+  "vs-transform-expand": {
+    "slug": "vs-transform-expand",
+    "title": "VsTransformExpand",
+    "url": "https://vuesax.com/c/vs-transform-expand",
+    "description": "Standalone overlay: the panel UNFOLDS in flow below the trigger with a clip-path wipe + height growth (accordion style), pushing the content. No teleport, 3D or scale. Closes on outside click / Esc.",
+    "family": "VsTransform",
+    "familyLabel": "Transform",
+    "wc": "vs-transform-expand.Hc7Pxmtl.js"
+  },
+  "vs-transform-fade": {
+    "slug": "vs-transform-fade",
+    "title": "VsTransformFade",
+    "url": "https://vuesax.com/c/vs-transform-fade",
+    "description": "Standalone overlay: the panel materialises with a blur-to-clear FADE (opacity + defocus) and a micro-rise, like a lens pulling into focus. No scale or substantial slide. Centered with optional backdrop. Closes on outside click / Esc.",
+    "family": "VsTransform",
+    "familyLabel": "Transform",
+    "wc": "vs-transform-fade.Ded1AjX9.js"
+  },
+  "vs-transform-flip": {
+    "slug": "vs-transform-flip",
+    "title": "VsTransformFlip",
+    "url": "https://vuesax.com/c/vs-transform-flip",
+    "description": "Standalone overlay: the panel opens with a 3D perspective FLIP (rotateX/rotateY around a hinge) until it lies flat. Unlike the box FLIP engine, this one rotates in depth like a card. Centered with optional backdrop. Closes on outside click / Esc.",
+    "family": "VsTransform",
+    "familyLabel": "Transform",
+    "wc": "vs-transform-flip.C5dkESEn.js"
+  },
+  "vs-transform-scale": {
+    "slug": "vs-transform-scale",
+    "title": "VsTransformScale",
+    "url": "https://vuesax.com/c/vs-transform-scale",
+    "description": "Standalone overlay: the trigger pops in scale (zoom-out from its center) into a centered panel with backdrop. Pure transform-scale morph with optional overshoot (bounce). Closes on outside click / Esc.",
+    "family": "VsTransform",
+    "familyLabel": "Transform",
+    "wc": "vs-transform-scale.BYX9DauM.js"
+  },
+  "vs-transform-slide": {
+    "slug": "vs-transform-slide",
+    "title": "VsTransformSlide",
+    "url": "https://vuesax.com/c/vs-transform-slide",
+    "description": "Standalone overlay: the panel SLIDES in (directional translate) from a configurable edge, anchored next to the trigger, with a subtle fade. No clone/ghost, no size interpolation. Closes on outside click / Esc.",
+    "family": "VsTransform",
+    "familyLabel": "Transform",
+    "wc": "vs-transform-slide.Bnx6-WXc.js"
+  },
+  "vs-transform": {
+    "slug": "vs-transform",
+    "title": "VsTransform",
+    "url": "https://vuesax.com/c/vs-transform",
+    "description": "Reusable morph engine (VsPopup-style FLIP): clones a trigger and expands it into a teleported panel, then shrinks it back on close. Shared base for VsDropdown/VsCalendar. Demo: a button that transforms into a card.",
+    "family": "VsTransform",
+    "familyLabel": "Transform",
+    "wc": "vs-transform.BiOFMXqc.js"
+  },
+  "vs-upload-file-button": {
+    "slug": "vs-upload-file-button",
+    "title": "VsUploadFileButton",
+    "url": "https://vuesax.com/c/vs-upload-file-button",
+    "description": "The button IS the dropzone: a solid pill with a diagonal shine sweep that swells and swaps its label to \u201cDrop to upload\u201d when a file is dragged over it. Click to browse or drop directly on the button; selected files stack as rows below.",
+    "family": "VsUploadFile",
+    "familyLabel": "UploadFile",
+    "wc": "vs-upload-file-button.CTIx49kN.js"
+  },
+  "vs-upload-file-compact": {
+    "slug": "vs-upload-file-compact",
+    "title": "VsUploadFileCompact",
+    "url": "https://vuesax.com/c/vs-upload-file-compact",
+    "description": "Single-line, input-like uploader: a slim bar with a leading clip icon and a trailing Browse chip. Files appear as inline dismissible pills, and on dragover an accent underline slides across the bar. Drag & drop or click to browse.",
+    "family": "VsUploadFile",
+    "familyLabel": "UploadFile",
+    "wc": "vs-upload-file-compact.mWDEheo4.js"
+  },
+  "vs-upload-file-dropzone": {
+    "slug": "vs-upload-file-dropzone",
+    "title": "VsUploadFileDropzone",
+    "url": "https://vuesax.com/c/vs-upload-file-dropzone",
+    "description": "Spotlight dropzone: an aurora radial glow sweeps the panel and, on dragover, the whole zone lifts while a dashed ring pulses inward. Drag & drop or click to browse, with a removable file list.",
+    "family": "VsUploadFile",
+    "familyLabel": "UploadFile",
+    "wc": "vs-upload-file-dropzone.93btmqmU.js"
+  },
+  "vs-upload-file-gallery": {
+    "slug": "vs-upload-file-gallery",
+    "title": "VsUploadFileGallery",
+    "url": "https://vuesax.com/c/vs-upload-file-gallery",
+    "description": "Thumbnail-grid uploader: images render live previews, other files show a typed card, and a rotating plus add-tile doubles as the dropzone. Hover a tile to reveal name, size and a remove button; dragover tints the grid.",
+    "family": "VsUploadFile",
+    "familyLabel": "UploadFile",
+    "wc": "vs-upload-file-gallery.Cv0HLQXb.js"
+  },
+  "vs-upload-file-glow": {
+    "slug": "vs-upload-file-glow",
+    "title": "VsUploadFileGlow",
+    "url": "https://vuesax.com/c/vs-upload-file-glow",
+    "description": "Neon uploader: a conic-gradient border slowly orbits the dropzone and, on dragover, spins up to full glow while the panel emits an accent halo. File rows glow along their left edge. Drag & drop or click to browse.",
+    "family": "VsUploadFile",
+    "familyLabel": "UploadFile",
+    "wc": "vs-upload-file-glow.Zp5kBsQ6.js"
+  },
+  "vs-upload-file": {
+    "slug": "vs-upload-file",
+    "title": "VsUploadFile",
+    "url": "https://vuesax.com/c/vs-upload-file",
+    "description": "File upload with multi-file drag & drop, progress bar, removable list and light/ripple effects.",
+    "family": "VsUploadFile",
+    "familyLabel": "UploadFile",
+    "wc": "vs-upload-file.6HrINFCy.js"
+  }
+}

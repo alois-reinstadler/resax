@@ -1,0 +1,96 @@
+  :host { display: inline-flex; max-width: 100%; }
+  .vlbp {
+    --fs: 14px;
+    --px: 14px;
+    --py: 8px;
+    --accent: var(--ui-accent, #ededed);
+    position: relative;
+    display: inline-flex;
+    /* four pills + separators need ~348px; without wrapping the last one is
+       simply chopped off. The pill node reads offsetTop as well as offsetLeft,
+       so it follows the active link down to the second row. */
+    flex-wrap: wrap;
+    max-width: 100%;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+  }
+  .vlbp--sm { --fs: 13px; --px: 12px; --py: 6px; }
+  .vlbp--md { --fs: 14px; --px: 14px; --py: 8px; }
+  .vlbp--lg { --fs: 15px; --px: 18px; --py: 10px; }
+
+  /* One persistent pill that slides under the active link. left/width are set
+     imperatively; the transition here is what makes it glide like a capsule. */
+  .vlbp__pill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--ui-accent, #ededed) 16%, transparent);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transform: translateX(0);
+    transition:
+      transform 420ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      width 420ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)),
+      opacity 200ms ease;
+  }
+  .vlbp.is-ready .vlbp__pill { opacity: 1; }
+
+  .vlbp__link {
+    position: relative;
+    z-index: 1;
+    /* --py already clears 24px at every size; the floor is here so a caller who
+       shrinks the padding cannot drop the tap area below the touch minimum.
+       border-box or min-height would measure the content alone and stack the
+       padding on top of it, growing every pill by 10px. */
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 24px;
+    font-size: var(--fs);
+    line-height: 1;
+    padding: var(--py) var(--px);
+    border-radius: 999px;
+    color: var(--text-muted, #8a8a8a);
+    text-decoration: none;
+    background: transparent;
+    white-space: nowrap;
+    transition:
+      color 180ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+      background-color 200ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+      transform 200ms var(--ease-out, cubic-bezier(0.34, 1.56, 0.64, 1));
+  }
+  .vlbp__link:hover {
+    color: var(--text, #ededed);
+    background: color-mix(in srgb, var(--text, #ededed) 10%, transparent);
+    transform: translateY(-1px);
+  }
+  .vlbp__link.is-active {
+    color: var(--ui-accent, #ededed);
+  }
+  .vlbp__link:focus-visible {
+    outline: 2px solid var(--ui-accent, #ededed);
+    outline-offset: 2px;
+  }
+  .vlbp__sep {
+    width: 1px;
+    align-self: center;
+    height: 14px;
+    background: var(--ctrl-border, var(--text-muted, #8a8a8a));
+    opacity: 0.35;
+    margin: 0 4px;
+  }
+
+  .vlbp--t-danger { --accent: 255 99 105; --accent: #ff6369; --ui-accent-fg: #fff; }
+  .vlbp--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+  .vlbp--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vlbp__link { transition: color 180ms linear, background-color 180ms linear; }
+    .vlbp__link:hover { transform: none; }
+    .vlbp__pill { transition: opacity 200ms ease; }
+  }

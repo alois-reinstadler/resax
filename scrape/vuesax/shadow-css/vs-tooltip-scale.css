@@ -1,0 +1,40 @@
+  :host { display: inline-flex; }
+  .vsts-wrap { position: relative; display: inline-flex; }
+  .vsts-trigger { display: inline-flex; align-items: center; outline: none; border-radius: var(--ctrl-r-sm, 8px); color: var(--text, #ededed); cursor: default; }
+  .vsts-trigger:focus-visible { box-shadow: 0 0 0 2px var(--ui-accent, #ededed); }
+
+  .vsts-tip {
+    position: absolute; z-index: 10000; display: inline-flex; align-items: center; max-width: 240px;
+    padding: 7px 11px; border-radius: var(--ctrl-r-md, 10px); border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-elevated, #161616); color: var(--text, #ededed); font-size: var(--ctrl-fs-sm, 12.5px);
+    font-weight: 500; line-height: 1.4; white-space: normal; pointer-events: none;
+    box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+    /* SCALE: springy pop from the anchor side */
+    opacity: 0;
+    transition: opacity 160ms ease, scale 260ms cubic-bezier(0.34, 1.56, 0.44, 1), translate 0ms;
+    scale: 0.7;
+  }
+  /* base translate to keep centering while scaling */
+  .vsts-tip--top, .vsts-tip--bottom { translate: -50% 0; transform-origin: center var(--vsts-o, bottom); }
+  .vsts-tip--left, .vsts-tip--right { translate: 0 -50%; transform-origin: var(--vsts-o, right) center; }
+  .vsts-tip--top { --vsts-o: bottom; }
+  .vsts-tip--bottom { --vsts-o: top; }
+  .vsts-tip--left { --vsts-o: right; }
+  .vsts-tip--right { --vsts-o: left; }
+
+  .vsts-tip.is-open { opacity: 1; scale: 1; }
+
+  .vsts-tip__content :where(b, strong) { font-weight: 700; }
+
+  .vsts-tip__arrow {
+    position: absolute; width: 9px; height: 9px; background: var(--bg-elevated, #161616);
+    border: 1px solid var(--border, #2a2a2a); border-right: none; border-bottom: none;
+  }
+  .vsts-tip--top .vsts-tip__arrow { bottom: -5px; left: 50%; transform: translateX(-50%) rotate(225deg); }
+  .vsts-tip--bottom .vsts-tip__arrow { top: -5px; left: 50%; transform: translateX(-50%) rotate(45deg); }
+  .vsts-tip--left .vsts-tip__arrow { right: -5px; top: 50%; transform: translateY(-50%) rotate(135deg); }
+  .vsts-tip--right .vsts-tip__arrow { left: -5px; top: 50%; transform: translateY(-50%) rotate(315deg); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vsts-tip { transition: opacity 120ms ease; scale: 1; }
+  }

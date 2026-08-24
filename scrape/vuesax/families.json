@@ -1,0 +1,672 @@
+{
+  "VsAccordion": {
+    "id": "VsAccordion",
+    "label": "Accordion",
+    "slugs": [
+      "vs-accordion-bounce",
+      "vs-accordion-filled",
+      "vs-accordion-ghost",
+      "vs-accordion-glow",
+      "vs-accordion-slide",
+      "vs-accordion"
+    ]
+  },
+  "VsAlert": {
+    "id": "VsAlert",
+    "label": "Alert",
+    "slugs": [
+      "vs-alert-banner",
+      "vs-alert-inline",
+      "vs-alert-neon",
+      "vs-alert-split",
+      "vs-alert-toast",
+      "vs-alert"
+    ]
+  },
+  "VsAskAiButton": {
+    "id": "VsAskAiButton",
+    "label": "AskAiButton",
+    "slugs": [
+      "vs-ask-ai-button"
+    ]
+  },
+  "VsAvatar": {
+    "id": "VsAvatar",
+    "label": "Avatar",
+    "slugs": [
+      "vs-avatar-glow",
+      "vs-avatar-ring",
+      "vs-avatar-squircle",
+      "vs-avatar-status",
+      "vs-avatar-tilt",
+      "vs-avatar"
+    ]
+  },
+  "VsAvatarGroup": {
+    "id": "VsAvatarGroup",
+    "label": "AvatarGroup",
+    "slugs": [
+      "vs-avatar-group-fan",
+      "vs-avatar-group-flip",
+      "vs-avatar-group-grid",
+      "vs-avatar-group-ring",
+      "vs-avatar-group-wave",
+      "vs-avatar-group"
+    ]
+  },
+  "VsBadge": {
+    "id": "VsBadge",
+    "label": "Badge",
+    "slugs": [
+      "vs-badge-glow",
+      "vs-badge-gradient",
+      "vs-badge-pulse",
+      "vs-badge-shimmer",
+      "vs-badge-stripes",
+      "vs-badge"
+    ]
+  },
+  "VsBreadcrumb": {
+    "id": "VsBreadcrumb",
+    "label": "Breadcrumb",
+    "slugs": [
+      "vs-breadcrumb-arrow",
+      "vs-breadcrumb-collapse",
+      "vs-breadcrumb-glow",
+      "vs-breadcrumb-pill",
+      "vs-breadcrumb-slash",
+      "vs-breadcrumb"
+    ]
+  },
+  "VsButton": {
+    "id": "VsButton",
+    "label": "Button",
+    "slugs": [
+      "vs-button-border-draw",
+      "vs-button-chrome",
+      "vs-button-glitch",
+      "vs-button-gooey",
+      "vs-button-gradient",
+      "vs-button-invert",
+      "vs-button-liquid",
+      "vs-button-magnetic",
+      "vs-button-plasma",
+      "vs-button-push",
+      "vs-button-shine",
+      "vs-button-v2",
+      "vs-button"
+    ]
+  },
+  "VsButtonGroup": {
+    "id": "VsButtonGroup",
+    "label": "ButtonGroup",
+    "slugs": [
+      "vs-button-group"
+    ]
+  },
+  "VsCalendar": {
+    "id": "VsCalendar",
+    "label": "Calendar",
+    "slugs": [
+      "vs-calendar-compact",
+      "vs-calendar-dots",
+      "vs-calendar-glow",
+      "vs-calendar-minimal",
+      "vs-calendar-range-fill",
+      "vs-calendar"
+    ]
+  },
+  "VsCard": {
+    "id": "VsCard",
+    "label": "Card",
+    "slugs": [
+      "vs-card-asset",
+      "vs-card-glow",
+      "vs-card-gradient-border",
+      "vs-card-lift",
+      "vs-card-slider",
+      "vs-card-spotlight",
+      "vs-card-tilt-3d",
+      "vs-card"
+    ]
+  },
+  "VsCheckbox": {
+    "id": "VsCheckbox",
+    "label": "Checkbox",
+    "slugs": [
+      "vs-checkbox-bounce",
+      "vs-checkbox-card",
+      "vs-checkbox-fill",
+      "vs-checkbox-flip",
+      "vs-checkbox-neon",
+      "vs-checkbox"
+    ]
+  },
+  "VsChip": {
+    "id": "VsChip",
+    "label": "Chip",
+    "slugs": [
+      "vs-chip-bounce",
+      "vs-chip-fill",
+      "vs-chip-glow",
+      "vs-chip-gradient",
+      "vs-chip-outline",
+      "vs-chip"
+    ]
+  },
+  "VsCode": {
+    "id": "VsCode",
+    "label": "Code",
+    "slugs": [
+      "vs-code-glow",
+      "vs-code-gradient-border",
+      "vs-code-minimal",
+      "vs-code-terminal",
+      "vs-code-window",
+      "vs-code"
+    ]
+  },
+  "VsColorPicker": {
+    "id": "VsColorPicker",
+    "label": "ColorPicker",
+    "slugs": [
+      "vs-color-picker-compact",
+      "vs-color-picker-palette",
+      "vs-color-picker-ring",
+      "vs-color-picker-slider",
+      "vs-color-picker-swatches",
+      "vs-color-picker"
+    ]
+  },
+  "VsContextMenu": {
+    "id": "VsContextMenu",
+    "label": "ContextMenu",
+    "slugs": [
+      "vs-context-menu-blur",
+      "vs-context-menu-glow",
+      "vs-context-menu-radial",
+      "vs-context-menu-slide",
+      "vs-context-menu-spring",
+      "vs-context-menu"
+    ]
+  },
+  "VsCursor": {
+    "id": "VsCursor",
+    "label": "Cursor",
+    "slugs": [
+      "vs-cursor-blend",
+      "vs-cursor-blob",
+      "vs-cursor-glow",
+      "vs-cursor-label",
+      "vs-cursor-magnet",
+      "vs-cursor-reticle",
+      "vs-cursor"
+    ]
+  },
+  "VsDock": {
+    "id": "VsDock",
+    "label": "Dock",
+    "slugs": [
+      "vs-dock-aurora",
+      "vs-dock-bounce",
+      "vs-dock-glass",
+      "vs-dock-gooey",
+      "vs-dock-magnet",
+      "vs-dock-neon",
+      "vs-dock"
+    ]
+  },
+  "VsDotStepper": {
+    "id": "VsDotStepper",
+    "label": "DotStepper",
+    "slugs": [
+      "vs-dot-stepper-bars",
+      "vs-dot-stepper-elastic",
+      "vs-dot-stepper-glow",
+      "vs-dot-stepper-ring",
+      "vs-dot-stepper-worm",
+      "vs-dot-stepper"
+    ]
+  },
+  "VsDrawer": {
+    "id": "VsDrawer",
+    "label": "Drawer",
+    "slugs": [
+      "vs-drawer-blur",
+      "vs-drawer-bounce",
+      "vs-drawer-glass",
+      "vs-drawer-push",
+      "vs-drawer-slide",
+      "vs-drawer"
+    ]
+  },
+  "VsDropdown": {
+    "id": "VsDropdown",
+    "label": "Dropdown",
+    "slugs": [
+      "vs-dropdown-blur",
+      "vs-dropdown-fold",
+      "vs-dropdown-glow",
+      "vs-dropdown-slide",
+      "vs-dropdown-spring",
+      "vs-dropdown"
+    ]
+  },
+  "VsFileTree": {
+    "id": "VsFileTree",
+    "label": "FileTree",
+    "slugs": [
+      "vs-file-tree-compact",
+      "vs-file-tree-glow",
+      "vs-file-tree-guides",
+      "vs-file-tree-highlight",
+      "vs-file-tree-reveal",
+      "vs-file-tree"
+    ]
+  },
+  "VsIndicator": {
+    "id": "VsIndicator",
+    "label": "Indicator",
+    "slugs": [
+      "vs-indicator-bounce",
+      "vs-indicator-odometer",
+      "vs-indicator-ping",
+      "vs-indicator-ring",
+      "vs-indicator-shake",
+      "vs-indicator"
+    ]
+  },
+  "VsInlineOverflow": {
+    "id": "VsInlineOverflow",
+    "label": "InlineOverflow",
+    "slugs": [
+      "vs-inline-overflow"
+    ]
+  },
+  "VsInput": {
+    "id": "VsInput",
+    "label": "Input",
+    "slugs": [
+      "vs-input-filled",
+      "vs-input-gradient-border",
+      "vs-input-pulse",
+      "vs-input-spotlight",
+      "vs-input-underline",
+      "vs-input"
+    ]
+  },
+  "VsLinkBar": {
+    "id": "VsLinkBar",
+    "label": "LinkBar",
+    "slugs": [
+      "vs-link-bar-glow",
+      "vs-link-bar-magnet",
+      "vs-link-bar-pill",
+      "vs-link-bar-slide",
+      "vs-link-bar-underline",
+      "vs-link-bar"
+    ]
+  },
+  "VsList": {
+    "id": "VsList",
+    "label": "List",
+    "slugs": [
+      "vs-list-cards",
+      "vs-list-glow",
+      "vs-list-hover",
+      "vs-list-reveal",
+      "vs-list-stripe",
+      "vs-list"
+    ]
+  },
+  "VsNavMenu": {
+    "id": "VsNavMenu",
+    "label": "NavMenu",
+    "slugs": [
+      "vs-nav-menu-glow",
+      "vs-nav-menu-mega",
+      "vs-nav-menu-pill",
+      "vs-nav-menu-spotlight",
+      "vs-nav-menu-underline",
+      "vs-nav-menu"
+    ]
+  },
+  "VsNotification": {
+    "id": "VsNotification",
+    "label": "Notification",
+    "slugs": [
+      "vs-notification-banner",
+      "vs-notification-card",
+      "vs-notification-glow",
+      "vs-notification-inline",
+      "vs-notification-snackbar",
+      "vs-notification"
+    ]
+  },
+  "VsNumber": {
+    "id": "VsNumber",
+    "label": "Number",
+    "slugs": [
+      "vs-number-glow",
+      "vs-number-roll-digits",
+      "vs-number-segment",
+      "vs-number-slider",
+      "vs-number-stepper",
+      "vs-number"
+    ]
+  },
+  "VsOtp": {
+    "id": "VsOtp",
+    "label": "Otp",
+    "slugs": [
+      "vs-otp-dots",
+      "vs-otp-filled",
+      "vs-otp-flip",
+      "vs-otp-glow",
+      "vs-otp-underline",
+      "vs-otp"
+    ]
+  },
+  "VsPagination": {
+    "id": "VsPagination",
+    "label": "Pagination",
+    "slugs": [
+      "vs-pagination-compact",
+      "vs-pagination-dots",
+      "vs-pagination-gooey",
+      "vs-pagination-ink",
+      "vs-pagination-segments",
+      "vs-pagination"
+    ]
+  },
+  "VsPopup": {
+    "id": "VsPopup",
+    "label": "Popup",
+    "slugs": [
+      "vs-popup-bounce",
+      "vs-popup-confirm",
+      "vs-popup-flip",
+      "vs-popup-slide-up",
+      "vs-popup-zoom",
+      "vs-popup"
+    ]
+  },
+  "VsProgress": {
+    "id": "VsProgress",
+    "label": "Progress",
+    "slugs": [
+      "vs-progress-circular",
+      "vs-progress-glow",
+      "vs-progress-gradient",
+      "vs-progress-segments",
+      "vs-progress-striped",
+      "vs-progress"
+    ]
+  },
+  "VsRadio": {
+    "id": "VsRadio",
+    "label": "Radio",
+    "slugs": [
+      "vs-radio-bounce",
+      "vs-radio-card",
+      "vs-radio-fill",
+      "vs-radio-glow",
+      "vs-radio-ring",
+      "vs-radio"
+    ]
+  },
+  "VsRadioGroup": {
+    "id": "VsRadioGroup",
+    "label": "RadioGroup",
+    "slugs": [
+      "vs-radio-group-cards",
+      "vs-radio-group-glow",
+      "vs-radio-group-pill",
+      "vs-radio-group-segment",
+      "vs-radio-group-slide",
+      "vs-radio-group"
+    ]
+  },
+  "VsRating": {
+    "id": "VsRating",
+    "label": "Rating",
+    "slugs": [
+      "vs-rating-bars",
+      "vs-rating-emoji",
+      "vs-rating-glow",
+      "vs-rating-hearts",
+      "vs-rating-numbers",
+      "vs-rating"
+    ]
+  },
+  "VsScrollbar": {
+    "id": "VsScrollbar",
+    "label": "Scrollbar",
+    "slugs": [
+      "vs-scrollbar-dots",
+      "vs-scrollbar-glow",
+      "vs-scrollbar-gradient",
+      "vs-scrollbar-minimal",
+      "vs-scrollbar-rounded",
+      "vs-scrollbar"
+    ]
+  },
+  "VsSelect": {
+    "id": "VsSelect",
+    "label": "Select",
+    "slugs": [
+      "vs-select-floating",
+      "vs-select-pill",
+      "vs-select-search",
+      "vs-select-slide",
+      "vs-select-underline",
+      "vs-select"
+    ]
+  },
+  "VsSeparator": {
+    "id": "VsSeparator",
+    "label": "Separator",
+    "slugs": [
+      "vs-separator-flow",
+      "vs-separator-glow",
+      "vs-separator-gradient",
+      "vs-separator-icon",
+      "vs-separator-zigzag",
+      "vs-separator"
+    ]
+  },
+  "VsSidebar": {
+    "id": "VsSidebar",
+    "label": "Sidebar",
+    "slugs": [
+      "vs-sidebar-classic",
+      "vs-sidebar-floating",
+      "vs-sidebar-glow",
+      "vs-sidebar-gradient",
+      "vs-sidebar-minimal",
+      "vs-sidebar-rail",
+      "vs-sidebar"
+    ]
+  },
+  "VsSkeleton": {
+    "id": "VsSkeleton",
+    "label": "Skeleton",
+    "slugs": [
+      "vs-skeleton-blink",
+      "vs-skeleton-gradient",
+      "vs-skeleton-pulse",
+      "vs-skeleton-shine",
+      "vs-skeleton-wave",
+      "vs-skeleton"
+    ]
+  },
+  "VsSlideConfirm": {
+    "id": "VsSlideConfirm",
+    "label": "SlideConfirm",
+    "slugs": [
+      "vs-slide-confirm"
+    ]
+  },
+  "VsSlider": {
+    "id": "VsSlider",
+    "label": "Slider",
+    "slugs": [
+      "vs-slider-fluent",
+      "vs-slider-glow",
+      "vs-slider-gradient",
+      "vs-slider-ripple",
+      "vs-slider-stepped",
+      "vs-slider-stops",
+      "vs-slider-ticks",
+      "vs-slider"
+    ]
+  },
+  "VsSpacer": {
+    "id": "VsSpacer",
+    "label": "Spacer",
+    "slugs": [
+      "vs-spacer"
+    ]
+  },
+  "VsSpinner": {
+    "id": "VsSpinner",
+    "label": "Spinner",
+    "slugs": [
+      "vs-spinner-bars",
+      "vs-spinner-bounce",
+      "vs-spinner-comet",
+      "vs-spinner-dots",
+      "vs-spinner-flip",
+      "vs-spinner-grid",
+      "vs-spinner-orbit",
+      "vs-spinner-pulse",
+      "vs-spinner-ring",
+      "vs-spinner-wave",
+      "vs-spinner"
+    ]
+  },
+  "VsSplitButton": {
+    "id": "VsSplitButton",
+    "label": "SplitButton",
+    "slugs": [
+      "vs-split-button"
+    ]
+  },
+  "VsSteps": {
+    "id": "VsSteps",
+    "label": "Steps",
+    "slugs": [
+      "vs-steps-arrow",
+      "vs-steps-bar",
+      "vs-steps-circular",
+      "vs-steps-pills",
+      "vs-steps-timeline",
+      "vs-steps"
+    ]
+  },
+  "VsSwitch": {
+    "id": "VsSwitch",
+    "label": "Switch",
+    "slugs": [
+      "vs-switch-day-night",
+      "vs-switch-dot",
+      "vs-switch-glow",
+      "vs-switch-label",
+      "vs-switch-liquid",
+      "vs-switch-material",
+      "vs-switch"
+    ]
+  },
+  "VsTable": {
+    "id": "VsTable",
+    "label": "Table",
+    "slugs": [
+      "vs-table-bordered",
+      "vs-table-cards",
+      "vs-table-glow",
+      "vs-table-minimal",
+      "vs-table-striped",
+      "vs-table"
+    ]
+  },
+  "VsTabs": {
+    "id": "VsTabs",
+    "label": "Tabs",
+    "slugs": [
+      "vs-tabs-bubble",
+      "vs-tabs-card",
+      "vs-tabs-chrome",
+      "vs-tabs-gooey",
+      "vs-tabs-neon",
+      "vs-tabs-vertical",
+      "vs-tabs"
+    ]
+  },
+  "VsTextarea": {
+    "id": "VsTextarea",
+    "label": "Textarea",
+    "slugs": [
+      "vs-textarea-code",
+      "vs-textarea-filled",
+      "vs-textarea-gradient-border",
+      "vs-textarea-spotlight",
+      "vs-textarea-underline",
+      "vs-textarea"
+    ]
+  },
+  "VsTickRail": {
+    "id": "VsTickRail",
+    "label": "TickRail",
+    "slugs": [
+      "vs-tick-rail"
+    ]
+  },
+  "VsTimeline": {
+    "id": "VsTimeline",
+    "label": "Timeline",
+    "slugs": [
+      "vs-timeline-alternating",
+      "vs-timeline-cards",
+      "vs-timeline-compact",
+      "vs-timeline-glow",
+      "vs-timeline-gradient",
+      "vs-timeline"
+    ]
+  },
+  "VsTooltip": {
+    "id": "VsTooltip",
+    "label": "Tooltip",
+    "slugs": [
+      "vs-tooltip-blur",
+      "vs-tooltip-fade",
+      "vs-tooltip-glow",
+      "vs-tooltip-scale",
+      "vs-tooltip-slide",
+      "vs-tooltip"
+    ]
+  },
+  "VsTransform": {
+    "id": "VsTransform",
+    "label": "Transform",
+    "slugs": [
+      "vs-transform-expand",
+      "vs-transform-fade",
+      "vs-transform-flip",
+      "vs-transform-scale",
+      "vs-transform-slide",
+      "vs-transform"
+    ]
+  },
+  "VsUploadFile": {
+    "id": "VsUploadFile",
+    "label": "UploadFile",
+    "slugs": [
+      "vs-upload-file-button",
+      "vs-upload-file-compact",
+      "vs-upload-file-dropzone",
+      "vs-upload-file-gallery",
+      "vs-upload-file-glow",
+      "vs-upload-file"
+    ]
+  }
+}

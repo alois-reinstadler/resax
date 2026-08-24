@@ -1,0 +1,81 @@
+  :host { display: block; }
+  .spl {
+    --accent: var(--inp-accent, #ededed);
+    --solid-fg: var(--badge-solid-fg, #0b0b0b);
+    --ring: var(--inp-ring, 255 255 255);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    position: relative;
+    isolation: isolate;
+    box-sizing: border-box;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 440px;
+    min-height: 66px;
+    border: 1px solid rgb(var(--ring) / 0.14);
+    border-radius: 14px;
+    background: var(--bg-card, #111);
+    color: var(--inp-text, #ededed);
+    font: inherit;
+    line-height: 1.45;
+    overflow: hidden;
+  }
+
+  /* solid color panel holding the icon */
+  .spl__panel {
+    flex: 0 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    width: 54px;
+    background: var(--accent);
+    color: var(--solid-fg);
+    box-shadow: inset -1px 0 0 rgb(0 0 0 / 0.08);
+  }
+  .spl__panel svg { width: 22px; height: 22px; display: block; }
+
+  .spl__body { flex: 1 1 auto; min-width: 0; padding: 13px 14px; align-self: center; }
+  .spl__title { margin: 0 0 2px; font-weight: 650; font-size: 14px; color: var(--accent); }
+  .spl__msg { margin: 0; font-size: 13px; color: var(--tint); }
+  .spl__action { margin-top: 9px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .spl__close {
+    flex: 0 0 auto; align-self: flex-start;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.7em; height: 1.7em; margin: 8px 8px 0 0; padding: 0;
+    border: 0; border-radius: 7px; background: transparent; color: var(--tint); font-size: 15px;
+    cursor: pointer; opacity: 0.7; transition: opacity 160ms ease, background 160ms ease, color 160ms ease;
+  }
+  .spl__close:hover:not(:disabled) { opacity: 1; color: var(--inp-text, #ededed); background: rgb(var(--ring) / 0.12); }
+  .spl__close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .spl__close svg { width: 1em; height: 1em; display: block; }
+
+  /* tones (default uses the light accent with dark text) */
+  .spl--t-danger { --accent: #ff5a61; --ui-accent-fg: #fff; --ring: 255 99 105; --solid-fg: #160405; --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .spl--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; --solid-fg: #160f02; --tint: var(--inp-t-warn-hint, #f5b544); }
+  .spl--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --solid-fg: #04120b; --tint: var(--inp-t-success-hint, #5fd49b); }
+  .spl--t-purple { --accent: #9a7bff; --ui-accent-fg: #fff; --ring: 154 123 255; --solid-fg: #0d0620; --tint: var(--inp-t-purple-hint, #b6a0ff); }
+
+  .spl.is-disabled { opacity: 0.55; }
+  .spl.is-disabled .spl__close { cursor: not-allowed; }
+
+  /* close: collapse height to 0 with anticipation bounce + blur */
+  .spl.is-closing {
+    overflow: hidden;
+    min-height: 0 !important;
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(0.97);
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+    transition:
+      height 440ms cubic-bezier(0.5, -0.45, 0.55, 1),
+      opacity 300ms ease,
+      filter 340ms ease,
+      transform 440ms cubic-bezier(0.5, -0.45, 0.55, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spl__close { transition: none; }
+  }

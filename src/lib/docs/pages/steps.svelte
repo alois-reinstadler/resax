@@ -1,0 +1,5 @@
+<script lang="ts">import DemoSection from '../DemoSection.svelte';import {Steps,Step} from '$lib/registry/ui/steps';let current=$state(1);const variants=['default','arrow','bar','circular','pills','timeline'] as const;</script>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Steps</h1><p>Guide people through a sequence with expressive, accessible progress states.</p></div>
+<DemoSection title="Interactive" source={'<Steps bind:current clickable>…</Steps>'}><Steps bind:current clickable onCurrentChange={(i)=>current=i}><Step title="Account" description="Your details"/><Step title="Profile" description="Personalize"/><Step title="Finish" optional/></Steps><p>Current step: {current+1}</p></DemoSection>
+<DemoSection title="Variants"><div class="stack">{#each variants as variant}<div><code>{variant}</code><Steps current={1} {variant}><Step title="Start"/><Step title="Review"/><Step title="Ship"/></Steps></div>{/each}</div></DemoSection>
+<style>.stack{display:grid;gap:2rem}.stack>div{display:grid;gap:.75rem}</style>

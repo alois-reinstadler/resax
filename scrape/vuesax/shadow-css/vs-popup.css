@@ -1,0 +1,140 @@
+.vsp__backdrop {
+  position: fixed;
+  inset: 0;
+  /* A modal sits above EVERY piece of page chrome. 1000 was under the kind of
+     fixed decoration a real page keeps at the edges — a gradual-blur band along
+     the bottom, a floating mobile nav — and those repainted over the dialog,
+     blurring its footer and its primary button. */
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.vsp__panel {
+  --rr: 20px;
+  --acc: var(--ui-accent, #ededed);
+  --fx-tint: 255 255 255;
+  position: fixed;
+  z-index: 2001;
+  border-radius: var(--rr);
+  overflow: hidden;
+  isolation: isolate;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: var(--text, #ededed);
+  /* the box itself never hit-tests — mid-morph the trigger sits in dead space
+     under the growing box; only .vsp__content (the dialog) opts back in. */
+  pointer-events: none;
+}
+.vsp__panel.vsp--r-none { --rr: 8px; }
+.vsp__panel.vsp--r-subtle { --rr: 10px; }
+.vsp__panel.vsp--r-rounded { --rr: 20px; }
+.vsp__panel.vsp--r-pill { --rr: 30px; }
+.vsp__panel.vsp--r-squircle { --rr: 28px; }
+@supports (corner-shape: squircle) { .vsp__panel.vsp--r-squircle { corner-shape: squircle; } }
+.vsp__panel.vsp--t-danger { --acc: #ff6369; --fx-tint: 255 99 105; }
+.vsp__panel.vsp--t-warn { --acc: #ffb224; --fx-tint: 255 178 36; }
+.vsp__panel.vsp--t-success { --acc: #4cc38a; --fx-tint: 76 195 138; }
+
+/* painting layer (border/bg/shadow) — kept separate so the box itself can morph */
+.vsp__surface {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  border: 1px solid var(--border, #2a2a2a);
+  background: var(--bg-card, #111);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+@supports (corner-shape: squircle) {
+  .vsp__panel.vsp--r-squircle .vsp__panel-glow,
+  .vsp__panel.vsp--r-squircle .vsp__surface,
+  .vsp__panel.vsp--r-squircle .vsp__ghost { corner-shape: squircle; }
+}
+
+/* proximity border glow — shared engine, see attachGlow above */
+.vsp__panel-glow {
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    radial-gradient(60px circle at var(--gx, 50%) var(--gy, 50%),
+      rgb(var(--fx-tint, 255 255 255) / .6), rgb(var(--fx-tint, 255 255 255) / .42) 30%, rgb(var(--fx-tint, 255 255 255) / .16) 58%, rgb(var(--fx-tint, 255 255 255) / 0) 82%),
+    radial-gradient(200px circle at var(--gx, 50%) var(--gy, 50%),
+      rgb(var(--fx-tint, 255 255 255) / .6), rgb(var(--fx-tint, 255 255 255) / .27) 42%, rgb(var(--fx-tint, 255 255 255) / .08) 66%, rgb(var(--fx-tint, 255 255 255) / 0) 85%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: calc(var(--glow, 0) * .9 * .7);
+  transition: opacity 140ms;
+}
+
+/* ghost — the cloned trigger that expands trigger→dialog */
+.vsp__ghost {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+.vsp__ghost-clone { display: inline-flex; will-change: transform; }
+
+/* content layer: absolutely centred in the box so the dialog fades/settles at
+   the box centre while the box grows around it (center placement → no zoom). */
+.vsp__inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  will-change: transform;
+}
+.vsp__content { width: max-content; pointer-events: auto; }
+
+/* ── dialog chrome (transparent: surface paints bg/border/shadow/radius) ───── */
+.vsp {
+  --vsp-w: 460px;
+  display: flex;
+  flex-direction: column;
+  width: min(var(--vsp-w, 460px), calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  color: var(--text, #ededed);
+  outline: none;
+}
+.vsp--sm { --vsp-w: 360px; }
+.vsp--md { --vsp-w: 460px; }
+.vsp--lg { --vsp-w: 640px; }
+.vsp--fullscreen {
+  width: calc(100vw - 16px);
+  max-width: none;
+  height: calc(100vh - 16px);
+  max-height: none;
+}
+
+.vsp__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--border, #2a2a2a); }
+.vsp__title { margin: 0; font-size: 16px; font-weight: 600; color: var(--text, #ededed); }
+.vsp__close { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; padding: 0; border: none; border-radius: 8px; background: transparent; color: var(--text-secondary, #a1a1a1); cursor: pointer; transition: background-color 160ms ease, color 160ms ease; }
+.vsp__close:hover { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.08)); color: var(--text, #ededed); }
+.vsp__close:focus-visible { outline: 2px solid var(--acc, var(--ui-accent, #ededed)); outline-offset: 1px; }
+.vsp__close svg { width: 18px; height: 18px; }
+
+.vsp__body { padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.55; color: var(--text-secondary, #c4c4c4); }
+/* body-scroll="false": the content brings its own scroller, so the body only
+   clips. Flex column + min-height:0 so that scroller can claim the leftover
+   height — this body has no definite height of its own to hand out. */
+.vsp__body--clip { overflow: hidden; min-height: 0; display: flex; flex-direction: column; }
+.vsp__body--clip > * { flex: 1; min-height: 0; }
+.vsp__ph { margin: 0; }
+.vsp__ph code { font-family: var(--font-mono, monospace); padding: 1px 6px; border-radius: 6px; background: var(--bg-input, rgba(255, 255, 255, 0.06)); color: var(--text, #ededed); }
+
+.vsp__foot { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 20px; border-top: 1px solid var(--border, #2a2a2a); }

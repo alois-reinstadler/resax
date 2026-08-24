@@ -1,0 +1,112 @@
+  :host { all: initial; }
+  * { box-sizing: border-box; }
+  .bnc-root { position: fixed; inset: 0; z-index: 1000; pointer-events: none; font-family: inherit; }
+  .bnc-root.is-open { pointer-events: auto; }
+
+  .bnc-ov {
+    position: absolute;
+    inset: 0;
+    background: var(--backdrop, rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 320ms ease;
+  }
+  .bnc-ov.is-open { opacity: 1; }
+
+  .bnc-panel {
+    --bnc-w: 380px;
+    --bnc-dur: 720ms;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card, #111);
+    color: var(--text, #ededed);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    outline: none;
+  }
+  .bnc-panel--left, .bnc-panel--right { top: 0; height: 100%; width: min(var(--bnc-w), calc(100vw - 48px)); }
+  .bnc-panel--left { left: 0; border-right: 1px solid var(--border, #2a2a2a); }
+  .bnc-panel--right { right: 0; border-left: 1px solid var(--border, #2a2a2a); }
+  .bnc-panel--top, .bnc-panel--bottom { left: 0; width: 100%; height: min(var(--bnc-w), calc(100vh - 48px)); }
+  .bnc-panel--top { top: 0; border-bottom: 1px solid var(--border, #2a2a2a); }
+  .bnc-panel--bottom { bottom: 0; border-top: 1px solid var(--border, #2a2a2a); }
+
+  .bnc-panel--sm { --bnc-w: 300px; }
+  .bnc-panel--md { --bnc-w: 380px; }
+  .bnc-panel--lg { --bnc-w: 520px; }
+
+  .bnc-panel--gentle { --bnc-dur: 620ms; }
+  .bnc-panel--springy { --bnc-dur: 820ms; }
+
+  .bnc-panel__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--border, #2a2a2a); flex: none; }
+  .bnc-panel__title { margin: 0; font-size: 16px; font-weight: 600; color: var(--text, #ededed); }
+  .bnc-panel__x { appearance: none; border: none; background: transparent; color: var(--text, #ededed); width: 30px; height: 30px; display: grid; place-items: center; border-radius: var(--ctrl-r-sm, 8px); cursor: pointer; transition: background 140ms ease; }
+  .bnc-panel__x svg { width: 18px; height: 18px; }
+  .bnc-panel__x:hover { background: var(--bg-input, rgba(255, 255, 255, 0.06)); }
+  .bnc-panel__x[hidden] { display: none; }
+
+  .bnc-panel__body { flex: 1; padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.55; color: var(--text-secondary, #c4c4c4); }
+  .bnc-panel__ph { margin: 0; }
+  .bnc-panel__ph code { font-family: var(--font-mono, monospace); padding: 1px 6px; border-radius: 6px; background: var(--bg-input, rgba(255, 255, 255, 0.06)); color: var(--text, #ededed); }
+  .bnc-panel__foot { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 20px; border-top: 1px solid var(--border, #2a2a2a); flex: none; }
+  .bnc-panel__foot[hidden] { display: none; }
+
+  /* tone -> --accent ported 1:1 from the SFC. Note: in the source this custom
+     prop is only ever read by .bnc-trigger:hover, which lives OUTSIDE the
+     teleported subtree (different shadow root here, different DOM branch
+     there) — so it never actually reaches the trigger in either version.
+     Kept for fidelity; harmless no-op. */
+  .bnc-panel--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .bnc-panel--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .bnc-panel--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  /* ── unique effect: elastic multi-bounce spring on enter ── */
+  .bnc-panel--right.is-entering { animation: bnc-in-right var(--bnc-dur) both; }
+  .bnc-panel--left.is-entering { animation: bnc-in-left var(--bnc-dur) both; }
+  .bnc-panel--top.is-entering { animation: bnc-in-top var(--bnc-dur) both; }
+  .bnc-panel--bottom.is-entering { animation: bnc-in-bottom var(--bnc-dur) both; }
+
+  .bnc-panel.is-leaving { transition: transform 300ms cubic-bezier(0.4, 0, 1, 1); }
+  .bnc-panel--right.is-leaving { transform: translateX(100%); }
+  .bnc-panel--left.is-leaving { transform: translateX(-100%); }
+  .bnc-panel--top.is-leaving { transform: translateY(-100%); }
+  .bnc-panel--bottom.is-leaving { transform: translateY(100%); }
+
+  @keyframes bnc-in-right {
+    0% { transform: translateX(100%); }
+    55% { transform: translateX(-6%); }
+    72% { transform: translateX(3%); }
+    86% { transform: translateX(-1.5%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes bnc-in-left {
+    0% { transform: translateX(-100%); }
+    55% { transform: translateX(6%); }
+    72% { transform: translateX(-3%); }
+    86% { transform: translateX(1.5%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes bnc-in-top {
+    0% { transform: translateY(-100%); }
+    55% { transform: translateY(6%); }
+    72% { transform: translateY(-3%); }
+    86% { transform: translateY(1.5%); }
+    100% { transform: translateY(0); }
+  }
+  @keyframes bnc-in-bottom {
+    0% { transform: translateY(100%); }
+    55% { transform: translateY(-6%); }
+    72% { transform: translateY(3%); }
+    86% { transform: translateY(-1.5%); }
+    100% { transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bnc-ov { transition: none; }
+    .bnc-panel--right.is-entering, .bnc-panel--left.is-entering,
+    .bnc-panel--top.is-entering, .bnc-panel--bottom.is-entering { animation: none; }
+    .bnc-panel.is-leaving { transition: none; }
+    .bnc-panel--right.is-leaving, .bnc-panel--left.is-leaving,
+    .bnc-panel--top.is-leaving, .bnc-panel--bottom.is-leaving { transform: none; }
+  }

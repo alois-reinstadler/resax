@@ -5,6 +5,7 @@
 	let multiple = $state<string[]>(['design', 'research']);
 	let chips = $state<string[]>(['svelte', 'typescript']);
 	let filtered = $state('');
+	const variants = ['default', 'floating', 'pill', 'search', 'slide', 'underline'] as const;
 </script>
 
 <div class="page-heading"><p class="eyebrow">Component</p><h1>Select</h1><p>Accessible single, multiple, grouped, and filterable selection with Vuesax-inspired floating labels.</p></div>
@@ -19,6 +20,10 @@
 </DemoSection>
 <DemoSection title="States, sizes, colors, and loading" source={'<Select state="danger" message="Required">...</Select>'}>
 	<div class="select-demo-grid"><Select size="lg" color="success" label="Large success"><SelectItem value="ready">Ready</SelectItem></Select><Select state="danger" message="Please select a status" label="Danger"><SelectItem value="blocked">Blocked</SelectItem></Select><Select size="sm" state="warn" label="Small warning"><SelectItem value="review">Review</SelectItem></Select><Select loading label="Loading options"><SelectItem value="soon">Available soon</SelectItem></Select><Select disabled label="Disabled"><SelectItem value="locked">Locked</SelectItem></Select></div>
+</DemoSection>
+
+<DemoSection title="Source surface variants" source={'<Select variant="pill" label="Pill">...</Select>'}>
+	<div class="select-demo-grid">{#each variants as variant}<Select {variant} label={variant} onValueChange={() => undefined}><SelectItem value="one">Option one</SelectItem><SelectItem value="two">Option two</SelectItem></Select>{/each}</div>
 </DemoSection>
 
 <style>.select-demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; align-items: start; width: 100%; }</style>

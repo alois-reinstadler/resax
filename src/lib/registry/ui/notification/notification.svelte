@@ -5,8 +5,8 @@
 
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION } from '$lib/registry/lib/easing';
 	import { dismissNotification, pauseNotification, resumeNotification } from './notify.svelte';
 	let { item }: NotificationProps = $props();
 	const side = $derived(item.position.endsWith('left') ? -18 : item.position.endsWith('right') ? 18 : 0);

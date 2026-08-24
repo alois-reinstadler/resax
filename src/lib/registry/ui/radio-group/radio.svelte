@@ -8,8 +8,8 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { Label, RadioGroup as RadioGroupPrimitive, useId } from 'bits-ui';
-	import { styleColor } from '../../lib/color';
-	import { RX_EASE_BOUNCE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_EASE_BOUNCE } from '$lib/registry/lib/easing';
 	import { RADIO_GROUP, type RadioGroupContext } from './context';
 	import { radioVariants } from './index';
 	let { value, disabled = false, children, id = useId(), class: className, style, ...restProps }: RadioProps = $props();

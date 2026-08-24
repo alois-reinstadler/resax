@@ -1,10 +1,10 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface IndicatorProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color' | 'content' | 'children'> {
-		variant?: 'dot' | 'ring' | 'pulse' | 'count' | 'icon' | 'border';
+		variant?: 'dot' | 'ring' | 'pulse' | 'count' | 'odometer' | 'icon' | 'border';
 		color?: RxColor;
 		content?: string | number;
 		icon?: Snippet;
@@ -15,8 +15,8 @@
 </script>
 
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
-	import { RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_EASE } from '$lib/registry/lib/easing';
 	import { indicatorVariants } from './index';
 
 	let { variant = 'dot', color = 'success', content, icon, position = 'top-right', offset = false,
@@ -30,7 +30,7 @@
 	{#if children}<span class="rx-indicator__content">{@render children()}</span>{/if}
 	{#if variant !== 'border'}
 		<span class="rx-indicator__marker" aria-hidden={variant === 'dot' || variant === 'ring' || variant === 'pulse'}>
-			{#if variant === 'count'}{content}{:else if variant === 'icon' && icon}{@render icon()}{/if}
+			{#if variant === 'count' || variant === 'odometer'}{content}{:else if variant === 'icon' && icon}{@render icon()}{/if}
 		</span>
 	{/if}
 </span>
@@ -50,10 +50,12 @@
 	.rx-indicator--ring .rx-indicator__marker { background: rgb(var(--rx-background)); border: 2px solid rgb(var(--rx-color)); }
 	.rx-indicator--pulse .rx-indicator__marker::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: rgb(var(--rx-color)); animation: rx-indicator-pulse 1.5s var(--rx-ease) infinite; z-index: -1; }
 	.rx-indicator--count .rx-indicator__marker { min-width: 1.25rem; height: 1.25rem; padding: 0 .3rem; }
+	.rx-indicator--odometer .rx-indicator__marker { min-width: 1.25rem; height: 1.25rem; overflow: hidden; padding: 0 .3rem; font-variant-numeric: tabular-nums; animation: rx-indicator-odometer .32s var(--rx-ease); }
 	.rx-indicator--icon .rx-indicator__marker { width: 1.4rem; height: 1.4rem; }
 	.rx-indicator--border { padding: 3px; border: 2px solid rgb(var(--rx-color)); border-radius: calc(var(--rx-radius) + 3px); }
 	.rx-indicator--standalone { width: auto; min-width: .7rem; min-height: .7rem; }
 	.rx-indicator--standalone .rx-indicator__marker { position: relative; inset: auto; transform: none; }
 	@keyframes rx-indicator-pulse { from { opacity: .65; transform: scale(1); } to { opacity: 0; transform: scale(2.4); } }
-	@media (prefers-reduced-motion: reduce) { .rx-indicator--pulse .rx-indicator__marker::after { animation: none; } }
+	@keyframes rx-indicator-odometer { from { opacity: 0; translate: 0 -.55rem; } }
+	@media (prefers-reduced-motion: reduce) { .rx-indicator--pulse .rx-indicator__marker::after, .rx-indicator--odometer .rx-indicator__marker { animation: none; } }
 </style>

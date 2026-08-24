@@ -1,0 +1,203 @@
+  :host { display: inline-flex; }
+  .btn2 {
+    --h: var(--ctrl-h-md, 40px);
+    --r: var(--ctrl-r-md, 12px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    --rip: 255 255 255;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--h);
+    padding: 0 var(--px);
+    border-radius: calc(var(--r, 12px) * var(--r-mult, 1));
+    border: 1px solid transparent;
+    overflow: hidden;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: var(--fs);
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 200ms ease;
+  }
+  .btn2:active:not(:disabled) { transform: scale(0.97); }
+  .btn2:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  /* sizes — same token scale as VsButton */
+  .btn2--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); }
+  .btn2--md { --h: var(--ctrl-h-md, 40px); --r: var(--ctrl-r-md, 12px); --fs: var(--ctrl-fs-md, 14px); --px: var(--ctrl-px-md, 14px); }
+  .btn2--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 18px); }
+
+  /* radius */
+  .btn2--r-none { --r: 0px; }
+  .btn2--r-subtle { --r: 8px; }
+  .btn2--r-pill { --r: 999px; }
+  @supports (corner-shape: squircle) {
+    .btn2--r-squircle { corner-shape: squircle; --r-mult: 1.7; }
+  }
+
+  /* variants */
+  .btn2--primary {
+    --rip: var(--t-rip, 0 0 0);
+    background: var(--t-fill, var(--btn-primary-bg, #ededed));
+    color: var(--t-on, var(--btn-primary-fg, #000));
+  }
+  .btn2--primary:hover:not(:disabled) { opacity: 0.85; }
+  .btn2--secondary {
+    --rip: var(--t-rgb, 255 255 255);
+    background: var(--t-soft, var(--btn-secondary-bg, #1a1a1a));
+    color: var(--t-text, var(--inp-text, #ededed));
+    border-color: var(--t-border, var(--inp-border, #2a2a2a));
+  }
+  .btn2--secondary:hover:not(:disabled) {
+    background: var(--t-soft-strong, var(--btn-secondary-bg-hover, #242424));
+    border-color: var(--t-border-hover, var(--inp-border-hover, #3d3d3d));
+  }
+  .btn2--ghost {
+    --rip: var(--t-rgb, 255 255 255);
+    background: transparent;
+    color: var(--t-text, var(--inp-text, #ededed));
+  }
+  .btn2--ghost:hover:not(:disabled) {
+    background: var(--t-soft, var(--inp-hover-bg, rgba(255, 255, 255, 0.06)));
+  }
+
+  /* tones — recolor any variant */
+  .btn2--t-danger {
+    --t-rip: 255 255 255;
+    --t-fill: #e5484d; --t-on: #fff;
+    --t-text: #ff6369;
+    --t-border: #5b1a1d; --t-border-hover: #8c2c30;
+    --t-soft: rgba(229, 72, 77, 0.13); --t-soft-strong: rgba(229, 72, 77, 0.22);
+    --t-rgb: 255 99 105;
+  }
+  .btn2--t-warn {
+    --t-rip: 0 0 0;
+    --t-fill: #f5a623; --t-on: #1a1206;
+    --t-text: #ffb224;
+    --t-border: #5a3d10; --t-border-hover: #8a5e1a;
+    --t-soft: rgba(245, 166, 35, 0.13); --t-soft-strong: rgba(245, 166, 35, 0.22);
+    --t-rgb: 255 178 36;
+  }
+  .btn2--t-success {
+    --t-rip: 255 255 255;
+    --t-fill: #30a46c; --t-on: #fff;
+    --t-text: #4cc38a;
+    --t-border: #1b3b2a; --t-border-hover: #2a5e42;
+    --t-soft: rgba(48, 164, 108, 0.13); --t-soft-strong: rgba(48, 164, 108, 0.22);
+    --t-rgb: 76 195 138;
+  }
+
+  /* ── own effect: label lift/reveal ──
+     two copies of the text stacked in a column that shifts on hover: the top
+     one (front) rises and exits, the bottom one (back) enters. */
+  .btn2__label {
+    position: relative;
+    z-index: 2;
+    display: inline-grid;
+    overflow: hidden;
+    align-self: stretch;
+    height: 100%;
+    line-height: 1;
+  }
+  .btn2__face {
+    grid-area: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 100%;
+    white-space: nowrap;
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn2__face--back {
+    transform: translateY(100%);
+    filter: blur(6px);
+    opacity: 0;
+  }
+  .btn2:hover:not(:disabled) .btn2__face--front {
+    transform: translateY(-100%);
+    filter: blur(6px);
+    opacity: 0;
+  }
+  .btn2:hover:not(:disabled) .btn2__face--back {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  .btn2__spinner {
+    position: relative;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    animation: btn2-spin 0.7s linear infinite;
+  }
+  @keyframes btn2-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ripple wrapper */
+  .btn2__ripples {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .btn2__ripple {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: radial-gradient(
+      circle,
+      rgb(var(--rip) / 0.38) 0%,
+      rgb(var(--rip) / 0.20) 24%,
+      rgb(var(--rip) / 0.09) 44%,
+      rgb(var(--rip) / 0.03) 60%,
+      transparent 76%
+    );
+    opacity: 0;
+    will-change: transform, opacity;
+    animation:
+      btn2-ripple-scale 780ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+      btn2-ripple-fade 780ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+  @keyframes btn2-ripple-scale {
+    from { transform: translate(-50%, -50%) scale(0); }
+    to   { transform: translate(-50%, -50%) scale(1); }
+  }
+  @keyframes btn2-ripple-fade {
+    from { opacity: 0.8; }
+    to   { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn2 { transition: none; }
+    .btn2:active:not(:disabled) { transform: none; }
+    .btn2__face { transition: none; }
+    .btn2__ripple { display: none; }
+    .btn2__spinner { animation-duration: 1.2s; }
+  }

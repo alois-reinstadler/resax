@@ -1,0 +1,66 @@
+  :host { display: inline-flex; }
+  .vstb-wrap { position: relative; display: inline-flex; }
+  .vstb-trigger {
+    display: inline-flex;
+    align-items: center;
+    outline: none;
+    border-radius: var(--ctrl-r-sm, 8px);
+    color: var(--text, #ededed);
+    cursor: default;
+  }
+  .vstb-trigger:focus-visible { box-shadow: 0 0 0 2px var(--ui-accent, #ededed); }
+
+  .vstb-tip {
+    position: absolute;
+    z-index: 10000;
+    display: inline-flex;
+    align-items: center;
+    max-width: 240px;
+    padding: 7px 11px;
+    border-radius: var(--ctrl-r-md, 10px);
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-elevated, #161616);
+    color: var(--text, #ededed);
+    font-size: var(--ctrl-fs-sm, 12.5px);
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: normal;
+    pointer-events: none;
+    box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+    /* BLUR: sharpen from a heavy gaussian blur into focus while fading in */
+    opacity: 0;
+    filter: blur(10px);
+    transition:
+      opacity 240ms ease,
+      filter 300ms cubic-bezier(0.25, 0.8, 0.35, 1);
+  }
+  .vstb-tip[hidden] { display: none; }
+  .vstb-tip.is-open { opacity: 1; filter: blur(0); }
+
+  .vstb-tip__content :where(b, strong) { font-weight: 700; }
+
+  .vstb-tip__arrow {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: var(--bg-elevated, #161616);
+    border: 1px solid var(--border, #2a2a2a);
+    border-right: none;
+    border-bottom: none;
+  }
+  .vstb-tip__arrow[hidden] { display: none; }
+  .vstb-tip--top .vstb-tip__arrow { bottom: -5px; left: 50%; transform: translateX(-50%) rotate(225deg); }
+  .vstb-tip--bottom .vstb-tip__arrow { top: -5px; left: 50%; transform: translateX(-50%) rotate(45deg); }
+  .vstb-tip--left .vstb-tip__arrow { right: -5px; top: 50%; transform: translateY(-50%) rotate(135deg); }
+  .vstb-tip--right .vstb-tip__arrow { left: -5px; top: 50%; transform: translateY(-50%) rotate(315deg); }
+
+  /* placement + offset (ported from the SFC's computed tipStyle, driven via a CSS var) */
+  .vstb-tip--top { bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: var(--tip-offset, 10px); }
+  .vstb-tip--bottom { top: 100%; left: 50%; transform: translateX(-50%); margin-top: var(--tip-offset, 10px); }
+  .vstb-tip--left { right: 100%; top: 50%; transform: translateY(-50%); margin-right: var(--tip-offset, 10px); }
+  .vstb-tip--right { left: 100%; top: 50%; transform: translateY(-50%); margin-left: var(--tip-offset, 10px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vstb-tip { transition: opacity 120ms ease; filter: none; }
+    .vstb-tip.is-open { filter: none; }
+  }

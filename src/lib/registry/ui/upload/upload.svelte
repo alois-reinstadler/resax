@@ -1,11 +1,11 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte'; import type { RxColor } from '../../lib/color';
+	import type { Snippet } from 'svelte'; import type { RxColor } from '$lib/registry/lib/color';
 	export interface UploadFile { id: string; file: File; status: 'queued' | 'uploading' | 'done' | 'error'; progress: number; previewUrl?: string }
 	export interface UploadRejection { file: File; reason: 'size' | 'type' | 'count' }
 	export interface UploadProps { files?: UploadFile[]; accept?: string; multiple?: boolean; maxSize?: number; maxFiles?: number; color?: RxColor; disabled?: boolean; label?: string | Snippet; onFilesAdded?: (added: UploadFile[]) => void; onFileRemoved?: (file: UploadFile) => void; onRejected?: (rejections: UploadRejection[]) => void }
 </script>
 <script lang="ts">
-	import { styleColor } from '../../lib/color'; import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color'; import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	let { files = $bindable([]), accept, multiple = false, maxSize, maxFiles, color, disabled = false, label = 'Drop files here or click to browse', onFilesAdded, onFileRemoved, onRejected }: UploadProps = $props();
 	let input: HTMLInputElement, dragging = $state(false), message = $state(''), messageTimer: ReturnType<typeof setTimeout> | undefined;
 	const ownedUrls = new Set<string>();

@@ -1,0 +1,183 @@
+  :host {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Apple's control curve, and the springier one used on the way out. */
+    --sb-ease: cubic-bezier(0.32, 0.72, 0, 1);
+    --sb-spring: cubic-bezier(0.34, 1.26, 0.4, 1);
+  }
+  :host([hidden]) { display: none; }
+
+  .sb {
+    --h: var(--ctrl-h-md, 40px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: 18px;
+    --r: 999px;
+    /* fill = the liquid; on-fill = the readable colour of a label over it */
+    --fill: var(--btn-secondary-bg, #1a1a1a);
+    --on-fill: var(--inp-text, #ededed);
+    --ring: var(--fx-tint, 255 255 255);
+    /* both travel times are overridable from outside (--sb-open-ms /
+       --sb-close-ms), which is also the only way to slow the liquid down
+       enough to look at it frame by frame */
+    --open-ms: var(--sb-open-ms, ${_}ms);
+    --close-ms: var(--sb-close-ms, ${x}ms);
+    --dur: var(--open-ms);
+    --ease: var(--sb-spring);
+    position: relative;
+    height: var(--h);
+    font-family: inherit;
+    font-size: var(--fs);
+    line-height: 1;
+  }
+  .sb--sm { --h: var(--ctrl-h-sm, 32px); --fs: var(--ctrl-fs-sm, 13px); --px: 14px; }
+  .sb--md { --h: var(--ctrl-h-md, 40px); --fs: var(--ctrl-fs-md, 14px); --px: 18px; }
+  .sb--lg { --h: var(--ctrl-h-lg, 48px); --fs: var(--ctrl-fs-lg, 15px); --px: 22px; }
+
+  /* radius — the blob and every button share it */
+  .sb--r-none { --r: 0px; }
+  .sb--r-subtle { --r: 10px; }
+  .sb--r-rounded { --r: 14px; }
+  .sb--r-pill { --r: 999px; }
+  @supports (corner-shape: squircle) {
+    .sb--r-squircle { --r: calc(var(--h) * 0.5); }
+    .sb--r-squircle .sb__blob { corner-shape: squircle; }
+  }
+
+  /* tones — recolour the liquid, its on-colour and the focus ring */
+  .sb--t-danger  { --fill: #ff6369; --on-fill: #2a0c0e; --ring: 255 99 105; }
+  .sb--t-warn    { --fill: #ffb224; --on-fill: #2a1c02; --ring: 255 178 36; }
+  .sb--t-success { --fill: #4cc38a; --on-fill: #06231a; --ring: 76 195 138; }
+
+  /* ── The stage: width is the only thing that reflows, and both layers are
+     positioned from its CENTRE, so the group stays coherent while it grows. ── */
+  .sb__stage {
+    position: relative;
+    height: 100%;
+    width: 0;
+    transition: width var(--dur) var(--ease);
+  }
+  .sb.is-closing { --dur: var(--close-ms); --ease: var(--sb-ease); }
+
+  /* ── Liquid layer (behind the labels) ── */
+  .sb__goo {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .sb.is-ready .sb__goo { opacity: 1; }
+  /* Plain holder. The stickiness is NOT a CSS blur — it's the filter's own
+     stdDeviation, ramped from JS so it is zero whenever the group is at rest
+     (see #rampGoo). A constant blur left the pills welded together and their
+     edges soft even when nothing was moving. */
+  .sb__soft { position: absolute; inset: 0; }
+
+  .sb__slot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--w, 0px);
+    height: var(--h);
+    transform: translate(calc(-50% + var(--x, 0px)), -50%);
+    transition:
+      transform var(--dur) var(--ease) var(--d, 0ms),
+      width var(--dur) var(--ease) var(--d, 0ms);
+  }
+  .sb__blob {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--r);
+    background: var(--fill);
+    transform-origin: 50% 50%;
+    transition: background 200ms ease;
+  }
+  /* the squish rides on the INNER node so it never fights the slot's transform */
+  .sb__stage.is-moving .sb__blob {
+    animation: sb-liquid var(--dur) var(--sb-ease) var(--d, 0ms);
+  }
+  @keyframes sb-liquid {
+    0%   { transform: scale(1, 1); }
+    28%  { transform: scale(1.12, 0.86); }
+    64%  { transform: scale(0.97, 1.05); }
+    100% { transform: scale(1, 1); }
+  }
+  .sb__slot.is-hot .sb__blob { filter: brightness(1.14); }
+  /* keyboard focus: NO ring, no outline, nothing drawn around the shape — the
+     blob itself just shifts towards the label's colour. Reads on any tone and
+     in both themes, and never looks like a stray border on the liquid. */
+  .sb__slot.is-focus .sb__blob {
+    background: color-mix(in srgb, var(--fill) 82%, var(--on-fill));
+  }
+  .sb__slot.is-selected .sb__blob { box-shadow: 0 0 0 1px rgb(var(--ring) / 0.5) inset; }
+
+  /* ── Label layer (above the liquid, never filtered — text stays crisp) ── */
+  .sb__layer { position: absolute; inset: 0; }
+
+  .sb__btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: var(--h);
+    padding: 0 var(--px);
+    margin: 0;
+    border: 0;
+    border-radius: var(--r);
+    background: transparent;
+    color: var(--on-fill);
+    font: inherit;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate(calc(-50% + var(--x, 0px)), -50%);
+    /* A label RESOLVES: it comes in out of focus and sharpens as it settles.
+       Safe here only because the two label sets never overlap in time — a
+       blurred label on top of a sharp one is what read as mush before. */
+    filter: blur(0px);
+    transition:
+      transform var(--dur) var(--ease) var(--d, 0ms),
+      opacity 220ms var(--sb-ease) var(--ld, 0ms),
+      scale 320ms var(--sb-spring) var(--ld, 0ms),
+      filter 300ms var(--sb-ease) var(--ld, 0ms);
+  }
+  /* No ring drawn AROUND the button: a hard outline on top of a liquid pill
+     reads as a stray border. Keyboard focus is marked on the blob itself
+     (.sb__slot.is-focus below), which is the shape the user actually sees. */
+  .sb__btn:focus-visible { outline: none; box-shadow: none; }
+  /* the collapsed trigger has no blob of its own — it sits over the whole
+     pill, so focusing it tints every slice at once (same treatment, one shape) */
+  .sb__btn:active:not(:disabled) { scale: 0.96; }
+  .sb__back { padding: 0; width: var(--h); }
+  .sb__back svg { width: 18px; height: 18px; display: block; }
+
+  /* hidden set: faded down, out of the tab order and untouchable. It leaves
+     FASTER than the incoming set arrives — a clean handover, never two labels
+     dissolving through each other in the same box. */
+  .sb__btn.is-off {
+    opacity: 0;
+    scale: 0.86;
+    /* it dissolves rather than cuts: the blur outruns the fade, so the last
+       thing on screen is a soft smear of the word, not a hard edge popping */
+    filter: blur(6px);
+    pointer-events: none;
+    transition:
+      transform var(--dur) var(--ease) var(--d, 0ms),
+      opacity 110ms var(--sb-ease) var(--ld, 0ms),
+      scale 220ms var(--sb-ease) var(--ld, 0ms),
+      filter 170ms var(--sb-ease) var(--ld, 0ms);
+  }
+
+  .sb.is-disabled { opacity: 0.5; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sb__stage, .sb__slot, .sb__btn { transition-duration: 1ms; transition-delay: 0ms; }
+    .sb__stage.is-moving .sb__blob { animation: none; }
+    .sb__btn, .sb__btn.is-off { filter: none; }
+  }

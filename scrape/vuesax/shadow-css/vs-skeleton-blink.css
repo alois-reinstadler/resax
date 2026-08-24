@@ -1,0 +1,76 @@
+  :host { display: block; }
+.skb {
+  --w: 100%;
+  --h: 14px;
+  --r: var(--ctrl-r-sm, 6px);
+  --dur: 1.4s;
+  --skb-stagger: 160ms;
+  --skb-base: var(--bg-elevated, #161616);
+  --skb-bone: var(--vs-color, var(--border, #2a2a2a));
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 240px;
+}
+
+.skb__bone {
+  display: block;
+  width: var(--w);
+  height: var(--h);
+  border-radius: var(--r);
+  background: var(--skb-bone);
+}
+
+.skb__bone--line { width: var(--w); height: var(--h); }
+.skb__bone--solid { width: var(--w); height: var(--h); }
+
+.skb--s-slow   { --dur: 2.1s; }
+.skb--s-normal { --dur: 1.4s; }
+.skb--s-fast   { --dur: 0.9s; }
+
+/* ── blink: hard staggered blink (steps) ───────────────────────── */
+@keyframes skb-blink {
+  0%,  49% { opacity: 0.35; }
+  50%, 100% { opacity: 1; }
+}
+.skb--a-blink .skb__bone {
+  animation: skb-blink var(--dur) steps(1, end) infinite;
+  animation-delay: calc(var(--i, 0) * var(--skb-stagger));
+}
+
+/* ── shapes ──────────────────────────────────────────────────── */
+.skb--rect   { --h: 120px; --r: var(--ctrl-r-md, 10px); }
+.skb--circle .skb__bone--solid,
+.skb--avatar .skb__bone--solid {
+  --w: 48px;
+  --h: 48px;
+  --r: 999px;
+}
+.skb--rect, .skb--circle, .skb--avatar { gap: 0; }
+
+.skb--card {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+.skb__bone--avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+.skb__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skb__bone {
+    animation: none !important;
+    opacity: 0.85;
+  }
+}

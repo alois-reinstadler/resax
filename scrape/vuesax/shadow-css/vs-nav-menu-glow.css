@@ -1,0 +1,178 @@
+  /* max-width, not a breakpoint: the bar is shrink-to-fit, so without this it
+     keeps its widest natural size and hangs out of any box narrower than the
+     triggers laid end to end. */
+  :host { display: inline-flex; max-width: 100%; }
+  .vng {
+    --accent: var(--ui-accent, #ededed);
+    --rr: 14px;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    font-family: inherit;
+    color: var(--text, #ededed);
+  }
+  .vng--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .vng--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .vng--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  .vng--r-subtle { --rr: 10px; }
+  .vng--r-pill { --rr: 22px; }
+  @supports (corner-shape: squircle) { .vng--r-squircle { --rr: 22px; } }
+
+  .vng__list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Wrap rather than scroll: the pill and the viewport are positioned from
+       measured trigger rects, so a second row lands correctly, and every
+       trigger stays reachable without a hidden scroll gesture. */
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    gap: 2px;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: calc(var(--rr) + 4px);
+    background: var(--bg-card, #0a0a0a);
+  }
+  .vng--ghost .vng__list { border-color: transparent; background: transparent; }
+  .vng__item { position: relative; z-index: 1; }
+
+  .vng__trigger {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 36px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: var(--rr);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--text-muted, #888);
+    background: transparent;
+    transition: color 220ms ease, text-shadow 220ms ease;
+  }
+  .vng__label { position: relative; z-index: 1; }
+  .vng__trigger:hover { color: var(--text, #ededed); }
+  .vng__trigger[data-state='open'] {
+    color: var(--ui-accent, #ededed);
+    text-shadow: 0 0 calc(10px * var(--gi, 0.7)) color-mix(in srgb, var(--ui-accent, #ededed) 80%, transparent);
+  }
+  .vng__trigger:focus-visible { outline: 2px solid var(--ui-accent, #ededed); outline-offset: 2px; }
+  .vng__chev { position: relative; z-index: 1; width: 13px; height: 13px; transition: transform 300ms var(--spring, ease); }
+  .vng__chev.is-open { transform: rotate(180deg); }
+
+  /* pulsing neon aura on the active trigger — unique effect (self-animated, out of flow) */
+  .vng__aura {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: var(--rr);
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--ui-accent, #ededed) calc(var(--gi, 0.7) * 30%), transparent),
+      transparent 72%
+    );
+    box-shadow:
+      0 0 calc(16px * var(--gi, 0.7)) color-mix(in srgb, var(--ui-accent, #ededed) 55%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--ui-accent, #ededed) 60%, transparent);
+    transition: opacity 240ms ease;
+  }
+  @supports (corner-shape: squircle) { .vng--r-squircle .vng__aura { corner-shape: squircle; } }
+  /* Perf: the open aura keeps the min shadow static; the max state is baked
+     into ::after and only its opacity animates (compositable). The aura's
+     enter fade (opacity transition) still multiplies into the child. */
+  .vng__trigger[data-state='open'] .vng__aura {
+    opacity: 1;
+    box-shadow:
+      0 0 calc(12px * var(--gi, 0.7)) color-mix(in srgb, var(--ui-accent, #ededed) 45%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--ui-accent, #ededed) 55%, transparent);
+  }
+  .vng__aura::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow:
+      0 0 calc(22px * var(--gi, 0.7)) color-mix(in srgb, var(--ui-accent, #ededed) 70%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--ui-accent, #ededed) 70%, transparent);
+    opacity: 0;
+  }
+  .vng__trigger[data-state='open'] .vng__aura::after {
+    animation: vng-breathe 2.4s ease-in-out infinite;
+  }
+
+  @keyframes vng-breathe {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .vng__bridge { position: absolute; top: 100%; left: 0; width: 100%; height: 12px; z-index: 49; }
+  .vng__bridge[hidden] { display: none; }
+
+  .vng__panel-wrap {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 50;
+    margin-top: 8px;
+    transform: translateX(-50%);
+    border-radius: var(--rr);
+    border: 1px solid color-mix(in srgb, var(--ui-accent, #ededed) calc(var(--gi, 0.7) * 55%), var(--border, #2a2a2a));
+    background: var(--bg-elevated, #161616);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 18px 40px -20px rgba(0, 0, 0, 0.6),
+      0 0 calc(28px * var(--gi, 0.7)) -6px color-mix(in srgb, var(--ui-accent, #ededed) 60%, transparent);
+  }
+  .vng__panel-wrap[hidden] { display: none; }
+  @supports (corner-shape: squircle) { .vng--r-squircle .vng__panel-wrap { corner-shape: squircle; } }
+
+  .vng__panel { display: grid; gap: 2px; padding: 6px; }
+  .vng__panel--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 440px; }
+  .vng__panel--list { width: 280px; }
+
+  .vng__link {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 9px 12px;
+    border-radius: calc(var(--rr) - 4px);
+    text-decoration: none;
+    color: inherit;
+    transition: background 160ms ease;
+  }
+  .vng__link:hover { background: var(--bg-card, #0a0a0a); }
+  .vng__link-title { font-size: 14px; font-weight: 600; line-height: 1.2; color: var(--text, #ededed); }
+  .vng__link-desc { font-size: 12.5px; line-height: 1.35; color: var(--text-muted, #888); }
+
+  .vng-r-enter-active, .vng-l-enter-active { transition: transform 320ms var(--spring, ease), opacity 240ms ease; }
+  .vng-r-leave-active, .vng-l-leave-active { transition: transform 260ms var(--spring, ease), opacity 180ms ease; }
+  .vng-r-enter-from { transform: translateX(-50%) translateX(24px); opacity: 0; }
+  .vng-r-leave-to { transform: translateX(-50%) translateX(-24px); opacity: 0; }
+  .vng-l-enter-from { transform: translateX(-50%) translateX(-24px); opacity: 0; }
+  .vng-l-leave-to { transform: translateX(-50%) translateX(24px); opacity: 0; }
+
+  .vng.is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vng__aura, .vng__chev,
+    .vng-r-enter-active, .vng-r-leave-active,
+    .vng-l-enter-active, .vng-l-leave-active { transition-duration: 1ms; }
+    .vng__trigger[data-state='open'] .vng__aura { animation: none; }
+    .vng__trigger[data-state='open'] .vng__aura::after { animation: none; opacity: 0; }
+    .vng__panel-wrap { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  }

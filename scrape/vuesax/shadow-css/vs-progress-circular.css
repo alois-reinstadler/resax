@@ -1,0 +1,64 @@
+  :host { display: inline-flex; }
+  .vpci {
+    --sz: 56px;
+    --bw: 8px;
+    --fs: 13px;
+    --accent: var(--ui-accent, #ededed);
+    --track: var(--border, #2a2a2a);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tint);
+  }
+  .vpci--sm { --sz: 40px; --bw: 6px;  --fs: 12px; }
+  .vpci--md { --sz: 56px; --bw: 8px;  --fs: 13px; }
+  .vpci--lg { --sz: 76px; --bw: 11px; --fs: 14px; }
+
+  .vpci__ring {
+    position: relative;
+    width: var(--sz);
+    height: var(--sz);
+  }
+  .vpci__svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* start the arc at 12 o'clock */
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+  .vpci__track { fill: none; stroke: var(--track); }
+  .vpci__bar {
+    fill: none;
+    stroke: var(--accent);
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .vpci__val {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: calc(var(--fs) - 1px);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+  .vpci__label { font-weight: 500; }
+
+  /* indeterminate: fixed quarter arc that spins */
+  .vpci.is-indeterminate .vpci__svg { animation: vpci-spin 1s linear infinite; }
+  .vpci.is-indeterminate .vpci__bar { transition: none; }
+  @keyframes vpci-spin { to { transform: rotate(270deg); } }
+
+  .vpci--t-danger  { --accent: var(--danger,  #ff6369); }
+  .vpci--t-warn    { --accent: var(--warn,    #ffb224); }
+  .vpci--t-success { --accent: var(--success, #4cc38a); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vpci__bar { transition: none; }
+    .vpci.is-indeterminate .vpci__svg { animation: none; }
+  }

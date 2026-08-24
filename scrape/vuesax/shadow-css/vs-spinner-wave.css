@@ -1,0 +1,77 @@
+  :host { display: inline-flex; }
+.wave {
+  --sz: 32px;
+  --dur: 1.1s;
+  --gap: 10px;
+  --fs: 13px;
+  --ring: var(--inp-ring, 237 237 237);
+  --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+  --dot: calc(var(--sz) * 0.18);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap);
+  color: var(--tint);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 500;
+  line-height: 1;
+  user-select: none;
+}
+
+.wave__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--dot) * 0.6);
+  width: var(--sz);
+  height: var(--sz);
+  flex: 0 0 auto;
+}
+
+.wave__d {
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 999px;
+  background: rgb(var(--ring));
+  animation: wave-sine var(--dur) ease-in-out infinite;
+  animation-delay: calc(var(--i) * var(--dur) / -6);
+}
+
+@keyframes wave-sine {
+  0%, 100% { transform: translateY(calc(var(--sz) * 0.22)); opacity: 0.45; }
+  50%      { transform: translateY(calc(var(--sz) * -0.22)); opacity: 1; }
+}
+
+/* sizes */
+.wave--sm { --sz: 20px; --fs: 12px; --gap: 8px; }
+.wave--md { --sz: 32px; --fs: 13px; }
+.wave--lg { --sz: 44px; --fs: 14px; --gap: 12px; }
+.wave--xl { --sz: 60px; --fs: 16px; --gap: 14px; }
+
+/* speed */
+.wave--s-slow   { --dur: 1.5s; }
+.wave--s-normal { --dur: 1.1s; }
+.wave--s-fast   { --dur: 0.75s; }
+
+.wave__label { color: var(--tint); white-space: nowrap; }
+
+.wave.is-overlay {
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+  backdrop-filter: blur(2px);
+  border-radius: inherit;
+  z-index: 10;
+}
+
+/* tones */
+.wave--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+.wave--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+.wave--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+@media (prefers-reduced-motion: reduce) {
+  .wave__d { animation-duration: 2.6s; }
+}

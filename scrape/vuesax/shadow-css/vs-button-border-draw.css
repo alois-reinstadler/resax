@@ -1,0 +1,92 @@
+  :host { display: inline-flex; }
+  @property --bd-a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  .bdraw {
+    --h: var(--ctrl-h-md, 40px);
+    --r: var(--ctrl-r-md, 12px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    --accent: var(--inp-accent, #ededed);
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--h);
+    padding: 0 var(--px);
+    border-radius: calc(var(--r) * var(--r-mult, 1));
+    border: 1px solid var(--inp-border, #2a2a2a);
+    font: inherit;
+    font-weight: 500;
+    font-size: var(--fs);
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    color: var(--inp-text, #ededed);
+    transition: color 220ms var(--ease-out, ease), box-shadow 260ms var(--ease-out, ease), transform 160ms ease;
+  }
+  .bdraw:hover:not(:disabled) {
+    color: #fff;
+    box-shadow: 0 0 22px -8px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+  .bdraw:active:not(:disabled) { transform: scale(0.98); }
+  .bdraw:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  /* sizes */
+  .bdraw--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); }
+  .bdraw--md { --h: var(--ctrl-h-md, 40px); --r: var(--ctrl-r-md, 12px); --fs: var(--ctrl-fs-md, 14px); --px: var(--ctrl-px-md, 14px); }
+  .bdraw--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 18px); }
+
+  /* radius */
+  .bdraw--r-none { --r: 0px; }
+  .bdraw--r-subtle { --r: 8px; }
+  .bdraw--r-pill { --r: 999px; }
+  @supports (corner-shape: squircle) {
+    .bdraw--r-squircle { corner-shape: squircle; --r-mult: 1.7; }
+  }
+
+  /* variants: mostly change the base fill; the drawn ring stays the accent */
+  .bdraw--primary { background: var(--btn-primary-bg, #ededed); color: var(--btn-primary-fg, #000); border-color: transparent; }
+  .bdraw--primary:hover:not(:disabled) { color: var(--btn-primary-fg, #000); }
+  .bdraw--secondary { background: var(--btn-secondary-bg, #1a1a1a); }
+
+  /* the ring: a 1px conic band masked to the border only. The conic sweep angle
+     (--bd-a) animates 0→360 on hover → the stroke draws around the perimeter,
+     hugging the radius because border-radius:inherit + mask. */
+  .bdraw__ring {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    pointer-events: none;
+    opacity: 0;
+    background: conic-gradient(from -90deg, var(--accent) var(--bd-a), transparent 0);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    transition: --bd-a 560ms cubic-bezier(0.65, 0, 0.35, 1), opacity 120ms ease;
+  }
+  .bdraw:hover:not(:disabled) .bdraw__ring { opacity: 1; --bd-a: 360deg; }
+
+  /* No @property support → the animation of --bd-a can't run; show a full ring
+     that just fades in instead (graceful fallback). */
+  @supports not (background: conic-gradient(from 0deg, red var(--bd-a), transparent 0)) {
+    .bdraw__ring { background: transparent; border: 1.5px solid var(--accent); padding: 0; -webkit-mask: none; mask: none; }
+  }
+
+  .bdraw__label { position: relative; z-index: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bdraw { transition: color 200ms ease; }
+    .bdraw__ring { transition: opacity 160ms ease; }
+    .bdraw:hover:not(:disabled) .bdraw__ring { --bd-a: 360deg; }
+  }

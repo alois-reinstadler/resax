@@ -1,0 +1,129 @@
+  :host { display: inline-flex; max-width: 100%; }
+.tbg {
+  --fs: var(--ctrl-fs-md, 14px);
+  --h: var(--ctrl-h-md, 40px);
+  --pad: 5px;
+  --gap: 2px;
+  --tab-px: 16px;
+  --r: var(--ctrl-r-md, 12px);
+  --tr: calc(var(--h) / 2);
+  --acc: var(--inp-accent, #ededed);
+  --acc-on: var(--bg, #0a0a0a);
+  display: inline-flex;
+  font-family: inherit;
+  font-size: var(--fs);
+  max-width: 100%;
+}
+.tbg--block { display: flex; width: 100%; }
+.tbg--sm { --fs: var(--ctrl-fs-sm, 13px); --h: var(--ctrl-h-sm, 32px); --tab-px: 13px; --r: var(--ctrl-r-sm, 10px); }
+.tbg--lg { --fs: var(--ctrl-fs-lg, 15px); --h: var(--ctrl-h-lg, 48px); --tab-px: 20px; --r: var(--ctrl-r-lg, 14px); }
+
+.tbg__list {
+  position: relative;
+  display: inline-flex;
+  gap: var(--gap);
+  padding: var(--pad);
+  width: 100%;
+  border-radius: calc(var(--tr) + var(--pad));
+  background: var(--bg-elevated, #111);
+  border: 1px solid var(--border, #2a2a2a);
+  /* More tabs than the box can hold become a rail: the goo blob slides along a
+     single row, so wrapping would strand it. Scrolling inside the capsule keeps
+     the blob and the row in the same coordinate space. */
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tbg__list::-webkit-scrollbar { display: none; }
+.tbg--r-subtle { --tr: 8px; }
+.tbg--r-rounded { --tr: var(--r); }
+@supports (corner-shape: squircle) {
+  .tbg--r-squircle .tbg__list,
+  .tbg--r-squircle .tbg__ind,
+  .tbg--r-squircle .tbg__tab { corner-shape: squircle; --tr: calc(var(--r) * 1.7); }
+}
+
+/* the liquid indicator: transitions x + width with a springy ease so the
+   union-stretch → collapse reads as a gooey blob */
+.tbg__ind {
+  position: absolute;
+  top: var(--pad);
+  left: 0;
+  height: var(--h);
+  border-radius: var(--tr);
+  background: var(--acc);
+  opacity: 0;
+  z-index: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 460ms cubic-bezier(0.5, 1.5, 0.5, 1),
+    width 460ms cubic-bezier(0.5, 1.5, 0.5, 1),
+    opacity 200ms ease;
+}
+.tbg__ind.is-ready { opacity: 1; }
+
+.tbg__tab {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--h);
+  padding: 0 var(--tab-px);
+  border: 0;
+  /* proximity glow (see #paintGlow): a radial focus clipped to the glyphs, so the
+     letters under the cursor brighten and the distant ones stay muted. --lit is
+     the 0..1 nearness the script writes alongside the position — the gradient
+     reads --mx/--my, --lit is what lets a consumer hang more on the effect. */
+  --lit: 0;
+  --mx: 50%;
+  --my: 50%;
+  color: var(--text-muted, #8a8a8a);
+  background: radial-gradient(
+    140px circle at var(--mx) var(--my),
+    var(--text, #ededed),
+    var(--text, #ededed) 25%,
+    var(--text-muted, #8a8a8a) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: var(--tr);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 260ms ease, -webkit-text-fill-color 260ms ease;
+}
+.tbg--block .tbg__tab { flex: 1 1 0; }
+/* The active label rides the blob in the accent's ink, and a disabled one is
+   simply out: both drop the gradient, or the clip would paint over them. */
+.tbg__tab.is-active {
+  background: none;
+  color: var(--acc-on);
+  -webkit-text-fill-color: var(--acc-on);
+}
+.tbg__tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: none;
+  -webkit-text-fill-color: var(--text-muted, #8a8a8a);
+}
+.tbg__icon { display: inline-flex; }
+.tbg__icon svg { width: 18px; height: 18px; display: block; }
+
+/* tones */
+.tbg--t-danger { --acc: #e5484d; --acc-on: #fff; }
+.tbg--t-warn { --acc: #f5a623; --acc-on: #1a1206; }
+.tbg--t-success { --acc: #30a46c; --acc-on: #fff; }
+
+.is-disabled { opacity: 0.55; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tbg__ind { transition: opacity 200ms ease; }
+  .tbg__tab { transition: none; }
+}

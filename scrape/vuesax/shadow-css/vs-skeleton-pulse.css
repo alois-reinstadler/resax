@@ -1,0 +1,99 @@
+  :host { display: block; }
+.skp {
+  --w: 100%;
+  --h: 14px;
+  --r: var(--ctrl-r-sm, 6px);
+  --dur: 1.4s;
+  --skp-glow: 0.35;
+  --skp-base: var(--bg-elevated, #161616);
+  --skp-bone: var(--vs-color, var(--border, #2a2a2a));
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 240px;
+}
+
+.skp__bone {
+  display: block;
+  width: var(--w);
+  height: var(--h);
+  border-radius: var(--r);
+  background: var(--skp-bone);
+  position: relative;
+}
+
+.skp__bone--line { width: var(--w); height: var(--h); }
+.skp__bone--solid { width: var(--w); height: var(--h); }
+
+.skp--s-slow   { --dur: 2.1s; }
+.skp--s-normal { --dur: 1.4s; }
+.skp--s-fast   { --dur: 0.9s; }
+
+/* ── pulse: uniform beat with an expanding halo ────────────────── */
+/* Perf: the halo (box-shadow) is baked into ::after and only opacity
+   is animated (compositable) — no per-frame repaint. The original
+   shadow interpolated 0px/α→4px/0, whose visible peak is ~2px at half
+   alpha: that peak state is baked and cross-fades 0↔1 on the same beat. */
+@keyframes skp-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@keyframes skp-halo {
+  0%, 50%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
+}
+.skp--a-pulse .skp__bone {
+  animation: skp-pulse var(--dur) ease-in-out infinite;
+}
+.skp--a-pulse .skp__bone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 0 2px rgb(255 255 255 / calc(var(--skp-glow) * 0.5));
+  opacity: 0;
+  animation: skp-halo var(--dur) ease-in-out infinite;
+}
+
+/* ── shapes ──────────────────────────────────────────────────── */
+.skp--rect   { --h: 120px; --r: var(--ctrl-r-md, 10px); }
+.skp--circle .skp__bone--solid,
+.skp--avatar .skp__bone--solid {
+  --w: 48px;
+  --h: 48px;
+  --r: 999px;
+}
+.skp--rect, .skp--circle, .skp--avatar { gap: 0; }
+
+.skp--card {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+.skp__bone--avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+.skp__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skp__bone {
+    animation: none !important;
+    opacity: 0.85;
+    box-shadow: none;
+  }
+  .skp__bone::after {
+    animation: none !important;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,142 @@
+  :host {
+    display: inline-flex;
+    /* tinted recess for the shell, solid pills on top. Both sides derive from
+       the theme's own surfaces, so the arrangement survives the theme flip. */
+    --io-shell: color-mix(in srgb, var(--text, #ededed) 6%, transparent);
+    --io-pill: var(--bg-elevated, #1c1c1c);
+    --io-pill-hover: color-mix(in srgb, var(--bg-elevated, #1c1c1c) 100%, var(--text, #ededed) 10%);
+    --io-fg: var(--text, #ededed);
+    --io-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+    --rip: 255 255 255;
+    /* sizes carry the metrics only; radius is a separate axis so the two can
+       be set independently (a pill SM and a rounded SM share these numbers) */
+    --h: 40px; --fs: 14px; --px: 17px; --gap: 6px; --pad: 5px;
+    --r: 999px;  /* pill by default — same default as meta.controls */
+    --sr: 999px; /* shell radius: the pill radius plus the shell padding */
+  }
+  :host([size='sm']) { --h: 30px; --fs: 12px; --px: 12px; --gap: 4px; --pad: 4px; }
+  :host([size='lg']) { --h: 48px; --fs: 15px; --px: 21px; --gap: 8px; --pad: 6px; }
+  :host([radius='pill'])    { --r: 999px; --sr: 999px; }
+  :host([radius='rounded']) { --r: 12px; --sr: calc(12px + var(--pad)); }
+
+  /* light theme: pills go to the page surface (white) over the tinted shell —
+     the same arrangement the dark side has, flipped. The ripple re-tints black. */
+  :host-context([data-theme='light']) {
+    --io-shell: color-mix(in srgb, var(--text, #171717) 6%, transparent);
+    --io-pill: #ffffff;
+    --io-pill-hover: #ffffff;
+    --io-shadow: 0 1px 2px rgba(17, 24, 39, 0.1), 0 1px 1px rgba(17, 24, 39, 0.06);
+    --rip: 20 20 20;
+  }
+  :host-context([data-theme='light']) .io__pill:hover {
+    box-shadow: 0 2px 6px rgba(17, 24, 39, 0.14);
+  }
+
+  .io {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: var(--pad);
+    border-radius: calc(var(--sr) * var(--r-mult, 1));
+    background: var(--io-shell);
+    font-family: inherit;
+    /* The track keeps the width of the OPEN bar while collapsed, so its box juts
+       out of the shell with the tucked pills parked inside it — invisible, but it
+       still hands the host page a phantom scrollbar. clip, not hidden: no scroll
+       container, no scroll anchoring, nothing to focus-scroll into. The margin is
+       the runway the effect needs — the pills fly about 6px past the shell edge
+       mid-flight and carry their own motion blur, and clipping THAT kills the lag. */
+    overflow: clip;
+    overflow-clip-margin: 24px;
+    /* JS owns the width; stay invisible until the first measurement lands */
+    opacity: 0;
+    transition: opacity 140ms linear;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .io--ready { opacity: 1; }
+  :host([disabled]) .io { opacity: 0.5; pointer-events: none; }
+
+  @supports (corner-shape: squircle) {
+    :host([radius='squircle']) {
+      --r: calc(var(--h) * 0.5);
+      --sr: calc(var(--h) * 0.5 + var(--pad));
+      --r-mult: 1.5;
+    }
+    :host([radius='squircle']) .io,
+    :host([radius='squircle']) .io__pill { corner-shape: squircle; }
+  }
+
+  .io__track {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    flex: 0 0 auto;
+    width: max-content;
+    will-change: transform;
+  }
+
+  /* the wrapper is the JS layer (transform / opacity / blur); the pill inside
+     keeps its own hover + press transform, so the two never fight over one
+     transform property.
+     display:flex is load-bearing: as a block box it would open a line box for
+     the inline-flex pill and inherit the font's leading, making the wrapper ~4px
+     taller than the pill. The shell pads the WRAPPER, so that phantom leading
+     showed up as 7px of breathing room top/bottom against 5px on the sides. */
+  .io__item { display: flex; flex: 0 0 auto; will-change: transform, filter, opacity; }
+
+  .io__pill {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--h);
+    padding: 0 var(--px);
+    border: 0;
+    border-radius: calc(var(--r) * var(--r-mult, 1));
+    background: var(--io-pill);
+    box-shadow: var(--io-shadow);
+    color: var(--io-fg);
+    font-family: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 160ms ease, transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .io__pill > * { position: relative; z-index: 2; }
+  .io__pill:hover { background: var(--io-pill-hover); }
+  .io__pill:active { transform: scale(0.94); }
+  .io__pill:focus-visible { outline: 2px solid var(--ui-accent, #ededed); outline-offset: 2px; }
+  .io__pill:disabled { cursor: not-allowed; }
+  .io__pill--danger { color: var(--io-danger, #ef4444); }
+
+  .io__pill--trigger {
+    width: var(--h);
+    padding: 0;
+    color: var(--text-secondary, #a1a1a1);
+  }
+
+  /* both glyphs share one box and cross-fade on the same spring */
+  .io__glyph {
+    position: absolute;
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform, opacity;
+  }
+  .io__glyph svg { width: 20px; height: 20px; display: block; }
+  .io__glyph--cross svg { width: 16px; height: 16px; }
+
+  ${S}
+
+  @media (prefers-reduced-motion: reduce) {
+    .io { transition: none; }
+    .io__pill { transition: background 160ms ease; }
+    .io__pill:active { transform: none; }
+  }

@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { Checkbox as CheckboxTypes } from 'bits-ui';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface CheckboxProps extends Omit<CheckboxTypes.RootProps, 'checked' | 'indeterminate' | 'disabled' | 'children' | 'child' | 'color' | 'onCheckedChange'> {
 		checked?: boolean;
@@ -17,8 +17,8 @@
 
 <script lang="ts">
 	import { Checkbox as CheckboxPrimitive, Label, useId } from 'bits-ui';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	import { checkboxVariants } from './index';
 
 	let { checked = $bindable(false), indeterminate = $bindable(false), color, size = 'default', lineThrough = false,

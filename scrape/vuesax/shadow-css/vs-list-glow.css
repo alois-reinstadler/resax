@@ -1,0 +1,68 @@
+  :host { display: block; width: 100%; }
+  .vslg {
+    --accent: var(--inp-accent, var(--ui-accent, #ededed));
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    background: var(--bg-card, #111);
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: var(--vslg-radius, 12px);
+    overflow: hidden;
+  }
+  .vslg--plain { border: none; background: transparent; border-radius: 0; }
+  .vslg--r-none { --vslg-radius: 0px; }
+  .vslg--r-subtle { --vslg-radius: 8px; }
+  .vslg--r-rounded { --vslg-radius: var(--ctrl-radius, 12px); }
+  .vslg--r-pill { --vslg-radius: 26px; }
+  @supports (corner-shape: squircle) { .vslg--r-squircle { corner-shape: squircle; --vslg-radius: 22px; } }
+
+  .vslg-row {
+    position: relative;
+    isolation: isolate;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--vslg-py, 14px) var(--vslg-px, 16px);
+    color: var(--text, #ededed);
+    cursor: pointer;
+    outline: none;
+  }
+  .vslg-row + .vslg-row { border-top: 1px solid var(--border, #2a2a2a); }
+
+  /* halo: radial gradient tracking the cursor (--gx/--gy), intensity --glow */
+  .vslg-halo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: var(--glow, 0);
+    background: radial-gradient(
+      var(--vslg-r, 160px) circle at var(--gx, 50%) var(--gy, 50%),
+      color-mix(in srgb, var(--accent) 30%, transparent),
+      transparent 70%
+    );
+    transition: opacity 220ms ease;
+  }
+  .vslg-row:hover { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.03)); }
+  .vslg-row.is-selected { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+  .vslg-row.is-active { box-shadow: inset 3px 0 0 var(--accent); }
+  .vslg-row:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+  .vslg-row.is-disabled { opacity: 0.5; cursor: default; pointer-events: none; }
+
+  .vslg--sm .vslg-row { --vslg-py: 10px; --vslg-px: 12px; }
+  .vslg--lg .vslg-row { --vslg-py: 18px; --vslg-px: 20px; }
+
+  .vslg-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .vslg-title { font-size: var(--vslg-fs, 14px); font-weight: 560; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vslg--sm .vslg-title { --vslg-fs: 13px; }
+  .vslg--lg .vslg-title { --vslg-fs: 15px; }
+  .vslg-subtitle { font-size: 12.5px; color: var(--text-secondary, #a1a1a1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vslg-meta { flex: none; font-size: 12px; color: var(--text-muted, #666); }
+
+  .vslg-empty { margin: 0; padding: 24px 16px; text-align: center; font-size: 13px; color: var(--text-muted, #666); }
+  .vslg.is-disabled { opacity: 0.6; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vslg-halo { transition: none; }
+  }

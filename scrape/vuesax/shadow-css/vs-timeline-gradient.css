@@ -1,0 +1,217 @@
+  .tlgr {
+    --mk: 18px;
+    --gut: 42px;
+    --rail: 3px;
+    --fs: var(--ctrl-fs-md, 14px);
+    /* Distinct names on purpose: a custom property may NOT reference itself
+       (--accent: var(--accent, …) is invalid at computed-value time and the
+       whole thing silently resolves to nothing — that is how the rail went
+       missing). These read the host token and keep a literal fallback. */
+    --g-accent: var(--ui-accent, #ededed);
+    --g-accent2: color-mix(in srgb, var(--ui-accent, #ededed) 40%, #8a8a8a);
+    --g-border: var(--border, #2a2a2a);
+    --g-text: var(--text, #ededed);
+    --g-muted: color-mix(in srgb, var(--text, #ededed) 55%, transparent);
+    --g-card: var(--bg-card, #111);
+    --fill: 0px;
+
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--g-text);
+  }
+  .tlgr--sm { --mk: 15px; --gut: 36px; --rail: 2.5px; --fs: var(--ctrl-fs-sm, 13px); }
+  .tlgr--lg { --mk: 21px; --gut: 48px; --rail: 3.5px; --fs: var(--ctrl-fs-lg, 15px); }
+
+  /* ── the rail ───────────────────────────────────────────────────────────── */
+  /* dim track: the whole route, always visible so the remaining distance reads */
+  .tlgr__track,
+  .tlgr__beam {
+    position: absolute;
+    top: var(--rail-top, 10px);
+    left: calc(var(--gut) / 2);
+    width: var(--rail);
+    transform: translateX(-50%);
+    border-radius: 999px;
+    pointer-events: none;
+  }
+  .tlgr__track {
+    bottom: var(--rail-bottom, 10px);
+    background: var(--g-border);
+    z-index: 0;
+  }
+  /* the beam: gradient clipped to how far the process got */
+  .tlgr__beam {
+    height: var(--fill);
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--g-accent) 65%, transparent),
+      var(--g-accent) 38%,
+      var(--g-accent2));
+    z-index: 1;
+    transition: height 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  /* travelling sheen — a MASK moving over the gradient that is really there,
+     instead of scrolling a background nobody can see at 3px wide */
+  .tlgr__beam::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, transparent 0%, #fff 50%, transparent 100%);
+    opacity: 0;
+    mix-blend-mode: screen;
+  }
+  .tlgr--flow .tlgr__beam::after {
+    opacity: 0.85;
+    background-size: 100% 44%;
+    background-repeat: no-repeat;
+    animation: tlgr-sheen 2600ms cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes tlgr-sheen {
+    0%, 12% { background-position: 0 -50%; }
+    88%, 100% { background-position: 0 150%; }
+  }
+  .tlgr--l-dashed .tlgr__track,
+  .tlgr--l-dashed .tlgr__beam {
+    -webkit-mask: repeating-linear-gradient(to bottom, #000 0 6px, transparent 6px 12px);
+            mask: repeating-linear-gradient(to bottom, #000 0 6px, transparent 6px 12px);
+  }
+
+  /* the head: where the process stands right now */
+  .tlgr__head {
+    position: absolute;
+    left: calc(var(--gut) / 2);
+    top: var(--rail-top, 10px);
+    width: calc(var(--rail) * 2.6);
+    height: calc(var(--rail) * 2.6);
+    margin-top: calc(var(--fill) - var(--rail) * 1.3);
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: var(--g-accent2);
+    box-shadow: 0 0 10px 2px color-mix(in srgb, var(--g-accent2) 55%, transparent);
+    opacity: var(--head-on, 0);
+    z-index: 2;
+    pointer-events: none;
+    transition: margin-top 620ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+  }
+  .tlgr--flow .tlgr__head { animation: tlgr-breathe 2200ms ease-in-out infinite; }
+  @keyframes tlgr-breathe {
+    0%, 100% { box-shadow: 0 0 8px 1px color-mix(in srgb, var(--g-accent2) 45%, transparent); }
+    50% { box-shadow: 0 0 16px 5px color-mix(in srgb, var(--g-accent2) 65%, transparent); }
+  }
+
+  /* ── rows ───────────────────────────────────────────────────────────────── */
+  .tlgr__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--gut) 1fr;
+    column-gap: 14px;
+    padding-bottom: 22px;
+  }
+  .tlgr__item:last-child { padding-bottom: 0; }
+
+  .tlgr__marker {
+    grid-column: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 1px;
+  }
+  .tlgr__dot {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: var(--mk);
+    height: var(--mk);
+    border-radius: 999px;
+    border: 2px solid var(--g-border);
+    background: var(--g-card);
+    /* the ring sits ON the rail — the card-coloured halo punches the track out
+       behind it so the line never crosses the glyph */
+    box-shadow: 0 0 0 4px var(--g-card);
+    z-index: 3;
+    transition: border-color 260ms ease, background 260ms ease, transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .tlgr__dot svg { width: 68%; height: 68%; opacity: 0; transition: opacity 200ms ease; color: var(--g-card); }
+
+  /* covered */
+  .tlgr__item--done .tlgr__dot {
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--g-accent), var(--g-accent2));
+  }
+  .tlgr__item--done .tlgr__dot svg { opacity: 1; }
+
+  /* current — a ring with a conic sweep running inside it */
+  .tlgr__item--now .tlgr__dot {
+    border-color: var(--g-accent);
+    transform: scale(1.16);
+  }
+  .tlgr__item--now .tlgr__dot::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 999px;
+    background: conic-gradient(from 0deg,
+      transparent 0deg, color-mix(in srgb, var(--g-accent) 85%, transparent) 90deg, transparent 200deg);
+  }
+  .tlgr--flow .tlgr__item--now .tlgr__dot::before { animation: tlgr-spin 1600ms linear infinite; }
+  @keyframes tlgr-spin { to { transform: rotate(1turn); } }
+
+  .tlgr__content { grid-column: 2; min-width: 0; }
+  .tlgr__time {
+    display: block;
+    font-size: 0.8em;
+    color: var(--g-muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+  .tlgr__title {
+    display: block;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 2px;
+    /* future rows sit back; the eye lands on the current one first */
+    color: color-mix(in srgb, var(--g-text) 62%, transparent);
+    transition: color 240ms ease;
+  }
+  .tlgr__desc {
+    margin: 4px 0 0;
+    color: var(--g-muted);
+    line-height: 1.45;
+    font-size: 0.92em;
+  }
+  .tlgr__item--done .tlgr__title {
+    background: linear-gradient(90deg, var(--g-accent), var(--g-accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .tlgr__item--now .tlgr__title { color: var(--g-text); }
+  .tlgr__item--now .tlgr__desc { color: color-mix(in srgb, var(--g-text) 78%, transparent); }
+
+  /* per-item status recolours BOTH ends of that row's gradient */
+  .tlgr__item--danger  { --g-accent: #ff6369; --g-accent2: #ffb224; }
+  .tlgr__item--warn    { --g-accent: #ffb224; --g-accent2: #ff6369; }
+  .tlgr__item--success { --g-accent: #4cc38a; --g-accent2: #5b8cff; }
+
+  .tlgr__sr {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tlgr__beam, .tlgr__head { transition: none; }
+    .tlgr--flow .tlgr__beam::after,
+    .tlgr--flow .tlgr__head,
+    .tlgr--flow .tlgr__item--now .tlgr__dot::before { animation: none; }
+    .tlgr__dot { transition: none; }
+  }

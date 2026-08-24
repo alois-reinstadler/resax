@@ -1,0 +1,256 @@
+:host { display: inline-flex; }
+:host([block]) { display: flex; width: 100%; }
+${z}
+.ta {
+  --h: var(--ctrl-h-md, 40px);
+  --r: var(--ctrl-r-md, 12px);
+  --px: var(--ctrl-px-md, 14px);
+  --fs: var(--ctrl-fs-md, 14px);
+  --py: 11px; /* vertical padding inside the field */
+  --lh: 1.5;
+  --accent: var(--inp-accent, #ededed); /* default: focus contrasted against the theme */
+  --ring: var(--inp-ring, 255 255 255); /* ring rgb, space-separated */
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 280px;
+  font-family: inherit;
+}
+.ta--block { display: flex; width: 100%; min-width: 0; }
+.ta--sm { --r: var(--ctrl-r-sm, 10px); --px: var(--ctrl-px-sm, 12px); --fs: var(--ctrl-fs-sm, 13px); --py: 8px; }
+.ta--lg { --r: var(--ctrl-r-lg, 14px); --px: var(--ctrl-px-lg, 18px); --fs: var(--ctrl-fs-lg, 15px); --py: 14px; }
+
+.ta__field {
+  position: relative;
+  display: flex;
+  border-radius: var(--rr, var(--r));
+  --field-bg: transparent;
+  background: var(--field-bg);
+  transition: background-color 220ms ease;
+}
+
+/* reusable effects (.fx-glow / .fx-ripples from vs-fx);
+   here we only adjust the shape according to the radius */
+.ta__glow {
+  --glow-ring: 1px;
+  --glow-strength: 0.9;
+  /* base ring (content-box xor full) + a 3rd layer that subtracts the floated
+     label box → the light is carved out behind the label, no opaque bg trick */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  -webkit-mask-position: 0 0, 0 0, var(--lmx, 0) var(--lmy, 0);
+  -webkit-mask-size: auto, auto, var(--lmw, 0) var(--lmh, 0);
+  -webkit-mask-repeat: no-repeat, no-repeat, no-repeat;
+  -webkit-mask-composite: xor, source-out;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  mask-position: 0 0, 0 0, var(--lmx, 0) var(--lmy, 0);
+  mask-size: auto, auto, var(--lmw, 0) var(--lmh, 0);
+  mask-repeat: no-repeat, no-repeat, no-repeat;
+  mask-composite: exclude, subtract;
+}
+/* on focus the proximity light turns off (the accent border takes over) */
+.ta.is-focused .ta__glow { opacity: 0; }
+@supports (corner-shape: squircle) {
+  .ta--r-squircle .ta__glow,
+  .ta--r-squircle .ta__ripples { corner-shape: squircle; }
+}
+
+/* border as a fieldset → the legend opens a real gap in the top line */
+.ta__outline {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  padding: 0 calc(var(--px) - 5px);
+  border: 1px solid var(--inp-border, #2a2a2a);
+  border-radius: inherit;
+  pointer-events: none;
+  min-inline-size: 0;
+  transition: border-color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@supports (corner-shape: squircle) {
+  .ta--r-squircle .ta__outline { corner-shape: squircle; }
+}
+.ta__legend {
+  display: block;
+  width: auto;
+  max-width: 0.01px;
+  height: 0;
+  padding: 0;
+  font-size: calc(var(--fs) * 0.82);
+  line-height: 0;
+  white-space: nowrap;
+  visibility: hidden; /* only reserves width → cuts the line, without painting text */
+  transition: max-width 220ms cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+.ta__legend span { display: inline-block; padding: 0 4px; }
+/* the gap opens only when there is a label and it floats */
+.ta.has-label.is-focused .ta__legend,
+.ta.has-label.has-value .ta__legend { max-width: 100%; }
+
+/* border states (on the outline) */
+.ta__field:hover .ta__outline { border-color: var(--inp-border-hover, #3d3d3d); }
+.ta.is-focused .ta__outline { border-color: var(--accent); }
+.ta__field:hover { --field-bg: var(--inp-hover-bg, rgba(255, 255, 255, 0.05)); }
+
+/* radii */
+.ta--r-none .ta__field { --rr: 0px; }
+.ta--r-subtle .ta__field { --rr: 8px; }
+@supports (corner-shape: squircle) {
+  .ta--r-squircle .ta__field { corner-shape: squircle; --rr: calc(var(--r) * 1.7); }
+}
+
+.ta__control {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  min-height: calc(var(--rows) * var(--lh) * var(--fs) + var(--py) * 2);
+  padding: var(--py) var(--px);
+  border: none;
+  background: transparent;
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  font-size: var(--fs);
+  line-height: var(--lh);
+  outline: none;
+  resize: vertical;
+}
+.ta--resize-none .ta__control { resize: none; }
+.ta.is-autosize .ta__control { overflow: hidden; }
+.ta__control::placeholder {
+  color: var(--inp-placeholder, #5a5a5a);
+  transition: color 200ms ease;
+}
+
+/* floating label — anchored to the first text line (top), not centered */
+.ta__label {
+  position: absolute;
+  z-index: 1;
+  left: var(--px);
+  top: var(--py);
+  transform-origin: left top;
+  color: var(--label-color, var(--inp-label, #6a6a6a));
+  font-size: var(--fs);
+  line-height: var(--lh);
+  pointer-events: none;
+  /* at rest: full label, may wrap inside the field */
+  max-width: calc(100% - var(--px) * 2);
+  white-space: normal;
+  transition:
+    transform 240ms cubic-bezier(0.34, 1.4, 0.5, 1),
+    color 220ms ease;
+}
+/* floats up to the border line on focus or with a value */
+.ta.is-focused .ta__label,
+.ta.has-value .ta__label {
+  transform: translateY(calc(-1 * var(--py) - var(--fs) * var(--lh) / 2)) scale(0.82);
+}
+/* floated: single line + ellipsis (text already truncated via #displayLabel) */
+.ta.is-focused .ta__label,
+.ta.has-value .ta__label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ta.has-value .ta__label { color: var(--label-color, #8a8a8a); }
+.ta.is-focused .ta__label { color: var(--label-color-strong, #ededed); }
+
+/* clear button — pinned to the top-right corner */
+.ta__btn {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--py) - 3px);
+  right: calc(var(--px) - 6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--inp-btn, #8a8a8a);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+}
+.ta__btn svg { width: 14px; height: 14px; }
+.ta__btn:hover { background: var(--inp-btn-hover-bg, rgba(255, 255, 255, 0.08)); color: var(--inp-text, #ededed); }
+.ta__btn:active { transform: scale(0.86); }
+
+/* meta row: hint + counter */
+.ta__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 2px;
+}
+.ta__hint {
+  margin: 0;
+  font-size: calc(var(--fs) - 1px);
+  color: var(--inp-hint, #7a7a7a);
+  transition: color 200ms ease;
+}
+.ta__counter {
+  margin-left: auto;
+  font-size: calc(var(--fs) - 2px);
+  font-variant-numeric: tabular-nums;
+  color: var(--inp-hint, #7a7a7a);
+  transition: color 200ms ease;
+}
+.ta__counter.is-full { color: var(--inp-t-danger-hint, #ff8d91); }
+
+/* tones — recolor accent/ring/focus border and hint */
+.ta--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --fx-tint: 255 99 105; }
+.ta--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; --fx-tint: 255 178 36; }
+.ta--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --fx-tint: 76 195 138; }
+.ta--t-danger .ta__hint { color: var(--inp-t-danger-hint, #ff8d91); }
+.ta--t-warn .ta__hint { color: var(--inp-t-warn-hint, #ffce6e); }
+.ta--t-success .ta__hint { color: var(--inp-t-success-hint, #79d3a6); }
+/* in a non-default tone, the border at rest hints at the color */
+.ta--t-danger .ta__outline { border-color: var(--inp-t-danger-rest, #5b1a1d); }
+.ta--t-warn .ta__outline { border-color: var(--inp-t-warn-rest, #5a3d10); }
+.ta--t-success .ta__outline { border-color: var(--inp-t-success-rest, #1b3b2a); }
+/* hover tinted with the tone color (not gray) + stronger light */
+.ta--t-danger .ta__glow,
+.ta--t-warn .ta__glow,
+.ta--t-success .ta__glow { --glow-strength: 0.7; }
+.ta--t-danger .ta__field:hover,
+.ta--t-warn .ta__field:hover,
+.ta--t-success .ta__field:hover { --field-bg: rgb(var(--ring) / 0.07); }
+.ta--t-danger .ta__field:hover .ta__outline,
+.ta--t-warn .ta__field:hover .ta__outline,
+.ta--t-success .ta__field:hover .ta__outline { border-color: rgb(var(--ring)); }
+/* floating label tinted with the tone color */
+.ta--t-danger .ta__label,
+.ta--t-warn .ta__label,
+.ta--t-success .ta__label { color: rgb(var(--ring) / 0.85); }
+.ta--t-danger.is-focused .ta__label,
+.ta--t-warn.is-focused .ta__label,
+.ta--t-success.is-focused .ta__label { color: rgb(var(--ring)); }
+/* placeholder tinted with the tone color */
+.ta--t-danger .ta__control::placeholder,
+.ta--t-warn .ta__control::placeholder,
+.ta--t-success .ta__control::placeholder { color: rgb(var(--ring) / 0.8); }
+
+/* disabled / readonly */
+.ta.is-disabled { opacity: 0.5; }
+.ta.is-disabled .ta__field,
+.ta.is-disabled .ta__control { cursor: not-allowed; }
+.ta.is-disabled .ta__control { resize: none; }
+.ta.is-readonly .ta__field { --field-bg: var(--inp-readonly-bg, rgba(255, 255, 255, 0.02)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ta__field,
+  .ta__label,
+  .ta__btn,
+  .ta__control::placeholder { transition: none; }
+}

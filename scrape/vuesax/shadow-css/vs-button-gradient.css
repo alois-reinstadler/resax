@@ -1,0 +1,59 @@
+  :host { display: inline-flex; }
+  :host([block]) { display: flex; width: 100%; }
+  .vbg {
+    --h: 34px; --px: 18px; --fs: 14px; --rr: 999px;
+    align-items: center; background: #000; border: 0; border-radius: var(--rr);
+    box-sizing: border-box; color: #fff; cursor: pointer; display: inline-flex;
+    font-family: inherit; font-size: var(--fs); font-weight: 400; height: var(--h);
+    justify-content: center; min-height: var(--h); outline: none; overflow: hidden;
+    padding: 0 var(--px); position: relative; transition: 0.3s; user-select: none; z-index: 10; }
+  .vbg--block { width: 100%; }
+  /* sizes */
+  .vbg--sm { --h: 28px; --px: 14px; --fs: 12px; }
+  .vbg--lg { --h: 42px; --px: 24px; --fs: 16px; }
+  /* radii — proportional to height so they scale with the size */
+  .vbg--r-none { --rr: 0px; }
+  .vbg--r-subtle { --rr: calc(var(--h) * 0.24); }
+  .vbg--r-rounded { --rr: calc(var(--h) * 0.4); }
+  .vbg--r-pill { --rr: 999px; }
+  @supports (corner-shape: squircle) {
+    .vbg--r-squircle { corner-shape: squircle; --rr: calc(var(--h) * 0.45); }
+  }
+  /* click ripple: above the gradients, below the text */
+  .vbg__ripples { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; z-index: 16; pointer-events: none; }
+  @supports (corner-shape: squircle) { .vbg--r-squircle .vbg__ripples { corner-shape: squircle; } }
+  .fx-ripple { position: absolute; z-index: 1; pointer-events: none; border-radius: 50%; transform: translate(-50%,-50%) scale(0);
+    background: radial-gradient(circle, rgb(var(--rip,255 255 255)/.38) 0%, rgb(var(--rip,255 255 255)/.20) 24%, rgb(var(--rip,255 255 255)/.09) 44%, rgb(var(--rip,255 255 255)/.03) 60%, transparent 76%);
+    opacity: 0; will-change: transform,opacity;
+    animation: vbg-rip 780ms cubic-bezier(.22,1,.36,1) forwards, vbg-fade 780ms cubic-bezier(.25,.1,.25,1) forwards; }
+  @keyframes vbg-rip { from { transform: translate(-50%,-50%) scale(0); } to { transform: translate(-50%,-50%) scale(1); } }
+  @keyframes vbg-fade { from { opacity: .8; } to { opacity: 0; } }
+  .vbg .btn-content { align-items: center; display: flex; justify-content: center; position: relative; text-shadow: 0 0 8px rgba(0,0,0,0.5); z-index: 20; }
+  .vbg .gradient-0 {
+    background: #000;
+    /* inner box 2px smaller per side → concentric radius = button − 2px */
+    border-radius: max(0px, calc(var(--rr) - 2px)); filter: blur(10px); height: calc(100% - 4px);
+    opacity: 0; position: absolute; transform: scale(0.95); transition: 0.5s; width: calc(100% - 4px); z-index: 12; }
+  @supports (corner-shape: squircle) { .vbg--r-squircle .gradient-0 { corner-shape: squircle; } }
+  .vbg .gradient-1 {
+    background: radial-gradient(103.46% 134.6% at 64.66% 50%, rgba(217,217,217,0) 27.37%, rgba(217,217,217,0.3) 100%);
+    border-radius: inherit; height: 100%; opacity: 1; position: absolute; transition: 0.4s; width: 100%; z-index: 12; }
+  .vbg .glass { height: 130%; opacity: 1; position: absolute; width: 130%; z-index: 10; }
+  .vbg .gradient-2 { align-items: center; display: flex; height: 100%; justify-content: center; opacity: 1; position: absolute; transform: scale(1); transition: 0.5s; width: 100%; z-index: 5; }
+  .vbg .gradient-2 .color { border-radius: 50%; filter: blur(12px); height: 100px; position: absolute; transition: 2s; width: 100px; }
+  /* "Aurora" palette (cyan → blue → violet → magenta): analogous and cohesive,
+     reads premium over the dark glass. Overridable via CSS var without code. */
+  .vbg .color-1 { background: var(--vbg-c1, #00d4ff); transform: translate(-86%, -65%); }
+  .vbg .color-2 { background: var(--vbg-c2, #4f46e5); transform: translate(3%, -63%); }
+  .vbg .color-3 { background: var(--vbg-c3, #a855f7); transform: translate(64%, -89%); }
+  .vbg .color-4 { background: var(--vbg-c4, #2563eb); transform: translate(-87%, 8%); }
+  .vbg .color-5 { background: var(--vbg-c5, #ff2ec4); transform: translate(-35%, -76%); }
+  .vbg .color-6 { background: var(--vbg-c6, #22d3ee); transform: translate(-69%, -79%); }
+  .vbg:hover:not(.is-disabled) .gradient-2 { transform: scale(1.1); }
+  .vbg:hover:not(.is-disabled) .gradient-0 { filter: blur(0); opacity: 1; transform: scale(1); }
+  .vbg:focus-visible { outline: none; }
+  .vbg.is-disabled { opacity: 0.5; cursor: not-allowed; }
+  @media (prefers-reduced-motion: reduce) {
+    .vbg, .vbg .gradient-0, .vbg .gradient-1, .vbg .gradient-2, .vbg .gradient-2 .color { transition: none; }
+    .fx-ripple { display: none; }
+  }

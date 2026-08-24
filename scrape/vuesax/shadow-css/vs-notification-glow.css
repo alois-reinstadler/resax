@@ -1,0 +1,89 @@
+  .ngl__host { position: fixed; top: calc(20px + var(--ngl-offset, 0px)); right: 20px; z-index: 9999; transition: top 240ms ease; }
+
+  .ngl {
+    --acc: var(--ui-accent, #ededed);
+    --acc-rgb: 76 195 138;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 330px;
+    max-width: calc(100vw - 40px);
+    padding: 13px 14px;
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, rgb(var(--acc-rgb)) 55%, transparent);
+    background: #0e0e10;
+    color: #f0f0f0;
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, rgb(var(--acc-rgb)) 35%, transparent),
+      0 0 22px -6px rgb(var(--acc-rgb) / 0.55),
+      0 16px 40px -14px rgba(0, 0, 0, 0.7);
+  }
+  .ngl--success { --acc: var(--ui-accent, #ededed); --acc-rgb: 76 195 138; }
+  .ngl--error { --acc: #ff6369; --acc-rgb: 255 99 105; }
+  .ngl--warn { --acc: #ffb224; --acc-rgb: 255 178 36; }
+  .ngl--info { --acc: #6e9bff; --acc-rgb: 110 155 255; }
+
+  .ngl__icon {
+    position: relative;
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: color-mix(in srgb, rgb(var(--acc-rgb)) 18%, transparent);
+    color: var(--acc);
+    filter: drop-shadow(0 0 5px rgb(var(--acc-rgb) / 0.8));
+  }
+  /* Perf: the ping (spread 0/α.5→6px/α0) is baked at its visible peak (~3px at
+     half alpha) into ::after; only opacity animates (compositable). The peak
+     shows up twice per cycle (25% and 75%), like the original interpolation. */
+  .ngl__icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 0 3px rgb(var(--acc-rgb) / 0.25);
+    opacity: 0;
+    animation: ngl-pulse 1.8s ease-in-out infinite;
+  }
+  .ngl__icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  @keyframes ngl-pulse {
+    0%, 50%, 100% { opacity: 0; }
+    25%, 75% { opacity: 1; }
+  }
+
+  .ngl__text { display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; min-width: 0; }
+  .ngl__title { font-size: 14px; font-weight: 600; }
+  .ngl__desc { font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
+  .ngl__close {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+  .ngl__close:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+  .ngl__close svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+  /* slide in from the right */
+  .ngl-enter-active { transition: transform 440ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease; }
+  .ngl-leave-active { transition: transform 260ms cubic-bezier(0.4, 0, 1, 1), opacity 220ms ease; }
+  .ngl-enter-from, .ngl-leave-to { transform: translateX(120%); opacity: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ngl__host { transition-duration: 0ms; }
+    .ngl-enter-active, .ngl-leave-active { transition-duration: 0ms; }
+    .ngl-enter-from, .ngl-leave-to { transform: none; }
+    .ngl__icon::after { animation: none; opacity: 0; }
+  }

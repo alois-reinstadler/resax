@@ -1,0 +1,158 @@
+:host { display: inline-flex; }
+:host([block]) { display: flex; width: 100%; }
+
+@property --igb-a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.igb {
+  --h: var(--ctrl-h-md, 40px);
+  --r: var(--ctrl-r-md, 12px);
+  --px: var(--ctrl-px-md, 14px);
+  --fs: var(--ctrl-fs-md, 14px);
+  --accent: var(--inp-accent, #ededed);
+  --ring: var(--inp-ring, 255 255 255);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 260px;
+  font-family: inherit;
+}
+.igb--block { display: flex; width: 100%; min-width: 0; }
+.igb--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --px: var(--ctrl-px-sm, 12px); --fs: var(--ctrl-fs-sm, 13px); }
+.igb--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --px: var(--ctrl-px-lg, 18px); --fs: var(--ctrl-fs-lg, 15px); }
+
+.igb__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--h);
+  border-radius: var(--rr, var(--r));
+  background: var(--btn-secondary-bg, #1a1a1a);
+}
+.igb--r-none .igb__field { --rr: 0px; }
+.igb--r-subtle .igb__field { --rr: 8px; }
+.igb--r-pill .igb__field { --rr: 999px; }
+
+/* base 1px border via fieldset (legend cuts the gap); hidden on focus so the
+   animated conic ring takes over */
+.igb__outline {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0 calc(var(--px) - 5px);
+  border: 1px solid var(--inp-border, #2a2a2a);
+  border-radius: inherit;
+  pointer-events: none;
+  min-inline-size: 0;
+  transition: border-color 200ms ease;
+}
+.igb__legend {
+  display: block;
+  width: auto;
+  max-width: 0.01px;
+  height: 0;
+  padding: 0;
+  font-size: calc(var(--fs) * 0.82);
+  line-height: 0;
+  white-space: nowrap;
+  visibility: hidden;
+  transition: max-width 220ms cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+.igb__legend span { display: inline-block; padding: 0 4px; }
+.igb.has-label.is-focused .igb__legend,
+.igb.has-label.has-value .igb__legend { max-width: 100%; }
+.igb__field:hover .igb__outline { border-color: var(--inp-border-hover, #3d3d3d); }
+.igb.is-focused .igb__outline { border-color: transparent; }
+
+.igb__ring {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  opacity: 0;
+  background: conic-gradient(
+    from var(--igb-a),
+    transparent 0deg,
+    rgb(var(--ring)) 90deg,
+    color-mix(in srgb, rgb(var(--ring)) 30%, transparent) 180deg,
+    rgb(var(--ring)) 300deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  transition: opacity 200ms ease;
+}
+.igb.is-focused .igb__ring {
+  opacity: 1;
+  animation: igb-spin 2.4s linear infinite;
+}
+@keyframes igb-spin {
+  to { --igb-a: 360deg; }
+}
+@supports not (background: conic-gradient(from var(--igb-a), red, blue)) {
+  .igb__ring { background: transparent; border: 1.5px solid var(--accent); padding: 0; -webkit-mask: none; mask: none; }
+}
+
+.igb__control {
+  position: relative;
+  z-index: 3;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0 var(--px);
+  border: none;
+  background: transparent;
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  font-size: var(--fs);
+  outline: none;
+}
+.igb__control::placeholder { color: var(--inp-placeholder, #5a5a5a); transition: color 200ms ease; }
+
+/* floating label — NO background: the real gap is opened by the legend */
+.igb__label {
+  position: absolute;
+  z-index: 3;
+  left: var(--px);
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  color: var(--inp-label, #6a6a6a);
+  font-size: var(--fs);
+  pointer-events: none;
+  transition: transform 240ms cubic-bezier(0.34, 1.4, 0.5, 1), color 220ms ease;
+}
+.igb.is-focused .igb__label,
+.igb.has-value .igb__label {
+  transform: translateY(calc(-50% - var(--h) / 2)) scale(0.82);
+}
+.igb.is-focused .igb__label { color: var(--accent); }
+
+.igb__hint { margin: 0; padding: 0 2px; font-size: calc(var(--fs) - 1px); color: var(--inp-hint, #7a7a7a); transition: color 200ms ease; }
+
+/* tones — recolor the accent + conic ring (and the tinted hint) */
+.igb--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; }
+.igb--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; }
+.igb--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; }
+.igb--t-danger .igb__hint { color: var(--inp-t-danger-hint, #ff8d91); }
+.igb--t-warn .igb__hint { color: var(--inp-t-warn-hint, #ffce6e); }
+.igb--t-success .igb__hint { color: var(--inp-t-success-hint, #79d3a6); }
+
+.igb.is-disabled { opacity: 0.5; }
+.igb.is-disabled .igb__control { cursor: not-allowed; }
+.igb.is-readonly .igb__field { background: var(--inp-readonly-bg, rgba(255, 255, 255, 0.02)); }
+.igb.is-readonly .igb__control { cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .igb.is-focused .igb__ring { animation: none; }
+  .igb__label, .igb__legend, .igb__control::placeholder { transition: none; }
+}

@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'title' | 'children'> {
 		variant?: 'default' | 'banner' | 'inline' | 'neon' | 'split' | 'toast';
@@ -16,8 +16,8 @@
 </script>
 
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE, rxSlideUp } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE, rxSlideUp } from '$lib/registry/lib/easing';
 	import { alertVariants } from './index';
 
 	let { variant = 'default', color, title, icon, closable = false, open = $bindable(true), onClose,

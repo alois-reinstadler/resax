@@ -1,0 +1,88 @@
+  .stp {
+    --fs: var(--ctrl-fs-md, 14px);
+    --h: 40px;
+    --accent: var(--ui-accent, #ededed);
+    --ring: var(--ui-ring, 255 255 255);
+    --done-fg: var(--ui-accent-fg, #0b0b0b);
+    display: inline-flex;
+    gap: 8px;
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--fs);
+    color: var(--text, #ededed);
+  }
+  .stp--sm { --fs: 13px; --h: 34px; }
+  .stp--lg { --fs: 15px; --h: 46px; }
+
+  .stp__pill {
+    position: relative;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: var(--h);
+    padding: 0 6px;
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: 999px;
+    background: var(--bg-elevated, #16181d);
+    color: var(--text-muted, #8a8a8a);
+    font: inherit;
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
+    transition:
+      flex-grow 460ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      background-color 300ms ease,
+      border-color 300ms ease,
+      color 260ms ease,
+      padding 300ms ease;
+  }
+  /* the active pill grows to fill and reveals its label */
+  .stp__pill.is-active { flex: 1 1 0; padding: 0 14px 0 6px; background: color-mix(in srgb, var(--accent) 14%, var(--bg-elevated, #16181d)); border-color: color-mix(in srgb, var(--accent) 55%, var(--border, #2a2a2a)); color: var(--text, #ededed); }
+
+  .stp__badge {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--h) - 12px);
+    height: calc(var(--h) - 12px);
+    border-radius: 999px;
+    background: var(--bg-card, #141414);
+    border: 1.5px solid var(--border, #2a2a2a);
+    color: var(--text-muted, #8a8a8a);
+    font-size: calc(var(--fs) - 3px);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    transition: background-color 280ms ease, border-color 280ms ease, color 280ms ease;
+  }
+  .stp__badge svg { width: 56%; height: 56%; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* label: hidden (width 0) unless the pill is active */
+  .stp__label {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-weight: 600;
+    transition: max-width 460ms cubic-bezier(0.34, 1.4, 0.64, 1), opacity 260ms ease;
+  }
+  .stp__pill.is-active .stp__label { max-width: 240px; opacity: 1; }
+
+  /* states */
+  .stp__pill.is-completed { border-color: color-mix(in srgb, var(--accent) 45%, var(--border, #2a2a2a)); }
+  .stp__pill.is-completed .stp__badge { background: var(--accent); border-color: var(--accent); color: var(--done-fg); }
+  .stp__pill.is-active .stp__badge { background: var(--accent); border-color: var(--accent); color: var(--done-fg); }
+  .stp__pill.is-error .stp__badge { background: #ff6369; border-color: #ff6369; color: #fff; }
+  .stp--clickable .stp__pill.is-nav { cursor: pointer; }
+  .stp--clickable .stp__pill.is-nav:hover { border-color: var(--accent); }
+
+  /* tones */
+  .stp--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --done-fg: #fff; }
+  .stp--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; --done-fg: #1a1206; }
+  .stp--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --done-fg: #06180f; }
+
+  .is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stp__pill, .stp__label, .stp__badge { transition: none; }
+  }

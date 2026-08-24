@@ -1,0 +1,236 @@
+  :host { display: block; }
+  :host([block]) .vsf { width: 100%; }
+  /* demo-bg fills the whole preview (full width + height) */
+  :host([demo-bg]:not([demo-bg="false"])) { width: 100%; height: 100%; }
+${g}
+/* The four size tokens read an outer override first, so a host that needs a
+   tighter slider than the sm size (the config panel) sets --vsf-h/--vsf-fs/
+   --vsf-pad on the element instead of forcing a new size into the catalog.
+   No backticks in here: this whole block is a JS template literal. */
+.vsf {
+  --w: var(--vsf-w, 260px);
+  --h: var(--vsf-h, 48px);
+  --fs: var(--vsf-fs, 14px);
+  --pad: var(--vsf-pad, 16px);
+  --r: var(--ctrl-r-md, 12px);
+  position: relative;
+  width: var(--w);
+  font-family: inherit;
+  color: var(--text, #ededed);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.vsf--sm { --w: var(--vsf-w, 210px); --h: var(--vsf-h, 40px); --fs: var(--vsf-fs, 13px); --pad: var(--vsf-pad, 13px); --r: var(--ctrl-r-sm, 10px); }
+.vsf--lg { --w: var(--vsf-w, 320px); --h: var(--vsf-h, 58px); --fs: var(--vsf-fs, 15px); --pad: var(--vsf-pad, 20px); --r: var(--ctrl-r-lg, 14px); }
+
+/* radius (same options as VsButton) */
+.vsf--r-none { --r: 0px; }
+.vsf--r-subtle { --r: 8px; }
+/* .vsf--r-rounded → uses the size-scaled --r (default var above) */
+.vsf--r-pill { --r: 999px; }
+/* squircle = the Apple continuous corner. pronounced radius (scales with height),
+   and corner-shape on every rounded layer so the progress matches the track. */
+@supports (corner-shape: squircle) {
+  .vsf--r-squircle { --r: calc(var(--h) * 0.46 + 3px); --r-mult: 1; }
+  .vsf--r-squircle .vsf__track,
+  .vsf--r-squircle .vsf__mask,
+  .vsf--r-squircle .vsf__fill { corner-shape: squircle; }
+}
+
+.vsf__row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+
+.vsf__stretch {
+  width: 100%;
+  will-change: transform;
+}
+
+.vsf__track {
+  --rr: calc(var(--r, 12px) * var(--r-mult, 1));
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--h);
+  border-radius: var(--rr);
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+  /* fluent frosted glass */
+  background: rgb(var(--fx-tint, 255 255 255) / 0.06);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
+  box-shadow:
+    inset 0 1px 0 rgb(var(--fx-tint, 255 255 255) / 0.14),
+    inset 0 0 0 1px rgb(var(--fx-tint, 255 255 255) / 0.08);
+}
+.vsf__track:active,
+.vsf__track.is-pressed { cursor: grabbing; }
+.vsf__track:focus-visible {
+  box-shadow:
+    inset 0 1px 0 rgb(var(--fx-tint, 255 255 255) / 0.14),
+    0 0 0 2px rgb(var(--fx-tint, 255 255 255) / 0.5);
+}
+
+/* step dots (pips), masked to transparent under label/value and following
+   the progress so none show behind the frosted bar */
+.vsf__dots {
+  position: absolute;
+  inset: 0 var(--pad);
+  z-index: 1;
+  font-size: var(--fs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  --lz: max(calc(var(--labelw, 0) * 1ch + 6px), calc(var(--prog, 0) * 1%));
+  --rz: calc(var(--valuew, 0) * 1ch);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent var(--lz),
+    #000 calc(var(--lz) + 12px),
+    #000 calc(100% - var(--rz) - 12px),
+    transparent calc(100% - var(--rz)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent var(--lz),
+    #000 calc(var(--lz) + 12px),
+    #000 calc(100% - var(--rz) - 12px),
+    transparent calc(100% - var(--rz)),
+    transparent 100%
+  );
+}
+.vsf__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgb(var(--fx-tint, 255 255 255) / 0.4);
+}
+
+/* frosted progress — its own blur, a touch brighter than the track */
+.vsf__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 3;
+  height: 100%;
+  border-radius: inherit;
+  background: rgb(var(--fx-tint, 255 255 255) / 0.14);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  backdrop-filter: blur(10px) saturate(1.3);
+  box-shadow: inset 0 1px 0 rgb(var(--fx-tint, 255 255 255) / 0.16);
+}
+
+/* label + value INSIDE the track */
+.vsf__content {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 0 var(--pad);
+  pointer-events: none;
+}
+.vsf__label {
+  font-size: var(--fs);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text, #ededed);
+  white-space: nowrap;
+}
+/* handle line pinned to the progress edge (left = displayPct), just inside the fill */
+.vsf__thumb {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 2px;
+  height: calc(var(--fs) + 4px);
+  border-radius: 999px;
+  background: var(--text, #ededed);
+  transform: translate(-16px, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+/* line shows only on hover/focus/drag AND only where it won't cross the
+   label or value text (.is-clear, toggled from JS via cached widths) */
+.vsf__track:hover .vsf__thumb.is-clear,
+.vsf__track:focus-visible .vsf__thumb.is-clear,
+.vsf__track.is-pressed .vsf__thumb.is-clear { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .vsf__thumb { transition: none; }
+}
+.vsf__value {
+  margin-left: auto;
+  font-size: var(--fs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text, #ededed);
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+/* at 100% nudge the number left so the handle line doesn't crowd it */
+.vsf__value.is-max { transform: translateX(-10px); }
+
+/* proximity light on the border (.fx-glow base above), shaped by the track radius */
+.vsf__glow {
+  z-index: 5;
+  --glow-strength: 0.9;
+  --glow-ring: 1px;
+  --glow-inset: 0;
+  --glow-r-core: 60px;
+  --glow-r-soft: 200px;
+}
+@supports (corner-shape: squircle) {
+  .vsf--r-squircle .vsf__glow { corner-shape: squircle; }
+}
+
+/* demo-bg: full-bleed image scene with a dark scrim, frosted slider centered
+   over it (ported from the SFC's .vsf-scene, minus the Foundry catalog CSS) */
+.vsf__scene { display: none; }
+.vsf.has-demo {
+  width: 100%;
+  height: 100%;
+  /* 140, not 180: a catalog card's preview box is ~155px tall, and a taller
+     min-height made the scene overflow the frame instead of filling it. */
+  min-height: 140px;
+  /* fluid gutter: fixed 28px + a 260px track needs 316px, more than a card
+     preview has → the scene overflowed to the right and read off-centre. */
+  padding: clamp(12px, 9%, 28px);
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.vsf.has-demo .vsf__scene {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* image set at runtime from a random pick (see DEMO_BGS); scrim stays here */
+  background:
+    linear-gradient(rgb(0 0 0 / 0.42), rgb(0 0 0 / 0.42)),
+    var(--demo-img, url(/bg-demo/227.webp)) center / cover no-repeat;
+}
+/* Row spans the padding box so the track can measure against a real width and
+   stay dead-centred; the track keeps --w until the box is narrower than that,
+   then it shrinks instead of bleeding out of the frame. */
+.vsf.has-demo .vsf__row { width: 100%; justify-content: center; }
+/* margin-inline on the TRACK, not just justify-content on the row: .vsf__stretch
+   (the elastic scaleX layer) is width:100%, so centring the row leaves the track
+   pinned to its left edge on a wide stage. */
+.vsf.has-demo .vsf__track { width: min(var(--w), 100%); margin-inline: auto; }
+
+.is-disabled { opacity: 0.45; }
+.is-disabled .vsf__track { cursor: not-allowed; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vsf__stretch,
+  .vsf__value { transition: none; }
+}

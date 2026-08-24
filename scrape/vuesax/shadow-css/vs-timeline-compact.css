@@ -1,0 +1,102 @@
+  .tlk {
+    --mk: 9px;
+    --row: 30px;
+    --fs: var(--ctrl-fs-md, 14px);
+    --tlk-accent: var(--ui-accent, #ededed);
+    --tlk-border: var(--border, #2a2a2a);
+    --tlk-text: var(--text, #ededed);
+    --muted: color-mix(in srgb, var(--text, #ededed) 52%, transparent);
+    --card: var(--bg-card, #111);
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tlk-text);
+  }
+  .tlk--sm { --fs: var(--ctrl-fs-sm, 13px); --row: 26px; --mk: 8px; }
+  .tlk--lg { --fs: var(--ctrl-fs-lg, 15px); --row: 34px; --mk: 10px; }
+
+  .tlk__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.4em 18px auto 1fr;
+    align-items: center;
+    column-gap: 8px;
+    min-height: var(--row);
+    padding: 3px 0;
+  }
+
+  /* thin rail through the dots (column 2 center) */
+  .tlk__item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    bottom: -3px;
+    left: calc(3.4em + 8px + 9px);
+    width: 1.5px;
+    transform: translateX(-50%);
+    background: var(--tlk-border);
+  }
+  .tlk--l-dashed .tlk__item::before {
+    background: repeating-linear-gradient(to bottom, var(--tlk-border) 0 4px, transparent 4px 8px);
+  }
+  /* Progress: a segment lights up only when the row BELOW it has been reached —
+     colouring it from the row above would run the line past the last dot. */
+  .tlk__item--ln-done::before { background: var(--tlk-accent); }
+  .tlk--l-dashed .tlk__item--ln-done::before {
+    background: repeating-linear-gradient(to bottom, var(--tlk-accent) 0 4px, transparent 4px 8px);
+  }
+  .tlk__item:last-child::before { display: none; }
+
+  .tlk__time {
+    grid-column: 1;
+    font-size: 0.78em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .tlk__marker {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tlk__dot {
+    width: var(--mk);
+    height: var(--mk);
+    border-radius: 999px;
+    border: 1.5px solid var(--tlk-accent);
+    background: var(--card);
+    z-index: 2;
+    transition: background 200ms ease;
+  }
+  .tlk__item--done .tlk__dot { background: var(--tlk-accent); }
+
+  .tlk__title { grid-column: 3; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+  .tlk__item--done .tlk__title { color: var(--muted); text-decoration: line-through; }
+  .tlk__desc {
+    grid-column: 4;
+    color: var(--muted);
+    font-size: 0.86em;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* hover-reveal mode: hide desc until the row is hovered */
+  .tlk--reveal .tlk__desc {
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .tlk--reveal .tlk__item:hover .tlk__desc { opacity: 1; }
+
+  /* status tints */
+  .tlk__item--danger  { --tlk-accent: #ff6369; }
+  .tlk__item--warn    { --tlk-accent: #ffb224; }
+  .tlk__item--success { --tlk-accent: #4cc38a; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tlk--reveal .tlk__desc { transition: none; }
+  }

@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface TooltipProps {
 		content: string | Snippet;
@@ -15,8 +15,8 @@
 
 <script lang="ts">
 	import * as TooltipBase from '$lib/components/ui/tooltip/index.js';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 
 	let { content, side = 'top', align = 'center', color, variant = 'default', delayDuration = 0, children }: TooltipProps = $props();
 	const inlineStyle = $derived(`${styleColor(color ?? 'dark')}; --rx-duration: ${RX_DURATION.fast}ms; --rx-ease: ${RX_EASE}`);

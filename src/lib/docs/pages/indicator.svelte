@@ -14,6 +14,7 @@
 		<Indicator variant="ring" color="primary"><span class="avatar">RN</span></Indicator>
 		<Indicator variant="pulse"><Button variant="flat">Online</Button></Indicator>
 		<Indicator variant="count" color="danger" content="9+"><Button>Inbox</Button></Indicator>
+		<Indicator variant="odometer" color="primary" content={42}><Button variant="flat">Updates</Button></Indicator>
 		<Indicator variant="icon" color="success">{#snippet icon()}<Check size={13} />{/snippet}<Button variant="border">Synced</Button></Indicator>
 		<Indicator variant="border" color="warn"><span class="avatar">BD</span></Indicator>
 	</div>

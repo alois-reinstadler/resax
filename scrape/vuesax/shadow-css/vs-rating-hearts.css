@@ -1,0 +1,104 @@
+  :host { display: inline-flex; }
+  .vrh {
+    --sz: 24px;
+    --gap: 5px;
+    --fs: var(--ctrl-fs-sm, 13px);
+    --heart: var(--ui-accent, #ededed);
+    --muted: var(--text-muted, #8a8a8a);
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font: inherit;
+    user-select: none;
+    outline: none;
+  }
+  .vrh__row { display: inline-flex; align-items: center; gap: var(--gap); }
+
+  .vrh--sm { --sz: 18px; --gap: 4px; --fs: var(--ctrl-fs-xs, 12px); }
+  .vrh--lg { --sz: 32px; --gap: 7px; --fs: var(--ctrl-fs-md, 15px); }
+
+  .vrh__item {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    width: var(--sz);
+    height: var(--sz);
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .vrh__item:disabled { cursor: default; }
+  .vrh.is-readonly .vrh__item { cursor: default; }
+  .vrh__item:hover:not(:disabled) { transform: translateY(-1px); }
+  .vrh__item:focus-visible {
+    outline: 2px solid var(--heart);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  .vrh__svg { position: relative; z-index: 1; width: 100%; height: 100%; overflow: visible; }
+  .vrh__bg {
+    fill: transparent;
+    stroke: var(--muted);
+    stroke-width: 1.1;
+    opacity: 0.55;
+  }
+  .vrh__fg {
+    fill: var(--heart);
+    clip-path: inset(0 calc((1 - var(--fill)) * 100%) 0 0);
+    transition: clip-path 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* aura: soft halo pulsing behind the selected heart */
+  .vrh__aura {
+    position: absolute;
+    inset: -30%;
+    z-index: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--heart) 40%, transparent) 0%, transparent 68%);
+    opacity: 0;
+    transform: scale(0.4);
+    pointer-events: none;
+  }
+  .vrh__item.is-beat .vrh__aura { animation: vrh-aura 620ms ease-out; }
+  @keyframes vrh-aura {
+    0% { opacity: 0.9; transform: scale(0.4); }
+    100% { opacity: 0; transform: scale(1.5); }
+  }
+
+  /* heartbeat of the heart on select */
+  .vrh__item.is-beat { animation: vrh-beat 620ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .vrh--beat-strong .vrh__item.is-beat { animation-duration: 720ms; }
+  @keyframes vrh-beat {
+    0% { transform: scale(1); }
+    20% { transform: scale(1.28); }
+    40% { transform: scale(0.94); }
+    60% { transform: scale(1.16); }
+    100% { transform: scale(1); }
+  }
+
+  .vrh__value {
+    font-size: var(--fs);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    min-width: 1.6em;
+  }
+
+  .vrh--t-danger { --heart: #ff6369; }
+  .vrh--t-warn { --heart: #ffb224; }
+  .vrh--t-success { --heart: #4cc38a; }
+
+  .vrh.is-disabled { opacity: 0.5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vrh__item, .vrh__fg { transition: none; }
+    .vrh__item:hover:not(:disabled) { transform: none; }
+    .vrh__item.is-beat { animation: none; }
+    .vrh__aura { display: none; }
+  }

@@ -1,0 +1,137 @@
+  :host { display: inline-flex; width: 76px; }
+
+  /* Shell mode: the sidebar IS the column, so it takes the height it is given.
+     The 560px default below is what makes the catalog card look like a
+     sidebar; a real app layout hands it a full-height slot and expects it
+     filled — without this it floats as a short panel with dead space under it. */
+  :host([full]) { display: flex; align-self: stretch; height: 100%; }
+
+.gh {
+  --size: 44px;
+  --accent: var(--inp-accent, #ededed);
+  --ring: var(--inp-ring, 255 255 255);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease: var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: calc(var(--size) + 16px);
+  height: 560px;
+  max-height: 80vh;
+  padding: 14px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--inp-text, #ededed);
+  font: inherit;
+}
+  :host([full]) .gh { height: 100%; max-height: none; }
+  /* Edge to edge: the app-shell cut. A floating panel with a radius and
+     a border all round is a lovely catalog card and the wrong thing for a
+     real sidebar, which meets the window on three sides and only shows a
+     seam against the content. */
+  :host([flush]) .gh { border-radius: 0; border-top: 0; border-left: 0; border-bottom: 0; }
+
+
+
+.gh__logo { display: inline-flex; color: var(--accent); height: var(--size); align-items: center; margin-bottom: 4px; }
+
+.gh__nav { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1 1 auto; overflow: visible; min-height: 0; }
+.gh__group { position: relative; display: flex; }
+
+.gh__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary, #a1a1a1);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 200ms var(--ease);
+}
+.gh__item:hover:not(.is-active) { color: var(--inp-text, #ededed); }
+.gh__item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 999px; }
+.gh__item.is-active { color: var(--badge-solid-fg, #0b0b0b); }
+
+.gh__ring {
+  position: absolute;
+  inset: 4px;
+  z-index: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scale(0.2);
+  opacity: 0;
+  transition: transform 360ms var(--spring), opacity 200ms var(--ease);
+}
+.gh__item.is-active .gh__ring { transform: scale(1); opacity: 1; }
+.gh__item:hover:not(.is-active) .gh__ring { transform: scale(1); opacity: 0.08; background: rgb(var(--ring) / 1); }
+
+.gh__icon { position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; }
+.gh__icon svg { width: 21px; height: 21px; display: block; }
+.gh__dot::after { content: ''; width: 8px; height: 8px; border-radius: 999px; background: currentColor; opacity: 0.6; }
+.gh__badge {
+  position: absolute; top: 1px; right: 1px; z-index: 2;
+  min-width: 16px; height: 16px; padding: 0 4px;
+  display: inline-flex; align-items: center; justify-content: center; border-radius: 999px;
+  background: var(--accent); color: var(--badge-solid-fg, #0b0b0b); font-size: 10px; font-weight: 700; line-height: 1;
+}
+
+.gh__tip, .gh__fly {
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(-5px);
+  transition: opacity 150ms var(--ease), transform 220ms var(--spring);
+}
+.gh__tip {
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--bg-elevated, #1c1c1c);
+  color: var(--inp-text, #ededed);
+  font-size: 12.5px; font-weight: 550;
+  box-shadow: 0 6px 16px -6px rgb(0 0 0 / 0.5);
+}
+.gh__fly {
+  top: 0;
+  transform: translateX(-5px);
+  display: flex; flex-direction: column; gap: 1px;
+  min-width: 170px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--bg-elevated, #1c1c1c);
+  box-shadow: 0 14px 34px -12px rgb(0 0 0 / 0.55);
+}
+.gh__group:hover .gh__tip,
+.gh__group:hover .gh__fly,
+.gh__group:focus-within .gh__fly { opacity: 1; pointer-events: auto; transform: translateY(-50%) translateX(0); }
+.gh__group:hover .gh__fly,
+.gh__group:focus-within .gh__fly { transform: translateX(0); }
+
+.gh__fly-title { margin: 2px 8px 4px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted, #6b6b6b); }
+.gh__fly-item {
+  display: flex; align-items: center; height: 33px; padding: 0 10px;
+  border: 0; border-radius: 8px; background: transparent;
+  color: var(--text-secondary, #a1a1a1); font: inherit; font-size: 13px; font-weight: 500;
+  text-align: left; text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+.gh__fly-item:hover { background: rgb(var(--ring) / 0.07); color: var(--inp-text, #ededed); }
+.gh__fly-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.gh__fly-item.is-active { color: var(--inp-text, #ededed); background: rgb(var(--ring) / 0.05); }
+
+.gh.is-disabled { opacity: 0.6; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gh__item, .gh__ring, .gh__tip, .gh__fly { transition: opacity 150ms ease; }
+  .gh__item.is-active .gh__ring { transform: scale(1); }
+}

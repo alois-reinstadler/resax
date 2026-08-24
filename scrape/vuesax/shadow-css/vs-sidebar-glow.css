@@ -1,0 +1,135 @@
+  :host { display: inline-flex; }
+
+  /* Shell mode: the sidebar IS the column, so it takes the height it is given.
+     The 560px default below is what makes the catalog card look like a
+     sidebar; a real app layout hands it a full-height slot and expects it
+     filled — without this it floats as a short panel with dead space under it. */
+  :host([full]) { display: flex; align-self: stretch; height: 100%; }
+
+.hud {
+  --w: 258px;
+  --w-collapsed: 76px;
+  --item-h: 40px;
+  --neon: var(--sb-neon, var(--ui-accent, #ededed));
+  --ring: var(--inp-ring, 255 255 255);
+  --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', 'Fira Code', Menlo, Consolas, monospace;
+  --ease: var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+
+  display: flex;
+  flex-direction: column;
+  width: var(--w);
+  height: 560px;
+  max-height: 80vh;
+  padding: 14px 12px;
+  gap: 2px;
+  border: 1px solid color-mix(in srgb, var(--neon) 22%, var(--inp-border, #2a2a2a));
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--neon) 5%, transparent), transparent 40%),
+    var(--bg-card, #080b0a);
+  color: var(--inp-text, #ededed);
+  font-family: var(--mono);
+  overflow: hidden;
+  transition: width 420ms var(--ease);
+}
+  :host([full]) .hud { height: 100%; max-height: none; }
+  /* Edge to edge: the app-shell cut. A floating panel with a radius and
+     a border all round is a lovely catalog card and the wrong thing for a
+     real sidebar, which meets the window on three sides and only shows a
+     seam against the content. */
+  :host([flush]) .hud { border-radius: 0; border-top: 0; border-left: 0; border-bottom: 0; }
+
+
+.hud.is-collapsed { --w: var(--w-collapsed); }
+
+.hud__head { display: flex; align-items: center; gap: 10px; height: var(--item-h); padding: 0 8px; }
+.hud__mark { display: inline-flex; color: var(--neon); flex: 0 0 auto; filter: drop-shadow(0 0 5px color-mix(in srgb, var(--neon) 55%, transparent)); }
+.hud__brand { flex: 1 1 auto; font-weight: 700; font-size: 14px; letter-spacing: 0.18em; white-space: nowrap; overflow: hidden; }
+.hud__collapse {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 26px; height: 26px; padding: 0 4px; border: 0; border-radius: 5px;
+  background: transparent; color: var(--neon); cursor: pointer; font-family: var(--mono); font-size: 14px;
+  transition: background 160ms ease;
+}
+.hud__collapse:hover:not(:disabled) { background: color-mix(in srgb, var(--neon) 12%, transparent); }
+.hud__collapse:focus-visible { outline: 1px solid var(--neon); outline-offset: 1px; }
+
+.hud__section { margin: 6px 10px 4px; font-size: 10px; letter-spacing: 0.22em; color: color-mix(in srgb, var(--neon) 70%, var(--text-muted, #6b6b6b)); opacity: 0.8; }
+
+.hud__nav { display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; overflow-y: auto; overflow-x: hidden; min-height: 0; padding: 2px 0; }
+.hud__nav::-webkit-scrollbar { width: 5px; }
+.hud__nav::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--neon) 30%, transparent); border-radius: 0; }
+.hud__group { display: flex; flex-direction: column; }
+
+.hud__item {
+  position: relative;
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; height: var(--item-h);
+  padding: 0 10px;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0 6px 6px 0;
+  background: transparent;
+  color: var(--text-secondary, #9aa5a1);
+  font-family: var(--mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  text-align: left; text-decoration: none;
+  cursor: pointer; white-space: nowrap; overflow: hidden;
+  transition: color 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+}
+.hud__item:hover:not(.is-active) { color: var(--inp-text, #ededed); background: rgb(var(--ring) / 0.04); }
+.hud__item:focus-visible { outline: 1px solid var(--neon); outline-offset: -2px; }
+.hud__item.is-active {
+  color: var(--neon);
+  border-left-color: var(--neon);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--neon) 14%, transparent), transparent 75%);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--neon) 55%, transparent);
+}
+.hud__scan { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: 0; }
+.hud__item.is-active .hud__scan { opacity: 1; }
+.hud__scan::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 40%;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--neon) 12%, transparent), transparent);
+  animation: hud-scan 2.6s linear infinite;
+}
+@keyframes hud-scan { 0% { top: -40%; } 100% { top: 100%; } }
+
+.hud__mk { flex: 0 0 auto; color: var(--neon); opacity: 0; transition: opacity 180ms ease, transform 220ms var(--ease); transform: translateX(-4px); font-size: 11px; }
+.hud__item.is-active .hud__mk { opacity: 1; transform: translateX(0); }
+.hud__icon { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; }
+.hud__icon svg { width: 18px; height: 18px; display: block; }
+.hud__dot::after { content: ''; width: 6px; height: 6px; border-radius: 999px; background: currentColor; opacity: 0.6; }
+.hud__label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.hud__badge {
+  flex: 0 0 auto; min-width: 18px; height: 17px; padding: 0 5px;
+  display: inline-flex; align-items: center; justify-content: center; border-radius: 3px;
+  background: color-mix(in srgb, var(--neon) 22%, transparent); color: var(--neon); font-size: 10px; font-weight: 700;
+}
+.hud__chev { flex: 0 0 auto; opacity: 0.6; transition: transform 260ms var(--ease); }
+.hud__chev.is-open { transform: rotate(180deg); }
+
+.hud__fade { transition: opacity 160ms var(--ease); }
+.is-collapsed .hud__fade { opacity: 0; }
+.is-collapsed .hud__item { justify-content: flex-start; }
+
+.hud__sub { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 380ms var(--ease); }
+.hud__sub.is-open { grid-template-rows: 1fr; }
+.hud__sub-clip { overflow: hidden; display: flex; flex-direction: column; }
+
+.hud__subitem {
+  display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 10px 0 20px;
+  border: 0; background: transparent;
+  color: var(--text-muted, #6b7671); font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
+  text-align: left; text-decoration: none; cursor: pointer;
+  transition: color 150ms ease;
+}
+.hud__subitem:hover { color: var(--inp-text, #ededed); }
+.hud__subitem:focus-visible { outline: 1px solid var(--neon); outline-offset: -2px; }
+.hud__subitem.is-active { color: var(--neon); }
+.hud__submk { flex: 0 0 auto; opacity: 0.5; }
+
+.hud.is-disabled { opacity: 0.6; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hud, .hud__item, .hud__sub, .hud__chev, .hud__mk, .hud__fade { transition: none; }
+  .hud__scan::after { animation: none; display: none; }
+}

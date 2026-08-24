@@ -1,0 +1,79 @@
+  /* shrink-to-fit host: without max-width it keeps its widest natural size and
+     shoves the whole bar out of a narrow column */
+  :host { display: inline-flex; max-width: 100%; }
+  .vlb {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    /* a nav that cannot wrap can only overflow; the 16px gap doubles as row-gap */
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 16px;
+    font-family: inherit;
+  }
+  .vlb__link {
+    position: relative;
+    /* a bare text run is 14px tall — under the 24px touch floor. The flex box
+       floors the tap area without moving the label off its own baseline. */
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text-secondary, #a8a8a8);
+    text-decoration: none;
+    transition: color 180ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .vlb__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    /* the touch box pads 5px of half-leading under the label, so the rule hugs
+       the text from inside the box instead of hanging below it */
+    bottom: 1px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 240ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .vlb__link:hover {
+    color: var(--text, #ededed);
+  }
+  .vlb__link:hover::after {
+    transform: scaleX(1);
+  }
+  .vlb__link:focus-visible {
+    outline: 2px solid var(--ui-accent, #ededed);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  .vlb__link--active { color: var(--text, #ededed); }
+  /* the vertical separator stays short next to text */
+  .vlb__sep {
+    width: 1px;
+    min-height: 14px;
+    align-self: center;
+    background: var(--border, #2a2a2a);
+  }
+  /* persistent active-indicator — a single node that slides left/width in place */
+  /* anchored to the nav's TOP, not its bottom: once the row wraps, the bottom
+     edge belongs to the last row and the indicator would strand there */
+  .vlb__ind {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1px;
+    width: 0;
+    background: var(--ui-accent, #ededed);
+    transform: translateX(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 260ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+                width 260ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+                opacity 180ms;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vlb__link, .vlb__link::after, .vlb__ind { transition: none; }
+  }

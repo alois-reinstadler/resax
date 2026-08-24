@@ -1,0 +1,75 @@
+.rgseg {
+  --h: var(--ctrl-h-md, 40px);
+  --fs: var(--ctrl-fs-md, 14px);
+  --px: var(--ctrl-px-md, 14px);
+  --acc: var(--ui-accent, #ededed);
+  position: relative;
+  display: inline-flex;
+  padding: 4px;
+  gap: 2px;
+  border: 1px solid var(--inp-border, #2a2a2a);
+  border-radius: calc(var(--h) / 2 + 4px);
+  background: var(--bg-card, #111);
+  isolation: isolate;
+}
+.rgseg--vertical { flex-direction: column; align-items: stretch; }
+.rgseg--horizontal { flex-direction: row; align-items: center; }
+.rgseg--sm { --h: var(--ctrl-h-sm, 32px); --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); }
+.rgseg--md { --h: var(--ctrl-h-md, 40px); --fs: var(--ctrl-fs-md, 14px); --px: var(--ctrl-px-md, 14px); }
+.rgseg--lg { --h: var(--ctrl-h-lg, 48px); --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 18px); }
+
+.rgseg--danger  { --acc: var(--tone-danger, #ef4444); }
+.rgseg--warn    { --acc: var(--tone-warn, #f59e0b); }
+.rgseg--success { --acc: var(--tone-success, #22c55e); }
+
+.rgseg__thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: calc(var(--h) / 2);
+  background: color-mix(in srgb, var(--acc) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--acc) 55%, transparent);
+  box-shadow: 0 4px 14px -6px color-mix(in srgb, var(--acc) 70%, transparent);
+  transition:
+    transform 340ms cubic-bezier(0.34, 1.4, 0.5, 1),
+    width 340ms cubic-bezier(0.34, 1.4, 0.5, 1),
+    height 340ms cubic-bezier(0.34, 1.4, 0.5, 1),
+    opacity 160ms ease;
+  pointer-events: none;
+}
+
+.rgseg__opt {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--h);
+  padding: 0 var(--px);
+  border: 0;
+  border-radius: calc(var(--h) / 2);
+  background: transparent;
+  color: color-mix(in srgb, var(--inp-text, #ededed) 62%, transparent);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 220ms ease;
+}
+.rgseg__opt:hover:not(:disabled) { color: var(--inp-text, #ededed); }
+.rgseg__opt--active { color: var(--inp-text, #ededed); }
+.rgseg__opt:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--acc) 70%, transparent);
+  outline-offset: 2px;
+}
+.rgseg__opt:disabled { opacity: 0.4; cursor: not-allowed; }
+.rgseg--disabled { opacity: 0.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rgseg__thumb { transition: opacity 120ms ease; }
+  .rgseg__opt { transition: none; }
+}

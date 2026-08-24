@@ -1,0 +1,90 @@
+  :host { display: inline-flex; }
+.vswm {
+  --w: 52px;
+  --h: 32px;
+  --pad: 3px;
+  --accent: var(--ui-accent, #ededed);
+  --off: var(--sw-off, #4a4a4f);
+  --track-off: transparent;
+  --dur: 380ms;
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text, #ededed);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.vswm--lbl-left { flex-direction: row-reverse; }
+.vswm--sm { --w: 40px; --h: 24px; --pad: 2.5px; font-size: 13px; }
+.vswm--lg { --w: 64px; --h: 38px; --pad: 4px; font-size: 15px; }
+
+.vswm__track {
+  position: relative;
+  flex: none;
+  width: var(--w);
+  height: var(--h);
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--track-off);
+  cursor: inherit;
+  outline: none;
+  /* ring as box-shadow (takes no layout space) → equal thumb gaps on all 4 sides */
+  box-shadow: inset 0 0 0 2px var(--off);
+  transition: background-color var(--dur) ease, box-shadow var(--dur) ease;
+}
+.is-on .vswm__track { background: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
+.vswm__track:focus-visible { outline: 2px solid color-mix(in srgb, var(--accent) 80%, #fff); outline-offset: 3px; }
+
+.vswm__thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--h) - var(--pad) * 2);
+  height: calc(var(--h) - var(--pad) * 2);
+  border-radius: 999px;
+  background: var(--off);
+  color: var(--accent);
+  transform: translateY(-50%) scale(0.5);
+  transition: transform var(--dur) var(--spring), background-color var(--dur) ease;
+  will-change: transform;
+}
+.is-on .vswm__thumb {
+  background: #fff;
+  transform: translateY(-50%) translateX(calc(var(--w) - var(--h))) scale(1);
+}
+/* press: grows slightly (Material feedback) */
+.vswm__track.is-pressed .vswm__thumb { transform: translateY(-50%) scale(0.72); }
+.is-on .vswm__track.is-pressed .vswm__thumb {
+  transform: translateY(-50%) translateX(calc(var(--w) - var(--h))) scale(1.1);
+}
+
+.vswm__check {
+  width: 62%;
+  height: 62%;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 200ms ease, transform var(--dur) var(--spring);
+}
+.is-on .vswm__check { opacity: 1; transform: scale(1); }
+
+.vswm__label { line-height: 1; }
+.is-disabled { cursor: not-allowed; opacity: 0.45; }
+.is-disabled .vswm__track { cursor: not-allowed; }
+
+/* ── tones (replace the SFC's free-form --color prop) ── */
+.vswm--t-danger { --accent: #e5484d; --ui-accent-fg: #fff; }
+.vswm--t-warn { --accent: #f5a623; --ui-accent-fg: #160f02; }
+.vswm--t-success { --accent: #30a46c; --ui-accent-fg: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vswm__track, .vswm__thumb, .vswm__check { transition-duration: 0ms; }
+}

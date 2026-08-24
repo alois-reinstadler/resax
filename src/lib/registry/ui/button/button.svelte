@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export interface ButtonProps extends Omit<HTMLButtonAttributes, 'color' | 'children' | 'onclick'> {
 		variant?: 'default' | 'flat' | 'border' | 'gradient' | 'shadow' | 'relief' | 'transparent';
@@ -22,9 +22,9 @@
 </script>
 
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
-	import { ripple as rippleAttachment } from '../../attachments/ripple';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
+	import { ripple as rippleAttachment } from '$lib/registry/attachments/ripple';
 	import { buttonVariants } from './index';
 
 	let {

@@ -1,0 +1,167 @@
+  :host { display: inline-flex; vertical-align: middle; }
+  .ind {
+    /* shared gummy spring (overshoot + wobble) — same as VsAvatar */
+    --ind-spring: linear(
+      0, 0.009, 0.035, 0.078, 0.137, 0.211, 0.298, 0.396, 0.501, 0.609,
+      0.715, 0.815, 0.905, 0.981, 1.04, 1.083, 1.108, 1.117, 1.114, 1.1,
+      1.08, 1.057, 1.034, 1.014, 0.998, 0.987, 0.981, 0.979, 0.981, 0.985,
+      0.99, 0.995, 0.999, 1.001, 1.002, 1.001, 1
+    );
+    /* capsule (badge) and dot sizes */
+    --badge: 19px;
+    --dot: 10px;
+    /* push direction out of the anchor (each position sets it) */
+    --pushx: 35%;
+    --pushy: -35%;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    flex: none;
+  }
+
+  /* sizes */
+  .ind--sm { --badge: 16px; --dot: 8px; }
+  .ind--md { --badge: 19px; --dot: 10px; }
+  .ind--lg { --badge: 24px; --dot: 13px; }
+
+  .ind__anchor { display: inline-flex; border-radius: inherit; }
+
+  /* sample avatar (only when NO slot is passed — playground/catalog) */
+  .ind__demo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface-2, #1a1a1a);
+    color: var(--text-muted, #8a8a8a);
+    box-shadow: inset 0 0 0 1px var(--border, rgba(140, 140, 160, 0.22));
+  }
+  .ind__demo svg { width: 60%; height: 60%; }
+  .ind--sm .ind__demo { width: 34px; height: 34px; }
+  .ind--lg .ind__demo { width: 60px; height: 60px; }
+
+  /* positions: anchor to a corner + define the outward push */
+  .ind--p-top-right    .ind__badge, .ind--p-top-right    .ind__pulse { top: 0; right: 0; }
+  .ind--p-top-left     .ind__badge, .ind--p-top-left     .ind__pulse { top: 0; left: 0; }
+  .ind--p-bottom-right .ind__badge, .ind--p-bottom-right .ind__pulse { bottom: 0; right: 0; }
+  .ind--p-bottom-left  .ind__badge, .ind--p-bottom-left  .ind__pulse { bottom: 0; left: 0; }
+
+  .ind--p-top-right    { --pushx: 35%;  --pushy: -35%; }
+  .ind--p-top-left     { --pushx: -35%; --pushy: -35%; }
+  .ind--p-bottom-right { --pushx: 35%;  --pushy: 35%; }
+  .ind--p-bottom-left  { --pushx: -35%; --pushy: 35%; }
+
+  /* badge: ONE capsule morphing between dot / number / icon */
+  .ind__badge {
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: var(--badge);
+    min-width: var(--badge);
+    /* explicit width from digits → animatable (auto does not transition).
+       1 digit falls under min-width = circle; each extra digit widens it. */
+    width: calc(var(--badge) + (var(--digits, 1) - 1) * 0.6em);
+    /* 999px (not 50%) so the radius stays in px across every mode:
+       px↔% do not interpolate and would flash square corners mid-morph. */
+    border-radius: 999px;
+    color: #fff;
+    font-size: calc(var(--badge) * 0.52);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    /* knockout against the anchor (ring in the background color) */
+    box-shadow: 0 0 0 2px var(--bg, #0a0a0a);
+    /* the push moves the badge outside the anchor; it grows from the inner corner */
+    transform: translate(var(--pushx), var(--pushy));
+    transform-origin: var(--pushx) var(--pushy);
+    /* MORPH — the capsule flows as size/shape/color change, plus pop enter/leave */
+    transition:
+      width 520ms var(--ind-spring),
+      height 520ms var(--ind-spring),
+      border-radius 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 300ms ease,
+      transform 520ms var(--ind-spring),
+      opacity 220ms ease,
+      filter 280ms ease;
+  }
+  /* hidden state (replaces v-if pop leave — gummy pop + blur) */
+  .ind__badge.is-hidden {
+    opacity: 0;
+    filter: blur(7px);
+    transform: translate(var(--pushx), var(--pushy)) scale(0);
+    pointer-events: none;
+  }
+
+  /* dot: small, no content */
+  .ind--m-dot {
+    width: var(--dot);
+    min-width: var(--dot);
+    height: var(--dot);
+  }
+
+  /* icon: square → circle, content centered */
+  .ind--m-icon {
+    width: var(--badge);
+    min-width: var(--badge);
+  }
+  .ind__content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ind--m-icon .ind__content ::slotted(svg) {
+    width: calc(var(--badge) * 0.62);
+    height: calc(var(--badge) * 0.62);
+    display: block;
+  }
+  .ind__num { display: block; }
+
+  /* tones */
+  .ind--t-danger  { --tone-c: #f23f43; }
+  .ind--t-success { --tone-c: #23a55a; }
+  .ind--t-warn    { --tone-c: #f0b232; }
+  .ind--t-info    { --tone-c: #4f8cff; }
+  .ind--t-neutral { --tone-c: #8a8a90; }
+  .ind__badge { background: var(--tone-c, var(--ui-accent, #ededed)); }
+  /* warn is light → dark text for contrast */
+  .ind--t-warn.ind__badge { color: #160f02; }
+
+  /* pulsing halo */
+  .ind__pulse {
+    position: absolute;
+    z-index: 4;
+    width: var(--badge);
+    height: var(--badge);
+    border-radius: 999px;
+    background: var(--tone-c, var(--ui-accent, #ededed));
+    transform: translate(var(--pushx), var(--pushy));
+    transform-origin: var(--pushx) var(--pushy);
+    animation: ind-pulse 1.8s ease-out infinite;
+    pointer-events: none;
+  }
+  .ind__pulse--dot { width: var(--dot); height: var(--dot); }
+  @keyframes ind-pulse {
+    0%   { opacity: 0.55; transform: translate(var(--pushx), var(--pushy)) scale(1); }
+    70%  { opacity: 0;    transform: translate(var(--pushx), var(--pushy)) scale(2.1); }
+    100% { opacity: 0;    transform: translate(var(--pushx), var(--pushy)) scale(2.1); }
+  }
+
+  /* blur-swap of the content on mutation (the capsule morphs via the
+     width/height/color transition above) — replaces Vue's out-in Transition */
+  @keyframes ind-content-swap {
+    0%   { opacity: 0; filter: blur(6px); scale: 0.45; }
+    100% { opacity: 1; filter: blur(0);   scale: 1; }
+  }
+  .ind__content.is-swapping { animation: ind-content-swap 260ms var(--ind-spring) both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ind__badge { transition: none; }
+    .ind__content.is-swapping { animation: none; }
+    .ind__pulse { animation: none; }
+  }

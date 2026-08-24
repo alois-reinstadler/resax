@@ -1,0 +1,76 @@
+  :host {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 160px;
+    min-height: 160px;
+    margin: 0;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+    font-family: inherit;
+    container-type: inline-size; /* lets the stage adapt to card-sized boxes */
+  }
+  :host([page]) {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2147483600;
+  }
+  :host([disabled]) { display: none; }
+
+  canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 260ms ease;
+  }
+  canvas.is-visible { opacity: 1; }
+
+  .hit { position: absolute; inset: 0; z-index: 2; }
+  :host(:not([page])) .hit { cursor: none; }
+  :host([page]) .hit { display: none; }
+
+  /* built-in demo stage (bounded mode only): dim content for the light to
+     reveal. Any light-DOM child replaces it. */
+  .stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 clamp(18px, 9%, 44px);
+    color: #fff;
+    pointer-events: none;
+  }
+  :host([page]) .stage { display: none; }
+  .stage h3 {
+    margin: 0;
+    font-size: clamp(19px, 9cqw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .stage p { margin: 0; font-size: 13px; line-height: 1.5; opacity: 0.62; max-width: 34ch; }
+  .stage .keys { display: flex; gap: 6px; opacity: 0.7; }
+  .stage .keys span {
+    font-size: 11px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+  }
+  /* card-sized boxes: headline + tags only */
+  @container (max-width: 360px) {
+    .stage p { display: none; }
+  }

@@ -1,0 +1,71 @@
+/* borders must not push the control out of its cell (inputs default to
+   content-box, so width/height 100% + a border overflowed by 2px) */
+*, *::before, *::after { box-sizing: border-box; }
+
+:host { display: inline-block; }
+.otd {
+  --h: var(--ctrl-h-md, 40px);
+  --otd-accent: var(--ui-accent, #ededed);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: inherit;
+}
+.otd__cell {
+  position: relative;
+  width: var(--h);
+  height: var(--h);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* real transparent input on top: keeps native caret, keyboard and paste */
+.otd__control {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  font: inherit;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+/* the dot: hollow by default */
+.otd__dot {
+  width: 40%;
+  height: 40%;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--inp-border, #3d3d3d);
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+.otd__cell:hover .otd__dot { border-color: var(--inp-border-hover, #555); }
+/* focus: accent ring around the empty dot */
+.otd__cell.is-focused .otd__dot {
+  border-color: var(--otd-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--otd-accent) 20%, transparent);
+}
+/* with value: solid dot with an elastic pop (dot-fill keyframes) */
+.otd__cell.has-value .otd__dot {
+  background: var(--otd-accent);
+  border-color: var(--otd-accent);
+  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--otd-accent) 55%, transparent);
+  animation: otd-fill 300ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes otd-fill {
+  0% { transform: scale(0.4); }
+  60% { transform: scale(1.35); }
+  100% { transform: scale(1.25); }
+}
+.otd.is-disabled { opacity: 0.5; }
+.otd.is-disabled .otd__control { cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) {
+  .otd__dot { transition: background-color 200ms ease, border-color 200ms ease; }
+  .otd__cell.has-value .otd__dot { animation: none; transform: none; }
+}

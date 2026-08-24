@@ -1,0 +1,104 @@
+  :host { display: inline-flex; }
+  .sg {
+    --sg-w: 200px;
+    --sg-h: 8px;
+    --sg-thumb: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: var(--sg-w);
+    font-family: inherit;
+    color: var(--text, #ededed);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sg--sm { --sg-w: 160px; --sg-h: 6px; --sg-thumb: 13px; }
+  .sg--lg { --sg-w: 260px; --sg-h: 10px; --sg-thumb: 20px; }
+
+  .sg__value {
+    margin: 0;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary, #a1a1a1);
+  }
+
+  .sg__track {
+    position: relative;
+    width: 100%;
+    height: var(--sg-h);
+    border-radius: var(--ctrl-r-full, 999px);
+    background: var(--bg-elevated, #161616);
+    border: 1px solid var(--border, #2a2a2a);
+    cursor: grab;
+    touch-action: none;
+    outline: none;
+  }
+  .sg__track:active { cursor: grabbing; }
+  .sg__track:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--ui-accent, #ededed) 80%, #fff);
+    outline-offset: 4px;
+  }
+
+  /* UNIQUE EFFECT: animated multi-stop gradient fill that slowly pans */
+  .sg__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    height: 100%;
+    border-radius: var(--ctrl-r-full, 999px);
+    background: linear-gradient(90deg, var(--sg-from), var(--sg-to), var(--sg-from));
+    background-size: 200% 100%;
+    animation: sg-pan 3s linear infinite;
+  }
+  @keyframes sg-pan {
+    from { background-position: 0% 0; }
+    to { background-position: -200% 0; }
+  }
+
+  .sg__thumb {
+    position: absolute;
+    top: 50%;
+    width: var(--sg-thumb);
+    height: var(--sg-thumb);
+    border-radius: var(--ctrl-r-full, 999px);
+    background: #fff;
+    border: 2px solid var(--sg-to);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.35);
+    transition: box-shadow 160ms ease;
+  }
+  .sg__track:focus-visible .sg__thumb,
+  .sg__track:active .sg__thumb {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--sg-to) 30%, transparent);
+  }
+
+  .sg__tip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 7px;
+    font-size: 11px;
+    border-radius: var(--ctrl-r-sm, 6px);
+    background: var(--bg-elevated, #161616);
+    border: 1px solid var(--border, #2a2a2a);
+    white-space: nowrap;
+  }
+
+  .is-disabled { opacity: 0.45; }
+  .is-disabled .sg__track { cursor: not-allowed; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sg__fill { animation: none; }
+    .sg__thumb { transition: none; }
+  }
+
+  /* extension (not in source SFC): optional tone presets, same idea as the
+     sibling vs-number-slider's --accent tones — sets a local --accent that
+     the default --sg-from/--sg-to expressions fall back to below, unless
+     from-color/to-color attrs override them via inline style. */
+  .sg--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .sg--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .sg--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }

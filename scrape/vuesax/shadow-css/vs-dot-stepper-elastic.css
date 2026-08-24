@@ -1,0 +1,80 @@
+  :host { display: inline-flex; }
+  .el {
+    --dot: 10px; --gap: 16px; --pad-x: 22px; --pad-y: 14px;
+    --accent: var(--ctrl-accent, var(--ui-accent, #ededed));
+    --off: var(--ctrl-dot-off, rgb(var(--ui-ring, 255 255 255) / 0.32));
+    display: inline-flex; font-family: inherit; user-select: none; -webkit-user-select: none;
+  }
+  .el--sm { --dot: 8px; --gap: 12px; --pad-x: 18px; --pad-y: 12px; }
+  .el--lg { --dot: 12px; --gap: 20px; --pad-x: 28px; --pad-y: 18px; }
+  .el--t-danger { --accent: var(--ctrl-danger, #ff6369); }
+  .el--t-warn { --accent: var(--ctrl-warn, #ffb224); }
+  .el--t-success { --accent: var(--ctrl-success, #4cc38a); }
+  .el.is-disabled { opacity: 0.5; }
+  .el.is-disabled .el__dot { cursor: not-allowed; }
+
+  .el__track {
+    position: relative; display: inline-flex; align-items: center; gap: var(--gap);
+    padding: var(--pad-y) var(--pad-x);
+    border: 1px solid var(--ctrl-border, var(--border, #2a2a2a));
+    border-radius: 999px;
+    background: var(--ctrl-bg, var(--bg-elevated, rgba(20, 20, 20, 0.9)));
+    isolation: isolate;
+  }
+  .el--vertical .el__track { flex-direction: column; padding: var(--pad-x) var(--pad-y); }
+  .el--has-labels.el--horizontal .el__track { align-items: flex-end; }
+  .el--no-track .el__track { padding: 0; border-color: transparent; background: transparent; }
+
+  /* persistent sliding indicator — a 0×0 anchor that translates to the active
+     dot's center; its accent core is centered on the anchor via negative margin */
+  .el__indicator {
+    position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 1;
+    transition: transform 560ms cubic-bezier(0.16, 1.5, 0.3, 1);
+    pointer-events: none;
+  }
+  .el__ind-core {
+    position: absolute; left: 0; top: 0;
+    width: calc(var(--dot) * 1.9); height: calc(var(--dot) * 1.9);
+    margin: calc(var(--dot) * -0.95) 0 0 calc(var(--dot) * -0.95);
+    border-radius: 999px; background: var(--accent);
+    box-shadow: 0 0 12px 0 color-mix(in srgb, var(--accent) 50%, transparent);
+    animation: el-spring 560ms cubic-bezier(0.16, 1.5, 0.3, 1);
+  }
+  /* elastic entrance: overshoots past target scale, then settles (spring) */
+  @keyframes el-spring {
+    0% { transform: scale(0.3); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .el__dot {
+    position: relative; z-index: 2; display: inline-flex; flex-direction: column;
+    align-items: center; gap: 8px; padding: 8px; margin: -8px; border: 0;
+    background: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+    font: inherit; color: var(--ctrl-text-muted, var(--text-muted, #8a8a8a));
+  }
+  .el--vertical .el__dot { flex-direction: row; }
+  .el__dot:disabled { cursor: default; }
+  .el__dot:focus-visible { outline: none; }
+  .el__dot:focus-visible .el__core { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent); }
+
+  /* dot core: gray by default; elastic nudge for neighbors; hidden under the
+     indicator when active (the indicator provides the accent swell) */
+  .el__core {
+    width: var(--dot); height: var(--dot); border-radius: 999px; background: var(--off);
+    transform: scale(1);
+    transition: transform 560ms cubic-bezier(0.16, 1.5, 0.3, 1), background-color 260ms ease, opacity 200ms ease;
+  }
+  .el__dot:hover:not(:disabled) .el__core { background: color-mix(in srgb, var(--off) 55%, var(--accent) 45%); }
+  .el__dot.is-done .el__core { background: color-mix(in srgb, var(--off) 40%, var(--accent) 60%); }
+  .el__dot.is-near .el__core { transform: scale(1.25); }
+  .el__dot.is-active .el__core { opacity: 0; }
+
+  .el__label { font-size: 0.78em; white-space: nowrap; transition: color 200ms ease; }
+  .el__dot.is-active .el__label { color: var(--ctrl-text, var(--text, #ededed)); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .el__indicator { transition: none; }
+    .el__ind-core { animation: none; }
+    .el__core { transition: background-color 260ms ease, opacity 200ms ease; }
+    .el__dot.is-near .el__core { transform: scale(1); }
+  }

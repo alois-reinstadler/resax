@@ -1,0 +1,118 @@
+  :host { display: inline-flex; }
+.vswg {
+  --w: 52px;
+  --h: 32px;
+  --pad: 4px;
+  --accent: var(--sw-accent, var(--ui-accent, #ededed));
+  --off: var(--sw-off, #2b2b30);
+  --dur: 420ms;
+  --spring: cubic-bezier(0.34, 1.5, 0.6, 1);
+  --d: calc(var(--h) - var(--pad) * 2);
+  --travel: calc(var(--w) - var(--h));
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text, #ededed);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.vswg--lbl-left { flex-direction: row-reverse; }
+.vswg--sm { --w: 40px; --h: 24px; --pad: 3px; font-size: 13px; }
+.vswg--lg { --w: 64px; --h: 38px; --pad: 5px; font-size: 15px; }
+
+/* tones — preset accents (default keeps the neon teal) */
+.vswg--t-danger { --accent: #e5484d; --ui-accent-fg: #fff; }
+.vswg--t-warn { --accent: #f5a623; --ui-accent-fg: #160f02; }
+.vswg--t-success { --accent: #30a46c; --ui-accent-fg: #fff; }
+
+.vswg__track {
+  position: relative;
+  isolation: isolate; /* keeps ::after (z:-1) above the bg but below the thumb */
+  flex: none;
+  width: var(--w);
+  height: var(--h);
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--off);
+  cursor: inherit;
+  outline: none;
+  /* ring as box-shadow → takes no layout, thumb gaps stay equal */
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: background var(--dur) ease, box-shadow var(--dur) ease;
+}
+/* Perf: the track keeps the minimal shadow set static; the full set is baked
+   into ::after and only its opacity animates (compositable) — no repaint per frame. */
+.is-on .vswg__track {
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--accent) 48%, #000),
+    color-mix(in srgb, var(--accent) 26%, #000));
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 65%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--accent) 28%, transparent),
+    0 0 8px color-mix(in srgb, var(--accent) 50%, transparent),
+    0 0 18px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.vswg__track::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 75%, transparent),
+    inset 0 0 14px color-mix(in srgb, var(--accent) 38%, transparent),
+    0 0 12px color-mix(in srgb, var(--accent) 65%, transparent),
+    0 0 26px color-mix(in srgb, var(--accent) 45%, transparent);
+  opacity: 0;
+}
+.is-on .vswg__track::after {
+  animation: vswg-breathe 2.2s ease-in-out infinite;
+}
+@keyframes vswg-breathe {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+.vswg__track:focus-visible { outline: 2px solid color-mix(in srgb, var(--accent) 80%, #fff); outline-offset: 3px; }
+
+.vswg__thumb {
+  position: absolute;
+  top: var(--pad);
+  left: var(--pad);
+  width: var(--d);
+  height: var(--d);
+  border-radius: 999px;
+  /* off: dimmed orb */
+  background: radial-gradient(circle at 50% 38%, #8b8b93, #56565e 78%);
+  box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.35);
+  transition: transform var(--dur) var(--spring), background var(--dur) ease, box-shadow var(--dur) ease;
+  will-change: transform;
+}
+.is-on .vswg__thumb {
+  transform: translateX(var(--travel));
+  /* on: lit orb with a bright core */
+  background: radial-gradient(circle at 50% 36%, #ffffff, var(--accent) 72%);
+  box-shadow:
+    0 0 5px var(--accent),
+    0 0 13px color-mix(in srgb, var(--accent) 65%, transparent),
+    inset 0 0 3px rgba(255, 255, 255, 0.6);
+}
+/* press: slight elastic squish */
+.is-pressed .vswg__thumb { transform: scaleX(1.12) scaleY(0.92); }
+.is-on.is-pressed .vswg__thumb { transform: translateX(var(--travel)) scaleX(1.12) scaleY(0.92); }
+
+.vswg__label { line-height: 1; }
+.vswg__label:empty { display: none; }
+.is-disabled { cursor: not-allowed; opacity: 0.45; }
+.is-disabled .vswg__track { cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vswg__track, .vswg__thumb { transition-duration: 0ms; }
+  .is-on .vswg__track { animation: none; }
+  .is-on .vswg__track::after { animation: none; opacity: 0; }
+}

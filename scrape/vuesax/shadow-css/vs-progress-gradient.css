@@ -1,0 +1,82 @@
+  :host { display: block; width: 100%; }
+  .vpgr {
+    --h: 10px;
+    --fs: 13px;
+    --radius: var(--ctrl-r-pill, 999px);
+    --accent: var(--ui-accent, #ededed);
+    --track: var(--border, #2a2a2a);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+    --g1: var(--ui-accent, #ededed);
+    --g2: color-mix(in srgb, var(--ui-accent, #ededed) 55%, #ffffff);
+    --vpgr-speed: 3s;
+
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 240px;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tint);
+  }
+
+  .vpgr--sm { --h: 6px; --fs: 12px; }
+  .vpgr--md { --h: 10px; --fs: 13px; }
+  .vpgr--lg { --h: 14px; --fs: 14px; }
+
+  .vpgr__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    line-height: 1;
+  }
+  .vpgr__head[hidden] { display: none; }
+  .vpgr__label { font-weight: 500; }
+  .vpgr__label:empty { display: none; }
+  .vpgr__val { font-variant-numeric: tabular-nums; color: var(--accent); }
+  .vpgr__val[hidden] { display: none; }
+
+  .vpgr__track {
+    position: relative;
+    width: 100%;
+    height: var(--h);
+    background: var(--track);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  /* full-width + compositable translateX; the gradient never warps (no scale) */
+  .vpgr__bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, var(--g1), var(--g2), var(--g1));
+    background-size: 200% 100%;
+    animation: vpgr-flow var(--vpgr-speed) linear infinite;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes vpgr-flow {
+    to { background-position: -200% 0; }
+  }
+
+  .vpgr.is-indeterminate .vpgr__bar {
+    width: 45%;
+    animation:
+      vpgr-flow var(--vpgr-speed) linear infinite,
+      vpgr-slide 1.5s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  }
+  /* % relative to the bar itself (45% of track): -100% ≡ left:-45%, 222.23% ≡ left:100% */
+  @keyframes vpgr-slide {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(222.23%); }
+  }
+
+  .vpgr--t-danger  { --accent: var(--danger,  #ff6369); }
+  .vpgr--t-warn    { --accent: var(--warn,    #ffb224); }
+  .vpgr--t-success { --accent: var(--success, #4cc38a); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vpgr__bar { animation: none; transition: none; }
+  }

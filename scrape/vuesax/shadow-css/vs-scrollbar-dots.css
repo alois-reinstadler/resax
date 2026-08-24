@@ -1,0 +1,107 @@
+  :host { display: block; }
+  .vsd-sb {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 340px;
+    border-radius: var(--ctrl-r-lg, 16px);
+    background: var(--bg-card, #111);
+    border: 1px solid var(--border, #2a2a2a);
+    overflow: hidden;
+  }
+  .vsd-sb--bare {
+    max-width: none;
+    height: auto;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+  }
+  .vsd-sb__vp {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior: contain;
+  }
+  .vsd-sb--bare .vsd-sb__vp {
+    height: auto;
+  }
+  .vsd-sb__vp::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .vsd-sb__track {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    right: 4px;
+    width: 16px;
+    cursor: pointer;
+    transition: opacity 320ms ease;
+  }
+  .vsd-sb__track--hidden {
+    opacity: 0;
+  }
+  .vsd-sb__track--gone {
+    display: none;
+  }
+  .vsd-sb__thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    cursor: grab;
+    will-change: transform;
+  }
+  .vsd-sb__thumb:active {
+    cursor: grabbing;
+  }
+  .vsd-sb__dot {
+    border-radius: 999px;
+    animation: vsd-wave 1.6s ease-in-out infinite;
+    transition: width 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      height 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      background-color 220ms ease;
+  }
+  @keyframes vsd-wave {
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(0.85);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+  .vsd-sb__thumb--active .vsd-sb__dot {
+    animation-play-state: paused;
+  }
+  .vsd-sb__demo {
+    padding: 22px 26px;
+    color: var(--text-secondary, #c9c9c9);
+    font-family: inherit;
+  }
+  .vsd-sb__demo h3 {
+    margin: 0 0 14px;
+    color: var(--text, #fff);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .vsd-sb__demo p {
+    margin: 0 0 16px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vsd-sb__dot {
+      animation: none;
+      transition: none;
+    }
+  }

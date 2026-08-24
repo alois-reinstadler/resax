@@ -1,0 +1,263 @@
+  :host { display: inline-flex; }
+.pg {
+  --h: 36px;
+  --fs: 14px;
+  --gap: 4px;
+  --tr: 9px; /* pill/number radius */
+  /* pill inverted from the background: dark → light pill/dark text, light → dark pill/white text */
+  --acc: var(--vs-color, var(--text, #ededed));
+  --acc-on: var(--bg, #0a0a0a);
+  --ring: var(--inp-ring, 255 255 255);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap);
+  font-family: inherit;
+  font-size: var(--fs);
+}
+
+/* sizes */
+.pg--sm { --h: 30px; --fs: 13px; --gap: 3px; --tr: 7px; }
+.pg--lg { --h: 42px; --fs: 15px; --gap: 5px; --tr: 11px; }
+
+/* shape */
+.pg--s-pill { --tr: 999px; }
+
+/* Apple radius (squircle) on the active pill — rounded only */
+@supports (corner-shape: squircle) {
+  .pg--s-rounded .pg__indicator,
+  .pg--s-rounded .pg__page,
+  .pg--s-rounded .pg__nav {
+    corner-shape: squircle;
+    --tr: calc(var(--h) * 0.32);
+  }
+}
+
+/* ── carousel window ───────────────────────────────────────── */
+.pg__viewport {
+  position: relative;
+  overflow: hidden;
+  /* width = visible button count · button width + gaps + side padding */
+  width: calc(var(--win) * var(--h) + (var(--win) - 1) * var(--gap) + var(--padx) * 2);
+  height: var(--h);
+}
+.pg__track {
+  position: absolute;
+  top: 0;
+  left: var(--padx);
+  display: flex;
+  gap: var(--gap);
+  height: var(--h);
+  will-change: transform;
+  transition: transform 420ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+/* ── number (button) ───────────────────────────────────────── */
+.pg__page {
+  position: relative;
+  isolation: isolate;
+  z-index: 0;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--h);
+  height: var(--h);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  --lit: 0;
+  --mx: 50%;
+  --my: 50%;
+  --rip: var(--ring); /* droplet in the theme color */
+  cursor: pointer;
+  border-radius: var(--tr);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transform-style: preserve-3d;
+  transition: transform 360ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pg__page:disabled { cursor: not-allowed; }
+.pg__page:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+/* digit with a radial focus clipped to the glyph: those under the cursor glow */
+.pg__num {
+  position: relative;
+  z-index: 1;
+  color: var(--text-muted, #8a8a8a);
+  background: radial-gradient(
+    140px circle at var(--mx) var(--my),
+    var(--text, #ededed),
+    var(--text, #ededed) 25%,
+    var(--text-muted, #8a8a8a) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 540;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* ── indicator: sliding white pill + spring ───────────────── */
+.pg__indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--h);
+  border-radius: var(--tr);
+  background: var(--acc);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  transition:
+    transform 420ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    width 420ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    opacity 200ms ease;
+}
+.pg__indicator.is-ready { opacity: 1; }
+.pg__indicator.is-pop { animation: pg-pop 460ms cubic-bezier(0.34, 1.4, 0.64, 1); }
+@keyframes pg-pop {
+  0% { scale: 1; }
+  38% { scale: 1.099; }
+  100% { scale: 1; }
+}
+
+/* at the edges there are no more numbers behind → reduced overshoot and a
+   subtle pop so the pill does not seem to "jump" outward, just a bounce. */
+.pg.is-edge .pg__indicator,
+.pg.is-edge .pg__ind-mask {
+  transition-timing-function: cubic-bezier(0.34, 1.12, 0.64, 1);
+}
+.pg.is-edge .pg__indicator.is-pop { animation: pg-pop-soft 380ms cubic-bezier(0.34, 1.12, 0.64, 1); }
+@keyframes pg-pop-soft {
+  0% { scale: 1; }
+  42% { scale: 1.035; }
+  100% { scale: 1; }
+}
+
+/* mask: copy of the numbers in inverted color, clipped to the pill.
+   Its translate cancels out the indicator's → the text stays "fixed" over the
+   track while the pill window slides, revealing it digit by digit. */
+.pg__ind-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: var(--gap);
+  height: var(--h);
+  box-sizing: border-box;
+  transition:
+    transform 420ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    width 420ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.pg__ind-label {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--h);
+  height: var(--h);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 540;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--acc-on);
+}
+
+/* ── nav arrows ────────────────────────────────────────────── */
+.pg__nav {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--h);
+  height: var(--h);
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--tr);
+  background: transparent;
+  --lit: 0;
+  --rip: var(--ring); /* droplet in the theme color (space-separated rgb) */
+  /* proximity light: the cursor lights up the arrow as it approaches */
+  color: color-mix(in srgb, var(--text, #ededed) calc(var(--lit) * 100%), var(--text-muted, #8a8a8a));
+  font-size: var(--fs);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition:
+    transform 360ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 200ms ease;
+}
+/* arrows: the droplet is clipped to the button (like VsButton) */
+.pg__nav .pg__ripples { overflow: hidden; }
+.pg__nav svg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  filter: drop-shadow(0 0 calc(var(--lit) * 6px) rgb(var(--ring) / calc(var(--lit) * 0.5)));
+}
+.pg__nav:hover:not(:disabled) {
+  background: rgb(var(--ring) / 0.1);
+}
+.pg__nav:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.pg__nav:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* water droplet — container clips to the arrow radius */
+.pg__ripples {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  /* no clip → the droplet blooms beyond the button (bigger) */
+  overflow: visible;
+  pointer-events: none;
+}
+.pg__ripple {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(
+    circle,
+    rgb(var(--rip) / 0.34) 0%,
+    rgb(var(--rip) / 0.18) 24%,
+    rgb(var(--rip) / 0.08) 44%,
+    rgb(var(--rip) / 0.03) 60%,
+    transparent 76%
+  );
+  opacity: 0;
+  will-change: transform, opacity;
+  animation:
+    pg-ripple-scale 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    pg-ripple-fade 720ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+@keyframes pg-ripple-scale {
+  from { transform: translate(-50%, -50%) scale(0); }
+  to   { transform: translate(-50%, -50%) scale(1.7); }
+}
+@keyframes pg-ripple-fade {
+  from { opacity: 0.8; }
+  to   { opacity: 0; }
+}
+@supports (corner-shape: squircle) {
+  .pg--s-rounded .pg__ripples { corner-shape: squircle; }
+}
+
+.pg.is-disabled { opacity: 0.55; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pg__track,
+  .pg__indicator,
+  .pg__ind-mask { transition: opacity 200ms ease; }
+  .pg__indicator.is-pop { animation: none; }
+  .pg__page,
+  .pg__nav { transition: none; }
+  .pg__page:active:not(:disabled) { transform: none; }
+  .pg__ripple { display: none; }
+}

@@ -1,0 +1,55 @@
+  .vpf__overlay {
+    position: fixed;
+    inset: 0;
+    /* Above every piece of page chrome — a fixed bottom blur band or a floating
+       mobile nav at 1100-1200 would otherwise repaint over the dialog. */
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    perspective: 1400px; /* 3D depth for the flip */
+  }
+  .vpf__panel {
+    --vpw: 460px;
+    display: flex;
+    flex-direction: column;
+    width: min(var(--vpw), calc(100vw - 48px));
+    max-height: calc(100vh - 48px);
+    border-radius: 16px;
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-card, #111);
+    color: var(--text, #ededed);
+    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transform-origin: center top;
+  }
+  .vpf--sm { --vpw: 360px; }
+  .vpf--md { --vpw: 460px; }
+  .vpf--lg { --vpw: 640px; }
+
+  .vpf__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--border, #2a2a2a); }
+  .vpf__title { margin: 0; font-size: 16px; font-weight: 600; }
+  .vpf__close { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; padding: 0; border: none; border-radius: 8px; background: transparent; color: var(--text-secondary, #a1a1a1); cursor: pointer; transition: background-color 160ms ease, color 160ms ease; }
+  .vpf__close:hover { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.08)); color: var(--text, #ededed); }
+  .vpf__close svg { width: 18px; height: 18px; }
+  .vpf__body { padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.55; color: var(--text-secondary, #c4c4c4); }
+  .vpf__ph { margin: 0; }
+  .vpf__ph code { font-family: var(--font-mono, monospace); padding: 1px 6px; border-radius: 6px; background: var(--bg-input, rgba(255, 255, 255, 0.06)); color: var(--text, #ededed); }
+  .vpf__foot { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 20px; border-top: 1px solid var(--border, #2a2a2a); }
+
+  /* 3D flip entrance (rotateX from top) + backdrop fade */
+  .vpf-enter-active { transition: opacity 280ms ease; }
+  .vpf-leave-active { transition: opacity 200ms ease; }
+  .vpf-enter-from, .vpf-leave-to { opacity: 0; }
+  .vpf-enter-active .vpf__panel { transition: transform 460ms cubic-bezier(0.34, 1.4, 0.5, 1), opacity 280ms ease; }
+  .vpf-leave-active .vpf__panel { transition: transform 220ms cubic-bezier(0.4, 0, 1, 1), opacity 200ms ease; }
+  .vpf-enter-from .vpf__panel, .vpf-leave-to .vpf__panel { transform: rotateX(-85deg) translateY(-20px); opacity: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vpf-enter-active, .vpf-leave-active, .vpf-enter-active .vpf__panel, .vpf-leave-active .vpf__panel { transition-duration: 0ms; }
+    .vpf-enter-from .vpf__panel, .vpf-leave-to .vpf__panel { transform: none; }
+  }

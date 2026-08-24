@@ -1,0 +1,81 @@
+  :host {
+    --h: 12px;
+    --fs: 13px;
+    --radius: var(--ctrl-r-sm, 4px);
+    --gap: 4px;
+    --accent: var(--ui-accent, #ededed);
+    --track: var(--border, #2a2a2a);
+    --cell-off: var(--bg-elevated, #161616);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 240px;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tint);
+  }
+  :host([hidden]) { display: none; }
+
+  :host([size="sm"]) { --h: 8px;  --gap: 3px; --fs: 12px; }
+  :host([size="md"]) { --h: 12px; --gap: 4px; --fs: 13px; }
+  :host([size="lg"]) { --h: 16px; --gap: 5px; --fs: 14px; }
+
+  .vpsg__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    line-height: 1;
+  }
+  .vpsg__label { font-weight: 500; }
+  .vpsg__val { font-variant-numeric: tabular-nums; color: var(--accent); }
+
+  .vpsg__track {
+    display: flex;
+    gap: var(--gap);
+    width: 100%;
+    height: var(--h);
+  }
+  .vpsg__cell {
+    position: relative;
+    flex: 1 1 0;
+    height: 100%;
+    border-radius: var(--radius);
+    background: var(--cell-off);
+    border: 1px solid var(--track);
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  /* the fill overlay carries the "light up" — scaleX is the per-cell progress */
+  .vpsg__fill {
+    position: absolute;
+    inset: 0;
+    transform-origin: left center;
+    transform: scaleX(var(--fill, 0));
+    background: var(--accent);
+    transition: transform 0.25s ease;
+  }
+  .vpsg__cell.is-on {
+    border-color: var(--accent);
+    box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+
+  :host([indeterminate]) .vpsg__fill {
+    transform: scaleX(1);
+    animation: vpsg-chase 1.2s ease-in-out infinite;
+  }
+  @keyframes vpsg-chase {
+    0%, 100% { opacity: 0; }
+    40%      { opacity: 1; }
+  }
+
+  :host([tone="danger"])  { --accent: var(--danger,  #ff6369); }
+  :host([tone="warn"])    { --accent: var(--warn,    #ffb224); }
+  :host([tone="success"]) { --accent: var(--success, #4cc38a); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vpsg__cell, .vpsg__fill { transition: none; animation: none; }
+  }

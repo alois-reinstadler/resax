@@ -1,0 +1,81 @@
+  :host { display: inline-flex; }
+  :host([overlay]) { position: absolute; inset: 0; display: flex; }
+
+  .flip {
+    --sz: 32px;
+    --dur: 1.4s;
+    --gap: 10px;
+    --fs: 13px;
+    --rad: calc(var(--sz) * 0.28);
+    --ring: var(--inp-ring, 237 237 237);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    color: var(--tint);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .flip__box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sz);
+    height: var(--sz);
+    flex: 0 0 auto;
+    perspective: calc(var(--sz) * 3);
+  }
+
+  .flip__face {
+    width: 76%;
+    height: 76%;
+    border-radius: var(--rad);
+    background: rgb(var(--ring));
+    box-shadow: 0 0 calc(var(--sz) * 0.3) rgb(var(--ring) / 0.35);
+    animation: flip-3d var(--dur) cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  }
+
+  @keyframes flip-3d {
+    0%        { transform: rotateX(0deg)   rotateY(0deg); }
+    50%       { transform: rotateX(180deg) rotateY(0deg); }
+    100%      { transform: rotateX(180deg) rotateY(180deg); }
+  }
+
+  /* ── sizes ───────────────────────────────────────────────────── */
+  .flip--sm { --sz: 20px; --fs: 12px; --gap: 8px; }
+  .flip--md { --sz: 32px; --fs: 13px; }
+  .flip--lg { --sz: 44px; --fs: 14px; --gap: 12px; }
+  .flip--xl { --sz: 60px; --fs: 16px; --gap: 14px; }
+
+  /* ── speed ───────────────────────────────────────────────────── */
+  .flip--s-slow   { --dur: 2s; }
+  .flip--s-normal { --dur: 1.4s; }
+  .flip--s-fast   { --dur: 0.9s; }
+
+  .flip__label { color: var(--tint); white-space: nowrap; }
+
+  /* ── overlay: covers the parent container (host: position:absolute) ─ */
+  .flip.is-overlay {
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+    z-index: 10;
+  }
+
+  /* ── tones — recolor face + label ────────────────────────────── */
+  .flip--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .flip--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+  .flip--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flip__face { animation-duration: 3.2s; }
+  }

@@ -1,0 +1,92 @@
+  :host { display: inline-flex; }
+  :host([overlay]) { position: absolute; inset: 0; display: flex; }
+
+  .pulse {
+    --sz: 32px;
+    --bw: 3px;
+    --dur: 1.4s;
+    --gap: 10px;
+    --fs: 13px;
+    --ring: var(--inp-ring, 237 237 237);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    color: var(--tint);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .pulse__box {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sz);
+    height: var(--sz);
+    flex: 0 0 auto;
+  }
+
+  .pulse__wave {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    border: var(--bw) solid rgb(var(--ring));
+    animation: pulse-ripple var(--dur) cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+  }
+  .pulse__wave--2 { animation-delay: calc(var(--dur) * -0.5); }
+
+  .pulse__core {
+    width: calc(var(--sz) * 0.32);
+    height: calc(var(--sz) * 0.32);
+    border-radius: 999px;
+    background: rgb(var(--ring));
+    animation: pulse-core var(--dur) ease-in-out infinite;
+  }
+
+  @keyframes pulse-ripple {
+    0%   { transform: scale(0.25); opacity: 0.9; }
+    100% { transform: scale(1);    opacity: 0; }
+  }
+  @keyframes pulse-core {
+    0%, 100% { transform: scale(0.7); opacity: 0.6; }
+    50%      { transform: scale(1);   opacity: 1; }
+  }
+
+  /* ── sizes ───────────────────────────────────────────────────── */
+  .pulse--sm { --sz: 20px; --bw: 2px; --fs: 12px; --gap: 8px; }
+  .pulse--md { --sz: 32px; --bw: 3px; --fs: 13px; }
+  .pulse--lg { --sz: 44px; --bw: 4px; --fs: 14px; --gap: 12px; }
+  .pulse--xl { --sz: 60px; --bw: 5px; --fs: 16px; --gap: 14px; }
+
+  /* ── speed ───────────────────────────────────────────────────── */
+  .pulse--s-slow   { --dur: 2s; }
+  .pulse--s-normal { --dur: 1.4s; }
+  .pulse--s-fast   { --dur: 0.9s; }
+
+  .pulse__label { color: var(--tint); white-space: nowrap; }
+
+  /* ── overlay: covers the parent container (host: position:absolute) ─ */
+  .pulse.is-overlay {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+  }
+
+  /* ── tones — recolor ring + label ────────────────────────────── */
+  .pulse--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .pulse--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+  .pulse--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse__wave,
+    .pulse__core { animation-duration: 3s; }
+  }

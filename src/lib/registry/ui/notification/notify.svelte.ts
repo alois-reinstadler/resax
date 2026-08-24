@@ -1,5 +1,5 @@
 import { mount, unmount, type Snippet } from 'svelte';
-import type { RxColor } from '../../lib/color';
+import type { RxColor } from '$lib/registry/lib/color';
 import NotificationOutlet from './notification-outlet.svelte';
 
 export type NotifyVariant = 'default' | 'banner' | 'card' | 'glow' | 'inline' | 'snackbar';

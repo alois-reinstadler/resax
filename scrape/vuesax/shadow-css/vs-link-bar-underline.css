@@ -1,0 +1,77 @@
+  :host { display: inline-flex; max-width: 100%; }
+  .vlbu {
+    --fs: 14px;
+    position: relative;               /* underline offsetParent */
+    display: inline-flex;
+    align-items: center;
+    /* a nav that cannot wrap can only overflow; gap doubles as the row-gap that
+       keeps row 1's underline off row 2's labels */
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 16px;
+    padding-bottom: 4px;              /* room for the underline */
+    font-family: inherit;
+    font-size: var(--fs);
+  }
+  .vlbu--sm { --fs: var(--ctrl-fs-sm, 13px); gap: 12px; }
+  .vlbu--md { --fs: var(--ctrl-fs-md, 14px); gap: 16px; }
+  .vlbu--lg { --fs: var(--ctrl-fs-lg, 15px); gap: 20px; }
+
+  .vlbu__link {
+    position: relative;
+    /* a bare text run is 14px tall — under the 24px touch floor. The flex box
+       floors the tap area with the label still centred on its own line. */
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    font-size: var(--fs);
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 180ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .vlbu__link:hover { color: var(--text, #ededed); }
+  .vlbu__link.is-active { color: var(--text, #ededed); }
+  .vlbu__link:focus-visible {
+    outline: 2px solid var(--ui-accent, #ededed);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  .vlbu__sep {
+    width: 1px;
+    align-self: center;
+    height: 14px;
+    background: var(--ctrl-border, var(--text-muted, #8a8a8a));
+    opacity: 0.35;
+  }
+
+  /* persistent sliding underline — its x/y/width are driven imperatively.
+     Anchored to the nav's TOP: pinned to the bottom it would strand on the last
+     row the moment the bar wraps, floating under the wrong label. */
+  .vlbu__bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 0;
+    border-radius: 2px;
+    background: var(--ui-accent, #ededed);
+    transform: translateX(0);
+    pointer-events: none;
+  }
+  .vlbu__bar.is-ready {
+    transition:
+      transform 260ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+      width 260ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  /* tone → accent tint (drives the underline color) */
+  .vlbu--t-danger  { --accent: var(--danger, #ff6369); }
+  .vlbu--t-success { --accent: var(--success, #4cc38a); }
+  .vlbu--t-warn    { --accent: var(--warn, #ffb224); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vlbu__link { transition: none; }
+    .vlbu__bar.is-ready { transition: none; }
+  }

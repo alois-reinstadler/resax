@@ -1,0 +1,71 @@
+  /* shrink-to-fit host: without max-width it keeps its widest natural size and
+     shoves the whole bar out of a narrow column */
+  :host { display: inline-flex; max-width: 100%; }
+  .vlbg {
+    display: inline-flex;
+    align-items: center;
+    /* a nav that cannot wrap can only overflow; the 18px gap doubles as row-gap */
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 18px;
+    font-family: inherit;
+  }
+  .vlbg__link {
+    position: relative;
+    /* a bare text run is 14px tall — under the 24px touch floor. The flex box
+       floors the tap area; the glow is a text-shadow, so nothing else moves. */
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    text-decoration: none;
+    transition:
+      color 200ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+      text-shadow 240ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .vlbg__link:hover {
+    color: var(--ui-accent, #ededed);
+    text-shadow:
+      0 0 6px color-mix(in srgb, var(--ui-accent, #ededed) 70%, transparent),
+      0 0 16px color-mix(in srgb, var(--ui-accent, #ededed) 45%, transparent);
+  }
+  .vlbg__link.is-active {
+    color: var(--text, #ededed);
+    animation: vlbg-pulse 2400ms ease-in-out infinite;
+  }
+  .vlbg__link:focus-visible {
+    outline: 2px solid var(--ui-accent, #ededed);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  @keyframes vlbg-pulse {
+    0%, 100% {
+      text-shadow: 0 0 4px color-mix(in srgb, var(--ui-accent, #ededed) 30%, transparent);
+    }
+    50% {
+      text-shadow:
+        0 0 8px color-mix(in srgb, var(--ui-accent, #ededed) 65%, transparent),
+        0 0 20px color-mix(in srgb, var(--ui-accent, #ededed) 40%, transparent);
+    }
+  }
+  .vlbg__sep {
+    width: 1px;
+    align-self: center;
+    height: 14px;
+    background: var(--ctrl-border, var(--text-muted, #8a8a8a));
+    opacity: 0.35;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vlbg__link {
+      transition: color 180ms linear;
+    }
+    .vlbg__link:hover {
+      text-shadow: none;
+    }
+    .vlbg__link.is-active {
+      animation: none;
+    }
+  }

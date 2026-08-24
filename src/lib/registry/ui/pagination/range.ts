@@ -1,0 +1,4 @@
+export type PageToken=number|'ellipsis';
+export function pageCount(count:number,perPage=10){return Math.max(1,Math.ceil(Math.max(0,count)/Math.max(1,perPage)))}
+export function clampPage(page:number,pages:number){return Math.min(Math.max(1,Math.trunc(page)||1),Math.max(1,pages))}
+export function paginationRange(page:number,pages:number,siblings=1):PageToken[]{const total=Math.max(1,pages),current=clampPage(page,total),radius=Math.max(0,Math.trunc(siblings));if(total<=radius*2+5)return Array.from({length:total},(_,i)=>i+1);const values=new Set([1,total]);for(let n=current-radius;n<=current+radius;n++)if(n>1&&n<total)values.add(n);const nums=[...values].sort((a,b)=>a-b);const out:PageToken[]=[];nums.forEach((n,i)=>{const prev=nums[i-1];if(prev&&n-prev>1)out.push('ellipsis');out.push(n)});return out}

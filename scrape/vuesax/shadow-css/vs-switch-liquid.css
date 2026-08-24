@@ -1,0 +1,109 @@
+:host { display: inline-flex; }
+.vswq {
+  --w: 52px;
+  --h: 32px;
+  --pad: 4px;
+  --accent: var(--ui-accent, #ededed);
+  --off: var(--sw-off, #39393d);
+  --dur: 300ms;
+  --spring: cubic-bezier(0.34, 1.4, 0.6, 1);
+  --travel: calc(var(--w) - var(--h));
+  /* how far the blob leans ahead on press (intent) */
+  --intent: calc(var(--h) * 0.12);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #ededed;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.vswq--lbl-left { flex-direction: row-reverse; }
+.vswq--sm { --w: 40px; --h: 24px; --pad: 3px; font-size: 13px; }
+.vswq--lg { --w: 64px; --h: 38px; --pad: 5px; font-size: 15px; }
+
+.vswq__track {
+  position: relative;
+  flex: none;
+  width: var(--w);
+  height: var(--h);
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--off);
+  cursor: inherit;
+  outline: none;
+  overflow: hidden;
+  transition: background-color var(--dur) ease;
+}
+.is-on .vswq__track { background: color-mix(in srgb, var(--accent) 32%, #000); }
+.vswq__track:focus-visible { outline: 2px solid color-mix(in srgb, var(--accent) 80%, #fff); outline-offset: 3px; }
+
+.vswq__goo {
+  position: absolute;
+  inset: 0;
+  filter: url(#vswq-goo);
+  pointer-events: none;
+}
+.vswq__blob {
+  position: absolute;
+  top: var(--pad);
+  border-radius: 999px;
+  background: #fff;
+  transform-origin: center;
+  will-change: transform;
+}
+/* base blob size */
+.vswq__blob { --d: calc(var(--h) - var(--pad) * 2); }
+
+.vswq__blob--main {
+  left: var(--pad);
+  width: var(--d);
+  height: var(--d);
+  transition: transform var(--dur) var(--spring);
+  z-index: 3;
+}
+/* two trails of decreasing size and staggered lag → a tapering tail;
+   the goo melts all 3 into one mass that "necks" and reforms (liquid).
+   At rest they overlap and are centered = a single body. */
+.vswq__blob--t1 {
+  left: calc(var(--pad) + var(--d) * 0.05);
+  top: calc(var(--pad) + var(--d) * 0.05);
+  width: calc(var(--d) * 0.9);
+  height: calc(var(--d) * 0.9);
+  transition: transform calc(var(--dur) * 1.32) cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+.vswq__blob--t2 {
+  left: calc(var(--pad) + var(--d) * 0.12);
+  top: calc(var(--pad) + var(--d) * 0.12);
+  width: calc(var(--d) * 0.76);
+  height: calc(var(--d) * 0.76);
+  transition: transform calc(var(--dur) * 1.62) cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+.is-on .vswq__blob--main { transform: translateX(var(--travel)); }
+.is-on .vswq__blob--t1   { transform: translateX(var(--travel)); }
+.is-on .vswq__blob--t2   { transform: translateX(var(--travel)); }
+.is-on .vswq__blob { background: var(--accent); }
+
+/* ── press: the blob leans toward the target with intent + squish ──
+   the trail stays put on press → instant separation → goo stretches now */
+.is-pressed .vswq__blob--main {
+  transform: translateX(var(--intent)) scaleX(1.1) scaleY(0.93);
+}
+.is-on.is-pressed .vswq__blob--main {
+  transform: translateX(calc(var(--travel) - var(--intent))) scaleX(1.1) scaleY(0.93);
+}
+
+.vswq__label { line-height: 1; }
+.is-disabled { cursor: not-allowed; opacity: 0.45; }
+.is-disabled .vswq__track { cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vswq__blob { transition-duration: 0ms; }
+  .vswq__goo { filter: none; }
+}

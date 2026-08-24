@@ -1,0 +1,134 @@
+  :host { display: inline-flex; }
+.pgg {
+  --h: 36px;
+  --fs: 14px;
+  --gap: 6px;
+  --acc: var(--vs-color, var(--text, #ededed));
+  --acc-on: var(--bg, #0a0a0a);
+  --muted: var(--text-muted, #8a8a8a);
+  --ring: var(--inp-ring, 255 255 255);
+  /* damped spring (Apple-like): overshoot and micro-bounces as it settles */
+  --pgg-spring: linear(
+    0, 0.009, 0.035, 0.078, 0.135, 0.205, 0.285, 0.374, 0.469, 0.567,
+    0.665, 0.759, 0.847, 0.925, 0.991, 1.043, 1.081, 1.104, 1.113, 1.109,
+    1.094, 1.071, 1.043, 1.012, 0.983, 0.958, 0.94, 0.93, 0.928, 0.933,
+    0.943, 0.957, 0.973, 0.988, 1.001, 1.011, 1.017, 1.019, 1.018, 1.014,
+    1.009, 1.004, 1
+  );
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: inherit;
+  font-size: var(--fs);
+}
+.pgg--sm { --h: 30px; --fs: 13px; --gap: 5px; }
+.pgg--lg { --h: 42px; --fs: 15px; --gap: 7px; }
+
+/* ── tones — recolor the blob + active-number text ─────────────── */
+.pgg--t-primary { --acc: var(--primary, var(--ui-accent, #ededed)); --acc-on: var(--ui-accent-fg, #0b0b0b); }
+.pgg--t-success { --acc: #4cc38a; --acc-on: #04120b; }
+.pgg--t-warn    { --acc: #ffb224; --acc-on: #160f02; }
+.pgg--t-danger  { --acc: #ff6369; --acc-on: #160405; }
+
+.pgg__defs { position: absolute; width: 0; height: 0; }
+
+.pgg__viewport {
+  position: relative;
+  overflow: hidden;
+  width: calc(var(--win) * var(--h) + (var(--win) - 1) * var(--gap) + var(--padx) * 2);
+  height: var(--h);
+}
+.pgg__track {
+  position: absolute;
+  top: 0;
+  left: var(--padx);
+  display: flex;
+  gap: var(--gap);
+  height: var(--h);
+  will-change: transform;
+  transition: transform 620ms var(--pgg-spring);
+}
+
+/* the goo layer isolates the filter so it only melts the blob */
+.pgg__goo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.pgg__blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--h);
+  border-radius: 999px;
+  background: var(--acc);
+  opacity: 0;
+  transition:
+    transform 620ms var(--pgg-spring),
+    width 620ms var(--pgg-spring),
+    opacity 200ms ease;
+}
+.pgg__blob.is-ready { opacity: 1; }
+/* subtle squash synced to the spring: backs the bounce without overdoing it */
+.pgg__blob.is-wobble { animation: pgg-wobble 620ms var(--pgg-spring); }
+@keyframes pgg-wobble {
+  0% { scale: 1 1; }
+  22% { scale: 1.05 0.96; }
+  55% { scale: 0.98 1.02; }
+  100% { scale: 1 1; }
+}
+
+.pgg__page {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: var(--h);
+  height: var(--h);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 999px;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 260ms ease;
+}
+.pgg__page:hover:not(:disabled):not(.is-active) { color: var(--acc); }
+.pgg__page.is-active { color: var(--acc-on); }
+.pgg__page:disabled { cursor: not-allowed; }
+.pgg__page:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+.pgg__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--h);
+  height: var(--h);
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: var(--fs);
+  cursor: pointer;
+  transition: color 200ms ease, background-color 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.pgg__nav:hover:not(:disabled) { color: var(--acc); background: rgb(var(--ring) / 0.1); }
+.pgg__nav:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.pgg__nav:disabled { opacity: 0.35; cursor: not-allowed; }
+.pgg__nav svg { display: block; }
+
+.pgg.is-disabled { opacity: 0.55; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pgg__track, .pgg__blob { transition: opacity 200ms ease; }
+  .pgg__blob.is-wobble { animation: none; }
+  .pgg__page, .pgg__nav { transition: none; }
+}

@@ -1,0 +1,139 @@
+  :host { display: inline-flex; }
+  .pin {
+    --pin-spring: cubic-bezier(0.22, 1, 0.36, 1);
+    --badge: 19px;
+    --dot: 10px;
+    --pushx: 35%;
+    --pushy: -35%;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    flex: none;
+    vertical-align: middle;
+  }
+
+  .pin--sm { --badge: 16px; --dot: 8px; }
+  .pin--md { --badge: 19px; --dot: 10px; }
+  .pin--lg { --badge: 24px; --dot: 13px; }
+
+  .pin__anchor { display: inline-flex; border-radius: inherit; }
+
+  .pin__demo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface-2, #1a1a1a);
+    color: var(--text-muted, #8a8a8a);
+    box-shadow: inset 0 0 0 1px var(--border, #2a2a2a);
+  }
+  .pin__demo svg { width: 60%; height: 60%; }
+  .pin--sm .pin__demo { width: 34px; height: 34px; }
+  .pin--lg .pin__demo { width: 60px; height: 60px; }
+
+  .pin--p-top-right    .pin__badge, .pin--p-top-right    .pin__ring { top: 0; right: 0; }
+  .pin--p-top-left     .pin__badge, .pin--p-top-left     .pin__ring { top: 0; left: 0; }
+  .pin--p-bottom-right .pin__badge, .pin--p-bottom-right .pin__ring { bottom: 0; right: 0; }
+  .pin--p-bottom-left  .pin__badge, .pin--p-bottom-left  .pin__ring { bottom: 0; left: 0; }
+
+  .pin--p-top-right    { --pushx: 35%;  --pushy: -35%; }
+  .pin--p-top-left     { --pushx: -35%; --pushy: -35%; }
+  .pin--p-bottom-right { --pushx: 35%;  --pushy: 35%; }
+  .pin--p-bottom-left  { --pushx: -35%; --pushy: 35%; }
+
+  .pin__badge {
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: var(--badge);
+    min-width: var(--badge);
+    width: calc(var(--badge) + (var(--digits, 1) - 1) * 0.6em);
+    border-radius: 999px;
+    color: #fff;
+    font-size: calc(var(--badge) * 0.52);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    box-shadow: 0 0 0 2px var(--bg, #0a0a0a);
+    transform: translate(var(--pushx), var(--pushy));
+    transform-origin: var(--pushx) var(--pushy);
+    transition:
+      width 420ms var(--pin-spring),
+      border-radius 300ms var(--pin-spring),
+      background-color 300ms ease;
+  }
+  .pin__badge.is-hidden { display: none; }
+
+  .pin--m-dot { width: var(--dot); min-width: var(--dot); height: var(--dot); }
+  .pin--m-icon { width: var(--badge); min-width: var(--badge); }
+  .pin__content { display: inline-flex; align-items: center; justify-content: center; }
+  .pin--m-icon .pin__content ::slotted(svg) {
+    width: calc(var(--badge) * 0.62);
+    height: calc(var(--badge) * 0.62);
+    display: block;
+  }
+  .pin__num { display: block; }
+
+  .pin--t-danger  { --tone-c: var(--tone-danger,  #f23f43); }
+  .pin--t-success { --tone-c: var(--tone-success, #23a55a); }
+  .pin--t-warn    { --tone-c: var(--tone-warn,    #f0b232); }
+  .pin--t-info    { --tone-c: var(--ui-accent, #ededed); }
+  .pin--t-neutral { --tone-c: var(--tone-neutral, var(--ui-accent, #ededed)); }
+  .pin__badge { background: var(--tone-c, var(--ui-accent, #ededed)); }
+  .pin--t-warn.pin__badge { color: #160f02; }
+
+  /* ── ping: concentric rings expanding in a cascade ─────────────────── */
+  .pin__ring {
+    position: absolute;
+    z-index: 4;
+    width: var(--badge);
+    height: var(--badge);
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 2px var(--tone-c, var(--ui-accent, #ededed));
+    background: transparent;
+    transform: translate(var(--pushx), var(--pushy));
+    transform-origin: var(--pushx) var(--pushy);
+    animation: pin-ping 1.8s var(--pin-spring) infinite;
+    animation-delay: calc(var(--i) * 0.35s);
+    pointer-events: none;
+  }
+  .pin__ring--dot { width: var(--dot); height: var(--dot); }
+  .pin__ring.is-hidden { display: none; }
+  @keyframes pin-ping {
+    0%   { opacity: 0.7; transform: translate(var(--pushx), var(--pushy)) scale(0.9); }
+    80%  { opacity: 0;   transform: translate(var(--pushx), var(--pushy)) scale(2.6); }
+    100% { opacity: 0;   transform: translate(var(--pushx), var(--pushy)) scale(2.6); }
+  }
+
+  .pin__badge.pin-pop-enter-active {
+    transition: transform 420ms var(--pin-spring), opacity 220ms ease, filter 280ms ease;
+  }
+  .pin__badge.pin-pop-leave-active {
+    transition: transform 200ms cubic-bezier(0.4, 0, 1, 1), opacity 170ms ease, filter 170ms ease;
+  }
+  .pin__badge.pin-pop-enter-from {
+    opacity: 0; filter: blur(7px);
+    transform: translate(var(--pushx), var(--pushy)) scale(0);
+  }
+  .pin__badge.pin-pop-leave-to {
+    opacity: 0; filter: blur(7px);
+    transform: translate(var(--pushx), var(--pushy)) scale(0.2);
+  }
+
+  .pin-swap-enter-active { transition: opacity 200ms ease, filter 200ms ease, scale 320ms var(--pin-spring); }
+  .pin-swap-leave-active { transition: opacity 150ms ease, filter 150ms ease, scale 150ms cubic-bezier(0.4, 0, 1, 1); }
+  .pin-swap-enter-from { opacity: 0; filter: blur(6px); scale: 0.45; }
+  .pin-swap-leave-to   { opacity: 0; filter: blur(6px); scale: 0.35; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pin__badge,
+    .pin-swap-enter-active,
+    .pin-swap-leave-active { transition: none; }
+    .pin__ring { animation: none; opacity: 0; }
+  }

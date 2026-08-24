@@ -1,0 +1,81 @@
+  :host { display: block; }
+  .vsm-sb {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 340px;
+    border-radius: var(--ctrl-r-lg, 16px);
+    background: var(--bg-card, #111);
+    border: 1px solid var(--border, #2a2a2a);
+    overflow: hidden;
+  }
+  .vsm-sb--bare {
+    max-width: none;
+    height: auto;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+  }
+  .vsm-sb__vp {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior: contain;
+  }
+  .vsm-sb--bare .vsm-sb__vp {
+    height: auto;
+  }
+  .vsm-sb__vp::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .vsm-sb__track {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    cursor: pointer;
+    transition: opacity 320ms ease;
+  }
+  .vsm-sb__track[hidden] { display: none; }
+  .vsm-sb__track--hidden {
+    opacity: 0;
+  }
+  .vsm-sb__thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: var(--ctrl-r-sm, 999px);
+    cursor: grab;
+    will-change: transform, width;
+    transition: width 200ms ease, background-color 200ms ease;
+  }
+  .vsm-sb__thumb:active {
+    cursor: grabbing;
+  }
+  .vsm-sb__demo {
+    padding: 22px 26px;
+    color: var(--text-secondary, #c9c9c9);
+    font-family: inherit;
+  }
+  .vsm-sb__demo h3 {
+    margin: 0 0 14px;
+    color: var(--text, #fff);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .vsm-sb__demo p {
+    margin: 0 0 16px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vsm-sb__thumb,
+    .vsm-sb__track {
+      transition: none;
+    }
+  }

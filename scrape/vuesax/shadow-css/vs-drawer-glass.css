@@ -1,0 +1,86 @@
+.gls-root { position: fixed; inset: 0; z-index: 1000; pointer-events: auto; }
+
+.gls-ov {
+  position: absolute;
+  inset: 0;
+  background: var(--backdrop, rgba(0, 0, 0, 0.35));
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.gls-ov.gls-ov-enter-active, .gls-ov.gls-ov-leave-active { transition: opacity 320ms ease; }
+.gls-ov.gls-ov-enter-from, .gls-ov.gls-ov-leave-to { opacity: 0; }
+
+/* ── unique effect: frosted translucent glass surface ── */
+.gls-panel {
+  --gls-w: 380px;
+  --gls-glass: color-mix(in srgb, var(--bg-card, #111) 55%, transparent);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--gls-glass);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  color: var(--text, #ededed);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  outline: none;
+  overflow: hidden;
+}
+.gls-panel--frost-subtle { --gls-glass: color-mix(in srgb, var(--bg-card, #111) 72%, transparent); backdrop-filter: blur(10px) saturate(130%); -webkit-backdrop-filter: blur(10px) saturate(130%); }
+.gls-panel--frost-heavy { --gls-glass: color-mix(in srgb, var(--bg-card, #111) 48%, transparent); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); }
+
+.gls-panel--left, .gls-panel--right { top: 0; height: 100%; width: min(var(--gls-w), calc(100vw - 48px)); }
+.gls-panel--left { left: 0; border-right: 1px solid var(--border, #2a2a2a); }
+.gls-panel--right { right: 0; border-left: 1px solid var(--border, #2a2a2a); }
+.gls-panel--top, .gls-panel--bottom { left: 0; width: 100%; height: min(var(--gls-w), calc(100vh - 48px)); }
+.gls-panel--top { top: 0; border-bottom: 1px solid var(--border, #2a2a2a); }
+.gls-panel--bottom { bottom: 0; border-top: 1px solid var(--border, #2a2a2a); }
+
+.gls-panel--sm { --gls-w: 300px; }
+.gls-panel--md { --gls-w: 380px; }
+.gls-panel--lg { --gls-w: 520px; }
+
+.gls-panel__head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 18px 20px;
+  border-bottom: 1px solid var(--border, #2a2a2a);
+}
+.gls-panel__title { margin: 0; font-size: 16px; font-weight: 600; color: var(--text, #ededed); }
+.gls-panel__x {
+  appearance: none; border: none; background: transparent;
+  color: var(--text, #ededed);
+  width: 30px; height: 30px; display: grid; place-items: center;
+  border-radius: var(--ctrl-r-sm, 8px); cursor: pointer;
+  transition: background 140ms ease;
+}
+.gls-panel__x svg { width: 18px; height: 18px; }
+.gls-panel__x:hover { background: var(--bg-input, rgba(255, 255, 255, 0.06)); }
+
+.gls-panel__body { flex: 1; padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.55; color: var(--text-secondary, #c4c4c4); }
+.gls-panel__placeholder { margin: 0; }
+.gls-panel__placeholder code {
+  font-family: var(--font-mono, monospace);
+  padding: 1px 6px; border-radius: 6px;
+  background: var(--bg-input, rgba(255, 255, 255, 0.06));
+  color: var(--text, #ededed);
+}
+.gls-panel__foot {
+  display: flex; justify-content: flex-end; gap: 10px;
+  padding: 16px 20px; border-top: 1px solid var(--border, #2a2a2a);
+}
+
+.gls-panel--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+.gls-panel--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+.gls-panel--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+.gls-panel.gls-enter-active, .gls-panel.gls-leave-active {
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 380ms ease;
+}
+.gls-panel--right.gls-enter-from, .gls-panel--right.gls-leave-to { transform: translateX(100%); opacity: 0.4; }
+.gls-panel--left.gls-enter-from, .gls-panel--left.gls-leave-to { transform: translateX(-100%); opacity: 0.4; }
+.gls-panel--top.gls-enter-from, .gls-panel--top.gls-leave-to { transform: translateY(-100%); opacity: 0.4; }
+.gls-panel--bottom.gls-enter-from, .gls-panel--bottom.gls-leave-to { transform: translateY(100%); opacity: 0.4; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gls-ov.gls-ov-enter-active, .gls-ov.gls-ov-leave-active,
+  .gls-panel.gls-enter-active, .gls-panel.gls-leave-active { transition: none; }
+}

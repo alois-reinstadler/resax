@@ -1,0 +1,133 @@
+  :host { display: inline-flex; }
+.pgi {
+  --h: 34px;
+  --fs: 14px;
+  --gap: 2px;
+  --acc: var(--vs-color, var(--text, #ededed));
+  --muted: var(--text-muted, #8a8a8a);
+  --ring: var(--inp-ring, 255 255 255);
+  /* soft spring (Apple-like): slight overshoot + micro-bounce, not overdone */
+  --pgi-spring: linear(
+    0, 0.02, 0.08, 0.18, 0.32, 0.48, 0.64, 0.78, 0.89, 0.965,
+    1.012, 1.038, 1.048, 1.045, 1.034, 1.02, 1.007, 0.998, 0.994, 0.996,
+    0.999, 1
+  );
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: inherit;
+  font-size: var(--fs);
+}
+.pgi--sm { --h: 28px; --fs: 13px; }
+.pgi--lg { --h: 40px; --fs: 15px; }
+
+/* ── carousel window ──────────────────────────────────────── */
+.pgi__viewport {
+  position: relative;
+  overflow: hidden;
+  width: calc(var(--win) * var(--slot) + (var(--win) - 1) * var(--gap) + var(--padx) * 2);
+  height: var(--h);
+  --slot: calc(var(--h) + 8px);
+  /* side mask: numbers fade as they enter/leave, with no hard cutoff */
+  --fade: calc(var(--slot) * 0.9);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--fade),
+    #000 calc(100% - var(--fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--fade),
+    #000 calc(100% - var(--fade)),
+    transparent 100%
+  );
+}
+.pgi__track {
+  position: absolute;
+  top: 0;
+  left: var(--padx);
+  display: flex;
+  gap: var(--gap);
+  height: var(--h);
+  will-change: transform;
+  transition: transform 560ms var(--pgi-spring);
+}
+
+/* number (slot wide enough for 2-3 digits) */
+.pgi__num {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: calc(var(--h) + 8px);
+  height: var(--h);
+  padding: 0 6px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 520;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 240ms ease;
+}
+.pgi__num:hover:not(:disabled):not(.is-active) { color: var(--acc); }
+.pgi__num.is-active { color: var(--acc); font-weight: 640; }
+.pgi__num:disabled { cursor: not-allowed; }
+.pgi__num:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+/* ink bar under the active number, inside the track (slides along with it) */
+.pgi__ink {
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  height: 2.5px;
+  border-radius: 999px;
+  background: var(--acc);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition:
+    transform 560ms var(--pgi-spring),
+    width 560ms var(--pgi-spring),
+    opacity 200ms ease;
+}
+.pgi__ink.is-ready { opacity: 1; }
+
+.pgi__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--h);
+  height: var(--h);
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: var(--fs);
+  cursor: pointer;
+  transition: color 200ms ease, background-color 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.pgi__nav:hover:not(:disabled) { color: var(--acc); background: rgb(var(--ring) / 0.1); }
+.pgi__nav:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.pgi__nav:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.pgi.is-disabled { opacity: 0.55; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pgi__track,
+  .pgi__ink { transition: opacity 200ms ease; }
+  .pgi__ink.is-pop { animation: none; }
+  .pgi__num, .pgi__nav { transition: none; }
+}

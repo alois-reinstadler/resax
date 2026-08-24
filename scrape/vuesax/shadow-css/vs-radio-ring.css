@@ -1,0 +1,85 @@
+  :host { display: inline-flex; }
+.rrg {
+  --box: 20px;
+  --fs: 14px;
+  --accent: var(--inp-accent, var(--ui-accent, #ededed));
+  --ring: var(--inp-ring, 255 255 255);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: inherit;
+  font-size: var(--fs);
+  color: var(--text, #ededed);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.rrg--lbl-left { flex-direction: row-reverse; }
+.rrg--sm { --box: 16px; --fs: 13px; }
+.rrg--md { --box: 20px; --fs: 14px; }
+.rrg--lg { --box: 24px; --fs: 15px; }
+
+.rrg__box {
+  position: relative;
+  isolation: isolate;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--box);
+  height: var(--box);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-input, #0d0d0d);
+  cursor: inherit;
+  outline: none;
+}
+.rrg__box:focus-visible { box-shadow: 0 0 0 3px rgb(var(--ring) / 0.35); }
+
+.rrg__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.rrg__track {
+  stroke: var(--inp-border, #2a2a2a);
+  transition: stroke 200ms ease;
+}
+.rrg__box:hover .rrg__track { stroke: var(--inp-border-hover, #5a5a5a); }
+
+/* ring traces clockwise on select */
+.rrg__ring {
+  stroke: var(--accent);
+  stroke-dasharray: 100.53; /* 2*pi*16 */
+  stroke-dashoffset: 100.53;
+  transition: stroke-dashoffset 480ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.rrg.is-on .rrg__ring { stroke-dashoffset: 0; }
+
+.rrg__dot {
+  position: relative;
+  z-index: 1;
+  width: 46%;
+  height: 46%;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 380ms 120ms cubic-bezier(0.34, 1.56, 0.5, 1), opacity 160ms 120ms ease;
+}
+.rrg.is-on .rrg__dot { transform: scale(1); opacity: 1; }
+
+.rrg__label { line-height: 1.2; }
+
+.rrg--t-danger { --accent: #e5484d; --ui-accent-fg: #fff; --ring: 255 99 105; }
+.rrg--t-warn { --accent: #f5a623; --ui-accent-fg: #160f02; --ring: 255 178 36; }
+.rrg--t-success { --accent: #30a46c; --ui-accent-fg: #fff; --ring: 76 195 138; }
+
+.rrg.is-disabled { opacity: 0.45; cursor: not-allowed; }
+.rrg.is-disabled .rrg__box { cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rrg__ring, .rrg__dot, .rrg__track { transition-duration: 0ms; }
+}

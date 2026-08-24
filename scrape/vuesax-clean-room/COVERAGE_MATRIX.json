@@ -1,0 +1,887 @@
+{
+  "generatedAt": "2026-08-24T21:42:58.146Z",
+  "summary": {
+    "families": 55,
+    "expectedImplementations": 328,
+    "capturedImplementations": 328,
+    "props": 515,
+    "completeFamilies": 55,
+    "familiesWithBaseStyles": 55,
+    "familiesWithIntrinsicMotion": 53,
+    "themeTokenSets": [
+      "light",
+      "dark"
+    ]
+  },
+  "components": [
+    {
+      "component": "Accordion",
+      "family": "VsAccordion",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 9,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Accordion"
+      ]
+    },
+    {
+      "component": "Alert",
+      "family": "VsAlertBanner",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 8,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Alert"
+      ]
+    },
+    {
+      "component": "Avatar",
+      "family": "VsAvatar",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 13,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Avatar"
+      ]
+    },
+    {
+      "component": "AvatarGroup",
+      "family": "VsAvatarGroup",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 6,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Avatar"
+      ]
+    },
+    {
+      "component": "Badge",
+      "family": "VsBadge",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 10,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Badge"
+      ]
+    },
+    {
+      "component": "Breadcrumb",
+      "family": "VsBreadcrumb",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 5,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Breadcrumb"
+      ]
+    },
+    {
+      "component": "Button",
+      "family": "VsButton",
+      "expectedVariants": 15,
+      "capturedVariants": 15,
+      "complete": true,
+      "propCount": 12,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Button"
+      ]
+    },
+    {
+      "component": "ButtonGroup",
+      "family": "VsButtonGroup",
+      "expectedVariants": 1,
+      "capturedVariants": 1,
+      "complete": true,
+      "propCount": 10,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "composes animated Button children; no group-level keyframes",
+      "reducedMotionRuleObserved": false,
+      "shadcnSvelteFoundation": [
+        "Button"
+      ]
+    },
+    {
+      "component": "Calendar",
+      "family": "VsCalendar",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 10,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Calendar",
+        "Popover"
+      ]
+    },
+    {
+      "component": "Card",
+      "family": "VsCardAsset",
+      "expectedVariants": 8,
+      "capturedVariants": 8,
+      "complete": true,
+      "propCount": 13,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Card"
+      ]
+    },
+    {
+      "component": "Checkbox",
+      "family": "VsCheckbox",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 9,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Checkbox"
+      ]
+    },
+    {
+      "component": "Chip",
+      "family": "VsChip",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 12,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Badge",
+        "Button"
+      ]
+    },
+    {
+      "component": "Code",
+      "family": "VsCode",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 15,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Card"
+      ]
+    },
+    {
+      "component": "ColorPicker",
+      "family": "VsColorPicker",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 9,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Popover",
+        "Input"
+      ]
+    },
+    {
+      "component": "ContextMenu",
+      "family": "VsContextMenu",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": false,
+      "shadcnSvelteFoundation": [
+        "Context Menu"
+      ]
+    },
+    {
+      "component": "Cursor",
+      "family": "VsCursor",
+      "expectedVariants": 7,
+      "capturedVariants": 7,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "Dock",
+      "family": "VsDock",
+      "expectedVariants": 7,
+      "capturedVariants": 7,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Tooltip"
+      ]
+    },
+    {
+      "component": "DotStepper",
+      "family": "VsDotStepper",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 15,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Pagination"
+      ]
+    },
+    {
+      "component": "Drawer",
+      "family": "VsDrawer",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 10,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Sheet"
+      ]
+    },
+    {
+      "component": "Dropdown",
+      "family": "VsDropdown",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 9,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Dropdown Menu"
+      ]
+    },
+    {
+      "component": "FileTree",
+      "family": "VsFileTree",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Collapsible"
+      ]
+    },
+    {
+      "component": "Indicator",
+      "family": "VsIndicator",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 9,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Badge"
+      ]
+    },
+    {
+      "component": "InlineOverflow",
+      "family": "VsInlineOverflow",
+      "expectedVariants": 1,
+      "capturedVariants": 1,
+      "complete": true,
+      "propCount": 12,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Dropdown Menu"
+      ]
+    },
+    {
+      "component": "Input",
+      "family": "VsInput",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 15,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Input"
+      ]
+    },
+    {
+      "component": "LinkBar",
+      "family": "VsLinkBar",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 2,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Navigation Menu"
+      ]
+    },
+    {
+      "component": "List",
+      "family": "VsList",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 9,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "NavMenu",
+      "family": "VsNavMenu",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Navigation Menu"
+      ]
+    },
+    {
+      "component": "Notification",
+      "family": "VsNotification",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 8,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Sonner"
+      ]
+    },
+    {
+      "component": "Number",
+      "family": "VsNumber",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 10,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Input",
+        "Button"
+      ]
+    },
+    {
+      "component": "Otp",
+      "family": "VsOtp",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 8,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Input OTP"
+      ]
+    },
+    {
+      "component": "Pagination",
+      "family": "VsPagination",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 9,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Pagination"
+      ]
+    },
+    {
+      "component": "Popup",
+      "family": "VsPopup",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 8,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Dialog"
+      ]
+    },
+    {
+      "component": "Progress",
+      "family": "VsProgress",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 11,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Progress"
+      ]
+    },
+    {
+      "component": "Radio",
+      "family": "VsRadio",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 8,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Radio Group"
+      ]
+    },
+    {
+      "component": "RadioGroup",
+      "family": "VsRadioGroup",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 5,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Radio Group"
+      ]
+    },
+    {
+      "component": "Rating",
+      "family": "VsRating",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 10,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "Scrollbar",
+      "family": "VsScrollbar",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Scroll Area"
+      ]
+    },
+    {
+      "component": "Select",
+      "family": "VsSelect",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Select"
+      ]
+    },
+    {
+      "component": "Separator",
+      "family": "VsSeparator",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 6,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Separator"
+      ]
+    },
+    {
+      "component": "Sidebar",
+      "family": "VsSidebar",
+      "expectedVariants": 7,
+      "capturedVariants": 7,
+      "complete": true,
+      "propCount": 10,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Sidebar"
+      ]
+    },
+    {
+      "component": "Skeleton",
+      "family": "VsSkeleton",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 8,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Skeleton"
+      ]
+    },
+    {
+      "component": "SlideConfirm",
+      "family": "VsSlideConfirm",
+      "expectedVariants": 1,
+      "capturedVariants": 1,
+      "complete": true,
+      "propCount": 13,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Slider"
+      ]
+    },
+    {
+      "component": "Slider",
+      "family": "VsSliderFluent",
+      "expectedVariants": 8,
+      "capturedVariants": 8,
+      "complete": true,
+      "propCount": 14,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Slider"
+      ]
+    },
+    {
+      "component": "Spacer",
+      "family": "VsSpacer",
+      "expectedVariants": 1,
+      "capturedVariants": 1,
+      "complete": true,
+      "propCount": 3,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "none by design (layout primitive)",
+      "reducedMotionRuleObserved": false,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "Spinner",
+      "family": "VsSpinnerGrid",
+      "expectedVariants": 11,
+      "capturedVariants": 11,
+      "complete": true,
+      "propCount": 6,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "Steps",
+      "family": "VsSteps",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 8,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "Switch",
+      "family": "VsSwitch",
+      "expectedVariants": 7,
+      "capturedVariants": 7,
+      "complete": true,
+      "propCount": 11,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Switch"
+      ]
+    },
+    {
+      "component": "Table",
+      "family": "VsTable",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 11,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Table"
+      ]
+    },
+    {
+      "component": "Tabs",
+      "family": "VsTabsGooey",
+      "expectedVariants": 7,
+      "capturedVariants": 7,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Tabs"
+      ]
+    },
+    {
+      "component": "Textarea",
+      "family": "VsTextarea",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 18,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Textarea"
+      ]
+    },
+    {
+      "component": "TickRail",
+      "family": "VsTickRail",
+      "expectedVariants": 1,
+      "capturedVariants": 1,
+      "complete": true,
+      "propCount": 15,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Slider"
+      ]
+    },
+    {
+      "component": "Timeline",
+      "family": "VsTimeline",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 7,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "Tooltip",
+      "family": "VsTooltip",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 5,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Tooltip"
+      ]
+    },
+    {
+      "component": "Transform",
+      "family": "VsTransform",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 13,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": []
+    },
+    {
+      "component": "UploadFile",
+      "family": "VsUploadFile",
+      "expectedVariants": 6,
+      "capturedVariants": 6,
+      "complete": true,
+      "propCount": 12,
+      "propsCaptured": true,
+      "stylesCaptured": true,
+      "themeCoverage": "light/dark token-driven",
+      "motion": "intrinsic motion captured",
+      "reducedMotionRuleObserved": true,
+      "shadcnSvelteFoundation": [
+        "Input",
+        "Progress"
+      ]
+    }
+  ]
+}

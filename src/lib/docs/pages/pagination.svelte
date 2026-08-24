@@ -1,0 +1,4 @@
+<script lang="ts">import DemoSection from '../DemoSection.svelte';import{Pagination}from'$lib/registry/ui/pagination';let page=$state(4);</script>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Pagination</h1><p>Compact page ranges, playful active states, and an accessible jump control.</p></div>
+<DemoSection title="Default" source={'<Pagination bind:page count={240} />'}><div class="stack"><Pagination bind:page count={240}/><span>Current page: {page}</span></div></DemoSection>
+<DemoSection title="Dots and goto" source={'<Pagination variant="dots" showGoto count={90} />'}><div class="stack"><Pagination page={3} count={90} variant="dots" color="success"/><Pagination page={8} count={200} variant="segments" showGoto/></div></DemoSection><style>.stack{display:grid;gap:1rem}</style>

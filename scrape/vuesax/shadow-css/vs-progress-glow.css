@@ -1,0 +1,109 @@
+  :host { display: block; width: 100%; }
+  .vpgl {
+    --h: 10px;
+    --fs: 13px;
+    --radius: var(--ctrl-r-pill, 999px);
+    --accent: var(--ui-accent, #ededed);
+    --track: var(--border, #2a2a2a);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+    --vpgl-int: 0.6;
+
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 240px;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tint);
+  }
+
+  .vpgl--sm { --h: 6px; --fs: 12px; }
+  .vpgl--md { --h: 10px; --fs: 13px; }
+  .vpgl--lg { --h: 14px; --fs: 14px; }
+
+  .vpgl__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    line-height: 1;
+  }
+  .vpgl__head[hidden] { display: none; }
+  .vpgl__label { font-weight: 500; }
+  .vpgl__label:empty { display: none; }
+  .vpgl__val { font-variant-numeric: tabular-nums; color: var(--accent); }
+  .vpgl__val[hidden] { display: none; }
+
+  .vpgl__track {
+    position: relative;
+    width: 100%;
+    height: var(--h);
+    background: var(--track);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  /* full-width bar revealed by translateX (compositable); glow = box-shadow halo
+     living on the bar, which is position:absolute → out of flow. --p lets the
+     spark hug the visible area of the fill. */
+  .vpgl__bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    background: var(--accent);
+    overflow: hidden;
+    box-shadow:
+      0 0 calc(8px * var(--vpgl-int)) color-mix(in srgb, var(--accent) 90%, transparent),
+      0 0 calc(18px * var(--vpgl-int)) color-mix(in srgb, var(--accent) 60%, transparent);
+    animation: vpgl-pulse 1.8s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes vpgl-pulse {
+    0%, 100% { filter: brightness(1); }
+    50%      { filter: brightness(1.25); }
+  }
+
+  .vpgl__spark {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    /* visible area of the fill: starts where the bar enters the track and spans 40% of it,
+       like when the bar had a dynamic width (indeterminate: --p=1 → same as before) */
+    left: calc((1 - var(--p, 1)) * 100%);
+    width: calc(40% * var(--p, 1));
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 0.55),
+      transparent
+    );
+    animation: vpgl-sweep 2.2s ease-in-out infinite;
+  }
+  @keyframes vpgl-sweep {
+    0%   { transform: translateX(-120%); }
+    100% { transform: translateX(320%); }
+  }
+
+  .vpgl.is-indeterminate .vpgl__bar {
+    width: 45%;
+    animation:
+      vpgl-pulse 1.8s ease-in-out infinite,
+      vpgl-slide 1.5s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  }
+  /* % are relative to the bar itself (45% of track): -100% ≡ left:-45%, 222.23% ≡ left:100% */
+  @keyframes vpgl-slide {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(222.23%); }
+  }
+
+  .vpgl--t-danger  { --accent: var(--danger,  #ff6369); }
+  .vpgl--t-warn    { --accent: var(--warn,    #ffb224); }
+  .vpgl--t-success { --accent: var(--success, #4cc38a); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vpgl__bar { animation: none; transition: none; }
+    .vpgl__spark { animation: none; display: none; }
+  }

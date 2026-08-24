@@ -17,7 +17,7 @@
 	<div class="calendar-demo" data-demo-section="range"><Calendar mode="range" color="warn" bind:value={range} /><Calendar mode="range" numberOfMonths={2} bind:value={range} /></div>
 </DemoSection>
 <DemoSection title="Limits and unavailable dates" source={'<Calendar minValue={min} maxValue={max} {isDateUnavailable} />'}>
-	<Calendar value={new CalendarDate(2026, 8, 15)} minValue={new CalendarDate(2026, 8, 5)} maxValue={new CalendarDate(2026, 9, 20)} isDateUnavailable={unavailable} color="danger" />
+	<div class="calendar-demo"><Calendar value={new CalendarDate(2026, 8, 15)} minValue={new CalendarDate(2026, 8, 5)} maxValue={new CalendarDate(2026, 9, 20)} isDateUnavailable={unavailable} color="danger" /><Calendar disabled value={new CalendarDate(2026, 8, 15)} /></div>
 </DemoSection>
 <DemoSection title="DatePicker states, sizes, and colors" source={'<DatePicker label="Appointment" state="success" message="Available" />'}>
 	<div class="picker-demo" data-demo-section="date-picker"><DatePicker bind:value={picker} label="Appointment" placeholder="Choose a date" message="Pick your preferred day" /><DatePicker label="Approved" state="success" message="Available" size="lg" /><DatePicker label="Review date" state="warn" message="Confirmation required" /><DatePicker label="Deadline" state="danger" message="Date is required" size="sm" /></div>

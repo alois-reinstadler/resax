@@ -1,0 +1,160 @@
+  :host { display: block; width: 100%; }
+  ${L}
+  .vsl {
+    --accent: var(--inp-accent, #ededed);
+    --ring: var(--inp-ring, 255 255 255);
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    background: var(--bg-card, #0a0a0a);
+    border: 1px solid var(--border, #1f1f1f);
+    overflow: hidden;
+  }
+  .vsl--plain { border: none; background: transparent; border-radius: 0 !important; --vsl-radius: 0px; }
+
+  .vsl { border-radius: var(--vsl-radius, 12px); }
+  .vsl--r-none { --vsl-radius: 0px; }
+  .vsl--r-subtle { --vsl-radius: 8px; }
+  .vsl--r-rounded { --vsl-radius: var(--radius-card, 12px); }
+  .vsl--r-pill { --vsl-radius: 26px; }
+  @supports (corner-shape: squircle) {
+    .vsl--r-squircle { corner-shape: squircle; --vsl-radius: 22px; }
+  }
+
+  .vsl__rows { display: flex; flex-direction: column; }
+
+  .vsl-wrap { display: grid; grid-template-rows: 1fr; transition: grid-template-rows 280ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)); }
+  .vsl-wrap__collapse { min-height: 0; overflow: hidden; transition: opacity 220ms ease; }
+  .vsl-wrap.is-removing { grid-template-rows: 0fr; }
+  .vsl-wrap.is-removing .vsl-wrap__collapse { opacity: 0; }
+  .vsl-wrap + .vsl-wrap .vsl-row { border-top: 1px solid var(--border, #1f1f1f); }
+
+  .vsl-row { position: relative; display: flex; overflow: hidden; }
+
+  .vsl-wrap:first-child .vsl-row__content {
+    border-top-left-radius: var(--vsl-radius, 12px);
+    border-top-right-radius: var(--vsl-radius, 12px);
+  }
+  .vsl-wrap:last-child .vsl-row__content {
+    border-bottom-left-radius: var(--vsl-radius, 12px);
+    border-bottom-right-radius: var(--vsl-radius, 12px);
+  }
+  @supports (corner-shape: squircle) {
+    .vsl--r-squircle .vsl-wrap:first-child .vsl-row__content,
+    .vsl--r-squircle .vsl-wrap:last-child .vsl-row__content { corner-shape: squircle; }
+  }
+
+  .vsl-row__content {
+    position: relative;
+    isolation: isolate;
+    z-index: 2;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: var(--vsl-py, 14px) var(--vsl-px, 16px);
+    background: var(--bg-card, #0a0a0a);
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+    transition: transform 460ms var(--vsl-spring, cubic-bezier(0.34, 1.85, 0.4, 1));
+    will-change: transform;
+  }
+  .vsl-row__content:active { cursor: grabbing; }
+  .vsl-row__content:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
+  .vsl-row__content:hover { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.03)); }
+
+  .vsl-row__glow {
+    --glow-strength: 0.5;
+    --glow-ring: 1px;
+    --glow-inset: 0;
+    --glow-r-core: 70px;
+    --glow-r-soft: 220px;
+    padding: 0 var(--glow-ring);
+    border-radius: inherit;
+  }
+  .vsl-wrap:first-child .vsl-row__glow { padding-top: var(--glow-ring); }
+  .vsl-wrap:last-child .vsl-row__glow { padding-bottom: var(--glow-ring); }
+
+  .vsl-row__avatar { flex: none; width: var(--ctrl-h-sm, 32px); height: var(--ctrl-h-sm, 32px); border-radius: 50%; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; background: hsl(var(--vsl-ava-hue, 220) 0% 22%); user-select: none; }
+  .vsl-row__avatar-img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; -webkit-user-drag: none; }
+  .vsl-row__avatar-initials { font-size: 12px; font-weight: 600; letter-spacing: 0.02em; color: hsl(var(--vsl-ava-hue, 220) 0% 78%); }
+  .vsl-row__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .vsl-row__title { font-size: var(--vsl-fs, 14px); font-weight: 560; color: var(--text, #ededed); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vsl-row__subtitle { font-size: 12.5px; color: var(--text-secondary, #a1a1a1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vsl-row__meta { flex: none; font-size: 12px; color: var(--text-muted, #666); }
+  .vsl-row__chevron { flex: none; width: 16px; height: 16px; color: var(--text-muted, #666); }
+
+  .vsl--sm .vsl-row__content { --vsl-py: 10px; --vsl-px: 12px; --vsl-fs: 13px; }
+  .vsl--lg .vsl-row__content { --vsl-py: 18px; --vsl-px: 20px; --vsl-fs: 15px; }
+
+  .vsl-actions {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    overflow: hidden;
+    transition: width 460ms var(--vsl-spring, cubic-bezier(0.34, 1.85, 0.4, 1));
+  }
+  .vsl-actions--left { left: 0; flex-direction: row-reverse; }
+  .vsl-actions--right { right: 0; }
+
+  .vsl-action {
+    position: relative;
+    isolation: isolate;
+    flex: 0 0 var(--vsl-action-w, 76px);
+    width: var(--vsl-action-w, 76px);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: none;
+    padding: 4px;
+    background: rgb(var(--vsl-a-fx) / 0.92);
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+    transition:
+      flex-basis 380ms var(--vsl-spring, cubic-bezier(0.34, 1.85, 0.4, 1)),
+      padding 380ms var(--vsl-spring, cubic-bezier(0.34, 1.85, 0.4, 1)),
+      opacity 200ms ease,
+      filter 150ms ease;
+  }
+  .vsl-action:hover { filter: brightness(1.08); }
+  .vsl-action:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+  .vsl-action__icon { width: 18px; height: 18px; flex: none; }
+  .vsl-action__label { font-size: 11px; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap; }
+  .vsl-action.is-pending { background: rgb(var(--vsl-a-fx) / 1); }
+  .vsl-action.is-pending .vsl-action__label { font-weight: 700; }
+
+  .vsl-action:last-child { flex: 1 0 auto; }
+
+  .vsl-actions--full .vsl-action:last-child { flex: 1 1 auto; }
+  .vsl-actions--full .vsl-action:not(:last-child) {
+    flex-basis: 0;
+    padding-left: 0;
+    padding-right: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .vsl__empty { margin: 0; padding: 24px 16px; text-align: center; font-size: 13px; color: var(--text-muted, #666); }
+
+  .vsl-row-enter-active { transition: opacity 220ms ease; }
+  .vsl-row-enter-from { opacity: 0; }
+
+  .vsl.is-disabled .vsl-row__content { cursor: default; pointer-events: none; }
+  .vsl.is-disabled { opacity: 0.6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vsl-wrap,
+    .vsl-wrap__collapse,
+    .vsl-row__content,
+    .vsl-action,
+    .vsl-row-enter-active { transition: none; }
+  }

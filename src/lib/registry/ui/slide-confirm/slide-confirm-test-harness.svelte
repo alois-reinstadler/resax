@@ -1,0 +1,2 @@
+<script lang="ts">import SlideConfirm from './slide-confirm.svelte';let {threshold=.85,disabled=false,loading=false,resettable=true,onConfirm,onChange}:{threshold?:number;disabled?:boolean;loading?:boolean;resettable?:boolean;onConfirm?:()=>void;onChange?:(value:boolean)=>void}=$props();let confirmed=$state(false);</script>
+<SlideConfirm bind:confirmed {threshold} {disabled} {loading} {resettable} {onConfirm} onConfirmedChange={onChange}/><output>{confirmed?'yes':'no'}</output>

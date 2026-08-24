@@ -1,0 +1,149 @@
+  :host { display: block; width: 100%; max-width: 520px; margin-inline: auto; }
+  .acch {
+    --fs: var(--ctrl-fs-md, 14px);
+    --h: var(--ctrl-h-md, 40px);
+    --pad-x: 16px;
+    --r: var(--ctrl-r-md, 12px);
+    --rr: var(--r);
+    --acc: var(--ui-accent, #ededed);
+    --spring: cubic-bezier(0.34, 1.8, 0.42, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    font-family: inherit;
+    font-size: var(--fs);
+    color: var(--inp-text, #ededed);
+  }
+  .acch--sm { --fs: var(--ctrl-fs-sm, 13px); --h: var(--ctrl-h-sm, 34px); --pad-x: 13px; --r: var(--ctrl-r-sm, 10px); }
+  .acch--md { --fs: var(--ctrl-fs-md, 14px); --h: var(--ctrl-h-md, 40px); --pad-x: 16px; --r: var(--ctrl-r-md, 12px); }
+  .acch--lg { --fs: var(--ctrl-fs-lg, 15px); --h: var(--ctrl-h-lg, 48px); --pad-x: 20px; --r: var(--ctrl-r-lg, 14px); }
+
+  .acch--r-none .acch__item { --rr: 0px; }
+  .acch--r-subtle .acch__item { --rr: 8px; }
+  .acch--r-rounded .acch__item { --rr: var(--r); }
+  @supports (corner-shape: squircle) {
+    .acch--r-squircle .acch__item { corner-shape: squircle; --rr: calc(var(--r) * 1.7); }
+  }
+
+  /* GHOST at rest: no card, just text — the frost surface appears on hover/open */
+  .acch__item {
+    position: relative;
+    border-radius: var(--rr);
+    background: transparent;
+    border: 1px solid transparent;
+    transition: border-color 300ms ease;
+  }
+  .acch__item.is-open { border-color: color-mix(in srgb, var(--acc) 28%, transparent); }
+
+  .acch__frost {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: color-mix(in srgb, var(--bg-card, #111) 55%, transparent);
+    -webkit-backdrop-filter: blur(0px) saturate(1);
+    backdrop-filter: blur(0px) saturate(1);
+    opacity: 0;
+    /* Perf: backdrop-filter is NOT transitioned (re-blurs the backdrop per frame);
+       it snaps to its final value and opacity does the fade — visually near identical. */
+    transition: opacity 340ms ease;
+    pointer-events: none;
+  }
+  @supports (corner-shape: squircle) {
+    .acch--r-squircle .acch__frost { corner-shape: squircle; }
+  }
+  .acch__item:hover .acch__frost {
+    opacity: 0.7;
+    -webkit-backdrop-filter: blur(6px) saturate(1.2);
+    backdrop-filter: blur(6px) saturate(1.2);
+  }
+  .acch__item.is-open .acch__frost {
+    opacity: 1;
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    backdrop-filter: blur(12px) saturate(1.4);
+  }
+
+  .acch__head {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: var(--h);
+    padding: calc((var(--h) - 1.3em) / 2) var(--pad-x);
+    border: 0;
+    background: transparent;
+    border-radius: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 200ms ease;
+  }
+  .acch__head:disabled { cursor: not-allowed; opacity: 0.45; }
+  .acch__item.is-open .acch__head { color: var(--acc); }
+
+  .acch__icon { display: inline-flex; flex: 0 0 auto; }
+  .acch__icon svg { width: 1.1em; height: 1.1em; display: block; }
+  .acch__title { flex: 1 1 auto; line-height: 1.3; }
+
+  .acch__chev {
+    flex: 0 0 auto;
+    display: inline-flex;
+    color: var(--text-muted, #8a8a8a);
+    transition: transform 480ms var(--spring), color 200ms ease;
+  }
+  .acch__chev svg { width: 1.2em; height: 1.2em; display: block; }
+  .acch__item.is-open .acch__chev { transform: rotate(180deg); color: var(--acc); }
+
+  .acch__panel {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 560ms var(--spring);
+  }
+  .acch__item.is-open .acch__panel { grid-template-rows: 1fr; }
+  .acch__panel-clip { min-height: 0; overflow: hidden; }
+  .acch__body {
+    padding: 2px var(--pad-x) calc(var(--h) / 3.2);
+    color: var(--text-muted, #8a8a8a);
+    line-height: 1.55;
+    font-weight: 400;
+    opacity: 0;
+    filter: blur(6px);
+    transition: opacity 340ms ease, filter 400ms ease;
+  }
+  .acch__item.is-open .acch__body { opacity: 1; filter: blur(0); transition-delay: 80ms; }
+
+  /* ── layout variants ── */
+  .acch--contained { gap: 0; }
+  .acch--contained .acch__item { border-radius: 0; }
+  .acch--contained .acch__item + .acch__item { border-top: 1px solid color-mix(in srgb, var(--inp-border, #2a2a2a) 60%, transparent); }
+  .acch--line { gap: 0; }
+  .acch--line .acch__frost { display: none; }
+  .acch--line .acch__item { border-radius: 0; border-bottom: 1px solid var(--inp-border, #2a2a2a); }
+  .acch--line .acch__head { padding-left: 0; padding-right: 4px; }
+  .acch--line .acch__body { padding-left: 0; }
+
+  /* ── tones ── */
+  .acch--t-default { --acc: var(--ui-accent, #ededed); }
+  .acch--t-danger { --acc: var(--danger, #e5484d); }
+  .acch--t-warn { --acc: var(--warn, #f5a623); }
+  .acch--t-success { --acc: var(--success, #30a46c); }
+
+  .acch.is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .acch__panel { transition: none; }
+    .acch__chev { transition: transform 200ms ease; }
+    .acch__body { filter: none; transition: opacity 200ms ease; }
+    .acch__frost { transition: opacity 200ms ease; }
+  }

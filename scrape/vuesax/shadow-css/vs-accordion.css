@@ -1,0 +1,184 @@
+${v}
+  :host { display: block; }
+  .acc {
+    --fs: var(--ctrl-fs-md, 14px);
+    --h: var(--ctrl-h-md, 40px);
+    --pad-x: 16px;
+    --r: var(--ctrl-r-md, 12px);
+    --rr: var(--r);
+    --acc: var(--t-acc, #ededed);
+    --spring: cubic-bezier(0.34, 1.8, 0.42, 1);
+    --spring-soft: cubic-bezier(0.22, 1.2, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 520px;
+    font-family: inherit;
+    font-size: var(--fs);
+    color: var(--text, #ededed);
+  }
+
+  /* sizes */
+  .acc--sm { --fs: var(--ctrl-fs-sm, 13px); --h: var(--ctrl-h-sm, 34px); --pad-x: 13px; --r: var(--ctrl-r-sm, 10px); }
+  .acc--md { --fs: var(--ctrl-fs-md, 14px); --h: var(--ctrl-h-md, 40px); --pad-x: 16px; --r: var(--ctrl-r-md, 12px); }
+  .acc--lg { --fs: var(--ctrl-fs-lg, 15px); --h: var(--ctrl-h-lg, 48px); --pad-x: 20px; --r: var(--ctrl-r-lg, 14px); }
+
+  /* radii */
+  .acc--r-none .acc__item { --rr: 0px; }
+  .acc--r-subtle .acc__item { --rr: 8px; }
+  .acc--r-rounded .acc__item { --rr: var(--r); }
+  @supports (corner-shape: squircle) {
+    .acc--r-squircle .acc__item { corner-shape: squircle; --rr: calc(var(--r) * 1.7); }
+  }
+
+  .acc__item {
+    position: relative;
+    overflow: hidden; /* clip the ripple/glow to the item radius */
+    border-radius: var(--rr);
+    transition: background 240ms ease, border-color 240ms ease;
+  }
+
+  /* ── header ───────────────────────────────────────── */
+  .acc__head {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: var(--h);
+    padding: calc((var(--h) - 1.3em) / 2) var(--pad-x);
+    border: 0;
+    background: transparent;
+    border-radius: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 320ms var(--spring), color 200ms ease;
+  }
+  .acc__head:active:not(:disabled) { transform: scale(0.985); }
+  .acc__head:disabled { cursor: not-allowed; opacity: 0.45; }
+  .acc__item.is-open .acc__head { color: var(--acc); }
+
+  .acc__icon,
+  .acc__title,
+  .acc__chev { z-index: 2; }
+
+  .acc__glow { --glow-ring: 1.5px; --glow-strength: 0.85; --glow-r-core: 80px; --glow-r-soft: 240px; }
+  @supports (corner-shape: squircle) {
+    .acc--r-squircle .acc__glow,
+    .acc--r-squircle .acc__ripples { corner-shape: squircle; }
+  }
+
+  .acc__title {
+    background:
+      radial-gradient(
+        120px circle at var(--mx, 50%) var(--my, 50%),
+        rgb(255 255 255 / calc(var(--lit, 0) * 0.95)),
+        transparent 55%
+      ),
+      currentColor;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 calc(var(--lit, 0) * 16px) rgb(var(--fx-tint, 255 255 255) / calc(var(--lit, 0) * 0.4));
+  }
+
+  .acc__icon { display: inline-flex; flex: 0 0 auto; }
+  .acc__icon svg { width: 1.1em; height: 1.1em; display: block; }
+
+  .acc__title { flex: 1 1 auto; line-height: 1.3; }
+
+  .acc__chev {
+    flex: 0 0 auto;
+    display: inline-flex;
+    color: var(--text-muted, #8a8a8a);
+    transition: transform 540ms var(--spring), color 200ms ease;
+  }
+  .acc__chev svg { width: 1.2em; height: 1.2em; display: block; }
+  .acc__item.is-open .acc__chev { transform: rotate(180deg); color: var(--acc); }
+
+  /* ── panel — grid-rows 0fr↔1fr collapse (no continuous layout from JS) ─── */
+  .acc__panel {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 600ms var(--spring);
+  }
+  .acc__item.is-open .acc__panel { grid-template-rows: 1fr; }
+
+  .acc__panel-clip {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .acc__body {
+    padding: 2px var(--pad-x) calc(var(--h) / 3.2);
+    color: var(--text-muted, #8a8a8a);
+    line-height: 1.55;
+    font-weight: 400;
+    transform-origin: top center;
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(-8px);
+    transition:
+      opacity 300ms ease,
+      filter 380ms ease,
+      transform 520ms var(--spring-soft);
+  }
+  .acc__item.is-open .acc__body {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    transition-delay: 60ms;
+  }
+
+  /* ── variant: separated (default) — each item its own card ── */
+  .acc--separated .acc__item {
+    background: var(--bg-elevated, #111111);
+    border: 1px solid var(--border, #2a2a2a);
+  }
+  .acc--separated .acc__item.is-open { border-color: color-mix(in srgb, var(--acc) 45%, var(--border, #2a2a2a)); }
+
+  /* ── variant: contained — one shared card, dividers between ── */
+  .acc--contained {
+    gap: 0;
+    background: var(--bg-elevated, #111111);
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: var(--rr);
+    overflow: hidden;
+  }
+  @supports (corner-shape: squircle) {
+    .acc--contained.acc--r-squircle { corner-shape: squircle; }
+  }
+  .acc--contained .acc__item { border-radius: 0; }
+  .acc--contained .acc__item + .acc__item { border-top: 1px solid var(--border, #2a2a2a); }
+
+  /* ── variant: line — bare rows, bottom rule only ── */
+  .acc--line { gap: 0; }
+  .acc--line .acc__item { border-radius: 0; border-bottom: 1px solid var(--border, #2a2a2a); }
+  .acc--line .acc__head { padding-left: 0; padding-right: 4px; }
+  .acc--line .acc__body { padding-left: 0; }
+
+  /* ── tones ── */
+  .acc--t-default { --t-acc: var(--inp-accent, #ededed); --fx-tint: 255 255 255; }
+  .acc--t-danger { --t-acc: #e5484d; --fx-tint: 255 99 105; }
+  .acc--t-warn { --t-acc: #f5a623; --fx-tint: 255 178 36; }
+  .acc--t-success { --t-acc: #30a46c; --fx-tint: 76 195 138; }
+  :host-context([data-theme='light']) .acc--t-default { --fx-tint: 20 20 20; }
+
+  .acc.is-disabled { opacity: 0.55; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .acc__panel { transition: none; }
+    .acc__chev { transition: transform 200ms ease; }
+    .acc__body { filter: none; transform: none; transition: opacity 200ms ease; }
+    .acc__head:active:not(:disabled) { transform: none; }
+  }

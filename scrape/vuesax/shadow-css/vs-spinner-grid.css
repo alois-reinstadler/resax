@@ -1,0 +1,78 @@
+  :host { display: inline-flex; }
+  .spingrid {
+    --sz: 32px;
+    --dur: 1.3s;
+    --gap: 10px;
+    --fs: 13px;
+    --ring: var(--inp-ring, 237 237 237);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    color: var(--tint);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .spingrid__box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--sz) * 0.14);
+    width: var(--sz);
+    height: var(--sz);
+    flex: 0 0 auto;
+  }
+
+  .spingrid__d {
+    border-radius: 999px;
+    background: rgb(var(--ring));
+    animation: spingrid-fade var(--dur) ease-in-out infinite;
+  }
+  /* diagonal wave: delay by index (row+col) */
+  .spingrid__d:nth-child(1) { animation-delay: 0s; }
+  .spingrid__d:nth-child(2), .spingrid__d:nth-child(4) { animation-delay: calc(var(--dur) * 0.12); }
+  .spingrid__d:nth-child(3), .spingrid__d:nth-child(5), .spingrid__d:nth-child(7) { animation-delay: calc(var(--dur) * 0.24); }
+  .spingrid__d:nth-child(6), .spingrid__d:nth-child(8) { animation-delay: calc(var(--dur) * 0.36); }
+  .spingrid__d:nth-child(9) { animation-delay: calc(var(--dur) * 0.48); }
+
+  @keyframes spingrid-fade {
+    0%, 70%, 100% { transform: scale(0.4); opacity: 0.3; }
+    35%           { transform: scale(1);   opacity: 1; }
+  }
+
+  /* sizes */
+  .spingrid--sm { --sz: 20px; --fs: 12px; --gap: 8px; }
+  .spingrid--md { --sz: 32px; --fs: 13px; }
+  .spingrid--lg { --sz: 44px; --fs: 14px; --gap: 12px; }
+  .spingrid--xl { --sz: 60px; --fs: 16px; --gap: 14px; }
+
+  /* speed */
+  .spingrid--s-slow   { --dur: 1.8s; }
+  .spingrid--s-normal { --dur: 1.3s; }
+  .spingrid--s-fast   { --dur: 0.85s; }
+
+  .spingrid__label { color: var(--tint); white-space: nowrap; }
+
+  .spingrid.is-overlay {
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+    z-index: 10;
+  }
+
+  /* tones */
+  .spingrid--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .spingrid--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+  .spingrid--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spingrid__d { animation-duration: 3s; }
+  }

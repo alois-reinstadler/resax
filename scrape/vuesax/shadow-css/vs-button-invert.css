@@ -1,0 +1,99 @@
+  :host { display: inline-flex; }
+  :host(:active) { transform: scale(0.975); }
+  :host { transition: transform 160ms cubic-bezier(0.2, 0.8, 0.3, 1); }
+
+  .binv {
+    --h: var(--ctrl-h-md, 40px);
+    --r: var(--ctrl-r-md, 12px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    /* --fill = net white on dark / net black on light; --on-fill = its contrast */
+    --fill: var(--btn-primary-bg-hover, #ffffff);
+    --on-fill: var(--btn-primary-fg, #000000);
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--h);
+    padding: 0 var(--px);
+    border-radius: calc(var(--r) * var(--r-mult, 1));
+    border: 1px solid var(--inp-border, #2a2a2a);
+    font: inherit;
+    font-weight: 500;
+    font-size: var(--fs);
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    color: var(--inp-text, #ededed);
+    /* the jelly: written by the loop, exactly 1 at rest */
+    transform: scale(var(--sx, 1), var(--sy, 1));
+    will-change: transform;
+  }
+  .binv:disabled { opacity: 0.45; cursor: not-allowed; }
+  .binv:focus-visible { outline: 2px solid var(--inp-accent, #ededed); outline-offset: 2px; }
+
+  /* sizes */
+  .binv--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); }
+  .binv--md { --h: var(--ctrl-h-md, 40px); --r: var(--ctrl-r-md, 12px); --fs: var(--ctrl-fs-md, 14px); --px: var(--ctrl-px-md, 14px); }
+  .binv--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 18px); }
+
+  /* radius */
+  .binv--r-none { --r: 0px; }
+  .binv--r-subtle { --r: 8px; }
+  .binv--r-pill { --r: 999px; }
+  @supports (corner-shape: squircle) {
+    .binv--r-squircle { corner-shape: squircle; --r-mult: 1.7; }
+    /* both overlays copy whatever corner geometry the button ended up with */
+    .binv__ink, .binv__clip { corner-shape: inherit; }
+  }
+
+  /* variants: only the RESTING surface changes. The flood is always the
+     maximum-contrast solid, so the invert reads identically on the three. */
+  .binv--primary { background: var(--btn-primary-bg, #ededed); color: var(--btn-primary-fg, #000); border-color: transparent; }
+  .binv--secondary { background: var(--btn-secondary-bg, #1a1a1a); }
+
+  /* The ink and the inverted label share ONE circle. inset:-1px resolves to the
+     button's border box, so the flood covers the hairline too — once it lands
+     there is no border left, just the solid block. */
+  .binv__ink,
+  .binv__clip {
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    clip-path: circle(var(--ink-r, 0px) at var(--ink-x, 50%) var(--ink-y, 50%));
+  }
+  .binv__ink {
+    z-index: 0;
+    background: var(--fill);
+    will-change: clip-path;
+  }
+  .binv__clip {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-fill);
+  }
+
+  /* both copies sit on the same centre and carry the same pull/blur, so they
+     move as one piece of text under the wave */
+  .binv__label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate3d(var(--lx, 0px), 0, 0) scale(var(--lsx, 1), var(--lsy, 1));
+    filter: var(--lf, none);
+    will-change: transform, filter;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :host { transition: none; }
+    .binv, .binv__label { will-change: auto; }
+  }

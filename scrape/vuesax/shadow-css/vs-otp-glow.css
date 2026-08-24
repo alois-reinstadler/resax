@@ -1,0 +1,85 @@
+/* borders must not push the control out of its cell (inputs default to
+   content-box, so width/height 100% + a border overflowed by 2px) */
+*, *::before, *::after { box-sizing: border-box; }
+
+:host { display: inline-flex; }
+.otg {
+  --h: var(--ctrl-h-md, 40px);
+  --r: var(--ctrl-r-md, 12px);
+  --fs: var(--ctrl-fs-md, 16px);
+  --otg-accent: var(--ui-accent, #ededed);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+}
+.otg__cell {
+  position: relative;
+  width: var(--h);
+  height: var(--h);
+  display: inline-flex;
+}
+.otg__aura {
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--r) + 2px);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--otg-accent) 80%, transparent),
+    0 0 16px 2px color-mix(in srgb, var(--otg-accent) 55%, transparent);
+  transition: opacity 240ms ease;
+}
+/* soft halo on cells that are already filled */
+.otg__cell.has-value .otg__aura { opacity: 0.5; }
+/* pulsing aura on the focused cell */
+/* Perf: min shadow stays static on the aura; the max state is baked into ::after
+   and only its opacity animates (compositable) — no per-frame repaint. */
+.otg__cell.is-focused .otg__aura {
+  opacity: 1;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--otg-accent) 80%, transparent),
+    0 0 14px 2px color-mix(in srgb, var(--otg-accent) 45%, transparent);
+}
+.otg__aura::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 1px var(--otg-accent),
+    0 0 26px 5px color-mix(in srgb, var(--otg-accent) 70%, transparent);
+  opacity: 0;
+}
+.otg__cell.is-focused .otg__aura::after {
+  animation: otg-pulse 1.6s ease-in-out infinite;
+}
+.otg__control {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border-radius: var(--r);
+  border: 1px solid var(--inp-border, #2a2a2a);
+  background: var(--inp-bg, #0d0d0d);
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 600;
+  text-align: center;
+  caret-color: var(--otg-accent);
+  outline: none;
+  transition: border-color 200ms ease;
+}
+.otg__cell:hover .otg__control { border-color: var(--inp-border-hover, #3d3d3d); }
+.otg__cell.is-focused .otg__control,
+.otg__cell.has-value .otg__control { border-color: var(--otg-accent); }
+.otg.is-disabled { opacity: 0.5; }
+.otg.is-disabled .otg__control { cursor: not-allowed; }
+@keyframes otg-pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .otg__aura { transition: none; }
+  .otg__cell.is-focused .otg__aura { animation: none; }
+  .otg__cell.is-focused .otg__aura::after { animation: none; opacity: 0; }
+}

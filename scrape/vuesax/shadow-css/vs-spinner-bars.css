@@ -1,0 +1,81 @@
+  :host { display: inline-flex; }
+.bars {
+  --sz: 32px;
+  --dur: 1s;
+  --gap: 10px;
+  --fs: 13px;
+  --ring: var(--inp-ring, 237 237 237);
+  --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+  --bar: calc(var(--sz) * 0.16);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap);
+  color: var(--tint);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 500;
+  line-height: 1;
+  user-select: none;
+}
+
+.bars__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--bar) * 0.7);
+  width: var(--sz);
+  height: var(--sz);
+  flex: 0 0 auto;
+}
+
+.bars__b {
+  width: var(--bar);
+  height: 100%;
+  border-radius: 999px;
+  background: rgb(var(--ring));
+  transform-origin: center;
+  animation: bars-eq var(--dur) ease-in-out infinite;
+}
+.bars__b:nth-child(1) { animation-delay: 0s; }
+.bars__b:nth-child(2) { animation-delay: calc(var(--dur) * 0.18); }
+.bars__b:nth-child(3) { animation-delay: calc(var(--dur) * 0.36); }
+.bars__b:nth-child(4) { animation-delay: calc(var(--dur) * 0.12); }
+
+@keyframes bars-eq {
+  0%, 100% { transform: scaleY(0.35); opacity: 0.55; }
+  50%      { transform: scaleY(1);    opacity: 1; }
+}
+
+/* sizes */
+.bars--sm { --sz: 20px; --fs: 12px; --gap: 8px; }
+.bars--md { --sz: 32px; --fs: 13px; }
+.bars--lg { --sz: 44px; --fs: 14px; --gap: 12px; }
+.bars--xl { --sz: 60px; --fs: 16px; --gap: 14px; }
+
+/* speed */
+.bars--s-slow   { --dur: 1.4s; }
+.bars--s-normal { --dur: 1s; }
+.bars--s-fast   { --dur: 0.65s; }
+
+.bars__label { color: var(--tint); white-space: nowrap; }
+
+.bars.is-overlay {
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+  backdrop-filter: blur(2px);
+  border-radius: inherit;
+  z-index: 10;
+}
+
+/* tones */
+.bars--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+.bars--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+.bars--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bars__b { animation-duration: 2.4s; }
+}

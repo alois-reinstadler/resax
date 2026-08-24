@@ -5,9 +5,9 @@ export interface NavGroup {
 
 const groups: Record<string, string[]> = {
 	Disclosure: ['Accordion'],
-	Feedback: ['Alert', 'Badge', 'Notification', 'Popup', 'Progress', 'Skeleton', 'Spinner', 'Tooltip'],
-	'Data display': ['Avatar', 'Code', 'Indicator', 'List', 'Table'],
-	Inputs: ['Button', 'Calendar', 'Checkbox', 'Chip', 'ColorPicker', 'Input', 'Number', 'Otp', 'Radio', 'RadioGroup', 'Rating', 'Select', 'Slider', 'Switch', 'Textarea', 'UploadFile'],
+	Feedback: ['Alert', 'AskAiButton', 'Badge', 'Notification', 'Popup', 'Progress', 'Skeleton', 'Spinner', 'Tooltip'],
+	'Data display': ['Avatar', 'Code', 'Indicator', 'List', 'Table', 'Timeline'],
+	Inputs: ['Button', 'ButtonGroup', 'Calendar', 'Checkbox', 'Chip', 'ColorPicker', 'Input', 'InputNumber', 'Otp', 'Radio', 'RadioGroup', 'Rating', 'Select', 'Slider', 'SplitButton', 'Switch', 'Textarea', 'UploadFile'],
 	Navigation: ['Breadcrumb', 'ContextMenu', 'Cursor', 'Dock', 'DotStepper', 'Dropdown', 'FileTree', 'InlineOverflow', 'LinkBar', 'NavMenu', 'Pagination', 'Sidebar', 'Steps', 'Tabs'],
 	Layout: ['Card', 'Scrollbar', 'Separator', 'Spacer'],
 	Overlay: ['Drawer'],

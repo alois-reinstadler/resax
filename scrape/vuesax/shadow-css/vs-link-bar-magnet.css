@@ -1,0 +1,33 @@
+  /* max-width or the shrink-to-fit host keeps its widest natural size and pushes
+     the bar out of a narrow column */
+  :host{ display:inline-block; max-width:100%; }
+  /* wrap: a nav that cannot break can only overflow. The indicator reads offsetTop
+     as well as offsetLeft, so it follows a link onto the second row. */
+  .vlbm{ position:relative; display:inline-flex; flex-wrap:wrap; max-width:100%; align-items:center; gap:18px; font-family:inherit; }
+  .vlbm--sm{ gap:14px; } .vlbm--lg{ gap:24px; }
+  /* the one persistent magnetic indicator — position/size written in JS, never rebuilt */
+  .vlbm__ind{ position:absolute; left:0; top:0; z-index:0; pointer-events:none; will-change:transform,width;
+    border-radius:999px; background:var(--vlbm-ind-bg, rgba(255,255,255,.07));
+    border:1px solid var(--vlbm-ind-border, rgba(255,255,255,.10));
+    opacity:0; transform:translate(0,0);
+    transition:transform 380ms var(--ease-spring,cubic-bezier(.34,1.56,.64,1)),
+      width 380ms var(--ease-spring,cubic-bezier(.34,1.56,.64,1)),
+      height 200ms ease, opacity 200ms ease; }
+  .vlbm__ind.is-on{ opacity:1; }
+  /* min-height floors the tap area: the bare text run is 14px, under the 24px
+     touch minimum. Centred, so the label keeps its place inside the pill. */
+  .vlbm__link{ position:relative; z-index:1; display:inline-flex; align-items:center; min-height:24px; font-size:14px; line-height:1;
+    color:var(--text-muted,#8a8a8a); text-decoration:none; will-change:transform;
+    transition:transform 220ms var(--ease-out,cubic-bezier(.34,1.56,.64,1)),
+      color 180ms var(--ease-out,cubic-bezier(.22,1,.36,1)); }
+  .vlbm--sm .vlbm__link{ font-size:13px; } .vlbm--lg .vlbm__link{ font-size:15px; }
+  .vlbm__link:hover{ color:var(--text,#ededed); }
+  .vlbm__link.is-active{ color:var(--ui-accent, #ededed); }
+  .vlbm--t-danger{ --accent:#ff6369; --ui-accent-fg: #fff; }
+  .vlbm--t-success{ --accent:#46c48a; --ui-accent-fg: #fff; }
+  .vlbm__link:focus-visible{ outline:2px solid var(--ui-accent, #ededed); outline-offset:4px; border-radius:2px; }
+  .vlbm__sep{ width:1px; align-self:center; height:14px; background:var(--ctrl-border,var(--text-muted,#8a8a8a)); opacity:.35; }
+  @media (prefers-reduced-motion:reduce){
+    .vlbm__link{ transition:color 180ms linear; transform:none !important; }
+    .vlbm__ind{ transition:opacity 160ms linear; }
+  }

@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { DateValue } from '@internationalized/date';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export type CalendarValue = DateValue | DateValue[] | { start: DateValue; end: DateValue };
 	export interface CalendarProps {
@@ -20,8 +20,8 @@
 	import { Calendar as CalendarPrimitive, RangeCalendar } from 'bits-ui';
 	import type { DateRange } from 'bits-ui';
 	import { ChevronLeft, ChevronRight } from '@lucide/svelte';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 
 	let {
 		value = $bindable(), mode = 'single', color, minValue, maxValue, disabled = false,

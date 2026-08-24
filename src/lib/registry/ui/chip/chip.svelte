@@ -1,14 +1,14 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color' | 'children'> {
 		variant?: 'default' | 'flat' | 'border' | 'gradient'; color?: RxColor; size?: 'lg' | 'default' | 'sm';
 		closable?: boolean; onClose?: () => void; disabled?: boolean; icon?: Snippet; children: Snippet;
 	}
 </script>
 <script lang="ts">
-	import { styleColor } from '../../lib/color';
+	import { styleColor } from '$lib/registry/lib/color';
 	import { chipVariants } from './index';
 	let { variant = 'default', color, size = 'default', closable = false, onClose, disabled = false,
 		icon, children, class: className, style, ...restProps }: ChipProps = $props();

@@ -1,0 +1,79 @@
+  :host { display: inline-flex; }
+  .waveavg {
+    --sz: 40px;
+    --fs: 15px;
+    --ov: 0.38;
+    --wave-h: 10px;
+    display: inline-flex;
+    align-items: center;
+    isolation: isolate;
+  }
+  .waveavg--xs { --sz: 24px; --fs: 10px; }
+  .waveavg--sm { --sz: 32px; --fs: 12px; }
+  .waveavg--md { --sz: 40px; --fs: 15px; }
+  .waveavg--lg { --sz: 56px; --fs: 20px; }
+  .waveavg--xl { --sz: 80px; --fs: 28px; }
+  .waveavg--ov-sm { --ov: 0.25; }
+  .waveavg--ov-md { --ov: 0.38; }
+  .waveavg--ov-lg { --ov: 0.52; }
+
+  .waveavg__item {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: var(--sz);
+    height: var(--sz);
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateY(0);
+    transition: transform 300ms ease;
+  }
+  .waveavg__item + .waveavg__item { margin-left: calc(var(--sz) * var(--ov) * -1); }
+
+  /* on group hover, every item runs the same animation delayed by its index →
+     the wave travels from left to right. */
+  .waveavg:hover .waveavg__item {
+    animation: waveavg-bob 1.1s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 110ms);
+  }
+  .waveavg__item:hover { z-index: 60 !important; }
+  @keyframes waveavg-bob {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(calc(var(--wave-h) * -1)); }
+    60% { transform: translateY(0); }
+  }
+
+  .waveavg__av {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    background: var(--vs-color, var(--bg-elevated, #161616));
+    color: var(--text, #ededed);
+    font-size: calc(var(--fs) * 0.9);
+    font-weight: 600;
+    box-shadow: 0 0 0 2px var(--bg, #000);
+  }
+  .waveavg__av--rounded { border-radius: 30%; }
+  .waveavg__av--squircle { border-radius: 26%; }
+  @supports (corner-shape: squircle) {
+    .waveavg__av--squircle { corner-shape: squircle; }
+  }
+  .waveavg__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .waveavg__ini { color: var(--text-secondary, #aaa); letter-spacing: -0.02em; }
+  .waveavg__av--chip {
+    background: var(--bg-card, #1d1d1d);
+    color: var(--text-secondary, #aaa);
+    font-size: calc(var(--fs) * 0.82);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .waveavg__item { transition: none; }
+    .waveavg:hover .waveavg__item { animation: none; transform: none; }
+  }

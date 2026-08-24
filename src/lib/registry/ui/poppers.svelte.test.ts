@@ -1,8 +1,13 @@
-import { fireEvent, render, screen, within } from '@testing-library/svelte';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/svelte';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import Harness from './poppers-test-harness.svelte';
 
-afterEach(() => vi.useRealTimers());
+afterEach(async () => {
+	vi.useRealTimers();
+	cleanup();
+	// bits-ui releases body-scroll-lock after its close animation.
+	await new Promise((resolve) => setTimeout(resolve, 250));
+});
 
 describe('poppers', () => {
 	it('shows tooltip content when its trigger receives focus', async () => {

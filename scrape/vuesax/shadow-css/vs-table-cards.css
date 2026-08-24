@@ -1,0 +1,169 @@
+  /* The stacked layout below switches on the HOST's width, not the window's —
+     this table is just as likely to sit in a 320px sidebar of a 1440px page as
+     on a phone. */
+  :host { display: block; width: 100%; container-type: inline-size; }
+  .vcrd {
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    --py: 12px;
+    --r: var(--ctrl-r-md, 12px);
+    --accent: var(--vcrd-accent, var(--ui-accent, #ededed));
+    --line: var(--border, #2a2a2a);
+    --surface: var(--bg-card, #111);
+    --surface-2: var(--bg-elevated, #171717);
+    --txt: var(--text, #ededed);
+    --txt-2: var(--text-secondary, #a1a1a1);
+    --txt-3: var(--text-muted, #666);
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: transparent;
+    color: var(--txt);
+    font-family: inherit;
+    font-size: var(--fs);
+  }
+  .vcrd__bar { padding: 0 4px calc(var(--py)) 4px; }
+  .vcrd__title { margin: 0; font-size: calc(var(--fs) + 2px); font-weight: 600; }
+  .vcrd__scroll { width: 100%; overflow-x: auto; }
+
+  /* separated rows: the key trick for the card look */
+  .vcrd__table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+
+  .vcrd__th {
+    padding: 4px var(--px);
+    background: transparent;
+    color: var(--txt-3);
+    font-size: calc(var(--fs) - 2px);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .vcrd__th.is-center { text-align: center; }
+  .vcrd__th.is-right { text-align: right; }
+  .vcrd__sort {
+    display: inline-flex; align-items: center; gap: 6px;
+    /* The label line is 15px tall — under the 24px thumb floor. The padding
+       grows the hit box; the negative margin cancels it again in the header
+       row's height, so nothing moves. */
+    padding: 5px 0; margin: -5px 0;
+    border: 0; background: none; color: inherit; font: inherit;
+    letter-spacing: inherit; text-transform: inherit; cursor: pointer;
+    transition: color 160ms ease;
+  }
+  .vcrd__th.is-right .vcrd__sort { flex-direction: row-reverse; }
+  .vcrd__th.is-center .vcrd__sort { justify-content: center; }
+  .vcrd__sort:hover { color: var(--txt); }
+  .vcrd__sort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .vcrd__arrow { display: inline-flex; transition: opacity 160ms ease, transform 200ms ease; }
+  .vcrd__arrow svg { width: 13px; height: 13px; }
+  .vcrd__arrow.is-idle { opacity: 0; transform: scale(0.8); }
+  .vcrd__sort:hover .vcrd__arrow.is-idle { opacity: 0.4; }
+  .vcrd__arrow.is-asc { opacity: 1; transform: rotate(180deg); color: var(--accent); }
+  .vcrd__arrow.is-desc { opacity: 1; transform: rotate(0deg); color: var(--accent); }
+
+  /* card cells: shared top/bottom border, rounded on the row ends */
+  .vcrd__td {
+    padding: var(--py) var(--px);
+    height: 52px;
+    vertical-align: middle;
+    text-align: left;
+    background: var(--surface-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms ease, border-color 160ms ease;
+  }
+  .vcrd__td.is-center { text-align: center; }
+  .vcrd__td.is-right { text-align: right; font-variant-numeric: tabular-nums; }
+  .vcrd__td:first-child {
+    border-left: 1px solid var(--line);
+    border-top-left-radius: var(--r);
+    border-bottom-left-radius: var(--r);
+    font-weight: 500;
+    color: var(--txt);
+  }
+  .vcrd__td:last-child {
+    border-right: 1px solid var(--line);
+    border-top-right-radius: var(--r);
+    border-bottom-right-radius: var(--r);
+  }
+  .vcrd__td:not(:first-child):not(:last-child) { color: var(--txt-2); }
+
+  /* lift the whole card row on hover */
+  .vcrd.is-hover .vcrd__row:hover .vcrd__td {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 60%, var(--line));
+    box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.7);
+  }
+
+  .vcrd__td--empty {
+    height: 120px; text-align: center; color: var(--txt-3);
+    border-radius: var(--r); border: 1px solid var(--line);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vcrd__td, .vcrd__arrow, .vcrd__sort { transition: none; }
+    .vcrd.is-hover .vcrd__row:hover .vcrd__td { transform: none; }
+  }
+
+  /* Under ~480px the four columns stop fitting: the last one (Usage) ends up
+     parked inside .vcrd__scroll with nothing on screen to say it is there, and
+     every name breaks over two lines. The variant is already a stack of cards
+     sideways, so it just turns 90 degrees — the row keeps being the card, and
+     each field becomes a label/value line inside it. */
+  @container (max-width: 480px) {
+    .vcrd__head { display: none; }             /* its labels moved into the cells */
+    .vcrd__scroll { overflow-x: visible; }     /* stacked content never overflows */
+    .vcrd__table, .vcrd__body, .vcrd__row, .vcrd__td { display: block; }
+    /* A column group with no table to size spawns an anonymous one around itself. */
+    .vcrd__table colgroup { display: none; }
+    .vcrd__table { border-spacing: 0; }        /* the card gap is a margin now */
+
+    /* the frame, radius and lift move off the end-cells and onto the row */
+    .vcrd__row {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms ease, border-color 160ms ease;
+    }
+    .vcrd__row + .vcrd__row { margin-top: 8px; }
+
+    .vcrd__td {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      height: auto; min-height: 42px;
+      padding: 8px var(--px);
+      background: none;
+      border: 0; border-radius: 0;
+      text-align: right;
+      overflow-wrap: anywhere;                 /* an email or URL must not push the card wide */
+    }
+    .vcrd__td + .vcrd__td { border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+    .vcrd__td::before {
+      content: attr(data-label);
+      flex: none;
+      color: var(--txt-3);
+      font-size: calc(var(--fs) - 2px);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .vcrd.is-hover .vcrd__row:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 60%, var(--line));
+      box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.7);
+    }
+    .vcrd.is-hover .vcrd__row:hover .vcrd__td { transform: none; box-shadow: none; }
+
+    .vcrd__row--empty { background: none; border: 0; }
+    .vcrd__td--empty { display: block; text-align: center; border: 1px solid var(--line); }
+  }
+
+  /* The lift now lives on the row, and the opt-out above cannot reach it from
+     earlier in the sheet — same specificity, older source position. */
+  @media (prefers-reduced-motion: reduce) {
+    .vcrd.is-hover .vcrd__row:hover { transition: none; transform: none; }
+  }

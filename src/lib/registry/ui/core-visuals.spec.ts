@@ -14,6 +14,15 @@ describe('core visual components', () => {
 		expect(body).toContain(spinnerSizeClass.mini);
 	});
 
+	it('accepts every scraped spinner name and maps it to a faithful motion primitive', () => {
+		const aliases = ['bars', 'bounce', 'comet', 'dots', 'flip', 'grid', 'orbit', 'pulse', 'ring', 'wave'] as const;
+		for (const type of aliases) {
+			const { body } = render(Spinner, { props: { type } });
+			expect(body).toContain(`data-type="${type}"`);
+			expect(body).toContain(`rx-spinner--source-${type}`);
+		}
+	});
+
 	it('maps skeleton variants and shapes', () => {
 		const { body } = render(Skeleton, { props: { variant: 'shine', shape: 'avatar' } });
 		expect(body).toContain('rx-skeleton--shine');

@@ -1,0 +1,82 @@
+  :host { display: block; }
+.skg {
+  --w: 100%;
+  --h: 14px;
+  --r: var(--ctrl-r-sm, 6px);
+  --dur: 1.4s;
+  --skg-angle: 100deg;
+  --skg-base: var(--bg-elevated, #161616);
+  --skg-bone: var(--vs-color, var(--border, #2a2a2a));
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 240px;
+}
+
+.skg__bone {
+  display: block;
+  width: var(--w);
+  height: var(--h);
+  border-radius: var(--r);
+  background: linear-gradient(
+    var(--skg-angle),
+    var(--skg-base) 0%,
+    var(--skg-bone) 50%,
+    var(--skg-base) 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+}
+
+.skg__bone--line { width: var(--w); height: var(--h); }
+.skg__bone--solid { width: var(--w); height: var(--h); }
+
+.skg--s-slow   { --dur: 2.1s; }
+.skg--s-normal { --dur: 1.4s; }
+.skg--s-fast   { --dur: 0.9s; }
+
+/* ── gradient: vein of color flowing horizontally ──────────────── */
+@keyframes skg-flow {
+  from { background-position: 200% 0%; }
+  to   { background-position: -200% 0%; }
+}
+.skg--a-gradient .skg__bone {
+  animation: skg-flow var(--dur) linear infinite;
+}
+
+/* ── shapes ──────────────────────────────────────────────────── */
+.skg--rect   { --h: 120px; --r: var(--ctrl-r-md, 10px); }
+.skg--circle .skg__bone--solid,
+.skg--avatar .skg__bone--solid {
+  --w: 48px;
+  --h: 48px;
+  --r: 999px;
+}
+.skg--rect, .skg--circle, .skg--avatar { gap: 0; }
+
+.skg--card {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+.skg__bone--avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+.skg__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skg__bone {
+    animation: none !important;
+    background-position: 50% 0%;
+  }
+}

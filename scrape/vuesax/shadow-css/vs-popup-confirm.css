@@ -1,0 +1,93 @@
+  .vpc--t-default { --tc: var(--ui-accent, #ededed); --tc-fg: var(--ui-accent-fg, #0b0b0b); --tc-soft: rgb(var(--ui-ring, 255 255 255) / 0.14); }
+  .vpc--t-danger { --tc: #e5484d; --tc-fg: var(--ui-accent-fg, #0b0b0b); --tc-soft: rgba(229, 72, 77, 0.14); }
+  .vpc--t-warn { --tc: #f5a623; --tc-fg: #1a1206; --tc-soft: rgba(245, 166, 35, 0.16); }
+  .vpc--t-success { --tc: #30a46c; --tc-fg: var(--ui-accent-fg, #0b0b0b); --tc-soft: rgba(48, 164, 108, 0.14); }
+
+  .vpc__overlay {
+    position: fixed;
+    inset: 0;
+    /* Above every piece of page chrome — a fixed bottom blur band or a floating
+       mobile nav at 1100-1200 would otherwise repaint over the dialog. */
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  /* compact, CENTERED alert card — deliberately different from a head/body/footer modal */
+  .vpc__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: min(380px, calc(100vw - 48px));
+    padding: 28px 26px 22px;
+    border-radius: 20px;
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-card, #111);
+    color: var(--text, #ededed);
+    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
+    outline: none;
+  }
+
+  /* icon badge: soft tinted disc + tone-colored glyph */
+  .vpc__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: var(--tc-soft, rgba(255, 255, 255, 0.1));
+    color: var(--tc, var(--ui-accent, #ededed));
+  }
+  .vpc__badge svg { width: 28px; height: 28px; }
+
+  .vpc__title { margin: 0 0 8px; font-size: 18px; font-weight: 650; letter-spacing: -0.01em; }
+  .vpc__message { margin: 0 0 22px; font-size: 14px; line-height: 1.55; color: var(--text-secondary, #b4b4b4); }
+
+  .vpc__actions { display: flex; gap: 10px; width: 100%; }
+  .vpc__btn {
+    flex: 1 1 0;
+    height: 42px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    font: inherit;
+    font-weight: 550;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, opacity 160ms ease, transform 120ms ease;
+  }
+  .vpc__btn:active { transform: scale(0.97); }
+  .vpc__cancel {
+    background: transparent;
+    border-color: var(--inp-border, #2a2a2a);
+    color: var(--text, #ededed);
+  }
+  .vpc__cancel:hover { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.06)); border-color: var(--inp-border-hover, #3d3d3d); }
+  .vpc__confirm {
+    background: var(--tc, var(--ui-accent, #ededed));
+    color: var(--tc-fg, #fff);
+  }
+  .vpc__confirm:hover { opacity: 0.9; }
+  .vpc__confirm:focus-visible { outline: 2px solid var(--tc, var(--ui-accent, #ededed)); outline-offset: 2px; }
+
+  /* entrance: pop from slightly below with a soft spring + backdrop fade */
+  .vpc-fade-enter-active, .vpc-fade-leave-active { transition: opacity 240ms ease; }
+  .vpc-fade-leave-active { transition: opacity 180ms ease; }
+  .vpc-fade-enter-from, .vpc-fade-leave-to { opacity: 0; }
+
+  .vpc-pop-enter-active { transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 240ms ease; }
+  .vpc-pop-leave-active { transition: transform 180ms cubic-bezier(0.4, 0, 1, 1), opacity 180ms ease; }
+  .vpc-pop-enter-from, .vpc-pop-leave-to { transform: translateY(16px) scale(0.94); opacity: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vpc-fade-enter-active, .vpc-fade-leave-active,
+    .vpc-pop-enter-active, .vpc-pop-leave-active { transition-duration: 0ms; }
+    .vpc-pop-enter-from, .vpc-pop-leave-to { transform: none; }
+  }

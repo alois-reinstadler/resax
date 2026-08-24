@@ -1,0 +1,130 @@
+  /* the panel's border has to count inside the width the clamp below hands it,
+     otherwise the clamped panel still overhangs by its own 2px */
+  *, *::before, *::after { box-sizing: border-box; }
+  :host { display: inline-flex; }
+.vtsl {
+  --h: var(--ctrl-h-md, 40px);
+  --fs: var(--ctrl-fs-md, 14px);
+  --px: var(--ctrl-px-md, 16px);
+  --accent: var(--ui-accent, #ededed);
+  position: relative;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: var(--fs);
+  color: var(--text, #ededed);
+}
+.vtsl--sm { --h: var(--ctrl-h-sm, 32px); --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); }
+.vtsl--lg { --h: var(--ctrl-h-lg, 48px); --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 20px); }
+.vtsl--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+.vtsl--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+.vtsl--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+.vtsl__trigger {
+  height: var(--h);
+  padding: 0 var(--px);
+  font: inherit;
+  font-weight: 600;
+  color: var(--ui-accent-fg, #0b0b0b);
+  background: var(--accent);
+  border: 0;
+  border-radius: var(--ctrl-r-rounded, 12px);
+  cursor: pointer;
+  transition: filter 160ms ease, transform 140ms ease;
+}
+.vtsl--r-none .vtsl__trigger { border-radius: var(--ctrl-r-none, 4px); }
+.vtsl--r-subtle .vtsl__trigger { border-radius: var(--ctrl-r-subtle, 8px); }
+.vtsl--r-pill .vtsl__trigger { border-radius: var(--ctrl-r-pill, 999px); }
+.vtsl--r-squircle .vtsl__trigger { border-radius: var(--ctrl-r-squircle, 14px); }
+@supports (corner-shape: squircle) { .vtsl--r-squircle .vtsl__trigger { corner-shape: squircle; } }
+.vtsl__trigger:hover { filter: brightness(1.06); }
+.vtsl__trigger:active { transform: scale(0.97); }
+.vtsl.is-disabled { opacity: 0.6; pointer-events: none; }
+
+.vtsl__panel {
+  --rr: 20px;
+  --accent: var(--ui-accent, #ededed);
+  position: absolute;
+  z-index: 70;
+  /* The panel is anchored inside a trigger-sized box, so a percentage here
+     would measure the button, not the column — --vtsl-avail carries the real
+     one in from #measure(). Without the clamp the card hangs out of any
+     container narrower than itself, open or closed. */
+  max-width: min(var(--vtsl-avail, 100vw), calc(100vw - 16px));
+  border-radius: var(--rr);
+  background: var(--bg-card, var(--bg-elevated, #161616));
+  border: 1px solid var(--border, #2a2a2a);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  outline: none;
+  color: var(--text, #ededed);
+}
+/* anchor position per edge */
+.vtsl--f-bottom .vtsl__panel { top: calc(var(--h) + 10px); left: 0; }
+.vtsl--f-top .vtsl__panel { bottom: calc(var(--h) + 10px); left: 0; }
+.vtsl--f-left .vtsl__panel { top: 0; right: calc(100% + 10px); }
+.vtsl--f-right .vtsl__panel { top: 0; left: calc(100% + 10px); }
+
+.vtsl__panel.vtsl--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+.vtsl__panel.vtsl--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+.vtsl__panel.vtsl--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+.vtsl__panel.vtsl--r-none { --rr: 8px; }
+.vtsl__panel.vtsl--r-subtle { --rr: 10px; }
+.vtsl__panel.vtsl--r-pill { --rr: 24px; }
+.vtsl__panel.vtsl--r-squircle { --rr: 26px; }
+@supports (corner-shape: squircle) { .vtsl__panel.vtsl--r-squircle { corner-shape: squircle; } }
+
+/* the UNIQUE morph: a directional slide reveal, one variant per edge.
+   Closed = "leave-to" resting state (base rule, leave timing + delayed
+   visibility). Open = "enter" state (.is-open rule, enter timing, instant
+   visibility). Direction transform comes from the --f-* class on the root. */
+.vtsl__panel {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 200ms cubic-bezier(0.4, 0, 1, 1), opacity 170ms ease, visibility 0s linear 200ms;
+}
+.vtsl--f-bottom .vtsl__panel { transform: translateY(-14px); }
+.vtsl--f-top .vtsl__panel { transform: translateY(14px); }
+.vtsl--f-left .vtsl__panel { transform: translateX(14px); }
+.vtsl--f-right .vtsl__panel { transform: translateX(-14px); }
+
+.vtsl.is-open .vtsl__panel {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  visibility: visible;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease, visibility 0s;
+}
+
+/* 336px = the 300px surface plus its own padding, now that the box counts it —
+   same panel as ever on a wide page, but it can give ground once the clamp
+   above narrows the panel it sits in. */
+.vtsl__card { display: flex; flex-direction: column; gap: 14px; width: 336px; max-width: 100%; padding: 18px; }
+.vtsl__head { display: flex; align-items: center; gap: 12px; }
+.vtsl__avatar {
+  display: grid; place-items: center;
+  width: 46px; height: 46px; flex: none;
+  border-radius: 14px;
+  background: var(--accent); color: var(--ui-accent-fg, #0b0b0b); font-weight: 700;
+}
+@supports (corner-shape: squircle) { .vtsl__avatar { corner-shape: squircle; } }
+.vtsl__id { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vtsl__name { font-weight: 700; font-size: 1.05em; color: var(--text, #ededed); }
+.vtsl__role { font-size: 0.85em; color: var(--text-muted, #8a8a8a); }
+.vtsl__bio { margin: 0; font-size: 0.92em; line-height: 1.5; color: var(--text-secondary, #c4c4c4); }
+.vtsl__actions { display: flex; gap: 8px; margin-top: 2px; }
+.vtsl__btn {
+  flex: 1; height: 38px; border: 0; border-radius: 11px;
+  font: inherit; font-weight: 600; cursor: pointer;
+  transition: filter 160ms ease, transform 140ms ease;
+}
+@supports (corner-shape: squircle) { .vtsl__btn { corner-shape: squircle; } }
+.vtsl__btn:active { transform: scale(0.96); }
+.vtsl__btn--ghost { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.06)); color: var(--text-secondary, #c4c4c4); }
+.vtsl__btn--primary { background: var(--accent); color: var(--ui-accent-fg, #0b0b0b); }
+.vtsl__btn--primary:hover { filter: brightness(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vtsl__panel, .vtsl.is-open .vtsl__panel { transition: none; }
+  .vtsl__trigger, .vtsl__btn { transition: none; }
+  .vtsl__panel { transform: none; }
+}

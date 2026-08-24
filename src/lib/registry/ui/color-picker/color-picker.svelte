@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface ColorPickerProps { value?: string; alpha?: boolean; swatches?: string[]; color?: RxColor; size?: 'lg' | 'default' | 'sm'; disabled?: boolean; onValueChange?: (value: string) => void }
 </script>
 <script lang="ts">
-	import { styleColor } from '../../lib/color'; import { parseColor, hsvToHex, type HsvColor } from './hsv';
+	import { styleColor } from '$lib/registry/lib/color'; import { parseColor, hsvToHex, type HsvColor } from './hsv';
 	let { value = $bindable('#3366ff'), alpha = false, swatches = [], color, size = 'default', disabled = false, onValueChange }: ColorPickerProps = $props();
 	let initial = parseColor(value) ?? { h: 220, s: .8, v: 1, a: 1 };
 	let hsv = $state<HsvColor>(initial), textValue = $state(value), invalid = $state(false);

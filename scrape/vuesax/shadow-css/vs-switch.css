@@ -1,0 +1,183 @@
+  :host { display: inline-flex; }
+${u}
+.vsw {
+  /* md scale by default */
+  --w: 52px;
+  --h: 32px;
+  --pad: 3px;
+  --accent: #1f74ff;
+  --off: var(--sw-off, #39393d);
+  --thumb: #ffffff;
+  --dur: 480ms;
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #ededed;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.vsw--lbl-left { flex-direction: row-reverse; }
+
+/* double light (global): radii for the switch size */
+.vsw__glow { --glow-r-core: 42px; --glow-r-soft: 150px; }
+
+/* sm is the size chrome reuses, so its metrics read from tokens (fallback =
+   the catalog default) — a host can shrink the track without a transform. */
+.vsw--sm {
+  --w: var(--sw-w-sm, 40px);
+  --h: var(--sw-h-sm, 24px);
+  --pad: var(--sw-pad-sm, 2.5px);
+  font-size: var(--sw-fs-sm, 13px);
+}
+.vsw--lg { --w: 64px; --h: 38px; --pad: 4px; font-size: 15px; }
+
+/* ── track ── */
+.vsw__track {
+  position: relative;
+  flex: none;
+  width: var(--w);
+  height: var(--h);
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--off);
+  cursor: inherit;
+  outline: none;
+  box-shadow: none;
+  transform-style: preserve-3d;
+  transition:
+    transform 260ms var(--spring),
+    background-color var(--dur) var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+/* wave container: clips to the track shape without touching the thumb's shadow */
+.vsw__ripples {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+.vsw__ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.22) 30%,
+    rgba(255, 255, 255, 0.08) 52%,
+    transparent 72%
+  );
+  opacity: 0;
+  will-change: transform, opacity;
+  animation:
+    vsw-ripple-scale 640ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    vsw-ripple-fade 640ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+@keyframes vsw-ripple-scale {
+  from { transform: translate(-50%, -50%) scale(0); }
+  to   { transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes vsw-ripple-fade {
+  from { opacity: 0.85; }
+  to   { opacity: 0; }
+}
+.vsw--r-rounded .vsw__track { border-radius: calc(var(--h) * 0.34); }
+.vsw--r-square .vsw__track { border-radius: 7px; }
+
+.is-on .vsw__track {
+  background: var(--accent);
+  box-shadow: none;
+}
+
+.vsw__track:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 80%, #fff);
+  outline-offset: 3px;
+}
+
+/* ── thumb ── */
+.vsw__thumb {
+  position: absolute;
+  z-index: 2;
+  top: var(--pad);
+  left: var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--h) - var(--pad) * 2);
+  height: calc(var(--h) - var(--pad) * 2);
+  /* fixed radius (half the height) → when stretched it stays a rounded rect, not an oval */
+  border-radius: calc((var(--h) - var(--pad) * 2) / 2);
+  background: var(--thumb);
+  color: var(--off);
+  box-shadow: none;
+  /* width and transform SAME duration+easing → when stretching, the opposite edge
+     stays perfectly attached (no drift) */
+  transition:
+    transform var(--dur) var(--spring),
+    width var(--dur) var(--spring),
+    border-radius var(--dur) var(--ease-out, ease);
+  will-change: transform, width;
+}
+.vsw--r-rounded .vsw__thumb { border-radius: calc((var(--h) - var(--pad) * 2) * 0.32); }
+.vsw--r-square .vsw__thumb { border-radius: 5px; }
+
+.is-on .vsw__thumb {
+  transform: translateX(calc(var(--w) - var(--h)));
+  color: var(--accent);
+}
+
+/* stretch on press (iOS-style elastic): the thumb elongates */
+.is-pressed .vsw__thumb { width: calc((var(--h) - var(--pad) * 2) * 1.32); }
+/* on + pressed: since it grows to the right, compensate the translate */
+.is-on.is-pressed .vsw__thumb {
+  transform: translateX(calc(var(--w) - var(--h) - (var(--h) - var(--pad) * 2) * 0.32));
+}
+
+/* ── icons inside the thumb (cross-fade) ── */
+.vsw__thumb-ico {
+  position: absolute;
+  width: 56%;
+  height: 56%;
+  transition: opacity 200ms ease, transform 320ms var(--spring);
+}
+.vsw__thumb-ico--on { opacity: 0; transform: scale(0.4) rotate(-45deg); }
+.vsw__thumb-ico--off { opacity: 0.55; transform: scale(1); color: var(--off); }
+.is-on .vsw__thumb-ico--on { opacity: 1; transform: scale(1) rotate(0); }
+.is-on .vsw__thumb-ico--off { opacity: 0; transform: scale(0.4); }
+
+/* ── spinner loading ── */
+.vsw__spinner {
+  width: 60%;
+  height: 60%;
+  color: var(--off);
+  animation: vsw-spin 0.7s linear infinite;
+}
+.is-on .vsw__spinner { color: var(--accent); }
+@keyframes vsw-spin { to { transform: rotate(360deg); } }
+.is-loading .vsw__track { cursor: progress; }
+
+/* ── label ── */
+.vsw__label { line-height: 1; }
+
+/* ── disabled ── */
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.is-disabled .vsw__track { cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vsw__track,
+  .vsw__thumb,
+  .vsw__thumb-ico { transition-duration: 0ms; }
+  .vsw__spinner { animation-duration: 1.4s; }
+  .vsw__ripple { display: none; }
+}

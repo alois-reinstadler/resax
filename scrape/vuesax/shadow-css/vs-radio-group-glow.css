@@ -1,0 +1,98 @@
+  :host { display: inline-flex; }
+  .rgglow {
+    --h: var(--ctrl-h-md, 40px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --acc: var(--ui-accent, #ededed);
+    display: inline-flex;
+    gap: 8px;
+    font-family: inherit;
+  }
+  .rgglow--vertical { flex-direction: column; align-items: flex-start; }
+  .rgglow--horizontal { flex-direction: row; align-items: center; gap: 20px; }
+  .rgglow--sm { --h: var(--ctrl-h-sm, 32px); --fs: var(--ctrl-fs-sm, 13px); }
+  .rgglow--md { --h: var(--ctrl-h-md, 40px); --fs: var(--ctrl-fs-md, 14px); }
+  .rgglow--lg { --h: var(--ctrl-h-lg, 48px); --fs: var(--ctrl-fs-lg, 15px); }
+
+  .rgglow--danger  { --acc: var(--tone-danger, #ef4444); }
+  .rgglow--warn    { --acc: var(--tone-warn, #f59e0b); }
+  .rgglow--success { --acc: var(--tone-success, #22c55e); }
+
+  .rgglow__opt {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: var(--h);
+    padding: 0 6px;
+    border: 0;
+    background: transparent;
+    color: color-mix(in srgb, var(--inp-text, #ededed) 72%, transparent);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 220ms ease;
+  }
+  .rgglow__opt:hover:not(:disabled) { color: var(--inp-text, #ededed); }
+  .rgglow__opt--active { color: var(--inp-text, #ededed); }
+  .rgglow__opt:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--acc) 70%, transparent);
+    outline-offset: 2px;
+  }
+  .rgglow__opt:disabled { opacity: 0.4; cursor: not-allowed; }
+  .rgglow--disabled { opacity: 0.6; }
+
+  .rgglow__mark {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex: none;
+    border-radius: 999px;
+    border: 1.5px solid color-mix(in srgb, var(--inp-text, #ededed) 34%, transparent);
+    background: var(--bg-card, #111);
+    transition: border-color 260ms ease, box-shadow 320ms ease;
+  }
+  /* active mark: neon halo via box-shadow (paint only, no layout) */
+  .rgglow__opt--active .rgglow__mark {
+    border-color: var(--acc);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--acc) 60%, transparent),
+      0 0 10px 1px color-mix(in srgb, var(--acc) 55%, transparent),
+      0 0 20px 3px color-mix(in srgb, var(--acc) 35%, transparent);
+  }
+
+  .rgglow__core {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--acc);
+    transform: scale(0);
+    box-shadow: 0 0 8px 1px color-mix(in srgb, var(--acc) 80%, transparent);
+    transition: transform 300ms cubic-bezier(0.34, 1.8, 0.5, 1);
+  }
+  .rgglow__opt--active .rgglow__core { transform: scale(1); }
+
+  /* glow ripple ring — out of flow (position:absolute), fires once on selection */
+  .rgglow__ripple {
+    position: absolute;
+    inset: -1.5px;
+    border-radius: 999px;
+    border: 1.5px solid var(--acc);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .rgglow__ripple--fire { animation: rgglow-ripple 620ms ease-out; }
+  @keyframes rgglow-ripple {
+    0%   { opacity: 0.7; transform: scale(0.7); }
+    100% { opacity: 0; transform: scale(2.4); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rgglow__opt, .rgglow__mark, .rgglow__core { transition: none; }
+    .rgglow__ripple--fire { animation: none; }
+  }

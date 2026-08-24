@@ -1,0 +1,5 @@
+<script lang="ts">import DemoSection from '../DemoSection.svelte';import {SlideConfirm} from '$lib/registry/ui/slide-confirm';let confirmed=$state(false);let loading=$state(false);</script>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Slide Confirm</h1><p>Deliberate pointer and keyboard confirmation with familiar Vuesax motion.</p></div>
+<DemoSection title="Confirmation" source={'<SlideConfirm bind:confirmed resettable />'}><div class="stack"><SlideConfirm bind:confirmed resettable onConfirm={()=>setTimeout(()=>loading=false,500)} {loading}/><button class="reset" onclick={()=>confirmed=false}>Reset demo</button></div></DemoSection>
+<DemoSection title="States" source={'<SlideConfirm disabled />'}><div class="stack"><SlideConfirm disabled label="Unavailable"/><SlideConfirm loading label="Processing" color="success"/></div></DemoSection>
+<style>.stack{display:grid;gap:1rem;justify-items:start}.reset{border:1px solid rgb(var(--rx-text)/.12);border-radius:var(--rx-radius);padding:.5rem .75rem;color:rgb(var(--rx-text));background:transparent}</style>

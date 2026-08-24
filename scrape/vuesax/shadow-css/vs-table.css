@@ -1,0 +1,359 @@
+  /* container-type turns the host into the yardstick the narrow layout is
+     measured against. A table lives in someone's column, and that column runs
+     out of room long before the window does — @media would still be reading
+     1440px while these four columns are fighting over 320. */
+  :host { display: block; width: 100%; container-type: inline-size; }
+  .vtbl {
+    /* sizing scale (driven by tokens with portable fallbacks) */
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    --py: 12px;
+    --row-h: 48px;
+    --r: var(--ctrl-r-md, 12px);
+    --accent: var(--ui-accent, #ededed);
+    --line: var(--border, #1f1f1f);
+    --line-soft: color-mix(in srgb, var(--border, #1f1f1f) 65%, transparent);
+    --surface: var(--bg-card, #0a0a0a);
+    --surface-2: var(--bg-elevated, #111111);
+    --txt: var(--text, #ededed);
+    --txt-2: var(--text-secondary, #a1a1a1);
+    --txt-3: var(--text-muted, #666666);
+    --hover-bg: var(--inp-hover-bg, rgba(255, 255, 255, 0.045));
+    --stripe-bg: var(--inp-readonly-bg, rgba(255, 255, 255, 0.022));
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: var(--surface);
+    border-radius: var(--r);
+    color: var(--txt);
+    font-family: inherit;
+    font-size: var(--fs);
+    overflow: hidden;
+  }
+  .vtbl--sm { --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); --py: 8px; --row-h: 40px; --r: var(--ctrl-r-sm, 10px); }
+  .vtbl--lg { --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 18px); --py: 15px; --row-h: 56px; --r: var(--ctrl-r-lg, 14px); }
+
+  .vtbl--r-none { --r: 0px; }
+  .vtbl--r-subtle { --r: 8px; }
+  .vtbl.is-bordered { border: 1px solid var(--line); }
+  @supports (corner-shape: squircle) {
+    .vtbl--r-squircle { corner-shape: squircle; --r: calc(var(--ctrl-r-md, 12px) * 1.5); }
+    .vtbl--r-squircle.vtbl--sm { --r: calc(var(--ctrl-r-sm, 10px) * 1.5); }
+    .vtbl--r-squircle.vtbl--lg { --r: calc(var(--ctrl-r-lg, 14px) * 1.5); }
+  }
+
+  /* ── toolbar ── */
+  .vtbl__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: calc(var(--py) + 2px) var(--px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .vtbl__bar[hidden] { display: none; }
+  .vtbl__bar-l { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .vtbl__title { margin: 0; font-size: calc(var(--fs) + 2px); font-weight: 600; letter-spacing: -0.01em; color: var(--txt); }
+  .vtbl__title[hidden] { display: none; }
+  .vtbl__count {
+    flex: none;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    color: color-mix(in srgb, var(--accent) 88%, var(--txt));
+    font-size: calc(var(--fs) - 3px);
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+  .vtbl__count[hidden] { display: none; }
+
+  /* ── scroll region ── */
+  .vtbl__scroll { width: 100%; overflow-x: auto; }
+  .vtbl.is-sticky .vtbl__scroll { max-height: 420px; overflow-y: auto; }
+
+  .vtbl__table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+
+  /* ── header ── */
+  .vtbl__th {
+    position: relative;
+    padding: var(--py) var(--px);
+    background: var(--surface-2);
+    color: var(--txt-3);
+    font-size: calc(var(--fs) - 2px);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .vtbl.is-sticky .vtbl__th { position: sticky; top: 0; z-index: 2; }
+  .vtbl__th.is-center { text-align: center; }
+  .vtbl__th.is-right { text-align: right; }
+  .vtbl__head tr { border-bottom: 1px solid var(--line); }
+
+  .vtbl__sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+    transition: color 160ms ease;
+  }
+  .vtbl__th.is-right .vtbl__sort { flex-direction: row-reverse; }
+  .vtbl__th.is-center .vtbl__sort { justify-content: center; }
+  .vtbl__sort:hover { color: var(--txt); }
+  .vtbl__sort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .vtbl__th.is-active { color: var(--txt); }
+  .vtbl__th-label { display: inline-block; }
+
+  .vtbl__arrow { display: inline-flex; transition: opacity 160ms ease, transform 220ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)); }
+  .vtbl__arrow svg { width: 13px; height: 13px; }
+  .vtbl__arrow.is-idle { opacity: 0; transform: scale(0.8); }
+  .vtbl__sort:hover .vtbl__arrow.is-idle { opacity: 0.4; }
+  /* the chevron pair: highlight the down half for asc, flip for desc */
+  .vtbl__arrow.is-asc { opacity: 1; transform: rotate(180deg); color: var(--accent); }
+  .vtbl__arrow.is-desc { opacity: 1; transform: rotate(0deg); color: var(--accent); }
+
+  /* ── body ── */
+  .vtbl__td {
+    padding: var(--py) var(--px);
+    color: var(--txt);
+    text-align: left;
+    vertical-align: middle;
+    height: var(--row-h);
+  }
+  .vtbl__td.is-center { text-align: center; }
+  .vtbl__td.is-right { text-align: right; }
+  .vtbl__row { transition: background-color 140ms ease; }
+  .vtbl__body tr + tr { border-top: 1px solid var(--line-soft); }
+  .vtbl.is-bordered .vtbl__th + .vtbl__th,
+  .vtbl.is-bordered .vtbl__td + .vtbl__td { border-left: 1px solid var(--line-soft); }
+
+  .vtbl.is-striped .vtbl__body tr:nth-child(even) { background: var(--stripe-bg); }
+  .vtbl.is-hoverable .vtbl__body tr:hover { background: var(--hover-bg); }
+  .vtbl__row.is-selected { background: color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+  .vtbl__row.is-selected:hover { background: color-mix(in srgb, var(--accent) 16%, transparent) !important; }
+
+  /* ── selection column ── */
+  .vtbl__col-check { width: 52px; }
+  .vtbl__th--check, .vtbl__td--check { width: 52px; padding-right: 0; text-align: center; }
+  .vtbl__check { display: inline-flex; vertical-align: middle; }
+
+  /* ── user cell ── */
+  .vtbl__user { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+  .vtbl__avatar {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 22%, var(--surface-2));
+    color: var(--txt);
+    font-size: calc(var(--fs) - 3px);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .vtbl--sm .vtbl__avatar { width: 26px; height: 26px; }
+  .vtbl--lg .vtbl__avatar { width: 36px; height: 36px; }
+  .vtbl__user-txt { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+  .vtbl__user-name { font-weight: 500; color: var(--txt); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vtbl__user-sub { font-size: calc(var(--fs) - 2px); color: var(--txt-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .vtbl__num { font-variant-numeric: tabular-nums; }
+
+  /* ── empty ── */
+  .vtbl__td--empty { height: calc(var(--row-h) * 2.5); text-align: center; color: var(--txt-3); }
+
+  /* ── skeleton ── */
+  .vtbl__skel {
+    display: block;
+    width: 70%;
+    height: 12px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--line-soft) 0%, var(--surface-2) 50%, var(--line-soft) 100%);
+    background-size: 200% 100%;
+    animation: vtbl-shimmer 1.3s linear infinite;
+  }
+  .vtbl__skel--box { width: 18px; height: 18px; margin: 0 auto; border-radius: 6px; }
+  @keyframes vtbl-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vtbl__row, .vtbl__arrow, .vtbl__sort, .vtbl__count { transition: none; }
+    .vtbl__skel { animation: none; }
+  }
+
+  /* ── inline checkbox cell (stand-in for <VsCheckbox>, zero cross-import) ── */
+  .vtbl__cb {
+    flex: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 1.5px solid var(--line-soft);
+    border-radius: 5px;
+    background: var(--surface-2);
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 180ms ease, background-color 180ms ease;
+  }
+  .vtbl__cb--md { width: 20px; height: 20px; border-radius: 6px; }
+  .vtbl__cb:hover { border-color: var(--txt-3); }
+  .vtbl__cb:focus-visible { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+  .vtbl__cb.is-on, .vtbl__cb.is-indeterminate { background: var(--accent); border-color: var(--accent); }
+  .vtbl__cb-mark { width: 76%; height: 76%; }
+  .vtbl__cb-check { stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset 220ms cubic-bezier(0.65, 0, 0.35, 1); }
+  .vtbl__cb-dash { stroke-dasharray: 12; stroke-dashoffset: 12; transition: stroke-dashoffset 180ms cubic-bezier(0.65, 0, 0.35, 1); }
+  .vtbl__cb.is-on:not(.is-indeterminate) .vtbl__cb-check { stroke-dashoffset: 0; }
+  .vtbl__cb.is-indeterminate .vtbl__cb-dash { stroke-dashoffset: 0; }
+  .vtbl__cb.is-indeterminate .vtbl__cb-check { stroke-dashoffset: 24; }
+  /* An 18px square is 6px short of the WCAG 2.2 thumb floor, and shrinking the
+     drawn box is not on the table — so the target is widened past the paint
+     with a transparent overlay. Nothing moves; the miss rate drops. */
+  .vtbl__cb::after {
+    content: '';
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: max(100%, 26px);
+    height: max(100%, 26px);
+    transform: translate(-50%, -50%);
+  }
+
+  /* ── inline status pill (stand-in for <VsBadge>, zero cross-import) ── */
+  .vtbl__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    height: 22px;
+    padding: 0 9px;
+    border-radius: 999px;
+    font-size: calc(var(--fs) - 2px);
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    background: color-mix(in srgb, var(--pill-ring, var(--txt-2)) 16%, transparent);
+    color: var(--pill-ring, var(--txt-2));
+    border: 1px solid color-mix(in srgb, var(--pill-ring, var(--txt-2)) 24%, transparent);
+  }
+  .vtbl__pill--md { height: 24px; padding: 0 10px; }
+  .vtbl__pill-dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; flex: none; }
+  .vtbl__pill--t-success { --pill-ring: var(--ui-accent, #ededed); }
+  .vtbl__pill--t-warn { --pill-ring: var(--ui-accent, #ededed); }
+  .vtbl__pill--t-danger { --pill-ring: var(--ui-accent, #ededed); }
+
+  /* ── narrow: every row becomes a labelled card ──
+     Four columns cannot share 320px, and the fallback — .vtbl__scroll's
+     horizontal pan — is a trap: it has no scrollbar and no edge fade, so
+     Status and Usage are not "off to the right", they are simply gone as far
+     as the reader can tell. Below the switch the table stops being a grid and
+     each row states its own fields, so nothing is hidden and nothing pans. */
+  @container (max-width: 480px) {
+    .vtbl__scroll { overflow-x: hidden; }
+    /* the thead's job was to name the columns once; the cards now name them
+       every time, and a colgroup under a non-table parent would otherwise
+       conjure an anonymous table box */
+    .vtbl__head, .vtbl__table > colgroup { display: none; }
+    /* border-box or the cards run 28px (a --px pair) past the card they sit in:
+       these boxes gain padding the table layout used to absorb for them */
+    .vtbl__table, .vtbl__body, .vtbl__row, .vtbl__td { display: block; box-sizing: border-box; width: 100%; }
+
+    .vtbl__row { position: relative; padding: 8px 0; }
+    .vtbl__td {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      align-items: center;
+      /* grid stretches its items and blockifies inline-flex on the way in, so
+         without this the status pill inflates into a full-width slab and the
+         avatar drifts away from the name it belongs to */
+      justify-items: start;
+      gap: 10px;
+      height: auto;
+      padding: 5px var(--px);
+    }
+    /* the header's alignment was about lining up a column of figures; stacked
+       there is no column to line up with, and a right-flung value reads as
+       belonging to the row below it */
+    .vtbl__td, .vtbl__td.is-center, .vtbl__td.is-right { text-align: left; }
+    /* the label the thead no longer carries — stamped on the cell at render
+       time, since the port builds its DOM in JS and CSS cannot reach columns */
+    .vtbl__td::before {
+      content: attr(data-label);
+      overflow: hidden;
+      color: var(--txt-3);
+      font-size: calc(var(--fs) - 3px);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    /* an unlabelled column would leave a 72px hole in front of every value */
+    .vtbl__td[data-label=""] { grid-template-columns: minmax(0, 1fr); }
+    .vtbl__td[data-label=""]::before { content: none; }
+
+    /* the checkbox owned a column; with no columns left it rides the card's
+       corner, and the cell beside it reserves the room so a long email cannot
+       run underneath */
+    .vtbl__td--check {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      /* back to a plain box: the label grid would otherwise hold a 72px empty
+         track open in front of the checkbox and park it mid-card */
+      display: block;
+      width: auto;
+      padding: 0;
+    }
+    .vtbl__td--check::before { content: none; }
+    .vtbl__td--check + .vtbl__td { padding-right: 46px; }
+    /* vertical rules separate columns; stacked they would just underline the
+       left edge of every field */
+    .vtbl.is-bordered .vtbl__td + .vtbl__td { border-left: 0; }
+
+    .vtbl__td--empty { display: block; text-align: center; }
+    .vtbl__td--empty::before { content: none; }
+
+    /* Same trick as the ::after overlay, but real: at phone size the button
+       itself is the 26px target and ::before paints the 18px box inside it, so
+       what the thumb hits and what the accessibility tree measures agree. The
+       desktop header row is untouched — it would have grown 8px taller. */
+    .vtbl__cb { width: 26px; height: 26px; border: 0; background: none; }
+    .vtbl__cb--md { width: 28px; height: 28px; }
+    .vtbl__cb::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1.5px solid var(--line-soft);
+      border-radius: 5px;
+      background: var(--surface-2);
+      transition: border-color 180ms ease, background-color 180ms ease;
+    }
+    .vtbl__cb--md::before { border-radius: 6px; }
+    .vtbl__cb:hover::before { border-color: var(--txt-3); }
+    .vtbl__cb:focus-visible { box-shadow: none; }
+    .vtbl__cb:focus-visible::before { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+    .vtbl__cb.is-on, .vtbl__cb.is-indeterminate { background: none; }
+    .vtbl__cb.is-on::before, .vtbl__cb.is-indeterminate::before { background: var(--accent); border-color: var(--accent); }
+    /* the mark was 76% of the button; the button is now the target rather than
+       the box, so the same tick has to be stated outright — 76% of 26px would
+       draw a visibly fatter check than the desktop one. position lifts it over
+       the absolutely positioned ::before. */
+    .vtbl__cb-mark { position: relative; width: 12px; height: 12px; }
+    .vtbl__cb--md .vtbl__cb-mark { width: 13.5px; height: 13.5px; }
+  }

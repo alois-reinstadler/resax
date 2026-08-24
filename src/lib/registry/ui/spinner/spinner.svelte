@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color.js';
+	import type { RxColor } from '$lib/registry/lib/color';
 
-	export type SpinnerType = 'default' | 'waves' | 'corners' | 'border' | 'points' | 'square' | 'gradient' | 'rectangle' | 'circles' | 'scale';
+	export type SpinnerType = 'default' | 'waves' | 'corners' | 'border' | 'points' | 'square' | 'gradient' | 'rectangle' | 'circles' | 'scale' | 'bars' | 'bounce' | 'comet' | 'dots' | 'flip' | 'grid' | 'orbit' | 'pulse' | 'ring' | 'wave';
 	export type SpinnerSize = 'xl' | 'lg' | 'default' | 'sm' | 'mini';
 	export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
 		type?: SpinnerType;
@@ -18,14 +18,15 @@
 </script>
 
 <script lang="ts">
-	import { styleColor } from '../../lib/color.js';
-	import { cn } from '../../../utils.js';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { cn } from '$lib/utils.js';
 	let { type = 'default', color = 'primary', size = 'default', text, class: className, style, ...rest }: SpinnerProps = $props();
 	const colorStyle = $derived([styleColor(color), typeof style === 'string' ? style : undefined].filter(Boolean).join('; '));
-	const pieces = $derived(type === 'waves' ? 5 : type === 'corners' ? 4 : type === 'points' ? 3 : type === 'rectangle' ? 5 : type === 'circles' ? 3 : type === 'scale' ? 3 : 1);
+	const canonicalType = $derived(({ bars: 'rectangle', bounce: 'points', comet: 'gradient', dots: 'points', flip: 'square', grid: 'corners', orbit: 'circles', pulse: 'scale', ring: 'border', wave: 'waves' } as Partial<Record<SpinnerType, SpinnerType>>)[type] ?? type);
+	const pieces = $derived(canonicalType === 'waves' ? 5 : canonicalType === 'corners' ? 4 : canonicalType === 'points' ? 3 : canonicalType === 'rectangle' ? 5 : canonicalType === 'circles' ? 3 : canonicalType === 'scale' ? 3 : 1);
 </script>
 
-<div {...rest} class={cn('rx-spinner', `rx-spinner--${type}`, spinnerSizeClass[size], className)} style={colorStyle} role="status">
+<div {...rest} class={cn('rx-spinner', `rx-spinner--${canonicalType}`, canonicalType !== type && `rx-spinner--source-${type}`, spinnerSizeClass[size], className)} data-type={type} style={colorStyle} role="status">
 	<div class="rx-spinner__visual" aria-hidden="true">
 		{#each Array(pieces) as _, index}<i style={`--rx-index: ${index}`}></i>{/each}
 	</div>

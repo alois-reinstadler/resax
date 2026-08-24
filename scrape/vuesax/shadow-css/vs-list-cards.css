@@ -1,0 +1,57 @@
+  :host { display: block; width: 100%; }
+  .vslc {
+    --accent: var(--inp-accent, var(--ui-accent, #ededed));
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--vslc-gap, 10px);
+    perspective: 900px;
+  }
+  .vslc--r-none { --vslc-radius: 0px; }
+  .vslc--r-subtle { --vslc-radius: 8px; }
+  .vslc--r-rounded { --vslc-radius: var(--ctrl-radius, 12px); }
+  .vslc--r-pill { --vslc-radius: 26px; }
+  @supports (corner-shape: squircle) { .vslc--r-squircle .vslc-card { corner-shape: squircle; } .vslc--r-squircle { --vslc-radius: 22px; } }
+
+  .vslc-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--vslc-py, 14px) var(--vslc-px, 16px);
+    background: var(--bg-card, #111);
+    border: 1px solid var(--border, #2a2a2a);
+    border-radius: var(--vslc-radius, 12px);
+    color: var(--text, #ededed);
+    cursor: pointer;
+    outline: none;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms ease, border-color 200ms ease;
+  }
+  .vslc-card:hover {
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border, #2a2a2a));
+  }
+  .vslc-card.is-selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 10px 24px rgba(0, 0, 0, 0.35); }
+  .vslc-card.is-active { border-left: 3px solid var(--accent); }
+  .vslc-card:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+  .vslc-card.is-disabled { opacity: 0.5; cursor: default; pointer-events: none; }
+
+  .vslc--sm .vslc-card { --vslc-py: 10px; --vslc-px: 12px; }
+  .vslc--lg .vslc-card { --vslc-py: 18px; --vslc-px: 20px; }
+
+  .vslc-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .vslc-title { font-size: var(--vslc-fs, 14px); font-weight: 560; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vslc--sm .vslc-title { --vslc-fs: 13px; }
+  .vslc--lg .vslc-title { --vslc-fs: 15px; }
+  .vslc-subtitle { font-size: 12.5px; color: var(--text-secondary, #a1a1a1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vslc-meta { flex: none; font-size: 12px; color: var(--text-muted, #666); }
+
+  .vslc-empty { margin: 0; padding: 24px 16px; text-align: center; font-size: 13px; color: var(--text-muted, #666); }
+  .vslc.is-disabled { opacity: 0.6; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vslc-card { transition: box-shadow 200ms ease, border-color 200ms ease; transform: none !important; }
+  }

@@ -1,0 +1,101 @@
+  :host { display: inline-flex; }
+  .avg {
+    --sz: var(--ctrl-h-md, 40px);
+    --fs: var(--ctrl-fs-md, 15px);
+    --r: 50%;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sz);
+    height: var(--sz);
+    border-radius: var(--r);
+    flex: none;
+    user-select: none;
+  }
+  .avg__face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    overflow: hidden;
+    z-index: 1;
+    background: var(--vs-color, hsl(var(--avg-hue, 220) 45% 22%));
+    color: var(--vs-color-fg, hsl(var(--avg-hue, 220) 70% 78%));
+  }
+  /* sizes */
+  .avg--xs { --sz: var(--ctrl-h-xs, 24px); --fs: var(--ctrl-fs-xs, 10px); }
+  .avg--sm { --sz: var(--ctrl-h-sm, 32px); --fs: var(--ctrl-fs-sm, 12px); }
+  .avg--md { --sz: var(--ctrl-h-md, 40px); --fs: var(--ctrl-fs-md, 15px); }
+  .avg--lg { --sz: var(--ctrl-h-lg, 56px); --fs: var(--ctrl-fs-lg, 20px); }
+  .avg--xl { --sz: var(--ctrl-h-xl, 80px); --fs: var(--ctrl-fs-xl, 28px); }
+  /* shapes */
+  .avg--s-circle { --r: 50%; }
+  .avg--s-rounded { --r: var(--ctrl-r-md, 12px); }
+  .avg--s-squircle { --r: var(--ctrl-r-lg, 16px); }
+  @supports (corner-shape: squircle) {
+    .avg--s-squircle,
+    .avg--s-squircle .avg__face,
+    .avg--s-squircle .avg__halo { corner-shape: squircle; }
+  }
+  .avg--bordered .avg__face {
+    box-shadow:
+      0 0 0 2px var(--bg-card, #111),
+      0 0 0 3px var(--inp-border, #2a2a2a);
+  }
+  .avg__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+  .avg__initials {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: var(--fs);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .avg__placeholder {
+    width: 62%;
+    height: 62%;
+    color: var(--inp-text, #ededed);
+    opacity: 0.5;
+  }
+  /* ── breathing neon halo (self-animated, out of flow) ───────── */
+  .avg__halo {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 0;
+    pointer-events: none;
+    --spread: calc(6px * var(--avg-i, 1));
+    box-shadow:
+      0 0 var(--spread) calc(var(--spread) * 0.3) rgba(91, 140, 255, 0.35),
+      0 0 calc(var(--spread) * 2) calc(var(--spread) * 0.6) rgba(91, 140, 255, 0.18);
+    animation: avg-breathe 3s ease-in-out infinite;
+  }
+  /* tint the glow with the accent token where supported */
+  @supports (color: color-mix(in srgb, red, blue)) {
+    .avg__halo {
+      box-shadow:
+        0 0 var(--spread) calc(var(--spread) * 0.3) color-mix(in srgb, var(--accent, #5b8cff) 45%, transparent),
+        0 0 calc(var(--spread) * 2) calc(var(--spread) * 0.6) color-mix(in srgb, var(--accent, #5b8cff) 22%, transparent);
+    }
+  }
+  @keyframes avg-breathe {
+    0%, 100% { opacity: 0.55; transform: scale(0.985); }
+    50% { opacity: 1; transform: scale(1.015); }
+  }
+  .avg:hover .avg__halo {
+    --spread: calc(11px * var(--avg-i, 1));
+    animation-duration: 1.6s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .avg__halo { animation: none; }
+  }

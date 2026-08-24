@@ -1,0 +1,94 @@
+  :host { display: block; }
+  .vsr-sb {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 340px;
+    border-radius: var(--ctrl-r-lg, 16px);
+    background: var(--bg-card, #111);
+    border: 1px solid var(--border, #2a2a2a);
+    overflow: hidden;
+  }
+  .vsr-sb--bare {
+    max-width: none;
+    height: auto;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+  }
+  .vsr-sb__vp {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior: contain;
+  }
+  .vsr-sb--bare .vsr-sb__vp {
+    height: auto;
+  }
+  .vsr-sb__vp::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .vsr-sb__track {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    right: 5px;
+    width: 18px;
+    padding: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: opacity 320ms ease, background-color 220ms ease;
+  }
+  .vsr-sb__track--capsule {
+    background: rgb(var(--fx-tint, 255 255 255) / 0.06);
+    border: 1px solid var(--border, #2a2a2a);
+  }
+  .vsr-sb__track--hidden {
+    opacity: 0;
+  }
+  .vsr-sb__track--can-scroll {
+    display: block;
+  }
+  .vsr-sb__track:not(.vsr-sb__track--can-scroll) {
+    display: none;
+  }
+  .vsr-sb__thumb {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 999px;
+    cursor: grab;
+    will-change: transform, width;
+    transition: width 260ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      background-color 220ms ease;
+  }
+  .vsr-sb__thumb:active {
+    cursor: grabbing;
+  }
+  .vsr-sb__demo {
+    padding: 22px 26px;
+    color: var(--text-secondary, #c9c9c9);
+    font-family: inherit;
+  }
+  .vsr-sb__demo h3 {
+    margin: 0 0 14px;
+    color: var(--text, #fff);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .vsr-sb__demo p {
+    margin: 0 0 16px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vsr-sb__thumb,
+    .vsr-sb__track {
+      transition: none;
+    }
+  }

@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 
 	export type Side = 'top' | 'right' | 'bottom' | 'left';
 	export interface DropdownProps {
@@ -14,9 +14,10 @@
 </script>
 
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import * as DropdownBase from '$lib/components/ui/dropdown-menu/index.js';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 
 	let { open = $bindable(false), trigger = 'click', color, placement = 'bottom', children, content }: DropdownProps = $props();
 	let closeTimer: ReturnType<typeof setTimeout> | undefined;
@@ -25,6 +26,7 @@
 	function cancelClose() { if (closeTimer) clearTimeout(closeTimer); closeTimer = undefined; }
 	function show() { if (trigger !== 'hover') return; cancelClose(); open = true; }
 	function hide() { if (trigger !== 'hover') return; cancelClose(); closeTimer = setTimeout(() => open = false, RX_DURATION.fast); }
+	onDestroy(cancelClose);
 </script>
 
 <DropdownBase.Root bind:open>

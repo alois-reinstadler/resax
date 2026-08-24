@@ -1,0 +1,96 @@
+  :host { display: block; }
+  :host([orientation="vertical"]) { display: inline-block; align-self: stretch; height: 100%; }
+
+  .vsflow {
+    --vsflow-col: var(--vs-color, var(--border, #2a2a2a));
+    --vsflow-gap: 14px;
+    --vsflow-dash: 8px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .vsflow__line {
+    flex: 1;
+    height: 1px;
+    border: 0;
+    background: repeating-linear-gradient(
+      to right,
+      var(--vsflow-col) 0 var(--vsflow-dash),
+      transparent var(--vsflow-dash) calc(var(--vsflow-dash) * 2)
+    );
+    background-size: calc(var(--vsflow-dash) * 2) 100%;
+    animation: vsflow-march var(--vsflow-speed) linear infinite;
+  }
+  @keyframes vsflow-march {
+    to { background-position: calc(var(--vsflow-dash) * 2) 0; }
+  }
+
+  .vsflow__label {
+    flex: none;
+    padding: 0 var(--vsflow-gap);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    white-space: nowrap;
+    user-select: none;
+  }
+  .has-label .vsflow__line--l {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 92%);
+    mask-image: linear-gradient(to right, transparent, #000 92%);
+  }
+  .has-label .vsflow__line--r {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 92%);
+    mask-image: linear-gradient(to left, transparent, #000 92%);
+  }
+  .vsflow--lbl-start.has-label .vsflow__line--l { flex: 0 0 var(--vsflow-gap); }
+  .vsflow--lbl-end.has-label .vsflow__line--r { flex: 0 0 var(--vsflow-gap); }
+
+  /* vertical */
+  .vsflow--vertical {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    min-height: 28px;
+    align-self: stretch;
+  }
+  .vsflow--vertical .vsflow__line {
+    width: 1px;
+    height: auto;
+    flex: 1;
+    align-self: center;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--vsflow-col) 0 var(--vsflow-dash),
+      transparent var(--vsflow-dash) calc(var(--vsflow-dash) * 2)
+    );
+    background-size: 100% calc(var(--vsflow-dash) * 2);
+    animation: vsflow-march-v var(--vsflow-speed) linear infinite;
+  }
+  @keyframes vsflow-march-v {
+    to { background-position: 0 calc(var(--vsflow-dash) * 2); }
+  }
+  .vsflow--vertical .vsflow__label { padding: var(--vsflow-gap) 0; }
+  .vsflow--vertical.has-label { min-height: 96px; }
+  .vsflow--vertical.has-label .vsflow__line--l {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 92%);
+    mask-image: linear-gradient(to bottom, transparent, #000 92%);
+  }
+  .vsflow--vertical.has-label .vsflow__line--r {
+    -webkit-mask-image: linear-gradient(to top, transparent, #000 92%);
+    mask-image: linear-gradient(to top, transparent, #000 92%);
+  }
+  .vsflow--vertical.vsflow--lbl-start.has-label .vsflow__line--l { flex: 0 0 var(--vsflow-gap); }
+  .vsflow--vertical.vsflow--lbl-end.has-label .vsflow__line--r { flex: 0 0 var(--vsflow-gap); }
+
+  /* tones */
+  .vsflow--t-danger { --vsflow-col: var(--accent-danger, #e5484d); }
+  .vsflow--t-warn { --vsflow-col: var(--accent-warn, #f5a623); }
+  .vsflow--t-success { --vsflow-col: var(--accent-success, #30a46c); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vsflow__line { animation: none !important; }
+  }

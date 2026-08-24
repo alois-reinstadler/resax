@@ -1,0 +1,101 @@
+  :host { display: inline-flex; }
+  .orbit {
+    --sz: 32px;
+    --bw: 3px;
+    --dur: 1.1s;
+    --gap: 10px;
+    --fs: 13px;
+    --ring: var(--inp-ring, 237 237 237);
+    --track: rgb(var(--ring) / 0.1);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+    --dot: calc(var(--sz) * 0.19);
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    color: var(--tint);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .orbit__box {
+    position: relative;
+    width: var(--sz);
+    height: var(--sz);
+    flex: 0 0 auto;
+  }
+
+  /* faint hairline track — merely hints at the orbit */
+  .orbit__track {
+    position: absolute;
+    inset: calc(var(--dot) / 2);
+    border-radius: 999px;
+    border: 1.5px solid var(--track);
+  }
+
+  /* spinning wrapper; the 3 satellites hang off it evenly spaced */
+  .orbit__spin {
+    position: absolute;
+    inset: calc(var(--dot) / 2);
+    animation: orbit-spin var(--dur) linear infinite;
+  }
+
+  .orbit__sat {
+    position: absolute;
+    inset: 0;
+  }
+  .orbit__sat:nth-child(2) { transform: rotate(120deg); }
+  .orbit__sat:nth-child(3) { transform: rotate(240deg); }
+
+  .orbit__dot {
+    position: absolute;
+    top: calc(var(--dot) / -2);
+    left: 50%;
+    width: var(--dot);
+    height: var(--dot);
+    margin-left: calc(var(--dot) / -2);
+    border-radius: 999px;
+    background: rgb(var(--ring));
+    box-shadow: 0 0 calc(var(--dot) * 1.1) rgb(var(--ring) / 0.5);
+  }
+  /* depth: each satellite a touch fainter → sense of a trail */
+  .orbit__sat:nth-child(2) .orbit__dot { opacity: 0.72; }
+  .orbit__sat:nth-child(3) .orbit__dot { opacity: 0.44; }
+
+  @keyframes orbit-spin { to { transform: rotate(360deg); } }
+
+  /* sizes */
+  .orbit--sm { --sz: 20px; --bw: 2px; --fs: 12px; --gap: 8px; }
+  .orbit--md { --sz: 32px; --bw: 3px; --fs: 13px; }
+  .orbit--lg { --sz: 44px; --bw: 4px; --fs: 14px; --gap: 12px; }
+  .orbit--xl { --sz: 60px; --bw: 5px; --fs: 16px; --gap: 14px; }
+
+  /* speed */
+  .orbit--s-slow   { --dur: 1.7s; }
+  .orbit--s-normal { --dur: 1.1s; }
+  .orbit--s-fast   { --dur: 0.7s; }
+
+  .orbit__label { color: var(--tint); white-space: nowrap; }
+
+  .orbit.is-overlay {
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+    z-index: 10;
+  }
+
+  /* tones */
+  .orbit--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .orbit--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+  .orbit--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orbit__spin { animation-duration: 3s; }
+  }

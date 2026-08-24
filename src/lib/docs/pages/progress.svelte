@@ -11,6 +11,7 @@
 		{#each [15, 45, 75, 100] as value}<Progress {value} label />{/each}
 	</div>
 </DemoSection>
+<DemoSection title="Custom maximum"><div class="progress-stack"><Progress value={3} max={5} label /><span>Three of five complete</span></div></DemoSection>
 
 <DemoSection title="Variants">
 	<div class="progress-stack" data-demo-section="variants">

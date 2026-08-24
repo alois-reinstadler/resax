@@ -1,0 +1,80 @@
+  :host { display: inline-flex; }
+  :host([overlay]) { position: absolute; inset: 0; display: flex; }
+
+  .spinring {
+    --sz: 32px;
+    --bw: 3px;
+    --dur: 1s;
+    --gap: 10px;
+    --fs: 13px;
+    --ring: var(--inp-ring, 237 237 237);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    color: var(--tint);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .spinring__box {
+    position: relative;
+    width: var(--sz);
+    height: var(--sz);
+    flex: 0 0 auto;
+  }
+
+  .spinring__spoke {
+    position: absolute;
+    top: 8%;
+    left: calc(50% - var(--bw) / 2);
+    width: var(--bw);
+    height: 22%;
+    border-radius: 999px;
+    background: rgb(var(--ring));
+    transform-origin: 50% calc(var(--sz) * 0.42);
+    transform: rotate(calc(var(--i) * 30deg));
+    animation: spinring-fade var(--dur) linear infinite;
+    animation-delay: calc(var(--i) * var(--dur) / -12);
+  }
+
+  @keyframes spinring-fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0.12; }
+  }
+
+  /* sizes */
+  .spinring--sm { --sz: 20px; --bw: 2px; --fs: 12px; --gap: 8px; }
+  .spinring--md { --sz: 32px; --bw: 3px; --fs: 13px; }
+  .spinring--lg { --sz: 44px; --bw: 4px; --fs: 14px; --gap: 12px; }
+  .spinring--xl { --sz: 60px; --bw: 5px; --fs: 16px; --gap: 14px; }
+
+  /* speed */
+  .spinring--s-slow   { --dur: 1.5s; }
+  .spinring--s-normal { --dur: 1s; }
+  .spinring--s-fast   { --dur: 0.65s; }
+
+  .spinring__label { color: var(--tint); white-space: nowrap; }
+
+  .spinring.is-overlay {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+  }
+
+  /* tones */
+  .spinring--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .spinring--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+  .spinring--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spinring__spoke { animation-duration: 2.6s; }
+  }

@@ -4,7 +4,7 @@ import Input from './input.svelte';
 export const inputVariants = tv({
 	base: 'rx-input',
 	variants: {
-		variant: { default: 'rx-input--default', shadow: 'rx-input--shadow', border: 'rx-input--border' },
+		variant: { default: 'rx-input--default', shadow: 'rx-input--shadow', border: 'rx-input--border', filled: 'rx-input--filled', 'gradient-border': 'rx-input--gradient-border', pulse: 'rx-input--pulse', spotlight: 'rx-input--spotlight', underline: 'rx-input--underline' },
 		size: { lg: 'rx-input--lg', default: 'rx-input--size-default', sm: 'rx-input--sm' },
 		iconAfter: { true: 'rx-input--icon-after' }
 	},

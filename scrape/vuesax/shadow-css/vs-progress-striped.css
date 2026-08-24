@@ -1,0 +1,84 @@
+  :host { display: inline-flex; flex-direction: column; width: 100%; }
+  .vpst {
+    --h: 10px;
+    --fs: 13px;
+    --radius: var(--ctrl-r-pill, 999px);
+    --accent: var(--ui-accent, #ededed);
+    --track: var(--border, #2a2a2a);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+    --vpst-speed: 1s;
+
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 240px;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tint);
+  }
+
+  .vpst--sm { --h: 6px; --fs: 12px; }
+  .vpst--md { --h: 10px; --fs: 13px; }
+  .vpst--lg { --h: 14px; --fs: 14px; }
+
+  .vpst__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    line-height: 1;
+  }
+  .vpst__label { font-weight: 500; }
+  .vpst__val { font-variant-numeric: tabular-nums; color: var(--accent); }
+
+  .vpst__track {
+    position: relative;
+    width: 100%;
+    height: var(--h);
+    background: var(--track);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  /* full-width + compositable translateX; stripes (px) never stretch (no scale) */
+  .vpst__bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+    background-color: var(--accent);
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgb(255 255 255 / 0.22) 0,
+      rgb(255 255 255 / 0.22) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+    background-size: 22.6px 22.6px;
+    animation: vpst-move var(--vpst-speed) linear infinite;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes vpst-move {
+    to { background-position: 22.6px 0; }
+  }
+
+  .vpst.is-indeterminate .vpst__bar {
+    width: 45%;
+    animation:
+      vpst-move var(--vpst-speed) linear infinite,
+      vpst-slide 1.5s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  }
+  /* % relative to the bar itself (45% of track): -100% ≡ left:-45%, 222.23% ≡ left:100% */
+  @keyframes vpst-slide {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(222.23%); }
+  }
+
+  .vpst--t-danger  { --accent: var(--danger,  #ff6369); }
+  .vpst--t-warn    { --accent: var(--warn,    #ffb224); }
+  .vpst--t-success { --accent: var(--success, #4cc38a); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vpst__bar { animation: none; transition: none; }
+  }

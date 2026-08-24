@@ -1,0 +1,249 @@
+  :host { display: inline-flex; }
+${u}
+.vck {
+  --box: 20px;
+  --fs: 14px;
+  --accent: var(--inp-accent, #ededed);
+  --on-fg: var(--bg, #0a0a0a);
+  --ring: var(--inp-ring, 255 255 255);
+  --drop-rgb: 10 10 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: inherit;
+  font-size: var(--fs);
+  color: var(--text, #ededed);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.vck--lbl-left { flex-direction: row-reverse; }
+
+/* sizes */
+.vck--sm { --box: 16px; --fs: 13px; }
+.vck--md { --box: 20px; --fs: 14px; }
+.vck--lg { --box: 24px; --fs: 15px; }
+
+/* ── box ── */
+.vck__box {
+  position: relative;
+  isolation: isolate;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--box);
+  height: var(--box);
+  padding: 0;
+  border: 1.5px solid var(--inp-border, #3a3a3a);
+  border-radius: var(--rr, 6px);
+  background: var(--bg-input, #0d0d0d);
+  cursor: inherit;
+  outline: none;
+  transition:
+    border-color 200ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color 200ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 340ms cubic-bezier(0.34, 1.7, 0.5, 1);
+}
+.vck__box:hover { border-color: var(--inp-border-hover, #5a5a5a); }
+.vck__box:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(var(--ring) / 0.3);
+}
+.is-pressed .vck__box { transform: scale(0.82); }
+/* bounce pop on toggle (scale is independent of the press transform) */
+.is-pop .vck__box { animation: vck-pop 420ms cubic-bezier(0.34, 1.7, 0.5, 1); }
+@keyframes vck-pop {
+  0% { scale: 0.86; }
+  45% { scale: 1.14; }
+  100% { scale: 1; }
+}
+
+/* checked / indeterminate → fill with the accent */
+.is-on .vck__box,
+.is-indeterminate .vck__box {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* radii */
+.vck--r-none { --rr: 0px; }
+.vck--r-subtle { --rr: 6px; }
+.vck--r-rounded { --rr: 8px; }
+.vck--r-pill { --rr: 999px; }
+@supports (corner-shape: squircle) {
+  .vck--r-squircle { corner-shape: squircle; --rr: 12px; }
+  .vck--r-squircle .vck__box { corner-shape: squircle; }
+  .vck--r-squircle .vck__ripples { corner-shape: squircle; }
+}
+
+/* ── proximity glow ── */
+.vck__glow {
+  --glow-strength: 0.9;
+  --glow-ring: 1px;
+  --glow-inset: -1px;
+  --glow-r-core: 33px;
+  --glow-r-soft: 110px;
+}
+.vck--r-pill .vck__glow { border-radius: 999px; }
+@supports (corner-shape: squircle) {
+  .vck--r-squircle .vck__glow { corner-shape: squircle; }
+}
+
+/* ── ripples ── */
+/* halo: the ripple expands AROUND the box (it is not clipped) */
+.vck__ripples {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  overflow: visible;
+  pointer-events: none;
+}
+.vck__ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(
+    circle,
+    rgb(var(--ring) / 0.35) 0%,
+    rgb(var(--ring) / 0.18) 42%,
+    rgb(var(--ring) / 0.06) 62%,
+    transparent 78%
+  );
+  opacity: 0;
+  will-change: transform, opacity;
+  animation:
+    vck-ripple-scale 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    vck-ripple-fade 620ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+/* core: smaller radius but more intense and faster light */
+.vck__ripple--inner {
+  background: radial-gradient(
+    circle,
+    rgb(var(--ring) / 0.6) 0%,
+    rgb(var(--ring) / 0.32) 40%,
+    rgb(var(--ring) / 0.1) 62%,
+    transparent 76%
+  );
+  animation:
+    vck-ripple-scale 460ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    vck-ripple-fade 460ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+/* outer wave: slight delay → ripple feel */
+.vck__ripple:not(.vck__ripple--inner) { animation-delay: 90ms; }
+@keyframes vck-ripple-scale {
+  from { transform: translate(-50%, -50%) scale(0); }
+  to   { transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes vck-ripple-fade {
+  from { opacity: 0.7; }
+  to   { opacity: 0; }
+}
+
+/* ── check / dash ── */
+.vck__mark {
+  position: relative;
+  z-index: 1;
+  width: 78%;
+  height: 78%;
+  color: var(--on-fg);
+}
+.vck__check {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  transition: stroke-dashoffset 300ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.vck__dash {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  transition: stroke-dashoffset 220ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.is-on:not(.is-indeterminate) .vck__check { stroke-dashoffset: 0; }
+.is-indeterminate .vck__dash { stroke-dashoffset: 0; }
+.is-indeterminate .vck__check { stroke-dashoffset: 24; }
+
+/* ── label ── */
+.vck__label {
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+  transform-origin: center;
+  /* default = spring back on release: Apple-style damped spring (linear()) */
+  transition: transform 620ms linear(
+    0, 0.013 1.2%, 0.05 2.5%, 0.193 5.1%, 0.704 12.3%, 0.9 15.6%, 1.04 19.1%,
+    1.106 21.6%, 1.143 24.3%, 1.15 26%, 1.14 28.1%, 1.07 33%, 1.013 38.2%,
+    0.984 43.9%, 0.977 50%, 0.986 60%, 1.003 75%, 1
+  );
+}
+/* while held: sink fast and direct, spring is only for the return */
+.vck__label.is-pressing { transition: transform 120ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* water-drop ripple on the label — expanding double ring punched into the bg color,
+   clipped to the letters only. Slow & fluid. */
+@property --vck-r {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+.vck__drop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  --d2: calc(var(--vck-r) * 0.52);
+  background:
+    radial-gradient(
+      circle at var(--rx, 50%) var(--ry, 50%),
+      transparent calc(var(--vck-r) - 17px),
+      rgb(var(--drop-rgb, 10 10 10) / 0.12) calc(var(--vck-r) - 13px),
+      rgb(var(--drop-rgb, 10 10 10) / 0.55) calc(var(--vck-r) - 6px),
+      rgb(var(--drop-rgb, 10 10 10) / 0.98) calc(var(--vck-r) - 1px),
+      rgb(var(--drop-rgb, 10 10 10) / 0.62) calc(var(--vck-r) + 4px),
+      rgb(var(--drop-rgb, 10 10 10) / 0.14) calc(var(--vck-r) + 11px),
+      transparent calc(var(--vck-r) + 16px)
+    ),
+    radial-gradient(
+      circle at var(--rx, 50%) var(--ry, 50%),
+      transparent calc(var(--d2) - 12px),
+      rgb(var(--drop-rgb, 10 10 10) / 0.30) calc(var(--d2) - 5px),
+      rgb(var(--drop-rgb, 10 10 10) / 0.55) var(--d2),
+      rgb(var(--drop-rgb, 10 10 10) / 0.12) calc(var(--d2) + 7px),
+      transparent calc(var(--d2) + 12px)
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: vck-drop 1820ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes vck-drop {
+  0%   { --vck-r: 0px; opacity: 0.4; }
+  12%  { opacity: 1; }
+  100% { --vck-r: 150px; opacity: 0; }
+}
+/* light theme: bg is light → flip the drop to white so it reads on dark letters
+   (adapted from the SFC :global rule for shadow DOM) */
+:host-context([data-theme='light']) .vck { --drop-rgb: 255 255 255; }
+
+/* ── tones ── */
+.vck--t-danger { --accent: #e5484d; --ui-accent-fg: #fff; --ring: 255 99 105; --fx-tint: 255 99 105; --on-fg: #fff; }
+.vck--t-warn { --accent: #f5a623; --ui-accent-fg: #160f02; --ring: 255 178 36; --fx-tint: 255 178 36; --on-fg: #1a1206; }
+.vck--t-success { --accent: #30a46c; --ui-accent-fg: #fff; --ring: 76 195 138; --fx-tint: 76 195 138; --on-fg: #fff; }
+
+/* ── disabled ── */
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  pointer-events: none;
+}
+.is-disabled .vck__box { cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vck__box,
+  .vck__check,
+  .vck__dash { transition-duration: 0ms; }
+  .is-pop .vck__box { animation: none; }
+  .vck__ripple { display: none; }
+  .vck__label { transition: none; }
+}

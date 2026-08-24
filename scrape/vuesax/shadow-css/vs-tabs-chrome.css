@@ -1,0 +1,205 @@
+  :host { display: inline-block; max-width: 100%; }
+  :host([block]) { display: block; width: 100%; }
+
+  .tc {
+    --h: var(--ctrl-h-md, 40px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: 18px;
+    /* shoulder radius: the concave flare AND the tab's own top corners */
+    --r: 12px;
+    /* how much of the surface below the tabs the strip paints itself */
+    --lip: 10px;
+    --panel: var(--bg-card, #111111);
+    --line: var(--border, #2a2a2a);
+    --txt: var(--vs-color, var(--text, #ededed));
+    --muted: var(--text-muted, #8a8a8a);
+    --hover: color-mix(in srgb, var(--muted) 16%, transparent);
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    padding-inline: var(--r);
+    padding-bottom: var(--lip);
+    font-family: inherit;
+    font-size: var(--fs);
+    max-width: 100%;
+  }
+  .tc--sm { --h: var(--ctrl-h-sm, 32px); --fs: var(--ctrl-fs-sm, 13px); --px: 13px; }
+  .tc--lg { --h: var(--ctrl-h-lg, 48px); --fs: var(--ctrl-fs-lg, 15px); --px: 22px; }
+
+  /* The toolbar the tabs sit on. It is part of the component, not of the page:
+     without it the shoulders are quarter-circles floating in mid-air. */
+  .tc__lip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--lip);
+    background: var(--panel);
+    border-radius: 0 0 calc(var(--r) * 0.55) calc(var(--r) * 0.55);
+  }
+
+  .tc__list {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: var(--h);
+    overflow: visible;
+  }
+  .tc--block .tc__list { width: 100%; }
+
+  /* ── the sled: the active tab's surface, and the only thing that moves ── */
+  .tc__sled {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: var(--h);
+    width: 0;
+    border-radius: var(--r) var(--r) 0 0;
+    background: var(--panel);
+    transform: translate3d(0, 0, 0);
+    transform-origin: 50% 100%;
+    /* No transition here on purpose: the travel is a WAAPI animation sampled
+       from a spring solver, and a transition can only interpolate both edges
+       with ONE curve — which is exactly what kills the stretch. */
+    pointer-events: none;
+  }
+  /* The shoulders. Each is a square patch beside the sled with the quarter disc
+     centred on its OUTER top corner cut away — that missing quarter is the
+     concave curve, and what is left flares down into the lip. */
+  .tc__sled::before,
+  .tc__sled::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: var(--r);
+    height: var(--r);
+    background: var(--panel);
+  }
+  .tc__sled::before {
+    left: calc(var(--r) * -1);
+    -webkit-mask: radial-gradient(circle at 0 0, transparent calc(var(--r) - 0.5px), #000 var(--r));
+    mask: radial-gradient(circle at 0 0, transparent calc(var(--r) - 0.5px), #000 var(--r));
+  }
+  .tc__sled::after {
+    right: calc(var(--r) * -1);
+    -webkit-mask: radial-gradient(circle at 100% 0, transparent calc(var(--r) - 0.5px), #000 var(--r));
+    mask: radial-gradient(circle at 100% 0, transparent calc(var(--r) - 0.5px), #000 var(--r));
+  }
+
+  /* ── tabs ── */
+  .tc__tab {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: var(--h);
+    padding: 0 var(--px);
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 240ms ease, opacity 240ms ease;
+  }
+  .tc--block .tc__tab { flex: 1 1 0; justify-content: center; min-width: 0; }
+  .tc__tab.is-active { color: var(--txt); font-weight: 600; }
+
+  /* Hover is INK ONLY — no plate, no fill. A hover surface here would read as a
+     second sled and fight the one that is actually moving. */
+  .tc__tab:hover:not(.is-active):not(:disabled) { color: var(--txt); }
+
+  /* the hairline between two resting tabs (Chrome's separator) */
+  .tc__tab::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 42%;
+    background: var(--line);
+    transform: translateY(-50%);
+    transition: opacity 180ms ease;
+  }
+  /* Only the sled hides the hairline now: with no hover plate there is nothing
+     for the line to cut through, and blinking it on hover was noise. */
+  .tc__tab:last-of-type::after,
+  .tc__tab.is-active::after,
+  .tc__tab:has(+ .tc__tab.is-active)::after { opacity: 0; }
+
+  .tc__tab:focus-visible {
+    outline: 2px solid var(--vs-color, var(--ui-accent, #ededed));
+    outline-offset: -3px;
+    border-radius: var(--r) var(--r) 0 0;
+  }
+  .tc__tab:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .tc__label { position: relative; overflow: hidden; text-overflow: ellipsis; }
+
+  .tc__badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: var(--vs-color, var(--ui-accent, #ededed));
+    color: var(--vs-color-fg, var(--ui-accent-fg, #0b0b0b));
+    font-size: 11px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  /* Close is a span, not a button: a <button> inside a <button> is invalid HTML
+     and browsers drop it out of the tab. */
+  .tc__x {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-right: -6px;
+    border-radius: 999px;
+    color: inherit;
+    opacity: 0.55;
+    transition: opacity 160ms ease, background-color 160ms ease;
+  }
+  .tc__x:hover { opacity: 1; background: var(--hover); }
+  .tc__x svg { width: 11px; height: 11px; display: block; }
+
+  .tc__add {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin: 0 0 calc((var(--h) - 28px) / 2) 6px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+  .tc__add:hover { background: var(--hover); color: var(--txt); }
+  .tc__add svg { width: 14px; height: 14px; display: block; }
+
+  .is-disabled { opacity: 0.55; pointer-events: none; }
+
+  /* Reduced motion: the sled still marks the active tab, it just gets there
+     without travelling or smearing (the spring pass is skipped in JS). */
+  @media (prefers-reduced-motion: reduce) {
+    .tc__tab { transition: color 200ms ease; }
+  }

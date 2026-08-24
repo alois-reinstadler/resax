@@ -1,0 +1,101 @@
+  :host { display: inline-flex; }
+  .sld {
+    --h: var(--ctrl-h-md, 40px);
+    --r: var(--ctrl-r-md, 12px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --accent: var(--ui-accent, #ededed);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: var(--h);
+    padding: 4px;
+    border: 1px solid var(--inp-border, #2a2a2a);
+    border-radius: calc(var(--r) * 1.25);
+    background: var(--bg-elevated, #111);
+  }
+  .sld--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --fs: var(--ctrl-fs-sm, 13px); }
+  .sld--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --fs: calc(var(--ctrl-fs-lg, 15px) + 1px); }
+
+  .sld__btn {
+    --bs: calc(var(--h) - 8px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--bs);
+    height: var(--bs);
+    flex: none;
+    padding: 0;
+    border: 1px solid var(--inp-border, #2a2a2a);
+    border-radius: calc(var(--r) * 0.9);
+    background: var(--bg-input, #0d0d0d);
+    color: var(--inp-text, #ededed);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: border-color 180ms ease, background-color 180ms ease, opacity 180ms ease;
+  }
+  .sld__btn:hover:not(:disabled) {
+    border-color: var(--inp-border-hover, #3d3d3d);
+    background: var(--inp-hover-bg, rgba(255, 255, 255, 0.05));
+  }
+  .sld__btn:focus-visible { outline: none; border-color: var(--ui-accent, #ededed); }
+  .sld__btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .sld__icon {
+    width: 56%;
+    height: 56%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sld__track {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5ch;
+    height: calc(var(--h) - 8px);
+    padding: 0 0.6ch;
+    border-radius: calc(var(--r) * 0.7);
+    background: var(--bg-input, #0d0d0d);
+    border: 1px solid var(--inp-border, #2a2a2a);
+    touch-action: none;
+  }
+  .sld__track.is-live { cursor: ew-resize; }
+  .sld__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--ui-accent, #ededed) 30%, transparent),
+      color-mix(in srgb, var(--ui-accent, #ededed) 62%, transparent)
+    );
+    transition: width 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .sld.is-dragging .sld__fill { transition: none; }
+  .sld__value {
+    position: relative;
+    z-index: 1;
+    color: var(--inp-text, #ededed);
+    font-size: var(--fs);
+    font-weight: 600;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+    user-select: none;
+  }
+
+  .sld--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+  .sld--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+  .sld--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+
+  .sld.is-disabled { opacity: 0.55; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sld__btn,
+    .sld__fill { transition: none; }
+  }

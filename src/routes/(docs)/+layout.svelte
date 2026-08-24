@@ -12,9 +12,14 @@
 </svelte:head>
 
 <div class="docs-shell">
+	<a class="skip-link" href="#docs-main">Skip to content</a>
 	<Sidebar />
 	<div class="docs-column">
-		<header class="topbar"><DarkToggle /></header>
-		<main>{@render children()}</main>
+		<header class="topbar">
+			<a class="topbar-home" href="/">Documentation</a>
+			<nav aria-label="Documentation"><a href="/#components">Components</a><a href="/#installation">Install</a><a href="/r/">Registry JSON</a></nav>
+			<DarkToggle />
+		</header>
+		<main id="docs-main">{@render children()}</main>
 	</div>
 </div>

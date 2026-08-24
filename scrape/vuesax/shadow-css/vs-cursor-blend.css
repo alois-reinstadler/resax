@@ -1,0 +1,95 @@
+  :host {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 160px;
+    min-height: 160px;
+    margin: 0;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+    font-family: inherit;
+    container-type: inline-size; /* lets the stage adapt to card-sized boxes */
+  }
+  :host([page]) {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2147483600;
+  }
+  :host([disabled]) { display: none; }
+
+  .hit { position: absolute; inset: 0; z-index: 3; }
+  :host(:not([page])) .hit { cursor: none; }
+  :host([page]) .hit { display: none; }
+
+  .circle,
+  .ghost {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+    transition: opacity 200ms ease;
+  }
+  .circle {
+    background: var(--vs-cur-color, #fff);
+    mix-blend-mode: difference;
+    z-index: 2;
+  }
+  /* the lagging ring only outlines the path — thin, so it reads as a wake */
+  .ghost {
+    border: 1.5px solid var(--vs-cur-color, #fff);
+    mix-blend-mode: difference;
+    z-index: 1;
+  }
+  .circle.is-visible { opacity: 1; }
+  .ghost.is-visible { opacity: 0.5; }
+
+  /* built-in demo stage (bounded mode only): half light, half dark, so the
+     inversion is visible on both. Any light-DOM child replaces it. */
+  .stage {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    pointer-events: none;
+  }
+  :host([page]) .stage { display: none; }
+  .stage .half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 clamp(14px, 6%, 28px);
+    min-width: 0;
+  }
+  .stage .light { background: #f2f2f2; color: #0a0a0a; }
+  .stage .dark { background: #0a0a0a; color: #f2f2f2; }
+  .stage strong {
+    font-size: clamp(14px, 5.5cqw, 21px);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .stage span { font-size: 12px; line-height: 1.45; opacity: 0.62; }
+  /* card-sized boxes: drop the body copy so the halves stay legible */
+  @container (max-width: 360px) {
+    .stage span { display: none; }
+    .stage .half { gap: 8px; }
+  }
+  .stage .chip {
+    align-self: flex-start;
+    font-size: 11px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    opacity: 0.8;
+  }

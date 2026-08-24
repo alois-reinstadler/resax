@@ -1,0 +1,102 @@
+.vtfl__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--backdrop, rgba(0, 0, 0, 0.5));
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.vtfl-fade-enter-active, .vtfl-fade-leave-active { transition: opacity 300ms ease; }
+.vtfl-fade-enter-from, .vtfl-fade-leave-to { opacity: 0; }
+
+/* stage owns the 3D perspective so the panel flips in depth (not a flat skew) */
+.vtfl__stage {
+  position: fixed;
+  z-index: 70;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1100px;
+}
+
+.vtfl__panel {
+  --rr: 20px;
+  --accent: var(--ui-accent, #ededed);
+  border-radius: var(--rr);
+  background: var(--bg-card, var(--bg-elevated, #161616));
+  border: 1px solid var(--border, #2a2a2a);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  outline: none;
+  color: var(--text, #ededed);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.vtfl--ax-x .vtfl__panel { transform-origin: center top; }
+.vtfl--ax-y .vtfl__panel { transform-origin: left center; }
+.vtfl__panel.vtfl--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; }
+.vtfl__panel.vtfl--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; }
+.vtfl__panel.vtfl--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; }
+.vtfl__panel.vtfl--r-none { --rr: 8px; }
+.vtfl__panel.vtfl--r-subtle { --rr: 10px; }
+.vtfl__panel.vtfl--r-pill { --rr: 24px; }
+.vtfl__panel.vtfl--r-squircle { --rr: 26px; }
+@supports (corner-shape: squircle) { .vtfl__panel.vtfl--r-squircle { corner-shape: squircle; } }
+
+/* the UNIQUE morph: a 3D perspective FLIP around a hinge — the transition targets the
+   stage's inner panel (rotate + opacity) so the card unfolds into view */
+.vtfl-flip-x-enter-active .vtfl__panel {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms ease;
+}
+.vtfl-flip-x-leave-active .vtfl__panel {
+  transition: transform 240ms cubic-bezier(0.4, 0, 1, 1), opacity 200ms ease;
+}
+.vtfl-flip-x-enter-from .vtfl__panel, .vtfl-flip-x-leave-to .vtfl__panel {
+  transform: rotateX(-88deg);
+  opacity: 0;
+}
+.vtfl-flip-y-enter-active .vtfl__panel {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms ease;
+}
+.vtfl-flip-y-leave-active .vtfl__panel {
+  transition: transform 240ms cubic-bezier(0.4, 0, 1, 1), opacity 200ms ease;
+}
+.vtfl-flip-y-enter-from .vtfl__panel, .vtfl-flip-y-leave-to .vtfl__panel {
+  transform: rotateY(88deg);
+  opacity: 0;
+}
+
+.vtfl__card { display: flex; flex-direction: column; gap: 14px; width: 300px; padding: 18px; }
+.vtfl__head { display: flex; align-items: center; gap: 12px; }
+.vtfl__avatar {
+  display: grid; place-items: center;
+  width: 46px; height: 46px; flex: none;
+  border-radius: 14px;
+  background: var(--accent); color: var(--ui-accent-fg, #0b0b0b); font-weight: 700;
+}
+@supports (corner-shape: squircle) { .vtfl__avatar { corner-shape: squircle; } }
+.vtfl__id { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vtfl__name { font-weight: 700; font-size: 1.05em; color: var(--text, #ededed); }
+.vtfl__role { font-size: 0.85em; color: var(--text-muted, #8a8a8a); }
+.vtfl__bio { margin: 0; font-size: 0.92em; line-height: 1.5; color: var(--text-secondary, #c4c4c4); }
+.vtfl__actions { display: flex; gap: 8px; margin-top: 2px; }
+.vtfl__btn {
+  flex: 1; height: 38px; border: 0; border-radius: 11px;
+  font: inherit; font-weight: 600; cursor: pointer;
+  transition: filter 160ms ease, transform 140ms ease;
+}
+@supports (corner-shape: squircle) { .vtfl__btn { corner-shape: squircle; } }
+.vtfl__btn:active { transform: scale(0.96); }
+.vtfl__btn--ghost { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.06)); color: var(--text-secondary, #c4c4c4); }
+.vtfl__btn--primary { background: var(--accent); color: var(--ui-accent-fg, #0b0b0b); }
+.vtfl__btn--primary:hover { filter: brightness(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vtfl-fade-enter-active, .vtfl-fade-leave-active,
+  .vtfl-flip-x-enter-active .vtfl__panel, .vtfl-flip-x-leave-active .vtfl__panel,
+  .vtfl-flip-y-enter-active .vtfl__panel, .vtfl-flip-y-leave-active .vtfl__panel,
+  .vtfl__trigger, .vtfl__btn { transition: none; }
+  .vtfl-flip-x-enter-from .vtfl__panel, .vtfl-flip-x-leave-to .vtfl__panel,
+  .vtfl-flip-y-enter-from .vtfl__panel, .vtfl-flip-y-leave-to .vtfl__panel {
+    transform: none; opacity: 1;
+  }
+}

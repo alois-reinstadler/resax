@@ -1,0 +1,130 @@
+  /* The 2px of host padding is the ring's gutter: .cgrad__ring hangs 1.5px
+     outside the card on every side, and with nothing to hang into it drags the
+     page scrollbar of whatever narrow column the card was dropped in. */
+  :host { display: block; box-sizing: border-box; padding: 2px; }
+  .cgrad {
+    --r: var(--ctrl-r-md, 12px);
+    --pad: var(--card-pad-md, 18px);
+    --gap: 8px;
+    --accent: var(--ui-accent, #ededed);
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    /* the 1px border has to count INSIDE the 100%, or the card is 2px wider
+       than its container at every width */
+    box-sizing: border-box;
+    width: 100%;
+    /* centered island (see vs-card.js): max-width must not left-align the card */
+    margin-inline: auto;
+    text-align: left;
+    font-family: inherit;
+    color: var(--card-fg, var(--text, #ededed));
+    border-radius: calc(var(--r, 12px) * var(--r-mult, 1));
+    border: 1px solid var(--border, #2a2a2a);
+    background: var(--bg-card, #111);
+    transition: transform 320ms cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+
+  /* sizes — padding scale + the same max-width ladder as VsCard, so a wide
+     container (the preview frame, a grid cell) caps the card instead of
+     stretching it into a banner. */
+  .cgrad--sm { --pad: var(--card-pad-sm, 14px); --r: var(--ctrl-r-sm, 10px); max-width: 320px; }
+  .cgrad--md { --pad: var(--card-pad-md, 18px); --r: var(--ctrl-r-md, 12px); max-width: 380px; }
+  .cgrad--lg { --pad: var(--card-pad-lg, 24px); --r: var(--ctrl-r-lg, 14px); max-width: 440px; }
+
+  .cgrad--r-none { --r: 0px; }
+  .cgrad--r-subtle { --r: 8px; }
+  .cgrad--r-pill { --r: 28px; }
+  @supports (corner-shape: squircle) {
+    .cgrad--r-squircle { corner-shape: squircle; --r-mult: 1.7; }
+  }
+
+  .cgrad--elevated { background: var(--bg-card, #111); }
+  .cgrad--outlined { background: transparent; }
+  .cgrad--soft { background: var(--bg-elevated, rgba(255, 255, 255, 0.035)); }
+
+  /* animated conic gradient ring — sits just outside the inner content, rotating
+     a hue sweep between the accent and a cool/warm partner. On non-ring mode the
+     host's own 1px border shows through instead. */
+  @property --cgrad-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+  .cgrad__ring {
+    position: absolute;
+    inset: -1.5px;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: conic-gradient(
+      from var(--cgrad-angle),
+      var(--ui-accent, #ededed),
+      color-mix(in srgb, var(--ui-accent, #ededed) 40%, #ffffff) 25%,
+      color-mix(in srgb, var(--ui-accent, #ededed) 60%, transparent) 50%,
+      color-mix(in srgb, var(--ui-accent, #ededed) 40%, #ffffff) 75%,
+      var(--ui-accent, #ededed)
+    );
+    opacity: 0.55;
+    animation: cgrad-spin 6s linear infinite;
+  }
+  .cgrad--ring { border-color: transparent; }
+  .cgrad:not(.cgrad--ring) .cgrad__ring { display: none; }
+  @keyframes cgrad-spin {
+    to { --cgrad-angle: 360deg; }
+  }
+
+  .cgrad--interactive {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .cgrad--interactive:hover:not(.is-disabled) { transform: translateY(-2px); }
+  .cgrad--ring:hover:not(.is-disabled) .cgrad__ring { opacity: 0.95; }
+  .cgrad--interactive:focus-visible { outline: 2px solid var(--ui-accent, #ededed); outline-offset: 3px; }
+
+  .is-disabled { opacity: 0.5; pointer-events: none; }
+
+  .cgrad__inner {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: inherit;
+    overflow: clip;
+    background: inherit;
+  }
+  @supports (corner-shape: squircle) {
+    .cgrad--r-squircle .cgrad__inner { corner-shape: squircle; }
+  }
+
+  .cgrad__media { position: relative; width: 100%; background: #0d0d0d; overflow: hidden; }
+  .cgrad__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .cgrad__body { display: flex; flex-direction: column; gap: var(--gap); padding: var(--pad); }
+  .cgrad__title { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.3; color: var(--text, #ededed); }
+  .cgrad__subtitle { margin: 0; font-size: 13px; color: var(--text-muted, #8a8a8a); }
+  .cgrad__text { font-size: 14px; line-height: 1.55; color: var(--text-secondary, #a8a8a8); }
+  .cgrad__footer { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+
+  .cgrad__btn {
+    height: 32px;
+    padding: 0 12px;
+    border-radius: var(--ctrl-r-sm, 10px);
+    border: 1px solid transparent;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .cgrad__btn--primary { background: var(--ui-accent, #ededed); color: var(--ui-accent-fg, #0b0b0b); }
+  .cgrad__btn--ghost { background: transparent; color: var(--text, #ededed); border-color: var(--border, #2a2a2a); }
+  .cgrad__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cgrad { transition: none; }
+    .cgrad__ring { animation: none; }
+    .cgrad--interactive:hover:not(.is-disabled) { transform: none; }
+  }

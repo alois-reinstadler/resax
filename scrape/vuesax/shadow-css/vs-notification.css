@@ -1,0 +1,142 @@
+  .vsn-host {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none;
+  }
+  .vsn-host > * { pointer-events: auto; }
+  .vsn-host[data-top='false'] { flex-direction: column-reverse; }
+  .vsn-host--top-left, .vsn-host--bottom-left { left: 20px; align-items: flex-start; }
+  .vsn-host--top-right, .vsn-host--bottom-right { right: 20px; align-items: flex-end; }
+  .vsn-host--top-center, .vsn-host--bottom-center { left: 50%; transform: translateX(-50%); align-items: center; }
+  .vsn-host--top-left, .vsn-host--top-center, .vsn-host--top-right { top: 20px; }
+  .vsn-host--bottom-left, .vsn-host--bottom-center, .vsn-host--bottom-right { bottom: 20px; }
+
+  .vsn {
+    position: relative;
+    width: var(--w);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    --in-y: -14px;
+    transition: height var(--dur) var(--spring);
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(10px);
+  }
+  .vsn--edge-bottom { --in-y: 14px; }
+  .vsn.is-ready { animation: vsn-in 720ms cubic-bezier(0.22, 1.12, 0.36, 1) both, vsn-fade 260ms ease-out both; }
+  .vsn.is-exiting { animation: vsn-out 320ms cubic-bezier(0.4, 0, 0.7, 0.2) both; }
+  @keyframes vsn-in { 0% { transform: translateY(var(--in-y)) scale(0.9); } 100% { transform: translateY(0) scale(1); } }
+  @keyframes vsn-fade { 0% { opacity: 0; filter: blur(9px); } 100% { opacity: 1; filter: blur(0); } }
+  @keyframes vsn-out {
+    0% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    100% { opacity: 0; transform: translateY(calc(var(--in-y) * 0.5)) scale(0.86); filter: blur(9px); }
+  }
+
+  .vsn__goo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: visible;
+    pointer-events: none;
+    filter: var(--vsn-goo-filter, drop-shadow(var(--vsn-shadow, 0 10px 30px rgba(0, 0, 0, 0.45))));
+  }
+  .vsn__pill, .vsn__body {
+    fill: var(--vsn-surface, #1c1c1e);
+    transition: x var(--dur) var(--spring), width var(--dur) var(--spring), height var(--dur) var(--spring), y var(--dur) var(--spring);
+  }
+
+  .vsn__head { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  .vsn--edge-bottom .vsn__goo { top: auto; bottom: 0; }
+  .vsn--edge-bottom .vsn__head { top: auto; bottom: 0; }
+  .vsn--edge-bottom .vsn__content { top: auto; bottom: var(--pill-h); transform: translateY(6px); }
+  .vsn--edge-bottom .vsn__content.is-visible { transform: translateY(0); }
+  .vsn--edge-bottom .vsn__content-inner { padding-top: 16px; padding-bottom: 6px; }
+
+  .vsn--align-left .vsn__head { justify-content: flex-start; }
+  .vsn--align-right .vsn__head { justify-content: flex-end; }
+  .vsn--align-right .vsn__content { text-align: right; }
+  .vsn--align-center .vsn__content { text-align: center; }
+  .vsn__head-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 16px;
+    max-width: calc(var(--w) - 16px);
+    transition: filter 300ms ease, opacity 300ms ease;
+  }
+  .vsn__head-inner.is-swapping { animation: vsn-swap 360ms ease; }
+  @keyframes vsn-swap { 0% { filter: blur(0); opacity: 1; } 40% { filter: blur(6px); opacity: 0.4; } 100% { filter: blur(0); opacity: 1; } }
+
+  .vsn__badge {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--vsn-badge-bg, rgba(255, 255, 255, 0.08));
+    color: var(--vsn-accent, var(--vs-color, #ededed));
+  }
+  .vsn__badge svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  /* All five state icons live in the badge at once (toggled per state). The UA
+     hidden-attribute rule loses here, so hide inactive ones explicitly — without
+     this every icon stacks into one garbled glyph. */
+  .vsn__badge svg[hidden] { display: none; }
+  .vsn__spin { animation: vsn-spin 0.8s linear infinite; }
+  @keyframes vsn-spin { to { transform: rotate(360deg); } }
+
+  .vsn__title { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--vsn-accent, var(--vs-color, #ededed)); }
+
+  .vsn__content {
+    position: absolute;
+    top: var(--pill-h);
+    left: 0;
+    right: 0;
+    padding: 0 22px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 240ms ease, transform var(--dur) var(--spring);
+  }
+  .vsn__content.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; transition-delay: 90ms; }
+  .vsn__content-inner { padding-bottom: 16px; }
+  .vsn__desc { margin: 0; font-size: 13px; line-height: 1.5; color: var(--vsn-desc, rgba(255, 255, 255, 0.62)); }
+  .vsn__action { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--vsn-accent, var(--vs-color, #ededed)); text-decoration: none; }
+  .vsn__action:hover { text-decoration: underline; }
+
+  .vsn--success { --vsn-accent: #4cc38a; --vsn-badge-bg: rgba(76, 195, 138, 0.16); }
+  .vsn--error { --vsn-accent: #ff6369; --vsn-badge-bg: rgba(255, 99, 105, 0.16); }
+  .vsn--warn { --vsn-accent: #ffb224; --vsn-badge-bg: rgba(255, 178, 36, 0.16); }
+  .vsn--loading { --vsn-accent: var(--vsn-fg, #ededed); --vsn-badge-bg: rgba(127, 127, 127, 0.16); }
+  .vsn--info { --vsn-accent: var(--vsn-fg, #cfcfcf); --vsn-badge-bg: rgba(127, 127, 127, 0.14); }
+
+  .vsn--v-fluent {
+    --vsn-surface: color-mix(in srgb, var(--vsn-surface-base, #2a2a30) 88%, transparent);
+    --vsn-goo-filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.14)) drop-shadow(0 10px 28px rgba(0, 0, 0, 0.4));
+  }
+  .vsn--v-outline {
+    --vsn-surface: #000000;
+    --vsn-goo-filter:
+      drop-shadow(1px 0 0 var(--vsn-border, rgba(255, 255, 255, 0.1)))
+      drop-shadow(-1px 0 0 var(--vsn-border, rgba(255, 255, 255, 0.1)))
+      drop-shadow(0 1px 0 var(--vsn-border, rgba(255, 255, 255, 0.1)))
+      drop-shadow(0 -1px 0 var(--vsn-border, rgba(255, 255, 255, 0.1)))
+      drop-shadow(0 8px 22px rgba(0, 0, 0, 0.5));
+  }
+  .vsn--v-glass {
+    --vsn-surface: var(--vsn-glass-fill, rgba(124, 124, 134, 0.22));
+    --vsn-goo-filter:
+      drop-shadow(0.5px 0 0 rgba(255, 255, 255, 0.35))
+      drop-shadow(-0.5px 0 0 rgba(255, 255, 255, 0.18))
+      drop-shadow(0 -0.5px 0 rgba(255, 255, 255, 0.4))
+      drop-shadow(0 14px 36px rgba(0, 0, 0, 0.45));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vsn, .vsn__goo, .vsn__pill, .vsn__body, .vsn__content, .vsn__head-inner { transition: none; animation: none; }
+  }

@@ -1,0 +1,58 @@
+/* borders must not push the control out of its cell (inputs default to
+   content-box, so width/height 100% + a border overflowed by 2px) */
+*, *::before, *::after { box-sizing: border-box; }
+
+:host { display: inline-flex; }
+:host([disabled]) { pointer-events: none; }
+.otf {
+  --h: var(--ctrl-h-md, 40px);
+  --r: var(--ctrl-r-md, 12px);
+  --fs: var(--ctrl-fs-md, 16px);
+  --otf-accent: var(--ui-accent, #ededed);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.otf__cell {
+  position: relative;
+  width: var(--h);
+  height: var(--h);
+  display: inline-flex;
+}
+.otf__control {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border-radius: var(--r);
+  border: 1px solid var(--inp-border, #2a2a2a);
+  background: var(--inp-bg, transparent);
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  font-size: var(--fs);
+  font-weight: 700;
+  text-align: center;
+  caret-color: var(--otf-accent);
+  outline: none;
+  transition: background-color 200ms ease, border-color 200ms ease,
+    color 200ms ease, transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 200ms ease;
+}
+.otf__cell:hover .otf__control { border-color: var(--inp-border-hover, #3d3d3d); }
+.otf__cell.is-focused .otf__control {
+  border-color: var(--otf-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--otf-accent) 25%, transparent);
+}
+/* effect: solid fill + pop when the cell has a value */
+.otf__cell.has-value .otf__control {
+  background: var(--otf-accent);
+  border-color: var(--otf-accent);
+  color: var(--ui-accent-fg, #0b0b0b);
+  transform: scale(1.06);
+}
+.otf.is-disabled { opacity: 0.5; }
+.otf.is-disabled .otf__control { cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) {
+  .otf__control { transition: background-color 200ms ease, border-color 200ms ease; }
+  .otf__cell.has-value .otf__control { transform: none; }
+}

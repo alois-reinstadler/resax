@@ -1,0 +1,6791 @@
+{
+  "generatedAt": "2026-08-24T21:42:04.360Z",
+  "components": [
+    {
+      "family": "VsAccordion",
+      "path": "/c/vs-accordion",
+      "shadcnSvelteFoundation": [
+        "Accordion"
+      ],
+      "behavior": "Disclosure buttons control one or more panels; preserve expanded state and keyboard button semantics.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "separated"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "ripple",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsAccordion",
+          "tier": "free"
+        },
+        {
+          "name": "VsAccordionBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAccordionFilled",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAccordionGhost",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAccordionGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAccordionSlide",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "fill",
+          "ghost",
+          "glow",
+          "slide"
+        ],
+        "effectProps": [
+          "glow",
+          "ripple",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "accb-pop",
+          "accg-spin",
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "240ms",
+          "320ms",
+          "200ms",
+          "540ms",
+          "600ms",
+          "300ms",
+          "380ms",
+          "520ms",
+          "60ms",
+          "420ms",
+          "620ms",
+          "560ms",
+          "70ms",
+          "280ms",
+          "500ms",
+          "340ms",
+          "480ms",
+          "400ms",
+          "80ms",
+          "3.2s",
+          "460ms",
+          "90ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.8, 0.42, 1)",
+          "cubic-bezier(0.22, 1.2, 0.36, 1)",
+          "cubic-bezier(0.2, 2.2, 0.35, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsAlertBanner",
+      "path": "/c/vs-alert-banner",
+      "shadcnSvelteFoundation": [
+        "Alert"
+      ],
+      "behavior": "Status message with optional icon, timeout and dismiss action; use an appropriate live-region policy.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "Heads up"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "default": "Your session expires in 5 minutes."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "icon",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsAlertBanner",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAlert",
+          "tier": "free"
+        },
+        {
+          "name": "VsAlertInline",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAlertNeon",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAlertSplit",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAlertToast",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "neon",
+          "toast"
+        ],
+        "effectProps": [
+          "duration",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "alert-fade",
+          "alert-rip",
+          "bnr-count",
+          "inl-pulse",
+          "neo-breathe",
+          "neo-spin",
+          "tst-count"
+        ],
+        "durationsObserved": [
+          "160ms",
+          "440ms",
+          "300ms",
+          "340ms",
+          "200ms",
+          "140ms",
+          "780ms",
+          "1.8s",
+          "150ms",
+          "420ms",
+          "280ms",
+          "320ms",
+          "4.4s",
+          "3.4s",
+          "180ms",
+          "480ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.5, -0.45, 0.55, 1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsAvatar",
+      "path": "/c/vs-avatar",
+      "shadcnSvelteFoundation": [
+        "Avatar"
+      ],
+      "behavior": "Image fallback, initials, status/ring overlays and optional pointer tilt.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "default": "https://i.pravatar.cc/160?img=12"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "Ada Lovelace"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "shape",
+          "type": "string",
+          "default": "circle"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "default": "online"
+        },
+        {
+          "name": "ring",
+          "type": "string",
+          "default": "none"
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "showPercent",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsAvatar",
+          "tier": "free"
+        },
+        {
+          "name": "VsAvatarGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarRing",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarSquircle",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarStatus",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarTilt",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "ring",
+          "tilt"
+        ],
+        "effectProps": [
+          "interactive",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "ava-live-pulse",
+          "ava-ring-spin",
+          "ava-ripple-fade",
+          "ava-ripple-scale",
+          "ava-typing",
+          "avg-breathe",
+          "avr-spin",
+          "avs-pulse"
+        ],
+        "durationsObserved": [
+          "240ms",
+          "720ms",
+          "140ms",
+          "560ms",
+          "300ms",
+          "1.1s",
+          "0.22s",
+          "0.11s",
+          "6s",
+          "1.8s",
+          "600ms",
+          "460ms",
+          "3s",
+          "1.6s",
+          "5s",
+          "520ms",
+          "160ms",
+          "320ms",
+          "60ms",
+          "220ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.34, 1.46, 0.44, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsAvatarGroup",
+      "path": "/c/vs-avatar-group",
+      "shadcnSvelteFoundation": [
+        "Avatar"
+      ],
+      "behavior": "Overlapping collection with maximum count and accessible overflow summary.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": 4
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "shape",
+          "type": "string",
+          "default": "circle"
+        },
+        {
+          "name": "overlap",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "spread",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsAvatarGroup",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarGroupFan",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarGroupFlip",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarGroupGrid",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarGroupRing",
+          "tier": "pro"
+        },
+        {
+          "name": "VsAvatarGroupWave",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "flip",
+          "ring",
+          "wave"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "ringavg-spin",
+          "waveavg-bob"
+        ],
+        "durationsObserved": [
+          "460ms",
+          "560ms",
+          "420ms",
+          "240ms",
+          "320ms",
+          "22ms",
+          "3.4s",
+          "0.9s",
+          "300ms",
+          "1.1s",
+          "110ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.8, 0.5, 1)",
+          "cubic-bezier(0.34, 1.56, 0.5, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsBadge",
+      "path": "/c/vs-badge",
+      "shadcnSvelteFoundation": [
+        "Badge"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "New"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "soft"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "pill"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "removable",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsBadge",
+          "tier": "free"
+        },
+        {
+          "name": "VsBadgeGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBadgeGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBadgePulse",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBadgeShimmer",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBadgeStripes",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient",
+          "pulse",
+          "shimmer",
+          "stripes"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "badge-fade",
+          "badge-rip",
+          "bglow-breathe",
+          "bgrad-shift",
+          "bpulse-ring",
+          "bshim-sweep",
+          "bstr-march"
+        ],
+        "durationsObserved": [
+          "200ms",
+          "160ms",
+          "140ms",
+          "780ms",
+          "2.6s",
+          "3.2s",
+          "2s",
+          "3s",
+          "1.2s",
+          "3.4s",
+          "0.9s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(.3,.7,.3,1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsBreadcrumb",
+      "path": "/c/vs-breadcrumb",
+      "shadcnSvelteFoundation": [
+        "Breadcrumb"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "separator",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsBreadcrumb",
+          "tier": "free"
+        },
+        {
+          "name": "VsBreadcrumbArrow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBreadcrumbCollapse",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBreadcrumbGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBreadcrumbPill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsBreadcrumbSlash",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "bc-drop",
+          "bcc-bob",
+          "bcc-in",
+          "bcg-flicker"
+        ],
+        "durationsObserved": [
+          "620ms",
+          "120ms",
+          "1820ms",
+          "240ms",
+          "200ms",
+          "360ms",
+          "40ms",
+          "80ms",
+          "160ms",
+          "220ms",
+          "1200ms",
+          "150ms",
+          "300ms",
+          "260ms",
+          "380ms",
+          "1600ms",
+          "320ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+          "cubic-bezier(0.16, 1, 0.3, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.65, 0, 0.35, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsButton",
+      "path": "/c/vs-button",
+      "shadcnSvelteFoundation": [
+        "Button"
+      ],
+      "behavior": "Native button semantics with loading, disabled and icon-only naming requirements.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Button"
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "iconOnly",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "borderless",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsButton",
+          "tier": "free"
+        },
+        {
+          "name": "VsButtonAskAi",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonBorderDraw",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonChrome",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonGlitch",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonGooey",
+          "tier": "free"
+        },
+        {
+          "name": "VsButtonGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonInvert",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonLiquid",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonMagnetic",
+          "tier": "free"
+        },
+        {
+          "name": "VsButtonPlasma",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonPush",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonShine",
+          "tier": "pro"
+        },
+        {
+          "name": "VsButtonV2",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSplitButton",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glitch",
+          "gooey",
+          "gradient",
+          "liquid",
+          "magnet",
+          "magnetic",
+          "plasma",
+          "push",
+          "shine"
+        ],
+        "effectProps": [
+          "disabled",
+          "loading",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "ask-d1",
+          "ask-d2",
+          "ask-d3",
+          "ask-d4",
+          "ask-d5",
+          "ask-d6",
+          "ask-d7",
+          "ask-fade",
+          "ask-rip",
+          "ask-shine",
+          "ask-spin",
+          "ask-twinkle",
+          "bgl-fade",
+          "bgl-glitch-a",
+          "bgl-glitch-b",
+          "bgl-rip",
+          "bliq-wobble",
+          "bshine-sweep",
+          "btn-fade",
+          "btn-rip",
+          "btn-spin",
+          "btn2-ripple-fade",
+          "btn2-ripple-scale",
+          "btn2-spin",
+          "chr-fade",
+          "chr-rip",
+          "gbtn-fade",
+          "gbtn-ripple",
+          "plasma-ripple",
+          "sb-liquid",
+          "vbg-fade",
+          "vbg-rip"
+        ],
+        "durationsObserved": [
+          "240ms",
+          "200ms",
+          "160ms",
+          "7s",
+          "140ms",
+          "780ms",
+          "1.2s",
+          "260ms",
+          "420ms",
+          "71s",
+          "31s",
+          "52s",
+          "1.4s",
+          "85s",
+          "63s",
+          "39s",
+          "2.05s",
+          "97s",
+          "18s",
+          "58s",
+          "1.72s",
+          "77s",
+          "94s",
+          "1.45s",
+          "760ms",
+          "460ms",
+          "300ms",
+          "3.4s",
+          "2.6s",
+          "2.1s",
+          "220ms",
+          "560ms",
+          "120ms",
+          "400ms",
+          "900ms",
+          "80ms",
+          "180ms",
+          "720ms",
+          "0.3s",
+          "0.5s",
+          "0.4s",
+          "2s",
+          "520ms",
+          "1.7s",
+          "90ms",
+          "320ms",
+          "0.7s",
+          "440ms",
+          "0ms",
+          "110ms",
+          "170ms",
+          "1ms",
+          "52ms",
+          "26ms",
+          "377ms",
+          "325ms",
+          "351ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.34,1.56,.64,1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.65, 0, 0.35, 1)",
+          "cubic-bezier(.34, 1.56, .64, 1)",
+          "cubic-bezier(.25, .8, .35, 1)",
+          "cubic-bezier(.22, 1, .36, 1)",
+          "cubic-bezier(.25, .1, .25, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.2, 0.8, 0.3, 1)",
+          "cubic-bezier(.2,.8,.3,1)",
+          "cubic-bezier(0.3, 0.7, 0.3, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.32, 0.72, 0, 1)",
+          "cubic-bezier(0.34, 1.26, 0.4, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsButtonGroup",
+      "path": "/c/vs-button-group",
+      "shadcnSvelteFoundation": [
+        "Button"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "items",
+          "type": "string",
+          "default": "Left,Center,Right"
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "horizontal"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "secondary"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "divider",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [],
+      "motion": {
+        "motifs": [],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [],
+        "durationsObserved": [],
+        "easingsObserved": [],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": false,
+        "implementationRecommendation": "Keep each button press local (about 160–240 ms); if selection is added, slide a single active surface instead of cross-fading every item."
+      }
+    },
+    {
+      "family": "VsCalendar",
+      "path": "/c/vs-calendar",
+      "shadcnSvelteFoundation": [
+        "Calendar",
+        "Popover"
+      ],
+      "behavior": "Grid keyboard navigation, selected/range state and locale-aware date labels.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "default": "single"
+        },
+        {
+          "name": "display",
+          "type": "string",
+          "default": "inline"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "weekStart",
+          "type": "string",
+          "default": "mon"
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "en-US"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "Pick a date"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsCalendar",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCalendarCompact",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCalendarDots",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCalendarGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCalendarMinimal",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCalendarRangeFill",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "fill",
+          "glow",
+          "minimal",
+          "scale"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "cal-month-in",
+          "cal-rip",
+          "cal-rip-fade",
+          "cal-sel-pop",
+          "dot-ev-pop",
+          "dot-pop-in",
+          "glw-pop-in",
+          "glw-pulse",
+          "rgf-grow",
+          "rgf-sheen"
+        ],
+        "durationsObserved": [
+          "200ms",
+          "140ms",
+          "160ms",
+          "280ms",
+          "180ms",
+          "400ms",
+          "460ms",
+          "620ms",
+          "300ms",
+          "150ms",
+          "320ms",
+          "260ms",
+          "240ms",
+          "2000ms",
+          "340ms",
+          "2600ms",
+          "380ms",
+          "220ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.34, 1.4, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.5, 0.64, 1)",
+          "cubic-bezier(0.34, 1.8, 0.36, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsCardAsset",
+      "path": "/c/vs-card-asset",
+      "shadcnSvelteFoundation": [
+        "Card"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "elevated"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "default": "/bg/222.webp"
+        },
+        {
+          "name": "media",
+          "type": "string",
+          "default": "16/10"
+        },
+        {
+          "name": "badge",
+          "type": "string",
+          "default": "New"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "Crimson ridge"
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "default": "4096 × 2305"
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "actions",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "arrow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsCardAsset",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCard",
+          "tier": "free"
+        },
+        {
+          "name": "VsCardGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCardGradientBorder",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCardLift",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCardSlider",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCardSpotlight",
+          "tier": "free"
+        },
+        {
+          "name": "VsCardTilt3D",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient",
+          "slide",
+          "tilt"
+        ],
+        "effectProps": [
+          "glow",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "cglow-breathe",
+          "cgrad-spin",
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "180ms",
+          "620ms",
+          "200ms",
+          "240ms",
+          "220ms",
+          "320ms",
+          "280ms",
+          "4.5s",
+          "6s",
+          "380ms",
+          "480ms",
+          "760ms",
+          "420ms",
+          "260ms",
+          "400ms",
+          "90ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.34, 1.4, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsCheckbox",
+      "path": "/c/vs-checkbox",
+      "shadcnSvelteFoundation": [
+        "Checkbox"
+      ],
+      "behavior": "Native checked/indeterminate semantics; animation is a visual layer only.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "subtle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "I accept the terms"
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsCheckbox",
+          "tier": "free"
+        },
+        {
+          "name": "VsCheckboxBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCheckboxCard",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCheckboxFill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCheckboxFlip",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCheckboxNeon",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "fill",
+          "flip",
+          "neon"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "ckb-draw",
+          "ckb-mark",
+          "ckb-ping",
+          "ckb-pop",
+          "ckc-pop",
+          "ckn-bloom",
+          "fx-fade",
+          "fx-rip",
+          "vck-drop",
+          "vck-pop",
+          "vck-ripple-fade",
+          "vck-ripple-scale"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "200ms",
+          "340ms",
+          "420ms",
+          "620ms",
+          "460ms",
+          "90ms",
+          "300ms",
+          "220ms",
+          "120ms",
+          "1820ms",
+          "0ms",
+          "60ms",
+          "400ms",
+          "100ms",
+          "240ms",
+          "320ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.7, 0.5, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.65, 0, 0.35, 1)",
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+          "cubic-bezier(0.16, 1, 0.3, 1)",
+          "cubic-bezier(0.34, 1.8, 0.5, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsChip",
+      "path": "/c/vs-chip",
+      "shadcnSvelteFoundation": [
+        "Badge",
+        "Button"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "soft"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "pill"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Filter"
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "removable",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsChip",
+          "tier": "free"
+        },
+        {
+          "name": "VsChipBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsChipFill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsChipGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsChipGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsChipOutline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "fill",
+          "glow",
+          "gradient"
+        ],
+        "effectProps": [
+          "glow",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "chip-fade",
+          "chip-rip",
+          "vcb-bounce",
+          "vcb-pop",
+          "vcg-pan",
+          "vcgl-pulse",
+          "vco-spin"
+        ],
+        "durationsObserved": [
+          "240ms",
+          "200ms",
+          "160ms",
+          "140ms",
+          "780ms",
+          "520ms",
+          "420ms",
+          "340ms",
+          "260ms",
+          "1.9s",
+          "5s",
+          "220ms",
+          "3s",
+          "2.4s",
+          "1.6s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsCode",
+      "path": "/c/vs-code",
+      "shadcnSvelteFoundation": [
+        "Card"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "default": "<script setup lang=\"ts\">\nimport { ref, computed } from 'vue';\n\n// reactive counter\nconst count = ref(0);\nconst doubled = computed(() => count.value * 2);\n\nfunction increment() {\n  count.value++;\n}\n</script>\n\n<template>\n  <button class=\"counter\" @click=\"increment\">\n    Count is {{ count }} ({{ doubled }})\n  </button>\n</template>"
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "default": "vue"
+        },
+        {
+          "name": "filename",
+          "type": "string",
+          "default": "App.vue"
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "default": "auto"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "rounded"
+        },
+        {
+          "name": "highlightLines",
+          "type": "string",
+          "default": "4,5"
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "titlebar",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "traffic",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "lineNumbers",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "copyable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "wrap",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "smoothScroll",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsCode",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCodeGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCodeGradientBorder",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCodeMinimal",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCodeTerminal",
+          "tier": "pro"
+        },
+        {
+          "name": "VsCodeWindow",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient",
+          "minimal"
+        ],
+        "effectProps": [
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "gbc-spin",
+          "tcx-blink"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "200ms",
+          "160ms",
+          "180ms",
+          "220ms",
+          "260ms",
+          "6s",
+          "1s",
+          "340ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.16, 1, 0.3, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsColorPicker",
+      "path": "/c/vs-color-picker",
+      "shadcnSvelteFoundation": [
+        "Popover",
+        "Input"
+      ],
+      "behavior": "Color input plus text value; keep both views synchronized and validated.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "modelValue",
+          "type": "string",
+          "default": "#6e56cf"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "rounded"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "showInputs",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsColorPicker",
+          "tier": "pro"
+        },
+        {
+          "name": "VsColorPickerCompact",
+          "tier": "pro"
+        },
+        {
+          "name": "VsColorPickerPalette",
+          "tier": "pro"
+        },
+        {
+          "name": "VsColorPickerRing",
+          "tier": "pro"
+        },
+        {
+          "name": "VsColorPickerSlider",
+          "tier": "pro"
+        },
+        {
+          "name": "VsColorPickerSwatches",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "ring",
+          "slide"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "cc-pop",
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "200ms",
+          "320ms",
+          "420ms",
+          "160ms",
+          "260ms",
+          "220ms",
+          "180ms",
+          "150ms",
+          "300ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsContextMenu",
+      "path": "/c/vs-context-menu",
+      "shadcnSvelteFoundation": [
+        "Context Menu"
+      ],
+      "behavior": "Context trigger, focus-managed menu, roving keyboard focus, Escape and outside dismissal.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsContextMenu",
+          "tier": "pro"
+        },
+        {
+          "name": "VsContextMenuBlur",
+          "tier": "pro"
+        },
+        {
+          "name": "VsContextMenuGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsContextMenuRadial",
+          "tier": "pro"
+        },
+        {
+          "name": "VsContextMenuSlide",
+          "tier": "pro"
+        },
+        {
+          "name": "VsContextMenuSpring",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "ring",
+          "slide",
+          "spring"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [],
+        "durationsObserved": [
+          "200ms"
+        ],
+        "easingsObserved": [],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": false,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsCursor",
+      "path": "/c/vs-cursor",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "page",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": 8
+        },
+        {
+          "name": "sizeOuter",
+          "type": "number",
+          "default": 36
+        },
+        {
+          "name": "easeOuter",
+          "type": "number",
+          "default": 0.15
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "#FFFFFF"
+        },
+        {
+          "name": "hideNative",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsCursor",
+          "tier": "free"
+        },
+        {
+          "name": "VsCursorBlend",
+          "tier": "free"
+        },
+        {
+          "name": "VsCursorBlob",
+          "tier": "free"
+        },
+        {
+          "name": "VsCursorGlow",
+          "tier": "free"
+        },
+        {
+          "name": "VsCursorLabel",
+          "tier": "free"
+        },
+        {
+          "name": "VsCursorMagnet",
+          "tier": "free"
+        },
+        {
+          "name": "VsCursorReticle",
+          "tier": "free"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "magnet"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "vs-cur-spin"
+        ],
+        "durationsObserved": [
+          "200ms",
+          "260ms",
+          "180ms",
+          "160ms",
+          "40ms",
+          "240ms",
+          "7s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.16,1,.3,1)",
+          "cubic-bezier(.34,1.56,.64,1)",
+          "cubic-bezier(.2,.9,.3,1.3)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsDock",
+      "path": "/c/vs-dock",
+      "shadcnSvelteFoundation": [
+        "Tooltip"
+      ],
+      "behavior": "Pointer-distance magnification with cached geometry and transform-only updates.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "active",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "magnify",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsDock",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDockAurora",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDockBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDockGlass",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDockGooey",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDockMagnet",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDockNeon",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "gooey",
+          "magnet",
+          "neon"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "dock-aurora-a",
+          "dock-aurora-b",
+          "dock-press",
+          "fx-fade",
+          "fx-rip",
+          "vsdn-pulse"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "200ms",
+          "160ms",
+          "17s",
+          "23s",
+          "320ms",
+          "220ms",
+          "260ms",
+          "240ms",
+          "420ms",
+          "0ms",
+          "480ms",
+          "460ms",
+          "380ms",
+          "620ms",
+          "520ms",
+          "170ms",
+          "1.5s",
+          "2.8s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1.5, 0.36, 1)",
+          "cubic-bezier(0.3, 1.25, 0.5, 1)",
+          "cubic-bezier(0.34, 1.32, 0.5, 1)",
+          "cubic-bezier(0.5, 0.05, 0.2, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsDotStepper",
+      "path": "/c/vs-dot-stepper",
+      "shadcnSvelteFoundation": [
+        "Pagination"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "steps",
+          "type": "number",
+          "default": 5
+        },
+        {
+          "name": "modelValue",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": 3000
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "pauseOnHover",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "labels",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "track",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "horizontal"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsDotStepper",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDotStepperBars",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDotStepperElastic",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDotStepperGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDotStepperRing",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDotStepperWorm",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "ring"
+        ],
+        "effectProps": [
+          "duration",
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "el-spring",
+          "fx-fade",
+          "fx-rip",
+          "gl-halo",
+          "gl-pulse",
+          "rg-spin"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "460ms",
+          "260ms",
+          "440ms",
+          "110ms",
+          "80ms",
+          "200ms",
+          "820ms",
+          "380ms",
+          "560ms",
+          "1600ms",
+          "300ms",
+          "2400ms",
+          "400ms",
+          "220ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.46, 0.44, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.7, 0.5, 1)",
+          "cubic-bezier(0.34, 1.3, 0.5, 1)",
+          "cubic-bezier(0.16, 1.5, 0.3, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)",
+          "cubic-bezier(0.5, 0, 0.2, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsDrawer",
+      "path": "/c/vs-drawer",
+      "shadcnSvelteFoundation": [
+        "Sheet"
+      ],
+      "behavior": "Focus-managed modal or non-modal sheet with Escape/backdrop dismissal and scroll locking.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "Drawer title"
+        },
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "default": "Open drawer"
+        },
+        {
+          "name": "side",
+          "type": "string",
+          "default": "right"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "gradient",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "preventClose",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "closeHidden",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsDrawer",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDrawerBlur",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDrawerBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDrawerGlass",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDrawerPush",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDrawerSlide",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "push",
+          "slide"
+        ],
+        "effectProps": [
+          "glow"
+        ],
+        "keyframesObserved": [],
+        "durationsObserved": [
+          "160ms"
+        ],
+        "easingsObserved": [],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsDropdown",
+      "path": "/c/vs-dropdown",
+      "shadcnSvelteFoundation": [
+        "Dropdown Menu"
+      ],
+      "behavior": "Anchored menu with roving focus, typeahead, selection and outside dismissal.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "placement",
+          "type": "string",
+          "default": "bottom-start"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "Ada Lovelace"
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "default": "ada@vuesax.dev"
+        },
+        {
+          "name": "avatar",
+          "type": "string",
+          "default": "https://i.pravatar.cc/120?img=47"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsDropdown",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDropdownBlur",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDropdownFold",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDropdownGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDropdownSlide",
+          "tier": "pro"
+        },
+        {
+          "name": "VsDropdownSpring",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "fold",
+          "glow",
+          "ring",
+          "slide",
+          "spring"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "blr-item-focus",
+          "fld-item-flip",
+          "glw-item-in",
+          "glw-pulse",
+          "sld-item-in",
+          "spg-item-in"
+        ],
+        "durationsObserved": [
+          "160ms",
+          "240ms",
+          "340ms",
+          "300ms",
+          "220ms",
+          "200ms",
+          "120ms",
+          "420ms",
+          "40ms",
+          "80ms",
+          "380ms",
+          "400ms",
+          "44ms",
+          "900ms",
+          "180ms",
+          "320ms",
+          "30ms",
+          "100ms",
+          "36ms",
+          "90ms",
+          "260ms",
+          "360ms",
+          "34ms",
+          "60ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.3, 0.5, 1)",
+          "cubic-bezier(0.4, 0, 1, 1)",
+          "cubic-bezier(0.34, 1.74, 0.4, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsFileTree",
+      "path": "/c/vs-file-tree",
+      "shadcnSvelteFoundation": [
+        "Collapsible"
+      ],
+      "behavior": "Hierarchical disclosure with keyboard navigation and selected/expanded state.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "rounded"
+        },
+        {
+          "name": "highlightColor",
+          "type": "string",
+          "default": "#ededed"
+        },
+        {
+          "name": "indentSize",
+          "type": "number",
+          "default": 16
+        },
+        {
+          "name": "showIcons",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsFileTree",
+          "tier": "pro"
+        },
+        {
+          "name": "VsFileTreeCompact",
+          "tier": "pro"
+        },
+        {
+          "name": "VsFileTreeGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsFileTreeGuides",
+          "tier": "pro"
+        },
+        {
+          "name": "VsFileTreeHighlight",
+          "tier": "pro"
+        },
+        {
+          "name": "VsFileTreeReveal",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "rv-reveal",
+          "vft-ripple"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "360ms",
+          "200ms",
+          "180ms",
+          "280ms",
+          "400ms",
+          "600ms",
+          "440ms",
+          "460ms",
+          "480ms",
+          "320ms",
+          "40ms",
+          "420ms",
+          "520ms",
+          "160ms",
+          "1.4s",
+          "1.6s",
+          "260ms",
+          "300ms",
+          "220ms",
+          "340ms",
+          "45ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.25, 1.6, 0.4, 1)",
+          "cubic-bezier(0.34, 1.8, 0.42, 1)",
+          "cubic-bezier(0.22, 1.2, 0.36, 1)",
+          "cubic-bezier(0.6, 0, 0.9, 0.3)",
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsIndicator",
+      "path": "/c/vs-indicator",
+      "shadcnSvelteFoundation": [
+        "Badge"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "default": 3
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": 99
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "showZero",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "position",
+          "type": "string",
+          "default": "top-right"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "neutral"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "pulse",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsIndicator",
+          "tier": "free"
+        },
+        {
+          "name": "VsIndicatorBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsIndicatorOdometer",
+          "tier": "pro"
+        },
+        {
+          "name": "VsIndicatorPing",
+          "tier": "pro"
+        },
+        {
+          "name": "VsIndicatorRing",
+          "tier": "pro"
+        },
+        {
+          "name": "VsIndicatorShake",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "odometer",
+          "ping",
+          "ring",
+          "shake"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "bnc-hop",
+          "ind-content-swap",
+          "ind-pulse",
+          "pin-ping",
+          "rng-spin",
+          "shk-ring"
+        ],
+        "durationsObserved": [
+          "520ms",
+          "300ms",
+          "220ms",
+          "280ms",
+          "1.8s",
+          "260ms",
+          "420ms",
+          "1.2s",
+          "200ms",
+          "170ms",
+          "320ms",
+          "150ms",
+          "620ms",
+          "0.35s",
+          "1.4s",
+          "2.4s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.4, 0, 1, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsInlineOverflow",
+      "path": "/c/vs-inline-overflow",
+      "shadcnSvelteFoundation": [
+        "Dropdown Menu"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "items",
+          "type": "string",
+          "default": "Save,Copy,Share,Delete"
+        },
+        {
+          "name": "visible",
+          "type": "number",
+          "default": 2
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "pill"
+        },
+        {
+          "name": "stiffness",
+          "type": "number",
+          "default": 260
+        },
+        {
+          "name": "damping",
+          "type": "number",
+          "default": 17
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": 45
+        },
+        {
+          "name": "lag",
+          "type": "number",
+          "default": 0.45
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": 5
+        },
+        {
+          "name": "squash",
+          "type": "number",
+          "default": 0.045
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [],
+      "motion": {
+        "motifs": [],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "160ms",
+          "220ms",
+          "780ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use immediate transform updates while measuring, then spring displaced items; reveal overflow content with opacity and scale, respecting stiffness/damping/stagger props."
+      }
+    },
+    {
+      "family": "VsInput",
+      "path": "/c/vs-input",
+      "shadcnSvelteFoundation": [
+        "Input"
+      ],
+      "behavior": "Label, hint, validation, prefix/suffix actions and controlled form value.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Email"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "you@email.com"
+        },
+        {
+          "name": "modelValue",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "hint",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "text"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsInput",
+          "tier": "free"
+        },
+        {
+          "name": "VsInputFilled",
+          "tier": "pro"
+        },
+        {
+          "name": "VsInputGradientBorder",
+          "tier": "pro"
+        },
+        {
+          "name": "VsInputPulse",
+          "tier": "pro"
+        },
+        {
+          "name": "VsInputSpotlight",
+          "tier": "pro"
+        },
+        {
+          "name": "VsInputUnderline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "fill",
+          "gradient",
+          "pulse"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "igb-spin",
+          "ipl-ping"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "260ms",
+          "220ms",
+          "200ms",
+          "240ms",
+          "160ms",
+          "320ms",
+          "2.4s",
+          "620ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsLinkBar",
+      "path": "/c/vs-link-bar",
+      "shadcnSvelteFoundation": [
+        "Navigation Menu"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "separated",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsLinkBar",
+          "tier": "pro"
+        },
+        {
+          "name": "VsLinkBarGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsLinkBarMagnet",
+          "tier": "pro"
+        },
+        {
+          "name": "VsLinkBarPill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsLinkBarSlide",
+          "tier": "pro"
+        },
+        {
+          "name": "VsLinkBarUnderline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "ink",
+          "magnet",
+          "slide"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "vlbg-pulse"
+        ],
+        "durationsObserved": [
+          "180ms",
+          "240ms",
+          "260ms",
+          "200ms",
+          "2400ms",
+          "380ms",
+          "220ms",
+          "160ms",
+          "420ms",
+          "300ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(.34,1.56,.64,1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsList",
+      "path": "/c/vs-list",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "inset"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "rounded"
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": 0.45
+        },
+        {
+          "name": "fullSwipeRatio",
+          "type": "number",
+          "default": 1.8
+        },
+        {
+          "name": "swipeToDelete",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsList",
+          "tier": "free"
+        },
+        {
+          "name": "VsListCards",
+          "tier": "pro"
+        },
+        {
+          "name": "VsListGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsListHover",
+          "tier": "pro"
+        },
+        {
+          "name": "VsListReveal",
+          "tier": "pro"
+        },
+        {
+          "name": "VsListStripe",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow"
+        ],
+        "effectProps": [
+          "glow",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "280ms",
+          "220ms",
+          "460ms",
+          "380ms",
+          "200ms",
+          "150ms",
+          "260ms",
+          "420ms",
+          "0ms",
+          "70ms",
+          "210ms",
+          "180ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.85, 0.4, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsNavMenu",
+      "path": "/c/vs-nav-menu",
+      "shadcnSvelteFoundation": [
+        "Navigation Menu"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "solid"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "rounded"
+        },
+        {
+          "name": "bounce",
+          "type": "number",
+          "default": 0.55
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsNavMenu",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNavMenuGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNavMenuMega",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNavMenuPill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNavMenuSpotlight",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNavMenuUnderline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "vng-breathe",
+          "vnm2-rise"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "320ms",
+          "360ms",
+          "200ms",
+          "420ms",
+          "220ms",
+          "180ms",
+          "480ms",
+          "80ms",
+          "260ms",
+          "1ms",
+          "300ms",
+          "240ms",
+          "2.4s",
+          "160ms",
+          "40ms",
+          "340ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.5, 0.4, 1)",
+          "cubic-bezier(0.34, 1.495, 0.4, 1)",
+          "cubic-bezier(0.34, 1.4, 0.4, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsNotification",
+      "path": "/c/vs-notification",
+      "shadcnSvelteFoundation": [
+        "Sonner"
+      ],
+      "behavior": "Queued live-region messages with timeout, pause and explicit dismissal.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "Changes saved"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "default": "Saved successfully to the database. Refresh to see the changes."
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "default": "success"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "solid"
+        },
+        {
+          "name": "position",
+          "type": "string",
+          "default": "top-center"
+        },
+        {
+          "name": "roundness",
+          "type": "number",
+          "default": 16
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": 6000
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsNotification",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNotificationBanner",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNotificationCard",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNotificationGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNotificationInline",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNotificationSnackbar",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow"
+        ],
+        "effectProps": [
+          "duration"
+        ],
+        "keyframesObserved": [],
+        "durationsObserved": [
+          "160ms",
+          "220ms"
+        ],
+        "easingsObserved": [],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsNumber",
+      "path": "/c/vs-number",
+      "shadcnSvelteFoundation": [
+        "Input",
+        "Button"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "modelValue",
+          "type": "number",
+          "default": 8
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "default": 1
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "frame",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsNumber",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNumberGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNumberRollDigits",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNumberSegment",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNumberSlider",
+          "tier": "pro"
+        },
+        {
+          "name": "VsNumberStepper",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "slide"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "260ms",
+          "200ms",
+          "240ms",
+          "180ms",
+          "140ms",
+          "380ms",
+          "280ms",
+          "460ms",
+          "360ms",
+          "300ms",
+          "780ms",
+          "320ms",
+          "480ms",
+          "420ms",
+          "160ms",
+          "340ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsOtp",
+      "path": "/c/vs-otp",
+      "shadcnSvelteFoundation": [
+        "Input OTP"
+      ],
+      "behavior": "Segmented text entry with paste, deletion and focus movement behavior.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "default": 6
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "numeric"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsOtp",
+          "tier": "pro"
+        },
+        {
+          "name": "VsOtpDots",
+          "tier": "pro"
+        },
+        {
+          "name": "VsOtpFilled",
+          "tier": "pro"
+        },
+        {
+          "name": "VsOtpFlip",
+          "tier": "pro"
+        },
+        {
+          "name": "VsOtpGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsOtpUnderline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "fill",
+          "flip",
+          "glow"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "otd-fill",
+          "otg-pulse"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "220ms",
+          "320ms",
+          "260ms",
+          "200ms",
+          "300ms",
+          "360ms",
+          "240ms",
+          "1.6s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.34, 1.3, 0.5, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsPagination",
+      "path": "/c/vs-pagination",
+      "shadcnSvelteFoundation": [
+        "Pagination"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "page",
+          "type": "number",
+          "default": 4
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "default": 12
+        },
+        {
+          "name": "siblingCount",
+          "type": "number",
+          "default": 1
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "shape",
+          "type": "string",
+          "default": "rounded"
+        },
+        {
+          "name": "showPrevNext",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "showEdges",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsPagination",
+          "tier": "free"
+        },
+        {
+          "name": "VsPaginationCompact",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPaginationDots",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPaginationGooey",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPaginationInk",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPaginationSegments",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "gooey",
+          "ink"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "pg-pop",
+          "pg-pop-soft",
+          "pg-ripple-fade",
+          "pg-ripple-scale",
+          "pgg-wobble"
+        ],
+        "durationsObserved": [
+          "420ms",
+          "360ms",
+          "200ms",
+          "460ms",
+          "380ms",
+          "720ms",
+          "280ms",
+          "240ms",
+          "300ms",
+          "520ms",
+          "320ms",
+          "620ms",
+          "260ms",
+          "560ms",
+          "40ms",
+          "0ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.4, 0.64, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.34, 1.12, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.34, 1.8, 0.5, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsPopup",
+      "path": "/c/vs-popup",
+      "shadcnSvelteFoundation": [
+        "Dialog"
+      ],
+      "behavior": "Dialog semantics, focus trap/return, Escape and backdrop dismissal.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "Popup title"
+        },
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "default": "Open popup"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "rounded"
+        },
+        {
+          "name": "preventClose",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "closeHidden",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "fullscreen",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsPopup",
+          "tier": "free"
+        },
+        {
+          "name": "VsPopupBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPopupConfirm",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPopupFlip",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPopupSlideUp",
+          "tier": "pro"
+        },
+        {
+          "name": "VsPopupZoom",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "flip",
+          "slide"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [],
+        "durationsObserved": [
+          "160ms",
+          "120ms"
+        ],
+        "easingsObserved": [],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsProgress",
+      "path": "/c/vs-progress",
+      "shadcnSvelteFoundation": [
+        "Progress"
+      ],
+      "behavior": "Determinate or indeterminate progress with a textual accessible value.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "linear"
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "default": 60
+        },
+        {
+          "name": "buffer",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "thickness",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "striped",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsProgress",
+          "tier": "free"
+        },
+        {
+          "name": "VsProgressCircular",
+          "tier": "pro"
+        },
+        {
+          "name": "VsProgressGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsProgressGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsProgressSegments",
+          "tier": "pro"
+        },
+        {
+          "name": "VsProgressStriped",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "prog-rotate",
+          "prog-slide",
+          "prog-stripes",
+          "vpci-spin",
+          "vpgl-pulse",
+          "vpgl-slide",
+          "vpgl-sweep",
+          "vpgr-flow",
+          "vpgr-slide",
+          "vpsg-chase",
+          "vpst-move",
+          "vpst-slide"
+        ],
+        "durationsObserved": [
+          "1.4s",
+          "0.35s",
+          "0.45s",
+          "1s",
+          "3s",
+          "1.8s",
+          "2.2s",
+          "1.5s",
+          "0.25s",
+          "1.2s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+          "cubic-bezier(0.65, 0.05, 0.36, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsRadio",
+      "path": "/c/vs-radio",
+      "shadcnSvelteFoundation": [
+        "Radio Group"
+      ],
+      "behavior": "Native radio semantics and group ownership; animation must not replace selection state.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "labelPosition",
+          "type": "string",
+          "default": "right"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Remember me"
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsRadio",
+          "tier": "free"
+        },
+        {
+          "name": "VsRadioBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioCard",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioFill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioRing",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "fill",
+          "glow",
+          "ring"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "rbo-bounce",
+          "rgw-breathe",
+          "vrd-drop",
+          "vrd-pop",
+          "vrd-ripple-fade",
+          "vrd-ripple-scale"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "200ms",
+          "340ms",
+          "420ms",
+          "360ms",
+          "180ms",
+          "620ms",
+          "460ms",
+          "90ms",
+          "120ms",
+          "1820ms",
+          "0ms",
+          "760ms",
+          "240ms",
+          "260ms",
+          "320ms",
+          "220ms",
+          "300ms",
+          "1800ms",
+          "480ms",
+          "380ms",
+          "160ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.7, 0.5, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+          "cubic-bezier(0.16, 1, 0.3, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)",
+          "cubic-bezier(0.34, 1.56, 0.5, 1)",
+          "cubic-bezier(0.65, 0, 0.35, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsRadioGroup",
+      "path": "/c/vs-radio-group",
+      "shadcnSvelteFoundation": [
+        "Radio Group"
+      ],
+      "behavior": "Arrow-key group navigation with one selected value.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "default": "vertical"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsRadioGroup",
+          "tier": "free"
+        },
+        {
+          "name": "VsRadioGroupCards",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioGroupGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioGroupPill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioGroupSegment",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRadioGroupSlide",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "slide"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "rgglow-ripple",
+          "vrd-drop",
+          "vrd-pop",
+          "vrd-ripple-fade",
+          "vrd-ripple-scale"
+        ],
+        "durationsObserved": [
+          "200ms",
+          "340ms",
+          "420ms",
+          "360ms",
+          "180ms",
+          "140ms",
+          "620ms",
+          "460ms",
+          "90ms",
+          "120ms",
+          "1820ms",
+          "0ms",
+          "260ms",
+          "220ms",
+          "240ms",
+          "300ms",
+          "60ms",
+          "320ms",
+          "160ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.7, 0.5, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+          "cubic-bezier(0.16, 1, 0.3, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.34, 1.8, 0.5, 1)",
+          "cubic-bezier(0.34, 1.9, 0.5, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)",
+          "cubic-bezier(0.34, 1.35, 0.5, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsRating",
+      "path": "/c/vs-rating",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "modelValue",
+          "type": "number",
+          "default": 3
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "default": 5
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "default": "star"
+        },
+        {
+          "name": "allowHalf",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsRating",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRatingBars",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRatingEmoji",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRatingGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRatingHearts",
+          "tier": "pro"
+        },
+        {
+          "name": "VsRatingNumbers",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "rating-pop",
+          "rating-ripple-fade",
+          "rating-ripple-scale",
+          "vrb-rise",
+          "vre-bounce",
+          "vrg-flash",
+          "vrg-pulse",
+          "vrh-aura",
+          "vrh-beat",
+          "vrn-flip"
+        ],
+        "durationsObserved": [
+          "180ms",
+          "640ms",
+          "200ms",
+          "160ms",
+          "420ms",
+          "240ms",
+          "480ms",
+          "560ms",
+          "220ms",
+          "2.4s",
+          "520ms",
+          "620ms",
+          "720ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsScrollbar",
+      "path": "/c/vs-scrollbar",
+      "shadcnSvelteFoundation": [
+        "Scroll Area"
+      ],
+      "behavior": "Preserve native scrolling, wheel, touch and keyboard behavior.",
+      "props": [
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "#ffffff"
+        },
+        {
+          "name": "autoHide",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "ghostGradient",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "smooth",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "smoothness",
+          "type": "number",
+          "default": 0.18
+        },
+        {
+          "name": "lines",
+          "type": "number",
+          "default": 14
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsScrollbar",
+          "tier": "pro"
+        },
+        {
+          "name": "VsScrollbarDots",
+          "tier": "pro"
+        },
+        {
+          "name": "VsScrollbarGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsScrollbarGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsScrollbarMinimal",
+          "tier": "pro"
+        },
+        {
+          "name": "VsScrollbarRounded",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient",
+          "minimal"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "vsd-wave",
+          "vsg-flow",
+          "vsgw-breathe"
+        ],
+        "durationsObserved": [
+          "220ms",
+          "360ms",
+          "420ms",
+          "320ms",
+          "1.6s",
+          "0.12s",
+          "0.24s",
+          "0.36s",
+          "0.48s",
+          "2.4s",
+          "3.5s",
+          "200ms",
+          "260ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.34,1.56,.64,1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSelect",
+      "path": "/c/vs-select",
+      "shadcnSvelteFoundation": [
+        "Select"
+      ],
+      "behavior": "Button/listbox interaction with keyboard navigation, typeahead and selected value.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "Select…"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSelect",
+          "tier": "free"
+        },
+        {
+          "name": "VsSelectFloating",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSelectPill",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSelectSearch",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSelectSlide",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSelectUnderline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "float",
+          "slide"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "sld-opt-in"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "240ms",
+          "200ms",
+          "220ms",
+          "280ms",
+          "120ms",
+          "26ms",
+          "90ms",
+          "160ms",
+          "320ms",
+          "300ms",
+          "80ms",
+          "440ms",
+          "150ms",
+          "180ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.22,1,0.36,1)",
+          "cubic-bezier(0.34, 1.42, 0.5, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)",
+          "cubic-bezier(0.34, 1.46, 0.44, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSeparator",
+      "path": "/c/vs-separator",
+      "shadcnSvelteFoundation": [
+        "Separator"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "horizontal"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "solid"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "labelPosition",
+          "type": "string",
+          "default": "center"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "or"
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSeparator",
+          "tier": "free"
+        },
+        {
+          "name": "VsSeparatorFlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSeparatorGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSeparatorGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSeparatorIcon",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSeparatorZigzag",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "vsflow-march",
+          "vsflow-march-v",
+          "vsglow-pulse",
+          "vsgrad-sweep",
+          "vsgrad-sweep-v",
+          "vsicon-spin",
+          "vszig-drift",
+          "vszig-drift-v"
+        ],
+        "durationsObserved": [
+          "2.4s",
+          "2.8s",
+          "3s",
+          "6s",
+          "3.5s"
+        ],
+        "easingsObserved": [],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSidebar",
+      "path": "/c/vs-sidebar",
+      "shadcnSvelteFoundation": [
+        "Sidebar"
+      ],
+      "behavior": "Responsive navigation with collapsed/expanded state and labeled icon-only actions.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "full",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "flush",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "Vuesax"
+        },
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "collapsible",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "dividers",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "subDots",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSidebar",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSidebarClassic",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSidebarFloating",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSidebarGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSidebarGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSidebarMinimal",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSidebarRail",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "float",
+          "glow",
+          "gradient",
+          "minimal"
+        ],
+        "effectProps": [
+          "glow",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "gp-drift",
+          "hud-scan"
+        ],
+        "durationsObserved": [
+          "460ms",
+          "140ms",
+          "160ms",
+          "480ms",
+          "260ms",
+          "180ms",
+          "340ms",
+          "200ms",
+          "300ms",
+          "500ms",
+          "560ms",
+          "220ms",
+          "240ms",
+          "380ms",
+          "520ms",
+          "60ms",
+          "320ms",
+          "150ms",
+          "420ms",
+          "2.6s",
+          "12s",
+          "360ms",
+          "620ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.8, 0.5, 1)",
+          "cubic-bezier(0.34, 1.4, 0.6, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.5, -0.6, 0.5, 1)",
+          "cubic-bezier(0.34, 1.7, 0.5, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSkeleton",
+      "path": "/c/vs-skeleton",
+      "shadcnSvelteFoundation": [
+        "Skeleton"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "shape",
+          "type": "string",
+          "default": "text"
+        },
+        {
+          "name": "animation",
+          "type": "string",
+          "default": "shimmer"
+        },
+        {
+          "name": "speed",
+          "type": "string",
+          "default": "normal"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "default": 3
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSkeleton",
+          "tier": "free"
+        },
+        {
+          "name": "VsSkeletonBlink",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSkeletonGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSkeletonPulse",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSkeletonShine",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSkeletonWave",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "gradient",
+          "ink",
+          "pulse",
+          "shine",
+          "wave"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "sk-mask-move",
+          "sk-pulse",
+          "skb-blink",
+          "skg-flow",
+          "skp-halo",
+          "skp-pulse",
+          "sks-shine",
+          "skw-wave"
+        ],
+        "durationsObserved": [
+          "1.4s",
+          "2.1s",
+          "0.9s",
+          "3s",
+          "160ms",
+          "120ms"
+        ],
+        "easingsObserved": [],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSlideConfirm",
+      "path": "/c/vs-slide-confirm",
+      "shadcnSvelteFoundation": [
+        "Slider"
+      ],
+      "behavior": "Drag/keyboard confirmation with a deliberate completion threshold and reset path.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Slide to confirm"
+        },
+        {
+          "name": "confirmLabel",
+          "type": "string",
+          "default": "Confirmed"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "pill"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": 0.9
+        },
+        {
+          "name": "stiffness",
+          "type": "number",
+          "default": 260
+        },
+        {
+          "name": "damping",
+          "type": "number",
+          "default": 17
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "confirmed",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [],
+      "motion": {
+        "motifs": [],
+        "effectProps": [
+          "glow",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "160ms",
+          "220ms",
+          "140ms",
+          "780ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Track the thumb directly during pointer capture, spring to completion after the threshold, and spring back on cancel; disable overshoot under reduced motion."
+      }
+    },
+    {
+      "family": "VsSliderFluent",
+      "path": "/c/vs-slider-fluent",
+      "shadcnSvelteFoundation": [
+        "Slider"
+      ],
+      "behavior": "Range input semantics, keyboard steps and pointer capture.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Volume"
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": 50
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "stepped",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "steps",
+          "type": "number",
+          "default": 10
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "pill"
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "dots",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "demoBg",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSliderFluent",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSlider",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSliderGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSliderGradient",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSliderRipple",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSliderStepped",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSliderStops",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSliderTicks",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient",
+          "slide"
+        ],
+        "effectProps": [
+          "glow",
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "sg-pan",
+          "sgw-pulse",
+          "srp-wave",
+          "sst-snap",
+          "sto-rip"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "160ms",
+          "260ms",
+          "200ms",
+          "2.2s",
+          "3s",
+          "550ms",
+          "220ms",
+          "520ms",
+          "180ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1.4, 0.36, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSpacer",
+      "path": "/c/vs-spacer",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "flex",
+          "type": "number",
+          "default": 1
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "demo",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [],
+      "motion": {
+        "motifs": [],
+        "effectProps": [],
+        "keyframesObserved": [],
+        "durationsObserved": [],
+        "easingsObserved": [],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": false,
+        "implementationRecommendation": "No animation is appropriate: this is a layout primitive and should not introduce visual motion or layout timing."
+      }
+    },
+    {
+      "family": "VsSpinnerGrid",
+      "path": "/c/vs-spinner-grid",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "speed",
+          "type": "string",
+          "default": "normal"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "overlay",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSpinnerGrid",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinner",
+          "tier": "free"
+        },
+        {
+          "name": "VsSpinnerBars",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerBounce",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerComet",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerDots",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerFlip",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerOrbit",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerPulse",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerRing",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSpinnerWave",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "bounce",
+          "flip",
+          "pulse",
+          "ring",
+          "wave"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "bars-eq",
+          "bounce-drop",
+          "bounce-shadow",
+          "comet-spin",
+          "dots-bounce",
+          "flip-3d",
+          "orbit-spin",
+          "pulse-core",
+          "pulse-ripple",
+          "spingrid-fade",
+          "spinner-spin",
+          "spinring-fade",
+          "wave-sine"
+        ],
+        "durationsObserved": [
+          "1.3s",
+          "0s",
+          "1.8s",
+          "0.85s",
+          "3s",
+          "0.9s",
+          "1.4s",
+          "0.55s",
+          "2.4s",
+          "1s",
+          "0.65s",
+          "0.6s",
+          "2.6s",
+          "1.1s",
+          "1.5s",
+          "0.75s",
+          "2s",
+          "3.2s",
+          "1.7s",
+          "0.7s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.65, 0.1, 0.35, 0.9)",
+          "cubic-bezier(0.5, 0, 1, 0.42)",
+          "cubic-bezier(0.1, 0, 0.2, 1)",
+          "cubic-bezier(0.6, 0, 0.9, 0.5)",
+          "cubic-bezier(0.1, 0.5, 0.4, 1)",
+          "cubic-bezier(0.45, 0, 0.55, 1)",
+          "cubic-bezier(0.5, 0, 0.5, 1)",
+          "cubic-bezier(0.2, 0.6, 0.3, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSteps",
+      "path": "/c/vs-steps",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "default": "horizontal"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "numbered"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "current",
+          "type": "number",
+          "default": 1
+        },
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSteps",
+          "tier": "pro"
+        },
+        {
+          "name": "VsStepsArrow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsStepsBar",
+          "tier": "pro"
+        },
+        {
+          "name": "VsStepsCircular",
+          "tier": "pro"
+        },
+        {
+          "name": "VsStepsPills",
+          "tier": "pro"
+        },
+        {
+          "name": "VsStepsTimeline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "steps-ripple"
+        ],
+        "durationsObserved": [
+          "480ms",
+          "0ms",
+          "280ms",
+          "380ms",
+          "420ms",
+          "900ms",
+          "260ms",
+          "180ms",
+          "240ms",
+          "60ms",
+          "640ms",
+          "300ms",
+          "520ms",
+          "620ms",
+          "460ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.34, 1.4, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsSwitch",
+      "path": "/c/vs-switch",
+      "shadcnSvelteFoundation": [
+        "Switch"
+      ],
+      "behavior": "Native switch/checkbox behavior with bindable checked state.",
+      "props": [
+        {
+          "name": "checked",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "icons",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "accent"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "pill"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "labelPosition",
+          "type": "string",
+          "default": "right"
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsSwitch",
+          "tier": "free"
+        },
+        {
+          "name": "VsSwitchDayNight",
+          "tier": "free"
+        },
+        {
+          "name": "VsSwitchDot",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSwitchGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSwitchLabel",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSwitchLiquid",
+          "tier": "pro"
+        },
+        {
+          "name": "VsSwitchMaterial",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "liquid"
+        ],
+        "effectProps": [
+          "disabled",
+          "loading",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "vsw-ripple-fade",
+          "vsw-ripple-scale",
+          "vsw-spin",
+          "vswg-breathe"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "480ms",
+          "260ms",
+          "640ms",
+          "200ms",
+          "320ms",
+          "0.7s",
+          "0ms",
+          "1.4s",
+          "520ms",
+          "420ms",
+          "2.2s",
+          "440ms",
+          "240ms",
+          "300ms",
+          "380ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.34, 1.45, 0.64, 1)",
+          "cubic-bezier(0.34, 1.5, 0.6, 1)",
+          "cubic-bezier(0.34, 1.4, 0.6, 1)",
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+          "cubic-bezier(0.34, 1.4, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsTable",
+      "path": "/c/vs-table",
+      "shadcnSvelteFoundation": [
+        "Table"
+      ],
+      "behavior": "Semantic table structure; interactive sorting/selection must be keyboard accessible.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "Team members"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "sortable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "striped",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "stickyHeader",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsTable",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTableBordered",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTableCards",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTableGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTableMinimal",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTableStriped",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "minimal"
+        ],
+        "effectProps": [
+          "loading"
+        ],
+        "keyframesObserved": [
+          "vtbl-shimmer"
+        ],
+        "durationsObserved": [
+          "160ms",
+          "220ms",
+          "140ms",
+          "1.3s",
+          "180ms",
+          "200ms",
+          "240ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.65, 0, 0.35, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsTabsGooey",
+      "path": "/c/vs-tabs-gooey",
+      "shadcnSvelteFoundation": [
+        "Tabs"
+      ],
+      "behavior": "Tablist keyboard navigation with selected tab and associated tabpanel.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "modelValue",
+          "type": "string",
+          "default": "overview"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "pill"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsTabsGooey",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTabs",
+          "tier": "free"
+        },
+        {
+          "name": "VsTabsBubble",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTabsCard",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTabsChrome",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTabsNeon",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTabsVertical",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "gooey",
+          "neon"
+        ],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "tabs-drop",
+          "tabs-pop",
+          "tabs-ripple-fade",
+          "tabs-ripple-scale",
+          "tbb-hop",
+          "tbn-sweep"
+        ],
+        "durationsObserved": [
+          "460ms",
+          "200ms",
+          "260ms",
+          "120ms",
+          "320ms",
+          "720ms",
+          "420ms",
+          "1820ms",
+          "440ms",
+          "240ms",
+          "180ms",
+          "160ms",
+          "3s",
+          "220ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.5, 1.5, 0.5, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.25, 0.1, 0.25, 1)",
+          "cubic-bezier(0.34, 1.4, 0.64, 1)",
+          "cubic-bezier(0.16, 1, 0.3, 1)",
+          "cubic-bezier(0.5, 1.4, 0.5, 1)",
+          "cubic-bezier(0.4, 0, 0.2, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsTextarea",
+      "path": "/c/vs-textarea",
+      "shadcnSvelteFoundation": [
+        "Textarea"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Message"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "Write something…"
+        },
+        {
+          "name": "modelValue",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "hint",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "default": 3
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "labelMaxChars",
+          "type": "number",
+          "default": 28
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "resize",
+          "type": "string",
+          "default": "vertical"
+        },
+        {
+          "name": "autosize",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsTextarea",
+          "tier": "free"
+        },
+        {
+          "name": "VsTextareaCode",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTextareaFilled",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTextareaGradientBorder",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTextareaSpotlight",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTextareaUnderline",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "fill",
+          "gradient"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip",
+          "tag-spin"
+        ],
+        "durationsObserved": [
+          "140ms",
+          "780ms",
+          "220ms",
+          "200ms",
+          "240ms",
+          "160ms",
+          "320ms",
+          "3.5s",
+          "260ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.4, 0.5, 1)",
+          "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsTickRail",
+      "path": "/c/vs-tick-rail",
+      "shadcnSvelteFoundation": [
+        "Slider"
+      ],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "items",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "active",
+          "type": "number",
+          "default": 4
+        },
+        {
+          "name": "side",
+          "type": "string",
+          "default": "right"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "reach",
+          "type": "number",
+          "default": 34
+        },
+        {
+          "name": "magnify",
+          "type": "number",
+          "default": 1.4
+        },
+        {
+          "name": "stiffness",
+          "type": "number",
+          "default": 260
+        },
+        {
+          "name": "damping",
+          "type": "number",
+          "default": 17
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": 16
+        },
+        {
+          "name": "lag",
+          "type": "number",
+          "default": 0.45
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": 5
+        },
+        {
+          "name": "squash",
+          "type": "number",
+          "default": 0.045
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "variants": [],
+      "motion": {
+        "motifs": [],
+        "effectProps": [
+          "disabled"
+        ],
+        "keyframesObserved": [
+          "fx-fade",
+          "fx-rip"
+        ],
+        "durationsObserved": [
+          "160ms",
+          "170ms",
+          "300ms",
+          "200ms",
+          "90ms",
+          "120ms",
+          "0ms",
+          "140ms",
+          "780ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(.22,1,.36,1)",
+          "cubic-bezier(.25,.1,.25,1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Magnify nearby ticks using transform-only updates; spring active/reach changes and use stagger/lag/blur/squash only as optional decoration."
+      }
+    },
+    {
+      "family": "VsTimeline",
+      "path": "/c/vs-timeline",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "align",
+          "type": "string",
+          "default": "left"
+        },
+        {
+          "name": "lineStyle",
+          "type": "string",
+          "default": "solid"
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "default": 2
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "#ededed"
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsTimeline",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTimelineAlternating",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTimelineCards",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTimelineCompact",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTimelineGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTimelineGradient",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow",
+          "gradient"
+        ],
+        "effectProps": [
+          "glow"
+        ],
+        "keyframesObserved": [
+          "tl-in",
+          "tl-pop",
+          "tla-in",
+          "tla-in-right",
+          "tlc-in",
+          "tlg-pulse",
+          "tlgr-breathe",
+          "tlgr-sheen",
+          "tlgr-spin"
+        ],
+        "durationsObserved": [
+          "560ms",
+          "300ms",
+          "200ms",
+          "140ms",
+          "360ms",
+          "0ms",
+          "60ms",
+          "120ms",
+          "180ms",
+          "480ms",
+          "500ms",
+          "90ms",
+          "270ms",
+          "220ms",
+          "70ms",
+          "210ms",
+          "1800ms",
+          "620ms",
+          "2600ms",
+          "2200ms",
+          "260ms",
+          "1600ms",
+          "240ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.4, 0, 0.6, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsTooltip",
+      "path": "/c/vs-tooltip",
+      "shadcnSvelteFoundation": [
+        "Tooltip"
+      ],
+      "behavior": "Hover and focus trigger, delayed presence, Escape dismissal and non-interactive content.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "placement",
+          "type": "string",
+          "default": "top"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "default": "solid"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": 10
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsTooltip",
+          "tier": "free"
+        },
+        {
+          "name": "VsTooltipBlur",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTooltipFade",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTooltipGlow",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTooltipScale",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTooltipSlide",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "fade",
+          "glow",
+          "scale",
+          "slide"
+        ],
+        "effectProps": [],
+        "keyframesObserved": [
+          "vstg-flare"
+        ],
+        "durationsObserved": [
+          "240ms",
+          "300ms",
+          "120ms",
+          "220ms",
+          "200ms",
+          "620ms",
+          "160ms",
+          "260ms",
+          "0ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.25, 0.8, 0.35, 1)",
+          "cubic-bezier(0.34, 1.56, 0.44, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsTransform",
+      "path": "/c/vs-transform",
+      "shadcnSvelteFoundation": [],
+      "behavior": "Preserve native semantics and treat animation as a progressive visual layer.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "demo",
+          "type": "string",
+          "default": "showcase"
+        },
+        {
+          "name": "placement",
+          "type": "string",
+          "default": "anchor"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Open card"
+        },
+        {
+          "name": "flow",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "test",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "manual",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "backdrop",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsTransform",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTransformExpand",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTransformFade",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTransformFlip",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTransformScale",
+          "tier": "pro"
+        },
+        {
+          "name": "VsTransformSlide",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "fade",
+          "flip",
+          "scale",
+          "slide"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "vte-wipe",
+          "vte-wipe-soft"
+        ],
+        "durationsObserved": [
+          "160ms",
+          "140ms",
+          "340ms",
+          "200ms",
+          "170ms",
+          "0s",
+          "320ms",
+          "240ms"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.4, 0, 1, 1)"
+        ],
+        "hasContinuousAnimation": false,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    },
+    {
+      "family": "VsUploadFile",
+      "path": "/c/vs-upload-file",
+      "shadcnSvelteFoundation": [
+        "Input",
+        "Progress"
+      ],
+      "behavior": "Native file picker plus drag state, validation and optional progress; no implicit upload.",
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Drag your files here"
+        },
+        {
+          "name": "hint",
+          "type": "string",
+          "default": "or click to browse"
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "default": "squircle"
+        },
+        {
+          "name": "tone",
+          "type": "string",
+          "default": "default"
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "accept",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "default": 0
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "glow",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "VsUploadFile",
+          "tier": "pro"
+        },
+        {
+          "name": "VsUploadFileButton",
+          "tier": "pro"
+        },
+        {
+          "name": "VsUploadFileCompact",
+          "tier": "pro"
+        },
+        {
+          "name": "VsUploadFileDropzone",
+          "tier": "pro"
+        },
+        {
+          "name": "VsUploadFileGallery",
+          "tier": "pro"
+        },
+        {
+          "name": "VsUploadFileGlow",
+          "tier": "pro"
+        }
+      ],
+      "motion": {
+        "motifs": [
+          "glow"
+        ],
+        "effectProps": [
+          "disabled",
+          "glow"
+        ],
+        "keyframesObserved": [
+          "dzn-sweep",
+          "glw-spin"
+        ],
+        "durationsObserved": [
+          "620ms",
+          "220ms",
+          "320ms",
+          "380ms",
+          "140ms",
+          "580ms",
+          "360ms",
+          "160ms",
+          "300ms",
+          "400ms",
+          "280ms",
+          "200ms",
+          "720ms",
+          "180ms",
+          "150ms",
+          "420ms",
+          "240ms",
+          "7s",
+          "6s"
+        ],
+        "easingsObserved": [
+          "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "cubic-bezier(0.22, 1, 0.36, 1)",
+          "cubic-bezier(0.34, 1.4, 0.6, 1)",
+          "cubic-bezier(0.4, 0, 0.2, 1)"
+        ],
+        "hasContinuousAnimation": true,
+        "hasReducedMotionRule": true,
+        "implementationRecommendation": "Use the observed timing family as reference, animate transform/opacity where possible, and provide a non-animated reduced-motion state."
+      }
+    }
+  ]
+}

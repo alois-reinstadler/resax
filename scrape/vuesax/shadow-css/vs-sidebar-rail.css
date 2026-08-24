@@ -1,0 +1,155 @@
+  :host { display: inline-flex; }
+
+  /* Shell mode: the sidebar IS the column, so it takes the height it is given.
+     The 560px default below is what makes the catalog card look like a
+     sidebar; a real app layout hands it a full-height slot and expects it
+     filled — without this it floats as a short panel with dead space under it. */
+  :host([full]) { display: flex; align-self: stretch; height: 100%; }
+
+.seg {
+  --w: 260px;
+  --w-collapsed: 76px;
+  --item-h: 46px;
+  --accent: var(--inp-accent, #ededed);
+  --ring: var(--inp-ring, 255 255 255);
+  --spring: linear(
+    0, 0.02, 0.08, 0.18, 0.32, 0.48, 0.64, 0.78, 0.89, 0.965,
+    1.012, 1.038, 1.048, 1.045, 1.034, 1.02, 1.007, 0.998, 0.994, 0.996,
+    0.999, 1
+  );
+  --ease: var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+
+  display: flex;
+  flex-direction: column;
+  width: var(--w);
+  height: 560px;
+  max-height: 80vh;
+  padding: 14px;
+  gap: 8px;
+  border: 1px solid var(--inp-border, #2a2a2a);
+  border-radius: 20px;
+  background: var(--bg-card, #111);
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  overflow: hidden;
+  transition: width 460ms cubic-bezier(0.34, 1.4, 0.6, 1);
+}
+  :host([full]) .seg { height: 100%; max-height: none; }
+  /* Edge to edge: the app-shell cut. A floating panel with a radius and
+     a border all round is a lovely catalog card and the wrong thing for a
+     real sidebar, which meets the window on three sides and only shows a
+     seam against the content. */
+  :host([flush]) .seg { border-radius: 0; border-top: 0; border-left: 0; border-bottom: 0; }
+
+
+.seg.is-collapsed { --w: var(--w-collapsed); }
+
+.seg__head { display: flex; align-items: center; gap: 11px; height: 40px; padding: 0 8px; }
+.seg__mark { display: inline-flex; color: var(--accent); flex: 0 0 auto; }
+.seg__brand { flex: 1 1 auto; font-weight: 700; font-size: 15px; white-space: nowrap; overflow: hidden; }
+.seg__collapse {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; padding: 0; border: 0; border-radius: 9px;
+  background: transparent; color: var(--text-secondary, #a1a1a1); cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.seg__collapse svg { width: 18px; height: 18px; }
+.seg__collapse:hover:not(:disabled) { background: rgb(var(--ring) / 0.08); color: var(--inp-text, #ededed); }
+.seg__collapse:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.is-collapsed .seg__collapse { transform: rotate(180deg); }
+.is-collapsed .seg__head { justify-content: center; padding: 0; }
+.is-collapsed .seg__mark, .is-collapsed .seg__brand { display: none; }
+
+.seg__track {
+  position: relative;
+  display: flex; flex-direction: column; gap: 4px;
+  flex: 1 1 auto; overflow-y: auto; overflow-x: hidden; min-height: 0;
+  padding: 6px;
+  border-radius: 15px;
+  background: rgb(var(--ring) / 0.04);
+}
+.seg__track::-webkit-scrollbar { width: 6px; }
+.seg__track::-webkit-scrollbar-thumb { background: rgb(var(--ring) / 0.14); border-radius: 999px; }
+.seg__group { display: flex; flex-direction: column; }
+
+.seg__pill {
+  position: absolute;
+  top: 0; left: 6px; right: 6px;
+  z-index: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--accent) 45%, transparent);
+  transition:
+    transform 620ms var(--spring),
+    height 620ms var(--spring),
+    opacity 200ms ease;
+}
+.seg__pill.is-ready { opacity: 1; }
+@supports (corner-shape: squircle) { .seg__pill { corner-shape: squircle; border-radius: 18px; } }
+
+.seg__item {
+  position: relative;
+  z-index: 1;
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; height: var(--item-h);
+  padding: 0 14px;
+  border: 0; border-radius: 12px;
+  background: transparent;
+  color: var(--text-secondary, #a1a1a1);
+  font: inherit; font-size: 14.5px; font-weight: 560;
+  text-align: left; text-decoration: none;
+  cursor: pointer; white-space: nowrap; overflow: hidden;
+  transition: color 260ms var(--ease);
+}
+.seg__item:hover:not(.is-active):not(.is-childactive) { color: var(--inp-text, #ededed); }
+.seg__item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.seg__item.is-active { color: var(--badge-solid-fg, #0b0b0b); }
+.seg__item.is-childactive { color: var(--inp-text, #ededed); }
+
+.seg__icon { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; }
+.seg__icon svg { width: 20px; height: 20px; display: block; }
+.seg__dot::after { content: ''; width: 7px; height: 7px; border-radius: 999px; background: currentColor; opacity: 0.6; }
+.seg__label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.seg__badge {
+  flex: 0 0 auto; min-width: 20px; height: 20px; padding: 0 6px;
+  display: inline-flex; align-items: center; justify-content: center; border-radius: 999px;
+  background: rgb(var(--ring) / 0.16); font-size: 11px; font-weight: 700;
+}
+.seg__item.is-active .seg__badge { background: color-mix(in srgb, var(--badge-solid-fg, #0b0b0b) 18%, transparent); }
+.seg__chev { flex: 0 0 auto; width: 15px; height: 15px; opacity: 0.7; transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.seg__chev.is-open { transform: rotate(180deg); }
+
+.seg__fade { transition: opacity 180ms var(--ease); }
+.is-collapsed .seg__fade { opacity: 0; }
+.is-collapsed .seg__item { justify-content: center; padding: 0; gap: 0; }
+.is-collapsed .seg__label, .is-collapsed .seg__chev, .is-collapsed .seg__badge { display: none; }
+.is-collapsed .seg__item.is-childactive { color: var(--badge-solid-fg, #0b0b0b); }
+.is-collapsed .seg__sub { display: none; }
+
+.seg__sub { position: relative; z-index: 1; display: grid; grid-template-rows: 0fr; transition: grid-template-rows 460ms cubic-bezier(0.34, 1.4, 0.6, 1); }
+.seg__sub.is-open { grid-template-rows: 1fr; }
+.seg__sub-clip { overflow: hidden; display: flex; flex-direction: column; gap: 4px; padding-left: 14px; }
+.seg__sub.is-open .seg__sub-clip { padding-top: 4px; }
+
+.seg__subitem {
+  position: relative;
+  z-index: 1;
+  display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 14px;
+  border: 0; border-radius: 12px; background: transparent;
+  color: var(--text-muted, #6b6b6b); font: inherit; font-size: 13px; font-weight: 520;
+  text-align: left; text-decoration: none; cursor: pointer;
+  transition: color 220ms var(--ease);
+}
+.seg__subitem:hover:not(.is-active) { color: var(--inp-text, #ededed); }
+.seg__subitem:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.seg__subitem.is-active { color: var(--badge-solid-fg, #0b0b0b); }
+.seg__subdot { flex: 0 0 auto; width: 5px; height: 5px; border-radius: 999px; background: currentColor; opacity: 0.5; transition: transform 160ms ease, opacity 160ms ease; }
+.seg__subitem.is-active .seg__subdot { opacity: 1; transform: scale(1.4); }
+
+.seg.is-disabled { opacity: 0.6; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .seg, .seg__pill, .seg__sub, .seg__chev, .seg__collapse, .seg__fade, .seg__item, .seg__subitem { transition: none; }
+}

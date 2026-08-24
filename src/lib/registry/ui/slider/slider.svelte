@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface SliderProps {
 		value?: number[]; min?: number; max?: number; step?: number; color?: RxColor;
 		size?: 'lg' | 'default' | 'sm'; knob?: 'circle' | 'square';
@@ -10,8 +10,8 @@
 
 <script lang="ts">
 	import { Slider as SliderPrimitive } from 'bits-ui';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	let { value = $bindable([0]), min = 0, max = 100, step = 1, color, size = 'default', knob = 'circle', tooltip = 'hover', ticks = false, disabled = false, onValueChange }: SliderProps = $props();
 	const inlineStyle = $derived(`${styleColor(color) ?? '--rx-color: var(--rx-primary)'}; --rx-duration: ${RX_DURATION.base}ms; --rx-ease: ${RX_EASE}`);
 	function changed(next: number[]) { value = next; onValueChange?.(next); }

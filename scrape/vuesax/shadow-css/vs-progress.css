@@ -1,0 +1,158 @@
+  :host { display: inline-flex; flex-direction: column; width: 100%; }
+  /* class-level display (ring inline-flex, ring-val grid) beats the UA [hidden]
+     rule, so hidden nodes stayed visible — force it back off explicitly. */
+  [hidden] { display: none !important; }
+  .prog {
+    --bw: 8px;            /* bar / ring thickness */
+    --h: 8px;             /* linear track height */
+    --sz: 48px;           /* circular diameter */
+    --fs: 13px;
+    --dur: 1.4s;
+    --radius: 999px;
+    --accent: var(--inp-accent, #ededed);
+    --ring: var(--inp-ring, 237 237 237);     /* space-separated rgb */
+    --track: rgb(var(--ring) / 0.16);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tint);
+  }
+
+  .prog--v-linear { min-width: 240px; }
+  .prog--v-circular { width: auto; min-width: 0; }
+
+  /* ── header ──────────────────────────────────────────────── */
+  .prog__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    line-height: 1;
+  }
+  .prog__label { font-weight: 500; }
+  .prog__val { font-variant-numeric: tabular-nums; color: rgb(var(--ring)); }
+
+  /* ── sizes ───────────────────────────────────────────────── */
+  .prog--sm { --h: 5px; --bw: 5px; --sz: 36px; --fs: 12px; }
+  .prog--md { --h: 8px; --bw: 8px; --sz: 48px; --fs: 13px; }
+  .prog--lg { --h: 12px; --bw: 11px; --sz: 64px; --fs: 14px; }
+
+  /* ── linear ──────────────────────────────────────────────── */
+  .prog__track {
+    position: relative;
+    width: 100%;
+    height: var(--h);
+    background: var(--track);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  /* fill/buffer: fixed 100% width + compositable translateX (no per-frame width).
+     The rounded cap never deforms (no scale) and the track clips with overflow:hidden. */
+  .prog__bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(var(--ring));
+    border-radius: var(--radius);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .prog__buffer {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(var(--ring) / 0.3);
+    border-radius: var(--radius);
+    transition: transform 0.45s ease;
+  }
+
+  /* striped */
+  .prog.is-striped .prog__bar {
+    background-image: linear-gradient(
+      45deg,
+      rgb(255 255 255 / 0.18) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgb(255 255 255 / 0.18) 50%,
+      rgb(255 255 255 / 0.18) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 1rem 1rem;
+    animation: prog-stripes 1s linear infinite;
+  }
+  @keyframes prog-stripes {
+    to { background-position: 1rem 0; }
+  }
+
+  /* indeterminate linear */
+  .prog.is-indeterminate .prog__bar {
+    width: 40%;
+    animation: prog-slide var(--dur) cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  }
+  /* % are relative to the bar itself (40% of track): -100% ≡ left:-40%, 250% ≡ left:100% */
+  @keyframes prog-slide {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(250%); }
+  }
+
+  /* ── circular ────────────────────────────────────────────── */
+  .prog__ring {
+    position: relative;
+    display: inline-flex;
+    width: var(--sz);
+    height: var(--sz);
+  }
+  .prog__ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .prog__ring circle {
+    fill: none;
+    stroke-width: var(--bw);
+  }
+  .prog__ring-track { stroke: var(--track); }
+  .prog__ring-bar {
+    stroke: rgb(var(--ring));
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .prog__ring-val {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: calc(var(--fs) - 1px);
+    font-variant-numeric: tabular-nums;
+    color: rgb(var(--ring));
+  }
+
+  /* indeterminate circular */
+  .prog.is-indeterminate .prog__ring svg {
+    animation: prog-rotate var(--dur) linear infinite;
+  }
+  .prog.is-indeterminate .prog__ring-bar {
+    stroke-dasharray: 70 212;
+  }
+  @keyframes prog-rotate {
+    to { transform: rotate(270deg); }
+  }
+
+  /* ── tones — recolor the ring ────────────────────────────── */
+  .prog--t-danger  { --ring: 255 99 105; }
+  .prog--t-warn    { --ring: 255 178 36; }
+  .prog--t-success { --ring: 76 195 138; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .prog.is-indeterminate .prog__bar,
+    .prog.is-indeterminate .prog__ring svg,
+    .prog.is-striped .prog__bar { animation-duration: 3s; }
+    .prog__bar, .prog__ring-bar { transition: none; }
+  }

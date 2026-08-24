@@ -1,0 +1,105 @@
+  :host { display: inline-flex; }
+  .sld {
+    --h: var(--ctrl-h-md, 40px);
+    --r: var(--ctrl-r-md, 12px);
+    --px: var(--ctrl-px-md, 14px);
+    --accent: var(--inp-accent, #ededed);
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 220px;
+    font-family: inherit;
+    font-size: var(--ctrl-fs-md, 14px);
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .sld--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --px: var(--ctrl-px-sm, 12px); font-size: var(--ctrl-fs-sm, 13px); }
+  .sld--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --px: var(--ctrl-px-lg, 18px); font-size: var(--ctrl-fs-lg, 15px); }
+
+  .sld__trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    height: var(--h);
+    padding: 0 var(--px);
+    border-radius: var(--rr, var(--r));
+    border: 1px solid var(--inp-border, #2a2a2a);
+    background: var(--btn-secondary-bg, #1a1a1a);
+    color: var(--inp-text, #ededed);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 200ms ease;
+  }
+  .sld--r-none { --rr: 0px; }
+  .sld--r-subtle { --rr: 8px; }
+  .sld--r-pill { --rr: 999px; }
+  .sld__trigger:hover:not(:disabled) { border-color: var(--inp-border-hover, #3d3d3d); }
+  .sld.is-open .sld__trigger { border-color: var(--accent); }
+  .sld__trigger:disabled { opacity: 0.45; cursor: not-allowed; }
+  .sld__trigger:focus-visible { outline: 2px solid var(--inp-accent, var(--ui-accent, #ededed)); outline-offset: 2px; }
+  .sld__value { overflow: hidden; text-overflow: ellipsis; }
+  .sld__value.is-placeholder { color: var(--inp-placeholder, #5a5a5a); }
+  .sld__caret { flex: none; width: 16px; height: 16px; color: var(--inp-btn, #8a8a8a); transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .sld.is-open .sld__caret { transform: rotate(180deg); }
+
+  .sld__menu {
+    position: absolute;
+    z-index: 50;
+    top: calc(var(--h) + 6px);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid var(--sel-menu-border, rgba(255, 255, 255, 0.09));
+    background: var(--sel-menu-bg, #0b0b0b);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    transform-origin: top center;
+  }
+  .sld__menu[hidden] { display: none; }
+  /* VsScrollbar (bare, max-height 240, sm) → plain scrollable list */
+  .sld__list { margin: 0; padding: 0; list-style: none; max-height: 240px; overflow-y: auto; }
+  .sld__opt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    height: 34px;
+    padding: 0 10px;
+    border-radius: 9px;
+    color: var(--inp-text, #ededed);
+    cursor: pointer;
+    white-space: nowrap;
+    /* cascade in when the menu opens */
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  .sld.is-open .sld__opt {
+    animation: sld-opt-in 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 26ms + 80ms);
+  }
+  @keyframes sld-opt-in { to { opacity: 1; transform: none; } }
+  .sld__opt.is-active { background: var(--sel-opt-hover, rgba(255, 255, 255, 0.07)); }
+  .sld__opt.is-selected { color: var(--accent); font-weight: 600; }
+  .sld__opt.is-disabled { opacity: 0.4; cursor: not-allowed; }
+  .sld__opt-label { overflow: hidden; text-overflow: ellipsis; }
+  .sld__check { flex: none; width: 16px; height: 16px; color: var(--accent); }
+
+  /* menu unfolds from the trigger with blur + spring */
+  .sld-pop-enter-active { transition: opacity 220ms ease, transform 440ms cubic-bezier(0.34, 1.46, 0.44, 1), filter 300ms ease; }
+  .sld-pop-leave-active { transition: opacity 150ms ease, transform 180ms ease, filter 150ms ease; }
+  .sld-pop-enter-from, .sld-pop-leave-to { opacity: 0; transform: translateY(-8px) scaleY(0.55); filter: blur(8px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sld__caret, .sld-pop-enter-active, .sld-pop-leave-active { transition: none; }
+    .sld-pop-enter-from, .sld-pop-leave-to { filter: none; transform: none; }
+    .sld.is-open .sld__opt { animation: none; opacity: 1; transform: none; }
+  }

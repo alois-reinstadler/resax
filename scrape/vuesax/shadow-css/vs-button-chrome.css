@@ -1,0 +1,241 @@
+  :host { display: inline-flex; }
+  :host([block]) { display: flex; width: 100%; }
+  :host([block]) .chr { width: 100%; }
+
+  .chr {
+    --h: var(--ctrl-h-md, 40px);
+    --r: var(--ctrl-r-md, 12px);
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    /* the metal — every stop is a token with a literal fallback, so the file is
+       portable and a host page can retint the whole alloy from :root */
+    --m-hi: var(--chrome-hi, #ffffff);
+    --m-mid: var(--chrome-mid, #c3c9d4);
+    --m-lo: var(--chrome-lo, #4a505b);
+    --m-deep: var(--chrome-deep, #05070a);
+    --m-cool: var(--chrome-cool, #d8e4ff);
+    --m-warm: var(--chrome-warm, #ffe6cf);
+    /* --bw-base is what [thickness] writes; --bw is the live value the layers
+       read. Two names because the attribute lands as an inline style, which
+       would otherwise outrank any rule that wants to pull on the thickness. */
+    --bw: var(--bw-base, 3px);
+    --prism: 1;         /* dispersion amount, overwritten by [prism] */
+
+    /* ── hover state, all of it derived from --chr-f ──────────────────────────
+       The plate is the theme's PURE ink and the label its exact opposite, so a
+       dark page fills white/black-text and a light page fills black/white-text
+       with no second rule and no media query. */
+    --chr-f: 0;
+    --fill-c: var(--chrome-fill, var(--card-ink, #ffffff));
+    --fill-ink: var(--chrome-fill-ink, var(--bg, #000000));
+    /* the metal holds the edge for the first half — it is still the border while
+       the plate is small — then dissolves exactly as the plate arrives at it.
+       The two never paint the same pixels: the plate's edge is always inside the
+       rim until the rim is already gone. */
+    --rim-o: clamp(0, calc((1 - var(--chr-f)) * 2), 1);
+    /* the label rides the plate's own fade-in (it is already fully covered by
+       it, so the swap is uniform across every glyph), just trailing it slightly
+       so the last frames are settled black-on-white rather than grey-on-grey */
+    --ink-t: clamp(0, calc((var(--chr-f) - .06) / .3), 1);
+    --ink: color-mix(in srgb, var(--fill-ink) calc(var(--ink-t) * 100%), var(--inp-text, #ededed));
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: var(--h);
+    padding: 0 var(--px);
+    border: 0;
+    border-radius: calc(var(--r) * var(--r-mult, 1));
+    font-family: inherit;
+    font-weight: 500;
+    font-size: var(--fs);
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 240ms cubic-bezier(.34, 1.56, .64, 1), opacity 200ms,
+      --chr-f 400ms cubic-bezier(.25, .8, .35, 1);
+  }
+  /* hover / keyboard focus: flood the rim inward. Keyboard gets the same state —
+     the outline alone never told you the button had a filled form. */
+  .chr:hover:not(:disabled),
+  .chr:focus-visible:not(:disabled) { --chr-f: 1; }
+  .chr:active:not(:disabled) { transform: scale(.97); }
+  .chr:disabled { opacity: .45; cursor: not-allowed; }
+  .chr:focus-visible { outline: 2px solid var(--inp-accent, #ededed); outline-offset: 3px; }
+
+  /* sizes */
+  .chr--sm { --h: var(--ctrl-h-sm, 32px); --r: var(--ctrl-r-sm, 10px); --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); }
+  .chr--md { --h: var(--ctrl-h-md, 40px); --r: var(--ctrl-r-md, 12px); --fs: var(--ctrl-fs-md, 14px); --px: var(--ctrl-px-md, 14px); }
+  .chr--lg { --h: var(--ctrl-h-lg, 48px); --r: var(--ctrl-r-lg, 14px); --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 18px); }
+
+  /* radius */
+  .chr--r-none { --r: 0px; }
+  .chr--r-subtle { --r: 8px; }
+  .chr--r-pill { --r: 999px; }
+  @supports (corner-shape: squircle) {
+    .chr--r-squircle { corner-shape: squircle; --r-mult: 1.7; }
+    .chr--r-squircle .chr__ring,
+    .chr--r-squircle .chr__shard,
+    .chr--r-squircle .chr__fill,
+    .chr--r-squircle .chr__ripples { corner-shape: squircle; }
+  }
+
+  /* fills — the rim IS the component. The box stays transparent by default so
+     whatever is behind (page, image, gradient) shows through the middle. */
+  .chr--primary { background: transparent; color: var(--ink); }
+  /* opt-in plate for when the button sits on a busy background and the label
+     needs a surface to sit on */
+  .chr--secondary {
+    background: linear-gradient(180deg, var(--btn-secondary-bg-hover, #242424) 0%, var(--btn-secondary-bg, #1a1a1a) 100%);
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .07);
+  }
+  /* quietest form: transparent, dimmer rim */
+  .chr--ghost { background: transparent; color: var(--ink); }
+  .chr--ghost { --ring-a: .8; }
+
+  /* ── the rim ─────────────────────────────────────────────────────────────
+     Every layer is the same trick: a gradient painted over the whole box, then
+     masked (xor) down to a --bw ring so only the border survives. The base ring
+     is the alloy; the shards on top are what move. */
+  .chr__ring, .chr__shard {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    padding: var(--bw);
+    pointer-events: none;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+  }
+  /* base alloy. Real chrome mirrors a sky and a ground, so it has hard horizon
+     lines — the doubled stops are those mirror edges. Its own angle (--chr-a)
+     is advanced by JS at a noisy, sometimes-reversing rate, never linearly. */
+  .chr__ring {
+    /* --ring-a is the variant's own dimming (ghost), --rim-o the hover fade */
+    opacity: calc(var(--rim-o) * var(--ring-a, 1));
+    background:
+      conic-gradient(from var(--chr-a),
+        var(--m-hi) 0%, var(--m-cool) 5%, var(--m-mid) 11%,
+        var(--m-deep) 18%, var(--m-deep) 25%, var(--m-hi) 27%,
+        var(--m-hi) 36%, var(--m-warm) 40%, var(--m-lo) 45%,
+        var(--m-deep) 50%, var(--m-deep) 55%, var(--m-hi) 58%,
+        var(--m-mid) 65%, var(--m-deep) 70%, var(--m-deep) 76%,
+        var(--m-cool) 79%, var(--m-hi) 85%, var(--m-lo) 93%, var(--m-hi) 100%);
+  }
+
+  /* A shard is ONE arc centred on its own angle. Rotating the gradient (rather
+     than moving its stops) is what lets an arc sit across 0° without clipping.
+     --p angle · --w half-width in % of the perimeter · --o opacity — all three
+     written per frame from the noise field. */
+  .chr__shard {
+    z-index: 2;
+    /* per-frame noise gate × the hover fade — no transition of its own: --o is
+       rewritten every frame anyway, and --rim-o rides --chr-f's easing */
+    opacity: calc(var(--o, 0) * var(--rim-o));
+    filter: blur(calc(var(--bw) * var(--b, .2)));
+  }
+  .chr__shard--hi {
+    background:
+      conic-gradient(from calc(var(--p, 0) * 1deg),
+        var(--m-hi) 0%, rgb(255 255 255 / .55) calc(var(--w, 10) * .45%), transparent calc(var(--w, 10) * 1%),
+        transparent calc(100% - var(--w, 10) * 1%), rgb(255 255 255 / .55) calc(100% - var(--w, 10) * .45%), var(--m-hi) 100%);
+  }
+  /* the blackout: same shape, dark ink. Painted straight over the alloy, which
+     is what makes one side of the rim genuinely go out. */
+  .chr__shard--dark {
+    background:
+      conic-gradient(from calc(var(--p, 0) * 1deg),
+        var(--m-deep) 0%, var(--m-lo) calc(var(--w, 10) * .5%), transparent calc(var(--w, 10) * 1%),
+        transparent calc(100% - var(--w, 10) * 1%), var(--m-lo) calc(100% - var(--w, 10) * .5%), var(--m-deep) 100%);
+  }
+  /* prismatic dispersion: polished metal splits light where it curves. NOT
+     screen-blended — the alloy under these arcs is already near-white and screen
+     over white stays white, so the rainbow would die exactly where the metal is
+     brightest. Painted straight over, which is also what refraction looks like:
+     in that arc the metal IS the colour. */
+  .chr__shard--prism {
+    /* full strength, never faded by the noise gate: the rainbow arcs travel but
+       they don't dim — the colour is the colour */
+    /* --chr-blend is the cross-fade slot: a prism arc is TWO stacked layers and a
+       re-rolled palette is painted on the hidden one, then faded in. Swapping a
+       conic-gradient in place would land as a visible click. The transition sits
+       on that number, NOT on opacity, so the hover fade (--rim-o) stays snappy
+       instead of inheriting the palette blend's 900ms. */
+    opacity: calc(var(--prism, 1) * var(--chr-blend, 1) * var(--rim-o));
+    transition: --chr-blend 900ms linear;
+    filter: blur(calc(var(--bw) * var(--b, .2))) saturate(1.5);
+    /* background is written from JS (prismArc): the palette and the band widths
+       re-roll on each shard's own clock, so no two arcs share an order */
+  }
+
+  /* No @property support → --chr-a can't hold an <angle>; fall back to a static
+     brushed rim and let the shards carry the motion. */
+  @supports not (background: conic-gradient(from var(--chr-a), red, blue)) {
+    .chr__ring { background: linear-gradient(145deg, var(--m-hi), var(--m-mid) 35%, var(--m-deep) 62%, var(--m-hi)); }
+  }
+
+  /* ── the hover plate ──────────────────────────────────────────────────────
+     Grows from the centre out until its edge lands exactly where the rim was,
+     and the rim dissolves as it arrives — the border hands the edge over to the
+     fill instead of competing with it.
+     Two earlier shapes were wrong for the SAME reason — they crossed the label
+     while it was mid-flip: a ring closing inward pinches shut on the text line
+     (reads as a strikethrough), and a plate blooming from the centre sweeps its
+     edge across the glyphs (middle letters wash out for ~80ms).
+     So the plate STARTS already covering the label — inset by the button's own
+     --px, which is exactly where the text box begins — and only ever grows into
+     the padding. The label is therefore over a UNIFORM background at every
+     frame: it fades from rim-state to plate-state as one piece, never half on
+     one and half on the other.
+     clip-path (not scale) so the corners never distort into ellipses. */
+  .chr__fill {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: inherit;
+    pointer-events: none;
+    background: var(--fill-c);
+    clip-path: inset(
+      calc(var(--px) * (1 - var(--chr-f)))
+      round calc(var(--r) * var(--r-mult, 1) * (.45 + .55 * var(--chr-f)))
+    );
+    /* opaque well before the growth ends: the ink swap happens on a settled
+       plate, the remaining travel is pure shape */
+    opacity: calc(min(1, var(--chr-f) * 2.6));
+  }
+
+  .chr__label { position: relative; z-index: 5; display: inline-flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; }
+  .chr__label ::slotted(svg) { width: 19px; height: 19px; display: block; }
+  .chr--icon { --px: 0px; width: var(--h); gap: 0; }
+
+  /* above the plate (z 3): a press while hovering has to ripple ON the fill,
+     not under it. currentColor = --ink, so the ripple flips with the label and
+     is correct on both themes without a second palette. */
+  .chr__ripples { position: absolute; inset: 0; z-index: 4; border-radius: inherit; overflow: hidden; pointer-events: none; }
+  .chr__ripple {
+    position: absolute; border-radius: 50%; transform: translate(-50%, -50%) scale(0); opacity: 0; pointer-events: none;
+    background: radial-gradient(circle,
+      color-mix(in srgb, currentColor 30%, transparent) 0%,
+      color-mix(in srgb, currentColor 16%, transparent) 26%,
+      color-mix(in srgb, currentColor 6%, transparent) 48%, transparent 72%);
+    will-change: transform, opacity;
+    animation: chr-rip 760ms cubic-bezier(.22, 1, .36, 1) forwards, chr-fade 760ms cubic-bezier(.25, .1, .25, 1) forwards;
+  }
+  @keyframes chr-rip { from { transform: translate(-50%, -50%) scale(0); } to { transform: translate(-50%, -50%) scale(1); } }
+  @keyframes chr-fade { from { opacity: .75; } to { opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* the hover STATE stays (it is information, not decoration) — only the
+       travel is dropped, so the plate snaps in instead of flooding */
+    .chr { transition: none; }
+    .chr:active:not(:disabled) { transform: none; }
+    .chr__shard { transition: none; }
+    .chr__ripple { display: none; }
+  }

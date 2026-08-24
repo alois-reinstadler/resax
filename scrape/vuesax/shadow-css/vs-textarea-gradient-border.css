@@ -1,0 +1,110 @@
+:host { display: inline-flex; }
+:host([block]) { display: flex; width: 100%; }
+
+@property --tag-a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.tag {
+  --fs: var(--ctrl-fs-md, 14px);
+  --px: var(--ctrl-px-md, 14px);
+  --py: 11px;
+  --lh: 1.5;
+  --r: var(--ctrl-r-md, 12px);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 280px;
+  font-family: inherit;
+}
+.tag--block { display: flex; width: 100%; min-width: 0; }
+.tag--sm { --fs: var(--ctrl-fs-sm, 13px); --px: var(--ctrl-px-sm, 12px); --r: var(--ctrl-r-sm, 10px); --py: 8px; }
+.tag--lg { --fs: var(--ctrl-fs-lg, 15px); --px: var(--ctrl-px-lg, 18px); --r: var(--ctrl-r-lg, 14px); --py: 14px; }
+
+/* the border is a 1.5px gradient ring; the inner panel masks it into a border */
+.tag__field {
+  position: relative;
+  padding: 1.5px;
+  border-radius: var(--rr, var(--r));
+  background: var(--inp-border, #2a2a2a);
+  transition: background 220ms ease;
+}
+.tag--r-subtle { --rr: 8px; }
+@supports (corner-shape: squircle) {
+  .tag--r-squircle .tag__field,
+  .tag--r-squircle .tag__inner { corner-shape: squircle; --rr: calc(var(--r) * 1.7); }
+}
+.tag__field:hover {
+  background: conic-gradient(from 0deg, var(--from), var(--to), var(--from));
+  opacity: 0.7;
+}
+/* focus: vivid conic gradient that rotates */
+.tag.is-focused .tag__field {
+  opacity: 1;
+  background: conic-gradient(from var(--tag-a), var(--from), var(--to), var(--from));
+  animation: tag-spin 3.5s linear infinite;
+}
+@keyframes tag-spin {
+  to { --tag-a: 360deg; }
+}
+
+.tag__inner {
+  position: relative;
+  border-radius: calc(var(--rr, var(--r)) - 1.5px);
+  background: var(--bg-card, #111);
+  overflow: hidden;
+}
+
+.tag__label {
+  position: absolute;
+  left: var(--px);
+  top: var(--py);
+  transform-origin: left top;
+  color: var(--inp-label, #6a6a6a);
+  font-size: var(--fs);
+  line-height: var(--lh);
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - var(--px) * 2);
+  transition: transform 240ms cubic-bezier(0.34, 1.4, 0.5, 1), color 200ms ease;
+}
+.tag.is-floated .tag__label { transform: translateY(-6px) scale(0.78); opacity: 0; }
+
+.tag__control {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: calc(var(--rows) * var(--lh) * var(--fs) + var(--py) * 2);
+  padding: var(--py) var(--px);
+  border: none;
+  background: transparent;
+  color: var(--inp-text, #ededed);
+  font: inherit;
+  font-size: var(--fs);
+  line-height: var(--lh);
+  outline: none;
+  resize: vertical;
+}
+.tag.is-autosize .tag__control { resize: none; overflow: hidden; }
+.tag__control::placeholder { color: var(--inp-placeholder, #5a5a5a); }
+
+/* meta */
+.tag__meta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding: 0 2px; }
+.tag__hint { margin: 0; font-size: calc(var(--fs) - 1px); color: var(--inp-hint, #7a7a7a); }
+.tag__counter { margin-left: auto; font-size: calc(var(--fs) - 2px); font-variant-numeric: tabular-nums; color: var(--inp-hint, #7a7a7a); }
+.tag__counter.is-full { color: var(--inp-t-danger-hint, #ff8d91); }
+
+/* disabled / readonly */
+.tag.is-disabled { opacity: 0.5; }
+.tag.is-disabled .tag__control { cursor: not-allowed; resize: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tag.is-focused .tag__field { animation: none; background: conic-gradient(from 0deg, var(--from), var(--to), var(--from)); }
+  .tag__label { transition: none; }
+}

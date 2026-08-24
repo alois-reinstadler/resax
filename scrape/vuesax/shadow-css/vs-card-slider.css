@@ -1,0 +1,210 @@
+  :host { display: block; }
+  ${x}
+  .cs {
+    --r: var(--ctrl-r-md, 12px);
+    --pad: var(--card-pad-md, 18px);
+    --gap: 8px;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* the card is an island: centered inside whatever box it is dropped in,
+       instead of hugging the left edge once max-width kicks in */
+    margin-inline: auto;
+    text-align: left;
+    font-family: inherit;
+    color: var(--card-fg, var(--text, #ededed));
+    border-radius: calc(var(--r, 12px) * var(--r-mult, 1));
+    border: 1px solid transparent;
+    background: var(--card-bg, var(--bg-card, #141414));
+    transition:
+      border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cs--sm { --pad: var(--card-pad-sm, 14px); --r: var(--ctrl-r-sm, 10px); max-width: 320px; }
+  .cs--md { --pad: var(--card-pad-md, 18px); --r: var(--ctrl-r-md, 12px); max-width: 380px; }
+  .cs--lg { --pad: var(--card-pad-lg, 24px); --r: var(--ctrl-r-lg, 14px); max-width: 440px; }
+
+  .cs--r-none { --r: 0px; }
+  .cs--r-subtle { --r: 8px; }
+  .cs--r-pill { --r: 28px; }
+  @supports (corner-shape: squircle) {
+    .cs--r-squircle { corner-shape: squircle; --r-mult: 1.7; }
+  }
+
+  .cs--elevated {
+    border-color: var(--card-border, var(--border, #232323));
+    box-shadow: var(--card-shadow, 0 1px 2px rgba(0, 0, 0, 0.08), 0 6px 18px -14px rgba(0, 0, 0, 0.16));
+  }
+  .cs--outlined { background: transparent; border-color: var(--border, #2a2a2a); }
+  .cs--soft {
+    background: var(--card-soft-bg, var(--bg-elevated, rgba(255, 255, 255, 0.035)));
+    border-color: transparent;
+  }
+  .cs:hover:not(.is-disabled) { border-color: var(--border-hover, #3d3d3d); }
+  .is-disabled { opacity: 0.5; pointer-events: none; }
+
+  /* inner clip — rounds the slider to the card shape, keeps the glow outside it */
+  .cs__inner { position: relative; z-index: 0; display: flex; flex-direction: column; border-radius: inherit; overflow: clip; }
+  @supports (corner-shape: squircle) {
+    .cs--r-squircle .cs__inner { corner-shape: squircle; }
+  }
+
+  .cs__glow { --glow-strength: 1; --glow-inset: -1px; }
+  .cs:not(.cs--glow) .cs__glow { display: none; }
+  .cs--r-pill .cs__glow { border-radius: 28px; }
+  @supports (corner-shape: squircle) {
+    .cs--r-squircle .cs__glow { corner-shape: squircle; }
+  }
+
+  /* ── slider ───────────────────────────────────────────────────────────── */
+  .cs__media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: var(--card-media-bg, #0d0d0d);
+    touch-action: pan-y;
+    cursor: grab;
+    outline: none;
+  }
+  .cs__media:focus-visible { outline: 2px solid var(--focus-ring, var(--ui-accent, #ededed)); outline-offset: -2px; }
+  .cs__media.is-drag { cursor: grabbing; }
+  .cs__track { position: absolute; inset: 0; display: flex; will-change: transform; }
+  /* the shell travels soft, the photo inside it travels stiff — the lag between
+     the two is the whole feel; a single duration reads flat */
+  .cs__track.is-eased { transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .cs__slide { position: relative; flex: 0 0 100%; height: 100%; overflow: hidden; }
+  .cs__img {
+    width: 100%; height: 100%; display: block;
+    object-fit: cover;
+    /* the crop: these are 16/9 wallpapers, so hold the horizon a touch above
+       centre — an exactly centred crop puts empty sky in the top half */
+    object-position: center 62%;
+    transform: scale(1.06);
+    will-change: transform;
+  }
+  .cs__slide.is-eased .cs__img { transition: transform 760ms cubic-bezier(0.22, 1, 0.36, 1); }
+
+  /* scrim so dots/counter/arrows stay legible over any photo */
+  .cs__scrim {
+    position: absolute; inset: auto 0 0 0; height: 46%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.14) 45%, transparent);
+    pointer-events: none;
+  }
+
+  .cs__nav {
+    position: absolute; top: 50%; translate: 0 -50%;
+    width: 32px; height: 32px; padding: 0;
+    display: grid; place-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(20, 20, 20, 0.34);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(10px) saturate(140%);
+    color: #fff;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.72);
+    filter: blur(4px);
+    transition: opacity 200ms ease, transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), filter 200ms ease, background-color 180ms ease;
+  }
+  .cs__nav svg { width: 16px; height: 16px; }
+  .cs__nav--prev { left: 10px; }
+  .cs__nav--next { right: 10px; }
+  .cs__media:hover .cs__nav,
+  .cs__nav:focus-visible { opacity: 1; transform: none; filter: none; }
+  .cs__nav:hover { background: rgba(20, 20, 20, 0.6); }
+  .cs__nav:disabled { opacity: 0; pointer-events: none; }
+  @media (hover: none) {
+    .cs__nav { opacity: 1; transform: none; filter: none; }
+  }
+
+  .cs__count {
+    position: absolute; top: 10px; right: 10px;
+    display: inline-flex; align-items: center; gap: 2px;
+    height: 20px; padding: 0 8px;
+    border-radius: 999px;
+    background: rgba(12, 12, 12, 0.42);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+  }
+  .cs__count b { font-weight: 600; }
+  .cs__count i { font-style: normal; opacity: 0.55; }
+
+  .cs__dots {
+    position: absolute; left: 0; right: 0; bottom: 10px;
+    display: flex; justify-content: center; align-items: center;
+    /* 9px on each side of a pill is what buys the 24px thumb target below, so
+       the dots need 18px between them or a tap on one pill lands on its
+       neighbour's target instead. */
+    gap: 18px;
+  }
+  .cs__dot {
+    position: relative;
+    /* The pill is 6px — a quarter of the thumb floor. Pad the button box out to
+       24px and give the space straight back with margin, so the row keeps the
+       spacing the pills had; the pill itself is painted by ::before at its own
+       size and never learns about the padding. */
+    box-sizing: content-box;
+    width: 6px; height: 6px;
+    padding: 9px; margin: -9px;
+    border: 0; border-radius: 999px;
+    background: none;
+    cursor: pointer;
+    transition: width 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cs__dot::before {
+    content: '';
+    position: absolute; inset: 9px;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.42);
+    transition: background-color 260ms ease;
+  }
+  .cs__dot.is-on { width: 22px; }
+  .cs__dot.is-on::before { background: rgba(255, 255, 255, 0.34); }
+  /* Ring the pill, not the invisible target box around it. */
+  .cs__dot:focus-visible { outline: none; }
+  .cs__dot:focus-visible::before { box-shadow: 0 0 0 2px #fff; }
+  /* autoplay progress: only the active pill carries it, driven from the same rAF
+     that advances the slide, so the bar and the flip can never disagree. It sits
+     on the pill's inset rather than the button's, and its own radius is what
+     shapes it now that the button can no longer clip (the target box would go
+     with it). */
+  .cs__fill {
+    position: absolute; inset: 9px;
+    transform-origin: left center;
+    transform: scaleX(0);
+    background: #fff;
+    border-radius: inherit;
+  }
+
+  /* ── body (same anatomy as VsCard) ────────────────────────────────────── */
+  .cs__body { position: relative; z-index: 2; display: flex; flex-direction: column; gap: var(--gap); padding: var(--pad); }
+  .cs__title { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.3; color: var(--text, #ededed); }
+  .cs__subtitle { margin: 0; font-size: 13px; color: var(--text-muted, #8a8a8a); }
+  .cs__text { font-size: 14px; line-height: 1.55; color: var(--text-secondary, #a8a8a8); }
+  .cs__footer { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+  .cs__btn {
+    height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: 10px;
+    font: inherit; font-weight: 500; font-size: 13px; line-height: 1; cursor: pointer;
+    transition: opacity 200ms, background-color 200ms, transform 200ms;
+  }
+  .cs__btn:active:not(:disabled) { transform: scale(0.97); }
+  .cs__btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .cs__btn--primary { background: var(--btn-primary-bg, #ededed); color: var(--btn-primary-fg, #000); }
+  .cs__btn--primary:hover:not(:disabled) { opacity: 0.85; }
+  .cs__btn--ghost { background: transparent; color: var(--inp-text, #ededed); }
+  .cs__btn--ghost:hover:not(:disabled) { background: var(--inp-hover-bg, rgba(255, 255, 255, 0.06)); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cs__track.is-eased,
+    .cs__slide.is-eased .cs__img,
+    .cs__dot,
+    .cs__dot::before { transition: none; }
+    .cs__img { transform: none; }
+    .cs__nav { opacity: 1; transform: none; filter: none; transition: none; }
+  }

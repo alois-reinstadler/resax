@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { Switch as SwitchTypes } from 'bits-ui';
-	import type { RxColor } from '../../lib/color';
+	import type { RxColor } from '$lib/registry/lib/color';
 	export interface SwitchProps extends Omit<SwitchTypes.RootProps, 'checked' | 'disabled' | 'children' | 'child' | 'color' | 'onCheckedChange'> {
 		checked?: boolean; color?: RxColor; size?: 'lg' | 'default' | 'sm'; shape?: 'pill' | 'square';
 		loading?: boolean; disabled?: boolean; on?: Snippet; off?: Snippet;
@@ -11,8 +11,8 @@
 
 <script lang="ts">
 	import { Switch as SwitchPrimitive } from 'bits-ui';
-	import { styleColor } from '../../lib/color';
-	import { RX_DURATION, RX_EASE } from '../../lib/easing';
+	import { styleColor } from '$lib/registry/lib/color';
+	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	import { switchVariants } from './index';
 	let { checked = $bindable(false), color, size = 'default', shape = 'pill', loading = false, disabled = false,
 		on, off, onCheckedChange, class: className, style, ...restProps }: SwitchProps = $props();

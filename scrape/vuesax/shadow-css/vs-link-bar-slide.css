@@ -1,0 +1,115 @@
+  :host { display: inline-flex; max-width: 100%; }
+  .vlbs {
+    --fs: 14px;
+    position: relative;               /* underline offsetParent */
+    display: inline-flex;
+    align-items: center;
+    /* a nav that cannot wrap can only overflow; gap doubles as the row-gap that
+       keeps row 1's underline off row 2's labels */
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 16px;
+    padding-bottom: 4px;              /* room for the underline */
+    font-family: inherit;
+    font-size: var(--fs);
+  }
+  .vlbs--sm { --fs: var(--ctrl-fs-sm, 13px); gap: 12px; }
+  .vlbs--md { --fs: var(--ctrl-fs-md, 14px); gap: 16px; }
+  .vlbs--lg { --fs: var(--ctrl-fs-lg, 15px); gap: 20px; }
+
+  .vlbs__link {
+    position: relative;
+    /* the flip track is only 1em tall — well under the 24px touch floor. The
+       flex box raises the tap area and keeps the track centred inside it. */
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    font-size: var(--fs);
+    line-height: 1;
+    color: var(--text-muted, #8a8a8a);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  /* screen-reader / no-motion label lives in normal flow but is hidden visually
+     when the animated track is present */
+  .vlbs__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .vlbs__track {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 1em;
+  }
+  .vlbs__line {
+    display: block;
+    line-height: 1;
+    transition: transform 300ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .vlbs__line--in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--ui-accent, #ededed);
+    transform: translateY(100%);
+  }
+  .vlbs__link:hover .vlbs__line,
+  .vlbs__link.is-active .vlbs__line {
+    transform: translateY(-100%);
+  }
+  .vlbs__link.is-active .vlbs__line--in {
+    color: var(--text, #ededed);
+  }
+  .vlbs__link:focus-visible {
+    outline: 2px solid var(--ui-accent, #ededed);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  .vlbs__sep {
+    width: 1px;
+    align-self: center;
+    height: 14px;
+    background: var(--ctrl-border, var(--text-muted, #8a8a8a));
+    opacity: 0.35;
+  }
+
+  /* persistent sliding underline — its x/y/width are driven imperatively.
+     Anchored to the nav's TOP: pinned to the bottom it would strand on the last
+     row the moment the bar wraps, floating under the wrong label. */
+  .vlbs__underline {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 0;
+    border-radius: 999px;
+    background: var(--ui-accent, #ededed);
+    transform: translateX(0);
+    pointer-events: none;
+  }
+  .vlbs__underline.is-ready {
+    transition:
+      transform 300ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+      width 300ms var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+
+  /* tone → accent tint (drives both the flip's accent copy and the underline) */
+  .vlbs--t-danger  { --accent: var(--danger, #ff6369); }
+  .vlbs--t-success { --accent: var(--success, #4cc38a); }
+  .vlbs--t-warn    { --accent: var(--warn, #ffb224); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vlbs__line { transition: none; }
+    /* keep only the top line static, no vertical slide */
+    .vlbs__link:hover .vlbs__line,
+    .vlbs__link.is-active .vlbs__line { transform: none; }
+    .vlbs__line--in { display: none; }
+    .vlbs__link:hover,
+    .vlbs__link.is-active { color: var(--text, #ededed); }
+    .vlbs__underline.is-ready { transition: none; }
+  }

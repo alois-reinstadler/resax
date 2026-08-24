@@ -1,0 +1,128 @@
+  :host { display: inline-flex; }
+  :host([hidden]) { display: none; }
+  .vcgl {
+    --h: var(--ctrl-h-md, 28px);
+    --px: 11px;
+    --fs: var(--ctrl-fs-md, 13px);
+    --gap: 6px;
+    --rr: var(--ctrl-r-pill, 999px);
+    --accent: var(--ui-accent, #ededed);
+    --ring: var(--inp-ring, var(--ui-ring, 255 255 255));
+    --solid-fg: var(--badge-solid-fg, #0b0b0b);
+
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    height: var(--h);
+    padding: 0 var(--px);
+    border: 1px solid rgb(var(--ring) / 0.2);
+    border-radius: var(--rr);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    color: var(--inp-text, #ededed);
+    background: rgb(var(--ring) / 0.12);
+    box-shadow: 0 0 0 rgb(var(--ring) / 0);
+    transition: box-shadow 260ms ease, border-color 200ms ease, background-color 200ms ease, color 200ms ease;
+  }
+  .vcgl.is-clickable { cursor: pointer; }
+
+  .vcgl.is-clickable:hover:not(.is-disabled) {
+    border-color: rgb(var(--ring) / 0.5);
+    box-shadow: 0 0 14px -1px rgb(var(--ring) / 0.55);
+  }
+
+  /* selected → pulsing glow */
+  /* Perf: static min shadow on the chip; the max state is baked into ::after
+     and only its opacity animates (compositable) — no per-frame repaint. */
+  .vcgl.is-selected {
+    background: rgb(var(--ring) / 0.9);
+    color: var(--solid-fg);
+    border-color: transparent;
+    box-shadow: 0 0 10px -2px rgb(var(--ring) / 0.5);
+  }
+  .vcgl.is-selected::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 20px 2px rgb(var(--ring) / 0.75);
+    opacity: 0;
+    animation: vcgl-pulse 1.9s ease-in-out infinite;
+  }
+  /* selected + hover: keep the transparent border and selected shadow (the
+     plain hover rule above has higher specificity and would otherwise
+     re-show a border and swap in its own, smaller shadow) */
+  .vcgl.is-selected.is-clickable:hover:not(.is-disabled) {
+    border-color: transparent;
+    box-shadow: 0 0 10px -2px rgb(var(--ring) / 0.5);
+  }
+
+  @keyframes vcgl-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  /* variants */
+  .vcgl--v-solid { background: rgb(var(--ring) / 0.9); color: var(--solid-fg); border-color: transparent; }
+  .vcgl--v-outline { background: transparent; border-color: rgb(var(--ring) / 0.45); }
+
+  /* sizes */
+  .vcgl--sm { --h: var(--ctrl-h-sm, 24px); --px: 9px; --fs: var(--ctrl-fs-sm, 12px); --gap: 5px; }
+  .vcgl--lg { --h: var(--ctrl-h-lg, 32px); --px: 14px; --fs: var(--ctrl-fs-lg, 14px); --gap: 7px; }
+
+  /* radii */
+  .vcgl--r-subtle { --rr: var(--ctrl-r-sm, 7px); }
+  .vcgl--r-rounded { --rr: var(--ctrl-r-md, 10px); }
+  .vcgl--r-pill { --rr: var(--ctrl-r-pill, 999px); }
+
+  .vcgl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .vcgl__dot { width: 7px; height: 7px; border-radius: 999px; background: var(--accent); flex: 0 0 auto; box-shadow: 0 0 6px var(--accent); }
+  .vcgl.is-selected .vcgl__dot { background: currentColor; box-shadow: none; }
+  .vcgl__avatar { display: inline-flex; margin-left: -3px; }
+  .vcgl__avatar ::slotted(img), .vcgl__avatar ::slotted(*) { width: 1.45em; height: 1.45em; border-radius: 999px; object-fit: cover; }
+  .vcgl__check { flex: 0 0 auto; margin-left: -1px; width: 1em; height: 1em; }
+  .vcgl__close svg { width: 1em; height: 1em; }
+  .vcgl__label { position: relative; z-index: 1; }
+
+  .vcgl__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: -3px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 160ms ease, background-color 160ms ease;
+  }
+  .vcgl__close:hover:not(:disabled) { opacity: 1; background: rgb(var(--ring) / 0.25); }
+  .vcgl__close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* tones */
+  .vcgl--t-danger { --accent: #ff6369; --ui-accent-fg: #fff; --ring: 255 99 105; --solid-fg: #160405; }
+  .vcgl--t-warn { --accent: #ffb224; --ui-accent-fg: #160f02; --ring: 255 178 36; --solid-fg: #160f02; }
+  .vcgl--t-success { --accent: #4cc38a; --ui-accent-fg: #fff; --ring: 76 195 138; --solid-fg: #04120b; }
+
+  .vcgl.is-disabled { opacity: 0.5; cursor: not-allowed; }
+  .vcgl.is-disabled .vcgl__close { cursor: not-allowed; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vcgl, .vcgl__close { transition: none; }
+    .vcgl.is-selected { animation: none; box-shadow: 0 0 16px 0 rgb(var(--ring) / 0.6); }
+    .vcgl.is-selected::after { animation: none; opacity: 0; }
+  }

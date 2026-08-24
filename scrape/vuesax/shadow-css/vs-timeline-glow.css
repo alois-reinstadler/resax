@@ -1,0 +1,118 @@
+  .tlg {
+    --mk: 26px;
+    --gut: 40px;
+    --fs: var(--ctrl-fs-md, 14px);
+    --tlg-accent: var(--ui-accent, #ededed);
+    --tlg-border: var(--border, #2a2a2a);
+    --tlg-text: var(--text, #ededed);
+    --muted: color-mix(in srgb, var(--text, #ededed) 55%, transparent);
+    --card: var(--bg-card, #111);
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tlg-text);
+  }
+  .tlg--sm { --mk: 22px; --gut: 36px; --fs: var(--ctrl-fs-sm, 13px); }
+  .tlg--lg { --mk: 30px; --gut: 44px; --fs: var(--ctrl-fs-lg, 15px); }
+
+  .tlg__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--gut) 1fr;
+    column-gap: 14px;
+    padding-bottom: 22px;
+  }
+  .tlg__item:last-child { padding-bottom: 0; }
+
+  /* connector line — glows when leading to a completed step */
+  .tlg__item::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--mk) + 6px);
+    bottom: -2px;
+    left: calc(var(--gut) / 2);
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--tlg-border);
+    transition: background 300ms ease, box-shadow 300ms ease;
+  }
+  .tlg__item--ln-done::before {
+    background: var(--tlg-accent);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--tlg-accent) 70%, transparent);
+  }
+  .tlg--l-dashed .tlg__item::before {
+    background: repeating-linear-gradient(to bottom, var(--tlg-border) 0 5px, transparent 5px 11px);
+    box-shadow: none;
+  }
+  .tlg--l-dashed .tlg__item--ln-done::before {
+    background: repeating-linear-gradient(to bottom, var(--tlg-accent) 0 5px, transparent 5px 11px);
+  }
+  .tlg__item:last-child::before { display: none; }
+
+  .tlg__marker {
+    grid-column: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .tlg__dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--mk);
+    height: var(--mk);
+    border-radius: 999px;
+    border: 2px solid var(--tlg-border);
+    background: var(--card);
+    color: var(--card);
+    font-size: calc(var(--mk) * 0.5);
+    z-index: 2;
+    transition: box-shadow 300ms ease, border-color 300ms ease, background 300ms ease;
+  }
+  .tlg__dot svg { display: block; width: 1em; height: 1em; }
+  .tlg__item--done .tlg__dot {
+    background: var(--tlg-accent);
+    border-color: var(--tlg-accent);
+    box-shadow: 0 0 14px color-mix(in srgb, var(--tlg-accent) 65%, transparent);
+  }
+  .tlg__item--active .tlg__dot {
+    border-color: var(--tlg-accent);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--tlg-accent) 55%, transparent);
+  }
+  /* Perf: the ping (spread 0/α.55→10px/α0) is baked at its visible peak (~35%:
+     5px at half alpha) in ::after; only opacity animates (compositable). */
+  .tlg--pulse .tlg__item--active .tlg__dot::after {
+    content: '';
+    position: absolute;
+    inset: -2px; /* also covers the dot's border */
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--tlg-accent) 28%, transparent);
+    opacity: 0;
+    animation: tlg-pulse 1800ms ease-out infinite;
+  }
+  @keyframes tlg-pulse {
+    0%   { opacity: 0; }
+    35%  { opacity: 1; }
+    70%, 100% { opacity: 0; }
+  }
+
+  .tlg__content { grid-column: 2; padding-top: 2px; }
+  .tlg__time { display: block; font-size: 0.8em; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .tlg__title { display: block; font-weight: 600; line-height: 1.25; margin-top: 2px; }
+  .tlg__desc { margin: 4px 0 0; color: var(--muted); line-height: 1.45; font-size: 0.92em; }
+  .tlg__item--active .tlg__title { color: var(--tlg-accent); }
+
+  /* status tints */
+  .tlg__item--danger  { --tlg-accent: #ff6369; }
+  .tlg__item--warn    { --tlg-accent: #ffb224; }
+  .tlg__item--success { --tlg-accent: #4cc38a; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tlg--pulse .tlg__item--active .tlg__dot { animation: none; }
+    .tlg--pulse .tlg__item--active .tlg__dot::after { animation: none; opacity: 0; }
+  }

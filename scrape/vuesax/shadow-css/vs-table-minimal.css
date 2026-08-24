@@ -1,0 +1,157 @@
+  /* The stacked layout below switches on the HOST's width, not the window's —
+     this table is just as likely to sit in a 320px sidebar of a 1440px page as
+     on a phone. */
+  :host { display: block; width: 100%; container-type: inline-size; }
+  .vmin {
+    --fs: var(--ctrl-fs-md, 14px);
+    --px: var(--ctrl-px-md, 14px);
+    --py: 14px;
+    --accent: var(--vmin-accent, var(--ui-accent, #ededed));
+    --line: color-mix(in srgb, var(--border, #2a2a2a) 55%, transparent);
+    --txt: var(--text, #ededed);
+    --txt-2: var(--text-secondary, #a1a1a1);
+    --txt-3: var(--text-muted, #666);
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: transparent;
+    color: var(--txt);
+    font-family: inherit;
+    font-size: var(--fs);
+  }
+  .vmin__bar { padding: 0 0 calc(var(--py)) 0; }
+  .vmin__bar.is-hidden { display: none; }
+  .vmin__title { margin: 0; font-size: calc(var(--fs) + 3px); font-weight: 600; letter-spacing: -0.01em; }
+  .vmin__scroll { width: 100%; overflow-x: auto; }
+  .vmin__table { width: 100%; border-collapse: collapse; }
+
+  .vmin__th {
+    padding: calc(var(--py) - 4px) var(--px);
+    background: transparent;
+    color: var(--txt-3);
+    font-size: calc(var(--fs) - 2px);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+    user-select: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .vmin__th.is-center { text-align: center; }
+  .vmin__th.is-right { text-align: right; }
+  .vmin__sort {
+    display: inline-flex; align-items: center; gap: 6px;
+    /* The label line is 15px tall — under the 24px thumb floor. The padding
+       grows the hit box; the negative margin cancels it again in the header
+       row's height, so nothing moves. */
+    padding: 5px 0; margin: -5px 0;
+    border: 0; background: none; color: inherit; font: inherit;
+    letter-spacing: inherit; text-transform: inherit; cursor: pointer;
+    transition: color 160ms ease;
+  }
+  .vmin__th.is-right .vmin__sort { flex-direction: row-reverse; }
+  .vmin__th.is-center .vmin__sort { justify-content: center; }
+  .vmin__sort:hover { color: var(--txt); }
+  .vmin__sort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .vmin__arrow { display: inline-flex; transition: opacity 160ms ease, transform 200ms ease; }
+  .vmin__arrow svg { width: 13px; height: 13px; }
+  .vmin__arrow.is-idle { opacity: 0; transform: scale(0.8); }
+  .vmin__sort:hover .vmin__arrow.is-idle { opacity: 0.4; }
+  .vmin__arrow.is-asc { opacity: 1; transform: rotate(180deg); color: var(--accent); }
+  .vmin__arrow.is-desc { opacity: 1; transform: rotate(0deg); color: var(--accent); }
+
+  /* borderless body — space does the work */
+  .vmin__td {
+    position: relative;
+    padding: var(--py) var(--px);
+    height: 52px;
+    vertical-align: middle;
+    text-align: left;
+    color: var(--txt-2);
+  }
+  .vmin__td.is-center { text-align: center; }
+  .vmin__td.is-right { text-align: right; font-variant-numeric: tabular-nums; }
+  .vmin__td:first-child { color: var(--txt); font-weight: 500; }
+
+  .vmin__row { transition: color 140ms ease; }
+  /* thin accent underline that wipes L→R under the hovered row.
+     Painted on each cell (rows aren't reliable positioning containers). */
+  .vmin__td::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .vmin.is-hover .vmin__row:hover { color: var(--txt); }
+  .vmin.is-hover .vmin__row:hover .vmin__td::after { transform: scaleX(1); }
+
+  .vmin__td--empty { height: 120px; text-align: center; color: var(--txt-3); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vmin__row, .vmin__arrow, .vmin__sort, .vmin__td::after { transition: none; }
+  }
+
+  /* Under ~480px the four columns stop fitting: the last one (Usage) ends up
+     parked inside .vmin__scroll with nothing on screen to say it is there, and
+     every name breaks over two lines. So each row turns into a stack of
+     label/value lines. No cards, no boxes — the variant's whole argument is
+     that space and one hairline are enough. */
+  @container (max-width: 480px) {
+    .vmin__head { display: none; }             /* its labels moved into the cells */
+    .vmin__scroll { overflow-x: visible; }     /* stacked content never overflows */
+    .vmin__table, .vmin__body, .vmin__row, .vmin__td { display: block; }
+    /* A column group with no table to size spawns an anonymous one around itself. */
+    .vmin__table colgroup { display: none; }
+
+    .vmin__row { position: relative; padding: 6px 0; }
+    .vmin__row + .vmin__row { border-top: 1px solid var(--line); }
+
+    .vmin__td {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      height: auto; min-height: 36px;
+      padding: 4px var(--px);           /* same inset the cells keep at any width — values must not touch the edge */
+      text-align: right;
+      overflow-wrap: anywhere;                 /* an email or URL must not push the row wide */
+    }
+    .vmin__td::before {
+      content: attr(data-label);
+      flex: none;
+      color: var(--txt-3);
+      font-size: calc(var(--fs) - 2px);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* the wipe underlines the hovered ROW; per cell it would fire four times at
+       once and read as a grid, which is the one thing this variant refuses */
+    .vmin__td::after { display: none; }
+    .vmin__row::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .vmin.is-hover .vmin__row:hover::after { transform: scaleX(1); }
+
+    .vmin__row--empty { border-top: 0; }
+    .vmin__td--empty { display: block; text-align: center; }
+  }
+
+  /* The wipe now lives on the row, and the opt-out above cannot reach it from
+     earlier in the sheet. */
+  @media (prefers-reduced-motion: reduce) {
+    .vmin__row::after { transition: none; }
+  }

@@ -6,7 +6,7 @@
 	export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> { variant?: SkeletonVariant; shape?: SkeletonShape; loading?: boolean; children?: Snippet; }
 </script>
 <script lang="ts">
-	import { cn } from '../../../utils.js';
+	import { cn } from '$lib/utils.js';
 	let { variant = 'pulse', shape = 'rect', loading = true, children, class: className, ...rest }: SkeletonProps = $props();
 </script>
 <div {...rest} class={cn('rx-skeleton-wrap', className)} aria-busy={loading}>

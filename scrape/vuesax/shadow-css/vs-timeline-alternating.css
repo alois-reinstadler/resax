@@ -1,0 +1,149 @@
+  /* The layout switch at the bottom of this sheet measures THIS box, not the
+     window — a timeline dropped in a sidebar is narrow on a wide screen. The
+     container context has to sit here: an element is never matched by its own
+     container query, so on .tla the query would measure the wrong box. */
+  :host { display: block; container-type: inline-size; }
+
+  .tla {
+    --mk: 22px;
+    --fs: var(--ctrl-fs-md, 14px);
+    --tla-accent: var(--ui-accent, #ededed);
+    --tla-border: var(--border, #2a2a2a);
+    --tla-text: var(--text, #ededed);
+    --muted: color-mix(in srgb, var(--text, #ededed) 55%, transparent);
+    --card: var(--bg-card, #111);
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-size: var(--fs);
+    color: var(--tla-text);
+  }
+  .tla--sm { --mk: 18px; --fs: var(--ctrl-fs-sm, 13px); }
+  .tla--lg { --mk: 26px; --fs: var(--ctrl-fs-lg, 15px); }
+
+  /* central spine */
+  .tla::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--tla-border);
+  }
+  .tla--l-dashed::before {
+    background: repeating-linear-gradient(to bottom, var(--tla-border) 0 5px, transparent 5px 11px);
+  }
+  /* Progress beam over the spine. A single overlay, not per-item segments: the
+     items here are half-width and alternate sides, so a per-row pseudo would sit
+     off the centre line. Height comes from JS as a percentage of the list. */
+  .tla::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: var(--tla-fill, 0%);
+    transform: translateX(-50%);
+    background: linear-gradient(180deg,
+      var(--tla-accent),
+      color-mix(in srgb, var(--tla-accent) 45%, transparent));
+    transition: height 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @media (prefers-reduced-motion: reduce) { .tla::after { transition: none; } }
+
+  .tla__item {
+    position: relative;
+    width: 50%;
+    padding: 0 30px 26px 0;
+    box-sizing: border-box;
+    text-align: right;
+    animation: tla-in 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-delay: var(--d);
+  }
+  .tla__item--right {
+    margin-left: 50%;
+    padding: 0 0 26px 30px;
+    text-align: left;
+  }
+  .tla__item:last-child { padding-bottom: 0; }
+
+  .tla__marker {
+    position: absolute;
+    top: 2px;
+    right: calc(var(--mk) / -2);
+    width: var(--mk);
+    height: var(--mk);
+    z-index: 2;
+  }
+  .tla__item--right .tla__marker { right: auto; left: calc(var(--mk) / -2); }
+  .tla__dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    border: 2px solid var(--tla-accent);
+    background: var(--card);
+    color: var(--tla-accent);
+    font-size: calc(var(--mk) * 0.6);
+    transition: background 200ms ease, color 200ms ease;
+  }
+  .tla__item--done .tla__dot { background: var(--tla-accent); color: var(--card); }
+  .tla__dot svg { display: block; width: 1em; height: 1em; }
+
+  .tla__time { display: block; font-size: 0.8em; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .tla__title { display: block; font-weight: 600; line-height: 1.25; margin-top: 2px; }
+  .tla__desc { margin: 4px 0 0; color: var(--muted); line-height: 1.45; font-size: 0.92em; }
+  .tla__item--done .tla__title { text-decoration: line-through; color: var(--muted); }
+
+  /* status tints */
+  .tla__item--danger  { --tla-accent: #ff6369; }
+  .tla__item--warn    { --tla-accent: #ffb224; }
+  .tla__item--success { --tla-accent: #4cc38a; }
+
+  @keyframes tla-in {
+    0% { opacity: 0; transform: translateX(-16px); }
+    100% { opacity: 1; transform: none; }
+  }
+  .tla__item--right { animation-name: tla-in-right; }
+  @keyframes tla-in-right {
+    0% { opacity: 0; transform: translateX(16px); }
+    100% { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tla__item { animation: none; }
+  }
+
+  /* Under ~420px a half-width column is barely 145px wide, and every title and
+     description shreds into ragged three-word slivers on both flanks of the
+     spine. The alternation is decoration; the reading order is the content. So
+     collapse to a single left rail: rows go full width, the spine and its
+     markers move to one gutter, and both sides align left. */
+  @container (max-width: 420px) {
+    .tla::before,
+    .tla::after { left: calc(var(--mk) / 2); }
+
+    .tla__item,
+    .tla__item--right {
+      width: 100%;
+      margin-left: 0;
+      padding: 0 0 26px calc(var(--mk) + 14px);
+      text-align: left;
+    }
+    /* Re-stated because the shorthand above outranks the wide-layout rule. */
+    .tla__item:last-child { padding-bottom: 0; }
+
+    .tla__marker,
+    .tla__item--right .tla__marker { right: auto; left: 0; }
+
+    /* Odd rows enter from +16px, which now reads as flying in from outside the
+       box — every row starts at the same left edge, so there is no right side
+       to come from. Send them the same way as their neighbours. */
+    .tla__item--right { animation-name: tla-in; }
+  }

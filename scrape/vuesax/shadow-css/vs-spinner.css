@@ -1,0 +1,114 @@
+  :host { display: inline-flex; }
+  :host([overlay]) { position: absolute; inset: 0; display: flex; }
+
+  .spinner {
+    /* size base */
+    --sz: 32px;
+    --bw: 3px;          /* arc / bar thickness */
+    --dur: 0.9s;        /* speed */
+    --gap: 10px;
+    --fs: 13px;
+    --accent: var(--inp-accent, #ededed);
+    --ring: var(--inp-ring, 237 237 237); /* space-separated rgb → rgb(var(--ring)/a) */
+    --track: rgb(var(--ring) / 0.16);
+    --tint: var(--vs-color, var(--text-secondary, #a1a1a1));
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+    color: var(--tint);
+    font: inherit;
+    font-size: var(--fs);
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .spinner__box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sz);
+    height: var(--sz);
+    flex: 0 0 auto;
+  }
+
+  /* ── sizes ───────────────────────────────────────────────────── */
+  .spinner--sm { --sz: 20px; --bw: 2px; --fs: 12px; --gap: 8px; }
+  .spinner--md { --sz: 32px; --bw: 3px; --fs: 13px; }
+  .spinner--lg { --sz: 44px; --bw: 4px; --fs: 14px; --gap: 12px; }
+  .spinner--xl { --sz: 60px; --bw: 5px; --fs: 16px; --gap: 14px; }
+
+  /* ── speed ───────────────────────────────────────────────────── */
+  .spinner--s-slow   { --dur: 1.4s; }
+  .spinner--s-normal { --dur: 0.9s; }
+  .spinner--s-fast   { --dur: 0.55s; }
+
+  @keyframes spinner-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ── arc: a single arc over a faint track ────────────────────── */
+  .spinner__arc {
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    border: var(--bw) solid var(--track);
+    border-top-color: rgb(var(--ring));
+    animation: spinner-spin var(--dur) linear infinite;
+  }
+
+  /* ── dual: two stacked arcs (linear + eased opacity .5) ──────── */
+  .spinner__dual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .spinner__dual .spinner__arc {
+    position: absolute;
+    inset: 0;
+  }
+  .spinner__arc--lin { animation-timing-function: linear; }
+  .spinner__arc--ease {
+    opacity: 0.5;
+    animation-timing-function: cubic-bezier(0.65, 0.1, 0.35, 0.9);
+  }
+
+  /* ── gradient: conic sweep with a fading tail ────────────────── */
+  .spinner__grad {
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    /* ring: conic gradient clipped to the thickness with a mask */
+    background: conic-gradient(from 0deg, transparent 0%, rgb(var(--ring)) 100%);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--bw)), #000 calc(100% - var(--bw)));
+    mask: radial-gradient(farthest-side, transparent calc(100% - var(--bw)), #000 calc(100% - var(--bw)));
+    animation: spinner-spin var(--dur) linear infinite;
+  }
+
+  /* no background ring: only the spinning arc */
+  .spinner.no-track { --track: transparent; }
+
+  .spinner__label { color: var(--tint); white-space: nowrap; }
+
+  /* ── overlay: covers the parent container (host: position:absolute) ─ */
+  .spinner.is-overlay {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(var(--overlay-rgb, 0 0 0) / 0.45);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+  }
+
+  /* ── tones — recolor ring/track + label ──────────────────────── */
+  .spinner--t-danger  { --ring: 255 99 105;  --tint: var(--inp-t-danger-hint, #ff8a8e); }
+  .spinner--t-warn    { --ring: 255 178 36;  --tint: var(--inp-t-warn-hint, #f5b544); }
+  .spinner--t-success { --ring: 76 195 138;  --tint: var(--inp-t-success-hint, #5fd49b); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spinner__arc,
+    .spinner__dual,
+    .spinner__grad { animation-duration: 2.4s; }
+  }
