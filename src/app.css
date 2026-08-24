@@ -153,6 +153,8 @@ pre { overflow-x: auto; border: 1px solid var(--border); background: var(--muted
 .demo-frame { border: 1px solid var(--border); border-radius: var(--rx-radius); padding: 2rem; min-height: 8rem; display: grid; place-items: center; }
 .demo-section details { margin-top: .75rem; }
 .coming-soon { color: var(--muted-foreground); }
+.button-demo-row { width: 100%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+.button-demo-block { width: 100%; }
 .swatch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 3rem 0; }
 .swatch-card { border: 1px solid var(--border); border-radius: var(--rx-radius); padding: .75rem; }
 .swatch { height: 6rem; border-radius: calc(var(--rx-radius) - 4px); border: 1px solid var(--border); margin-bottom: .75rem; }

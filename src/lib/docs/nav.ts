@@ -18,5 +18,5 @@ const slugify = (name: string) => name.replace(/([a-z])([A-Z])/g, '$1-$2').toLow
 
 export const nav: NavGroup[] = Object.entries(groups).map(([category, items]) => ({
 	category,
-	items: items.map((name) => ({ name, slug: slugify(name), built: false }))
+	items: items.map((name) => ({ name, slug: slugify(name), built: name === 'Button' }))
 }));

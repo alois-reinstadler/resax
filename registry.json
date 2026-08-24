@@ -38,6 +38,18 @@
 			"type": "registry:lib",
 			"registryDependencies": [],
 			"files": [{ "path": "src/lib/registry/attachments/ripple.ts", "type": "registry:lib", "target": "src/lib/resax/ripple.ts" }]
+		},
+		{
+			"name": "button",
+			"title": "Resax Button",
+			"description": "A Vuesax-inspired button with color, style, shape, motion, loading, and link modes.",
+			"type": "registry:ui",
+			"dependencies": ["tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing", "local:ripple"],
+			"files": [
+				{ "path": "src/lib/registry/ui/button/button.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/button/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
