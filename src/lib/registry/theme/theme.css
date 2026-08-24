@@ -1,0 +1,45 @@
+:root {
+	--rx-primary: 25 91 255;
+	--rx-success: 70 201 58;
+	--rx-danger: 255 71 87;
+	--rx-warn: 255 186 0;
+	--rx-dark: 30 30 31;
+	--rx-light: 244 247 248;
+	--rx-background: 255 255 255;
+	--rx-text: 44 62 80;
+	--rx-radius: 12px;
+	--rx-shadow-opacity: 0.35;
+}
+
+.dark {
+	--rx-dark: 244 247 248;
+	--rx-background: 22 22 24;
+	--rx-text: 208 210 214;
+}
+
+@theme inline {
+	--color-rx-primary: rgb(var(--rx-primary));
+	--color-rx-success: rgb(var(--rx-success));
+	--color-rx-danger: rgb(var(--rx-danger));
+	--color-rx-warn: rgb(var(--rx-warn));
+	--color-rx-dark: rgb(var(--rx-dark));
+	--color-rx-light: rgb(var(--rx-light));
+	--color-rx-background: rgb(var(--rx-background));
+	--color-rx-text: rgb(var(--rx-text));
+	--radius-rx: var(--rx-radius);
+}
+
+@keyframes rx-pulse {
+	0%, 100% { transform: scale(1); opacity: 1; }
+	50% { transform: scale(1.04); opacity: 0.78; }
+}
+
+@keyframes rx-shimmer {
+	0% { background-position: 200% 0; }
+	100% { background-position: -200% 0; }
+}
+
+@keyframes rx-glow {
+	0%, 100% { box-shadow: 0 0 0 rgb(var(--rx-color, var(--rx-primary)) / 0); }
+	50% { box-shadow: 0 0 22px rgb(var(--rx-color, var(--rx-primary)) / var(--rx-shadow-opacity)); }
+}

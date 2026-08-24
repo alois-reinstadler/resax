@@ -1,0 +1,34 @@
+[
+	{
+		"name": "theme",
+		"title": "Resax Theme",
+		"type": "registry:theme",
+		"description": "Resax color tokens, Tailwind v4 mappings, and shared effect keyframes.",
+		"registryDependencies": [],
+		"relativeUrl": "theme.json"
+	},
+	{
+		"name": "utils-color",
+		"title": "Resax Color Utilities",
+		"type": "registry:lib",
+		"description": "Strict color normalization for Resax runtime colors.",
+		"registryDependencies": [],
+		"relativeUrl": "utils-color.json"
+	},
+	{
+		"name": "utils-easing",
+		"title": "Resax Easing Utilities",
+		"type": "registry:lib",
+		"description": "Shared Resax motion constants and Svelte transition presets.",
+		"registryDependencies": [],
+		"relativeUrl": "utils-easing.json"
+	},
+	{
+		"name": "ripple",
+		"title": "Resax Ripple Attachment",
+		"type": "registry:lib",
+		"description": "A reduced-motion-aware Svelte 5 pointer ripple attachment.",
+		"registryDependencies": [],
+		"relativeUrl": "ripple.json"
+	}
+]

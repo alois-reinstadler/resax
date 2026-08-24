@@ -1,0 +1,43 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry.json",
+	"name": "resax",
+	"homepage": "http://localhost:5173",
+	"aliases": {
+		"lib": "src/lib/registry",
+		"ui": "src/lib/registry/ui"
+	},
+	"items": [
+		{
+			"name": "theme",
+			"title": "Resax Theme",
+			"description": "Resax color tokens, Tailwind v4 mappings, and shared effect keyframes.",
+			"type": "registry:theme",
+			"registryDependencies": [],
+			"files": [{ "path": "src/lib/registry/theme/theme.css", "type": "registry:theme", "target": "src/lib/resax/theme.css" }]
+		},
+		{
+			"name": "utils-color",
+			"title": "Resax Color Utilities",
+			"description": "Strict color normalization for Resax runtime colors.",
+			"type": "registry:lib",
+			"registryDependencies": [],
+			"files": [{ "path": "src/lib/registry/lib/color.ts", "type": "registry:lib", "target": "src/lib/resax/color.ts" }]
+		},
+		{
+			"name": "utils-easing",
+			"title": "Resax Easing Utilities",
+			"description": "Shared Resax motion constants and Svelte transition presets.",
+			"type": "registry:lib",
+			"registryDependencies": [],
+			"files": [{ "path": "src/lib/registry/lib/easing.ts", "type": "registry:lib", "target": "src/lib/resax/easing.ts" }]
+		},
+		{
+			"name": "ripple",
+			"title": "Resax Ripple Attachment",
+			"description": "A reduced-motion-aware Svelte 5 pointer ripple attachment.",
+			"type": "registry:lib",
+			"registryDependencies": [],
+			"files": [{ "path": "src/lib/registry/attachments/ripple.ts", "type": "registry:lib", "target": "src/lib/resax/ripple.ts" }]
+		}
+	]
+}
