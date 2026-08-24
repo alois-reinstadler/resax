@@ -38,6 +38,7 @@
 		"vitest": "^4.1.8"
 	},
 	"dependencies": {
+		"@internationalized/date": "^3.12.3",
 		"bits-ui": "^2.19.0"
 	}
 }
