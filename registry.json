@@ -169,6 +169,30 @@
 				{ "path": "src/lib/registry/ui/input-number/input-number.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/input-number/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "slider", "title": "Slider", "description": "Single and range value selection with tooltips and ticks.", "type": "registry:ui",
+			"dependencies": ["bits-ui"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/slider/slider.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/slider/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "rating", "title": "Rating", "description": "Accessible whole and half-star rating input.", "type": "registry:ui",
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/rating/rating.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/rating/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "input-otp", "title": "Input OTP", "description": "Paste-friendly one-time password input with masked and validation states.", "type": "registry:ui",
+			"dependencies": ["bits-ui"], "registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/input-otp/input-otp.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/input-otp/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }

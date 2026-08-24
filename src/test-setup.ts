@@ -16,3 +16,9 @@ Object.defineProperty(window, 'matchMedia', {
 Element.prototype.animate = vi.fn(() => ({
 	addEventListener: vi.fn(), cancel: vi.fn()
 } as unknown as Animation));
+
+globalThis.ResizeObserver = class ResizeObserver {
+	observe() {}
+	unobserve() {}
+	disconnect() {}
+};
