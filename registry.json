@@ -261,6 +261,16 @@
 				{ "path": "src/lib/registry/ui/upload/upload.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/upload/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "notification", "title": "Notification", "description": "Imperative queued notifications with variants, per-call positions, progress, and update handles.", "type": "registry:ui",
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/notification/notification.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/notification/notification-outlet.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/notification/notify.svelte.ts", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/notification/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
