@@ -222,6 +222,16 @@
 				{ "path": "src/lib/registry/ui/radio-group/context.ts", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/radio-group/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "calendar", "title": "Calendar and DatePicker", "description": "Accessible single, multiple, and range calendars with a popover date input.", "type": "registry:ui",
+			"dependencies": ["bits-ui", "@internationalized/date", "@lucide/svelte"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/calendar/calendar.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/calendar/date-picker.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/calendar/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
