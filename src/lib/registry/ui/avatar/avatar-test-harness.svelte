@@ -1,0 +1,2 @@
+<script lang="ts">import { Avatar, AvatarGroup } from './index'; let { mode = 'single', max = 2, badge }: { mode?: string; max?: number; badge?: string | number | boolean } = $props();</script>
+{#if mode === 'group'}<AvatarGroup {max}><Avatar fallback="A" /><Avatar fallback="B" /><Avatar fallback="C" /><Avatar fallback="D" /></AvatarGroup>{:else}<Avatar src={mode === 'broken' ? '/not-found.png' : undefined} fallback="RX" alt="Resax avatar" {badge} />{/if}
