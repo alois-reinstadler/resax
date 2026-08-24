@@ -100,6 +100,33 @@
 				{ "path": "src/lib/registry/ui/card/card.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/card/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "alert", "title": "Resax Alert", "description": "Closable feedback panels in six Vuesax-inspired presentations.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/alert/alert.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/alert/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "badge", "title": "Resax Badge", "description": "Standalone and overlay badges with animated visual effects.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color"],
+			"files": [
+				{ "path": "src/lib/registry/ui/badge/badge.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/badge/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "chip", "title": "Resax Chip", "description": "Compact labels with icons, sizes, styles, and accessible dismissal.", "type": "registry:ui",
+			"dependencies": ["tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color"],
+			"files": [
+				{ "path": "src/lib/registry/ui/chip/chip.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/chip/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
