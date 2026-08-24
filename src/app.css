@@ -155,6 +155,7 @@ pre { overflow-x: auto; border: 1px solid var(--border); background: var(--muted
 .coming-soon { color: var(--muted-foreground); }
 .button-demo-row { width: 100%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem; }
 .button-demo-block { width: 100%; }
+.toggle-demo-row { width: 100%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.25rem; }
 .swatch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 3rem 0; }
 .swatch-card { border: 1px solid var(--border); border-radius: var(--rx-radius); padding: .75rem; }
 .swatch { height: 6rem; border-radius: calc(var(--rx-radius) - 4px); border: 1px solid var(--border); margin-bottom: .75rem; }

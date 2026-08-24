@@ -145,6 +145,35 @@
 				{ "path": "src/lib/registry/ui/indicator/indicator.svelte", "type": "registry:component" },
 				{ "path": "src/lib/registry/ui/indicator/index.ts", "type": "registry:component" }
 			]
+		},
+		{
+			"name": "checkbox", "title": "Checkbox", "description": "Accessible animated checkboxes with indeterminate and line-through states.", "type": "registry:ui",
+			"dependencies": ["bits-ui", "tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/checkbox/checkbox.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/checkbox/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "switch", "title": "Switch", "description": "Accessible pill and square switches with state content and loading feedback.", "type": "registry:ui",
+			"dependencies": ["bits-ui", "tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/switch/switch.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/switch/index.ts", "type": "registry:component" }
+			]
+		},
+		{
+			"name": "radio-group", "title": "Radio Group", "description": "Accessible radio groups with inherited Resax color and sizing.", "type": "registry:ui",
+			"dependencies": ["bits-ui", "tailwind-variants"],
+			"registryDependencies": ["local:theme", "local:utils-color", "local:utils-easing"],
+			"files": [
+				{ "path": "src/lib/registry/ui/radio-group/radio-group.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/radio-group/radio.svelte", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/radio-group/context.ts", "type": "registry:component" },
+				{ "path": "src/lib/registry/ui/radio-group/index.ts", "type": "registry:component" }
+			]
 		}
 	]
 }
