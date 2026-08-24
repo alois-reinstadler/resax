@@ -16,7 +16,13 @@ const groups: Record<string, string[]> = {
 
 const slugify = (name: string) => name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 
+const pageModules = import.meta.glob('$lib/docs/pages/*.svelte');
+const builtSlugs = new Set(Object.keys(pageModules).map((path) => path.split('/').pop()?.replace('.svelte', '')));
+
 export const nav: NavGroup[] = Object.entries(groups).map(([category, items]) => ({
 	category,
-	items: items.map((name) => ({ name, slug: slugify(name), built: ['Button', 'Spinner', 'Skeleton', 'Separator', 'Spacer'].includes(name) }))
+	items: items.map((name) => {
+		const slug = slugify(name);
+		return { name, slug, built: builtSlugs.has(slug) };
+	})
 }));

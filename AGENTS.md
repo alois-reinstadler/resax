@@ -24,6 +24,15 @@ Resax is a port of the Vuesax component library (vuesax.com/components) to Svelt
 - **Theming discipline.** All colors go through the `--rx-*` token layer / `--rx-color` indirection (see PLAN.md §3 and the theme spec). No hardcoded colors in components.
 - **Git:** do not commit or push unless the user explicitly asks in that session.
 
+## Established conventions (learned in earlier phases — follow these)
+
+- **`registryDependencies` must use the `local:` prefix** for items in this registry (e.g. `"local:theme"`). Plain names resolve to the *official shadcn-svelte registry* and break consumer installs.
+- **Demo pages:** one file per component at `src/lib/docs/pages/<slug>.svelte`, auto-discovered by glob. Never edit `src/routes/(docs)/components/[slug]/+page.svelte` or `src/lib/docs/nav.ts` — built flags and routing derive from the glob.
+- **Exemplar:** `src/lib/registry/ui/button/button.svelte` shows the house style — module-script Props interface, `tv()` variants in `index.ts`, `styleColor()` for the color prop, easing tokens in inline style, snippets, `{@attach}`.
+- When adding registry items, update the expected counts in `scripts/check-registry.ts`.
+- Runtime-derived accent colors use CSS relative color (`hsl(from rgb(var(--rx-color)) …)`) — never precomputed hexes.
+- Every animation needs a `prefers-reduced-motion` story.
+
 ## Commands (once Phase 0 lands)
 
 - `pnpm dev` — docs/demo site (also the registry host)

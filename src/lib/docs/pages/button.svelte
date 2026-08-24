@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Heart, Plus } from '@lucide/svelte';
-	import DemoSection from './DemoSection.svelte';
+	import DemoSection from '../DemoSection.svelte';
 	import { Button } from '$lib/registry/ui/button';
 	import type { RxColor } from '$lib/registry/lib/color';
 
