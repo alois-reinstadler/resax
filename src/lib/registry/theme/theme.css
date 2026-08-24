@@ -5,6 +5,7 @@
 	--rx-warn: 255 186 0;
 	--rx-dark: 30 30 31;
 	--rx-light: 244 247 248;
+	--rx-gray: 235 238 242;
 	--rx-background: 255 255 255;
 	--rx-text: 44 62 80;
 	--rx-radius: 12px;
@@ -15,6 +16,7 @@
 	--rx-dark: 244 247 248;
 	--rx-background: 22 22 24;
 	--rx-text: 208 210 214;
+	--rx-gray: 52 54 58;
 }
 
 @theme inline {
@@ -24,6 +26,7 @@
 	--color-rx-warn: rgb(var(--rx-warn));
 	--color-rx-dark: rgb(var(--rx-dark));
 	--color-rx-light: rgb(var(--rx-light));
+	--color-rx-gray: rgb(var(--rx-gray));
 	--color-rx-background: rgb(var(--rx-background));
 	--color-rx-text: rgb(var(--rx-text));
 	--radius-rx: var(--rx-radius);

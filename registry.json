@@ -38,6 +38,38 @@
 			"type": "registry:lib",
 			"registryDependencies": [],
 			"files": [{ "path": "src/lib/registry/attachments/ripple.ts", "type": "registry:lib", "target": "src/lib/resax/ripple.ts" }]
+		},
+		{
+			"name": "spinner", "title": "Spinner", "description": "Animated loading indicators in ten visual styles.", "type": "registry:ui",
+			"registryDependencies": ["theme", "utils-color"],
+			"files": [
+				{ "path": "src/lib/registry/ui/spinner/spinner.svelte", "type": "registry:ui", "target": "src/lib/components/ui/spinner/spinner.svelte" },
+				{ "path": "src/lib/registry/ui/spinner/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/spinner/index.ts" }
+			]
+		},
+		{
+			"name": "skeleton", "title": "Skeleton", "description": "Animated placeholders for loading content.", "type": "registry:ui",
+			"registryDependencies": ["theme"],
+			"files": [
+				{ "path": "src/lib/registry/ui/skeleton/skeleton.svelte", "type": "registry:ui", "target": "src/lib/components/ui/skeleton/skeleton.svelte" },
+				{ "path": "src/lib/registry/ui/skeleton/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/skeleton/index.ts" }
+			]
+		},
+		{
+			"name": "separator", "title": "Separator", "description": "Horizontal and vertical content separators.", "type": "registry:ui",
+			"registryDependencies": ["theme", "utils-color"],
+			"files": [
+				{ "path": "src/lib/registry/ui/separator/separator.svelte", "type": "registry:ui", "target": "src/lib/components/ui/separator/separator.svelte" },
+				{ "path": "src/lib/registry/ui/separator/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/separator/index.ts" }
+			]
+		},
+		{
+			"name": "spacer", "title": "Spacer", "description": "An accessible layout spacing primitive.", "type": "registry:ui",
+			"registryDependencies": ["theme"],
+			"files": [
+				{ "path": "src/lib/registry/ui/spacer/spacer.svelte", "type": "registry:ui", "target": "src/lib/components/ui/spacer/spacer.svelte" },
+				{ "path": "src/lib/registry/ui/spacer/index.ts", "type": "registry:ui", "target": "src/lib/components/ui/spacer/index.ts" }
+			]
 		}
 	]
 }
