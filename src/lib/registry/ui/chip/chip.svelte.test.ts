@@ -1,10 +1,16 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/svelte';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import Harness from './chip-test-harness.svelte';
+import source from './chip.svelte?raw';
 
 afterEach(cleanup);
 
 describe('Chip source interactions', () => {
+	it('keeps a theme-invariant contrast-safe pair beneath the relative-color accent layer', () => {
+		expect(source).toContain('color:rgb(var(--rx-fixed-light))');
+		expect(source).toContain('background-color:rgb(var(--rx-fixed-dark))');
+		expect(source).toContain('background-image:linear-gradient(hsl(from rgb(var(--rx-color))');
+	});
 	it('toggles the selected bounce state with pointer and keyboard', async () => {
 		render(Harness);
 		const chip = screen.getByRole('button', { name: 'Svelte' });

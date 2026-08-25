@@ -22,6 +22,9 @@
 	--rx-dark-foreground: #ffffff;
 	--rx-dark-contrast-rgb: 255 255 255;
 	--rx-light: 244 247 248;
+	/* Theme-invariant pair for progressive-enhancement fallbacks. */
+	--rx-fixed-dark: 30 30 31;
+	--rx-fixed-light: 244 247 248;
 	--rx-gray: 240 240 240;
 	--rx-gray-1: 245 245 245;
 	--rx-gray-3: 228 228 228;

@@ -38,3 +38,15 @@ for (const mode of ['light', 'dark'] as const) {
 		expect(failures).toEqual([]);
 	});
 }
+
+test('notification first paint has contrast-safe controls before hydration', async ({ page }) => {
+	await page.addInitScript(() => localStorage.setItem('resax-mode', 'light'));
+	await page.route(/\.js(?:\?|$)/, (route) => route.abort());
+	await page.goto('/components/notification', { waitUntil: 'domcontentloaded' });
+	const results = await new AxeBuilder({ page })
+		.include('[data-demo-section="source-api"], [data-demo-section="handles"]')
+		.withRules(['color-contrast'])
+		.analyze();
+	const violations = results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''));
+	expect(violations).toEqual([]);
+});

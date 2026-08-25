@@ -9,12 +9,39 @@ async function componentLinks(page: Page) {
 	return page.locator('nav[aria-label="Components"] a:not([aria-disabled="true"])').evaluateAll((links) => links.map((link) => link.getAttribute('href')).filter((href): href is string => Boolean(href)));
 }
 
+async function settleForAxe(page: Page) {
+	await page.locator('#docs-main').waitFor({ state: 'visible' });
+	await page.evaluate(async () => {
+		await document.fonts.ready;
+		const frame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+		await frame();
+		await frame();
+
+		// Measured components can schedule a second finite transition after their
+		// first layout frame. Finish each finite animation at its natural end state
+		// while leaving intentional infinite effects running for the audit.
+		for (let pass = 0; pass < 3; pass += 1) {
+			for (const animation of document.getAnimations()) {
+				const endTime = animation.effect?.getComputedTiming().endTime;
+				if (typeof endTime !== 'number' || !Number.isFinite(endTime)) continue;
+				try {
+					animation.finish();
+				} catch {
+					// A newly pending animation can become finishable on the next frame.
+				}
+			}
+			await frame();
+		}
+	});
+}
+
 for (const mode of ['light', 'dark'] as const) {
 	test(`all fixture pages have no serious axe findings (${mode})`, async ({ page }) => {
 		await page.addInitScript((dark) => localStorage.setItem('resax-mode', dark ? 'dark' : 'light'), mode === 'dark');
 		const failures: string[] = [];
 		for (const href of await componentLinks(page)) {
 			await page.goto(href);
+			await settleForAxe(page);
 			const results = await new AxeBuilder({ page }).analyze();
 			const violations = results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''));
 			if (violations.length) failures.push(`${href}: ${violations.map((item) => `${item.id} (${item.nodes.length})`).join(', ')}`);
@@ -50,6 +77,7 @@ test('visual-feedback galleries have no serious axe findings in either theme', a
 		await page.evaluate((theme) => localStorage.setItem('resax-mode', theme), mode);
 		for (const slug of visualFeedbackPages) {
 			await page.goto(`/components/${slug}`);
+			await settleForAxe(page);
 			const results = await new AxeBuilder({ page }).analyze();
 			for (const violation of results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''))) {
 				failures.push(`${mode}/${slug}: ${violation.id} — ${violation.nodes.map((node) => node.target.join(' ')).join(', ')}`);

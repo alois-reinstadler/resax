@@ -18,6 +18,14 @@ describe('source theme contract', () => {
 		expect(theme).toContain('--rx-control-h-lg: 48px');
 	});
 
+	it('keeps the progressive-enhancement contrast pair invariant across themes', () => {
+		expect(theme).toContain('--rx-fixed-dark: 30 30 31;');
+		expect(theme).toContain('--rx-fixed-light: 244 247 248;');
+		const darkTheme = theme.slice(theme.indexOf('.dark,'));
+		expect(darkTheme).not.toContain('--rx-fixed-dark:');
+		expect(darkTheme).not.toContain('--rx-fixed-light:');
+	});
+
 	it('contains exact shared motion and source-shaped compositor primitives', () => {
 		expect(theme).toContain('--rx-ease-out: cubic-bezier(.22, 1, .36, 1)');
 		expect(theme).toContain('--rx-ease-spring: cubic-bezier(.34, 1.56, .64, 1)');

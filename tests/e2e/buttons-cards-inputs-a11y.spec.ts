@@ -31,3 +31,18 @@ for (const mode of ['light', 'dark'] as const) {
 		expect(failures).toEqual([]);
 	});
 }
+
+test('button group remains contrast-safe at rest and while hovered', async ({ page }) => {
+	await page.addInitScript(() => localStorage.setItem('resax-mode', 'light'));
+	await page.goto('/components/button-group');
+	const group = page.getByRole('group');
+	const failures: string[] = [];
+	for (const state of ['rest', 'Day', 'Week', 'Month'] as const) {
+		if (state !== 'rest') await group.getByRole('button', { name: state }).hover();
+		const results = await new AxeBuilder({ page }).include('.rx-button-group').analyze();
+		for (const violation of results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''))) {
+			failures.push(`${state}: ${violation.id} — ${violation.nodes.map((node) => `${node.target.join(' ')}: ${node.failureSummary}`).join(', ')}`);
+		}
+	}
+	expect(failures).toEqual([]);
+});

@@ -33,6 +33,19 @@ describe('Button', () => {
 		expect(screen.getByRole('button').getAttribute('style')).toContain('--rx-color: 125 51 255');
 	});
 
+	it.each(['success', 'danger', 'warn'] as const)('uses contrast-safe semantic ink for %s solids', (color) => {
+		render(Harness, { color });
+		const style = screen.getByRole('button').getAttribute('style');
+		expect(style).toContain(`--rx-color-foreground: var(--rx-${color}-foreground)`);
+		expect(style).toContain('--rx-button-foreground: rgb(var(--rx-warn-contrast-rgb))');
+	});
+
+	it.each(['primary', 'dark', '#f0d234'])('keeps the palette foreground for %s solids', (color) => {
+		const view = render(Harness, { color });
+		expect(screen.getByRole('button').getAttribute('style')).toContain('--rx-button-foreground: var(--rx-color-foreground');
+		view.unmount();
+	});
+
 	it('maps variant and size to stable classes', () => {
 		expect(buttonVariants({ variant: 'flat', size: 'sm' })).toContain('rx-button--flat');
 		expect(buttonVariants({ variant: 'flat', size: 'sm' })).toContain('rx-button--sm');

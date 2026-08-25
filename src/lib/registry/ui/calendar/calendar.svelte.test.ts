@@ -55,5 +55,9 @@ describe('Calendar', () => {
 		expect(container.querySelector('[data-range-preview]')).toBeTruthy();
 		expect(datePickerSource).toContain('rx-date-picker-morph-in');
 	});
+	it('keeps selected base and compact day ink on an atomic accent fill while the chip moves', () => {
+		expect(source).toContain('.rx-calendar-shell--mode-single:is(.rx-calendar-shell--base,.rx-calendar-shell--compact)');
+		expect(source).toContain('background: rgb(var(--rx-color));');
+	});
 	it('stops persistent overlays, sheen, month motion, and ripples for reduced motion', () => { expect(source).toContain('@media (prefers-reduced-motion: reduce)'); expect(source).toContain('.rx-calendar__ripple { display: none; }'); });
 });

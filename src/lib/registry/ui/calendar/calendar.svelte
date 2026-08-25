@@ -150,7 +150,9 @@
 	:global(.rx-calendar__day:active:not([data-disabled])) { transform: scale(.9); }
 	:global(.rx-calendar__day[data-today])::after { content: ''; position: absolute; bottom: 5px; left: 50%; z-index: 1; width: 3px; height: 3px; border-radius: 50%; translate: -50% 0; background: currentColor; }
 	:global(.rx-calendar__day[data-selected]), :global(.rx-calendar__day[data-range-start]), :global(.rx-calendar__day[data-range-end]) { z-index: 4; color: rgb(var(--cal-selection-ink)); background: rgb(var(--rx-color)); }
-	.rx-calendar-shell--mode-single:is(.rx-calendar-shell--base,.rx-calendar-shell--compact,.rx-calendar-shell--minimal) :global(.rx-calendar__day[data-selected]) { background: transparent; }
+	/* Keep the destination chip atomic while the separate source motion layer travels into place. */
+	.rx-calendar-shell--mode-single:is(.rx-calendar-shell--base,.rx-calendar-shell--compact) :global(.rx-calendar__day[data-selected]) { background: rgb(var(--rx-color)); }
+	.rx-calendar-shell--mode-single.rx-calendar-shell--minimal :global(.rx-calendar__day[data-selected]) { background: transparent; }
 	:global(.rx-calendar__day[data-range-middle]) { border-radius: 0; color: rgb(var(--rx-text)); background: rgb(var(--rx-color) / .1); }
 	:global(.rx-calendar__day[data-range-preview]) { border-radius: 0; background: rgb(var(--rx-color) / .06); }
 	:global(.rx-calendar__day[data-outside-month]) { opacity: .3; }

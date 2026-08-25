@@ -31,7 +31,7 @@
 	{#if closable}<button type="button" class="rx-chip__close" aria-label="Close" disabled={disabled} onclick={close}>×</button>{/if}
 </span>
 <style>
-	.rx-chip { display: inline-flex; align-items: center; gap: .4rem; box-sizing: border-box; border: 1px solid transparent; border-radius: 9999px; color: rgb(var(--rx-light)); background: hsl(from rgb(var(--rx-color)) h s min(l, 32%)); font-weight: 600; line-height: 1; }
+	.rx-chip { display: inline-flex; align-items: center; gap: .4rem; box-sizing: border-box; border: 1px solid transparent; border-radius: 9999px; color:rgb(var(--rx-fixed-light));background-color:rgb(var(--rx-fixed-dark));background-image:linear-gradient(hsl(from rgb(var(--rx-color)) h s min(l,32%)),hsl(from rgb(var(--rx-color)) h s min(l,32%))); font-weight: 600; line-height: 1; }
 	.rx-chip--flat { color: hsl(from rgb(var(--rx-color)) h s min(l, 30%)); background: rgb(var(--rx-color) / .15); }
 	.rx-chip--border { color: hsl(from rgb(var(--rx-color)) h s min(l, 30%)); border-color: rgb(var(--rx-color)); background: transparent; }
 	.rx-chip--gradient { background: linear-gradient(135deg, hsl(from rgb(var(--rx-color)) h s min(l, 30%)), hsl(from rgb(var(--rx-color)) calc(h + 40) s min(l, 28%))); }
