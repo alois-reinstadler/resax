@@ -100,7 +100,6 @@ for (const mode of ['light', 'dark'] as const) {
 	test(`family galleries ${mode}`, async ({ page }) => {
 		test.setTimeout(8 * 60_000);
 		await setMode(page, mode);
-		await page.emulateMedia({ reducedMotion: 'reduce' });
 		for (const slug of capturedFamilyPages) {
 			await page.goto(`/components/${slug}`);
 			await settle(page);
@@ -119,6 +118,13 @@ for (const mode of ['light', 'dark'] as const) {
 				await expect.poll(() => gallery.locator('.rx-code').evaluateAll((blocks) => blocks.length > 0 && blocks.every((block) => Array.from(block.querySelectorAll<HTMLElement>('em')).some((token) => token.style.getPropertyValue('--rx-token-color')))), { timeout: 10_000 }).toBe(true);
 				await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 			}
+			await page.waitForTimeout(900);
+			await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
+				const timing = animation.effect?.getComputedTiming();
+				if (timing?.iterations !== Infinity) return;
+				animation.pause();
+				animation.currentTime = 0;
+			}));
 			const maxDiffPixels = slug === 'alert' ? 2000 : slug === 'skeleton' ? 1350 : slug === 'popup' ? 1400 : 1000;
 			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: 'allow', maxDiffPixels, timeout: 10_000 });
 			if (viewport && page.viewportSize()?.height !== viewport.height) await page.setViewportSize(viewport);
