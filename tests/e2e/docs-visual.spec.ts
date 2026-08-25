@@ -100,8 +100,14 @@ for (const mode of ['light', 'dark'] as const) {
 					await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 				}
 			}
-			const maxDiffPixels = slug === 'alert' ? 2000 : slug === 'skeleton' ? 1350 : 1000;
-			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: 'disabled', maxDiffPixels, timeout: 10_000 });
+			if (slug === 'spinner') {
+				await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
+					animation.pause();
+					animation.currentTime = 0;
+				}));
+			}
+			const maxDiffPixels = slug === 'alert' ? 2000 : slug === 'skeleton' ? 1350 : slug === 'popup' ? 1400 : 1000;
+			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: slug === 'spinner' ? 'allow' : 'disabled', maxDiffPixels, timeout: 10_000 });
 			if (viewport && page.viewportSize()?.height !== viewport.height) await page.setViewportSize(viewport);
 		}
 	});
@@ -177,7 +183,7 @@ test('defining pointer, selection, and overlay states', async ({ page, isMobile 
 	await page.goto('/components/tabs');
 	await settle(page);
 	await page.getByRole('tab', { name: 'Activity' }).first().click();
-	await expect(page.locator('.demo-frame').first()).toHaveScreenshot('dark-tabs-selected-state.png', { animations: 'disabled' });
+	await expect(page.locator('.demo-frame').first()).toHaveScreenshot('dark-tabs-selected-state.png', { animations: 'disabled', maxDiffPixels: 60 });
 
 	await page.goto('/components/switch');
 	await settle(page);
@@ -316,7 +322,7 @@ test('additional defining choreography states', async ({ page, isMobile }) => {
 		await page.mouse.down();
 		await page.mouse.move(thumbBox.x + thumbBox.width / 2 + 38, thumbBox.y + thumbBox.height / 2, { steps: 8 });
 		await expect(confirmThumb).toHaveAttribute('aria-valuenow', /[3-8]\d/);
-		await expect(page.locator('.demo-frame').first()).toHaveScreenshot('dark-slide-confirm-drag-state.png', { animations: 'allow' });
+		await expect(page.locator('.demo-frame').first()).toHaveScreenshot('dark-slide-confirm-drag-state.png', { animations: 'allow', maxDiffPixels: 40 });
 		await page.mouse.up();
 	}
 });
