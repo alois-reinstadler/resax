@@ -45,21 +45,14 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
-      # The preceding hosted capture already proved the unchanged accessibility suite.
-      - name: Refresh hosted visual baselines for review
-        env:
-          VISUAL_FAMILIES: tabs
-        run: |
-          pnpm test:visual --update-snapshots
-          git diff --exit-code -- tests/e2e/docs-visual.spec.ts-snapshots
+      - run: pnpm test:a11y
+      - run: pnpm test:visual
       - name: Upload browser failure artifacts
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: browser-failure-artifacts
-          path: |
-            test-results
-            tests/e2e/docs-visual.spec.ts-snapshots
+          path: test-results
           if-no-files-found: ignore
           retention-days: 7
 
