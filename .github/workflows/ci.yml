@@ -46,13 +46,18 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:a11y
-      - run: pnpm test:visual
+      - name: Refresh hosted visual baselines for review
+        run: |
+          pnpm test:visual --update-snapshots
+          git diff --exit-code -- tests/e2e/docs-visual.spec.ts-snapshots
       - name: Upload browser failure artifacts
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: browser-failure-artifacts
-          path: test-results
+          path: |
+            test-results
+            tests/e2e/docs-visual.spec.ts-snapshots
           if-no-files-found: ignore
           retention-days: 7
 
