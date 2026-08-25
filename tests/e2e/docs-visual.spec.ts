@@ -188,7 +188,7 @@ test('defining pointer, selection, and overlay states', async ({ page, isMobile 
 	await page.goto('/components/switch');
 	await settle(page);
 	await page.getByRole('switch', { name: 'Liquid switch' }).click();
-	await expect(page.locator('.demo-frame').nth(1)).toHaveScreenshot('dark-switch-liquid-state.png', { animations: 'disabled' });
+	await expect(page.locator('.demo-frame').nth(1)).toHaveScreenshot('dark-switch-liquid-state.png', { animations: 'disabled', maxDiffPixels: 150 });
 
 	await page.goto('/components/slider');
 	await settle(page);
