@@ -119,12 +119,21 @@ for (const mode of ['light', 'dark'] as const) {
 				await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 			}
 			await page.waitForTimeout(900);
-			await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
+			await gallery.evaluate((element, skipInfiniteFreeze) => element.getAnimations({ subtree: true }).forEach((animation) => {
 				const timing = animation.effect?.getComputedTiming();
-				if (timing?.iterations !== Infinity) return;
+				if (skipInfiniteFreeze || timing?.iterations !== Infinity) return;
 				animation.pause();
 				animation.currentTime = 0;
-			}));
+			}), slug === 'alert');
+			if (slug === 'alert') {
+				await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
+					const timing = animation.effect?.getComputedTiming();
+					if (!timing || typeof timing.duration !== 'number' || timing.iterations !== Infinity) return;
+					const delay = typeof timing.delay === 'number' ? timing.delay : 0;
+					animation.pause();
+					animation.currentTime = delay + timing.duration * 0.5;
+				}));
+			}
 			if (slug === 'tabs') {
 				await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
 					const timing = animation.effect?.getComputedTiming();
