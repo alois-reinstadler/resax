@@ -125,6 +125,14 @@ for (const mode of ['light', 'dark'] as const) {
 				animation.pause();
 				animation.currentTime = 0;
 			}));
+			if (slug === 'tabs') {
+				await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
+					const timing = animation.effect?.getComputedTiming();
+					if (!timing || typeof timing.endTime !== 'number' || timing.iterations === Infinity) return;
+					animation.pause();
+					animation.currentTime = timing.endTime;
+				}));
+			}
 			const maxDiffPixels = slug === 'alert' ? 2000 : slug === 'skeleton' ? 1350 : slug === 'popup' ? 1400 : 1000;
 			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: 'allow', maxDiffPixels, timeout: 10_000 });
 			if (viewport && page.viewportSize()?.height !== viewport.height) await page.setViewportSize(viewport);

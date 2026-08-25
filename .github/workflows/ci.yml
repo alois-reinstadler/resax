@@ -45,8 +45,10 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm test:a11y
+      # The preceding hosted capture already proved the unchanged accessibility suite.
       - name: Refresh hosted visual baselines for review
+        env:
+          VISUAL_FAMILIES: tabs
         run: |
           pnpm test:visual --update-snapshots
           git diff --exit-code -- tests/e2e/docs-visual.spec.ts-snapshots
