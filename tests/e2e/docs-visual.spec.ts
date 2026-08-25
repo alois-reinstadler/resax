@@ -114,6 +114,10 @@ for (const mode of ['light', 'dark'] as const) {
 					await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 				}
 			}
+			if (slug === 'code') {
+				await expect.poll(() => gallery.locator('.rx-code').evaluateAll((blocks) => blocks.length > 0 && blocks.every((block) => Array.from(block.querySelectorAll<HTMLElement>('em')).some((token) => token.style.getPropertyValue('--rx-token-color')))), { timeout: 10_000 }).toBe(true);
+				await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+			}
 			if (slug === 'avatar' || slug === 'spinner') {
 				await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
 					animation.pause();
