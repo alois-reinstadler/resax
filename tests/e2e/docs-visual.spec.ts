@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 
 const familyPages = [
 	'accordion', 'alert', 'ask-ai-button', 'badge', 'notification', 'popup', 'progress', 'skeleton', 'spinner', 'tooltip',
@@ -32,6 +32,20 @@ async function settle(page: Page) {
 	await page.evaluate(() => document.fonts.ready);
 	await page.locator('#docs-main').waitFor({ state: 'visible' });
 	await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+}
+
+async function freezeAt(locator: Locator, time: number, subtree = false) {
+	return locator.evaluate((element, options) => {
+		const animations = element.getAnimations({ subtree: options.subtree });
+		for (const animation of animations) {
+			const timing = animation.effect?.getComputedTiming();
+			if (typeof timing?.duration !== 'number') continue;
+			const delay = typeof timing.delay === 'number' ? timing.delay : 0;
+			animation.pause();
+			animation.currentTime = Math.min(options.time, delay + timing.duration);
+		}
+		return animations.length;
+	}, { time, subtree });
 }
 
 async function findGallery(page: Page, slug: string) {
@@ -100,14 +114,15 @@ for (const mode of ['light', 'dark'] as const) {
 					await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 				}
 			}
-			if (slug === 'spinner') {
+			if (slug === 'avatar' || slug === 'spinner') {
 				await gallery.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
 					animation.pause();
 					animation.currentTime = 0;
 				}));
 			}
 			const maxDiffPixels = slug === 'alert' ? 2000 : slug === 'skeleton' ? 1350 : slug === 'popup' ? 1400 : 1000;
-			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: slug === 'spinner' ? 'allow' : 'disabled', maxDiffPixels, timeout: 10_000 });
+			const preserveFrozenAnimations = slug === 'avatar' || slug === 'spinner';
+			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: preserveFrozenAnimations ? 'allow' : 'disabled', maxDiffPixels, timeout: 10_000 });
 			if (viewport && page.viewportSize()?.height !== viewport.height) await page.setViewportSize(viewport);
 		}
 	});
@@ -218,33 +233,32 @@ test('defining pointer, selection, and overlay states', async ({ page, isMobile 
 	await page.getByRole('button', { name: 'flip', exact: true }).click();
 	await expect(page).toHaveScreenshot('dark-popup-flip-open.png', { animations: 'disabled' });
 	await page.keyboard.press('Escape');
-	await page.getByText('Open from trigger snippet', { exact: true }).click();
+	await expect(page.locator('.rx-popup[data-transition="flip"]')).toHaveCount(0);
+	await expect.poll(() => page.evaluate(() => !document.body.hasAttribute('data-scroll-locked') && !document.documentElement.hasAttribute('data-scroll-locked'))).toBe(true);
+	const triggerFixture = page.locator('.demo-section').filter({ has: page.getByRole('heading', { name: 'Trigger snippet', exact: true }) }).locator('.demo-frame');
+	await triggerFixture.scrollIntoViewIfNeeded();
+	await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+	const identityTrigger = page.getByRole('button', { name: 'Open from trigger snippet' });
+	await identityTrigger.click();
 	const identityPopup = page.locator('.rx-popup[data-transition="morph"][data-state="open"]');
 	await expect(identityPopup).toHaveClass(/rx-popup--morph-ready/);
-	await identityPopup.evaluate((element) => {
-		for (const animation of element.getAnimations({ subtree: true })) {
-			const timing = animation.effect?.getComputedTiming();
-			if (typeof timing?.duration === 'number' && timing.duration > 1) {
-				animation.currentTime = Math.min(timing.duration * .42, 300);
-				animation.pause();
-			}
-		}
-	});
-	await expect(page).toHaveScreenshot('dark-popup-identity-mid-state.png', { animations: 'allow', maxDiffPixels: 2500 });
+	const popupOverlay = page.locator('[data-slot="dialog-overlay"]');
+	await expect.poll(() => identityPopup.evaluate((element) => element.getAnimations({ subtree: true }).length)).toBeGreaterThanOrEqual(4);
+	expect(await freezeAt(identityPopup, 300, true)).toBeGreaterThanOrEqual(4);
+	expect(await freezeAt(popupOverlay, 300)).toBeGreaterThanOrEqual(1);
+	await freezeAt(identityTrigger, 300, true);
+	await expect(identityPopup).toHaveScreenshot('dark-popup-identity-mid-state.png', { animations: 'allow', maxDiffPixels: 1000 });
 	await identityPopup.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.finish()));
+	await popupOverlay.evaluate((element) => element.getAnimations().forEach((animation) => animation.finish()));
+	await identityTrigger.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.finish()));
 	await page.keyboard.press('Escape');
 	const closingIdentityPopup = page.locator('.rx-popup[data-transition="morph"][data-state="closed"]');
 	await expect(closingIdentityPopup).toBeAttached();
-	await closingIdentityPopup.evaluate((element) => {
-		for (const animation of element.getAnimations({ subtree: true })) {
-			const timing = animation.effect?.getComputedTiming();
-			if (typeof timing?.duration === 'number' && timing.duration > 1) {
-				animation.currentTime = timing.duration * .45;
-				animation.pause();
-			}
-		}
-	});
-	await expect(page).toHaveScreenshot('dark-popup-identity-close-mid-state.png', { animations: 'allow', maxDiffPixels: 2500 });
+	await expect.poll(() => closingIdentityPopup.evaluate((element) => element.getAnimations({ subtree: true }).length)).toBeGreaterThanOrEqual(4);
+	expect(await freezeAt(closingIdentityPopup, 300, true)).toBeGreaterThanOrEqual(4);
+	expect(await freezeAt(popupOverlay, 300)).toBeGreaterThanOrEqual(1);
+	await freezeAt(identityTrigger, 300, true);
+	await expect(closingIdentityPopup).toHaveScreenshot('dark-popup-identity-close-mid-state.png', { animations: 'allow', maxDiffPixels: 1000 });
 	await closingIdentityPopup.evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => animation.finish()));
 	await expect(page.getByRole('button', { name: 'Open from trigger snippet' })).toBeVisible();
 
