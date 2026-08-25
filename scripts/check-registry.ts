@@ -1,5 +1,5 @@
 import { access, readdir, readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { dirname, extname, relative, resolve } from 'node:path';
 
 interface RegistryItem {
 	name?: string;
@@ -23,7 +23,7 @@ interface BuiltItem {
 const directory = resolve(import.meta.dirname, '../static/r');
 const registryPath = resolve(import.meta.dirname, '../registry.json');
 const packagePath = resolve(import.meta.dirname, '../package.json');
-const familiesPath = resolve(import.meta.dirname, '../scrape/vuesax/families.json');
+const familiesPath = resolve(import.meta.dirname, '../references/_shared/metadata/families.json');
 const migrationPath = resolve(import.meta.dirname, '../docs/MIGRATION.md');
 const registry = JSON.parse(await readFile(registryPath, 'utf8')) as Registry;
 const packageJson = JSON.parse(await readFile(packagePath, 'utf8')) as {
@@ -83,6 +83,79 @@ const localEdges = new Map(
 		(item.registryDependencies ?? []).filter((dependency) => dependency.startsWith('local:')).map((dependency) => dependency.slice(6))
 	])
 );
+
+// Registry builds do not infer dependencies from source imports. Verify that every consumer-facing
+// relative import is shipped by the same item, and that imports crossing registry items have a
+// corresponding local dependency edge (aliases such as rx-button may own the same source files).
+const workspace = resolve(import.meta.dirname, '..');
+const ownersBySource = new Map<string, Set<string>>();
+for (const item of registry.items) {
+	for (const file of item.files ?? []) {
+		if (!file.path || !item.name) continue;
+		const source = resolve(workspace, file.path);
+		const owners = ownersBySource.get(source) ?? new Set<string>();
+		owners.add(item.name);
+		ownersBySource.set(source, owners);
+	}
+}
+
+function resolveRegistryImport(source: string, specifier: string): string | undefined {
+	let base: string;
+	if (specifier.startsWith('.')) base = resolve(dirname(source), specifier);
+	else if (specifier.startsWith('$lib/registry/')) base = resolve(workspace, 'src/lib/registry', specifier.slice(14));
+	else if (specifier.startsWith('$lib/components/')) base = resolve(workspace, 'src/lib/components', specifier.slice(16));
+	else return undefined;
+
+	const candidates = [base];
+	if (base.endsWith('.js')) candidates.push(`${base.slice(0, -3)}.ts`);
+	if (base.endsWith('.svelte')) candidates.push(`${base}.ts`);
+	if (!extname(base)) candidates.push(`${base}.ts`, `${base}.svelte`, resolve(base, 'index.ts'), resolve(base, 'index.svelte'));
+	return candidates.find((candidate) => ownersBySource.has(candidate));
+}
+
+const importPattern = /(?:\b(?:from|export\s+[^;]*?from)\s*|\bimport\s*\(\s*)(['"])([^'"]+)\1/g;
+for (const item of registry.items) {
+	if (!item.name) continue;
+	const ownSources = new Set((item.files ?? []).flatMap((file) => file.path ? [resolve(workspace, file.path)] : []));
+	const dependencies = new Set(localEdges.get(item.name) ?? []);
+	for (const source of ownSources) {
+		if (!/\.(?:svelte|ts)$/.test(source)) continue;
+		const content = await readFile(source, 'utf8');
+		for (const match of content.matchAll(importPattern)) {
+			const specifier = match[2];
+			const officialMatch = /^\$lib\/components\/ui\/([^/]+)/.exec(specifier);
+			if (officialMatch) {
+				const bundledTarget = resolveRegistryImport(source, specifier);
+				if (bundledTarget && ownSources.has(bundledTarget)) continue;
+				// Vendored official files rely on the official registry item's own transitive graph.
+				// Resax wrappers, by contrast, must declare each official base they import directly.
+				if (relative(workspace, source).startsWith('src/lib/components/')) continue;
+				const base = officialMatch[1];
+				if (!officialBases.has(base) || !(item.registryDependencies ?? []).includes(base)) {
+					throw new Error(
+						`registry.json: item "${item.name}" imports official shadcn-svelte base "${base}" from "${relative(workspace, source)}" without the matching approved plain-name registry dependency`
+					);
+				}
+				continue;
+			}
+			if (!specifier.startsWith('.') && !specifier.startsWith('$lib/registry/')) continue;
+			const target = resolveRegistryImport(source, specifier);
+			if (!target) {
+				throw new Error(
+					`registry.json: item "${item.name}" imports unowned consumer source "${specifier}" from "${relative(workspace, source)}"`
+				);
+			}
+			if (ownSources.has(target)) continue;
+			const owners = ownersBySource.get(target)!;
+			if (![...owners].some((owner) => dependencies.has(owner))) {
+				throw new Error(
+					`registry.json: item "${item.name}" imports "${relative(workspace, target)}" from "${relative(workspace, source)}" without a local dependency on one of its owners: ${[...owners].join(', ')}`
+				);
+			}
+		}
+	}
+}
+
 const visiting = new Set<string>();
 const visited = new Set<string>();
 function visit(name: string, path: string[]): void {
@@ -111,7 +184,7 @@ const missingFamilies = families.filter((family) => !coverage.has(family));
 const unexpectedFamilies = [...coverage.keys()].filter((family) => !families.includes(family));
 if (missingFamilies.length || unexpectedFamilies.length || coverage.size !== families.length) {
 	throw new Error(
-		'docs/MIGRATION.md family coverage differs from scrape/vuesax/families.json' +
+		'docs/MIGRATION.md family coverage differs from references/_shared/metadata/families.json' +
 		`${missingFamilies.length ? `; missing: ${missingFamilies.join(', ')}` : ''}` +
 		`${unexpectedFamilies.length ? `; unexpected: ${unexpectedFamilies.join(', ')}` : ''}`
 	);

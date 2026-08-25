@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Input",
+  "componentKey": "input",
+  "family": "VsInput",
+  "variants": [
+    "vs-input",
+    "vs-input-filled",
+    "vs-input-gradient-border",
+    "vs-input-pulse",
+    "vs-input-spotlight",
+    "vs-input-underline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsInput.Dei2UkLL.js",
+      "path": "compiled/vue/VsInput.Dei2UkLL.js",
+      "sha256": "f1d9f9ba66e24867b45f5f736021d29407b7ee7017b70e0ea3bdc436847ede41",
+      "bytes": 7681,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-input",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsInputFilled.s3G2OkRR.js",
+      "path": "compiled/vue/VsInputFilled.s3G2OkRR.js",
+      "sha256": "5effd8653b6b42085bfdc1b972f9f1a1f609f0d3710de2494cd9446a54650e92",
+      "bytes": 1693,
+      "artifactType": "compiled-vue-island",
+      "variant": "filled",
+      "variantSlug": "vs-input-filled",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsInputGradientBorder.dvTjG4Hj.js",
+      "path": "compiled/vue/VsInputGradientBorder.dvTjG4Hj.js",
+      "sha256": "aaf4d5c176708ffa558a32014936eb57d964f7fe63a27b7e08f41e481545c02f",
+      "bytes": 1840,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient-border",
+      "variantSlug": "vs-input-gradient-border",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsInputPulse.9UdnYe3s.js",
+      "path": "compiled/vue/VsInputPulse.9UdnYe3s.js",
+      "sha256": "236a6684a0f095438d37944ccd212bede82a472c45261c9a1981d17792a83b49",
+      "bytes": 1826,
+      "artifactType": "compiled-vue-island",
+      "variant": "pulse",
+      "variantSlug": "vs-input-pulse",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsInputSpotlight.mQJ0C_m8.js",
+      "path": "compiled/vue/VsInputSpotlight.mQJ0C_m8.js",
+      "sha256": "8ef8eb494e153ba211c7010117601fa1a650f1f3ad2d4f3a1990b92509505de4",
+      "bytes": 2830,
+      "artifactType": "compiled-vue-island",
+      "variant": "spotlight",
+      "variantSlug": "vs-input-spotlight",
+      "stateHints": [
+        "focus",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsInputUnderline.DlDdUeri.js",
+      "path": "compiled/vue/VsInputUnderline.DlDdUeri.js",
+      "sha256": "5b81a89ac060404a83d0ada31ec16323b47275033de13d35e51eb8c40cc16721",
+      "bytes": 1645,
+      "artifactType": "compiled-vue-island",
+      "variant": "underline",
+      "variantSlug": "vs-input-underline",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-input-filled.css",
+      "path": "css/shadow/vs-input-filled.css",
+      "sha256": "5bb2c332a3fe7b76030258f8df74f5488b36c1f137b6548bee2b0a44d43f54f0",
+      "bytes": 3251,
+      "artifactType": "extracted-shadow-css",
+      "variant": "filled",
+      "variantSlug": "vs-input-filled",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-input-gradient-border.css",
+      "path": "css/shadow/vs-input-gradient-border.css",
+      "sha256": "be1796faf8c6ac08fe8566cb7f15e127dbb1a1591ce5db32fe8c76ececb367a8",
+      "bytes": 5080,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient-border",
+      "variantSlug": "vs-input-gradient-border",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-input-pulse.css",
+      "path": "css/shadow/vs-input-pulse.css",
+      "sha256": "fb7b3ce2629a93fd5a61c142486f78cc972ea074a28846a35c3e245a696276ec",
+      "bytes": 3697,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pulse",
+      "variantSlug": "vs-input-pulse",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-input-spotlight.css",
+      "path": "css/shadow/vs-input-spotlight.css",
+      "sha256": "b0b014a75da9eb2297ea781aeeb47c868effe6772ce311659996aa3e65fd8c9e",
+      "bytes": 3845,
+      "artifactType": "extracted-shadow-css",
+      "variant": "spotlight",
+      "variantSlug": "vs-input-spotlight",
+      "stateHints": [
+        "focus",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-input-underline.css",
+      "path": "css/shadow/vs-input-underline.css",
+      "sha256": "dd7849129627c19ac80f1cd5b5daf38f947a6dee3669750af76bb01c380e9fd2",
+      "bytes": 2813,
+      "artifactType": "extracted-shadow-css",
+      "variant": "underline",
+      "variantSlug": "vs-input-underline",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-input.css",
+      "path": "css/shadow/vs-input.css",
+      "sha256": "f3ed901bb40650fdb95c51e3f13ac178726d30bab9f5d041337184c8459847ab",
+      "bytes": 8276,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-input",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsInput.DvwGqej6.css",
+      "path": "css/vue-scoped/VsInput.DvwGqej6.css",
+      "sha256": "ccee8bb8145e5c1628668b48a4467e5a87f4d66cc4a8021336a128c1dc5cf5bd",
+      "bytes": 7289,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-input",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-input-filled.js",
+      "path": "web-component/vs-input-filled.js",
+      "sha256": "9eee46bb5abf199044970ff7f9464ec6f9ce450cff7c32ed189edd44ff283f12",
+      "bytes": 7809,
+      "artifactType": "web-component-source",
+      "variant": "filled",
+      "variantSlug": "vs-input-filled",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-input-gradient-border.js",
+      "path": "web-component/vs-input-gradient-border.js",
+      "sha256": "3ed25a8301fa2717a0a8a8bd973340278cc30dbe077f4564fc88aea720e0dcd7",
+      "bytes": 9998,
+      "artifactType": "web-component-source",
+      "variant": "gradient-border",
+      "variantSlug": "vs-input-gradient-border",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-input-pulse.js",
+      "path": "web-component/vs-input-pulse.js",
+      "sha256": "17eda912e48fd6b1fcdaa0c416b98f9df57256330d7f035416fc9032909a97b4",
+      "bytes": 8551,
+      "artifactType": "web-component-source",
+      "variant": "pulse",
+      "variantSlug": "vs-input-pulse",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-input-spotlight.js",
+      "path": "web-component/vs-input-spotlight.js",
+      "sha256": "f6d2b4c2abadb53363c1d92c73c6dd7496532224d37eea2cdc5c69c95183c38f",
+      "bytes": 9681,
+      "artifactType": "web-component-source",
+      "variant": "spotlight",
+      "variantSlug": "vs-input-spotlight",
+      "stateHints": [
+        "focus",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-input-underline.js",
+      "path": "web-component/vs-input-underline.js",
+      "sha256": "5c2d936ccb455672bbe24120466dca198c99f82edc30ff43f62ab5eaebcbfaca",
+      "bytes": 7372,
+      "artifactType": "web-component-source",
+      "variant": "underline",
+      "variantSlug": "vs-input-underline",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-input.js",
+      "path": "web-component/vs-input.js",
+      "sha256": "3c572a69d517c2ccaaaddb8566c8475da79a60e99ae559c5a913b18d23ff80b6",
+      "bytes": 18640,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-input",
+      "stateHints": [
+        "focus"
+      ]
+    }
+  ]
+}

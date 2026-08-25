@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Sidebar",
+  "componentKey": "sidebar",
+  "family": "VsSidebar",
+  "variants": [
+    "vs-sidebar",
+    "vs-sidebar-classic",
+    "vs-sidebar-floating",
+    "vs-sidebar-glow",
+    "vs-sidebar-gradient",
+    "vs-sidebar-minimal",
+    "vs-sidebar-rail"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSidebar.yck1E0MI.js",
+      "path": "compiled/vue/VsSidebar.yck1E0MI.js",
+      "sha256": "baa59e29ccd62623730fec020d609a468af67dbaf95abed8e750b4d2b6c4d318",
+      "bytes": 14636,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-sidebar",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSidebarClassic.BmW78woX.js",
+      "path": "compiled/vue/VsSidebarClassic.BmW78woX.js",
+      "sha256": "f85a16519484d5a41a1f1e030d429aa8de4144f49354477e35670e0e155249d4",
+      "bytes": 14222,
+      "artifactType": "compiled-vue-island",
+      "variant": "classic",
+      "variantSlug": "vs-sidebar-classic",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSidebarFloating.B_XhfzYc.js",
+      "path": "compiled/vue/VsSidebarFloating.B_XhfzYc.js",
+      "sha256": "15869d77ecac2fc1b0f8391337f2cc198f56e17343d70ff0612ee2b4f589af42",
+      "bytes": 8419,
+      "artifactType": "compiled-vue-island",
+      "variant": "floating",
+      "variantSlug": "vs-sidebar-floating",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSidebarGlow.B_8TqJ_h.js",
+      "path": "compiled/vue/VsSidebarGlow.B_8TqJ_h.js",
+      "sha256": "fb9f92a9f7e0ce97c6bfa3cb1c09f0026d1256ebf3e5bd2b8424c649fc286e39",
+      "bytes": 10167,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-sidebar-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSidebarGradient.CpdEQg49.js",
+      "path": "compiled/vue/VsSidebarGradient.CpdEQg49.js",
+      "sha256": "e75dbce53a9edf81e50a228a570aadcfef28f9cfbfeded5d3214f5e9e128afbf",
+      "bytes": 10461,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-sidebar-gradient",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSidebarMinimal.DZOy51kO.js",
+      "path": "compiled/vue/VsSidebarMinimal.DZOy51kO.js",
+      "sha256": "980e8a13a9a9349c638b0a8d1769fbff7cabcaf39ae9a7dde3ece5a374f09999",
+      "bytes": 8642,
+      "artifactType": "compiled-vue-island",
+      "variant": "minimal",
+      "variantSlug": "vs-sidebar-minimal",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSidebarRail.C18_uJJZ.js",
+      "path": "compiled/vue/VsSidebarRail.C18_uJJZ.js",
+      "sha256": "51c06ac78c4a66e849a16c40dd097380c20ec50392d27c8a2315602784728215",
+      "bytes": 11381,
+      "artifactType": "compiled-vue-island",
+      "variant": "rail",
+      "variantSlug": "vs-sidebar-rail",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-sidebar-classic.css",
+      "path": "css/shadow/vs-sidebar-classic.css",
+      "sha256": "cc054a9026a5429fbace32f5dc927eaf875ae6822b980ef86c48e651e0aaf56d",
+      "bytes": 10521,
+      "artifactType": "extracted-shadow-css",
+      "variant": "classic",
+      "variantSlug": "vs-sidebar-classic",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-sidebar-floating.css",
+      "path": "css/shadow/vs-sidebar-floating.css",
+      "sha256": "a9662cf8be053563153763ae3b277c208816a4eeefeb8a76abbd4d823828506b",
+      "bytes": 6279,
+      "artifactType": "extracted-shadow-css",
+      "variant": "floating",
+      "variantSlug": "vs-sidebar-floating",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-sidebar-glow.css",
+      "path": "css/shadow/vs-sidebar-glow.css",
+      "sha256": "78119b533ca52070e12db182cd0a36454f74f96ef136f03d31c8d6cc478e3d01",
+      "bytes": 6932,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-sidebar-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-sidebar-gradient.css",
+      "path": "css/shadow/vs-sidebar-gradient.css",
+      "sha256": "e028fed4165844fdd84082dd4a89fbbe7eef69f077f9e4fb46039eb9e8d06023",
+      "bytes": 6655,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-sidebar-gradient",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-sidebar-minimal.css",
+      "path": "css/shadow/vs-sidebar-minimal.css",
+      "sha256": "eee0ee7ce2e468ae0997e883894e11cee987ac24c032b307681298c2dd5b86af",
+      "bytes": 5345,
+      "artifactType": "extracted-shadow-css",
+      "variant": "minimal",
+      "variantSlug": "vs-sidebar-minimal",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-sidebar-rail.css",
+      "path": "css/shadow/vs-sidebar-rail.css",
+      "sha256": "45af531693ac0fde994594b5a2b20d33b8848a7aa1c7b1d383c1d5b605737699",
+      "bytes": 7184,
+      "artifactType": "extracted-shadow-css",
+      "variant": "rail",
+      "variantSlug": "vs-sidebar-rail",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-sidebar.css",
+      "path": "css/shadow/vs-sidebar.css",
+      "sha256": "eb0edcaf8ec640040848e66903113ffeabba0d1e6ec7cc3ff1a67b8ecfb1dbeb",
+      "bytes": 11414,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-sidebar",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSidebarClassic.BP4JJBDv.css",
+      "path": "css/vue-scoped/VsSidebarClassic.BP4JJBDv.css",
+      "sha256": "d9356d1c02dbcf91e57f5243e9b0945befef4354f7ec9ac98798f980d3a950f8",
+      "bytes": 9503,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "classic",
+      "variantSlug": "vs-sidebar-classic",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSidebarFloating.DLsjNtFH.css",
+      "path": "css/vue-scoped/VsSidebarFloating.DLsjNtFH.css",
+      "sha256": "3e3857be4e683c929168da60cefb4ce68337d5824a18fc831ba0ed1f9bfce607",
+      "bytes": 5329,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "floating",
+      "variantSlug": "vs-sidebar-floating",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSidebarGlow.BY2P1nZT.css",
+      "path": "css/vue-scoped/VsSidebarGlow.BY2P1nZT.css",
+      "sha256": "9acd30f7dfaaed74c6c5b7bd1f21a23321a5d08d1322532ecf63ce360ebbc17f",
+      "bytes": 6168,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-sidebar-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSidebarGradient.BD8IDilM.css",
+      "path": "css/vue-scoped/VsSidebarGradient.BD8IDilM.css",
+      "sha256": "f483009fb70b228581ef080d3710d6769afaaacdc837537d1e208a2f1576e13e",
+      "bytes": 5795,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "gradient",
+      "variantSlug": "vs-sidebar-gradient",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSidebarMinimal.BZa4953C.css",
+      "path": "css/vue-scoped/VsSidebarMinimal.BZa4953C.css",
+      "sha256": "d2d3a92264dcd83064e6bf7423e37d7df17c69a13fc3d3fc7ae912e829d25652",
+      "bytes": 4511,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "minimal",
+      "variantSlug": "vs-sidebar-minimal",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSidebarRail.DKzkVOjP.css",
+      "path": "css/vue-scoped/VsSidebarRail.DKzkVOjP.css",
+      "sha256": "7f6e8e519ffcb55558f79c6e322d9930e35ecae341ce40273ab7d32e5a179467",
+      "bytes": 6527,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "rail",
+      "variantSlug": "vs-sidebar-rail",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-sidebar-classic.js",
+      "path": "web-component/vs-sidebar-classic.js",
+      "sha256": "6bbf9e8f8c95fed95b933a05d646e6b972a0c8e2469715bace5b36fc2c39f00c",
+      "bytes": 34009,
+      "artifactType": "web-component-source",
+      "variant": "classic",
+      "variantSlug": "vs-sidebar-classic",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-sidebar-floating.js",
+      "path": "web-component/vs-sidebar-floating.js",
+      "sha256": "1e43c13e0e7486db139c4bf245161e3ee56181aa11951f5d3f626c34c9dee446",
+      "bytes": 17304,
+      "artifactType": "web-component-source",
+      "variant": "floating",
+      "variantSlug": "vs-sidebar-floating",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-sidebar-glow.js",
+      "path": "web-component/vs-sidebar-glow.js",
+      "sha256": "0fb90f0a4cefaca8b8dcf7bb428894d36073e0f94c0a36773724fd9d3ad333d2",
+      "bytes": 20525,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-sidebar-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-sidebar-gradient.js",
+      "path": "web-component/vs-sidebar-gradient.js",
+      "sha256": "e0c6b35fe40617b78388d7aa435c0e754a8f468a3766a841425d197b9eb8227d",
+      "bytes": 20185,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-sidebar-gradient",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-sidebar-minimal.js",
+      "path": "web-component/vs-sidebar-minimal.js",
+      "sha256": "2e9cfca3357cbf520f8d410fb0b1bd8418e94fe8b3e3c1b7e58aa3ebcd4eb00d",
+      "bytes": 16525,
+      "artifactType": "web-component-source",
+      "variant": "minimal",
+      "variantSlug": "vs-sidebar-minimal",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-sidebar-rail.js",
+      "path": "web-component/vs-sidebar-rail.js",
+      "sha256": "d08ce4dc86d231e83aca0276e50fc87b2bd4c83f53934e6f33ed62341c143512",
+      "bytes": 21676,
+      "artifactType": "web-component-source",
+      "variant": "rail",
+      "variantSlug": "vs-sidebar-rail",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-sidebar.js",
+      "path": "web-component/vs-sidebar.js",
+      "sha256": "7e794d195773905930d346afdb0f191c6c186325fe0e97a3c8531103ce3a2279",
+      "bytes": 36086,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-sidebar",
+      "stateHints": []
+    }
+  ]
+}

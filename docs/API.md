@@ -20,13 +20,13 @@ Exports: `AccordionValue`, `AccordionProps`
 ### AccordionProps
 
 ```ts
-interface AccordionProps { value?: AccordionValue; mode?: 'single' | 'multiple'; collapsible?: boolean; disabled?: boolean; color?: RxColor; variant?: 'default' | 'filled' | 'ghost'; effect?: 'none' | 'bounce' | 'glow' | 'slide'; onValueChange?: (value: AccordionValue) => void; children: Snippet;
+interface AccordionProps { value?: AccordionValue; mode?: 'single' | 'multiple'; collapsible?: boolean; disabled?: boolean; color?: RxColor; variant?: 'default' | 'filled' | 'ghost'; effect?: 'none' | 'bounce' | 'glow' | 'slide'; layout?: 'separated' | 'contained' | 'line'; size?: 'sm' | 'md' | 'lg'; radius?: 'none' | 'subtle' | 'rounded' | 'squircle'; tone?: 'default' | 'danger' | 'warning' | 'success'; onValueChange?: (value: AccordionValue) => void; children: Snippet;
 }
 ```
 
 ## accordion/context.ts
 
-Exports: `AccordionMode`, `AccordionVariant`, `AccordionEffect`, `AccordionContext`, `setAccordionContext`, `getAccordionContext`
+Exports: `AccordionMode`, `AccordionVariant`, `AccordionEffect`, `AccordionLayout`, `AccordionSize`, `AccordionRadius`, `AccordionTone`, `AccordionContext`, `setAccordionContext`, `getAccordionContext`
 
 ## alert/alert.svelte
 
@@ -42,7 +42,9 @@ interface AlertProps {
 		icon?: Snippet;
 		closable?: boolean;
 		open?: boolean;
+		dismissAfter?: number;
 		onClose?: () => void;
+		onOpenChange?: (open: boolean) => void;
 		children?: Snippet;
 }
 ```
@@ -58,7 +60,15 @@ Exports: `AskAiButtonProps`
 ### AskAiButtonProps
 
 ```ts
-interface AskAiButtonProps {label?:string;loading?:boolean;sparkle?:Snippet
+interface AskAiButtonProps {
+		label?: string;
+		loading?: boolean;
+		color?: RxColor;
+		speed?: number;
+		glow?: number;
+		radius?: 'rounded' | 'none' | 'subtle' | 'pill' | 'squircle';
+		sparkle?: Snippet;
+		onask?: (detail: { label: string
 }
 ```
 
@@ -69,7 +79,7 @@ Exports: `AvatarGroupProps`
 ### AvatarGroupProps
 
 ```ts
-interface AvatarGroupProps { max?: number; float?: boolean; children: Snippet;
+interface AvatarGroupProps { max?: number; float?: boolean; variant?: 'base' | 'fan' | 'flip' | 'grid' | 'ring' | 'wave'; columns?: number; flipLabel?: string; children: Snippet;
 }
 ```
 
@@ -88,8 +98,11 @@ interface AvatarProps {
 		color?: RxColor;
 		size?: 'xl' | 'lg' | 'default' | 'sm' | 'mini';
 		shape?: 'circle' | 'square' | 'rounded';
+		variant?: 'base' | 'glow' | 'ring' | 'squircle' | 'status' | 'tilt';
 		badge?: string | number | boolean;
 		badgeColor?: RxColor;
+		status?: 'online' | 'idle' | 'dnd' | 'offline';
+		statusPulse?: boolean;
 		history?: boolean;
 		loading?: boolean;
 		children?: Snippet;
@@ -113,6 +126,7 @@ Exports: `BadgeProps`
 ```ts
 interface BadgeProps {
 		variant?: 'default' | 'glow' | 'gradient' | 'pulse' | 'shimmer' | 'stripes'; color?: RxColor;
+		appearance?: 'soft' | 'solid' | 'outline'; animated?: boolean; duration?: number;
 		content?: string | number; dot?: boolean; position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'; children?: Snippet;
 }
 ```
@@ -128,7 +142,7 @@ Exports: `BreadcrumbItem`, `BreadcrumbProps`
 ### BreadcrumbProps
 
 ```ts
-interface BreadcrumbProps { items:BreadcrumbItem[]; color?:RxColor; variant?:'default'|'arrow'|'pill'|'slash'|'glow'; maxItems?:number; separator?:string|Snippet; onNavigate?:(item:BreadcrumbItem,index:number)=>void
+interface BreadcrumbProps { items:BreadcrumbItem[]; color?:RxColor; variant?:'default'|'arrow'|'collapse'|'pill'|'slash'|'glow'; maxItems?:number; separator?:string|Snippet; onNavigate?:(item:BreadcrumbItem,index:number)=>void
 }
 ```
 
@@ -139,19 +153,19 @@ Exports: `ButtonGroupProps`
 ### ButtonGroupProps
 
 ```ts
-interface ButtonGroupProps {orientation?:'horizontal'|'vertical';attached?:boolean;children:Snippet
+interface ButtonGroupProps {orientation?:'horizontal'|'vertical';attached?:boolean;block?:boolean;gap?:number;disabled?:boolean;children:Snippet
 }
 ```
 
 ## button/button.svelte
 
-Exports: `ButtonProps`
+Exports: `ButtonVariant`, `ButtonProps`
 
 ### ButtonProps
 
 ```ts
 interface ButtonProps {
-		variant?: 'default' | 'flat' | 'border' | 'gradient' | 'shadow' | 'relief' | 'transparent';
+		variant?: ButtonVariant;
 		color?: RxColor;
 		size?: 'xl' | 'lg' | 'default' | 'sm' | 'mini';
 		shape?: 'default' | 'circle' | 'square';
@@ -162,6 +176,27 @@ interface ButtonProps {
 		disabled?: boolean;
 		href?: string;
 		ripple?: boolean;
+		reach?: number;
+		stiffness?: number;
+		damping?: number;
+		lag?: number;
+		gooStrength?: number;
+		squash?: number;
+		filaments?: 0 | 1 | 2;
+		droplets?: 0 | 1 | 2 | 3 | 4;
+		gravity?: number;
+		drag?: number;
+		sag?: number;
+		/** Chrome rim width in pixels (source: 1–6). */
+		thickness?: number;
+		/** Chrome field playback speed as a percentage (source: 0–400). */
+		speed?: number;
+		/** Chrome shard drift/noise amount as a percentage (source: 0–100). */
+		chaos?: number;
+		/** Chrome prismatic dispersion as a percentage (source: 0–100). */
+		prism?: number;
+		/** Invert label motion blur in pixels (source: 0–14). */
+		blur?: number;
 		children: Snippet;
 		icon?: Snippet;
 		onclick?: (event: MouseEvent) => void;
@@ -174,21 +209,17 @@ Exports: `buttonVariants`, `ButtonVariantProps`
 
 ## calendar/calendar.svelte
 
-Exports: `CalendarValue`, `CalendarProps`
+Exports: `CalendarValue`, `CalendarVariant`, `CalendarProps`
 
 ### CalendarProps
 
 ```ts
 interface CalendarProps {
-		value?: CalendarValue;
-		mode?: 'single' | 'multiple' | 'range';
-		color?: RxColor;
-		minValue?: DateValue;
-		maxValue?: DateValue;
-		disabled?: boolean;
-		isDateUnavailable?: (date: DateValue) => boolean;
-		numberOfMonths?: number;
-		onValueChange?: (value: CalendarValue | undefined) => void;
+		value?: CalendarValue; mode?: 'single' | 'multiple' | 'range'; variant?: CalendarVariant;
+		color?: RxColor; size?: 'sm' | 'default' | 'lg'; radius?: 'none' | 'subtle' | 'rounded' | 'pill' | 'squircle';
+		minValue?: DateValue; maxValue?: DateValue; disabled?: boolean; glow?: boolean;
+		isDateUnavailable?: (date: DateValue) => boolean; events?: (date: DateValue) => boolean | number;
+		numberOfMonths?: number; onValueChange?: (value: CalendarValue | undefined) => void;
 }
 ```
 
@@ -208,6 +239,10 @@ interface DatePickerProps {
 		disabled?: boolean;
 		isDateUnavailable?: (date: DateValue) => boolean;
 		numberOfMonths?: number;
+		variant?: CalendarVariant;
+		radius?: 'none' | 'subtle' | 'rounded' | 'pill' | 'squircle';
+		glow?: boolean;
+		events?: (date: DateValue) => boolean | number;
 		onValueChange?: (value: CalendarValue | undefined) => void;
 		label?: string;
 		placeholder?: string;
@@ -219,14 +254,26 @@ interface DatePickerProps {
 
 ## card/card.svelte
 
-Exports: `CardProps`
+Exports: `CardSlide`, `CardProps`
 
 ### CardProps
 
 ```ts
 interface CardProps {
-		variant?: 'default' | 'shadow' | 'border' | 'flat' | 'reveal' | 'zoom' | 'spotlight' | 'tilt-3d';
-		color?: RxColor; href?: string; media?: Snippet; header?: Snippet; footer?: Snippet; children?: Snippet;
+		variant?: 'default' | 'shadow' | 'border' | 'flat' | 'reveal' | 'zoom' | 'asset' | 'glow' | 'gradient-border' | 'lift' | 'slider' | 'spotlight' | 'tilt-3d';
+		color?: RxColor;
+		href?: string;
+		size?: 'sm' | 'md' | 'lg';
+		radius?: 'rounded' | 'none' | 'subtle' | 'pill' | 'squircle';
+		disabled?: boolean;
+		media?: Snippet;
+		header?: Snippet;
+		footer?: Snippet;
+		actions?: Snippet;
+		children?: Snippet;
+		slides?: CardSlide[];
+		autoplay?: number;
+		onslidechange?: (index: number) => void;
 }
 ```
 
@@ -236,19 +283,15 @@ Exports: `cardVariants`, `CardVariantProps`
 
 ## checkbox/checkbox.svelte
 
-Exports: `CheckboxProps`
+Exports: `CheckboxVariant`, `CheckboxRadius`, `CheckboxProps`
 
 ### CheckboxProps
 
 ```ts
 interface CheckboxProps {
-		checked?: boolean;
-		indeterminate?: boolean;
-		color?: RxColor;
-		size?: 'lg' | 'default' | 'sm';
-		lineThrough?: boolean;
-		disabled?: boolean;
-		children?: Snippet;
+		checked?: boolean; indeterminate?: boolean; color?: RxColor; size?: 'lg' | 'default' | 'sm';
+		variant?: CheckboxVariant; radius?: CheckboxRadius; labelPosition?: 'left' | 'right'; glow?: boolean;
+		lineThrough?: boolean; disabled?: boolean; children?: Snippet; description?: Snippet;
 		onCheckedChange?: (checked: boolean) => void;
 }
 ```
@@ -265,8 +308,8 @@ Exports: `ChipProps`
 
 ```ts
 interface ChipProps {
-		variant?: 'default' | 'flat' | 'border' | 'gradient'; color?: RxColor; size?: 'lg' | 'default' | 'sm';
-		closable?: boolean; onClose?: () => void; disabled?: boolean; icon?: Snippet; children: Snippet;
+		variant?: 'default' | 'flat' | 'border' | 'bounce' | 'fill' | 'glow' | 'gradient' | 'outline'; color?: RxColor; size?: 'lg' | 'default' | 'sm';
+		closable?: boolean; onClose?: () => void; disabled?: boolean; selectable?:boolean; selected?:boolean; onSelectedChange?:(selected:boolean)=>void; icon?: Snippet; children: Snippet;
 }
 ```
 
@@ -296,7 +339,7 @@ Exports: `ColorPickerProps`
 ### ColorPickerProps
 
 ```ts
-interface ColorPickerProps { value?: string; alpha?: boolean; swatches?: string[]; color?: RxColor; size?: 'lg' | 'default' | 'sm'; disabled?: boolean; onValueChange?: (value: string) => void
+interface ColorPickerProps { value?: string; variant?:'base'|'compact'|'palette'|'ring'|'slider'|'swatches'; alpha?: boolean; swatches?: string[]; color?: RxColor; size?: 'lg' | 'default' | 'sm'; disabled?: boolean; open?:boolean; onValueChange?: (value: string) => void
 }
 ```
 
@@ -322,7 +365,7 @@ Exports: `ContextMenuItemProps`
 ### ContextMenuItemProps
 
 ```ts
-interface ContextMenuItemProps { icon?: Snippet; danger?: boolean; disabled?: boolean; onSelect?: (event: Event) => void; children: Snippet;
+interface ContextMenuItemProps { icon?: Snippet; value?: string; selected?: boolean; shortcut?: string; href?: string; external?: boolean; danger?: boolean; disabled?: boolean; onSelect?: (event: Event, value?: string) => void; children: Snippet;
 }
 ```
 
@@ -339,12 +382,12 @@ interface ContextMenuSubProps { label: string; children: Snippet;
 
 ## context-menu/context-menu.svelte
 
-Exports: `ContextMenuProps`
+Exports: `ContextMenuVariant`, `ContextMenuSize`, `ContextMenuRadius`, `ContextMenuProps`
 
 ### ContextMenuProps
 
 ```ts
-interface ContextMenuProps { open?: boolean; color?: RxColor; variant?: 'default' | 'radial'; children: Snippet; content: Snippet;
+interface ContextMenuProps {open?:boolean;color?:RxColor;variant?:ContextMenuVariant;size?:ContextMenuSize;radius?:ContextMenuRadius;glow?:boolean;disabled?:boolean;children:Snippet;content:Snippet;onOpenChange?:(open:boolean)=>void
 }
 ```
 
@@ -359,7 +402,10 @@ Exports: `DockItem`, `DockProps`
 ### DockProps
 
 ```ts
-interface DockProps { items:DockItem[]; color?:RxColor; variant?:'default'|'aurora'|'bounce'|'glass'|'gooey'|'magnet'|'neon'; placement?:'top'|'bottom'|'left'|'right'; magnification?:number; distance?:number; onSelect?:(item:DockItem)=>void;
+interface DockProps {
+		items:DockItem[]; active?:string; color?:RxColor; variant?:'default'|'aurora'|'bounce'|'glass'|'gooey'|'magnet'|'neon';
+		placement?:'top'|'bottom'|'left'|'right'; size?:'sm'|'default'|'lg'; radius?:'none'|'subtle'|'rounded'|'pill'|'squircle'; tone?:'default'|'danger'|'warn'|'success'; magnification?:number; distance?:number;
+		magnify?:boolean; bounce?:boolean; tilt?:boolean; goo?:boolean; magnetic?:boolean; tooltips?:boolean; pulse?:boolean; disabled?:boolean; onSelect?:(item:DockItem)=>void; onActiveChange?:(id:string)=>void;
 }
 ```
 
@@ -370,18 +416,18 @@ Exports: `DotStepperProps`
 ### DotStepperProps
 
 ```ts
-interface DotStepperProps { current?:number; count:number; color?:RxColor; variant?:'default'|'bars'|'elastic'|'glow'|'ring'|'worm'; labels?:string[]; disabled?:boolean; onCurrentChange?:(index:number)=>void;
+interface DotStepperProps { current?:number; count:number; color?:RxColor; variant?:'default'|'bars'|'elastic'|'glow'|'ring'|'worm'; orientation?:'horizontal'|'vertical'; labels?:string[]; disabled?:boolean; onCurrentChange?:(index:number)=>void;
 }
 ```
 
 ## drawer/drawer.svelte
 
-Exports: `DrawerProps`
+Exports: `DrawerPlacement`, `DrawerVariant`, `DrawerFrost`, `DrawerBounce`, `DrawerProps`
 
 ### DrawerProps
 
 ```ts
-interface DrawerProps {open?:boolean;placement?:'left'|'right'|'top'|'bottom';size?:string;overlay?:boolean;preventClose?:boolean;title?:string|Snippet;footer?:Snippet;children:Snippet;trigger?:Snippet;onOpenChange?:(open:boolean)=>void
+interface DrawerProps {open?:boolean;placement?:DrawerPlacement;variant?:DrawerVariant;size?:string;color?:RxColor;overlay?:boolean;gradient?:boolean;preventClose?:boolean;closeHidden?:boolean;title?:string|Snippet;footer?:Snippet;children:Snippet;trigger?:Snippet;blurAmount?:number;frost?:DrawerFrost;bounce?:DrawerBounce;pushScale?:boolean;slideDepth?:number;onOpenChange?:(open:boolean)=>void
 }
 ```
 
@@ -403,24 +449,18 @@ Exports: `DropdownItemProps`
 ### DropdownItemProps
 
 ```ts
-interface DropdownItemProps { icon?: Snippet; danger?: boolean; disabled?: boolean; onSelect?: (event: Event) => void; children: Snippet;
+interface DropdownItemProps { icon?: Snippet; value?: string; selected?: boolean; shortcut?: string; badge?: string; href?: string; external?: boolean; danger?: boolean; disabled?: boolean; onSelect?: (event: Event, value?: string) => void; children: Snippet;
 }
 ```
 
 ## dropdown/dropdown.svelte
 
-Exports: `Side`, `DropdownProps`
+Exports: `Side`, `DropdownVariant`, `DropdownSize`, `DropdownRadius`, `DropdownProps`
 
 ### DropdownProps
 
 ```ts
-interface DropdownProps {
-		open?: boolean;
-		trigger?: 'click' | 'hover';
-		color?: RxColor;
-		placement?: Side;
-		children: Snippet;
-		content: Snippet;
+interface DropdownProps {open?:boolean;trigger?:'click'|'hover';color?:RxColor;placement?:Side;variant?:DropdownVariant;size?:DropdownSize;radius?:DropdownRadius;disabled?:boolean;blur?:number;depth?:number;intensity?:number;distance?:number;bounce?:number;children:Snippet;content:Snippet;onOpenChange?:(open:boolean)=>void
 }
 ```
 
@@ -431,7 +471,7 @@ Exports: `FileTreeNode`, `FileTreeProps`
 ### FileTreeProps
 
 ```ts
-interface FileTreeProps {nodes:FileTreeNode[];expanded?:string[];selected?:string;color?:RxColor;variant?:'default'|'compact'|'glow'|'guides'|'highlight'|'reveal';selectionMode?:'single'|'none';onExpandedChange?:(ids:string[])=>void;onSelectedChange?:(id:string|undefined)=>void;onActivate?:(node:FileTreeNode)=>void
+interface FileTreeProps {nodes:FileTreeNode[];expanded?:string[];selected?:string;color?:RxColor;variant?:'default'|'compact'|'glow'|'guides'|'highlight'|'reveal';radius?:'subtle'|'rounded'|'pill'|'squircle';selectionMode?:'single'|'none';disabled?:boolean;ariaLabel?:string;onExpandedChange?:(ids:string[])=>void;onSelectedChange?:(id:string|undefined)=>void;onActivate?:(node:FileTreeNode)=>void
 }
 ```
 
@@ -447,9 +487,16 @@ Exports: `IndicatorProps`
 
 ```ts
 interface IndicatorProps {
-		variant?: 'dot' | 'ring' | 'pulse' | 'count' | 'odometer' | 'icon' | 'border';
+		variant?: 'base' | 'dot' | 'bounce' | 'odometer' | 'ping' | 'ring' | 'shake' | 'pulse' | 'count' | 'icon' | 'border';
 		color?: RxColor;
 		content?: string | number;
+		count?: number;
+		max?: number;
+		dot?: boolean;
+		showZero?: boolean;
+		pulse?: boolean;
+		size?: 'sm' | 'md' | 'lg';
+		roll?: number;
 		icon?: Snippet;
 		position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 		offset?: boolean;
@@ -459,41 +506,45 @@ interface IndicatorProps {
 
 ## inline-overflow/inline-overflow.svelte
 
-Exports: `InlineOverflowProps`
+Exports: `InlineOverflowItem`, `InlineOverflowProps`
 
 ### InlineOverflowProps
 
 ```ts
-interface InlineOverflowProps {items:Snippet[];gap?:string;moreLabel?:string;color?:RxColor;priority?:'start'|'end'
+interface InlineOverflowProps { items:Array<InlineOverflowItem|Snippet|string>; visible?:number; open?:boolean; size?:'sm'|'md'|'lg'; radius?:'pill'|'rounded'|'squircle'; color?:RxColor; stiffness?:number; damping?:number; stagger?:number; lag?:number; blur?:number; squash?:number; disabled?:boolean; onOpenChange?:(open:boolean)=>void; onSelect?:(item:InlineOverflowItem,index:number)=>void
 }
 ```
 
 ## input-number/input-number.svelte
 
-Exports: `InputNumberProps`
+Exports: `InputNumberVariant`, `InputNumberProps`
 
 ### InputNumberProps
 
 ```ts
 interface InputNumberProps {
-		value?: number;
-		min?: number;
-		max?: number;
-		step?: number;
-		color?: RxColor;
-		size?: 'lg' | 'default' | 'sm';
-		disabled?: boolean;
+		value?: number; min?: number; max?: number; step?: number; color?: RxColor;
+		size?: 'lg' | 'default' | 'sm'; variant?: InputNumberVariant; disabled?: boolean;
+		frame?: 'default' | 'bare'; prefix?: string; suffix?: string; decimals?: number; separator?: string; pad?: number; gap?: number;
+		duration?: number; intensity?: number; draggable?: boolean; controlsSide?: 'left' | 'right'; glow?: boolean; startOnView?: boolean;
+		onValueChange?: (value: number) => void; onComplete?: (value: number) => void;
 }
 ```
 
 ## input-otp/input-otp.svelte
 
-Exports: `InputOtpProps`
+Exports: `InputOtpVariant`, `InputOtpProps`
 
 ### InputOtpProps
 
 ```ts
-interface InputOtpProps { value?: string; length?: number; type?: 'numeric' | 'text'; color?: RxColor; size?: 'lg' | 'default' | 'sm'; masked?: boolean; state?: 'default' | 'success' | 'danger'; disabled?: boolean; onComplete?: (value: string) => void;
+interface InputOtpProps {
+		value?: string; length?: number; type?: 'numeric' | 'text'; color?: RxColor;
+		size?: 'lg' | 'default' | 'sm'; variant?: InputOtpVariant;
+		radius?: 'subtle' | 'rounded' | 'pill' | 'squircle'; masked?: boolean;
+		state?: 'default' | 'success' | 'danger'; disabled?: boolean;
+		autoFocus?: boolean; autofocus?: boolean;
+		onComplete?: (value: string) => void;
 }
 ```
 
@@ -520,6 +571,8 @@ interface InputProps {
 		icon?: Snippet;
 		iconAfter?: boolean;
 		loading?: boolean;
+		clearable?: boolean;
+		onClear?: () => void;
 }
 ```
 
@@ -530,18 +583,18 @@ Exports: `LinkBarItem`, `LinkBarProps`
 ### LinkBarProps
 
 ```ts
-interface LinkBarProps { items: LinkBarItem[]; active?: string; color?: RxColor; variant?: 'default'|'glow'|'magnet'|'pill'|'slide'|'underline'; onActiveChange?: (id: string) => void;
+interface LinkBarProps { items:LinkBarItem[];active?:string;color?:RxColor;variant?:'default'|'glow'|'magnet'|'pill'|'slide'|'underline';size?:'sm'|'md'|'lg';tone?:'default'|'danger'|'success'|'warn';separated?:boolean;strength?:number;ariaLabel?:string;onActiveChange?:(id:string)=>void
 }
 ```
 
 ## list/list.svelte
 
-Exports: `ListItem`, `ListProps`
+Exports: `ListItem`, `ListAction`, `ListProps`
 
 ### ListProps
 
 ```ts
-interface ListProps {items:ListItem[];selected?:string|string[];selectionMode?:'none'|'single'|'multiple';color?:RxColor;variant?:'default'|'cards'|'glow'|'hover'|'reveal'|'stripe';onSelectedChange?:(value:string|string[]|undefined)=>void;onActivate?:(item:ListItem)=>void
+interface ListProps {items:ListItem[];actions?:ListAction[];leadingActions?:ListAction[];selected?:string|string[];active?:string;selectionMode?:'none'|'single'|'multiple';ariaLabel?:string;color?:RxColor;variant?:'default'|'cards'|'glow'|'hover'|'reveal'|'stripe';size?:'sm'|'md'|'lg';radius?:'none'|'subtle'|'rounded'|'pill'|'squircle';plain?:boolean;gap?:number;lift?:number;glowSize?:number;stagger?:number;stripe?:number;threshold?:number;fullSwipeRatio?:number;swipeToDelete?:boolean;reorderable?:boolean;disabled?:boolean;glow?:boolean;onSelectedChange?:(value:string|string[]|undefined)=>void;onActivate?:(item:ListItem)=>void;onAction?:(item:ListItem,action:ListAction)=>void;onRemove?:(item:ListItem)=>void;onReorder?:(items:ListItem[])=>void
 }
 ```
 
@@ -552,24 +605,24 @@ Exports: `NavMenuItem`, `NavMenuProps`
 ### NavMenuProps
 
 ```ts
-interface NavMenuProps {items:NavMenuItem[];value?:string;color?:RxColor;variant?:'default'|'glow'|'mega'|'pill'|'spotlight'|'underline';orientation?:'horizontal'|'vertical';onValueChange?:(value:string)=>void;
+interface NavMenuProps {items:NavMenuItem[];value?:string;active?:string;color?:RxColor;variant?:'default'|'glow'|'mega'|'pill'|'spotlight'|'underline';surface?:'solid'|'ghost';tone?:'default'|'danger'|'warn'|'success';radius?:'subtle'|'rounded'|'pill'|'squircle';orientation?:'horizontal'|'vertical';bounce?:number;intensity?:number;stagger?:number;fill?:number;spotlight?:number;thickness?:number;disabled?:boolean;onValueChange?:(value:string)=>void;onSelect?:(item:NavMenuItem)=>void;
 }
 ```
 
 ## notification/notification.svelte
 
-Exports: `NotificationProps`
+Exports: `NotificationProps`, `notificationIn`, `notificationOut`
 
 ### NotificationProps
 
 ```ts
-interface NotificationProps { item: NotificationItem;
+interface NotificationProps {item:NotificationItem
 }
 ```
 
 ## notification/notify.svelte.ts
 
-Exports: `NotifyVariant`, `NotifyPosition`, `NotifyOptions`, `NotifyHandle`, `NotificationItem`, `notificationState`, `dismissNotification`, `registerNotificationOutlet`, `pauseNotification`, `resumeNotification`, `notify`, `resetNotificationsForTesting`
+Exports: `NotifyVariant`, `NotifySurface`, `NotifyPosition`, `NotifyState`, `NotifyAction`, `NotifyOptions`, `NotifyHandle`, `NotificationItem`, `notificationState`, `dismissNotification`, `registerNotificationOutlet`, `pauseNotification`, `resumeNotification`, `notify`, `resetNotificationsForTesting`
 
 ## pagination/pagination.svelte
 
@@ -593,18 +646,18 @@ Exports: `ConfirmPopupProps`
 ### ConfirmPopupProps
 
 ```ts
-interface ConfirmPopupProps {open?:boolean;title?:string;message:string;confirmLabel?:string;cancelLabel?:string;destructive?:boolean;color?:RxColor;onConfirm?:()=>void;onCancel?:()=>void;onOpenChange?:(open:boolean)=>void
+interface ConfirmPopupProps {open?:boolean;title?:string;message:string;confirmLabel?:string;cancelLabel?:string;destructive?:boolean;color?:RxColor;preventClose?:boolean;onConfirm?:()=>void;onCancel?:()=>void;onOpenChange?:(open:boolean)=>void
 }
 ```
 
 ## popup/popup.svelte
 
-Exports: `PopupProps`
+Exports: `PopupTransition`, `PopupSize`, `PopupRadius`, `PopupProps`
 
 ### PopupProps
 
 ```ts
-interface PopupProps {open?:boolean;transition?:'zoom'|'bounce'|'flip'|'slide-up'|'fade';color?:RxColor;title?:string|Snippet;fullscreen?:boolean;preventClose?:boolean;footer?:Snippet;children:Snippet;trigger?:Snippet;onOpenChange?:(open:boolean)=>void
+interface PopupProps {open?:boolean;transition?:PopupTransition;color?:RxColor;title?:string|Snippet;size?:PopupSize;width?:string;radius?:PopupRadius;fullscreen?:boolean;preventClose?:boolean;closeHidden?:boolean;bodyScroll?:boolean;speed?:number;confirm?:boolean;footer?:Snippet;children:Snippet;trigger?:Snippet;onOpenChange?:(open:boolean)=>void
 }
 ```
 
@@ -625,6 +678,7 @@ interface ProgressProps {
 		variant?: 'default' | 'glow' | 'gradient' | 'striped' | 'segments';
 		shape?: 'line' | 'circle';
 		segments?: number;
+		animationDuration?: number;
 		color?: RxColor;
 		size?: 'lg' | 'default' | 'sm';
 		label?: Snippet | boolean;
@@ -633,7 +687,7 @@ interface ProgressProps {
 
 ## radio-group/context.ts
 
-Exports: `RADIO_GROUP`, `RadioGroupContext`
+Exports: `RADIO_GROUP`, `RadioGroupVariant`, `RadioGroupContext`
 
 ## radio-group/index.ts
 
@@ -648,32 +702,34 @@ Exports: `RadioGroupProps`
 ```ts
 interface RadioGroupProps {
 		value?: string; color?: RxColor; size?: 'lg' | 'default' | 'sm'; orientation?: 'vertical' | 'horizontal';
-		disabled?: boolean; children: Snippet; onValueChange?: (value: string) => void;
+		variant?: RadioGroupVariant; disabled?: boolean; children: Snippet; onValueChange?: (value: string) => void;
 }
 ```
 
 ## radio-group/radio.svelte
 
-Exports: `RadioProps`
+Exports: `RadioVariant`, `RadioProps`
 
 ### RadioProps
 
 ```ts
 interface RadioProps {
-		value: string; disabled?: boolean; children?: Snippet;
+		value: string; disabled?: boolean; variant?: RadioVariant; glow?: boolean; labelPosition?: 'left' | 'right'; children?: Snippet; description?: Snippet;
 }
 ```
 
 ## rating/rating.svelte
 
-Exports: `RatingProps`
+Exports: `RatingVariant`, `RatingProps`
 
 ### RatingProps
 
 ```ts
 interface RatingProps {
 		value?: number; max?: number; halves?: boolean; color?: RxColor; size?: 'lg' | 'default' | 'sm';
-		readonly?: boolean; disabled?: boolean; icon?: Snippet<[{ filled: boolean; half: boolean
+		variant?: RatingVariant; readonly?: boolean; disabled?: boolean; clearable?: boolean; showValue?: boolean;
+		grayscale?: boolean; flat?: boolean; intensity?: 'low' | 'high'; beat?: 'soft' | 'strong'; shape?: 'square' | 'circle';
+		icon?: 'star' | 'heart' | 'circle' | Snippet<[{ filled: boolean; half: boolean
 }
 ```
 
@@ -684,7 +740,12 @@ Exports: `ScrollbarProps`
 ### ScrollbarProps
 
 ```ts
-interface ScrollbarProps { orientation?:'vertical'|'horizontal'|'both'; color?:RxColor; variant?:'default'|'dots'|'glow'|'gradient'|'minimal'|'rounded'; size?:'sm'|'default'|'lg'; hideDelay?:number; children:Snippet;
+interface ScrollbarProps {
+		orientation?: 'vertical' | 'horizontal' | 'both'; ariaLabel?: string; color?: RxColor;
+		variant?: 'default' | 'dots' | 'glow' | 'gradient' | 'minimal' | 'rounded';
+		size?: 'sm' | 'default' | 'lg'; mode?: 'embedded' | 'bare' | 'page'; hideDelay?: number;
+		autoHide?: boolean; smoothness?: number; smooth?: boolean; ghost?: boolean; ghostGradient?: boolean; overscroll?: boolean;
+		intensity?: number; color2?: RxColor; showTrack?: boolean; maxHeight?: number; children?: Snippet;
 }
 ```
 
@@ -738,7 +799,7 @@ Exports: `SeparatorOrientation`, `SeparatorVariant`, `SeparatorProps`
 ### SeparatorProps
 
 ```ts
-interface SeparatorProps { orientation?: SeparatorOrientation; variant?: SeparatorVariant; color?: RxColor; children?: Snippet;
+interface SeparatorProps {orientation?:SeparatorOrientation;variant?:SeparatorVariant;color?:RxColor;tone?:'default'|'danger'|'warn'|'success';labelPosition?:'start'|'center'|'end';speed?:number;dash?:number;zigzagSize?:number;children?:Snippet;icon?:Snippet
 }
 ```
 
@@ -749,7 +810,7 @@ Exports: `SidebarItem`, `SidebarProps`
 ### SidebarProps
 
 ```ts
-interface SidebarProps {items:SidebarItem[];active?:string;open?:boolean;collapsed?:boolean;color?:RxColor;variant?:'default'|'classic'|'floating'|'glow'|'gradient'|'minimal'|'rail';side?:'left'|'right';header?:Snippet;footer?:Snippet;onActiveChange?:(id:string)=>void;
+interface SidebarProps {items:SidebarItem[];active?:string;open?:boolean;collapsed?:boolean;color?:RxColor;variant?:'default'|'classic'|'floating'|'glow'|'gradient'|'minimal'|'rail';side?:'left'|'right';title?:string;collapsible?:boolean;dividers?:boolean;subDots?:boolean;glow?:boolean;scrollbar?:boolean;full?:boolean;flush?:boolean;disabled?:boolean;header?:Snippet;footer?:Snippet;onActiveChange?:(id:string)=>void
 }
 ```
 
@@ -760,7 +821,7 @@ Exports: `SkeletonVariant`, `SkeletonShape`, `SkeletonProps`
 ### SkeletonProps
 
 ```ts
-interface SkeletonProps { variant?: SkeletonVariant; shape?: SkeletonShape; loading?: boolean; children?: Snippet;
+interface SkeletonProps { variant?: SkeletonVariant; shape?: SkeletonShape; loading?: boolean; duration?: number; index?: number; angle?: number; intensity?: number; glow?: number; direction?: 'ltr' | 'rtl'; children?: Snippet;
 }
 ```
 
@@ -771,21 +832,26 @@ Exports: `SlideConfirmProps`
 ### SlideConfirmProps
 
 ```ts
-interface SlideConfirmProps { confirmed?:boolean;color?:RxColor;label?:string;confirmedLabel?:string;threshold?:number;disabled?:boolean;loading?:boolean;resettable?:boolean;icon?:Snippet;confirmedIcon?:Snippet;onConfirm?:()=>void;onConfirmedChange?:(confirmed:boolean)=>void;
+interface SlideConfirmProps { confirmed?:boolean;color?:RxColor;label?:string;confirmedLabel?:string;threshold?:number;size?:'sm'|'md'|'lg';radius?:'none'|'subtle'|'rounded'|'pill'|'squircle';tone?:'default'|'success'|'danger'|'warning';stiffness?:number;damping?:number;block?:boolean;glow?:boolean;disabled?:boolean;loading?:boolean;resettable?:boolean;icon?:Snippet;confirmedIcon?:Snippet;onInput?:(progress:number)=>void;onCancel?:(progress:number)=>void;onReset?:()=>void;onConfirm?:()=>void;onConfirmedChange?:(confirmed:boolean)=>void;
 }
 ```
 
 ## slider/slider.svelte
 
-Exports: `SliderProps`
+Exports: `SliderVariant`, `SliderStop`, `SliderProps`
 
 ### SliderProps
 
 ```ts
 interface SliderProps {
 		value?: number[]; min?: number; max?: number; step?: number; color?: RxColor;
-		size?: 'lg' | 'default' | 'sm'; knob?: 'circle' | 'square';
-		tooltip?: 'hover' | 'always' | 'none'; ticks?: boolean; disabled?: boolean;
+		size?: 'lg' | 'default' | 'sm'; variant?: SliderVariant; knob?: 'circle' | 'square';
+		tooltip?: 'hover' | 'always' | 'none'; ticks?: boolean; tickCount?: number; disabled?: boolean;
+		label?: string; showValue?: boolean; radius?: 'none' | 'subtle' | 'rounded' | 'pill' | 'squircle';
+		intensity?: number; fromColor?: RxColor; toColor?: RxColor; showNotches?: boolean;
+		stops?: SliderStop[]; snap?: boolean; threshold?: number; dotCount?: number; dots?: boolean;
+		stiffness?: number; damping?: number; lag?: number; blur?: number; squash?: number;
+		block?: boolean; bare?: boolean;
 		onValueChange?: (value: number[]) => void;
 }
 ```
@@ -797,7 +863,7 @@ Exports: `SpacerProps`
 ### SpacerProps
 
 ```ts
-interface SpacerProps { width?: string; height?: string; grow?: boolean;
+interface SpacerProps { size?:'none'|'xs'|'sm'|'md'|'lg'|'xl'|number|string; flex?:number; demo?:boolean; width?: string; height?: string; grow?: boolean;
 }
 ```
 
@@ -810,8 +876,15 @@ Exports: `SpinnerType`, `SpinnerSize`, `SpinnerProps`, `spinnerSizeClass`
 ```ts
 interface SpinnerProps {
 		type?: SpinnerType;
+		variant?: 'arc' | 'dual' | 'gradient';
 		color?: RxColor;
 		size?: SpinnerSize;
+		duration?: number;
+		easing?: 'linear' | 'ease' | 'ease-in-out';
+		thickness?: number;
+		track?: boolean;
+		overlay?: boolean;
+		label?: string;
 		text?: Snippet;
 }
 ```
@@ -823,7 +896,23 @@ Exports: `SplitButtonProps`
 ### SplitButtonProps
 
 ```ts
-interface SplitButtonProps {label:string;color?:RxColor;variant?:ButtonProps['variant'];disabled?:boolean;loading?:boolean;onclick?:(event:MouseEvent)=>void;menu:Snippet;icon?:Snippet
+interface SplitButtonProps {
+		label: string;
+		color?: RxColor;
+		variant?: ButtonProps['variant'];
+		size?: 'sm' | 'md' | 'lg';
+		radius?: 'none' | 'subtle' | 'rounded' | 'pill' | 'squircle';
+		tone?: 'default' | 'danger' | 'warn' | 'success';
+		disabled?: boolean;
+		loading?: boolean;
+		open?: boolean;
+		gap?: number;
+		goo?: boolean;
+		collapseOnSelect?: boolean;
+		items?: string[];
+		onclick?: (event: MouseEvent) => void;
+		onopenchange?: (open: boolean) => void;
+		onselect?: (detail: { index: number; value: string
 }
 ```
 
@@ -859,14 +948,14 @@ Exports: `switchVariants`, `SwitchVariantProps`
 
 ## switch/switch.svelte
 
-Exports: `SwitchProps`
+Exports: `SwitchVariant`, `SwitchProps`
 
 ### SwitchProps
 
 ```ts
 interface SwitchProps {
-		checked?: boolean; color?: RxColor; size?: 'lg' | 'default' | 'sm'; shape?: 'pill' | 'square';
-		loading?: boolean; disabled?: boolean; on?: Snippet; off?: Snippet;
+		checked?: boolean; color?: RxColor; size?: 'lg' | 'default' | 'sm'; shape?: 'pill' | 'rounded' | 'square'; variant?: SwitchVariant;
+		loading?: boolean; disabled?: boolean; glow?: boolean; labelPosition?: 'left' | 'right'; on?: Snippet; off?: Snippet;
 		onCheckedChange?: (checked: boolean) => void;
 }
 ```
@@ -926,7 +1015,7 @@ Exports: `TabsProps`
 ### TabsProps
 
 ```ts
-interface TabsProps { value?:string; orientation?:'horizontal'|'vertical'; activationMode?:'automatic'|'manual'; color?:RxColor; variant?:'default'|'bubble'|'card'|'chrome'|'gooey'|'neon'; onValueChange?:(value:string)=>void; children:Snippet;
+interface TabsProps { value?:string; orientation?:'horizontal'|'vertical'; activationMode?:'automatic'|'manual'; color?:RxColor; variant?:'default'|'bubble'|'card'|'chrome'|'gooey'|'neon'; size?:'sm'|'md'|'lg'; radius?:'none'|'subtle'|'rounded'|'pill'|'squircle'; block?:boolean; onValueChange?:(value:string)=>void; children:Snippet;
 }
 ```
 
@@ -947,17 +1036,23 @@ interface TextareaProps {
 		state?: 'default' | 'success' | 'danger' | 'warn';
 		message?: string | Snippet;
 		autoResize?: boolean;
+		resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+		clearable?: boolean;
+		labelMaxChars?: number;
+		block?: boolean;
+		glow?: boolean;
+		onClear?: () => void;
 }
 ```
 
 ## tick-rail/tick-rail.svelte
 
-Exports: `TickRailProps`
+Exports: `TickRailItem`, `TickRailProps`
 
 ### TickRailProps
 
 ```ts
-interface TickRailProps {value?:number;min?:number;max?:number;step?:number;color?:RxColor;orientation?:'horizontal'|'vertical';formatValue?:(value:number)=>string;onValueChange?:(value:number)=>void
+interface TickRailProps { items?:TickRailItem[]; active?:number; value?:number; side?:'left'|'right'; size?:'sm'|'md'|'lg'; tone?:'default'|'danger'|'warning'|'success'; reach?:number; magnify?:number; stiffness?:number; damping?:number; stagger?:number; lag?:number; blur?:number; squash?:number; block?:boolean; disabled?:boolean; color?:RxColor; ariaLabel?:string; onActiveChange?:(index:number)=>void; onSelect?:(item:TickRailItem,index:number)=>void
 }
 ```
 
@@ -968,25 +1063,18 @@ Exports: `TimelineItem`, `TimelineProps`
 ### TimelineProps
 
 ```ts
-interface TimelineProps {items:TimelineItem[];color?:RxColor;variant?:'default'|'alternating'|'cards'|'compact'|'glow'|'gradient';orientation?:'vertical'|'horizontal'
+interface TimelineProps { items:TimelineItem[];color?:RxColor;variant?:'default'|'alternating'|'cards'|'compact'|'glow'|'gradient';orientation?:'vertical'|'horizontal';size?:'sm'|'md'|'lg';align?:'left'|'right'|'alternate';lineStyle?:'solid'|'dashed';progress?:number;flow?:boolean;pulse?:boolean;reveal?:boolean;glow?:boolean
 }
 ```
 
 ## tooltip/tooltip.svelte
 
-Exports: `TooltipProps`
+Exports: `TooltipMotion`, `TooltipSurface`, `TooltipRadius`, `TooltipProps`
 
 ### TooltipProps
 
 ```ts
-interface TooltipProps {
-		content: string | Snippet;
-		side?: 'top' | 'right' | 'bottom' | 'left';
-		align?: 'start' | 'center' | 'end';
-		color?: RxColor;
-		variant?: 'default' | 'border' | 'shadow';
-		delayDuration?: number;
-		children: Snippet;
+interface TooltipProps { open?:boolean;content:string|Snippet;side?:'top'|'right'|'bottom'|'left';align?:'start'|'center'|'end';color?:RxColor;variant?:TooltipMotion;surface?:TooltipSurface;radius?:TooltipRadius;offset?:number;delayDuration?:number;disabled?:boolean;children:Snippet;onOpenChange?:(open:boolean)=>void
 }
 ```
 
@@ -997,17 +1085,17 @@ Exports: `TransformProps`
 ### TransformProps
 
 ```ts
-interface TransformProps {show?:boolean;variant?:'expand'|'fade'|'flip'|'scale'|'slide';direction?:'up'|'right'|'down'|'left';duration?:number;keepMounted?:boolean;onComplete?:(show:boolean)=>void;children:Snippet
+interface TransformProps {show?:boolean;open?:boolean;variant?:'morph'|'expand'|'fade'|'flip'|'scale'|'slide';direction?:'up'|'right'|'down'|'left';from?:'top'|'right'|'bottom'|'left';axis?:'x'|'y';placement?:'anchor'|'center';side?:'over'|'up'|'down';align?:'start'|'center';speed?:number;duration?:number;keepMounted?:boolean;label?:string;trigger?:Snippet;size?:'sm'|'md'|'lg';radius?:'none'|'subtle'|'rounded'|'pill'|'squircle';tone?:'default'|'danger'|'warn'|'success';disabled?:boolean;dismissable?:boolean;backdrop?:boolean;glow?:boolean;bounce?:boolean;blur?:number;softFade?:boolean;onComplete?:(show:boolean)=>void;onOpenChange?:(open:boolean)=>void;children:Snippet
 }
 ```
 
 ## upload/upload.svelte
 
-Exports: `UploadFile`, `UploadRejection`, `UploadProps`
+Exports: `UploadFile`, `UploadRejection`, `UploadProps`, `uploadFileMotion`
 
 ### UploadProps
 
 ```ts
-interface UploadProps { files?: UploadFile[]; accept?: string; multiple?: boolean; maxSize?: number; maxFiles?: number; color?: RxColor; disabled?: boolean; label?: string | Snippet; onFilesAdded?: (added: UploadFile[]) => void; onFileRemoved?: (file: UploadFile) => void; onRejected?: (rejections: UploadRejection[]) => void
+interface UploadProps { files?: UploadFile[]; accept?: string; multiple?: boolean; maxSize?: number; maxFiles?: number; color?: RxColor; variant?: 'base'|'button'|'compact'|'dropzone'|'gallery'|'glow'; disabled?: boolean; label?: string | Snippet; onFilesAdded?: (added: UploadFile[]) => void; onFileRemoved?: (file: UploadFile) => void; onRejected?: (rejections: UploadRejection[]) => void
 }
 ```

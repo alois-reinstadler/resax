@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Pagination",
+  "componentKey": "pagination",
+  "family": "VsPagination",
+  "variants": [
+    "vs-pagination",
+    "vs-pagination-compact",
+    "vs-pagination-dots",
+    "vs-pagination-gooey",
+    "vs-pagination-ink",
+    "vs-pagination-segments"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsPagination.hxgAuxWS.js",
+      "path": "compiled/vue/VsPagination.hxgAuxWS.js",
+      "sha256": "ee34d7fadab4be757df98085707519e08c56370382e199c6a7574342ac7f37c3",
+      "bytes": 8343,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-pagination",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPaginationCompact.BMC6yjIv.js",
+      "path": "compiled/vue/VsPaginationCompact.BMC6yjIv.js",
+      "sha256": "0d33a4f49e6cb602de471c14c10d4ee2f7b59c06a57af9d369401a2daefa04e5",
+      "bytes": 3524,
+      "artifactType": "compiled-vue-island",
+      "variant": "compact",
+      "variantSlug": "vs-pagination-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPaginationDots.BKutAoAG.js",
+      "path": "compiled/vue/VsPaginationDots.BKutAoAG.js",
+      "sha256": "8dd6253fa5a37a12316612108916e2320364b8a9e3708d654bcb8b76ce504d1a",
+      "bytes": 2748,
+      "artifactType": "compiled-vue-island",
+      "variant": "dots",
+      "variantSlug": "vs-pagination-dots",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPaginationGooey.C1uztdCA.js",
+      "path": "compiled/vue/VsPaginationGooey.C1uztdCA.js",
+      "sha256": "1191115dad87c544b7eed3aaec798a1ec6cdff9e44715152098ac21e3fb795b8",
+      "bytes": 4424,
+      "artifactType": "compiled-vue-island",
+      "variant": "gooey",
+      "variantSlug": "vs-pagination-gooey",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPaginationInk.B4PSUiKc.js",
+      "path": "compiled/vue/VsPaginationInk.B4PSUiKc.js",
+      "sha256": "8d19eab46b3bfb20ab9c5892eb93f041aa166fd36f5a440044881a5cfdd583ff",
+      "bytes": 4647,
+      "artifactType": "compiled-vue-island",
+      "variant": "ink",
+      "variantSlug": "vs-pagination-ink",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPaginationSegments.BBZwpb1N.js",
+      "path": "compiled/vue/VsPaginationSegments.BBZwpb1N.js",
+      "sha256": "1906db1736bd61367079a09fd6d4a959c70c0e8cfb451281b7f6abc051318ae9",
+      "bytes": 3034,
+      "artifactType": "compiled-vue-island",
+      "variant": "segments",
+      "variantSlug": "vs-pagination-segments",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-pagination-compact.css",
+      "path": "css/shadow/vs-pagination-compact.css",
+      "sha256": "9aac2a2468365e74ec090ea46b830854bf7e9215b124da7c27c99c4ba95bad9b",
+      "bytes": 3532,
+      "artifactType": "extracted-shadow-css",
+      "variant": "compact",
+      "variantSlug": "vs-pagination-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-pagination-dots.css",
+      "path": "css/shadow/vs-pagination-dots.css",
+      "sha256": "ea3d7f56fa9458d2d622961e59f38d69a63351e6bda4008e739d74ad9bfe0301",
+      "bytes": 3047,
+      "artifactType": "extracted-shadow-css",
+      "variant": "dots",
+      "variantSlug": "vs-pagination-dots",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-pagination-gooey.css",
+      "path": "css/shadow/vs-pagination-gooey.css",
+      "sha256": "86348003253706c44b2fb6a5b29636777f9fe898cbc6e235678fc8df9c9bdea5",
+      "bytes": 3954,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gooey",
+      "variantSlug": "vs-pagination-gooey",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-pagination-ink.css",
+      "path": "css/shadow/vs-pagination-ink.css",
+      "sha256": "74825cc6ca15c70d63722feb16114a809f9f5ebc01a5c03ade56958cae274bca",
+      "bytes": 3691,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ink",
+      "variantSlug": "vs-pagination-ink",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-pagination-segments.css",
+      "path": "css/shadow/vs-pagination-segments.css",
+      "sha256": "3e3dca75b38489a676304bdb35e2b6d40b3bacfc65bbe145d637851664989c43",
+      "bytes": 4655,
+      "artifactType": "extracted-shadow-css",
+      "variant": "segments",
+      "variantSlug": "vs-pagination-segments",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-pagination.css",
+      "path": "css/shadow/vs-pagination.css",
+      "sha256": "522b63fa15a02e69b2b4744e42a22d4a221544755f61288710c97bf984a957b7",
+      "bytes": 7646,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-pagination",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsPagination.CNtc8xV9.css",
+      "path": "css/vue-scoped/VsPagination.CNtc8xV9.css",
+      "sha256": "eece581a7c59d971e6d9cf46eab6e6abe2285a524e7ba769204e13d76bca3974",
+      "bytes": 5611,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-pagination",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-pagination-compact.js",
+      "path": "web-component/vs-pagination-compact.js",
+      "sha256": "6d2d7ad047265237291bb07e9cb2d8a277d9017b88c4f5847745cf7a42ef768a",
+      "bytes": 9748,
+      "artifactType": "web-component-source",
+      "variant": "compact",
+      "variantSlug": "vs-pagination-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-pagination-dots.js",
+      "path": "web-component/vs-pagination-dots.js",
+      "sha256": "99dbac362e8dacd2b4a444c6773550b42b873af8ea2b32055a5e470b185e3ddb",
+      "bytes": 8152,
+      "artifactType": "web-component-source",
+      "variant": "dots",
+      "variantSlug": "vs-pagination-dots",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-pagination-gooey.js",
+      "path": "web-component/vs-pagination-gooey.js",
+      "sha256": "e1d1304f605f7272af1ea5c107dafc47c497d0f557f80c5d580baaf26e1ee76b",
+      "bytes": 11445,
+      "artifactType": "web-component-source",
+      "variant": "gooey",
+      "variantSlug": "vs-pagination-gooey",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-pagination-ink.js",
+      "path": "web-component/vs-pagination-ink.js",
+      "sha256": "16be51b9614995523215e25818997693274db94f64ccb5e76861bc403654bf75",
+      "bytes": 10545,
+      "artifactType": "web-component-source",
+      "variant": "ink",
+      "variantSlug": "vs-pagination-ink",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-pagination-segments.js",
+      "path": "web-component/vs-pagination-segments.js",
+      "sha256": "dd651bc5e6b71cd48d766ac948d7e9ec4e4a98776dac1112afb0862465815c03",
+      "bytes": 10607,
+      "artifactType": "web-component-source",
+      "variant": "segments",
+      "variantSlug": "vs-pagination-segments",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-pagination.js",
+      "path": "web-component/vs-pagination.js",
+      "sha256": "a38a3b59ea2e4a7e95c2af2814bbd52a3eaf20ebd62d92be98ca50fd1db568a5",
+      "bytes": 17386,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-pagination",
+      "stateHints": []
+    }
+  ]
+}

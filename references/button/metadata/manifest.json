@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Button",
+  "componentKey": "button",
+  "family": "VsButton",
+  "variants": [
+    "vs-button",
+    "vs-button-border-draw",
+    "vs-button-chrome",
+    "vs-button-glitch",
+    "vs-button-gooey",
+    "vs-button-gradient",
+    "vs-button-invert",
+    "vs-button-liquid",
+    "vs-button-magnetic",
+    "vs-button-plasma",
+    "vs-button-push",
+    "vs-button-shine",
+    "vs-button-v2"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsButton.DZWXpOOo.js",
+      "path": "compiled/vue/VsButton.DZWXpOOo.js",
+      "sha256": "deff925cde85f529ef973028a3e24089f35afa83f23e7fd3f55d38c252ae9901",
+      "bytes": 2300,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-button",
+      "stateHints": [
+        "pressed",
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonBorderDraw.BjotuddS.js",
+      "path": "compiled/vue/VsButtonBorderDraw.BjotuddS.js",
+      "sha256": "f214bdf7b28c71f0745da958c3a94c905bed5d8a0847ab47d7f37818272c05b2",
+      "bytes": 893,
+      "artifactType": "compiled-vue-island",
+      "variant": "border-draw",
+      "variantSlug": "vs-button-border-draw",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonGlitch.BwMbzGrS.js",
+      "path": "compiled/vue/VsButtonGlitch.BwMbzGrS.js",
+      "sha256": "f020d51a9b33ad39ad21c31eb3c7dc94baee3b0f388747bf8f0aee095117e78e",
+      "bytes": 844,
+      "artifactType": "compiled-vue-island",
+      "variant": "glitch",
+      "variantSlug": "vs-button-glitch",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonGradient.DsCjxaVp.js",
+      "path": "compiled/vue/VsButtonGradient.DsCjxaVp.js",
+      "sha256": "2f3e251704d43f929ac38e69dd336d795ea68dcc1914601a61b2922dfba2ed95",
+      "bytes": 2790,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-button-gradient",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonLiquid.xQOPDNcT.js",
+      "path": "compiled/vue/VsButtonLiquid.xQOPDNcT.js",
+      "sha256": "f470a111a2ea791d42b5e6688716467260d1358f163c1f7be6c9d6015cc8f82b",
+      "bytes": 978,
+      "artifactType": "compiled-vue-island",
+      "variant": "liquid",
+      "variantSlug": "vs-button-liquid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonMagnetic.CxfAd_8N.js",
+      "path": "compiled/vue/VsButtonMagnetic.CxfAd_8N.js",
+      "sha256": "e2841cc0db8af2992783e8662077e808d918b6b70fd441d55afcc738c28f224a",
+      "bytes": 1483,
+      "artifactType": "compiled-vue-island",
+      "variant": "magnetic",
+      "variantSlug": "vs-button-magnetic",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonPush.Dc6c-YcO.js",
+      "path": "compiled/vue/VsButtonPush.Dc6c-YcO.js",
+      "sha256": "4833c3153d491b45c792d40193d110e7b284de62ec61538220671dac88cae0f2",
+      "bytes": 1178,
+      "artifactType": "compiled-vue-island",
+      "variant": "push",
+      "variantSlug": "vs-button-push",
+      "stateHints": [
+        "hover",
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonShine.DDxqJCVp.js",
+      "path": "compiled/vue/VsButtonShine.DDxqJCVp.js",
+      "sha256": "1cc6f3048220c341b37af9f205e5f9a611bf015595c894f28421a328bfda62a2",
+      "bytes": 903,
+      "artifactType": "compiled-vue-island",
+      "variant": "shine",
+      "variantSlug": "vs-button-shine",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsButtonV2.D6OxEMZe.js",
+      "path": "compiled/vue/VsButtonV2.D6OxEMZe.js",
+      "sha256": "805819d73fb7b3454d2a9935d0a1807ff57ce7bc6db6e0cedbd68197e7854083",
+      "bytes": 2077,
+      "artifactType": "compiled-vue-island",
+      "variant": "v2",
+      "variantSlug": "vs-button-v2",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-border-draw.css",
+      "path": "css/shadow/vs-button-border-draw.css",
+      "sha256": "22d6efa4167b2f1d14d85bc4c679365adc12b337df3ba48b991b405d0111d943",
+      "bytes": 3740,
+      "artifactType": "extracted-shadow-css",
+      "variant": "border-draw",
+      "variantSlug": "vs-button-border-draw",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-chrome.css",
+      "path": "css/shadow/vs-button-chrome.css",
+      "sha256": "6a73a8515e3b0b1df75942be67ab27a429932abda649eaf297345eb2fd6e22d4",
+      "bytes": 12756,
+      "artifactType": "extracted-shadow-css",
+      "variant": "chrome",
+      "variantSlug": "vs-button-chrome",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-glitch.css",
+      "path": "css/shadow/vs-button-glitch.css",
+      "sha256": "93c4be4ce4d364b0d47e5eaf5266b9ac41571078818f45bea0fa7bc441327971",
+      "bytes": 4959,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glitch",
+      "variantSlug": "vs-button-glitch",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-gooey.css",
+      "path": "css/shadow/vs-button-gooey.css",
+      "sha256": "8e470ea7dee621e56bd7495d103d8522af5475cf6c965467f47b1f9057fe14ff",
+      "bytes": 4708,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gooey",
+      "variantSlug": "vs-button-gooey",
+      "stateHints": [
+        "dropping",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-gradient.css",
+      "path": "css/shadow/vs-button-gradient.css",
+      "sha256": "97624b51dc40e8c9eee5c8b7b59501a8dec7cff23517df661f2232d8eeebee3c",
+      "bytes": 4478,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-button-gradient",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-invert.css",
+      "path": "css/shadow/vs-button-invert.css",
+      "sha256": "7d2b499cce4922b9effe61590b12573c3087425fb6654b64e643ec2bab9af40b",
+      "bytes": 3649,
+      "artifactType": "extracted-shadow-css",
+      "variant": "invert",
+      "variantSlug": "vs-button-invert",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-liquid.css",
+      "path": "css/shadow/vs-button-liquid.css",
+      "sha256": "253d136b80074b96f61d29054a60382eb6dcdeff7ee73d984badae12888bd892",
+      "bytes": 3475,
+      "artifactType": "extracted-shadow-css",
+      "variant": "liquid",
+      "variantSlug": "vs-button-liquid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-magnetic.css",
+      "path": "css/shadow/vs-button-magnetic.css",
+      "sha256": "830005f402a8ab0a7fc78794312a6680218e231aa4378a8a7106f785b4931652",
+      "bytes": 2367,
+      "artifactType": "extracted-shadow-css",
+      "variant": "magnetic",
+      "variantSlug": "vs-button-magnetic",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-plasma.css",
+      "path": "css/shadow/vs-button-plasma.css",
+      "sha256": "8e27b4e2b00d9987388b6eac3865977b688f457501cdc4b50c5e42209b5eed31",
+      "bytes": 5600,
+      "artifactType": "extracted-shadow-css",
+      "variant": "plasma",
+      "variantSlug": "vs-button-plasma",
+      "stateHints": [
+        "disabled",
+        "hover",
+        "focus",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-push.css",
+      "path": "css/shadow/vs-button-push.css",
+      "sha256": "6923ad3b7dbfd7cc5636c2e430973083398c8ebc3c17bb66d1eff56650236756",
+      "bytes": 20,
+      "artifactType": "extracted-shadow-css",
+      "variant": "push",
+      "variantSlug": "vs-button-push",
+      "stateHints": [
+        "hover",
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-shine.css",
+      "path": "css/shadow/vs-button-shine.css",
+      "sha256": "b722b2425b4eb3d69c9f5ea397b45982370fd02bd082c07dd47002041626cbea",
+      "bytes": 4059,
+      "artifactType": "extracted-shadow-css",
+      "variant": "shine",
+      "variantSlug": "vs-button-shine",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-v2.css",
+      "path": "css/shadow/vs-button-v2.css",
+      "sha256": "1013db72120b0858936293fb482c92c1b483956490f0a31d64c39546e9fd45fb",
+      "bytes": 6232,
+      "artifactType": "extracted-shadow-css",
+      "variant": "v2",
+      "variantSlug": "vs-button-v2",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button.css",
+      "path": "css/shadow/vs-button.css",
+      "sha256": "076b35c57e2a1531babe82bb570f1024868f94125fa4fcebefb69297b795cb12",
+      "bytes": 6824,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-button",
+      "stateHints": [
+        "pressed",
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsButtonV2.CiX-q0Dk.css",
+      "path": "css/vue-scoped/VsButtonV2.CiX-q0Dk.css",
+      "sha256": "46492f8b27f050efc2ca2dc426ed9377f7a8be38e3526fd40b6b811ed527972e",
+      "bytes": 5286,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "v2",
+      "variantSlug": "vs-button-v2",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsButtonV2.css",
+      "path": "css/vue-scoped/VsButtonV2.css",
+      "sha256": "46492f8b27f050efc2ca2dc426ed9377f7a8be38e3526fd40b6b811ed527972e",
+      "bytes": 5286,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "v2",
+      "variantSlug": "vs-button-v2",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-border-draw.js",
+      "path": "web-component/vs-button-border-draw.js",
+      "sha256": "07c08bc7036ea53a3733d495780749260cf0717abcf5d120b0db55bc67ab9ff9",
+      "bytes": 6303,
+      "artifactType": "web-component-source",
+      "variant": "border-draw",
+      "variantSlug": "vs-button-border-draw",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-chrome.js",
+      "path": "web-component/vs-button-chrome.js",
+      "sha256": "09c8ace76aba80c16390153712dad319e1785e89088f33739e224c7914fe4911",
+      "bytes": 20568,
+      "artifactType": "web-component-source",
+      "variant": "chrome",
+      "variantSlug": "vs-button-chrome",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-glitch.js",
+      "path": "web-component/vs-button-glitch.js",
+      "sha256": "6b7a48d72405097a0503a0b2f4cd5eb7fc0c0f3ca805035be111f947c0c6117e",
+      "bytes": 8562,
+      "artifactType": "web-component-source",
+      "variant": "glitch",
+      "variantSlug": "vs-button-glitch",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-gooey.js",
+      "path": "web-component/vs-button-gooey.js",
+      "sha256": "2c121c140a887c8842ddc2779be34f57b81f6fd85e82a0ae5605dbf41b1050f6",
+      "bytes": 29809,
+      "artifactType": "web-component-source",
+      "variant": "gooey",
+      "variantSlug": "vs-button-gooey",
+      "stateHints": [
+        "dropping",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-gradient.js",
+      "path": "web-component/vs-button-gradient.js",
+      "sha256": "30572275491f79b11fd11cfeafe167b47c70632fa263c1dddf66d1a322aa2f13",
+      "bytes": 8821,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-button-gradient",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-invert.js",
+      "path": "web-component/vs-button-invert.js",
+      "sha256": "75d4aea42578097ba5f0195a3b8470cad68050542ef9ed5c24a48c16860dd8cd",
+      "bytes": 9841,
+      "artifactType": "web-component-source",
+      "variant": "invert",
+      "variantSlug": "vs-button-invert",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-liquid.js",
+      "path": "web-component/vs-button-liquid.js",
+      "sha256": "a6ed87cb823f4892a17def79aebfb301ca09f4488f7c6631f6a280c49f290054",
+      "bytes": 6368,
+      "artifactType": "web-component-source",
+      "variant": "liquid",
+      "variantSlug": "vs-button-liquid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-magnetic.js",
+      "path": "web-component/vs-button-magnetic.js",
+      "sha256": "716d4032595be4dfdad13d019d19614dcf33e039ee2baf69f5d5f9ad36658e61",
+      "bytes": 5584,
+      "artifactType": "web-component-source",
+      "variant": "magnetic",
+      "variantSlug": "vs-button-magnetic",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-plasma.js",
+      "path": "web-component/vs-button-plasma.js",
+      "sha256": "012b16b7d77bf1dc6245e2cd3f9e286652d2dd66588ad3075170ba42541a41a5",
+      "bytes": 26940,
+      "artifactType": "web-component-source",
+      "variant": "plasma",
+      "variantSlug": "vs-button-plasma",
+      "stateHints": [
+        "disabled",
+        "hover",
+        "focus",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-push.js",
+      "path": "web-component/vs-button-push.js",
+      "sha256": "4833c3153d491b45c792d40193d110e7b284de62ec61538220671dac88cae0f2",
+      "bytes": 1178,
+      "artifactType": "web-component-source",
+      "variant": "push",
+      "variantSlug": "vs-button-push",
+      "stateHints": [
+        "hover",
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-shine.js",
+      "path": "web-component/vs-button-shine.js",
+      "sha256": "f09e2e90405d4f033537159891ce6cf377e16b7500f8b062569b73d6750943e9",
+      "bytes": 6699,
+      "artifactType": "web-component-source",
+      "variant": "shine",
+      "variantSlug": "vs-button-shine",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-v2.js",
+      "path": "web-component/vs-button-v2.js",
+      "sha256": "2dbf5b8611c77e3a2db69100009527af9ed74c3ea2b10282ed8e154de767c447",
+      "bytes": 10764,
+      "artifactType": "web-component-source",
+      "variant": "v2",
+      "variantSlug": "vs-button-v2",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button.js",
+      "path": "web-component/vs-button.js",
+      "sha256": "320f8616b4cd960cb63fb3606a421b3f16532ec82902a82d1c7c1b25aeddb404",
+      "bytes": 14514,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-button",
+      "stateHints": [
+        "pressed",
+        "loading"
+      ]
+    }
+  ]
+}

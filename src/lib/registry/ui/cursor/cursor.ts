@@ -3,65 +3,78 @@ import type { RxColor } from '$lib/registry/lib/color';
 import { getColor } from '$lib/registry/lib/color';
 
 export type CursorVariant = 'default' | 'blend' | 'blob' | 'glow' | 'label' | 'magnet' | 'reticle';
-export interface CursorOptions { variant?: CursorVariant; color?: RxColor; size?: number; label?: string; selector?: string; disabled?: boolean; }
+export interface CursorOptions {
+	variant?: CursorVariant; color?: RxColor; foreground?:RxColor; size?: number; sizeOuter?: number; ease?: number; easeOuter?:number; label?: string;
+	selector?: string; growScale?: number; squash?: number; sensitivity?: number; maxStretch?: number;
+	intensity?: number; trail?: number; pillHeight?: number; padding?: number; pull?: number; radius?: number;
+	spin?: number; disabled?: boolean;
+}
 
-export function cursor(options: CursorOptions = {}): Attachment<HTMLElement> {
-	return (boundary) => {
-		if (typeof document === 'undefined' || typeof window === 'undefined' || options.disabled) return;
-		const coarse = window.matchMedia?.('(pointer: coarse)').matches;
-		const forced = window.matchMedia?.('(forced-colors: active)').matches;
-		const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-		if (coarse || forced || reduced) return;
+type Point={x:number;y:number};
+type MagnetTarget={element:HTMLElement;transform:string;rect:DOMRect;x:number;y:number};
+const clamp=(value:number,min:number,max:number)=>Math.max(min,Math.min(max,value));
 
-		const variant = options.variant ?? 'default';
-		const size = Math.max(8, options.size ?? 28);
-		const previousCursor = boundary.style.cursor;
-		const overlay = document.createElement('div');
-		overlay.dataset.rxCursor = variant;
-		overlay.setAttribute('aria-hidden', 'true');
-		overlay.style.cssText = `position:fixed;z-index:2147483646;left:0;top:0;width:${size}px;height:${size}px;border:1.5px solid rgb(var(--rx-cursor-color,var(--rx-primary)));border-radius:999px;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);transition:width 150ms,height 150ms,opacity 120ms,background 150ms;display:grid;place-items:center;color:rgb(var(--rx-light));background:rgb(var(--rx-cursor-color,var(--rx-primary))/.08);box-shadow:${variant === 'glow' ? '0 0 22px rgb(var(--rx-cursor-color,var(--rx-primary))/.65)' : 'none'};mix-blend-mode:${variant === 'blend' ? 'difference' : 'normal'};font:600 11px/1 sans-serif;white-space:nowrap;`;
-		const cursorColor = getColor(options.color);
-		if (cursorColor) overlay.style.setProperty('--rx-cursor-color', cursorColor);
-		if (variant === 'reticle') overlay.style.borderRadius = '0';
-		if (variant === 'blob') overlay.style.borderRadius = '45% 55% 52% 48%';
-		document.body.append(overlay);
-		boundary.style.cursor = 'none';
+export function cursor(options:CursorOptions={}):Attachment<HTMLElement>{
+	return(boundary)=>{
+		if(typeof document==='undefined'||typeof window==='undefined'||options.disabled)return;
+		const coarse=window.matchMedia?.('(pointer: coarse)').matches,forced=window.matchMedia?.('(forced-colors: active)').matches;
+		if(coarse||forced)return;
+		const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches,variant=options.variant??'default';
+		const previousCursor=boundary.style.cursor,root=document.createElement('div');root.dataset.rxCursor=variant;root.setAttribute('aria-hidden','true');root.style.cssText='position:fixed;inset:0;z-index:2147483646;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 200ms ease;';
+		const color=getColor(options.color),foreground=getColor(options.foreground);root.style.setProperty('--rx-cur',color??'var(--rx-primary)');root.style.setProperty('--rx-cur-fg',foreground??'var(--rx-bg)');
+		const style=document.createElement('style');style.textContent=`
+			.rx-cur-shape{position:fixed;top:0;left:0;box-sizing:border-box;pointer-events:none;will-change:transform,width,height;}
+			.rx-cur-dot{border-radius:50%;background:rgb(var(--rx-cur));}.rx-cur-ring{border:1.5px solid rgb(var(--rx-cur));border-radius:50%;}
+			.rx-cur-blend{border-radius:50%;background:rgb(var(--rx-cur));mix-blend-mode:difference}.rx-cur-ghost{border:1.5px solid rgb(var(--rx-cur));border-radius:50%;mix-blend-mode:difference;opacity:.5}
+			.rx-cur-label{display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgb(var(--rx-cur));overflow:hidden;transition:width 260ms cubic-bezier(.16,1,.3,1),height 260ms cubic-bezier(.16,1,.3,1),padding 260ms cubic-bezier(.16,1,.3,1),border-radius 260ms ease}.rx-cur-label.is-active{border-radius:999px}.rx-cur-label span{color:rgb(var(--rx-cur-fg));font:600 12px/1 sans-serif;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;opacity:0;transform:scale(.6);transition:opacity 160ms ease 40ms,transform 240ms cubic-bezier(.34,1.56,.64,1) 40ms}.rx-cur-label.is-active span{opacity:1;transform:scale(1)}
+			.rx-cur-plate{background:rgb(var(--rx-cur));border-radius:50%;opacity:1;transition:opacity 200ms}.rx-cur-plate.is-snapped{opacity:.16}.rx-cur-field{border:1px solid rgb(var(--rx-cur));border-radius:50%;opacity:0}
+			.rx-cur-reticle{transition:width 260ms cubic-bezier(.2,.9,.3,1.3),height 260ms cubic-bezier(.2,.9,.3,1.3)}.rx-cur-reticle-ring{position:absolute;inset:0;border:1px dashed rgb(var(--rx-cur));border-radius:50%;animation:rx-cur-spin var(--rx-spin,7s) linear infinite}.rx-cur-reticle-dot{position:absolute;top:50%;left:50%;width:3px;height:3px;margin:-1.5px;border-radius:50%;background:rgb(var(--rx-cur))}.rx-cur-corner{position:absolute;width:7px;height:7px;border-color:rgb(var(--rx-cur));border-style:solid;border-width:0}.rx-cur-corner.tl{top:-4px;left:-4px;border-top-width:1.5px;border-left-width:1.5px}.rx-cur-corner.tr{top:-4px;right:-4px;border-top-width:1.5px;border-right-width:1.5px}.rx-cur-corner.bl{bottom:-4px;left:-4px;border-bottom-width:1.5px;border-left-width:1.5px}.rx-cur-corner.br{right:-4px;bottom:-4px;border-right-width:1.5px;border-bottom-width:1.5px}
+			.rx-cur-canvas{position:fixed;inset:0;width:100%;height:100%;mix-blend-mode:screen}
+			@keyframes rx-cur-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.rx-cur-shape,.rx-cur-label,.rx-cur-label span{transition:none!important}.rx-cur-reticle-ring{animation:none}}
+		`;root.append(style);
+		const make=(className:string)=>{const element=document.createElement('div');element.className=`rx-cur-shape ${className}`;root.append(element);return element};
+		let primary:HTMLElement|null=null,secondary:HTMLElement|null=null,canvas:HTMLCanvasElement|null=null,context:CanvasRenderingContext2D|null=null,labelNode:HTMLSpanElement|null=null;
+		const defaultOuter=Math.max(12,options.sizeOuter??options.size??36),defaultDot=Math.max(4,options.sizeOuter?options.size??8:defaultOuter*2/9);
+		if(variant==='default'){secondary=make('rx-cur-ring');secondary.style.width=secondary.style.height=`${defaultOuter}px`;primary=make('rx-cur-dot');primary.style.width=primary.style.height=`${defaultDot}px`}
+		else if(variant==='blend'){primary=make('rx-cur-blend');secondary=make('rx-cur-ghost');const size=Math.max(8,options.size??28);for(const element of[primary,secondary])element.style.width=element.style.height=`${size}px`}
+		else if(variant==='blob'){primary=make('rx-cur-dot');const size=Math.max(8,options.size??26);primary.style.width=primary.style.height=`${size}px`}
+		else if(variant==='label'){primary=make('rx-cur-label');labelNode=document.createElement('span');primary.append(labelNode);const size=Math.max(8,options.size??10);primary.style.width=primary.style.height=`${size}px`}
+		else if(variant==='magnet'){secondary=make('rx-cur-field');primary=make('rx-cur-plate');const size=Math.max(8,options.size??12);for(const element of[primary,secondary])element.style.width=element.style.height=`${size}px`}
+		else if(variant==='reticle'){primary=make('rx-cur-reticle');const size=Math.max(12,options.size??34);primary.style.width=primary.style.height=`${size}px`;root.style.setProperty('--rx-spin',`${options.spin??7}s`);for(const name of['rx-cur-reticle-ring','rx-cur-reticle-dot','rx-cur-corner tl','rx-cur-corner tr','rx-cur-corner bl','rx-cur-corner br']){const child=document.createElement('i');child.className=name;primary.append(child)}}
+		else{canvas=document.createElement('canvas');canvas.className='rx-cur-canvas';root.append(canvas);if(typeof globalThis.CanvasRenderingContext2D!=='undefined')context=canvas.getContext('2d')}
+		document.body.append(root);boundary.style.cursor='none';
 
-		let frame = 0;
-		let x = -100, y = -100, targetX = x, targetY = y;
-		function targetFrom(event: PointerEvent): HTMLElement | null {
-			const path = event.composedPath();
-			for (const entry of path) if (entry instanceof HTMLElement && boundary.contains(entry) && (!options.selector || entry.matches(options.selector))) return entry;
-			return null;
+		let frame=0,visible=false,pressed=false,growActive=false,target:Point={x:-100,y:-100},position:Point={...target},lag:Point={...target},previous:Point={...target},velocity:Point={x:0,y:0},angle=0,pressScale=1;
+		const samples:Array<{x:number;y:number;vx:number;vy:number}>=[],magnetTargets:MagnetTarget[]=[];
+		function targets(){for(const saved of magnetTargets)saved.element.style.transform=saved.transform;magnetTargets.length=0;if(variant!=='magnet')return;for(const element of boundary.querySelectorAll<HTMLElement>('[data-cursor-magnet],[data-rx-cursor-magnet]'))magnetTargets.push({element,transform:element.style.transform,rect:element.getBoundingClientRect(),x:0,y:0})}
+		function resizeCanvas(){if(!canvas||!context)return;const dpr=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);context.setTransform(dpr,0,0,dpr,0,0)}
+		resizeCanvas();targets();
+		function closest(event:PointerEvent,selector:string){for(const entry of event.composedPath())if(entry instanceof HTMLElement&&boundary.contains(entry)&&entry.matches(selector))return entry;return null}
+		function resolveRgb(){const probe=document.createElement('span');probe.style.cssText='position:fixed;opacity:0;color:rgb(var(--rx-cur))';root.append(probe);const values=getComputedStyle(probe).color.match(/[\d.]+/g);probe.remove();return values?.slice(0,3).map(Number)??[255,255,255]}
+		const rgb=resolveRgb();
+		function drawGlow(){if(!context||!canvas)return;context.clearRect(0,0,innerWidth,innerHeight);if(!visible)return;context.globalCompositeOperation='lighter';const count=reduced?1:Math.max(1,Math.round(clamp(options.trail??.6,0,1)*39)),available=Math.min(count,samples.length),base=Math.max(40,options.size??220),intensity=clamp(options.intensity??.28,.05,1);for(let index=available-1;index>=0;index--){const sample=samples[samples.length-1-index];if(!sample)continue;const age=available<=1?0:index/available,alpha=(1-age)**2*intensity*(index===0?.55:.16),speed=Math.hypot(sample.vx,sample.vy),stretch=1+Math.min(speed/22,1)*.9,squash=1-Math.min(speed/22,1)*.35,radius=base*(.55+.45*(1-age));if(alpha<.004)continue;context.save();context.globalAlpha=alpha;context.translate(sample.x,sample.y);if(speed>.1)context.rotate(Math.atan2(sample.vy,sample.vx));context.scale(stretch,squash);const gradient=context.createRadialGradient(0,0,0,0,0,radius/2);gradient.addColorStop(0,`rgb(${rgb.join(' ')} / .82)`);gradient.addColorStop(.2,`rgb(${rgb.join(' ')} / .5)`);gradient.addColorStop(.48,`rgb(${rgb.join(' ')} / .18)`);gradient.addColorStop(1,`rgb(${rgb.join(' ')} / 0)`);context.fillStyle=gradient;context.fillRect(-radius/2,-radius/2,radius,radius);context.restore()}context.globalCompositeOperation='source-over';context.fillStyle=`rgb(${rgb.join(' ')})`;context.beginPath();context.arc(target.x,target.y,3,0,Math.PI*2);context.fill()}
+		function transform(element:HTMLElement,x:number,y:number,rotation=0,sx=1,sy=1){element.style.transform=`translate3d(${x}px,${y}px,0) translate(-50%,-50%) rotate(${rotation}rad) scale(${sx},${sy})`}
+		function animate(){frame=0;if(!visible)return;const defaultEase=variant==='default'?(options.easeOuter??.55):variant==='glow'?.14:variant==='magnet'?.22:variant==='reticle'?.3:.35;const ease=reduced?1:clamp(options.ease??defaultEase,.02,1);previous={...position};position.x+=(target.x-position.x)*ease;position.y+=(target.y-position.y)*ease;velocity.x+=(position.x-previous.x-velocity.x)*.35;velocity.y+=(position.y-previous.y-velocity.y)*.35;lag.x+=(position.x-lag.x)*(reduced?1:variant==='default'?.15:ease*.4);lag.y+=(position.y-lag.y)*(reduced?1:variant==='default'?.15:ease*.4);const speed=Math.hypot(velocity.x,velocity.y);if(speed>.4)angle=Math.atan2(velocity.y,velocity.x);pressScale+=((pressed?.72:1)-pressScale)*.3;
+			if(variant==='default'&&primary&&secondary){transform(primary,position.x,position.y,0,pressScale,pressScale);transform(secondary,lag.x,lag.y,0,pressScale,pressScale)}
+			else if(variant==='blend'&&primary&&secondary){const grow=growActive?clamp(options.growScale??2.2,1,4):1,squash=reduced?0:Math.min(speed/26,1)*clamp(options.squash??.6,0,1);transform(primary,position.x,position.y,angle,grow*(1+squash*.85),grow*(1-squash*.42));transform(secondary,lag.x,lag.y,angle,grow*(1+squash*1.5),grow*(1-squash*.5));secondary.style.opacity=String(.16+squash*.34)}
+			else if(variant==='blob'&&primary){const stretch=reduced?1:1+Math.min(speed*(options.sensitivity??.015),clamp(options.maxStretch??.9,.1,2));transform(primary,position.x,position.y,angle,stretch,1/Math.sqrt(stretch))}
+			else if(variant==='label'&&primary)transform(primary,position.x,position.y)
+			else if(variant==='reticle'&&primary)transform(primary,position.x,position.y)
+			else if(variant==='magnet'&&primary&&secondary){const padding=options.padding??10,pull=clamp(options.pull??14,0,60),radius=clamp(options.radius??130,0,500);let best:HTMLElement|null=null,bestPower=0,bestRect:DOMRect|null=null;for(const saved of magnetTargets){const rect=saved.rect,cx=rect.left+rect.width/2,cy=rect.top+rect.height/2,dx=target.x-cx,dy=target.y-cy,edgeX=Math.max(0,Math.abs(dx)-rect.width/2-padding),edgeY=Math.max(0,Math.abs(dy)-rect.height/2-padding),power=radius?Math.max(0,1-Math.hypot(edgeX,edgeY)/radius)**2:0,desiredX=clamp(dx,-pull,pull)*power,desiredY=clamp(dy,-pull,pull)*power,targetEase=reduced?1:.18;saved.x+=(desiredX-saved.x)*targetEase;saved.y+=(desiredY-saved.y)*targetEase;saved.element.style.transform=`${saved.transform?`${saved.transform} `:''}translate3d(${saved.x.toFixed(2)}px,${saved.y.toFixed(2)}px,0)`;if(power>bestPower){best=saved.element;bestPower=power;bestRect=rect}}const snapped=best&&bestRect&&target.x>=bestRect.left-padding&&target.x<=bestRect.right+padding&&target.y>=bestRect.top-padding&&target.y<=bestRect.bottom+padding;if(snapped&&bestRect){primary.classList.add('is-snapped');primary.style.width=`${bestRect.width+padding*2}px`;primary.style.height=`${bestRect.height+padding*2}px`;primary.style.borderRadius=`${Math.min(bestRect.width,bestRect.height)/2+padding}px`;position.x+=(bestRect.left+bestRect.width/2-position.x)*.24;position.y+=(bestRect.top+bestRect.height/2-position.y)*.24}else{primary.classList.remove('is-snapped');const base=options.size??12,size=base*(1+bestPower*.6);primary.style.width=primary.style.height=`${size}px`;primary.style.borderRadius='999px'}transform(primary,position.x,position.y);secondary.style.width=secondary.style.height=`${radius*(1.25-bestPower*.55)}px`;secondary.style.opacity=bestPower>.02?String(.05+bestPower*.22):'0';transform(secondary,target.x,target.y)}
+			else if(variant==='glow'){samples.push({x:position.x,y:position.y,vx:velocity.x,vy:velocity.y});if(samples.length>40)samples.shift();drawGlow()}
+			const unsettled=Math.abs(target.x-position.x)>.08||Math.abs(target.y-position.y)>.08||Math.abs(position.x-lag.x)>.08||Math.abs(position.y-lag.y)>.08;
+			if(unsettled||variant==='glow'||variant==='magnet')frame=requestAnimationFrame(animate)
 		}
-		function paint() {
-			frame = 0; x += (targetX - x) * .62; y += (targetY - y) * .62;
-			overlay.style.transform = `translate3d(${x - overlay.offsetWidth / 2}px,${y - overlay.offsetHeight / 2}px,0)`;
-			if (Math.abs(targetX-x)>.1 || Math.abs(targetY-y)>.1) frame=requestAnimationFrame(paint);
-		}
-		function move(event: PointerEvent) {
-			if (event.pointerType && event.pointerType !== 'mouse') return;
-			const target = targetFrom(event);
-			if (!target) { overlay.style.opacity='0'; return; }
-			overlay.style.opacity = document.visibilityState === 'visible' ? '1' : '0';
-			const magnet = target.closest<HTMLElement>('[data-rx-cursor-magnet]');
-			if (variant === 'magnet' && magnet && boundary.contains(magnet)) { const r=magnet.getBoundingClientRect(); targetX=r.left+r.width/2; targetY=r.top+r.height/2; }
-			else { targetX=event.clientX; targetY=event.clientY; }
-			const text = target.closest<HTMLElement>('[data-rx-cursor-label]')?.dataset.rxCursorLabel ?? options.label ?? '';
-			overlay.textContent = variant === 'label' ? text : '';
-			if (variant === 'label' && text) { overlay.style.width='auto'; overlay.style.padding='0 9px'; }
-			else { overlay.style.width=`${size}px`; overlay.style.padding='0'; }
-			if (!frame) frame=requestAnimationFrame(paint);
-		}
-		function leave() { overlay.style.opacity='0'; }
-		function visibility() { if (document.visibilityState !== 'visible') leave(); }
-		boundary.addEventListener('pointermove', move);
-		boundary.addEventListener('pointerleave', leave);
-		document.addEventListener('visibilitychange', visibility);
-		return () => {
-			boundary.removeEventListener('pointermove', move); boundary.removeEventListener('pointerleave', leave);
-			document.removeEventListener('visibilitychange', visibility); if (frame) cancelAnimationFrame(frame);
-			overlay.remove(); boundary.style.cursor = previousCursor;
-		};
+		function schedule(){if(!frame)frame=requestAnimationFrame(animate)}
+		function move(event:PointerEvent){if(event.pointerType&&event.pointerType!=='mouse')return;const pathTarget=closest(event,options.selector??'*');if(!pathTarget){leave();return}growActive=Boolean(closest(event,'[data-cursor-grow],[data-rx-cursor-grow]'));target={x:event.clientX,y:event.clientY};if(!visible){visible=true;position={...target};lag={...target};previous={...target};root.style.opacity='1'}
+			if(variant==='label'&&primary&&labelNode){const textTarget=closest(event,'[data-cursor-text],[data-rx-cursor-label]'),text=textTarget?.getAttribute('data-cursor-text')??textTarget?.getAttribute('data-rx-cursor-label')??options.label??'';labelNode.textContent=text;const active=Boolean(text);primary.classList.toggle('is-active',active);const base=options.size??10,height=options.pillHeight??40;primary.style.height=`${active?height:base}px`;primary.style.width=active?'auto':`${base}px`;primary.style.padding=active?`0 ${height*.45}px`:'0'}
+			if(variant==='reticle'&&primary){const grow=closest(event,'[data-cursor-grow],[data-rx-cursor-grow]');if(grow){const rect=grow.getBoundingClientRect();primary.style.width=`${rect.width+8}px`;primary.style.height=`${rect.height+8}px`;target={x:rect.left+rect.width/2,y:rect.top+rect.height/2}}else{const size=options.size??34;primary.style.width=primary.style.height=`${size}px`}}
+			schedule()}
+		function leave(){visible=false;growActive=false;root.style.opacity='0';if(frame){cancelAnimationFrame(frame);frame=0}if(context&&canvas)context.clearRect(0,0,canvas.width,canvas.height);for(const saved of magnetTargets)saved.element.style.transform=saved.transform}
+		function down(){pressed=true;schedule()}function up(){pressed=false;schedule()}function visibility(){if(document.hidden)leave()}
+		function refreshTargets(){targets()}
+		boundary.addEventListener('pointermove',move);boundary.addEventListener('pointerleave',leave);boundary.addEventListener('pointerdown',down);boundary.addEventListener('pointerup',up);document.addEventListener('visibilitychange',visibility);window.addEventListener('resize',resizeCanvas,{passive:true});window.addEventListener('resize',refreshTargets,{passive:true});window.addEventListener('scroll',refreshTargets,{passive:true,capture:true});
+		const observer=typeof ResizeObserver==='undefined'?null:new ResizeObserver(refreshTargets);observer?.observe(boundary);
+		return()=>{boundary.removeEventListener('pointermove',move);boundary.removeEventListener('pointerleave',leave);boundary.removeEventListener('pointerdown',down);boundary.removeEventListener('pointerup',up);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('resize',resizeCanvas);window.removeEventListener('resize',refreshTargets);window.removeEventListener('scroll',refreshTargets,{capture:true});observer?.disconnect();if(frame)cancelAnimationFrame(frame);for(const saved of magnetTargets)saved.element.style.transform=saved.transform;root.remove();boundary.style.cursor=previousCursor}
 	};
 }

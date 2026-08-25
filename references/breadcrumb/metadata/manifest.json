@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Breadcrumb",
+  "componentKey": "breadcrumb",
+  "family": "VsBreadcrumb",
+  "variants": [
+    "vs-breadcrumb",
+    "vs-breadcrumb-arrow",
+    "vs-breadcrumb-collapse",
+    "vs-breadcrumb-glow",
+    "vs-breadcrumb-pill",
+    "vs-breadcrumb-slash"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsBreadcrumb.CQP4f6Uz.js",
+      "path": "compiled/vue/VsBreadcrumb.CQP4f6Uz.js",
+      "sha256": "c00d2d6fa42857c26b930addc39335686a91d6b2e76cca35f9f1a7c288230ba5",
+      "bytes": 4603,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-breadcrumb",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBreadcrumbArrow.CEN9XwZo.js",
+      "path": "compiled/vue/VsBreadcrumbArrow.CEN9XwZo.js",
+      "sha256": "b8b9062e32bb457114a1e2b6102a50e59b3c7d6d8ceb7ac5d9786f7fd09fd5b7",
+      "bytes": 1649,
+      "artifactType": "compiled-vue-island",
+      "variant": "arrow",
+      "variantSlug": "vs-breadcrumb-arrow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBreadcrumbCollapse.CdhHAPvg.js",
+      "path": "compiled/vue/VsBreadcrumbCollapse.CdhHAPvg.js",
+      "sha256": "bc242c625be05fef0922d01515d29808e1420d1a7b6f5e761df6e9bdce764d46",
+      "bytes": 4552,
+      "artifactType": "compiled-vue-island",
+      "variant": "collapse",
+      "variantSlug": "vs-breadcrumb-collapse",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBreadcrumbGlow.BGVlFO8r.js",
+      "path": "compiled/vue/VsBreadcrumbGlow.BGVlFO8r.js",
+      "sha256": "60e3a6ea60e66f6df641ff77a2a2cf863f8934218e76f0a43e66c900eb3ac49f",
+      "bytes": 2198,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-breadcrumb-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBreadcrumbPill.CBVW-nuO.js",
+      "path": "compiled/vue/VsBreadcrumbPill.CBVW-nuO.js",
+      "sha256": "0703900a98c17f7df1670e5405a690a08f5be5457604681901b3c6c938e5b4b0",
+      "bytes": 2162,
+      "artifactType": "compiled-vue-island",
+      "variant": "pill",
+      "variantSlug": "vs-breadcrumb-pill",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBreadcrumbSlash.CT3RIPsk.js",
+      "path": "compiled/vue/VsBreadcrumbSlash.CT3RIPsk.js",
+      "sha256": "0e79c99ccb6e5c079cf4f731f197b65677169f5163bd9e2bfed7a8f2140b3654",
+      "bytes": 1850,
+      "artifactType": "compiled-vue-island",
+      "variant": "slash",
+      "variantSlug": "vs-breadcrumb-slash",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-breadcrumb-arrow.css",
+      "path": "css/shadow/vs-breadcrumb-arrow.css",
+      "sha256": "3985827d3761fa6a5db3eff1ef4d5cfa893426313bb7ae6a39aa7d1cbb27ec3f",
+      "bytes": 3006,
+      "artifactType": "extracted-shadow-css",
+      "variant": "arrow",
+      "variantSlug": "vs-breadcrumb-arrow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-breadcrumb-collapse.css",
+      "path": "css/shadow/vs-breadcrumb-collapse.css",
+      "sha256": "e6e274ae2d94e4522b2d8416cb14c7207b7acc8a183840534c280559612d3f5e",
+      "bytes": 5895,
+      "artifactType": "extracted-shadow-css",
+      "variant": "collapse",
+      "variantSlug": "vs-breadcrumb-collapse",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-breadcrumb-glow.css",
+      "path": "css/shadow/vs-breadcrumb-glow.css",
+      "sha256": "d061975f8b97c9bd9bbadfec4784ab489c9f1c8f5c944a78412c460e83bf980f",
+      "bytes": 3214,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-breadcrumb-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-breadcrumb-pill.css",
+      "path": "css/shadow/vs-breadcrumb-pill.css",
+      "sha256": "96798ccebd294ca9c86b642db8da0498371bfcd4478c5ea8cfc03df2c2a2af0c",
+      "bytes": 2923,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pill",
+      "variantSlug": "vs-breadcrumb-pill",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-breadcrumb-slash.css",
+      "path": "css/shadow/vs-breadcrumb-slash.css",
+      "sha256": "d00c396c9838f29f8f3264abf439355cad8e2aafd263cc5785d3ac2d6c39e49e",
+      "bytes": 3175,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slash",
+      "variantSlug": "vs-breadcrumb-slash",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-breadcrumb.css",
+      "path": "css/shadow/vs-breadcrumb.css",
+      "sha256": "bf7e4eafbba5a91cdf299d53356b3a8d1583a4e671f168675edb6c81325ed809",
+      "bytes": 4568,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-breadcrumb",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsBreadcrumbCollapse.BA7LCPOJ.css",
+      "path": "css/vue-scoped/VsBreadcrumbCollapse.BA7LCPOJ.css",
+      "sha256": "fb30a224d4b2a7cad46b927d2bc5fc01c37687577ce4fcb9bba300de87ad94e3",
+      "bytes": 4296,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "collapse",
+      "variantSlug": "vs-breadcrumb-collapse",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-breadcrumb-arrow.js",
+      "path": "web-component/vs-breadcrumb-arrow.js",
+      "sha256": "dcf5ce2e197b6202af062b01789e6b3d7b1fa9a0d07b7cb3ba9c5060c447747a",
+      "bytes": 6500,
+      "artifactType": "web-component-source",
+      "variant": "arrow",
+      "variantSlug": "vs-breadcrumb-arrow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-breadcrumb-collapse.js",
+      "path": "web-component/vs-breadcrumb-collapse.js",
+      "sha256": "3cea50b9221789de3696b9da5484fc42ccd2b03d559650d160b74f449afbd8bb",
+      "bytes": 11464,
+      "artifactType": "web-component-source",
+      "variant": "collapse",
+      "variantSlug": "vs-breadcrumb-collapse",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-breadcrumb-glow.js",
+      "path": "web-component/vs-breadcrumb-glow.js",
+      "sha256": "a1827ad3560b2cdc711b4dc0611810d0da378dc97427ed7aaf18fc8ebcfb352a",
+      "bytes": 7586,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-breadcrumb-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-breadcrumb-pill.js",
+      "path": "web-component/vs-breadcrumb-pill.js",
+      "sha256": "48a6c7318a190fd08381de0fd63499b271bceacfac58c4e62e6f3839d64cca0f",
+      "bytes": 7187,
+      "artifactType": "web-component-source",
+      "variant": "pill",
+      "variantSlug": "vs-breadcrumb-pill",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-breadcrumb-slash.js",
+      "path": "web-component/vs-breadcrumb-slash.js",
+      "sha256": "e283e8f4c3be83452ab5020dab85d9fdc941b7809aa94a2d39e2be8b08fe9646",
+      "bytes": 6861,
+      "artifactType": "web-component-source",
+      "variant": "slash",
+      "variantSlug": "vs-breadcrumb-slash",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-breadcrumb.js",
+      "path": "web-component/vs-breadcrumb.js",
+      "sha256": "d1560cb68062b9cf7236a1d5b4489a06907fedddfe3190b0fb2df9eac48b4585",
+      "bytes": 10789,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-breadcrumb",
+      "stateHints": [
+        "pointer"
+      ]
+    }
+  ]
+}

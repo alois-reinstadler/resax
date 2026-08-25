@@ -3,6 +3,10 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   quality:
@@ -19,6 +23,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm registry:build
       - run: pnpm registry:check
+      - run: pnpm references:check
       - name: Verify generated registry is current
         run: git diff --exit-code -- static/r
       - run: pnpm check
@@ -42,3 +47,47 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:a11y
       - run: pnpm test:visual
+
+  pages-build:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: [quality, browser]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Build static site
+        env:
+          BASE_PATH: /resax
+        run: pnpm build
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: build
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: pages-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

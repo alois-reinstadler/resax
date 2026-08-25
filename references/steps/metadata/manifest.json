@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Steps",
+  "componentKey": "steps",
+  "family": "VsSteps",
+  "variants": [
+    "vs-steps",
+    "vs-steps-arrow",
+    "vs-steps-bar",
+    "vs-steps-circular",
+    "vs-steps-pills",
+    "vs-steps-timeline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSteps.B_BxeJjL.js",
+      "path": "compiled/vue/VsSteps.B_BxeJjL.js",
+      "sha256": "db3782fd19e45d0229a39ea20071327945f0db7b4620262de6b105e6b73d086a",
+      "bytes": 3991,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-steps",
+      "stateHints": [
+        "active",
+        "checked",
+        "error"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsStepsArrow.DSaDNlmw.js",
+      "path": "compiled/vue/VsStepsArrow.DSaDNlmw.js",
+      "sha256": "7e5d2af5dae86065d63f2da430b10b5dc0f67e5ff21641656425454e62ea138e",
+      "bytes": 2432,
+      "artifactType": "compiled-vue-island",
+      "variant": "arrow",
+      "variantSlug": "vs-steps-arrow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsStepsBar.Sjautu-F.js",
+      "path": "compiled/vue/VsStepsBar.Sjautu-F.js",
+      "sha256": "bcf79b102de3eb6b863b4f54f9fd18b596ce7763fc65bc7c41797c3d023a4122",
+      "bytes": 3028,
+      "artifactType": "compiled-vue-island",
+      "variant": "bar",
+      "variantSlug": "vs-steps-bar",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsStepsCircular.B18evvN4.js",
+      "path": "compiled/vue/VsStepsCircular.B18evvN4.js",
+      "sha256": "34f41aaa2abb3fcecbe920df59ccbe369f8dd38e14e2944e57804bddd4c52567",
+      "bytes": 1965,
+      "artifactType": "compiled-vue-island",
+      "variant": "circular",
+      "variantSlug": "vs-steps-circular",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsStepsPills.CZ1NaGEW.js",
+      "path": "compiled/vue/VsStepsPills.CZ1NaGEW.js",
+      "sha256": "6fe97a30c1e1ceee6e3542b75884ac00d7fa00c1d477dff911bf3b9937218eda",
+      "bytes": 2710,
+      "artifactType": "compiled-vue-island",
+      "variant": "pills",
+      "variantSlug": "vs-steps-pills",
+      "stateHints": [
+        "active",
+        "expanded",
+        "collapsed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsStepsTimeline.BOO1I5k3.js",
+      "path": "compiled/vue/VsStepsTimeline.BOO1I5k3.js",
+      "sha256": "23bdcb34a44172282b386561085fc57491bb38326af0f0061c8be39c2f06aedf",
+      "bytes": 3029,
+      "artifactType": "compiled-vue-island",
+      "variant": "timeline",
+      "variantSlug": "vs-steps-timeline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-steps-arrow.css",
+      "path": "css/shadow/vs-steps-arrow.css",
+      "sha256": "ed7aa75c21a1d4643a58cef47f09b3b53de1b60cfbbf139288175dce9e52467c",
+      "bytes": 3931,
+      "artifactType": "extracted-shadow-css",
+      "variant": "arrow",
+      "variantSlug": "vs-steps-arrow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-steps-bar.css",
+      "path": "css/shadow/vs-steps-bar.css",
+      "sha256": "dd0d4b82bccec477aef8889cbd1ad94e5ad9b8cdff85ac0b02784161d554723c",
+      "bytes": 5008,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bar",
+      "variantSlug": "vs-steps-bar",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-steps-circular.css",
+      "path": "css/shadow/vs-steps-circular.css",
+      "sha256": "52c128879325d2211a0924bf2bcc6c9434a502177a954808ce595fb2e0b5115e",
+      "bytes": 4494,
+      "artifactType": "extracted-shadow-css",
+      "variant": "circular",
+      "variantSlug": "vs-steps-circular",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-steps-pills.css",
+      "path": "css/shadow/vs-steps-pills.css",
+      "sha256": "5b75fb25196f73e0bef9a7a2c5e513b23c4108541f9a002ab484b5afd124c919",
+      "bytes": 3384,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pills",
+      "variantSlug": "vs-steps-pills",
+      "stateHints": [
+        "active",
+        "expanded",
+        "collapsed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-steps-timeline.css",
+      "path": "css/shadow/vs-steps-timeline.css",
+      "sha256": "6db40d1d80f83998bdbde2bb1516d850761934f405907dd628eec22b01fdb960",
+      "bytes": 4697,
+      "artifactType": "extracted-shadow-css",
+      "variant": "timeline",
+      "variantSlug": "vs-steps-timeline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-steps.css",
+      "path": "css/shadow/vs-steps.css",
+      "sha256": "d460d45ab213acf9081f95f90574e971cec2d8eea93140dd840b0bb71d997be1",
+      "bytes": 10422,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-steps",
+      "stateHints": [
+        "active",
+        "checked",
+        "error"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSteps.BgOUFm92.css",
+      "path": "css/vue-scoped/VsSteps.BgOUFm92.css",
+      "sha256": "af05002058e3b0a23967ba2989589195b887736c03880d9b14d58f95cdb243c9",
+      "bytes": 8031,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-steps",
+      "stateHints": [
+        "active",
+        "checked",
+        "error"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsStepsTimeline.Cqnv9gYt.css",
+      "path": "css/vue-scoped/VsStepsTimeline.Cqnv9gYt.css",
+      "sha256": "afa17f27a4769f179b543c56aac72f73f3105f270c69d3efba9c0c16443343cd",
+      "bytes": 4108,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "timeline",
+      "variantSlug": "vs-steps-timeline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-steps-arrow.js",
+      "path": "web-component/vs-steps-arrow.js",
+      "sha256": "884b37d2065a371a7861f0c277dabcffed21652018d5acb53d4aefa13ee17319",
+      "bytes": 10592,
+      "artifactType": "web-component-source",
+      "variant": "arrow",
+      "variantSlug": "vs-steps-arrow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-steps-bar.js",
+      "path": "web-component/vs-steps-bar.js",
+      "sha256": "f367c9b5ecd9ebc30d649fe2c5cfc045b357f95d4dc4cd1b11e97da760bb1b22",
+      "bytes": 12035,
+      "artifactType": "web-component-source",
+      "variant": "bar",
+      "variantSlug": "vs-steps-bar",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-steps-circular.js",
+      "path": "web-component/vs-steps-circular.js",
+      "sha256": "4b2e3e5326cfa519f751fa6d7d1449cb9b5be69e3e942759f937e7a80040cfdf",
+      "bytes": 11525,
+      "artifactType": "web-component-source",
+      "variant": "circular",
+      "variantSlug": "vs-steps-circular",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-steps-pills.js",
+      "path": "web-component/vs-steps-pills.js",
+      "sha256": "6646b42b42b730bd3ebbe0a9fc6dfefd348f22abd065e045effdff0540dc0c0b",
+      "bytes": 8619,
+      "artifactType": "web-component-source",
+      "variant": "pills",
+      "variantSlug": "vs-steps-pills",
+      "stateHints": [
+        "active",
+        "expanded",
+        "collapsed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-steps-timeline.js",
+      "path": "web-component/vs-steps-timeline.js",
+      "sha256": "ba25b57792f03e8b58f6797402fe63bade5ced89eefe349bde058d14907c156e",
+      "bytes": 10463,
+      "artifactType": "web-component-source",
+      "variant": "timeline",
+      "variantSlug": "vs-steps-timeline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-steps.js",
+      "path": "web-component/vs-steps.js",
+      "sha256": "c6c57fc1a727f5fe66f1c05e50fb24930797f43f3221b9e447fe929819b2a6e6",
+      "bytes": 17766,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-steps",
+      "stateHints": [
+        "active",
+        "checked",
+        "error"
+      ]
+    }
+  ]
+}

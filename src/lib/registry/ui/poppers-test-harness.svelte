@@ -11,13 +11,13 @@
 <Dropdown bind:open={dropdownOpen} trigger={hover ? 'hover' : 'click'}>
 	{#snippet children()}<span>{hover ? 'Hover actions' : 'Actions'}</span>{/snippet}
 	{#snippet content()}
-		<DropdownItem onSelect={() => selected.push('enabled')}>Enabled action</DropdownItem>
+		<DropdownItem value="enabled" selected badge="Pro" onSelect={() => selected.push('enabled')}>Enabled action</DropdownItem>
 		<DropdownItem disabled onSelect={() => selected.push('disabled')}>Disabled action</DropdownItem>
 	{/snippet}
 </Dropdown>
 <ContextMenu>
 	{#snippet children()}<div>Context target</div>{/snippet}
-	{#snippet content()}<ContextMenuItem onSelect={() => selected.push('context')}>Context action</ContextMenuItem>{/snippet}
+	{#snippet content()}<ContextMenuItem value="context" selected shortcut="⌘K" onSelect={() => selected.push('context')}>Context action</ContextMenuItem>{/snippet}
 </ContextMenu>
 <output aria-label="dropdown open">{dropdownOpen}</output>
 <output aria-label="selections">{selected.join(',')}</output>

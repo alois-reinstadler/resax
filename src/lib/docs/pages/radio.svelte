@@ -1,6 +1,5 @@
-<script lang="ts">
-	import DemoSection from '../DemoSection.svelte';
-	import { Radio, RadioGroup } from '$lib/registry/ui/radio-group';
-</script>
-<div class="page-heading"><p class="eyebrow">Component</p><h1>Radio</h1><p>Radio is installed with RadioGroup and inherits its color and size.</p></div>
-<DemoSection title="Radio choices" item="radio-group" source={'<RadioGroup><Radio value="one">One</Radio></RadioGroup>'}><RadioGroup value="one" orientation="horizontal"><Radio value="one">One</Radio><Radio value="two">Two</Radio></RadioGroup><p><a href="/components/radio-group">See all RadioGroup examples</a></p></DemoSection>
+<script lang="ts">import{base}from'$app/paths';import DemoSection from'../DemoSection.svelte';import{Radio,RadioGroup}from'$lib/registry/ui/radio-group';let value=$state('base');</script>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Radio</h1><p>Base liquid feedback plus bounce, card, fill, glow, and tracing-ring selections.</p></div>
+<DemoSection title="All radio variants" item="radio-group"><RadioGroup bind:value orientation="horizontal"><Radio value="base" glow>Base</Radio><Radio value="bounce" variant="bounce">Bounce</Radio><Radio value="fill" variant="fill">Fill</Radio><Radio value="glow" variant="glow">Glow</Radio><Radio value="ring" variant="ring">Ring</Radio></RadioGroup></DemoSection>
+<DemoSection title="Card radio"><RadioGroup value="pro"><Radio value="free" variant="card">Free{#snippet description()}For personal projects{/snippet}</Radio><Radio value="pro" variant="card">Pro{#snippet description()}For growing teams{/snippet}</Radio></RadioGroup></DemoSection>
+<p><a href={`${base}/components/radio-group`}>See all RadioGroup layouts</a></p>

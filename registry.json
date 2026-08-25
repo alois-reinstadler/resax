@@ -1,7 +1,7 @@
 {
 	"$schema": "https://shadcn-svelte.com/schema/registry.json",
 	"name": "resax",
-	"homepage": "http://localhost:5173",
+	"homepage": "https://alois-reinstadler.github.io/resax",
 	"aliases": {
 		"lib": "$lib",
 		"ui": "$lib/registry/ui",
@@ -29,7 +29,9 @@
 			"title": "Resax Color Utilities",
 			"description": "Strict color normalization for Resax runtime colors.",
 			"type": "registry:lib",
-			"registryDependencies": [],
+			"registryDependencies": [
+				"local:theme"
+			],
 			"files": [
 				{
 					"path": "src/lib/registry/lib/color.ts",
@@ -57,12 +59,50 @@
 			"title": "Resax Ripple Attachment",
 			"description": "A reduced-motion-aware Svelte 5 pointer ripple attachment.",
 			"type": "registry:lib",
-			"registryDependencies": [],
+			"registryDependencies": [
+				"local:theme"
+			],
 			"files": [
 				{
 					"path": "src/lib/registry/attachments/ripple.ts",
 					"type": "registry:lib",
 					"target": "registry/attachments/ripple.ts"
+				}
+			]
+		},
+		{
+			"name": "interactions",
+			"title": "Resax Interaction Attachments",
+			"description": "Shared Svelte 5 attachments for source-shaped pointer, glow, magnetic, tilt, and neighboring-light interactions.",
+			"type": "registry:lib",
+			"registryDependencies": [
+				"local:theme"
+			],
+			"files": [
+				{
+					"path": "src/lib/registry/attachments/proximity-glow.ts",
+					"type": "registry:lib",
+					"target": "registry/attachments/proximity-glow.ts"
+				},
+				{
+					"path": "src/lib/registry/attachments/pointer-position.ts",
+					"type": "registry:lib",
+					"target": "registry/attachments/pointer-position.ts"
+				},
+				{
+					"path": "src/lib/registry/attachments/magnetic.ts",
+					"type": "registry:lib",
+					"target": "registry/attachments/magnetic.ts"
+				},
+				{
+					"path": "src/lib/registry/attachments/tilt3d.ts",
+					"type": "registry:lib",
+					"target": "registry/attachments/tilt3d.ts"
+				},
+				{
+					"path": "src/lib/registry/attachments/neighbor-light.ts",
+					"type": "registry:lib",
+					"target": "registry/attachments/neighbor-light.ts"
 				}
 			]
 		},
@@ -164,7 +204,8 @@
 				"local:theme",
 				"local:utils-color",
 				"local:utils-easing",
-				"local:ripple"
+				"local:ripple",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -201,7 +242,8 @@
 				"local:theme",
 				"local:utils-color",
 				"local:utils-easing",
-				"local:ripple"
+				"local:ripple",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -279,7 +321,8 @@
 			],
 			"registryDependencies": [
 				"local:theme",
-				"local:utils-color"
+				"local:utils-color",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -315,7 +358,8 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -341,7 +385,8 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -366,7 +411,8 @@
 			],
 			"registryDependencies": [
 				"local:theme",
-				"local:utils-color"
+				"local:utils-color",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -391,7 +437,9 @@
 			],
 			"registryDependencies": [
 				"local:theme",
-				"local:utils-color"
+				"local:utils-color",
+				"local:ripple",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -469,7 +517,9 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:ripple",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -492,7 +542,9 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:ripple",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -617,7 +669,8 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -644,7 +697,8 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -671,7 +725,8 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -778,7 +833,8 @@
 			"type": "registry:ui",
 			"registryDependencies": [
 				"local:theme",
-				"local:utils-color"
+				"local:utils-color",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -806,7 +862,8 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -830,6 +887,7 @@
 				"bits-ui"
 			],
 			"registryDependencies": [
+				"tooltip",
 				"local:theme",
 				"local:utils-color",
 				"local:utils-easing"
@@ -889,7 +947,8 @@
 				"dropdown-menu",
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -928,6 +987,7 @@
 				"bits-ui"
 			],
 			"registryDependencies": [
+				"context-menu",
 				"local:theme",
 				"local:utils-color",
 				"local:utils-easing"
@@ -1323,17 +1383,24 @@
 			"description": "Responsive collapsible Vuesax sidebar.",
 			"type": "registry:ui",
 			"registryDependencies": [
+				"sidebar",
 				"sheet",
 				"tooltip",
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
 					"path": "src/lib/registry/ui/sidebar/sidebar.svelte",
 					"type": "registry:ui",
 					"target": "resax/sidebar/sidebar.svelte"
+				},
+				{
+					"path": "src/lib/registry/ui/sidebar/mobile-sync.svelte",
+					"type": "registry:ui",
+					"target": "resax/sidebar/mobile-sync.svelte"
 				},
 				{
 					"path": "src/lib/registry/ui/sidebar/index.ts",
@@ -1566,7 +1633,8 @@
 			"registryDependencies": [
 				"local:theme",
 				"local:utils-color",
-				"local:utils-easing"
+				"local:utils-easing",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -1781,6 +1849,7 @@
 			"description": "Composable reduced-motion-aware transform effects.",
 			"type": "registry:ui",
 			"registryDependencies": [
+				"dialog",
 				"local:theme",
 				"local:utils-easing"
 			],
@@ -1804,7 +1873,8 @@
 			"type": "registry:ui",
 			"registryDependencies": [
 				"local:rx-button",
-				"local:theme"
+				"local:theme",
+				"local:utils-color"
 			],
 			"files": [
 				{
@@ -1825,6 +1895,7 @@
 			"description": "Grouped actions built on the official button-group base.",
 			"type": "registry:ui",
 			"registryDependencies": [
+				"button-group",
 				"local:rx-button",
 				"local:theme"
 			],
@@ -1909,7 +1980,8 @@
 				"dialog",
 				"local:rx-button",
 				"local:theme",
-				"local:utils-color"
+				"local:utils-color",
+				"local:interactions"
 			],
 			"files": [
 				{
@@ -1936,7 +2008,9 @@
 			"type": "registry:ui",
 			"registryDependencies": [
 				"sheet",
-				"local:theme"
+				"local:theme",
+				"local:utils-color",
+				"local:interactions"
 			],
 			"files": [
 				{

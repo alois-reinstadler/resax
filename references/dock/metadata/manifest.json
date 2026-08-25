@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Dock",
+  "componentKey": "dock",
+  "family": "VsDock",
+  "variants": [
+    "vs-dock",
+    "vs-dock-aurora",
+    "vs-dock-bounce",
+    "vs-dock-glass",
+    "vs-dock-gooey",
+    "vs-dock-magnet",
+    "vs-dock-neon"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsDock.C8ShjHUW.js",
+      "path": "compiled/vue/VsDock.C8ShjHUW.js",
+      "sha256": "165ae92bb5fb563c21494d58ef6e086e8f33fecff8a075ea37fb30f9c3c33d44",
+      "bytes": 10472,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-dock",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDockAurora.D-asxBmp.js",
+      "path": "compiled/vue/VsDockAurora.D-asxBmp.js",
+      "sha256": "05ecb323dc67f7466dcd92d32dfb63020ba48396f00417bd26f26d6b1324c194",
+      "bytes": 11131,
+      "artifactType": "compiled-vue-island",
+      "variant": "aurora",
+      "variantSlug": "vs-dock-aurora",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDockBounce.BoyUb4Ey.js",
+      "path": "compiled/vue/VsDockBounce.BoyUb4Ey.js",
+      "sha256": "8ff9663c3dce5f880304f950ff8738cd5f03fffbc07098598da4147fac46e592",
+      "bytes": 4538,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-dock-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDockGlass.D1eQQcUF.js",
+      "path": "compiled/vue/VsDockGlass.D1eQQcUF.js",
+      "sha256": "f0c500e25daed530ee2f6e768e11eb3ef4fc56fb345ccb8a2be0300876e861a9",
+      "bytes": 4997,
+      "artifactType": "compiled-vue-island",
+      "variant": "glass",
+      "variantSlug": "vs-dock-glass",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDockGooey.BgfYX0gb.js",
+      "path": "compiled/vue/VsDockGooey.BgfYX0gb.js",
+      "sha256": "2d7e4d52ad459750a68113950c19da3ddd16bbe573794ab59e72ce4311402842",
+      "bytes": 4927,
+      "artifactType": "compiled-vue-island",
+      "variant": "gooey",
+      "variantSlug": "vs-dock-gooey",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDockMagnet.sLZ2isJS.js",
+      "path": "compiled/vue/VsDockMagnet.sLZ2isJS.js",
+      "sha256": "ff7603271cd788f8b7d0d8bba417ff808fc41f18917f57c75e441c1fb5c0c6ca",
+      "bytes": 4692,
+      "artifactType": "compiled-vue-island",
+      "variant": "magnet",
+      "variantSlug": "vs-dock-magnet",
+      "stateHints": [
+        "active",
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDockNeon.D-BavUaR.js",
+      "path": "compiled/vue/VsDockNeon.D-BavUaR.js",
+      "sha256": "22527fbf571e318455afd3008773b7f85f4e1c5e4309dadbb4302fc2147bfc27",
+      "bytes": 4505,
+      "artifactType": "compiled-vue-island",
+      "variant": "neon",
+      "variantSlug": "vs-dock-neon",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dock-aurora.css",
+      "path": "css/shadow/vs-dock-aurora.css",
+      "sha256": "83f52774e2a5bba5eb9c6739ebf31b7ed19b6701651dfa5bc1e091379c6a9ad0",
+      "bytes": 9251,
+      "artifactType": "extracted-shadow-css",
+      "variant": "aurora",
+      "variantSlug": "vs-dock-aurora",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dock-bounce.css",
+      "path": "css/shadow/vs-dock-bounce.css",
+      "sha256": "54651c52fe72b8277b8ad3393d078d7edaa02d868316c93ff1b6fe54a9312658",
+      "bytes": 7030,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-dock-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dock-glass.css",
+      "path": "css/shadow/vs-dock-glass.css",
+      "sha256": "1e6b42a129f65ae46856eccb74c66c09b0a3256e47a37d216c476c7b36242077",
+      "bytes": 10329,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glass",
+      "variantSlug": "vs-dock-glass",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dock-gooey.css",
+      "path": "css/shadow/vs-dock-gooey.css",
+      "sha256": "9090b08b781808293bd2b9b763afcd7672fb19ce47a1a94307ea789e541163be",
+      "bytes": 6822,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gooey",
+      "variantSlug": "vs-dock-gooey",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dock-magnet.css",
+      "path": "css/shadow/vs-dock-magnet.css",
+      "sha256": "4a7b46b1c7ba81d757bdb3359db388db358ae27c58dcd2428c74619f09110ed3",
+      "bytes": 5263,
+      "artifactType": "extracted-shadow-css",
+      "variant": "magnet",
+      "variantSlug": "vs-dock-magnet",
+      "stateHints": [
+        "active",
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dock-neon.css",
+      "path": "css/shadow/vs-dock-neon.css",
+      "sha256": "2fb86050b487b207f227508704da0bda7459b5929ddbcbad49f77df01d7263ba",
+      "bytes": 8821,
+      "artifactType": "extracted-shadow-css",
+      "variant": "neon",
+      "variantSlug": "vs-dock-neon",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dock.css",
+      "path": "css/shadow/vs-dock.css",
+      "sha256": "9ff525c9b752480382c47b7956f14415c75a561d5e8969831442987d6e8e9600",
+      "bytes": 4456,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-dock",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDockGlass.BQlFzpjD.css",
+      "path": "css/vue-scoped/VsDockGlass.BQlFzpjD.css",
+      "sha256": "550b9abd77d4664255e003eb985d3cc2344981ff597aff102507ece6a59e7edc",
+      "bytes": 4975,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glass",
+      "variantSlug": "vs-dock-glass",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDockGooey.NUYwNtci.css",
+      "path": "css/vue-scoped/VsDockGooey.NUYwNtci.css",
+      "sha256": "4342b64d36fe017c1de9c1c22fe1cd389a95c219902f062615a200b04d8da9d0",
+      "bytes": 4835,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "gooey",
+      "variantSlug": "vs-dock-gooey",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDockNeon.Dj7iCgtz.css",
+      "path": "css/vue-scoped/VsDockNeon.Dj7iCgtz.css",
+      "sha256": "cf20ca116f3778d1b3877aa640723f5aa486e90004794e1076c81ebd312a9a12",
+      "bytes": 5510,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "neon",
+      "variantSlug": "vs-dock-neon",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dock-aurora.js",
+      "path": "web-component/vs-dock-aurora.js",
+      "sha256": "89d5e16869b4eccdd3e037dfa997dda2c4f991d483bde0182a61c24d51a0e76f",
+      "bytes": 26507,
+      "artifactType": "web-component-source",
+      "variant": "aurora",
+      "variantSlug": "vs-dock-aurora",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dock-bounce.js",
+      "path": "web-component/vs-dock-bounce.js",
+      "sha256": "0c88c7de7893987ec06f781c45d83b0bce9d274eb8d862fdfba11dbf67065234",
+      "bytes": 20719,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-dock-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dock-glass.js",
+      "path": "web-component/vs-dock-glass.js",
+      "sha256": "7cc86c4397429ef036c6427c6383b46e788bab27d49142380cb1d1a853a856b4",
+      "bytes": 28354,
+      "artifactType": "web-component-source",
+      "variant": "glass",
+      "variantSlug": "vs-dock-glass",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dock-gooey.js",
+      "path": "web-component/vs-dock-gooey.js",
+      "sha256": "0e0033de334862bcfc3f5ac3a673fa39a6e90ebbc0b956ce4574e8a3557d641e",
+      "bytes": 21954,
+      "artifactType": "web-component-source",
+      "variant": "gooey",
+      "variantSlug": "vs-dock-gooey",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dock-magnet.js",
+      "path": "web-component/vs-dock-magnet.js",
+      "sha256": "1619d39f4456974c831fbaf54a3d99b36b77326dfda80cfa5814863bb241a2f0",
+      "bytes": 19460,
+      "artifactType": "web-component-source",
+      "variant": "magnet",
+      "variantSlug": "vs-dock-magnet",
+      "stateHints": [
+        "active",
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dock-neon.js",
+      "path": "web-component/vs-dock-neon.js",
+      "sha256": "447ab3dc6bfb162b1dafa1e435d898a44f221579c810eed45fcdb925b1e988ac",
+      "bytes": 23257,
+      "artifactType": "web-component-source",
+      "variant": "neon",
+      "variantSlug": "vs-dock-neon",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dock.js",
+      "path": "web-component/vs-dock.js",
+      "sha256": "2968f8215338c5d0f921f3cc3f8602ddce235fa7318a64a05b07c5bbc8859fb7",
+      "bytes": 18211,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-dock",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    }
+  ]
+}

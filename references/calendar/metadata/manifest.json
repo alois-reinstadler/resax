@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Calendar",
+  "componentKey": "calendar",
+  "family": "VsCalendar",
+  "variants": [
+    "vs-calendar",
+    "vs-calendar-compact",
+    "vs-calendar-dots",
+    "vs-calendar-glow",
+    "vs-calendar-minimal",
+    "vs-calendar-range-fill"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsCalendar.DVcy0Khn.js",
+      "path": "compiled/vue/VsCalendar.DVcy0Khn.js",
+      "sha256": "e57bdf8e7c744382b7e4f225915e65905bff6bf3a603abbefd6e45b3b79cc711",
+      "bytes": 22294,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-calendar",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCalendarCompact.PYAcdk0K.js",
+      "path": "compiled/vue/VsCalendarCompact.PYAcdk0K.js",
+      "sha256": "9bec5dad682d9de59eb984f53152f8fee16c030772cecfed8b51792772a9d4ba",
+      "bytes": 10670,
+      "artifactType": "compiled-vue-island",
+      "variant": "compact",
+      "variantSlug": "vs-calendar-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCalendarDots.D2dl5mQg.js",
+      "path": "compiled/vue/VsCalendarDots.D2dl5mQg.js",
+      "sha256": "97387b46c5680b5e54109100fc92d24ef7970dbb33c0e96c438f4b3c96c3a40d",
+      "bytes": 10272,
+      "artifactType": "compiled-vue-island",
+      "variant": "dots",
+      "variantSlug": "vs-calendar-dots",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCalendarGlow.wxGbx8FT.js",
+      "path": "compiled/vue/VsCalendarGlow.wxGbx8FT.js",
+      "sha256": "b44592c2064a6f59c335af261b2cacac34c33b721164453f0651043a468341b1",
+      "bytes": 10249,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-calendar-glow",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCalendarMinimal.DvQ4ohhW.js",
+      "path": "compiled/vue/VsCalendarMinimal.DvQ4ohhW.js",
+      "sha256": "be421dbf077f3b5f2b7a4e82f6021e35e580b0d6e5dff05701b0a773b01d5d54",
+      "bytes": 10590,
+      "artifactType": "compiled-vue-island",
+      "variant": "minimal",
+      "variantSlug": "vs-calendar-minimal",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCalendarRangeFill.CCkvpQh2.js",
+      "path": "compiled/vue/VsCalendarRangeFill.CCkvpQh2.js",
+      "sha256": "d12418abcb47a26374c246ecd21e990060e49cba31b8b141c71739c7067199c2",
+      "bytes": 10638,
+      "artifactType": "compiled-vue-island",
+      "variant": "range-fill",
+      "variantSlug": "vs-calendar-range-fill",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-calendar-compact.css",
+      "path": "css/shadow/vs-calendar-compact.css",
+      "sha256": "a7586975128781d2cb2c3fb2f16f53100fcc566855cc54cf65b1dfd50b8a79a8",
+      "bytes": 6865,
+      "artifactType": "extracted-shadow-css",
+      "variant": "compact",
+      "variantSlug": "vs-calendar-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-calendar-dots.css",
+      "path": "css/shadow/vs-calendar-dots.css",
+      "sha256": "d07e92c736cd9a0fb72e111c4ce42282abb1f66d3d2dd9e5576616da0da6d7b9",
+      "bytes": 6475,
+      "artifactType": "extracted-shadow-css",
+      "variant": "dots",
+      "variantSlug": "vs-calendar-dots",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-calendar-glow.css",
+      "path": "css/shadow/vs-calendar-glow.css",
+      "sha256": "ba8706930a2f5de9f4d256b5014ed12f903d9ef4d76b7ed37902092016810725",
+      "bytes": 7014,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-calendar-glow",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-calendar-minimal.css",
+      "path": "css/shadow/vs-calendar-minimal.css",
+      "sha256": "2e545d4fd0d2a6b69e47af98e5ae7cd0ba87a58dce13660da3bcf1e80caaf214",
+      "bytes": 5460,
+      "artifactType": "extracted-shadow-css",
+      "variant": "minimal",
+      "variantSlug": "vs-calendar-minimal",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-calendar-range-fill.css",
+      "path": "css/shadow/vs-calendar-range-fill.css",
+      "sha256": "490a38ca6a20a5dacc66c1092cb8a35e64f67095fa789e9e867aa02e53055d1e",
+      "bytes": 6929,
+      "artifactType": "extracted-shadow-css",
+      "variant": "range-fill",
+      "variantSlug": "vs-calendar-range-fill",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-calendar.css",
+      "path": "css/shadow/vs-calendar.css",
+      "sha256": "a650ff3b20085f3c57dbdce29c838ee9c87239fb1b41c6bdf7c05736a35d1d82",
+      "bytes": 10068,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-calendar",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCalendar.BcMOPTGH.css",
+      "path": "css/vue-scoped/VsCalendar.BcMOPTGH.css",
+      "sha256": "252a8bbf613bcf5df0259fcbcea1abb376ff0df84ab7c03125ad438a3e6a7bf2",
+      "bytes": 11572,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-calendar",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCalendarCompact.CHs18HIL.css",
+      "path": "css/vue-scoped/VsCalendarCompact.CHs18HIL.css",
+      "sha256": "c22bbfb43a4b4844a503d2c9f0a91765dfc682d89325d4ba8aa4ffbe688c2f89",
+      "bytes": 6402,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "compact",
+      "variantSlug": "vs-calendar-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCalendarDots.B69UBesO.css",
+      "path": "css/vue-scoped/VsCalendarDots.B69UBesO.css",
+      "sha256": "3475433fb324ed5f7118627a84b290409aa7b3649b39e40a87a2f3f71790c7bf",
+      "bytes": 5767,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "dots",
+      "variantSlug": "vs-calendar-dots",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCalendarGlow.i1K6dcWK.css",
+      "path": "css/vue-scoped/VsCalendarGlow.i1K6dcWK.css",
+      "sha256": "6e632c84e260aa96d9a93e94385ffac9d7577603796357579ae85bbcf7d006ab",
+      "bytes": 6653,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-calendar-glow",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCalendarMinimal.CE0fA9jt.css",
+      "path": "css/vue-scoped/VsCalendarMinimal.CE0fA9jt.css",
+      "sha256": "bb36b18a07adc11c105f7dea6dcfa9f3c18521a9a9884566b69e4a73ffbaeb9b",
+      "bytes": 5365,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "minimal",
+      "variantSlug": "vs-calendar-minimal",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCalendarRangeFill.BlsY-vuG.css",
+      "path": "css/vue-scoped/VsCalendarRangeFill.BlsY-vuG.css",
+      "sha256": "7011995aedc870af612bcdc914edbf639106fcbe49638774296b36e38ae3a9fc",
+      "bytes": 6454,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "range-fill",
+      "variantSlug": "vs-calendar-range-fill",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-calendar-compact.js",
+      "path": "web-component/vs-calendar-compact.js",
+      "sha256": "1fed0a6cc2bc60600e67b53119cac60c91c4982b4ef7e1d4aa135eff0e364b49",
+      "bytes": 19544,
+      "artifactType": "web-component-source",
+      "variant": "compact",
+      "variantSlug": "vs-calendar-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-calendar-dots.js",
+      "path": "web-component/vs-calendar-dots.js",
+      "sha256": "e22a9912a4beb32040bebfd416fc47c3c58076883afff3da09e8f2a4e3211059",
+      "bytes": 18908,
+      "artifactType": "web-component-source",
+      "variant": "dots",
+      "variantSlug": "vs-calendar-dots",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-calendar-glow.js",
+      "path": "web-component/vs-calendar-glow.js",
+      "sha256": "eb17bdd5012b35bcffbd00d07ac1d257ced6310966505463ab309f929f33a0b2",
+      "bytes": 20292,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-calendar-glow",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-calendar-minimal.js",
+      "path": "web-component/vs-calendar-minimal.js",
+      "sha256": "7fb750e5018cde553b89dea4ba75ce0b29d80f7f188829a0dfb7e11aa4314ab8",
+      "bytes": 17200,
+      "artifactType": "web-component-source",
+      "variant": "minimal",
+      "variantSlug": "vs-calendar-minimal",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-calendar-range-fill.js",
+      "path": "web-component/vs-calendar-range-fill.js",
+      "sha256": "af6c3b00ee3adde6852957d60c803362dac644d048e06777cdb95e89ebf441ff",
+      "bytes": 20309,
+      "artifactType": "web-component-source",
+      "variant": "range-fill",
+      "variantSlug": "vs-calendar-range-fill",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-calendar.js",
+      "path": "web-component/vs-calendar.js",
+      "sha256": "af8b2bf5e0a0ec26120d6d27568a7edd280807a1c41560184c66698b0b27efd7",
+      "bytes": 40154,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-calendar",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    }
+  ]
+}

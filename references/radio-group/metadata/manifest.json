@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "RadioGroup",
+  "componentKey": "radio-group",
+  "family": "VsRadioGroup",
+  "variants": [
+    "vs-radio-group",
+    "vs-radio-group-cards",
+    "vs-radio-group-glow",
+    "vs-radio-group-pill",
+    "vs-radio-group-segment",
+    "vs-radio-group-slide"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioGroup.XykZFcyP.js",
+      "path": "compiled/vue/VsRadioGroup.XykZFcyP.js",
+      "sha256": "94812a375444531a1dde25ce9c3616711c81e18c88a888d15e3653c67b444f86",
+      "bytes": 1479,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-radio-group",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioGroupCards.TaJGW3F2.js",
+      "path": "compiled/vue/VsRadioGroupCards.TaJGW3F2.js",
+      "sha256": "a23a9200e2fce447992984f7e8bc81b54f309af044d3542df9d0b12062fbdca5",
+      "bytes": 2389,
+      "artifactType": "compiled-vue-island",
+      "variant": "cards",
+      "variantSlug": "vs-radio-group-cards",
+      "stateHints": [
+        "active",
+        "checked",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioGroupGlow.BPF_EWq-.js",
+      "path": "compiled/vue/VsRadioGroupGlow.BPF_EWq-.js",
+      "sha256": "4aafdbb7c3e09ce7c7797fbb08e50f30b21e67dcc79537de7414631ec4e48b23",
+      "bytes": 2387,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-radio-group-glow",
+      "stateHints": [
+        "active",
+        "selected",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioGroupPill.Dvql4Yqm.js",
+      "path": "compiled/vue/VsRadioGroupPill.Dvql4Yqm.js",
+      "sha256": "f88bc3a298b1bd5f254e65bd4c9b2d14b617f24ebfc1885628ae5626b13ddcb0",
+      "bytes": 2260,
+      "artifactType": "compiled-vue-island",
+      "variant": "pill",
+      "variantSlug": "vs-radio-group-pill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioGroupSegment.cq0fS-fI.js",
+      "path": "compiled/vue/VsRadioGroupSegment.cq0fS-fI.js",
+      "sha256": "99034f3b8cfb7f055669cbc3fb823c3aa4212d0dedda004d5dbd6d3b14b541e1",
+      "bytes": 2646,
+      "artifactType": "compiled-vue-island",
+      "variant": "segment",
+      "variantSlug": "vs-radio-group-segment",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioGroupSlide.BLvF1CpI.js",
+      "path": "compiled/vue/VsRadioGroupSlide.BLvF1CpI.js",
+      "sha256": "9609a4c30f463054bcee1f19139a20a9a1ee212d5c6496be11a32f08e021d038",
+      "bytes": 2829,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-radio-group-slide",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-group-cards.css",
+      "path": "css/shadow/vs-radio-group-cards.css",
+      "sha256": "4624054e515c0e45fb9e0b9d10333189dc51078eb0ddf8a700717a0ba2ec7073",
+      "bytes": 4665,
+      "artifactType": "extracted-shadow-css",
+      "variant": "cards",
+      "variantSlug": "vs-radio-group-cards",
+      "stateHints": [
+        "active",
+        "checked",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-group-glow.css",
+      "path": "css/shadow/vs-radio-group-glow.css",
+      "sha256": "54298965edfebcda40a6ad68c2759610098e921a6f4464ba0c0c896d429b0ace",
+      "bytes": 3331,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-radio-group-glow",
+      "stateHints": [
+        "active",
+        "selected",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-group-pill.css",
+      "path": "css/shadow/vs-radio-group-pill.css",
+      "sha256": "7906626beee2b8179da48f67309f5740a7eceb06530fd9c41a4b11d583d9853d",
+      "bytes": 2901,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pill",
+      "variantSlug": "vs-radio-group-pill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-group-segment.css",
+      "path": "css/shadow/vs-radio-group-segment.css",
+      "sha256": "4f73421ca033e03cb9716e09e3236512a15008125be5780ad00df4c108e1bba4",
+      "bytes": 2522,
+      "artifactType": "extracted-shadow-css",
+      "variant": "segment",
+      "variantSlug": "vs-radio-group-segment",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-group-slide.css",
+      "path": "css/shadow/vs-radio-group-slide.css",
+      "sha256": "1ca24edf6cc5b69e68d94ca4aae6fbfb1da10fe4294a12a48ca32ec0aa3c904c",
+      "bytes": 3344,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-radio-group-slide",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-group.css",
+      "path": "css/shadow/vs-radio-group.css",
+      "sha256": "4cdeed85e1dc9a10088e369934ef5f4519dce32b58bcbb60dca593bfd9924e29",
+      "bytes": 8456,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-radio-group",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-group-cards.js",
+      "path": "web-component/vs-radio-group-cards.js",
+      "sha256": "5b7e9b0b5406f4af444e7188e82a9198d8274c2273386ea7b3adf7960af5cbad",
+      "bytes": 9965,
+      "artifactType": "web-component-source",
+      "variant": "cards",
+      "variantSlug": "vs-radio-group-cards",
+      "stateHints": [
+        "active",
+        "checked",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-group-glow.js",
+      "path": "web-component/vs-radio-group-glow.js",
+      "sha256": "1dc67287df6d1d6ce8cb934134717555e8210498b132f6c71b8015e9424595e3",
+      "bytes": 9145,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-radio-group-glow",
+      "stateHints": [
+        "active",
+        "selected",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-group-pill.js",
+      "path": "web-component/vs-radio-group-pill.js",
+      "sha256": "6dd69a5d3a3354a952d48ec5b760eede08c55e00f9caae1ffd363447af6e7aec",
+      "bytes": 7991,
+      "artifactType": "web-component-source",
+      "variant": "pill",
+      "variantSlug": "vs-radio-group-pill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-group-segment.js",
+      "path": "web-component/vs-radio-group-segment.js",
+      "sha256": "69fd8c7c6d47bfceffd3b6cbab8ad6ee3393c6a2fe336306f96facd077d9adc3",
+      "bytes": 7652,
+      "artifactType": "web-component-source",
+      "variant": "segment",
+      "variantSlug": "vs-radio-group-segment",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-group-slide.js",
+      "path": "web-component/vs-radio-group-slide.js",
+      "sha256": "406cb47c81985a9f4ea0b5134ac058965eeb05eb2ea3d2fb0da29e3dea501369",
+      "bytes": 8752,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-radio-group-slide",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-group.js",
+      "path": "web-component/vs-radio-group.js",
+      "sha256": "6a4252a94aea3373445bc68fc30905f77575681ba14161c268230de32662482c",
+      "bytes": 19090,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-radio-group",
+      "stateHints": [
+        "selected"
+      ]
+    }
+  ]
+}

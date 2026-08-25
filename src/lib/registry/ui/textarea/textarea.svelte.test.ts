@@ -16,4 +16,14 @@ describe('Textarea', () => {
 		await fireEvent.input(textarea, { target: { value: 'two\nlines' } });
 		expect(textarea.style.height).toBe('144px');
 	});
+	it('uses a real fieldset gap, source ripple host, resize modes, and clear action', async () => {
+		render(Harness, { initial: 'remove me', clearable: true, resize: 'horizontal' });
+		const textarea = screen.getByLabelText('Notes');
+		expect(textarea.closest('.rx-textarea--resize-horizontal')).toBeTruthy();
+		expect(textarea.parentElement?.querySelector('fieldset legend')?.textContent).toContain('Notes');
+		await fireEvent.pointerDown(textarea.parentElement!, { clientX: 10, clientY: 12 });
+		expect(textarea.parentElement?.querySelector('[data-rx-ripple]')).toBeTruthy();
+		await fireEvent.click(screen.getByRole('button', { name: 'Clear' }));
+		expect(screen.getByLabelText('bound value').textContent).toBe('');
+	});
 });

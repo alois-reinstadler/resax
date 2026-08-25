@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Slider",
+  "componentKey": "slider",
+  "family": "VsSlider",
+  "variants": [
+    "vs-slider",
+    "vs-slider-fluent",
+    "vs-slider-glow",
+    "vs-slider-gradient",
+    "vs-slider-ripple",
+    "vs-slider-stepped",
+    "vs-slider-stops",
+    "vs-slider-ticks"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSlider.nWG7uJ75.js",
+      "path": "compiled/vue/VsSlider.nWG7uJ75.js",
+      "sha256": "983ecbe97e3188a513ef9585dae093cd401fc1233264f3383bc687f3e84b51bd",
+      "bytes": 8422,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-slider",
+      "stateHints": [
+        "hover",
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSliderFluent.jHYtxMFc.js",
+      "path": "compiled/vue/VsSliderFluent.jHYtxMFc.js",
+      "sha256": "caa2bbbaf92a9cb231ed652247e00225278445be2f5ee1022c90d799bd2ba171",
+      "bytes": 7670,
+      "artifactType": "compiled-vue-island",
+      "variant": "fluent",
+      "variantSlug": "vs-slider-fluent",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSliderGlow.BpvKP4Ts.js",
+      "path": "compiled/vue/VsSliderGlow.BpvKP4Ts.js",
+      "sha256": "f991f1364108923bdd2c4e16e7be2c5617cf37b9d24f97edda6187aefb116a82",
+      "bytes": 2950,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-slider-glow",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSliderGradient.Bld11by7.js",
+      "path": "compiled/vue/VsSliderGradient.Bld11by7.js",
+      "sha256": "4248ba38d53e856a1914d3ff26db79feb643c7dcc401640c83759eb435c5ae01",
+      "bytes": 2971,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-slider-gradient",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSliderRipple.Bm--YyWd.js",
+      "path": "compiled/vue/VsSliderRipple.Bm--YyWd.js",
+      "sha256": "48e96c632cc1529d6142f3f82bd5050a40ef77a91e38d3aae5e0c9771d877f4a",
+      "bytes": 3575,
+      "artifactType": "compiled-vue-island",
+      "variant": "ripple",
+      "variantSlug": "vs-slider-ripple",
+      "stateHints": [
+        "expanded",
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSliderStepped.-Cf6F3Oj.js",
+      "path": "compiled/vue/VsSliderStepped.-Cf6F3Oj.js",
+      "sha256": "5be66c96777cadec87719af2711c29fcba708f0618013a3fc3b783d671f3c85d",
+      "bytes": 3630,
+      "artifactType": "compiled-vue-island",
+      "variant": "stepped",
+      "variantSlug": "vs-slider-stepped",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSliderTicks.DbDU9sK-.js",
+      "path": "compiled/vue/VsSliderTicks.DbDU9sK-.js",
+      "sha256": "ef6f1be4fccf152ab613b9a3b5d89217e5373f80e382c22f95c2d1e51794b064",
+      "bytes": 3069,
+      "artifactType": "compiled-vue-island",
+      "variant": "ticks",
+      "variantSlug": "vs-slider-ticks",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider-fluent.css",
+      "path": "css/shadow/vs-slider-fluent.css",
+      "sha256": "11566b73df4d702841781a0ff74deafa2cf875c2b8c5c8f413b1ae94ba84a790",
+      "bytes": 7603,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fluent",
+      "variantSlug": "vs-slider-fluent",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider-glow.css",
+      "path": "css/shadow/vs-slider-glow.css",
+      "sha256": "cdf445ff9d39daef2bdfd70ea7a09c74f6e826482dfccde93861dd023e07feb6",
+      "bytes": 3384,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-slider-glow",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider-gradient.css",
+      "path": "css/shadow/vs-slider-gradient.css",
+      "sha256": "ee7ab194ba7d27433dea1c4e3fc20498385d4a9f944ee7a53733ce895b1df31a",
+      "bytes": 3095,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-slider-gradient",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider-ripple.css",
+      "path": "css/shadow/vs-slider-ripple.css",
+      "sha256": "b0a6a5a60968386611e1e10a11eb9d83de1c6feaf1f6a5e5da744e162ddd27f5",
+      "bytes": 3217,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ripple",
+      "variantSlug": "vs-slider-ripple",
+      "stateHints": [
+        "expanded",
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider-stepped.css",
+      "path": "css/shadow/vs-slider-stepped.css",
+      "sha256": "e0a2839c0518fb6932af879196d87f8d1c7b7351ad8579dfc2da2a90f6d8bc28",
+      "bytes": 3558,
+      "artifactType": "extracted-shadow-css",
+      "variant": "stepped",
+      "variantSlug": "vs-slider-stepped",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider-stops.css",
+      "path": "css/shadow/vs-slider-stops.css",
+      "sha256": "7c3844d7faf11c0de3675dca2cb40c7d23c1404a32a622b4079e4ea840ca1131",
+      "bytes": 5259,
+      "artifactType": "extracted-shadow-css",
+      "variant": "stops",
+      "variantSlug": "vs-slider-stops",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider-ticks.css",
+      "path": "css/shadow/vs-slider-ticks.css",
+      "sha256": "9e2446e3a1da3df441e589f8af9e9ac1b71bbe4f83875d442121d1e4237fa7dc",
+      "bytes": 2821,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ticks",
+      "variantSlug": "vs-slider-ticks",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slider.css",
+      "path": "css/shadow/vs-slider.css",
+      "sha256": "aed5a8d1533d8f2b91279d8fc307bd2b73c7ce173d581d989d383d0d5eead4e8",
+      "bytes": 3223,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-slider",
+      "stateHints": [
+        "hover",
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSliderFluent.BXLfVmEV.css",
+      "path": "css/vue-scoped/VsSliderFluent.BXLfVmEV.css",
+      "sha256": "74e46f08194507b96b57c3e212a096ff15f0e07653dc67f67250b01bddbd668a",
+      "bytes": 4795,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "fluent",
+      "variantSlug": "vs-slider-fluent",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider-fluent.js",
+      "path": "web-component/vs-slider-fluent.js",
+      "sha256": "528cd63cf840022948ad27457e0a226ea60957a6659725ed1d77afcab9f798fa",
+      "bytes": 18525,
+      "artifactType": "web-component-source",
+      "variant": "fluent",
+      "variantSlug": "vs-slider-fluent",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider-glow.js",
+      "path": "web-component/vs-slider-glow.js",
+      "sha256": "c0fbb902a9b0616557820d320b53ec333cf7f98b911e97968600da26061c155c",
+      "bytes": 9765,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-slider-glow",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider-gradient.js",
+      "path": "web-component/vs-slider-gradient.js",
+      "sha256": "f6691264cb0b07015a7a3da8edcf29daa38eb201ea196450b2a05034b3d75993",
+      "bytes": 9797,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-slider-gradient",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider-ripple.js",
+      "path": "web-component/vs-slider-ripple.js",
+      "sha256": "3cbce9420c6e337dd87d9e44fe8e9d4035e057577762c1d510f85750fcd77b27",
+      "bytes": 9959,
+      "artifactType": "web-component-source",
+      "variant": "ripple",
+      "variantSlug": "vs-slider-ripple",
+      "stateHints": [
+        "expanded",
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider-stepped.js",
+      "path": "web-component/vs-slider-stepped.js",
+      "sha256": "dd0213bc16990da46da0df1927a9180948dcf22a9d606f38391f14ef4a9f9fad",
+      "bytes": 10660,
+      "artifactType": "web-component-source",
+      "variant": "stepped",
+      "variantSlug": "vs-slider-stepped",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider-stops.js",
+      "path": "web-component/vs-slider-stops.js",
+      "sha256": "a99ec4807837faf6b63751a3d234009e665c5f8015c8a26c841c2e3f67dd2e4f",
+      "bytes": 17369,
+      "artifactType": "web-component-source",
+      "variant": "stops",
+      "variantSlug": "vs-slider-stops",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider-ticks.js",
+      "path": "web-component/vs-slider-ticks.js",
+      "sha256": "b51167ee57eb3226a3c013cdd2ce5ceaba251974122af6943ece58bdea3aa656",
+      "bytes": 9652,
+      "artifactType": "web-component-source",
+      "variant": "ticks",
+      "variantSlug": "vs-slider-ticks",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slider.js",
+      "path": "web-component/vs-slider.js",
+      "sha256": "643a8351b124709bcee058d199cb33c2649a02dd543d03fb9fe026dac4379925",
+      "bytes": 13471,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-slider",
+      "stateHints": [
+        "hover",
+        "dragging"
+      ]
+    }
+  ]
+}

@@ -18,7 +18,11 @@ describe('source-specific additive variants', () => {
 	it('renders an odometer indicator value', () => {
 		const body = render(Indicator, { props: { variant: 'odometer', content: 42 } }).body;
 		expect(body).toContain('rx-indicator--odometer');
-		expect(body).toContain('42');
+		expect(body).toContain('rx-indicator__reels');
+		expect(body.match(/rx-indicator__strip/g)).toHaveLength(2);
+		expect(body).toContain('transform:translateY(-40%)');
+		expect(body).toContain('transform:translateY(-20%)');
+		expect(body.match(/<b(?:\s|>)/g)).toHaveLength(20);
 	});
 
 	it('maps source-specific form focus treatments', () => {

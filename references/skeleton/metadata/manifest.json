@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Skeleton",
+  "componentKey": "skeleton",
+  "family": "VsSkeleton",
+  "variants": [
+    "vs-skeleton",
+    "vs-skeleton-blink",
+    "vs-skeleton-gradient",
+    "vs-skeleton-pulse",
+    "vs-skeleton-shine",
+    "vs-skeleton-wave"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSkeleton.Bx2BHMKj.js",
+      "path": "compiled/vue/VsSkeleton.Bx2BHMKj.js",
+      "sha256": "cfbb395fcc298a3a001b7b6e0691825e8353b368885b5fb991bb392db17da233",
+      "bytes": 1779,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-skeleton",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSkeletonBlink.CHogH42Z.js",
+      "path": "compiled/vue/VsSkeletonBlink.CHogH42Z.js",
+      "sha256": "04b133bbf472df8adee3ea4f6d03652573cdc382933199f968dbbf8b34040e11",
+      "bytes": 1831,
+      "artifactType": "compiled-vue-island",
+      "variant": "blink",
+      "variantSlug": "vs-skeleton-blink",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSkeletonGradient.DumDeSgD.js",
+      "path": "compiled/vue/VsSkeletonGradient.DumDeSgD.js",
+      "sha256": "6b9f06bc9dc33925471dcb0793d9b679ddd494132218bacde66e83ad261885b1",
+      "bytes": 1820,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-skeleton-gradient",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSkeletonPulse.qLDMdWoj.js",
+      "path": "compiled/vue/VsSkeletonPulse.qLDMdWoj.js",
+      "sha256": "4acbea4296c87a51257dd44cadb02e8864cd3f67d8e20d8bf242a06a61d4773e",
+      "bytes": 1835,
+      "artifactType": "compiled-vue-island",
+      "variant": "pulse",
+      "variantSlug": "vs-skeleton-pulse",
+      "stateHints": [
+        "loading",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSkeletonShine.B0_D3yGI.js",
+      "path": "compiled/vue/VsSkeletonShine.B0_D3yGI.js",
+      "sha256": "e4c80d9e4f50ad9caa6d2bac700501803b4562c669835d0320c787ff2f24b86f",
+      "bytes": 1843,
+      "artifactType": "compiled-vue-island",
+      "variant": "shine",
+      "variantSlug": "vs-skeleton-shine",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSkeletonWave.B60lULeh.js",
+      "path": "compiled/vue/VsSkeletonWave.B60lULeh.js",
+      "sha256": "03c074374d39815a245383909d34b5a543d64c705a679bd18c4eadbb60b5cfd7",
+      "bytes": 1829,
+      "artifactType": "compiled-vue-island",
+      "variant": "wave",
+      "variantSlug": "vs-skeleton-wave",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-skeleton-blink.css",
+      "path": "css/shadow/vs-skeleton-blink.css",
+      "sha256": "f143addf8ee36c9bd1f8ea05f6c1ac8395647c50ee9795b5f134491d7aefafdc",
+      "bytes": 1793,
+      "artifactType": "extracted-shadow-css",
+      "variant": "blink",
+      "variantSlug": "vs-skeleton-blink",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-skeleton-gradient.css",
+      "path": "css/shadow/vs-skeleton-gradient.css",
+      "sha256": "0fef5af41deb1420ebc476684357254ab8cc2f6b0dccd81c367b4871df169d49",
+      "bytes": 1909,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-skeleton-gradient",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-skeleton-pulse.css",
+      "path": "css/shadow/vs-skeleton-pulse.css",
+      "sha256": "738f06ae0b13126d614baf2d2080659ffb2e4d3f24338da658e31450632e1e96",
+      "bytes": 2476,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pulse",
+      "variantSlug": "vs-skeleton-pulse",
+      "stateHints": [
+        "loading",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-skeleton-shine.css",
+      "path": "css/shadow/vs-skeleton-shine.css",
+      "sha256": "b81597f846bd6b74ed18ed72998932e273a8aaed7f4d73f18623aa7495428b78",
+      "bytes": 2039,
+      "artifactType": "extracted-shadow-css",
+      "variant": "shine",
+      "variantSlug": "vs-skeleton-shine",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-skeleton-wave.css",
+      "path": "css/shadow/vs-skeleton-wave.css",
+      "sha256": "5193b7ee6c022ebca0aa31d8e26a9b7596f293643543f8d1e3962c758d3b69e3",
+      "bytes": 1888,
+      "artifactType": "extracted-shadow-css",
+      "variant": "wave",
+      "variantSlug": "vs-skeleton-wave",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-skeleton.css",
+      "path": "css/shadow/vs-skeleton.css",
+      "sha256": "8d9171bf6c226619e2f0404fe8dddf24e56bdade453a47c3f6d80c4bb6ebaf44",
+      "bytes": 4734,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-skeleton",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-skeleton-blink.js",
+      "path": "web-component/vs-skeleton-blink.js",
+      "sha256": "3d0e9677252f9e5adfffb2974e2173e291006e6680387b5d570017b30d7dc7e9",
+      "bytes": 5245,
+      "artifactType": "web-component-source",
+      "variant": "blink",
+      "variantSlug": "vs-skeleton-blink",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-skeleton-gradient.js",
+      "path": "web-component/vs-skeleton-gradient.js",
+      "sha256": "c8210ad54b7eff206ea601bb6668229ed2af7fa61dc448a36851ad106f5033b7",
+      "bytes": 5345,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-skeleton-gradient",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-skeleton-pulse.js",
+      "path": "web-component/vs-skeleton-pulse.js",
+      "sha256": "58d7bd6d3f91193cfbc247c17f72f432f71421c450a33513f5db355b45c9de79",
+      "bytes": 5928,
+      "artifactType": "web-component-source",
+      "variant": "pulse",
+      "variantSlug": "vs-skeleton-pulse",
+      "stateHints": [
+        "loading",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-skeleton-shine.js",
+      "path": "web-component/vs-skeleton-shine.js",
+      "sha256": "406a58699a4c4f25a4cb443a8a0b74102a907c90513823130aca0c7b25f81733",
+      "bytes": 5499,
+      "artifactType": "web-component-source",
+      "variant": "shine",
+      "variantSlug": "vs-skeleton-shine",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-skeleton-wave.js",
+      "path": "web-component/vs-skeleton-wave.js",
+      "sha256": "918e2eed258b56420c27a95322153db4bce18e7c9422b45a4de1a65f983e37e1",
+      "bytes": 5338,
+      "artifactType": "web-component-source",
+      "variant": "wave",
+      "variantSlug": "vs-skeleton-wave",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-skeleton.js",
+      "path": "web-component/vs-skeleton.js",
+      "sha256": "77e5d7296e4d04cccbccd13f31d087a98aa61f696309c14f1f02d385b0c31992",
+      "bytes": 8024,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-skeleton",
+      "stateHints": [
+        "loading"
+      ]
+    }
+  ]
+}

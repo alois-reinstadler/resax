@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Notification",
+  "componentKey": "notification",
+  "family": "VsNotification",
+  "variants": [
+    "vs-notification",
+    "vs-notification-banner",
+    "vs-notification-card",
+    "vs-notification-glow",
+    "vs-notification-inline",
+    "vs-notification-snackbar"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsNotification.BlLiYFIt.js",
+      "path": "compiled/vue/VsNotification.BlLiYFIt.js",
+      "sha256": "e77a681ab662e1435ec47a11922dc577a9e4a09fb651aea39c9817c97b1c3a6e",
+      "bytes": 2185,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-notification",
+      "stateHints": [
+        "loading",
+        "success"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNotificationBanner.CItFNcvu.js",
+      "path": "compiled/vue/VsNotificationBanner.CItFNcvu.js",
+      "sha256": "2bc8436e0c008cb07f76758961d1cd21657b0bf92635a249cbf658f2c700679c",
+      "bytes": 4496,
+      "artifactType": "compiled-vue-island",
+      "variant": "banner",
+      "variantSlug": "vs-notification-banner",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNotificationCard.COlXeHCh.js",
+      "path": "compiled/vue/VsNotificationCard.COlXeHCh.js",
+      "sha256": "2d3dc663e465367fa4724ec8e515be8d167b6716b185e93b5d1e5ff1decb0fc4",
+      "bytes": 4515,
+      "artifactType": "compiled-vue-island",
+      "variant": "card",
+      "variantSlug": "vs-notification-card",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNotificationGlow.VWIcP4m7.js",
+      "path": "compiled/vue/VsNotificationGlow.VWIcP4m7.js",
+      "sha256": "b09a7df3772f14511797eef23d00a865e11d9ad4471da68ce052aafb6e830156",
+      "bytes": 4342,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-notification-glow",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNotificationInline.-d6tH3xx.js",
+      "path": "compiled/vue/VsNotificationInline.-d6tH3xx.js",
+      "sha256": "567d3520416baa40a9eaaa700ceb0ca4ebebb7c00b7c757d17cfdb2ebe0cd27e",
+      "bytes": 4112,
+      "artifactType": "compiled-vue-island",
+      "variant": "inline",
+      "variantSlug": "vs-notification-inline",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNotificationSnackbar.BLOUIHIR.js",
+      "path": "compiled/vue/VsNotificationSnackbar.BLOUIHIR.js",
+      "sha256": "b95d921e55934de92830068fdf24a46abad7fdcb64164e2a8634c0f79c9059da",
+      "bytes": 1979,
+      "artifactType": "compiled-vue-island",
+      "variant": "snackbar",
+      "variantSlug": "vs-notification-snackbar",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-notification-banner.css",
+      "path": "css/shadow/vs-notification-banner.css",
+      "sha256": "3d16db49725f24bb7b55e3e9f3dc340b706b12a209fba9c5404465828505dca3",
+      "bytes": 2752,
+      "artifactType": "extracted-shadow-css",
+      "variant": "banner",
+      "variantSlug": "vs-notification-banner",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-notification-card.css",
+      "path": "css/shadow/vs-notification-card.css",
+      "sha256": "5d311f36ad6a6724de94758c75d3071a5be6891118b885d9f6f76f0240399499",
+      "bytes": 3084,
+      "artifactType": "extracted-shadow-css",
+      "variant": "card",
+      "variantSlug": "vs-notification-card",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-notification-glow.css",
+      "path": "css/shadow/vs-notification-glow.css",
+      "sha256": "72a09e2416a8f23243d11a096ef96f5ab154f02b44203054debe6fb02b8d22f0",
+      "bytes": 3406,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-notification-glow",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-notification-inline.css",
+      "path": "css/shadow/vs-notification-inline.css",
+      "sha256": "8f3ecb521cd2715003878119c63647760031b799ca3b003ef1bdb7a64d899b16",
+      "bytes": 2404,
+      "artifactType": "extracted-shadow-css",
+      "variant": "inline",
+      "variantSlug": "vs-notification-inline",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-notification-snackbar.css",
+      "path": "css/shadow/vs-notification-snackbar.css",
+      "sha256": "485e644ade4b831cb1003c3eb10df7cca2097e09d83fcd9ef7d0745ef11711fd",
+      "bytes": 2506,
+      "artifactType": "extracted-shadow-css",
+      "variant": "snackbar",
+      "variantSlug": "vs-notification-snackbar",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-notification.css",
+      "path": "css/shadow/vs-notification.css",
+      "sha256": "e595cdc2c760769c5af14f4fd791784790837047da99b92df803e54f4ede5338",
+      "bytes": 6615,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-notification",
+      "stateHints": [
+        "loading",
+        "success"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-notification-banner.js",
+      "path": "web-component/vs-notification-banner.js",
+      "sha256": "1949375a31a5b9a7731ea6b16d233bde6c99d12af452d194b80fb7740ed1a6e0",
+      "bytes": 9813,
+      "artifactType": "web-component-source",
+      "variant": "banner",
+      "variantSlug": "vs-notification-banner",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-notification-card.js",
+      "path": "web-component/vs-notification-card.js",
+      "sha256": "2dcf5626fb2db0054ca5907dd9dc043c406c44d9f0739aad14484c5149989c7e",
+      "bytes": 10028,
+      "artifactType": "web-component-source",
+      "variant": "card",
+      "variantSlug": "vs-notification-card",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-notification-glow.js",
+      "path": "web-component/vs-notification-glow.js",
+      "sha256": "68a635fec2fb6896666bbe332b0e569f43a43b5b2e8f2d8c1d213bb183dfba45",
+      "bytes": 10139,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-notification-glow",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-notification-inline.js",
+      "path": "web-component/vs-notification-inline.js",
+      "sha256": "164efc5b547bef1cf86742988a3c7b5aa0bf453d7b482f9b31230de3d5ef1228",
+      "bytes": 8381,
+      "artifactType": "web-component-source",
+      "variant": "inline",
+      "variantSlug": "vs-notification-inline",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-notification-snackbar.js",
+      "path": "web-component/vs-notification-snackbar.js",
+      "sha256": "86c6f8ab7955c3295e737fdf1ca9e1e95832db0d9620ecf321901d75e09f9fd3",
+      "bytes": 8482,
+      "artifactType": "web-component-source",
+      "variant": "snackbar",
+      "variantSlug": "vs-notification-snackbar",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-notification.js",
+      "path": "web-component/vs-notification.js",
+      "sha256": "f38eaa603f9f3351dab9db32e4edee8e45675efd94b16b884a6f2cb9c9c5be60",
+      "bytes": 21942,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-notification",
+      "stateHints": [
+        "loading",
+        "success"
+      ]
+    }
+  ]
+}

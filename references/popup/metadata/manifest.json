@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Popup",
+  "componentKey": "popup",
+  "family": "VsPopup",
+  "variants": [
+    "vs-popup",
+    "vs-popup-bounce",
+    "vs-popup-confirm",
+    "vs-popup-flip",
+    "vs-popup-slide-up",
+    "vs-popup-zoom"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsPopup.CsUBD5YU.js",
+      "path": "compiled/vue/VsPopup.CsUBD5YU.js",
+      "sha256": "f60af8d2c4c15a5d7985638ee70b77beb83cb25bf60ea23aca4edfb8739e798b",
+      "bytes": 5544,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-popup",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPopupBounce.C-ndWx37.js",
+      "path": "compiled/vue/VsPopupBounce.C-ndWx37.js",
+      "sha256": "522a50adcfea51186ca6b138609a2be5c01d3f77dd352fa0d7d8087fe212a96b",
+      "bytes": 3329,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-popup-bounce",
+      "stateHints": [
+        "active",
+        "focus",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPopupConfirm.Brx7A9vg.js",
+      "path": "compiled/vue/VsPopupConfirm.Brx7A9vg.js",
+      "sha256": "2aaba8155f88011946f65406160476c3dc9fe910b8ed2a66df57593304ff547a",
+      "bytes": 6201,
+      "artifactType": "compiled-vue-island",
+      "variant": "confirm",
+      "variantSlug": "vs-popup-confirm",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPopupFlip.u_o9Fa7V.js",
+      "path": "compiled/vue/VsPopupFlip.u_o9Fa7V.js",
+      "sha256": "e2330e9cb59bba15634aa71f207114083b7e82c5e64549a4acba6da1463fb205",
+      "bytes": 3327,
+      "artifactType": "compiled-vue-island",
+      "variant": "flip",
+      "variantSlug": "vs-popup-flip",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPopupSlideUp.ByG9ZiQC.js",
+      "path": "compiled/vue/VsPopupSlideUp.ByG9ZiQC.js",
+      "sha256": "97173d2a96a37a295afb12a0296d902dd009899e05d4f9edcbb1ee54fddce16a",
+      "bytes": 3401,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide-up",
+      "variantSlug": "vs-popup-slide-up",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsPopupZoom.DwOxC7g1.js",
+      "path": "compiled/vue/VsPopupZoom.DwOxC7g1.js",
+      "sha256": "c874d79172d8fed91a038223b2bad2375f863eebb61a970560c85eb47a3ed29a",
+      "bytes": 3327,
+      "artifactType": "compiled-vue-island",
+      "variant": "zoom",
+      "variantSlug": "vs-popup-zoom",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-popup-bounce.css",
+      "path": "css/shadow/vs-popup-bounce.css",
+      "sha256": "66ef3acf5d317f3ff502df5cc00ca498dddc6b36602be6dddf044adf524f351b",
+      "bytes": 2993,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-popup-bounce",
+      "stateHints": [
+        "active",
+        "focus",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-popup-confirm.css",
+      "path": "css/shadow/vs-popup-confirm.css",
+      "sha256": "943a0b3a53caee43acd23a9cb2c390c9879164649381ec378e67fe09b2dbf5e9",
+      "bytes": 3778,
+      "artifactType": "extracted-shadow-css",
+      "variant": "confirm",
+      "variantSlug": "vs-popup-confirm",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-popup-flip.css",
+      "path": "css/shadow/vs-popup-flip.css",
+      "sha256": "1f34356858f80b6d94ba899901600c732262a5ba65ebcd270c89c300c5e2a67f",
+      "bytes": 2991,
+      "artifactType": "extracted-shadow-css",
+      "variant": "flip",
+      "variantSlug": "vs-popup-flip",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-popup-slide-up.css",
+      "path": "css/shadow/vs-popup-slide-up.css",
+      "sha256": "6c95d6fe0b5d5865d5adf0f8bea8dbec9fb526b6a268006264a896be3986e16c",
+      "bytes": 2905,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide-up",
+      "variantSlug": "vs-popup-slide-up",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-popup-zoom.css",
+      "path": "css/shadow/vs-popup-zoom.css",
+      "sha256": "cb0180e6fa492c7888db5474b52c4d2d03bd987a4e3c5b69b9249e4f1a3cbc0f",
+      "bytes": 2835,
+      "artifactType": "extracted-shadow-css",
+      "variant": "zoom",
+      "variantSlug": "vs-popup-zoom",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-popup.css",
+      "path": "css/shadow/vs-popup.css",
+      "sha256": "46220fac2365060662da220aeb505ee9ce2c3b04648fad1f1037224f71809ca7",
+      "bytes": 5812,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-popup",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-popup-bounce.js",
+      "path": "web-component/vs-popup-bounce.js",
+      "sha256": "1edbcf5307b4614517af440d0e7b7cca0860e4a2438e9a7aedeed7f0c4c26619",
+      "bytes": 10445,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-popup-bounce",
+      "stateHints": [
+        "active",
+        "focus",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-popup-confirm.js",
+      "path": "web-component/vs-popup-confirm.js",
+      "sha256": "08a628e99373b70a7bc6be631e777fcd34900c0dc40143d9bcadcbb8cf28b319",
+      "bytes": 14262,
+      "artifactType": "web-component-source",
+      "variant": "confirm",
+      "variantSlug": "vs-popup-confirm",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-popup-flip.js",
+      "path": "web-component/vs-popup-flip.js",
+      "sha256": "ce01b3a8d79dd93638a65ef4355734cf93785cac00529a0e149476d1ec75443b",
+      "bytes": 11097,
+      "artifactType": "web-component-source",
+      "variant": "flip",
+      "variantSlug": "vs-popup-flip",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-popup-slide-up.js",
+      "path": "web-component/vs-popup-slide-up.js",
+      "sha256": "356faf7b87c9df0e27028c2cd2c039699b86769fbf298136e2705a53dc7b43cc",
+      "bytes": 10409,
+      "artifactType": "web-component-source",
+      "variant": "slide-up",
+      "variantSlug": "vs-popup-slide-up",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-popup-zoom.js",
+      "path": "web-component/vs-popup-zoom.js",
+      "sha256": "b472df799e23517b49fa590878506723947cdc0d3002e722d82a5af06c639b7f",
+      "bytes": 11271,
+      "artifactType": "web-component-source",
+      "variant": "zoom",
+      "variantSlug": "vs-popup-zoom",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-popup.js",
+      "path": "web-component/vs-popup.js",
+      "sha256": "56b3b50cd3df3a475687a24f0d7434984b64b33f5fe1bb788e72cd1a61469dbc",
+      "bytes": 27450,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-popup",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    }
+  ]
+}

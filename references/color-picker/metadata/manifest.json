@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "ColorPicker",
+  "componentKey": "color-picker",
+  "family": "VsColorPicker",
+  "variants": [
+    "vs-color-picker",
+    "vs-color-picker-compact",
+    "vs-color-picker-palette",
+    "vs-color-picker-ring",
+    "vs-color-picker-slider",
+    "vs-color-picker-swatches"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsColorPicker.W08341ii.js",
+      "path": "compiled/vue/VsColorPicker.W08341ii.js",
+      "sha256": "65576efe6d41397f719ca40db9698e9bc3af9d0c9d1413884afdc461ae1ade6d",
+      "bytes": 15228,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-color-picker",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsColorPickerCompact.DPj2s7ga.js",
+      "path": "compiled/vue/VsColorPickerCompact.DPj2s7ga.js",
+      "sha256": "78d79f7deec763e708ef10388202f51d6c2e1e001a1ae0a43da47a19eb757b47",
+      "bytes": 4872,
+      "artifactType": "compiled-vue-island",
+      "variant": "compact",
+      "variantSlug": "vs-color-picker-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsColorPickerPalette.myRXg7ED.js",
+      "path": "compiled/vue/VsColorPickerPalette.myRXg7ED.js",
+      "sha256": "afdfbe0a5fab2b03d983f29f82e41d92ede527fefc6b58265ae41f794a88c7bc",
+      "bytes": 3551,
+      "artifactType": "compiled-vue-island",
+      "variant": "palette",
+      "variantSlug": "vs-color-picker-palette",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsColorPickerRing.CQhlVEEw.js",
+      "path": "compiled/vue/VsColorPickerRing.CQhlVEEw.js",
+      "sha256": "ffb64a5536de7120ecbf7427529ddc6e176714b7df32a17ad0f3f9547dce0a56",
+      "bytes": 5282,
+      "artifactType": "compiled-vue-island",
+      "variant": "ring",
+      "variantSlug": "vs-color-picker-ring",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsColorPickerSlider.DbNmDLS5.js",
+      "path": "compiled/vue/VsColorPickerSlider.DbNmDLS5.js",
+      "sha256": "a6aa75599e5e8dd31cfab4cdbd84dd1314fee0f2603587918f08722cb534891b",
+      "bytes": 5209,
+      "artifactType": "compiled-vue-island",
+      "variant": "slider",
+      "variantSlug": "vs-color-picker-slider",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsColorPickerSwatches.D9maskfV.js",
+      "path": "compiled/vue/VsColorPickerSwatches.D9maskfV.js",
+      "sha256": "34c35988c9cc1511ab02361b485779696ebfc0b0634d97f9c3b407736d570935",
+      "bytes": 3721,
+      "artifactType": "compiled-vue-island",
+      "variant": "swatches",
+      "variantSlug": "vs-color-picker-swatches",
+      "stateHints": [
+        "active",
+        "checked",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-color-picker-compact.css",
+      "path": "css/shadow/vs-color-picker-compact.css",
+      "sha256": "74f9dc87635b1124e6bc38b4bba3e376e363b55887d75ea7a76bd50c2d3c363f",
+      "bytes": 7549,
+      "artifactType": "extracted-shadow-css",
+      "variant": "compact",
+      "variantSlug": "vs-color-picker-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-color-picker-palette.css",
+      "path": "css/shadow/vs-color-picker-palette.css",
+      "sha256": "07e95d138b2c9b15cd9e3fb9a662631d3bd82efdf9e4e09fc4980180d027b2d8",
+      "bytes": 3735,
+      "artifactType": "extracted-shadow-css",
+      "variant": "palette",
+      "variantSlug": "vs-color-picker-palette",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-color-picker-ring.css",
+      "path": "css/shadow/vs-color-picker-ring.css",
+      "sha256": "c98b486e869cd07e8b9d00430cd2f4ff89217c773865c40014c7f64eb251f596",
+      "bytes": 4966,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ring",
+      "variantSlug": "vs-color-picker-ring",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-color-picker-slider.css",
+      "path": "css/shadow/vs-color-picker-slider.css",
+      "sha256": "d8dc315e3ac9bae70ca152bdd38a7f17b9d4eea1bc5c4ab681c4ff8b8a5793b8",
+      "bytes": 6289,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slider",
+      "variantSlug": "vs-color-picker-slider",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-color-picker-swatches.css",
+      "path": "css/shadow/vs-color-picker-swatches.css",
+      "sha256": "dbcbb3a49c68886222673e57e9ffd2e2b90fa19f479471d07b3775c0aa4461a8",
+      "bytes": 5917,
+      "artifactType": "extracted-shadow-css",
+      "variant": "swatches",
+      "variantSlug": "vs-color-picker-swatches",
+      "stateHints": [
+        "active",
+        "checked",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-color-picker.css",
+      "path": "css/shadow/vs-color-picker.css",
+      "sha256": "a569ae830f02e9762d61a713f7a132ee9ef97b2ad82d472a0a5e100f91f994fd",
+      "bytes": 10498,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-color-picker",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsColorPicker.Dp4L13ry.css",
+      "path": "css/vue-scoped/VsColorPicker.Dp4L13ry.css",
+      "sha256": "1f97d1081b3a662867e9e8ad61674e41c9733fb22c5e635c1dc88f8b25c5f9f5",
+      "bytes": 9282,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-color-picker",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsColorPickerCompact.MakDDtEe.css",
+      "path": "css/vue-scoped/VsColorPickerCompact.MakDDtEe.css",
+      "sha256": "4dc043244d9eb546fe94c10208c25eb879f23987433b8a7dafc5cd8dcbe709a6",
+      "bytes": 4621,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "compact",
+      "variantSlug": "vs-color-picker-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsColorPickerRing.BgNciwmz.css",
+      "path": "css/vue-scoped/VsColorPickerRing.BgNciwmz.css",
+      "sha256": "4dad3e11666b5e41d3cc321c10fd5265ab8e2f4efe5676e0798a34e6083297c3",
+      "bytes": 4415,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "ring",
+      "variantSlug": "vs-color-picker-ring",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-color-picker-compact.js",
+      "path": "web-component/vs-color-picker-compact.js",
+      "sha256": "8ec263754382e67edc6620d86471d0f2def60f972b305385b0bff8ef443c0410",
+      "bytes": 18292,
+      "artifactType": "web-component-source",
+      "variant": "compact",
+      "variantSlug": "vs-color-picker-compact",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-color-picker-palette.js",
+      "path": "web-component/vs-color-picker-palette.js",
+      "sha256": "805a7de025b380a14df0b130d76ad4c079e288ad6b8a906408cba691e9f1173a",
+      "bytes": 10136,
+      "artifactType": "web-component-source",
+      "variant": "palette",
+      "variantSlug": "vs-color-picker-palette",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-color-picker-ring.js",
+      "path": "web-component/vs-color-picker-ring.js",
+      "sha256": "db4da8098ea5057512de7277f3b9f788e6c4f20b230d4a6167a98c4bd850400f",
+      "bytes": 12948,
+      "artifactType": "web-component-source",
+      "variant": "ring",
+      "variantSlug": "vs-color-picker-ring",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-color-picker-slider.js",
+      "path": "web-component/vs-color-picker-slider.js",
+      "sha256": "a8f7ea861e951438ecacb01e7feb8a24df2e324b6badf2cade876750ec1ffe68",
+      "bytes": 17544,
+      "artifactType": "web-component-source",
+      "variant": "slider",
+      "variantSlug": "vs-color-picker-slider",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-color-picker-swatches.js",
+      "path": "web-component/vs-color-picker-swatches.js",
+      "sha256": "3087facdc0199fb84461e490a460e48daa66576b705179862435fea869bfd104",
+      "bytes": 15866,
+      "artifactType": "web-component-source",
+      "variant": "swatches",
+      "variantSlug": "vs-color-picker-swatches",
+      "stateHints": [
+        "active",
+        "checked",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-color-picker.js",
+      "path": "web-component/vs-color-picker.js",
+      "sha256": "02d0915f2a023003b7b063b5039a50362bd0b7cf7a1713065fa4bb03dc9916d3",
+      "bytes": 27104,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-color-picker",
+      "stateHints": []
+    }
+  ]
+}

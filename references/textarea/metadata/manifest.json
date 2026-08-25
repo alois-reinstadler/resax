@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Textarea",
+  "componentKey": "textarea",
+  "family": "VsTextarea",
+  "variants": [
+    "vs-textarea",
+    "vs-textarea-code",
+    "vs-textarea-filled",
+    "vs-textarea-gradient-border",
+    "vs-textarea-spotlight",
+    "vs-textarea-underline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsTextarea.CanuCA8_.js",
+      "path": "compiled/vue/VsTextarea.CanuCA8_.js",
+      "sha256": "e81db20ecc5a9cf3ba7e55a3408056e2b82e5f551be58a1901308b20326c0148",
+      "bytes": 6666,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-textarea",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTextareaCode.ByiwQTzU.js",
+      "path": "compiled/vue/VsTextareaCode.ByiwQTzU.js",
+      "sha256": "966dc9bb47ce7f58f28772cc2b108aab1caab2236028a623fb200d822f170872",
+      "bytes": 2924,
+      "artifactType": "compiled-vue-island",
+      "variant": "code",
+      "variantSlug": "vs-textarea-code",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTextareaFilled.Drs7nn6l.js",
+      "path": "compiled/vue/VsTextareaFilled.Drs7nn6l.js",
+      "sha256": "c99d436913201580524372dbf0dd7d7861dc831152e895b5d64891225fd5880c",
+      "bytes": 2566,
+      "artifactType": "compiled-vue-island",
+      "variant": "filled",
+      "variantSlug": "vs-textarea-filled",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTextareaGradientBorder.c5D_SEXD.js",
+      "path": "compiled/vue/VsTextareaGradientBorder.c5D_SEXD.js",
+      "sha256": "870a8c1f3a2d9993569ce32d3a04acba62a5618691048c21f21e421f41c3b8ba",
+      "bytes": 2624,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient-border",
+      "variantSlug": "vs-textarea-gradient-border",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTextareaSpotlight.vHVHTh_a.js",
+      "path": "compiled/vue/VsTextareaSpotlight.vHVHTh_a.js",
+      "sha256": "f6424d1cfa9a619bc2650abd951901ab5374fcd1fb64ba819daa0655b38c85b7",
+      "bytes": 3643,
+      "artifactType": "compiled-vue-island",
+      "variant": "spotlight",
+      "variantSlug": "vs-textarea-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTextareaUnderline.DH7XsDYp.js",
+      "path": "compiled/vue/VsTextareaUnderline.DH7XsDYp.js",
+      "sha256": "3ffd2b51928c350f6d6d9e2c6525e26b0be261c75b4020707cdb78543164ca13",
+      "bytes": 2659,
+      "artifactType": "compiled-vue-island",
+      "variant": "underline",
+      "variantSlug": "vs-textarea-underline",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-textarea-code.css",
+      "path": "css/shadow/vs-textarea-code.css",
+      "sha256": "0bd2071bbb280cf81dd61f1c291b7b73df31531d520d0607b76f704ed0d482bb",
+      "bytes": 3827,
+      "artifactType": "extracted-shadow-css",
+      "variant": "code",
+      "variantSlug": "vs-textarea-code",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-textarea-filled.css",
+      "path": "css/shadow/vs-textarea-filled.css",
+      "sha256": "cd69d23942d07ead8d9146b737d70b240ecc2c4f933d0550f84de90570482e97",
+      "bytes": 3786,
+      "artifactType": "extracted-shadow-css",
+      "variant": "filled",
+      "variantSlug": "vs-textarea-filled",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-textarea-gradient-border.css",
+      "path": "css/shadow/vs-textarea-gradient-border.css",
+      "sha256": "9ca6e45b2753ac7eb5c0b938fae9f8c4384274f581f25bccbafc3036545b8c16",
+      "bytes": 3460,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient-border",
+      "variantSlug": "vs-textarea-gradient-border",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-textarea-spotlight.css",
+      "path": "css/shadow/vs-textarea-spotlight.css",
+      "sha256": "fb7e6447a26874adf9313735a553912ae02ce8bec211e975b235c9f840be2998",
+      "bytes": 3253,
+      "artifactType": "extracted-shadow-css",
+      "variant": "spotlight",
+      "variantSlug": "vs-textarea-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-textarea-underline.css",
+      "path": "css/shadow/vs-textarea-underline.css",
+      "sha256": "29abb1dbd6fac5fe9d71c4b201beac377a0c2b6e33a54163ccb86e2ea9d2cc24",
+      "bytes": 3312,
+      "artifactType": "extracted-shadow-css",
+      "variant": "underline",
+      "variantSlug": "vs-textarea-underline",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-textarea.css",
+      "path": "css/shadow/vs-textarea.css",
+      "sha256": "63fc20e007eac8c333c90f00bdefd83d2475f6a63a0a15a914037fcb6d30633c",
+      "bytes": 8967,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-textarea",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTextarea.Ci1ZvYvB.css",
+      "path": "css/vue-scoped/VsTextarea.Ci1ZvYvB.css",
+      "sha256": "921361b2b843b280400cc903f00dcba035f1373675dcd0a680bf2e4f0ae0d11f",
+      "bytes": 7851,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-textarea",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-textarea-code.js",
+      "path": "web-component/vs-textarea-code.js",
+      "sha256": "a9125523693e1de5becc3486078e413af5231d6618bb4b8d01a990ea09fa47b5",
+      "bytes": 10103,
+      "artifactType": "web-component-source",
+      "variant": "code",
+      "variantSlug": "vs-textarea-code",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-textarea-filled.js",
+      "path": "web-component/vs-textarea-filled.js",
+      "sha256": "57b4ca6f7ca64232569a3b05bba01db20f5e81f942e39c41a3c78440bcd93fcc",
+      "bytes": 9206,
+      "artifactType": "web-component-source",
+      "variant": "filled",
+      "variantSlug": "vs-textarea-filled",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-textarea-gradient-border.js",
+      "path": "web-component/vs-textarea-gradient-border.js",
+      "sha256": "4e769c66b8854dcf2040ba12a13cb8238ccb9a6079dc8607a6c30fda814ce0ff",
+      "bytes": 9013,
+      "artifactType": "web-component-source",
+      "variant": "gradient-border",
+      "variantSlug": "vs-textarea-gradient-border",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-textarea-spotlight.js",
+      "path": "web-component/vs-textarea-spotlight.js",
+      "sha256": "18671baf0db70a8464256bd5945ce8e13abfed027208d044d9ac1a3a8cf5c0cf",
+      "bytes": 8549,
+      "artifactType": "web-component-source",
+      "variant": "spotlight",
+      "variantSlug": "vs-textarea-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-textarea-underline.js",
+      "path": "web-component/vs-textarea-underline.js",
+      "sha256": "b9744a764ac1aa0d11f5414a7db6863158cd7610a49cefca7aec0813a8a37eaa",
+      "bytes": 8694,
+      "artifactType": "web-component-source",
+      "variant": "underline",
+      "variantSlug": "vs-textarea-underline",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-textarea.js",
+      "path": "web-component/vs-textarea.js",
+      "sha256": "a0d71a0a33a0536ea66319faab54a3d6bc944c1fe59505a75332fa6cfd70efa8",
+      "bytes": 18719,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-textarea",
+      "stateHints": [
+        "focus"
+      ]
+    }
+  ]
+}

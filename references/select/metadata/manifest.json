@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Select",
+  "componentKey": "select",
+  "family": "VsSelect",
+  "variants": [
+    "vs-select",
+    "vs-select-floating",
+    "vs-select-pill",
+    "vs-select-search",
+    "vs-select-slide",
+    "vs-select-underline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSelect.CFUenGws.js",
+      "path": "compiled/vue/VsSelect.CFUenGws.js",
+      "sha256": "69dd7b54eedb4eff21273ec5d0dd10c0c15cf2a2cfeb893e18f6e0389e9e1967",
+      "bytes": 12715,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-select",
+      "stateHints": [
+        "focus",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSelectFloating.BS8xI1UD.js",
+      "path": "compiled/vue/VsSelectFloating.BS8xI1UD.js",
+      "sha256": "80341b21321c8df3344e7ee156eb8214e5278d6e3785468b3d9fd2a4476d7697",
+      "bytes": 5078,
+      "artifactType": "compiled-vue-island",
+      "variant": "floating",
+      "variantSlug": "vs-select-floating",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSelectPill.CMaNHfFp.js",
+      "path": "compiled/vue/VsSelectPill.CMaNHfFp.js",
+      "sha256": "8df3a91f5dda4222865e0e92e72dfd86d9022f50e8d5269ea6b0e645552d6007",
+      "bytes": 4857,
+      "artifactType": "compiled-vue-island",
+      "variant": "pill",
+      "variantSlug": "vs-select-pill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSelectSearch.Bo1cu4AB.js",
+      "path": "compiled/vue/VsSelectSearch.Bo1cu4AB.js",
+      "sha256": "6de6739bc610f8fa89cae9e18e25991c565aa14e23cd9ab7e2a3840c29b066c5",
+      "bytes": 5878,
+      "artifactType": "compiled-vue-island",
+      "variant": "search",
+      "variantSlug": "vs-select-search",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSelectSlide.Frr8gHWL.js",
+      "path": "compiled/vue/VsSelectSlide.Frr8gHWL.js",
+      "sha256": "5d044d829805fb76dbb56d9dd3e5a7af8d2dfd5c08231ef20f290e314bf5e143",
+      "bytes": 4786,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-select-slide",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSelectUnderline.COatF_Tr.js",
+      "path": "compiled/vue/VsSelectUnderline.COatF_Tr.js",
+      "sha256": "0b6dca59eee0de8e81caabd85327ae5360bcd1420d8ddbd70b69db7c7c7f2013",
+      "bytes": 4812,
+      "artifactType": "compiled-vue-island",
+      "variant": "underline",
+      "variantSlug": "vs-select-underline",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-select-floating.css",
+      "path": "css/shadow/vs-select-floating.css",
+      "sha256": "4c6c0ef54a0cdcf1ccd75a31a88b16fc567f96c24201c68bdeb20e5bf1dae488",
+      "bytes": 5556,
+      "artifactType": "extracted-shadow-css",
+      "variant": "floating",
+      "variantSlug": "vs-select-floating",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-select-pill.css",
+      "path": "css/shadow/vs-select-pill.css",
+      "sha256": "350e33f84d1c2c4d6d854fab9e57cb5bd4876873d3e94dcfd40c94a5ddbe2115",
+      "bytes": 4457,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pill",
+      "variantSlug": "vs-select-pill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-select-search.css",
+      "path": "css/shadow/vs-select-search.css",
+      "sha256": "9cef176db70d3301c1cc04f9e1a936bedb527b0f40e9c833fada431a237151e1",
+      "bytes": 4675,
+      "artifactType": "extracted-shadow-css",
+      "variant": "search",
+      "variantSlug": "vs-select-search",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-select-slide.css",
+      "path": "css/shadow/vs-select-slide.css",
+      "sha256": "451b87148365f7f5c3e7f8da757efe9955c77190bc1add5fa5c0c2967f99d64e",
+      "bytes": 4343,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-select-slide",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-select-underline.css",
+      "path": "css/shadow/vs-select-underline.css",
+      "sha256": "4c589252d1f60d63998801c85ebeb6219e6c36f3f6c8c451a7f204509a88a3a5",
+      "bytes": 4109,
+      "artifactType": "extracted-shadow-css",
+      "variant": "underline",
+      "variantSlug": "vs-select-underline",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-select.css",
+      "path": "css/shadow/vs-select.css",
+      "sha256": "450df678de239a57669ebfd2466f995faf7b243515fa9fe676c922fb10831bf4",
+      "bytes": 10046,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-select",
+      "stateHints": [
+        "focus",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsSelectFloating.BCBKmlZv.css",
+      "path": "css/vue-scoped/VsSelectFloating.BCBKmlZv.css",
+      "sha256": "e64e6c387a2d6c043b9f9fed76bc75eae07333a4f5cb621b9db034d88c57b984",
+      "bytes": 4440,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "floating",
+      "variantSlug": "vs-select-floating",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-select-floating.js",
+      "path": "web-component/vs-select-floating.js",
+      "sha256": "bbbac6c9ceeb870d76b6af02b92770bb1c5685f00f724ab0b9973c85fc04fa42",
+      "bytes": 15583,
+      "artifactType": "web-component-source",
+      "variant": "floating",
+      "variantSlug": "vs-select-floating",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-select-pill.js",
+      "path": "web-component/vs-select-pill.js",
+      "sha256": "2f3a9e9324d0a6aa97baf1b24fca0fad4694321caf1396a14fb08d19ec2af196",
+      "bytes": 13985,
+      "artifactType": "web-component-source",
+      "variant": "pill",
+      "variantSlug": "vs-select-pill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-select-search.js",
+      "path": "web-component/vs-select-search.js",
+      "sha256": "0c21c7561a17eef10d0a9df03cd762420cef9f8db96377638adc61ff49a2033d",
+      "bytes": 15187,
+      "artifactType": "web-component-source",
+      "variant": "search",
+      "variantSlug": "vs-select-search",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-select-slide.js",
+      "path": "web-component/vs-select-slide.js",
+      "sha256": "83b1419db397722c24cd1cfc932e04440f330eb4c0a2841bdca14d41b4ccaa85",
+      "bytes": 13752,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-select-slide",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-select-underline.js",
+      "path": "web-component/vs-select-underline.js",
+      "sha256": "6439c615164bf1f69e03b5c5149e4b6f43977577dd5e7217b460f3d8e1f54f60",
+      "bytes": 13556,
+      "artifactType": "web-component-source",
+      "variant": "underline",
+      "variantSlug": "vs-select-underline",
+      "stateHints": [
+        "selected",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-select.js",
+      "path": "web-component/vs-select.js",
+      "sha256": "88b383eb82ed02d6b0ff751c7ff113e851ab78378842eb92bcb6e2241b623b24",
+      "bytes": 24066,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-select",
+      "stateHints": [
+        "focus",
+        "keyboard"
+      ]
+    }
+  ]
+}

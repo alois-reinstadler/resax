@@ -1,1 +1,1 @@
-export{default as Popup}from'./popup.svelte';export{default as ConfirmPopup}from'./confirm-popup.svelte';export type{PopupProps}from'./popup.svelte';export type{ConfirmPopupProps}from'./confirm-popup.svelte';
+export{default as Popup}from'./popup.svelte';export{default as ConfirmPopup}from'./confirm-popup.svelte';export type{PopupProps,PopupTransition,PopupSize,PopupRadius}from'./popup.svelte';export type{ConfirmPopupProps}from'./confirm-popup.svelte';

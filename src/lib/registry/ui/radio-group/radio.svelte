@@ -1,44 +1,80 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
 	import type { RadioGroup as RadioGroupTypes } from 'bits-ui';
+	export type RadioVariant = 'base' | 'bounce' | 'card' | 'fill' | 'glow' | 'ring';
 	export interface RadioProps extends Omit<RadioGroupTypes.ItemProps, 'value' | 'disabled' | 'children' | 'child'> {
-		value: string; disabled?: boolean; children?: Snippet;
+		value: string; disabled?: boolean; variant?: RadioVariant; glow?: boolean; labelPosition?: 'left' | 'right'; children?: Snippet; description?: Snippet;
 	}
+	type Ripple = { id: number; x: number; y: number; size: number; inner: boolean };
+	type Drop = { id: number; x: number; y: number };
 </script>
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { Label, RadioGroup as RadioGroupPrimitive, useId } from 'bits-ui';
+	import { neighborLight } from '$lib/registry/attachments/neighbor-light';
+	import { proximityGlow } from '$lib/registry/attachments/proximity-glow';
 	import { styleColor } from '$lib/registry/lib/color';
-	import { RX_EASE_BOUNCE } from '$lib/registry/lib/easing';
 	import { RADIO_GROUP, type RadioGroupContext } from './context';
 	import { radioVariants } from './index';
-	let { value, disabled = false, children, id = useId(), class: className, style, ...restProps }: RadioProps = $props();
-	const context = getContext<RadioGroupContext>(RADIO_GROUP);
-	const inactive = $derived(disabled || context?.disabled() || false);
-	const classes = $derived(radioVariants({ size: context?.size() ?? 'default', class: typeof className === 'string' ? className : undefined }));
-	const inlineStyle = $derived(`${styleColor(context?.color()) ?? ''}; --rx-bounce: ${RX_EASE_BOUNCE}; ${style ?? ''}`);
+	let { value, disabled = false, variant = 'base', glow = true, labelPosition = 'right', children, description, id = useId(), class: className, style, ...restProps }: RadioProps = $props();
+	const context = getContext<RadioGroupContext>(RADIO_GROUP), inactive = $derived(disabled || context?.disabled() || false), groupVariant = $derived(context?.variant() ?? 'base');
+	const classes = $derived(radioVariants({ size: context?.size() ?? 'default', variant, class: typeof className === 'string' ? className : undefined }));
+	const inlineStyle = $derived(`${styleColor(context?.color()) ?? '--rx-color:var(--rx-primary)'};${style ?? ''}`);
+	let pressed = $state(false), sequence = 0, ripples = $state<Ripple[]>([]), drops = $state<Drop[]>([]), timers: ReturnType<typeof setTimeout>[] = [];
+	let radioNode = $state<HTMLElement | null>(null), motionFrame = 0;
+	const attachProximity = proximityGlow({ radius: 90, disabled: () => inactive || !glow || variant !== 'base' || groupVariant !== 'base' });
+	const attachNeighbor = neighborLight({ disabled: () => inactive || !glow || variant !== 'base' || groupVariant !== 'base' });
+	const reduced = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion:reduce)').matches;
+	function down(event: PointerEvent) { if (inactive) return; pressed = true; if (variant !== 'base' || groupVariant !== 'base' || reduced()) return; const node=event.currentTarget as HTMLElement,r=node.getBoundingClientRect(),x=event.clientX-r.left,y=event.clientY-r.top,d=Math.hypot(Math.max(x,r.width-x),Math.max(y,r.height-y))*2,ids=[++sequence,++sequence];ripples.push({id:ids[0],x,y,size:d*.8,inner:true},{id:ids[1],x,y,size:d*1.9,inner:false});timers.push(setTimeout(()=>ripples=ripples.filter(v=>!ids.includes(v.id)),800)); }
+	function release(){pressed=false}
+	function leave(){release()}
+	function labelDown(event:PointerEvent){if(inactive||variant!=='base'||groupVariant!=='base'||reduced())return;const n=event.currentTarget as HTMLElement,r=n.getBoundingClientRect(),x=event.clientX-r.left,y=event.clientY-r.top,id=++sequence;drops.push({id,x,y});timers.push(setTimeout(()=>drops=drops.filter(v=>v.id!==id),1900));const c=(v:number)=>Math.max(-1,Math.min(1,v)),nx=c((x/r.width-.5)*2),ny=c((y/r.height-.5)*2),s=1-.2*Math.min(Math.abs(nx),Math.abs(ny));n.classList.add('rx-radio__label--pressing');n.style.transform=`perspective(420px) rotateX(${(-ny*12*s).toFixed(2)}deg) rotateY(${(nx*9*s).toFixed(2)}deg) scale(.93)`}
+	function labelUp(event:PointerEvent){const n=event.currentTarget as HTMLElement;n.classList.remove('rx-radio__label--pressing');n.style.transform=''}
+	$effect(() => {
+		if (!radioNode) return;
+		const node = radioNode;
+		let previous = node.dataset.state === 'checked';
+		const restart = () => {
+			const selected = node.dataset.state === 'checked';
+			if (selected && !previous && !reduced()) {
+				if (variant === 'base' && groupVariant === 'base') {
+					node.classList.remove('rx-radio--pop');
+					if (motionFrame) cancelAnimationFrame(motionFrame);
+					motionFrame = requestAnimationFrame(() => { motionFrame = requestAnimationFrame(() => { motionFrame = 0; node.classList.add('rx-radio--pop'); }); });
+				}
+				if (variant === 'bounce') { node.classList.remove('rx-radio--bounce-fire'); void node.offsetWidth; node.classList.add('rx-radio--bounce-fire'); }
+				if (groupVariant === 'glow') { node.classList.remove('rx-radio--group-glow-fire'); void node.offsetWidth; node.classList.add('rx-radio--group-glow-fire'); }
+			}
+			previous = selected;
+		};
+		const observer = new MutationObserver(restart);
+		observer.observe(node, { attributes: true, attributeFilter: ['data-state'] });
+		return () => { observer.disconnect(); if (motionFrame) cancelAnimationFrame(motionFrame); motionFrame = 0; };
+	});
+	$effect(()=>()=>{for(const timer of timers)clearTimeout(timer)});
 </script>
-<span class="rx-radio-field" class:rx-radio-field--disabled={inactive}>
-	<RadioGroupPrimitive.Item {...restProps} {id} {value} disabled={inactive} class={classes} style={inlineStyle}>
+<span class="rx-radio-field rx-radio-field--variant-{variant} rx-radio-field--group-{groupVariant} rx-radio-field--label-{labelPosition}" class:rx-radio-field--pressed={pressed} class:rx-radio-field--disabled={inactive} style={inlineStyle}>
+	<RadioGroupPrimitive.Item {...restProps} bind:ref={radioNode} {id} {value} disabled={inactive} class={classes} style={inlineStyle} onpointerdown={down} onpointerup={release} onpointerleave={leave} onpointercancel={release}
+		onanimationend={(event) => { if (event.animationName === 'rx-radio-pop') radioNode?.classList.remove('rx-radio--pop'); if (event.animationName === 'rx-radio-bounce') radioNode?.classList.remove('rx-radio--bounce-fire'); if (event.animationName === 'rx-radio-group-glow-ripple') radioNode?.classList.remove('rx-radio--group-glow-fire'); }}
+		{@attach attachProximity} {@attach attachNeighbor}>
+		<span class="rx-radio__neighbor-fill" aria-hidden="true"></span><span class="rx-radio__neighbor-ring" aria-hidden="true"></span><span class="rx-radio__glow" aria-hidden="true"></span><span class="rx-radio__ripples" aria-hidden="true">{#each ripples as ripple(ripple.id)}<span class="rx-radio__ripple" class:rx-radio__ripple--inner={ripple.inner} style={`left:${ripple.x}px;top:${ripple.y}px;width:${ripple.size}px;height:${ripple.size}px`}></span>{/each}</span>
+		<span class="rx-radio__fill" aria-hidden="true"></span><span class="rx-radio__hole" aria-hidden="true"></span><span class="rx-radio__halo" aria-hidden="true"></span>
+		<svg class="rx-radio__ring-svg" viewBox="0 0 40 40" aria-hidden="true"><circle class="rx-radio__ring-track" cx="20" cy="20" r="16" fill="none" stroke-width="3"/><circle class="rx-radio__ring-line" cx="20" cy="20" r="16" fill="none" stroke-width="3" transform="rotate(-90 20 20)"/></svg>
 		<span class="rx-radio__dot" aria-hidden="true"></span>
 	</RadioGroupPrimitive.Item>
-	{#if children}<Label.Root for={id} class="rx-radio__label">{@render children()}</Label.Root>{/if}
+	{#if children || description}<span class="rx-radio__body">{#if children}<Label.Root for={id} class="rx-radio__label" onpointerdown={labelDown} onpointerup={labelUp} onpointerleave={labelUp} onpointercancel={labelUp}><span>{@render children()}</span>{#each drops as drop(drop.id)}<span class="rx-radio__drop" style={`--rx-drop-x:${drop.x}px;--rx-drop-y:${drop.y}px`} aria-hidden="true">{@render children()}</span>{/each}</Label.Root>{/if}{#if description}<span class="rx-radio__description">{@render description()}</span>{/if}</span>{/if}
 </span>
 <style>
 	:global {
-	.rx-radio-field { display: inline-flex; align-items: center; gap: .55rem; color: rgb(var(--rx-dark)); }
-	.rx-radio-field--disabled { opacity: .55; }
-	.rx-radio { display: inline-grid; flex: none; place-items: center; box-sizing: border-box; padding: 0; border: 2px solid rgb(var(--rx-color) / .48); border-radius: 9999px; background: transparent; cursor: pointer; transition: border-color var(--rx-duration) var(--rx-ease); }
-	.rx-radio[data-state='checked'] { border-color: rgb(var(--rx-color)); }
-	.rx-radio:focus-visible { outline: 3px solid rgb(var(--rx-color) / .25); outline-offset: 2px; }
-	.rx-radio:disabled { cursor: not-allowed; }
-	.rx-radio--lg { width: 1.55rem; height: 1.55rem; }
-	.rx-radio--default { width: 1.3rem; height: 1.3rem; }
-	.rx-radio--sm { width: 1.05rem; height: 1.05rem; }
-	.rx-radio__dot { width: 52%; height: 52%; border-radius: inherit; background: rgb(var(--rx-color)); transform: scale(0); transition: transform var(--rx-duration) var(--rx-bounce); }
-	.rx-radio[data-state='checked'] .rx-radio__dot { transform: scale(1); }
-	.rx-radio__label { cursor: pointer; user-select: none; }
-	.rx-radio-field--disabled .rx-radio__label { cursor: not-allowed; }
-	@media (prefers-reduced-motion: reduce) { .rx-radio, .rx-radio__dot { transition-duration: 0ms; } }
+	.rx-radio-field{--rx-radio-box:20px;--rx-radio-fs:14px;display:inline-flex;align-items:center;gap:9px;color:rgb(var(--rx-text));font-size:var(--rx-radio-fs);cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}.rx-radio-field--label-left{flex-direction:row-reverse}.rx-radio-field:has(.rx-radio--sm){--rx-radio-box:16px;--rx-radio-fs:13px}.rx-radio-field:has(.rx-radio--lg){--rx-radio-box:24px;--rx-radio-fs:15px}.rx-radio-field--disabled{opacity:.45;cursor:not-allowed}.rx-radio{position:relative;isolation:isolate;flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--rx-radio-box);height:var(--rx-radio-box);padding:0;border:1.5px solid rgb(var(--rx-border-strong));border-radius:50%;background:rgb(var(--rx-surface));cursor:inherit;outline:none;transition:border-color 200ms cubic-bezier(.22,1,.36,1),background-color 200ms cubic-bezier(.22,1,.36,1),transform 340ms cubic-bezier(.34,1.7,.5,1)}.rx-radio:hover:not(:disabled){border-color:rgb(var(--rx-border-hover))}.rx-radio:focus-visible{border-color:rgb(var(--rx-color));box-shadow:0 0 0 3px rgb(var(--rx-color)/.3)}.rx-radio:disabled{cursor:not-allowed}.rx-radio[data-state=checked]{border-color:rgb(var(--rx-color))}.rx-radio-field--pressed .rx-radio--variant-base{transform:scale(.82)}.rx-radio--variant-base.rx-radio--pop{animation:rx-radio-pop 420ms cubic-bezier(.34,1.7,.5,1)}@keyframes rx-radio-pop{0%{scale:.86}45%{scale:1.14}100%{scale:1}}
+	.rx-radio__dot{position:relative;z-index:3;width:50%;height:50%;border-radius:50%;background:rgb(var(--rx-color));transform:scale(0);opacity:0;transition:transform 360ms cubic-bezier(.34,1.7,.5,1),opacity 180ms ease}.rx-radio[data-state=checked] .rx-radio__dot{transform:scale(1);opacity:1}.rx-radio__body{display:flex;min-width:0;flex-direction:column;gap:2px}.rx-radio__label{position:relative;display:inline-block;line-height:1.2;cursor:pointer;transform-origin:center;transition:transform 620ms linear(0,0.013 1.2%,0.05 2.5%,0.193 5.1%,0.704 12.3%,0.9 15.6%,1.04 19.1%,1.106 21.6%,1.143 24.3%,1.15 26%,1.14 28.1%,1.07 33%,1.013 38.2%,0.984 43.9%,0.977 50%,0.986 60%,1.003 75%,1)}.rx-radio__label--pressing{transition:transform 120ms cubic-bezier(.4,0,.2,1)}.rx-radio-field--disabled .rx-radio__label{cursor:not-allowed}.rx-radio__description{font-size:calc(var(--rx-radio-fs) - 2px);color:rgb(var(--rx-text-muted));line-height:1.2}.rx-radio-field--variant-card .rx-radio__description{color:rgb(var(--rx-text)/.76)}
+	.rx-radio__neighbor-fill,.rx-radio__neighbor-ring{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0}.rx-radio__neighbor-fill{z-index:0;background:var(--rx-neighbor-fill,none);opacity:calc(var(--rx-neighbor-lit,0)*.28)}.rx-radio__neighbor-ring{z-index:2;padding:1.5px;background:var(--rx-neighbor-ring,none);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:calc(var(--rx-neighbor-lit,0)*.92)}.rx-radio__glow{position:absolute;inset:-2px;z-index:1;border-radius:50%;padding:1.5px;pointer-events:none;background:radial-gradient(28px circle at var(--rx-gx,50%) var(--rx-gy,50%),rgb(var(--rx-color)/.75),rgb(var(--rx-color)/.4) 42%,rgb(var(--rx-color)/.12) 66%,rgb(var(--rx-color)/0) 82%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:calc(var(--rx-glow,0)*.9);transition:opacity 140ms}.rx-radio__ripples{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:visible;pointer-events:none}.rx-radio__ripple{position:absolute;border-radius:50%;transform:translate(-50%,-50%) scale(0);background:radial-gradient(circle,rgb(var(--rx-color)/.35) 0%,rgb(var(--rx-color)/.18) 42%,rgb(var(--rx-color)/.06) 62%,transparent 78%);opacity:0;animation:rx-radio-ripple-scale 620ms cubic-bezier(.22,1,.36,1) forwards,rx-radio-ripple-fade 620ms cubic-bezier(.25,.1,.25,1) forwards}.rx-radio__ripple--inner{background:radial-gradient(circle,rgb(var(--rx-color)/.6) 0%,rgb(var(--rx-color)/.32) 40%,rgb(var(--rx-color)/.1) 62%,transparent 76%);animation-duration:460ms,460ms}.rx-radio__ripple:not(.rx-radio__ripple--inner){animation-delay:90ms}@keyframes rx-radio-ripple-scale{to{transform:translate(-50%,-50%) scale(1)}}@keyframes rx-radio-ripple-fade{from{opacity:.7}to{opacity:0}}
+	@property --rx-radio-drop-radius{syntax:'<length>';inherits:false;initial-value:0px}.rx-radio__drop{position:absolute;inset:0;pointer-events:none;white-space:nowrap;--rx-drop-inner:calc(var(--rx-radio-drop-radius)*.52);background:radial-gradient(circle at var(--rx-drop-x,50%) var(--rx-drop-y,50%),transparent calc(var(--rx-radio-drop-radius) - 17px),rgb(var(--rx-bg)/.12) calc(var(--rx-radio-drop-radius) - 13px),rgb(var(--rx-bg)/.55) calc(var(--rx-radio-drop-radius) - 6px),rgb(var(--rx-bg)/.98) calc(var(--rx-radio-drop-radius) - 1px),rgb(var(--rx-bg)/.62) calc(var(--rx-radio-drop-radius) + 4px),rgb(var(--rx-bg)/.14) calc(var(--rx-radio-drop-radius) + 11px),transparent calc(var(--rx-radio-drop-radius) + 16px)),radial-gradient(circle at var(--rx-drop-x,50%) var(--rx-drop-y,50%),transparent calc(var(--rx-drop-inner) - 12px),rgb(var(--rx-bg)/.3) calc(var(--rx-drop-inner) - 5px),rgb(var(--rx-bg)/.55) var(--rx-drop-inner),rgb(var(--rx-bg)/.12) calc(var(--rx-drop-inner) + 7px),transparent calc(var(--rx-drop-inner) + 12px));background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:rx-radio-drop 1820ms cubic-bezier(.16,1,.3,1) forwards}@keyframes rx-radio-drop{0%{--rx-radio-drop-radius:0px;opacity:.4}12%{opacity:1}100%{--rx-radio-drop-radius:150px;opacity:0}}
+	.rx-radio__fill,.rx-radio__hole,.rx-radio__halo,.rx-radio__ring-svg{position:absolute;pointer-events:none}.rx-radio__fill{inset:0;z-index:0;border-radius:50%;background:rgb(var(--rx-color));transform:scale(0);transition:transform var(--rx-radio-fill-ms,300ms) cubic-bezier(.34,1.56,.5,1)}.rx-radio__hole{z-index:1;width:34%;height:34%;border-radius:50%;background:rgb(var(--rx-surface));transform:scale(0);transition:transform var(--rx-radio-fill-ms,300ms) cubic-bezier(.34,1.56,.5,1)}.rx-radio--variant-fill{overflow:hidden}.rx-radio--variant-fill[data-state=checked] .rx-radio__fill,.rx-radio--variant-fill[data-state=checked] .rx-radio__hole{transform:scale(1)}.rx-radio--variant-fill .rx-radio__dot{display:none}
+	.rx-radio--variant-bounce .rx-radio__dot{transform-origin:center bottom;transition:none}.rx-radio--variant-bounce.rx-radio--bounce-fire .rx-radio__dot{animation:rx-radio-bounce 760ms cubic-bezier(.22,1,.36,1) both}@keyframes rx-radio-bounce{0%{transform:translateY(-90%) scale(.7,1.25)}22%{transform:translateY(0) scale(1.3,.72)}40%{transform:translateY(-42%) scale(.86,1.16)}55%{transform:translateY(0) scale(1.18,.84)}70%{transform:translateY(-18%) scale(.94,1.07)}84%{transform:translateY(0) scale(1.07,.94)}100%{transform:translateY(0) scale(1)}}
+	.rx-radio-field--variant-card{padding:10px 14px;border:1.5px solid rgb(var(--rx-border-strong));border-radius:12px;background:rgb(var(--rx-surface));transition:border-color 240ms cubic-bezier(.22,1,.36,1),background-color 240ms cubic-bezier(.22,1,.36,1),box-shadow 260ms cubic-bezier(.22,1,.36,1),transform 260ms cubic-bezier(.34,1.4,.5,1)}.rx-radio-field--variant-card:hover{border-color:rgb(var(--rx-border-hover))}.rx-radio-field--variant-card:has(.rx-radio[data-state=checked]){border-color:rgb(var(--rx-color));background:rgb(var(--rx-color)/.1);box-shadow:0 6px 16px rgb(var(--rx-color)/.18),0 0 0 1px rgb(var(--rx-color)/.4) inset;transform:translateY(-2px)}.rx-radio-field--variant-card .rx-radio{background:rgb(var(--rx-bg))}
+	.rx-radio__halo{z-index:0;width:50%;height:50%;border-radius:50%;background:radial-gradient(circle,rgb(var(--rx-color)/.55) 0%,transparent 70%);opacity:0;transform:scale(.5)}.rx-radio--variant-glow[data-state=checked]{box-shadow:0 0 8px rgb(var(--rx-color)/.5),0 0 16px rgb(var(--rx-color)/.3)}.rx-radio--variant-glow[data-state=checked] .rx-radio__halo{animation:rx-radio-breathe 1800ms ease-in-out infinite}.rx-radio--variant-glow .rx-radio__dot{box-shadow:0 0 6px rgb(var(--rx-color)/.9);transition:transform 340ms cubic-bezier(.34,1.56,.5,1),opacity 180ms ease}@keyframes rx-radio-breathe{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(2.1)}}
+	.rx-radio__ring-svg{inset:0;width:100%;height:100%;display:none}.rx-radio__ring-track{stroke:rgb(var(--rx-border-strong));transition:stroke 200ms ease}.rx-radio__ring-line{stroke:rgb(var(--rx-color));stroke-dasharray:100.53;stroke-dashoffset:100.53;transition:stroke-dashoffset 480ms cubic-bezier(.65,0,.35,1)}.rx-radio--variant-ring{border:0}.rx-radio--variant-ring .rx-radio__ring-svg{display:block}.rx-radio--variant-ring[data-state=checked] .rx-radio__ring-line{stroke-dashoffset:0}.rx-radio--variant-ring .rx-radio__dot{width:46%;height:46%;transition:transform 380ms 120ms cubic-bezier(.34,1.56,.5,1),opacity 160ms 120ms ease}
+	@media(prefers-reduced-motion:reduce){.rx-radio,.rx-radio__dot,.rx-radio__label,.rx-radio__fill,.rx-radio__hole,.rx-radio__ring-line,.rx-radio__ring-track,.rx-radio-field--variant-card{transition-duration:0ms}.rx-radio--variant-base.rx-radio--pop,.rx-radio--variant-bounce.rx-radio--bounce-fire .rx-radio__dot{animation:none}.rx-radio--variant-bounce[data-state=checked] .rx-radio__dot{transform:scale(1);opacity:1}.rx-radio--variant-glow[data-state=checked] .rx-radio__halo{animation:none;opacity:.6;transform:scale(1.4)}.rx-radio__ripple,.rx-radio__drop{display:none}.rx-radio-field--variant-card:has(.rx-radio[data-state=checked]){transform:none}}
 	}
 </style>

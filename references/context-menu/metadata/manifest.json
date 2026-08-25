@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "ContextMenu",
+  "componentKey": "context-menu",
+  "family": "VsContextMenu",
+  "variants": [
+    "vs-context-menu",
+    "vs-context-menu-blur",
+    "vs-context-menu-glow",
+    "vs-context-menu-radial",
+    "vs-context-menu-slide",
+    "vs-context-menu-spring"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsContextMenu.QbstC1y9.js",
+      "path": "compiled/vue/VsContextMenu.QbstC1y9.js",
+      "sha256": "2d385d70689550daa2542a33f015b6fe71bb7527a0235a90e68404a42af261c4",
+      "bytes": 9100,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-context-menu",
+      "stateHints": [
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsContextMenuBlur.LaXaXlbo.js",
+      "path": "compiled/vue/VsContextMenuBlur.LaXaXlbo.js",
+      "sha256": "19df8f7e345efeafbc83d303689864621e790c1794493dc4c57fc6540b095680",
+      "bytes": 8161,
+      "artifactType": "compiled-vue-island",
+      "variant": "blur",
+      "variantSlug": "vs-context-menu-blur",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsContextMenuGlow.CtmfG1Xj.js",
+      "path": "compiled/vue/VsContextMenuGlow.CtmfG1Xj.js",
+      "sha256": "84a68f5904a8396f446f20bb40de02f9f0ba53dac025fdae76ec65e2104ce3eb",
+      "bytes": 8117,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-context-menu-glow",
+      "stateHints": [
+        "active",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsContextMenuRadial.DCPADlXJ.js",
+      "path": "compiled/vue/VsContextMenuRadial.DCPADlXJ.js",
+      "sha256": "9d5c48eb853cb318bd3e52ebcdba21a0cb7dd73ada97b26e5f0197086da568cd",
+      "bytes": 8130,
+      "artifactType": "compiled-vue-island",
+      "variant": "radial",
+      "variantSlug": "vs-context-menu-radial",
+      "stateHints": [
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsContextMenuSlide.mnO0okdt.js",
+      "path": "compiled/vue/VsContextMenuSlide.mnO0okdt.js",
+      "sha256": "5fef66e4bb89613f56672e222d7ac8f9d47a82ff2f39e895047b031a7d41d707",
+      "bytes": 8043,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-context-menu-slide",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsContextMenuSpring.C3yGfQp4.js",
+      "path": "compiled/vue/VsContextMenuSpring.C3yGfQp4.js",
+      "sha256": "6795a3fc90d774dcc516d7cf5ed7f2cd192a51b7d05ff669ec15a3181eeca971",
+      "bytes": 8046,
+      "artifactType": "compiled-vue-island",
+      "variant": "spring",
+      "variantSlug": "vs-context-menu-spring",
+      "stateHints": [
+        "dropping",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-context-menu-blur.css",
+      "path": "css/shadow/vs-context-menu-blur.css",
+      "sha256": "9354b27fb745b8319757262c620e14da6db154b746d61385c7ae1e2ccf4e98ac",
+      "bytes": 3350,
+      "artifactType": "extracted-shadow-css",
+      "variant": "blur",
+      "variantSlug": "vs-context-menu-blur",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-context-menu-glow.css",
+      "path": "css/shadow/vs-context-menu-glow.css",
+      "sha256": "f80aafa26d7f4f8a450aabf749246af88b1d442b9ac3351d96d10e6ea8db0088",
+      "bytes": 4026,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-context-menu-glow",
+      "stateHints": [
+        "active",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-context-menu-radial.css",
+      "path": "css/shadow/vs-context-menu-radial.css",
+      "sha256": "988ad26d858111b06a502efdb31d7ef5954ff5e4cef82721f44d90bb1303090d",
+      "bytes": 3094,
+      "artifactType": "extracted-shadow-css",
+      "variant": "radial",
+      "variantSlug": "vs-context-menu-radial",
+      "stateHints": [
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-context-menu-slide.css",
+      "path": "css/shadow/vs-context-menu-slide.css",
+      "sha256": "bf62e4c8c67d435a8d21ce3eb51790b3dd002d6de6755bbe62bee3837afa6172",
+      "bytes": 3018,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-context-menu-slide",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-context-menu-spring.css",
+      "path": "css/shadow/vs-context-menu-spring.css",
+      "sha256": "2787bec1bc5815157661e4dcd482f0ff9459dcf3ec27489894e4e20f5cb800f1",
+      "bytes": 3279,
+      "artifactType": "extracted-shadow-css",
+      "variant": "spring",
+      "variantSlug": "vs-context-menu-spring",
+      "stateHints": [
+        "dropping",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-context-menu.css",
+      "path": "css/shadow/vs-context-menu.css",
+      "sha256": "0221e41ef63c516f4d8829c86fa6bfb3052c22c5f11a15bb37b1d14767020335",
+      "bytes": 5064,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-context-menu",
+      "stateHints": [
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsContextMenuGlow.8_K6nKNi.css",
+      "path": "css/vue-scoped/VsContextMenuGlow.8_K6nKNi.css",
+      "sha256": "0a907daf901c0047090b9bf3a41e9835ba49afc7a219a110f1564ae032e34376",
+      "bytes": 4540,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-context-menu-glow",
+      "stateHints": [
+        "active",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-context-menu-blur.js",
+      "path": "web-component/vs-context-menu-blur.js",
+      "sha256": "cf30e6ace89a21f9720813fb623243ec2f4260137ccc5e319f3ec077c750fb2e",
+      "bytes": 15299,
+      "artifactType": "web-component-source",
+      "variant": "blur",
+      "variantSlug": "vs-context-menu-blur",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-context-menu-glow.js",
+      "path": "web-component/vs-context-menu-glow.js",
+      "sha256": "aa67abe4be78252a236f9dc93db6b205187fe7f53797b48776632c83fe1fb996",
+      "bytes": 16417,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-context-menu-glow",
+      "stateHints": [
+        "active",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-context-menu-radial.js",
+      "path": "web-component/vs-context-menu-radial.js",
+      "sha256": "28751289093c4b50f250363f7e06f53f45b66be3689d7560619e3b6b39a9e1df",
+      "bytes": 15166,
+      "artifactType": "web-component-source",
+      "variant": "radial",
+      "variantSlug": "vs-context-menu-radial",
+      "stateHints": [
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-context-menu-slide.js",
+      "path": "web-component/vs-context-menu-slide.js",
+      "sha256": "88d3ff5669a299be6b6693aed890b34b22c382dd39b3ec6424454ffbfe8a0100",
+      "bytes": 14946,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-context-menu-slide",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-context-menu-spring.js",
+      "path": "web-component/vs-context-menu-spring.js",
+      "sha256": "e8452686e5cb068147126b7d161d6f9ed3e02475f82fb07b6112342fbf3a9f23",
+      "bytes": 15097,
+      "artifactType": "web-component-source",
+      "variant": "spring",
+      "variantSlug": "vs-context-menu-spring",
+      "stateHints": [
+        "dropping",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-context-menu.js",
+      "path": "web-component/vs-context-menu.js",
+      "sha256": "69201fd6cdf0986891d16bdd03f0b041d9a66b29901108e7fd6928eccefd412b",
+      "bytes": 22918,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-context-menu",
+      "stateHints": [
+        "keyboard",
+        "pointer"
+      ]
+    }
+  ]
+}

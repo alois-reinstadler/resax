@@ -24,6 +24,9 @@ describe('poppers', () => {
 		const menu = await screen.findByRole('menu');
 		expect(screen.getByLabelText('dropdown open').textContent).toBe('true');
 		expect(within(menu).getAllByRole('menuitem')).toHaveLength(2);
+		expect(menu.querySelector('.rx-menu__ghost')).toBeTruthy();
+		expect(menu.querySelector('.rx-menu__item--selected .rx-menu__check')).toBeTruthy();
+		expect(menu.querySelector('.rx-menu__badge')?.textContent).toBe('Pro');
 		await fireEvent.keyDown(menu, { key: 'Escape' });
 	});
 
@@ -45,7 +48,7 @@ describe('poppers', () => {
 		const menu = await screen.findByRole('menu');
 		await fireEvent.click(within(menu).getByRole('menuitem', { name: 'Disabled action' }));
 		expect(screen.getByLabelText('selections').textContent).toBe('');
-		await fireEvent.click(within(menu).getByRole('menuitem', { name: 'Enabled action' }));
+		await fireEvent.click(within(menu).getByRole('menuitem', { name: /Enabled action/ }));
 		expect(screen.getByLabelText('selections').textContent).toBe('enabled');
 	});
 
@@ -53,7 +56,8 @@ describe('poppers', () => {
 		render(Harness);
 		await fireEvent.contextMenu(screen.getByText('Context target'));
 		const menu = await screen.findByRole('menu');
-		expect(within(menu).getByRole('menuitem', { name: 'Context action' })).toBeTruthy();
+		expect(within(menu).getByRole('menuitem', { name: /Context action/ }).getAttribute('aria-current')).toBe('true');
+		expect(menu.querySelector('.rx-context-menu__shortcut')?.textContent).toBe('⌘K');
 		await fireEvent.keyDown(menu, { key: 'Escape' });
 	});
 });

@@ -22,6 +22,7 @@
 <DemoSection title="Indeterminate">
 	<div class="progress-stack" data-demo-section="indeterminate"><Progress aria-label="Loading" /><Progress variant="striped" color="warn" aria-label="Loading" /></div>
 </DemoSection>
+<DemoSection title="Animated source states"><div class="progress-stack" data-demo-section="source-motion"><Progress variant="gradient" value={72}/><Progress variant="glow" value={64}/><Progress variant="segments" segments={8} value={62}/><Progress variant="segments" segments={8} aria-label="Segment chase"/></div></DemoSection>
 
 <DemoSection title="Sizes">
 	<div class="progress-stack" data-demo-section="sizes"><Progress value={55} size="lg" /><Progress value={55} /><Progress value={55} size="sm" /></div>

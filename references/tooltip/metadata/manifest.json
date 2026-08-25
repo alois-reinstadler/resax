@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Tooltip",
+  "componentKey": "tooltip",
+  "family": "VsTooltip",
+  "variants": [
+    "vs-tooltip",
+    "vs-tooltip-blur",
+    "vs-tooltip-fade",
+    "vs-tooltip-glow",
+    "vs-tooltip-scale",
+    "vs-tooltip-slide"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsTooltip.DGCifl5D.js",
+      "path": "compiled/vue/VsTooltip.DGCifl5D.js",
+      "sha256": "4440775443a388f2e20a89dc4c237238b167e81748d1ff5dfd1febc2c98193d6",
+      "bytes": 1779,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-tooltip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTooltipBlur.Btd08qG8.js",
+      "path": "compiled/vue/VsTooltipBlur.Btd08qG8.js",
+      "sha256": "5ac10520927f8d52773a36db413d9e2e46005290a96e2a8eebc0b1e97d79c2db",
+      "bytes": 1958,
+      "artifactType": "compiled-vue-island",
+      "variant": "blur",
+      "variantSlug": "vs-tooltip-blur",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTooltipFade.fZOar08h.js",
+      "path": "compiled/vue/VsTooltipFade.fZOar08h.js",
+      "sha256": "019d9df1a16421883c8c06cc3e06178d4d5ae86653a45d0234b6ae2d85075680",
+      "bytes": 1958,
+      "artifactType": "compiled-vue-island",
+      "variant": "fade",
+      "variantSlug": "vs-tooltip-fade",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTooltipGlow.GMTcVnlV.js",
+      "path": "compiled/vue/VsTooltipGlow.GMTcVnlV.js",
+      "sha256": "cede918ef6fe7245a426a5eeb253b95307492a930464d86961ba3d2a915928e6",
+      "bytes": 2041,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-tooltip-glow",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTooltipScale.Db71yXOd.js",
+      "path": "compiled/vue/VsTooltipScale.Db71yXOd.js",
+      "sha256": "5beaf53583bb1762488e9891fa68a9f609ea1d591e9632fff93c3c9a0a40ebd0",
+      "bytes": 1848,
+      "artifactType": "compiled-vue-island",
+      "variant": "scale",
+      "variantSlug": "vs-tooltip-scale",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTooltipSlide.vsot2AI8.js",
+      "path": "compiled/vue/VsTooltipSlide.vsot2AI8.js",
+      "sha256": "11052d083bc348a84f5e4aa12121afbd820228d7a819aa362f3ea01a33e0ecb4",
+      "bytes": 1843,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-tooltip-slide",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tooltip-blur.css",
+      "path": "css/shadow/vs-tooltip-blur.css",
+      "sha256": "1f85413d8c0fa5c4026c34edc18b2c044d4ccdfc48a94f81d4b46042bc7a2ac6",
+      "bytes": 2638,
+      "artifactType": "extracted-shadow-css",
+      "variant": "blur",
+      "variantSlug": "vs-tooltip-blur",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tooltip-fade.css",
+      "path": "css/shadow/vs-tooltip-fade.css",
+      "sha256": "088c65e83b98caecb4331a15cabcba08671c3a59532f5897975a62357d0343eb",
+      "bytes": 1697,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fade",
+      "variantSlug": "vs-tooltip-fade",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tooltip-glow.css",
+      "path": "css/shadow/vs-tooltip-glow.css",
+      "sha256": "b37a48834a4b8d5da5c71161db0de310124c74d98e85cc533b545e46e5e8b1c6",
+      "bytes": 3030,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-tooltip-glow",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tooltip-scale.css",
+      "path": "css/shadow/vs-tooltip-scale.css",
+      "sha256": "8fab42fae6f2312aa4f2637b99b192b92c0a8fbf7359e1e2e59b2669f39af4db",
+      "bytes": 2260,
+      "artifactType": "extracted-shadow-css",
+      "variant": "scale",
+      "variantSlug": "vs-tooltip-scale",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tooltip-slide.css",
+      "path": "css/shadow/vs-tooltip-slide.css",
+      "sha256": "c8900fdfb16ceda703997b2683d93eb1bb8651df7a7ed96ee7834f55dd70c362",
+      "bytes": 2415,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-tooltip-slide",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tooltip.css",
+      "path": "css/shadow/vs-tooltip.css",
+      "sha256": "7d3ed6cb97a8d7f28b29711a7528ae5f22f60898ed34471bc6b253ad9298ecbf",
+      "bytes": 5440,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-tooltip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tooltip-blur.js",
+      "path": "web-component/vs-tooltip-blur.js",
+      "sha256": "f54981ee6ce3f0c147d08372521f79406aeb2d67a099b2260ff43bd557fc8c7a",
+      "bytes": 7042,
+      "artifactType": "web-component-source",
+      "variant": "blur",
+      "variantSlug": "vs-tooltip-blur",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tooltip-fade.js",
+      "path": "web-component/vs-tooltip-fade.js",
+      "sha256": "3d40f90d947609d27d34a10a9b702de601112f2e99820bc4a9bea017f67e0a73",
+      "bytes": 6151,
+      "artifactType": "web-component-source",
+      "variant": "fade",
+      "variantSlug": "vs-tooltip-fade",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tooltip-glow.js",
+      "path": "web-component/vs-tooltip-glow.js",
+      "sha256": "1f0978e44cda7c259c7d50b086a806abbd9be32315664e4a8824c1455e0fe027",
+      "bytes": 7684,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-tooltip-glow",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tooltip-scale.js",
+      "path": "web-component/vs-tooltip-scale.js",
+      "sha256": "9533a2ef086c722b7b5d17933797776701316483dbe5ebad6fcac1ab564afb43",
+      "bytes": 6895,
+      "artifactType": "web-component-source",
+      "variant": "scale",
+      "variantSlug": "vs-tooltip-scale",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tooltip-slide.js",
+      "path": "web-component/vs-tooltip-slide.js",
+      "sha256": "d7d9e9bfa99403560891617521295d17e7b22d7f50381a19059ef600b70d2b2b",
+      "bytes": 6642,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-tooltip-slide",
+      "stateHints": [
+        "hover",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tooltip.js",
+      "path": "web-component/vs-tooltip.js",
+      "sha256": "ad627250bdd06ef5afb41a36c7680238ea046fd77981f23f50a76ed88d605695",
+      "bytes": 14850,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-tooltip",
+      "stateHints": []
+    }
+  ]
+}

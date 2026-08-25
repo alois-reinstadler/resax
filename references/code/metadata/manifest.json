@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Code",
+  "componentKey": "code",
+  "family": "VsCode",
+  "variants": [
+    "vs-code",
+    "vs-code-glow",
+    "vs-code-gradient-border",
+    "vs-code-minimal",
+    "vs-code-terminal",
+    "vs-code-window"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsCode.P_exQSv4.js",
+      "path": "compiled/vue/VsCode.P_exQSv4.js",
+      "sha256": "f2507122524ac985adaed2d1d3fea21416ca766731ee5b309029dbbcb4f53bc8",
+      "bytes": 14227,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-code",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCodeGlow.CtZ4-jbM.js",
+      "path": "compiled/vue/VsCodeGlow.CtZ4-jbM.js",
+      "sha256": "8fc3d9b68c36bfa83b511f0d781364ba233c88db63736688428857dc6a1d83fd",
+      "bytes": 10359,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-code-glow",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCodeGradientBorder.BUMqZE8F.js",
+      "path": "compiled/vue/VsCodeGradientBorder.BUMqZE8F.js",
+      "sha256": "d96f20795629594db941875c80b898e2ea4b3af9a253c94d4d9cd08a554d0cde",
+      "bytes": 9465,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient-border",
+      "variantSlug": "vs-code-gradient-border",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCodeMinimal.Bb_55VkF.js",
+      "path": "compiled/vue/VsCodeMinimal.Bb_55VkF.js",
+      "sha256": "6ec2c60f00d9782ec78eb3a895ab6abbe5e0d2d9fb9e3bd57a5d89a3c5ea4b74",
+      "bytes": 10446,
+      "artifactType": "compiled-vue-island",
+      "variant": "minimal",
+      "variantSlug": "vs-code-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCodeTerminal.BP5UMM2m.js",
+      "path": "compiled/vue/VsCodeTerminal.BP5UMM2m.js",
+      "sha256": "aeba43889ff28edd34935e5fc6d1509b3cc303387a2863e258763e9a1dca39bb",
+      "bytes": 9423,
+      "artifactType": "compiled-vue-island",
+      "variant": "terminal",
+      "variantSlug": "vs-code-terminal",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCodeWindow.Cl-PCYUQ.js",
+      "path": "compiled/vue/VsCodeWindow.Cl-PCYUQ.js",
+      "sha256": "833cd51a8cce19192d435a6196e8d9a725de09f58175a69657bd5a789e17544c",
+      "bytes": 9780,
+      "artifactType": "compiled-vue-island",
+      "variant": "window",
+      "variantSlug": "vs-code-window",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-code-glow.css",
+      "path": "css/shadow/vs-code-glow.css",
+      "sha256": "de6a3198853758c051661d8e498d841492996e9b38a530342afc195b51ed79f6",
+      "bytes": 5332,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-code-glow",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-code-gradient-border.css",
+      "path": "css/shadow/vs-code-gradient-border.css",
+      "sha256": "7e5b6cd7b59e14537a132c75bf3a38330d9390501880a4cfabe479e79bc88557",
+      "bytes": 5921,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient-border",
+      "variantSlug": "vs-code-gradient-border",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-code-minimal.css",
+      "path": "css/shadow/vs-code-minimal.css",
+      "sha256": "8160159c462239f1b68b6446aff343897fd9c0909266829437acd370b6233dd7",
+      "bytes": 4796,
+      "artifactType": "extracted-shadow-css",
+      "variant": "minimal",
+      "variantSlug": "vs-code-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-code-terminal.css",
+      "path": "css/shadow/vs-code-terminal.css",
+      "sha256": "ef41b6e3d674a89cf85beac69e52657f3063418bfc99ab051bb2b6bd2c6a5b05",
+      "bytes": 4884,
+      "artifactType": "extracted-shadow-css",
+      "variant": "terminal",
+      "variantSlug": "vs-code-terminal",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-code-window.css",
+      "path": "css/shadow/vs-code-window.css",
+      "sha256": "21f701ae45de10744d768bdba7256f5afc69cadc164e9c473a5f6c033226ea1b",
+      "bytes": 5922,
+      "artifactType": "extracted-shadow-css",
+      "variant": "window",
+      "variantSlug": "vs-code-window",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-code.css",
+      "path": "css/shadow/vs-code.css",
+      "sha256": "ec7e22394aaf0ee523e58b1a66e5187134ab6e85205c633090f45321b7580016",
+      "bytes": 8361,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-code",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCode.CMiVnoYc.css",
+      "path": "css/vue-scoped/VsCode.CMiVnoYc.css",
+      "sha256": "a5c694496fe136dcdc77730dacb7e6659a65757c161f7c22f0074106c1bd76e9",
+      "bytes": 7047,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-code",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCodeGlow.CbshGeK-.css",
+      "path": "css/vue-scoped/VsCodeGlow.CbshGeK-.css",
+      "sha256": "d758937b56feb211c8cd5253439b26582e7eee6dd7d8fdd8046e7e15c006fb96",
+      "bytes": 4997,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-code-glow",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCodeGradientBorder.D44tVN_D.css",
+      "path": "css/vue-scoped/VsCodeGradientBorder.D44tVN_D.css",
+      "sha256": "87bdcb178645af06749fe45559a7e5d9bb826b88626315456f0052d82a0ad7f2",
+      "bytes": 5181,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "gradient-border",
+      "variantSlug": "vs-code-gradient-border",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCodeMinimal.Da5mYSWy.css",
+      "path": "css/vue-scoped/VsCodeMinimal.Da5mYSWy.css",
+      "sha256": "1f58b9f8c67630eb8810bb333ba3965ad726c52428e274c56ab2dc4273034ad5",
+      "bytes": 4548,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "minimal",
+      "variantSlug": "vs-code-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCodeTerminal.DGOF6-9C.css",
+      "path": "css/vue-scoped/VsCodeTerminal.DGOF6-9C.css",
+      "sha256": "7b3ff664db9082ba044946b17b2e6b372de17c36995efd8702f11aa4e651c422",
+      "bytes": 4751,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "terminal",
+      "variantSlug": "vs-code-terminal",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCodeWindow.C77bYv4w.css",
+      "path": "css/vue-scoped/VsCodeWindow.C77bYv4w.css",
+      "sha256": "d6f2cd6c5baaabf4be91521c181199ebc39917c476830dc6c1e35d3aec069ba7",
+      "bytes": 5151,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "window",
+      "variantSlug": "vs-code-window",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-code-glow.js",
+      "path": "web-component/vs-code-glow.js",
+      "sha256": "93550abd31119c3613e2b54ab4204171c5f516b0c3851d2538789e2015a671bb",
+      "bytes": 18227,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-code-glow",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-code-gradient-border.js",
+      "path": "web-component/vs-code-gradient-border.js",
+      "sha256": "b7492cf1f40e7d8339f0b252fbe1200004ea29cdd86c87b4372b57b1bf0593a2",
+      "bytes": 19426,
+      "artifactType": "web-component-source",
+      "variant": "gradient-border",
+      "variantSlug": "vs-code-gradient-border",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-code-minimal.js",
+      "path": "web-component/vs-code-minimal.js",
+      "sha256": "014bee1543118e7adfec65b640e565cb322be91da20024691a2d9fdca7877ed8",
+      "bytes": 18309,
+      "artifactType": "web-component-source",
+      "variant": "minimal",
+      "variantSlug": "vs-code-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-code-terminal.js",
+      "path": "web-component/vs-code-terminal.js",
+      "sha256": "f99d5a40a0e8207ec6ddf6ce13c1372668d8ea53d8d13a4a6e4d275f1a8de290",
+      "bytes": 16885,
+      "artifactType": "web-component-source",
+      "variant": "terminal",
+      "variantSlug": "vs-code-terminal",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-code-window.js",
+      "path": "web-component/vs-code-window.js",
+      "sha256": "b4bf7225bec90611456c25d93294357949487cb70dce630a34b1f7e3c0ebf9c6",
+      "bytes": 18203,
+      "artifactType": "web-component-source",
+      "variant": "window",
+      "variantSlug": "vs-code-window",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-code.js",
+      "path": "web-component/vs-code.js",
+      "sha256": "8a8ce8c39fe0fbeea395ad13cdb8e24a7b492c22ec36c8c0dfbe366d8c589e9d",
+      "bytes": 24060,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-code",
+      "stateHints": []
+    }
+  ]
+}

@@ -13,6 +13,11 @@ async function openSelect() {
 describe('Select', () => {
 	it('round-trips a single bound value and emits a string', async () => {
 		render(Harness);
+		const trigger = screen.getByRole('button', { name: /Fruit/ });
+		const label = trigger.parentElement?.querySelector('.rx-select__label');
+		expect(label?.textContent).toBe('Fruit');
+		expect(label?.parentElement).toBe(trigger.parentElement);
+		expect(trigger.textContent).not.toContain('Choose fruit');
 		const listbox = await openSelect();
 		const banana = within(listbox).getByRole('option', { name: /Banana/ });
 		await fireEvent.pointerDown(banana, { button: 0 });
@@ -35,13 +40,15 @@ describe('Select', () => {
 
 	it('removes a chip and updates the value', async () => {
 		render(Harness, { multiple: true, chips: true });
+		const trigger = screen.getByRole('button', { name: /Fruit/ });
+		expect(trigger.querySelector('button')).toBeNull();
 		await fireEvent.click(screen.getByRole('button', { name: 'Close' }));
 		expect(screen.getByLabelText('select value').textContent).toContain('[]');
 	});
 
 	it('filters options in combobox mode and exposes aria roles', async () => {
 		render(Harness, { filter: true });
-		const input = screen.getByRole('combobox');
+		const input = screen.getByRole('combobox', { name: 'Fruit' });
 		input.focus();
 		await fireEvent.keyDown(input, { key: 'ArrowDown' });
 		await fireEvent.input(input, { target: { value: 'ban' } });
@@ -55,5 +62,16 @@ describe('Select', () => {
 		const listbox = await openSelect();
 		await fireEvent.pointerUp(within(listbox).getByRole('option', { name: /Pear/ }));
 		expect(screen.getByLabelText('select value').textContent).toContain('""');
+	});
+
+	it('keeps identifying text visible for every empty source variant', () => {
+		for (const variant of ['default','floating','pill','search','slide','underline'] as const) {
+			const view = render(Harness, { variant });
+			const trigger = screen.getByRole('button', { name: 'Fruit' });
+			const label = trigger.parentElement?.querySelector<HTMLElement>('.rx-select__label');
+			if (variant === 'floating') expect(trigger.textContent).toContain('Choose fruit');
+			else { expect(label?.textContent).toBe('Fruit'); expect(trigger.textContent).not.toContain('Choose fruit'); }
+			view.unmount();
+		}
 	});
 });

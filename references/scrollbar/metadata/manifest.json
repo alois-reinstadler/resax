@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Scrollbar",
+  "componentKey": "scrollbar",
+  "family": "VsScrollbar",
+  "variants": [
+    "vs-scrollbar",
+    "vs-scrollbar-dots",
+    "vs-scrollbar-glow",
+    "vs-scrollbar-gradient",
+    "vs-scrollbar-minimal",
+    "vs-scrollbar-rounded"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsScrollbar.DSYa0A8A.js",
+      "path": "compiled/vue/VsScrollbar.DSYa0A8A.js",
+      "sha256": "1e861878de690b2f7d68352e4c0f96a917dfce5f6d927a1230697c127767edf6",
+      "bytes": 21644,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-scrollbar",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsScrollbarDots.CB16JjEn.js",
+      "path": "compiled/vue/VsScrollbarDots.CB16JjEn.js",
+      "sha256": "ac476ca825ae46374476ebeac8ff79ff807865064da7827e2d0aa195539fafde",
+      "bytes": 4696,
+      "artifactType": "compiled-vue-island",
+      "variant": "dots",
+      "variantSlug": "vs-scrollbar-dots",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsScrollbarGlow.Duq0TK-w.js",
+      "path": "compiled/vue/VsScrollbarGlow.Duq0TK-w.js",
+      "sha256": "6e880d26853fec8abc3ab3df497a602e2bde2f7839707d44a05fb7a096facac5",
+      "bytes": 4262,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-scrollbar-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsScrollbarGradient.DUH8GFvH.js",
+      "path": "compiled/vue/VsScrollbarGradient.DUH8GFvH.js",
+      "sha256": "586f6f01278cd506d6dae74e01594aae6c4f04b3c4c6febd7999650d0c257d3b",
+      "bytes": 3852,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-scrollbar-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsScrollbarMinimal.DsekiSAb.js",
+      "path": "compiled/vue/VsScrollbarMinimal.DsekiSAb.js",
+      "sha256": "5629ee57bc9f7dd72ec55672dd35f1144f7191700b44be90b41f4d4bbd143d35",
+      "bytes": 4389,
+      "artifactType": "compiled-vue-island",
+      "variant": "minimal",
+      "variantSlug": "vs-scrollbar-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsScrollbarRounded.BB_NAbSO.js",
+      "path": "compiled/vue/VsScrollbarRounded.BB_NAbSO.js",
+      "sha256": "090a9041e4345f7e3f6c79b2d98a72dcad7b516a00b198ec219d3ecf8d2744b0",
+      "bytes": 4467,
+      "artifactType": "compiled-vue-island",
+      "variant": "rounded",
+      "variantSlug": "vs-scrollbar-rounded",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-scrollbar-dots.css",
+      "path": "css/shadow/vs-scrollbar-dots.css",
+      "sha256": "dd5859d582fcd96419805363c1c5b6de273af38e19c7569b587d066808921ba3",
+      "bytes": 2215,
+      "artifactType": "extracted-shadow-css",
+      "variant": "dots",
+      "variantSlug": "vs-scrollbar-dots",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-scrollbar-glow.css",
+      "path": "css/shadow/vs-scrollbar-glow.css",
+      "sha256": "fecd0382d385e0b5c15b356207b64877927a79850eba6d7509d94f32b6a92ab2",
+      "bytes": 2052,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-scrollbar-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-scrollbar-gradient.css",
+      "path": "css/shadow/vs-scrollbar-gradient.css",
+      "sha256": "792fc0ab3cace11c3571809b1ed9f76d5378693ace53c34a8240c19c545319e3",
+      "bytes": 1903,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-scrollbar-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-scrollbar-minimal.css",
+      "path": "css/shadow/vs-scrollbar-minimal.css",
+      "sha256": "06d8c1af57756e3131262ee054cca15d223300f0811fda49d896ef99e1ae17fa",
+      "bytes": 1706,
+      "artifactType": "extracted-shadow-css",
+      "variant": "minimal",
+      "variantSlug": "vs-scrollbar-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-scrollbar-rounded.css",
+      "path": "css/shadow/vs-scrollbar-rounded.css",
+      "sha256": "827e6d04f4e3a953e41f98cf1ed47ecfcd1d80407e1c028a751b97c836a87855",
+      "bytes": 2048,
+      "artifactType": "extracted-shadow-css",
+      "variant": "rounded",
+      "variantSlug": "vs-scrollbar-rounded",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-scrollbar.css",
+      "path": "css/shadow/vs-scrollbar.css",
+      "sha256": "42fb729cbf9764df738978e1d3c77fa5cda2c8993b8fa048e06fa8ca5cdfe4ca",
+      "bytes": 2326,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-scrollbar",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-scrollbar-dots.js",
+      "path": "web-component/vs-scrollbar-dots.js",
+      "sha256": "1c993ce625bbb4dce669a9293fa49d456d6b2306d813a7bdc44b9191ac196cc0",
+      "bytes": 7656,
+      "artifactType": "web-component-source",
+      "variant": "dots",
+      "variantSlug": "vs-scrollbar-dots",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-scrollbar-glow.js",
+      "path": "web-component/vs-scrollbar-glow.js",
+      "sha256": "ab164502be915f43fdf08a496a79aa72b0e44a9e7671285b897f8f35475801b7",
+      "bytes": 6938,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-scrollbar-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-scrollbar-gradient.js",
+      "path": "web-component/vs-scrollbar-gradient.js",
+      "sha256": "4263ec1a8f0e89ceda437a1c872eb876e7930289a5f9af0a8bc5e751de268ef1",
+      "bytes": 6270,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-scrollbar-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-scrollbar-minimal.js",
+      "path": "web-component/vs-scrollbar-minimal.js",
+      "sha256": "828f4b5df399767ca404c18e44cb874dedcc8ad958eef434c7cfef3e7ea3d709",
+      "bytes": 6925,
+      "artifactType": "web-component-source",
+      "variant": "minimal",
+      "variantSlug": "vs-scrollbar-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-scrollbar-rounded.js",
+      "path": "web-component/vs-scrollbar-rounded.js",
+      "sha256": "dafd6ed794dd4247130c4431b2ca4316941886f7b20ceaebece64bf821f5059b",
+      "bytes": 7786,
+      "artifactType": "web-component-source",
+      "variant": "rounded",
+      "variantSlug": "vs-scrollbar-rounded",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-scrollbar.js",
+      "path": "web-component/vs-scrollbar.js",
+      "sha256": "46fd0ef11566b2eaef158988e310adbcd83eb6c8bae88c6dc038f3242633c705",
+      "bytes": 11465,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-scrollbar",
+      "stateHints": [
+        "hover"
+      ]
+    }
+  ]
+}

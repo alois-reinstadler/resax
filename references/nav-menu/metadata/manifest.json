@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "NavMenu",
+  "componentKey": "nav-menu",
+  "family": "VsNavMenu",
+  "variants": [
+    "vs-nav-menu",
+    "vs-nav-menu-glow",
+    "vs-nav-menu-mega",
+    "vs-nav-menu-pill",
+    "vs-nav-menu-spotlight",
+    "vs-nav-menu-underline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsNavMenu.Bo2KNqUe.js",
+      "path": "compiled/vue/VsNavMenu.Bo2KNqUe.js",
+      "sha256": "32ae3c21a3c84dee31719883d789007d45b09cc52a7120ce09535a7158eac2ee",
+      "bytes": 9556,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-nav-menu",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNavMenuGlow.DvV1eE2c.js",
+      "path": "compiled/vue/VsNavMenuGlow.DvV1eE2c.js",
+      "sha256": "c42448622538305e9f1c68ac0fd8e1c120257a4ce87f202b81a41b975b99086d",
+      "bytes": 4953,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-nav-menu-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNavMenuMega.gGQ74izs.js",
+      "path": "compiled/vue/VsNavMenuMega.gGQ74izs.js",
+      "sha256": "02fbe9471e472c7aff505f967c1ada0970bff4634b4f027426456fb1a54eb164",
+      "bytes": 4771,
+      "artifactType": "compiled-vue-island",
+      "variant": "mega",
+      "variantSlug": "vs-nav-menu-mega",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNavMenuPill.BgQg3H9l.js",
+      "path": "compiled/vue/VsNavMenuPill.BgQg3H9l.js",
+      "sha256": "9ba87838121d9a7bed403c5ad6f5ed20ab0ba781c240a9d0fdb01fd664d64c15",
+      "bytes": 5623,
+      "artifactType": "compiled-vue-island",
+      "variant": "pill",
+      "variantSlug": "vs-nav-menu-pill",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNavMenuSpotlight.DIRqQ4l0.js",
+      "path": "compiled/vue/VsNavMenuSpotlight.DIRqQ4l0.js",
+      "sha256": "0eb1b11c992350e2ed0b1133123e367c9c8c6d565ca3f976b90b330c931fa75c",
+      "bytes": 5658,
+      "artifactType": "compiled-vue-island",
+      "variant": "spotlight",
+      "variantSlug": "vs-nav-menu-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNavMenuUnderline.CTlXqshk.js",
+      "path": "compiled/vue/VsNavMenuUnderline.CTlXqshk.js",
+      "sha256": "5a2e60bf14a9221b7e260f3d794caf1151336e546e321c3afbd69a595a2964a4",
+      "bytes": 5423,
+      "artifactType": "compiled-vue-island",
+      "variant": "underline",
+      "variantSlug": "vs-nav-menu-underline",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-nav-menu-glow.css",
+      "path": "css/shadow/vs-nav-menu-glow.css",
+      "sha256": "802ec5807efdd5927ce6d24260c7eaf794d38a178d38dfe7fc2a16b164e7b70e",
+      "bytes": 6967,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-nav-menu-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-nav-menu-mega.css",
+      "path": "css/shadow/vs-nav-menu-mega.css",
+      "sha256": "9bd7d009257fd1938ba226caf4b579853f520f0aa9422b4065853f84f9b0a527",
+      "bytes": 5722,
+      "artifactType": "extracted-shadow-css",
+      "variant": "mega",
+      "variantSlug": "vs-nav-menu-mega",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-nav-menu-pill.css",
+      "path": "css/shadow/vs-nav-menu-pill.css",
+      "sha256": "eef406a0f4d575628a2ef7bd1cde79e726779fc50e13accb0d5f5232d6927f8a",
+      "bytes": 5376,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pill",
+      "variantSlug": "vs-nav-menu-pill",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-nav-menu-spotlight.css",
+      "path": "css/shadow/vs-nav-menu-spotlight.css",
+      "sha256": "f330ae91b5d2ee8044c0348fcbea042f7eb8eb2c4198cfd2ab9b6d55af8fa86f",
+      "bytes": 5481,
+      "artifactType": "extracted-shadow-css",
+      "variant": "spotlight",
+      "variantSlug": "vs-nav-menu-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-nav-menu-underline.css",
+      "path": "css/shadow/vs-nav-menu-underline.css",
+      "sha256": "206f4cd297306372bcd42729de597d7de5f1246563babda24dd2fbc92d4759cd",
+      "bytes": 5214,
+      "artifactType": "extracted-shadow-css",
+      "variant": "underline",
+      "variantSlug": "vs-nav-menu-underline",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-nav-menu.css",
+      "path": "css/shadow/vs-nav-menu.css",
+      "sha256": "778985aa00427f371062e3600fe1d13937313cf663714752b864c2c36552fdd8",
+      "bytes": 10952,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-nav-menu",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsNavMenu.yh-_ftdx.css",
+      "path": "css/vue-scoped/VsNavMenu.yh-_ftdx.css",
+      "sha256": "ff7bc9bdb26dfa452e16e365df5da09c5beaaa466de19728d919275c18aebb33",
+      "bytes": 7817,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-nav-menu",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsNavMenuGlow.1gFO_uKa.css",
+      "path": "css/vue-scoped/VsNavMenuGlow.1gFO_uKa.css",
+      "sha256": "39ba5f01cdcd2b32c857f9760f0107c797a81943f20509110a714d33dfc49397",
+      "bytes": 5732,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-nav-menu-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsNavMenuMega.yIv4i_fZ.css",
+      "path": "css/vue-scoped/VsNavMenuMega.yIv4i_fZ.css",
+      "sha256": "088a3c9adaecfabe96741e7809b2b750e5aee88493d10db3723d6b09b5a0a4fb",
+      "bytes": 4452,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "mega",
+      "variantSlug": "vs-nav-menu-mega",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsNavMenuPill.fTDaygRZ.css",
+      "path": "css/vue-scoped/VsNavMenuPill.fTDaygRZ.css",
+      "sha256": "5d277f5ef45c41462dceff2129fff5bfd601c5479db3ea7078051323d2f93476",
+      "bytes": 4463,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "pill",
+      "variantSlug": "vs-nav-menu-pill",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsNavMenuSpotlight.CB8UC17E.css",
+      "path": "css/vue-scoped/VsNavMenuSpotlight.CB8UC17E.css",
+      "sha256": "0b4ccc68904c9e2a2ef355ebab307e0addcd93bdf228c74aa4feb5f871e9889f",
+      "bytes": 4559,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "spotlight",
+      "variantSlug": "vs-nav-menu-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsNavMenuUnderline.cPMMbIhf.css",
+      "path": "css/vue-scoped/VsNavMenuUnderline.cPMMbIhf.css",
+      "sha256": "67134d9297b54c96bbe077361f7d0fd727876ee91f0ac42de1c44ddbefb7711f",
+      "bytes": 4320,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "underline",
+      "variantSlug": "vs-nav-menu-underline",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-nav-menu-glow.js",
+      "path": "web-component/vs-nav-menu-glow.js",
+      "sha256": "d0aef95dfeb80d751a5ec462f6bc9be651f5fc1aed411f6f98a537a91dbb3a70",
+      "bytes": 15832,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-nav-menu-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-nav-menu-mega.js",
+      "path": "web-component/vs-nav-menu-mega.js",
+      "sha256": "2ae100757b59768fad1e9181113c7472414667705d4753a78ef82773c1393003",
+      "bytes": 14656,
+      "artifactType": "web-component-source",
+      "variant": "mega",
+      "variantSlug": "vs-nav-menu-mega",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-nav-menu-pill.js",
+      "path": "web-component/vs-nav-menu-pill.js",
+      "sha256": "b409ce69a2cabc3aa5bd31a463fd66870a87a13e1e26867e8411903562d4493e",
+      "bytes": 15359,
+      "artifactType": "web-component-source",
+      "variant": "pill",
+      "variantSlug": "vs-nav-menu-pill",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-nav-menu-spotlight.js",
+      "path": "web-component/vs-nav-menu-spotlight.js",
+      "sha256": "36d8283b5d6ca90f5bd05b39b3bef1cd9a9755686e93300de48d100f9d1d6232",
+      "bytes": 15362,
+      "artifactType": "web-component-source",
+      "variant": "spotlight",
+      "variantSlug": "vs-nav-menu-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-nav-menu-underline.js",
+      "path": "web-component/vs-nav-menu-underline.js",
+      "sha256": "5416a8d4707d0147c90c6228ebc0d8228d79410ca8be8e8a157fd887268e432a",
+      "bytes": 15223,
+      "artifactType": "web-component-source",
+      "variant": "underline",
+      "variantSlug": "vs-nav-menu-underline",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-nav-menu.js",
+      "path": "web-component/vs-nav-menu.js",
+      "sha256": "511637c764b7d0c4d12f46ca67b84a8d1d79973a0c45fe4bb464a685577609b6",
+      "bytes": 23473,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-nav-menu",
+      "stateHints": [
+        "active"
+      ]
+    }
+  ]
+}

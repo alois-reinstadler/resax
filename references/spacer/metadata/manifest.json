@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Spacer",
+  "componentKey": "spacer",
+  "family": "VsSpacer",
+  "variants": [
+    "vs-spacer"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spacer.css",
+      "path": "css/shadow/vs-spacer.css",
+      "sha256": "492fef4fe0d4d4ade891d8dbf153428bc72d56560e53612f184c86e7c593f0b8",
+      "bytes": 923,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-spacer",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spacer.js",
+      "path": "web-component/vs-spacer.js",
+      "sha256": "bd735e936fcda877bbaf1abf5ab3fe8f2ace8892599e7feb2f4e8e1cef955b0c",
+      "bytes": 2264,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-spacer",
+      "stateHints": []
+    }
+  ]
+}

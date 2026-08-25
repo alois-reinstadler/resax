@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "LinkBar",
+  "componentKey": "link-bar",
+  "family": "VsLinkBar",
+  "variants": [
+    "vs-link-bar",
+    "vs-link-bar-glow",
+    "vs-link-bar-magnet",
+    "vs-link-bar-pill",
+    "vs-link-bar-slide",
+    "vs-link-bar-underline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsLinkBar.CzpYnGlU.js",
+      "path": "compiled/vue/VsLinkBar.CzpYnGlU.js",
+      "sha256": "98211a9b0a5ac906140f234793e7a40de64ac990e9784f03ccd55a7c25b4fa2e",
+      "bytes": 936,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-link-bar",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsLinkBarGlow.CUGhr_v3.js",
+      "path": "compiled/vue/VsLinkBarGlow.CUGhr_v3.js",
+      "sha256": "4fcff373a38e5a80a2922bdd311dd74abc6eb3133b8e2e2e3c75a889a1261c9c",
+      "bytes": 1201,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-link-bar-glow",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsLinkBarMagnet.D17XiQWj.js",
+      "path": "compiled/vue/VsLinkBarMagnet.D17XiQWj.js",
+      "sha256": "f98eb4cc8bcd9c1ddd72f8d566e02928ee16107e0444e26c3aca021b29496e73",
+      "bytes": 2335,
+      "artifactType": "compiled-vue-island",
+      "variant": "magnet",
+      "variantSlug": "vs-link-bar-magnet",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsLinkBarPill.DyuUlzAq.js",
+      "path": "compiled/vue/VsLinkBarPill.DyuUlzAq.js",
+      "sha256": "4003f83e2a97b4ff04a444b55f0ffe745c34d4230e9f06409539ac5732ec3200",
+      "bytes": 1201,
+      "artifactType": "compiled-vue-island",
+      "variant": "pill",
+      "variantSlug": "vs-link-bar-pill",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsLinkBarSlide.BfSvVjL-.js",
+      "path": "compiled/vue/VsLinkBarSlide.BfSvVjL-.js",
+      "sha256": "c94b5f8ed438f65771926dd8987633ee34f7c03f692ad4850065581c1158be12",
+      "bytes": 1409,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-link-bar-slide",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsLinkBarUnderline.BtakiHp3.js",
+      "path": "compiled/vue/VsLinkBarUnderline.BtakiHp3.js",
+      "sha256": "52c4c7bb8223a4bd071fe7645d8b90e4e9de0ab5322da5f368c560e4dae76667",
+      "bytes": 1296,
+      "artifactType": "compiled-vue-island",
+      "variant": "underline",
+      "variantSlug": "vs-link-bar-underline",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-link-bar-glow.css",
+      "path": "css/shadow/vs-link-bar-glow.css",
+      "sha256": "2fcf108ff7547df34074afb878a53b76887ac3f955486c0a12a4148cb13e138c",
+      "bytes": 2167,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-link-bar-glow",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-link-bar-magnet.css",
+      "path": "css/shadow/vs-link-bar-magnet.css",
+      "sha256": "c325fd36cfbae7204320e64399745c6987521d96ded2c9d6ec327b6c3b9867ae",
+      "bytes": 2374,
+      "artifactType": "extracted-shadow-css",
+      "variant": "magnet",
+      "variantSlug": "vs-link-bar-magnet",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-link-bar-pill.css",
+      "path": "css/shadow/vs-link-bar-pill.css",
+      "sha256": "8b14f33bb78b883a6d7085221d1cfd6967b2ad10264ccc10ba2cc321686cfefe",
+      "bytes": 3258,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pill",
+      "variantSlug": "vs-link-bar-pill",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-link-bar-slide.css",
+      "path": "css/shadow/vs-link-bar-slide.css",
+      "sha256": "cb0713c61dd97a365e3d6648418724ea7969d7fadc01063e824eb4bd16a79b4a",
+      "bytes": 3548,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-link-bar-slide",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-link-bar-underline.css",
+      "path": "css/shadow/vs-link-bar-underline.css",
+      "sha256": "fa820424ee2534c416588e680d1b374c854f538f2ec74f1b1dd07160834d2377",
+      "bytes": 2566,
+      "artifactType": "extracted-shadow-css",
+      "variant": "underline",
+      "variantSlug": "vs-link-bar-underline",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-link-bar.css",
+      "path": "css/shadow/vs-link-bar.css",
+      "sha256": "83e0b1ba64ea0a447d10579852caa11865a71d6e866fbd46db48e52bee53d2a3",
+      "bytes": 2577,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-link-bar",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-link-bar-glow.js",
+      "path": "web-component/vs-link-bar-glow.js",
+      "sha256": "e6f0396e2b7fd08be38dbb7374a9757de480b2556ebeb37a605b84f8b443fdc7",
+      "bytes": 5810,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-link-bar-glow",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-link-bar-magnet.js",
+      "path": "web-component/vs-link-bar-magnet.js",
+      "sha256": "565aa81f31fecedc0b2f1ba90456f06c78a71734ae40a22e460c123cb01c5760",
+      "bytes": 7867,
+      "artifactType": "web-component-source",
+      "variant": "magnet",
+      "variantSlug": "vs-link-bar-magnet",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-link-bar-pill.js",
+      "path": "web-component/vs-link-bar-pill.js",
+      "sha256": "d31f8897a4cf2f288527204fa212f0af16d9ef8f1dd19c86c5a473b07560c570",
+      "bytes": 7789,
+      "artifactType": "web-component-source",
+      "variant": "pill",
+      "variantSlug": "vs-link-bar-pill",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-link-bar-slide.js",
+      "path": "web-component/vs-link-bar-slide.js",
+      "sha256": "d3bdab836b29b6d7659703bd4760278863f80c9d2d1e70fcf7f40feb80a363c7",
+      "bytes": 8369,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-link-bar-slide",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-link-bar-underline.js",
+      "path": "web-component/vs-link-bar-underline.js",
+      "sha256": "63ac36f1453848b90a8e74a1c58dce723977e1e8eab3ce173a06c6c417691c51",
+      "bytes": 7062,
+      "artifactType": "web-component-source",
+      "variant": "underline",
+      "variantSlug": "vs-link-bar-underline",
+      "stateHints": [
+        "active",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-link-bar.js",
+      "path": "web-component/vs-link-bar.js",
+      "sha256": "df2ecf2e7e0622b1008dba38dfc7f1259b4aad1fecf8721a22241c3aa2c0e367",
+      "bytes": 6686,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-link-bar",
+      "stateHints": [
+        "hover"
+      ]
+    }
+  ]
+}

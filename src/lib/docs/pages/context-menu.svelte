@@ -1,20 +1,8 @@
 <script lang="ts">
-	import DemoSection from '../DemoSection.svelte';
-	import { ContextMenu, ContextMenuGroup, ContextMenuItem, ContextMenuSeparator, ContextMenuSub } from '$lib/registry/ui/context-menu';
-	let action = $state('Right-click the panel');
+	import DemoSection from'../DemoSection.svelte';import{ContextMenu,ContextMenuGroup,ContextMenuItem,ContextMenuSeparator,ContextMenuSub,type ContextMenuVariant}from'$lib/registry/ui/context-menu';
+	const variants:ContextMenuVariant[]=['base','blur','glow','radial','slide','spring'];let action=$state('Right-click a panel');
 </script>
-
-<div class="page-heading"><p class="eyebrow">Component</p><h1>Context Menu</h1><p>Right-click actions with groups, destructive states, submenus, and radial presentation.</p></div>
-<DemoSection title="Context actions and submenu" source={'<ContextMenu><ContextMenuSub label="Share">...</ContextMenuSub></ContextMenu>'}>
-	<ContextMenu color="primary">
-		{#snippet children()}<div class="target">{action}</div>{/snippet}
-		{#snippet content()}<ContextMenuGroup label="Document"><ContextMenuItem onSelect={() => action = 'Opened'}>Open</ContextMenuItem><ContextMenuItem disabled>Locked</ContextMenuItem></ContextMenuGroup><ContextMenuSub label="Share"><ContextMenuItem onSelect={() => action = 'Link copied'}>Copy link</ContextMenuItem><ContextMenuItem>Email</ContextMenuItem></ContextMenuSub><ContextMenuSeparator /><ContextMenuItem danger onSelect={() => action = 'Deleted'}>Delete</ContextMenuItem>{/snippet}
-	</ContextMenu>
-</DemoSection>
-<DemoSection title="Radial layout" source={'<ContextMenu variant="radial">...</ContextMenu>'}>
-	<ContextMenu color="success" variant="radial">
-		{#snippet children()}<div class="target compact">Right-click for radial actions</div>{/snippet}
-		{#snippet content()}<ContextMenuItem>Copy</ContextMenuItem><ContextMenuItem>Move</ContextMenuItem><ContextMenuItem>Share</ContextMenuItem><ContextMenuItem danger>Delete</ContextMenuItem>{/snippet}
-	</ContextMenu>
-</DemoSection>
-<style>.target { display: grid; min-height: 12rem; place-items: center; border: 1px dashed rgb(var(--rx-primary) / .45); border-radius: var(--rx-radius); color: rgb(var(--rx-text) / .65); background: rgb(var(--rx-primary) / .06); user-select: none; }.compact { min-height: 8rem; }</style>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Context Menu</h1><p>Click-origin menus with the source scale/blur reveal, measured row highlight, radial iris, glow sweep, slide stagger, and spring rows.</p></div>
+<DemoSection title="Source variants" source={'<ContextMenu variant="radial">...</ContextMenu>'}><div class="gallery" data-demo-section="variants">{#each variants as variant}<ContextMenu {variant} color={variant==='glow'?'primary':'success'}>{#snippet children()}<div class="target"><strong>{variant}</strong><span>Right-click</span></div>{/snippet}{#snippet content()}<ContextMenuItem onSelect={()=>action=`${variant}: Open`}>Open</ContextMenuItem><ContextMenuItem>Duplicate</ContextMenuItem><ContextMenuItem disabled>Locked</ContextMenuItem><ContextMenuSeparator/><ContextMenuItem danger>Delete</ContextMenuItem>{/snippet}</ContextMenu>{/each}</div><output aria-live="polite" aria-atomic="true">{action}</output></DemoSection>
+<DemoSection title="Selection, shortcuts, groups, and submenu" source={'<ContextMenuItem value="copy" selected shortcut="⌘C">Copy</ContextMenuItem>'}><ContextMenu color="primary" variant="base">{#snippet children()}<div class="target wide">Right-click for grouped actions</div>{/snippet}{#snippet content()}<ContextMenuGroup label="Document"><ContextMenuItem value="copy" selected shortcut="⌘C">Copy</ContextMenuItem><ContextMenuItem value="rename" shortcut="F2">Rename</ContextMenuItem></ContextMenuGroup><ContextMenuSub label="Share"><ContextMenuItem value="link">Copy link</ContextMenuItem><ContextMenuItem value="email">Email</ContextMenuItem></ContextMenuSub>{/snippet}</ContextMenu></DemoSection>
+<style>.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem}.target{display:grid;min-height:7rem;place-items:center;align-content:center;gap:.25rem;border:1px dashed rgb(var(--rx-primary)/.45);border-radius:14px;color:rgb(var(--rx-text-secondary));background:rgb(var(--rx-primary)/.05);user-select:none}.target strong{text-transform:capitalize;color:rgb(var(--rx-text))}.target span{font-size:.75rem}.wide{min-height:9rem}output{display:block;margin-top:1rem;color:rgb(var(--rx-text-secondary))}</style>

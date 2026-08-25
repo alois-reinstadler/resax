@@ -12,4 +12,5 @@
 <DemoSection title="Arbitrary color"><Alert color="#7d33ff" title="Custom accent">Any supported CSS color can set the accent.</Alert></DemoSection>
 <DemoSection title="Custom icon"><Alert color="warn" title="Attention">{#snippet icon()}<span aria-hidden="true">!</span>{/snippet}The icon snippet accepts any compact visual.</Alert></DemoSection>
 <DemoSection title="Closable and controlled"><div class="alert-stack" data-demo-section="open-toggle"><Button size="sm" onclick={() => open = !open}>{open ? 'Close alert' : 'Open alert'}</Button><Alert closable bind:open title="Controlled alert">Dismiss this alert and restore it with the button.</Alert></div></DemoSection>
+<DemoSection title="Timed banner and toast"><div class="alert-stack" data-demo-section="timed"><Alert variant="banner" dismissAfter={10000} title="Deployment in progress">The source timeout rail runs from left to right.</Alert><Alert variant="toast" dismissAfter={10000} title="Changes saved">Toast entry combines blur, lift, and scale.</Alert></div></DemoSection>
 <style>.alert-stack { display: grid; gap: 1rem; width: 100%; }</style>

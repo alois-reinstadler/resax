@@ -17,6 +17,7 @@ describe('feedback components', () => {
 		expect(container.querySelector('[role="alert"]')).toBeTruthy();
 		expect(container.querySelector('.rx-alert--neon')).toBeTruthy();
 		expect(alertVariants({ variant: 'split' })).toContain('rx-alert--split');
+		expect(container.querySelector('.rx-alert__neon-ring')).toBeTruthy();
 	});
 
 	it('closes a bindable alert and calls onClose', async () => {
@@ -35,7 +36,12 @@ describe('feedback components', () => {
 		expect(overlay.querySelector('.rx-badge__wrapper--bottom-left')).toBeTruthy();
 		expect(overlay.querySelector('button')?.textContent).toBe('Inbox');
 		expect(badgeVariants({ variant: 'stripes', dot: true })).toContain('rx-badge--dot');
+		expect(standalone.querySelector('.rx-badge__glow')).toBeTruthy();
 	});
+
+	it('renders each source badge layer and appearance',()=>{for(const variant of ['default','glow','gradient','pulse','shimmer','stripes'] as const){const {container,unmount}=renderDom(Badge,{variant,appearance:'outline',content:variant});expect(container.querySelector(`.rx-badge--${variant}`)).toBeTruthy();expect(container.querySelector('.rx-badge--outline')).toBeTruthy();unmount()}});
+
+	it('creates and cleans up the source badge ripple',async()=>{const view=renderDom(Badge,{content:'New'});const badge=view.container.querySelector('.rx-badge__pill') as HTMLElement;await fireEvent.pointerDown(badge,{clientX:5,clientY:6});expect(badge.querySelector('.rx-badge__ripple')).toBeTruthy();expect(()=>view.unmount()).not.toThrow()});
 
 	it('maps chip variant and size classes', () => {
 		expect(chipVariants({ variant: 'border', size: 'sm' })).toContain('rx-chip--border');

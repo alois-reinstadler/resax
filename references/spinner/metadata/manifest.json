@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Spinner",
+  "componentKey": "spinner",
+  "family": "VsSpinner",
+  "variants": [
+    "vs-spinner",
+    "vs-spinner-bars",
+    "vs-spinner-bounce",
+    "vs-spinner-comet",
+    "vs-spinner-dots",
+    "vs-spinner-flip",
+    "vs-spinner-grid",
+    "vs-spinner-orbit",
+    "vs-spinner-pulse",
+    "vs-spinner-ring",
+    "vs-spinner-wave"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinner.CTUkgZXF.js",
+      "path": "compiled/vue/VsSpinner.CTUkgZXF.js",
+      "sha256": "103962b1fb71135ff602d49e96b3dc04c8b09bd2c14d52a6b51f6bda1fcd7b5e",
+      "bytes": 1496,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-spinner",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerBars.BtQtpm33.js",
+      "path": "compiled/vue/VsSpinnerBars.BtQtpm33.js",
+      "sha256": "34f299f6cc78cd396fb8d69680b96776cee24d1d537d34e8a767a55a67615225",
+      "bytes": 1132,
+      "artifactType": "compiled-vue-island",
+      "variant": "bars",
+      "variantSlug": "vs-spinner-bars",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerBounce.BTui4nBs.js",
+      "path": "compiled/vue/VsSpinnerBounce.BTui4nBs.js",
+      "sha256": "12bd8fb9b4934f001bc592b78ecddc0b6235f1eec5f98ab187e84676fadb2eca",
+      "bytes": 1037,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-spinner-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerComet.CwHXD_hi.js",
+      "path": "compiled/vue/VsSpinnerComet.CwHXD_hi.js",
+      "sha256": "e11e4d2cfe0e64f83a2603a67ecdb08428d7d05211a3109fefa8205237746891",
+      "bytes": 1056,
+      "artifactType": "compiled-vue-island",
+      "variant": "comet",
+      "variantSlug": "vs-spinner-comet",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerDots.BLtJopsc.js",
+      "path": "compiled/vue/VsSpinnerDots.BLtJopsc.js",
+      "sha256": "9bb2df25f9c2b5327a20dd83b99143cd7ba7d9f4c236e399b35ca21f115b9054",
+      "bytes": 1023,
+      "artifactType": "compiled-vue-island",
+      "variant": "dots",
+      "variantSlug": "vs-spinner-dots",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerFlip.CVEvtg6C.js",
+      "path": "compiled/vue/VsSpinnerFlip.CVEvtg6C.js",
+      "sha256": "be17b11ca07073c4946391eca333b2796809b74298d284263145cded76ac1a8e",
+      "bytes": 989,
+      "artifactType": "compiled-vue-island",
+      "variant": "flip",
+      "variantSlug": "vs-spinner-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerGrid.CQTb4GN5.js",
+      "path": "compiled/vue/VsSpinnerGrid.CQTb4GN5.js",
+      "sha256": "2d4553f53a204f1a0e93acb59712f54a60f8f6681bce12db19fce7adb142ca00",
+      "bytes": 1046,
+      "artifactType": "compiled-vue-island",
+      "variant": "grid",
+      "variantSlug": "vs-spinner-grid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerOrbit.qJSfdpjM.js",
+      "path": "compiled/vue/VsSpinnerOrbit.qJSfdpjM.js",
+      "sha256": "66dfaae22cfda1a3705899d8380e09c7450d9821edf22c7fbebb909d817f96dc",
+      "bytes": 1352,
+      "artifactType": "compiled-vue-island",
+      "variant": "orbit",
+      "variantSlug": "vs-spinner-orbit",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerPulse.CQsWISTd.js",
+      "path": "compiled/vue/VsSpinnerPulse.CQsWISTd.js",
+      "sha256": "08722353921ec8b23a21d47d551d246e18331bf9528de30de0a7430fc6ceb9aa",
+      "bytes": 1061,
+      "artifactType": "compiled-vue-island",
+      "variant": "pulse",
+      "variantSlug": "vs-spinner-pulse",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerRing.DdA08PWu.js",
+      "path": "compiled/vue/VsSpinnerRing.DdA08PWu.js",
+      "sha256": "44ba64adbf1017e981b54aca2be59caacc73b16e53c2c78416d488640edd3e5f",
+      "bytes": 1081,
+      "artifactType": "compiled-vue-island",
+      "variant": "ring",
+      "variantSlug": "vs-spinner-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSpinnerWave.Bw5UK_Zo.js",
+      "path": "compiled/vue/VsSpinnerWave.Bw5UK_Zo.js",
+      "sha256": "6c8d20e1d2817ac8ac7766555011118798a60efa8640b475a9a210eb5e7b2183",
+      "bytes": 1048,
+      "artifactType": "compiled-vue-island",
+      "variant": "wave",
+      "variantSlug": "vs-spinner-wave",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-bars.css",
+      "path": "css/shadow/vs-spinner-bars.css",
+      "sha256": "737dbb77d65f73f8f7d9498ea7e8f1e38c007bb5fbade503b3cabc2866e4c96c",
+      "bytes": 2131,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bars",
+      "variantSlug": "vs-spinner-bars",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-bounce.css",
+      "path": "css/shadow/vs-spinner-bounce.css",
+      "sha256": "4a16a21b027c7ac52e441e809f07ad887f38026d401ff4f89afc6685103ef3b7",
+      "bytes": 4065,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-spinner-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-comet.css",
+      "path": "css/shadow/vs-spinner-comet.css",
+      "sha256": "a8da23b33a46e1ccb63e333d33937c1ba037f4992718e45975751a2bfd295332",
+      "bytes": 2413,
+      "artifactType": "extracted-shadow-css",
+      "variant": "comet",
+      "variantSlug": "vs-spinner-comet",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-dots.css",
+      "path": "css/shadow/vs-spinner-dots.css",
+      "sha256": "795c82550ed39251f07553a755abfd9480ccdce91576c8a44d49cea291706608",
+      "bytes": 2134,
+      "artifactType": "extracted-shadow-css",
+      "variant": "dots",
+      "variantSlug": "vs-spinner-dots",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-flip.css",
+      "path": "css/shadow/vs-spinner-flip.css",
+      "sha256": "795db12f01f8061083c661d9b5672901bdc3ebc9c0a95194f0426d1b39f4ce35",
+      "bytes": 2754,
+      "artifactType": "extracted-shadow-css",
+      "variant": "flip",
+      "variantSlug": "vs-spinner-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-grid.css",
+      "path": "css/shadow/vs-spinner-grid.css",
+      "sha256": "0851f5e7eb8cab8ea0bf131d91e7e94e7dcccde5ace3c9df9bef9eec613aef15",
+      "bytes": 2476,
+      "artifactType": "extracted-shadow-css",
+      "variant": "grid",
+      "variantSlug": "vs-spinner-grid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-orbit.css",
+      "path": "css/shadow/vs-spinner-orbit.css",
+      "sha256": "f8b958ca782900c4a310d02c08923c43706dd6654262b754547e7ae500b1357d",
+      "bytes": 2826,
+      "artifactType": "extracted-shadow-css",
+      "variant": "orbit",
+      "variantSlug": "vs-spinner-orbit",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-pulse.css",
+      "path": "css/shadow/vs-spinner-pulse.css",
+      "sha256": "63fbc97bb0378b1da36b77f85274a60023b4ea4aab95a342bcea6dbc824289d4",
+      "bytes": 3063,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pulse",
+      "variantSlug": "vs-spinner-pulse",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-ring.css",
+      "path": "css/shadow/vs-spinner-ring.css",
+      "sha256": "6b4e9f002fc2f6f3062d0c67712226b103dabb13f49ccac389f84cc440bf1579",
+      "bytes": 2212,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ring",
+      "variantSlug": "vs-spinner-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner-wave.css",
+      "path": "css/shadow/vs-spinner-wave.css",
+      "sha256": "d170120cab3a47b3559eb77b441e5328352ff462ffa3be2027dc12263d0dc397",
+      "bytes": 1964,
+      "artifactType": "extracted-shadow-css",
+      "variant": "wave",
+      "variantSlug": "vs-spinner-wave",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-spinner.css",
+      "path": "css/shadow/vs-spinner.css",
+      "sha256": "d1b974922aefa6f279ce409765a3a9f48d12c57ced4ee46688860b1316d2cafb",
+      "bytes": 4084,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-spinner",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-bars.js",
+      "path": "web-component/vs-spinner-bars.js",
+      "sha256": "75f088f9d549c113f6a1b4ba26b8ee1ff6bb12b1f9856be1c7b056b432511018",
+      "bytes": 5110,
+      "artifactType": "web-component-source",
+      "variant": "bars",
+      "variantSlug": "vs-spinner-bars",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-bounce.js",
+      "path": "web-component/vs-spinner-bounce.js",
+      "sha256": "a8969f7e42f2c04337572e41cb427ce28478b6988db802f9d2c76f58168cfa24",
+      "bytes": 7192,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-spinner-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-comet.js",
+      "path": "web-component/vs-spinner-comet.js",
+      "sha256": "73ad5f2fb72c1d262579cdac9f6a6e05f56b68cd85dd5dd703a5674f3c8c474a",
+      "bytes": 5239,
+      "artifactType": "web-component-source",
+      "variant": "comet",
+      "variantSlug": "vs-spinner-comet",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-dots.js",
+      "path": "web-component/vs-spinner-dots.js",
+      "sha256": "a52de0debc9c27d482cf6661ccce68592e6f01fe0f99ce03742457d15ca7d22a",
+      "bytes": 5092,
+      "artifactType": "web-component-source",
+      "variant": "dots",
+      "variantSlug": "vs-spinner-dots",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-flip.js",
+      "path": "web-component/vs-spinner-flip.js",
+      "sha256": "e16ddfbb35f8638a2fa25f58598001a6a8f37db152114e607b080beb5b1993b1",
+      "bytes": 5536,
+      "artifactType": "web-component-source",
+      "variant": "flip",
+      "variantSlug": "vs-spinner-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-grid.js",
+      "path": "web-component/vs-spinner-grid.js",
+      "sha256": "f828d6a09aa3d61fce3507006612ebcadeb13df4d402a7d4a84e4be21ccb33f8",
+      "bytes": 5364,
+      "artifactType": "web-component-source",
+      "variant": "grid",
+      "variantSlug": "vs-spinner-grid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-orbit.js",
+      "path": "web-component/vs-spinner-orbit.js",
+      "sha256": "a3895067265e11cd06894a8794f7a46096284bae69150e4133753083caa18e77",
+      "bytes": 5824,
+      "artifactType": "web-component-source",
+      "variant": "orbit",
+      "variantSlug": "vs-spinner-orbit",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-pulse.js",
+      "path": "web-component/vs-spinner-pulse.js",
+      "sha256": "f44c989d85b1a4c0a3f54fda844d0ac0f9807f27aa386e855af548f230787936",
+      "bytes": 6033,
+      "artifactType": "web-component-source",
+      "variant": "pulse",
+      "variantSlug": "vs-spinner-pulse",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-ring.js",
+      "path": "web-component/vs-spinner-ring.js",
+      "sha256": "457b68f99595e7c346697318fabf6af665e2d5333ce01cf73751eb21d5120890",
+      "bytes": 5214,
+      "artifactType": "web-component-source",
+      "variant": "ring",
+      "variantSlug": "vs-spinner-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner-wave.js",
+      "path": "web-component/vs-spinner-wave.js",
+      "sha256": "347836ec04480e2ac49b9b346085ca5a9e50631b2302ec64e8be8ddc26371197",
+      "bytes": 4891,
+      "artifactType": "web-component-source",
+      "variant": "wave",
+      "variantSlug": "vs-spinner-wave",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-spinner.js",
+      "path": "web-component/vs-spinner.js",
+      "sha256": "9a52e88c365b0ac21c1b0fd62d2512bbf92878ba25b66929b45490f96f621a2d",
+      "bytes": 7653,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-spinner",
+      "stateHints": []
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Chip",
+  "componentKey": "chip",
+  "family": "VsChip",
+  "variants": [
+    "vs-chip",
+    "vs-chip-bounce",
+    "vs-chip-fill",
+    "vs-chip-glow",
+    "vs-chip-gradient",
+    "vs-chip-outline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsChip.4DgLJHy7.js",
+      "path": "compiled/vue/VsChip.4DgLJHy7.js",
+      "sha256": "63a54f8358e1274b35aa09e61ff75c74aca8f1c02f138c74e9972a2af799da36",
+      "bytes": 4562,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-chip",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsChipBounce.DSF-iT8R.js",
+      "path": "compiled/vue/VsChipBounce.DSF-iT8R.js",
+      "sha256": "5a189ac8424a6f2e232d3050e063c49d5262c71b2bb80be054587af4e9008827",
+      "bytes": 3234,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-chip-bounce",
+      "stateHints": [
+        "checked",
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsChipFill.BRCatlLv.js",
+      "path": "compiled/vue/VsChipFill.BRCatlLv.js",
+      "sha256": "bf56224a4156358d8c2260769c4c418dbc387021f24fed8c2b46e02c9b4e7407",
+      "bytes": 2935,
+      "artifactType": "compiled-vue-island",
+      "variant": "fill",
+      "variantSlug": "vs-chip-fill",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsChipGlow.CRQQN4ps.js",
+      "path": "compiled/vue/VsChipGlow.CRQQN4ps.js",
+      "sha256": "e63329063d0b875f18a1af0fa877c7054408f454f280fcc9f451f6d7098447ed",
+      "bytes": 2873,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-chip-glow",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsChipGradient.B95jsqJQ.js",
+      "path": "compiled/vue/VsChipGradient.B95jsqJQ.js",
+      "sha256": "5bece939e283736206911d3ce9fd625facbd6913eaa7ef8a979db5e643cef9bb",
+      "bytes": 2939,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-chip-gradient",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsChipOutline.EwwEhUXp.js",
+      "path": "compiled/vue/VsChipOutline.EwwEhUXp.js",
+      "sha256": "a991fab663133e69e8e07f3cff56a0a3becc59019e91d1d26af9c6c7d6df1b54",
+      "bytes": 2938,
+      "artifactType": "compiled-vue-island",
+      "variant": "outline",
+      "variantSlug": "vs-chip-outline",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-chip-bounce.css",
+      "path": "css/shadow/vs-chip-bounce.css",
+      "sha256": "298e4cad6adc09ab647814eadcc4099f62c6f311cc1df08874741511edb511d1",
+      "bytes": 4526,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-chip-bounce",
+      "stateHints": [
+        "checked",
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-chip-fill.css",
+      "path": "css/shadow/vs-chip-fill.css",
+      "sha256": "f12682eeb9b6c4f5f15afce4c8a35048ecf36068d56fd9d8a8ce8f398e8c3ad5",
+      "bytes": 4104,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fill",
+      "variantSlug": "vs-chip-fill",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-chip-glow.css",
+      "path": "css/shadow/vs-chip-glow.css",
+      "sha256": "7d6fa9802c4dd993bd0ee2042fdacecaf07ec6f50597b2841a757761d1ded1e3",
+      "bytes": 4817,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-chip-glow",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-chip-gradient.css",
+      "path": "css/shadow/vs-chip-gradient.css",
+      "sha256": "3f39a631130ccc9670c86f0309b7b7646d22c0c80d77c34476f8970d1828dda4",
+      "bytes": 4574,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-chip-gradient",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-chip-outline.css",
+      "path": "css/shadow/vs-chip-outline.css",
+      "sha256": "bee73a482f2d66d169e704470999f72580b360b34795e7e20d317ae0de873a88",
+      "bytes": 4511,
+      "artifactType": "extracted-shadow-css",
+      "variant": "outline",
+      "variantSlug": "vs-chip-outline",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-chip.css",
+      "path": "css/shadow/vs-chip.css",
+      "sha256": "ed9b42ccbc6d18bb983b4c633c55eccd38e6cf0d2cb8253e434f22b3222e282f",
+      "bytes": 8280,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-chip",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsChip.CuDYIjcv.css",
+      "path": "css/vue-scoped/VsChip.CuDYIjcv.css",
+      "sha256": "f8f8330532becc05cb1c2ed14cc5a386b4da2d7eff44bccf8233eb70559aabb5",
+      "bytes": 4110,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-chip",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsChipOutline.Csghmek1.css",
+      "path": "css/vue-scoped/VsChipOutline.Csghmek1.css",
+      "sha256": "e5f2a7e73b3a81898354434fcfa4715ad4cc31125dbba5c9914b6c3a6a3cd6c6",
+      "bytes": 4144,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "outline",
+      "variantSlug": "vs-chip-outline",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-chip-bounce.js",
+      "path": "web-component/vs-chip-bounce.js",
+      "sha256": "918ac0e0f87d8b77aa830fd7854aefca3ed5b6616363a0effe763a44217de58b",
+      "bytes": 11017,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-chip-bounce",
+      "stateHints": [
+        "checked",
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-chip-fill.js",
+      "path": "web-component/vs-chip-fill.js",
+      "sha256": "5d9a1dd143920687cfcba0276d4fd17259eee83817e38cd5525416dc99826810",
+      "bytes": 9955,
+      "artifactType": "web-component-source",
+      "variant": "fill",
+      "variantSlug": "vs-chip-fill",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-chip-glow.js",
+      "path": "web-component/vs-chip-glow.js",
+      "sha256": "bf7d0c84604d7c20d460fd76bd203c4c7ef10aa0a4be961f0716b15ed2fee3e5",
+      "bytes": 10657,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-chip-glow",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-chip-gradient.js",
+      "path": "web-component/vs-chip-gradient.js",
+      "sha256": "ac4945d5f871da61ea7bd21a6db124e79ea80f41ff26390e47a802d6adc6d9c6",
+      "bytes": 10537,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-chip-gradient",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-chip-outline.js",
+      "path": "web-component/vs-chip-outline.js",
+      "sha256": "da66c17488c057935daa3ab4d870ab563056cce1ea10c09ab8006d67489177f1",
+      "bytes": 10473,
+      "artifactType": "web-component-source",
+      "variant": "outline",
+      "variantSlug": "vs-chip-outline",
+      "stateHints": [
+        "selected",
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-chip.js",
+      "path": "web-component/vs-chip.js",
+      "sha256": "5e7c8b8505c4e608e7435eda190b2df626f7168262ea162d10cf3a53e5888f68",
+      "bytes": 19035,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-chip",
+      "stateHints": [
+        "selected"
+      ]
+    }
+  ]
+}

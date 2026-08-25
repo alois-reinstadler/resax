@@ -11,13 +11,15 @@ Resax ports the expressive Vuesax component language to Svelte 5. Components are
 
 ## Install from the registry
 
-The production registry host has not been chosen. Set `RESAX_REGISTRY` to the deployed base URL; for local development use `http://localhost:5173/r`.
+The production registry is hosted with the documentation site at `https://alois-reinstadler.github.io/resax/r`. Override `RESAX_REGISTRY` only when testing another deployment or a local registry build.
 
 ```sh
-RESAX_REGISTRY=http://localhost:5173/r
+RESAX_REGISTRY=https://alois-reinstadler.github.io/resax/r
 npx shadcn-svelte@latest add "$RESAX_REGISTRY/theme.json"
 npx shadcn-svelte@latest add "$RESAX_REGISTRY/button.json"
 ```
+
+For local development, use `RESAX_REGISTRY=http://localhost:5173/r`; the consumer smoke test continues to supply its own localhost registry URL.
 
 Install `theme` first. Registry items then bring in their declared Resax utilities, official shadcn-svelte components, and npm dependencies transitively. Import installed files through the component alias configured in the consumer app.
 

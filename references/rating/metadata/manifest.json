@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Rating",
+  "componentKey": "rating",
+  "family": "VsRating",
+  "variants": [
+    "vs-rating",
+    "vs-rating-bars",
+    "vs-rating-emoji",
+    "vs-rating-glow",
+    "vs-rating-hearts",
+    "vs-rating-numbers"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsRating.CLMgjGze.js",
+      "path": "compiled/vue/VsRating.CLMgjGze.js",
+      "sha256": "9e0d4fe00d506a7edda646f9198597b6bc1b1e2b18d4f1af75ebc37243ff473a",
+      "bytes": 6246,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-rating",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRatingBars.Db67OgbK.js",
+      "path": "compiled/vue/VsRatingBars.Db67OgbK.js",
+      "sha256": "1bf389ac954f7e2628a87c55a2711bbc4cff86553d6f42c65a2eafd893bdf050",
+      "bytes": 3182,
+      "artifactType": "compiled-vue-island",
+      "variant": "bars",
+      "variantSlug": "vs-rating-bars",
+      "stateHints": [
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRatingEmoji.DEEgTT_w.js",
+      "path": "compiled/vue/VsRatingEmoji.DEEgTT_w.js",
+      "sha256": "1b446b0881ccf3510d23b929fe1497f486bd89fa31268e55776683dceb0d449e",
+      "bytes": 3005,
+      "artifactType": "compiled-vue-island",
+      "variant": "emoji",
+      "variantSlug": "vs-rating-emoji",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRatingGlow.Bte_p-mI.js",
+      "path": "compiled/vue/VsRatingGlow.Bte_p-mI.js",
+      "sha256": "2743fbb1089efae79fd9ccbe1d589d57ae9eda617ca80ad44c9db36cd47f0c01",
+      "bytes": 3323,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-rating-glow",
+      "stateHints": [
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRatingHearts.DuPQuTLA.js",
+      "path": "compiled/vue/VsRatingHearts.DuPQuTLA.js",
+      "sha256": "6f01b2914b1c4ae33295a688fe5a8a2e6a0d2e073b7e3a1348236dd515df05d5",
+      "bytes": 3582,
+      "artifactType": "compiled-vue-island",
+      "variant": "hearts",
+      "variantSlug": "vs-rating-hearts",
+      "stateHints": [
+        "selected",
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRatingNumbers.DFqzMF5v.js",
+      "path": "compiled/vue/VsRatingNumbers.DFqzMF5v.js",
+      "sha256": "02a837a77a785927ed3f3ad914473f13675f8880774092a4512f60de091f0376",
+      "bytes": 2763,
+      "artifactType": "compiled-vue-island",
+      "variant": "numbers",
+      "variantSlug": "vs-rating-numbers",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-rating-bars.css",
+      "path": "css/shadow/vs-rating-bars.css",
+      "sha256": "fa2531246c0b2e1df1dbc9c33cd932c84ce1846394fa9303e92e08f4e9680a93",
+      "bytes": 2566,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bars",
+      "variantSlug": "vs-rating-bars",
+      "stateHints": [
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-rating-emoji.css",
+      "path": "css/shadow/vs-rating-emoji.css",
+      "sha256": "dfebcef961b781aec7b6848d60d0e58a023810965deab8167065b6a7703a8f04",
+      "bytes": 2340,
+      "artifactType": "extracted-shadow-css",
+      "variant": "emoji",
+      "variantSlug": "vs-rating-emoji",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-rating-glow.css",
+      "path": "css/shadow/vs-rating-glow.css",
+      "sha256": "6f9163bc39834dd361405ccbe5d2189b1b33c94ee25614ea463aba16bb95ef98",
+      "bytes": 3275,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-rating-glow",
+      "stateHints": [
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-rating-hearts.css",
+      "path": "css/shadow/vs-rating-hearts.css",
+      "sha256": "07454560ff2568b96a7e8328acc1eeb5fa3ab307d1fd5ac2b97844efea138235",
+      "bytes": 3019,
+      "artifactType": "extracted-shadow-css",
+      "variant": "hearts",
+      "variantSlug": "vs-rating-hearts",
+      "stateHints": [
+        "selected",
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-rating-numbers.css",
+      "path": "css/shadow/vs-rating-numbers.css",
+      "sha256": "4df7bcc509e3614c8d27a5a2dedd42894b55040f10321dd854b9ce0923c1ec06",
+      "bytes": 2513,
+      "artifactType": "extracted-shadow-css",
+      "variant": "numbers",
+      "variantSlug": "vs-rating-numbers",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-rating.css",
+      "path": "css/shadow/vs-rating.css",
+      "sha256": "7fef249a01fb5ce8f7bf5a11fae987058a2af1852acaeda2dd4298669a5b1c25",
+      "bytes": 4184,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-rating",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-rating-bars.js",
+      "path": "web-component/vs-rating-bars.js",
+      "sha256": "8cc96dfd673f144f35f96b551e17a34ee57e319205008893b762d1bb244fa2a8",
+      "bytes": 8935,
+      "artifactType": "web-component-source",
+      "variant": "bars",
+      "variantSlug": "vs-rating-bars",
+      "stateHints": [
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-rating-emoji.js",
+      "path": "web-component/vs-rating-emoji.js",
+      "sha256": "2214cb6a2043b21f0f943445bef70b31e80fd7872d09aec3c7110ae958bb57a7",
+      "bytes": 8261,
+      "artifactType": "web-component-source",
+      "variant": "emoji",
+      "variantSlug": "vs-rating-emoji",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-rating-glow.js",
+      "path": "web-component/vs-rating-glow.js",
+      "sha256": "31a4e2c036c376ea96761600121f75de774011b72daf326caee060a1166aa69d",
+      "bytes": 9354,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-rating-glow",
+      "stateHints": [
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-rating-hearts.js",
+      "path": "web-component/vs-rating-hearts.js",
+      "sha256": "144f95a75d3199104bbc4619b638fedadb7fdaeea9a1ab732f6c82304530fd0f",
+      "bytes": 9233,
+      "artifactType": "web-component-source",
+      "variant": "hearts",
+      "variantSlug": "vs-rating-hearts",
+      "stateHints": [
+        "selected",
+        "hover",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-rating-numbers.js",
+      "path": "web-component/vs-rating-numbers.js",
+      "sha256": "34f1f5991f84595efdf7c0f7fbe7c108a69b7f0769ac3ed6affc5cbcc60776bb",
+      "bytes": 8208,
+      "artifactType": "web-component-source",
+      "variant": "numbers",
+      "variantSlug": "vs-rating-numbers",
+      "stateHints": [
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-rating.js",
+      "path": "web-component/vs-rating.js",
+      "sha256": "bd8f590a0cf7468a61cc324d546c5e94ca3a78e4c3b68d63c402ceccd80b836f",
+      "bytes": 15339,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-rating",
+      "stateHints": [
+        "hover",
+        "keyboard"
+      ]
+    }
+  ]
+}

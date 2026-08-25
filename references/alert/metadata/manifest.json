@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Alert",
+  "componentKey": "alert",
+  "family": "VsAlert",
+  "variants": [
+    "vs-alert",
+    "vs-alert-banner",
+    "vs-alert-inline",
+    "vs-alert-neon",
+    "vs-alert-split",
+    "vs-alert-toast"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsAlert.BA5zUU0U.js",
+      "path": "compiled/vue/VsAlert.BA5zUU0U.js",
+      "sha256": "6723d4c65a1b97205b50cfa62ee24db07dd0219de1d1cedffc0b3ac5c16976d3",
+      "bytes": 4227,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-alert",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAlertBanner.C2QNWhaB.js",
+      "path": "compiled/vue/VsAlertBanner.C2QNWhaB.js",
+      "sha256": "7c888eb0fe6562b8939d4c321a0242f4657e2ff120110835ef1a30d5331ed563",
+      "bytes": 3797,
+      "artifactType": "compiled-vue-island",
+      "variant": "banner",
+      "variantSlug": "vs-alert-banner",
+      "stateHints": [
+        "hover",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAlertInline.4m732OeV.js",
+      "path": "compiled/vue/VsAlertInline.4m732OeV.js",
+      "sha256": "04bac374277c4b1e25b25645ba2de5fc31dac02133f5c3a0fc680284b9321951",
+      "bytes": 2281,
+      "artifactType": "compiled-vue-island",
+      "variant": "inline",
+      "variantSlug": "vs-alert-inline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAlertNeon.C84RBCmy.js",
+      "path": "compiled/vue/VsAlertNeon.C84RBCmy.js",
+      "sha256": "d3eebfc3acfa2de679972a8e49dfb5e0f28ac6d44948f8c36f6ad51ab1245482",
+      "bytes": 3513,
+      "artifactType": "compiled-vue-island",
+      "variant": "neon",
+      "variantSlug": "vs-alert-neon",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAlertSplit.CFYEKwGT.js",
+      "path": "compiled/vue/VsAlertSplit.CFYEKwGT.js",
+      "sha256": "9f5beb653cdd5a4512203a860e863bb780e53d8d96647c939a96595f29163ff6",
+      "bytes": 3305,
+      "artifactType": "compiled-vue-island",
+      "variant": "split",
+      "variantSlug": "vs-alert-split",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAlertToast.D6WT7VPh.js",
+      "path": "compiled/vue/VsAlertToast.D6WT7VPh.js",
+      "sha256": "37a62594e428099b592d1e3d1a09b993db6bdcbf18caba1c8e444c6d55465453",
+      "bytes": 3840,
+      "artifactType": "compiled-vue-island",
+      "variant": "toast",
+      "variantSlug": "vs-alert-toast",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-alert-banner.css",
+      "path": "css/shadow/vs-alert-banner.css",
+      "sha256": "2f36b82eaf131a71339a1572d95875f73cfdd2e3954f374dc20fb6c2f1c44c15",
+      "bytes": 3621,
+      "artifactType": "extracted-shadow-css",
+      "variant": "banner",
+      "variantSlug": "vs-alert-banner",
+      "stateHints": [
+        "hover",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-alert-inline.css",
+      "path": "css/shadow/vs-alert-inline.css",
+      "sha256": "764fbe727b779acb38e3236b8963294cc00c6f40518fe1e4e929b3418da969a5",
+      "bytes": 2911,
+      "artifactType": "extracted-shadow-css",
+      "variant": "inline",
+      "variantSlug": "vs-alert-inline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-alert-neon.css",
+      "path": "css/shadow/vs-alert-neon.css",
+      "sha256": "89eaffbdc0456535ceeb1552fdfa38add20289ccf0c624ccf08003f77ab4248c",
+      "bytes": 6487,
+      "artifactType": "extracted-shadow-css",
+      "variant": "neon",
+      "variantSlug": "vs-alert-neon",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-alert-split.css",
+      "path": "css/shadow/vs-alert-split.css",
+      "sha256": "ab276f9f3ee23717e5200165e07c0e99a4f89ea5b852d39d13c0def6d693cc12",
+      "bytes": 3327,
+      "artifactType": "extracted-shadow-css",
+      "variant": "split",
+      "variantSlug": "vs-alert-split",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-alert-toast.css",
+      "path": "css/shadow/vs-alert-toast.css",
+      "sha256": "a8079b0b72c54d2463b77ce9c727e46de90119bddd77c54348254a58c4355f90",
+      "bytes": 3898,
+      "artifactType": "extracted-shadow-css",
+      "variant": "toast",
+      "variantSlug": "vs-alert-toast",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-alert.css",
+      "path": "css/shadow/vs-alert.css",
+      "sha256": "368786e2233efe508b71a51bf652b08f86eec69b35225f5b69d34d226dc4059f",
+      "bytes": 7559,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-alert",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAlertNeon.G1_ovNu1.css",
+      "path": "css/vue-scoped/VsAlertNeon.G1_ovNu1.css",
+      "sha256": "c0c600bdb07591381332ee6457df17a11908b62e4955073a08fad54ff81326c3",
+      "bytes": 5085,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "neon",
+      "variantSlug": "vs-alert-neon",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-alert-banner.js",
+      "path": "web-component/vs-alert-banner.js",
+      "sha256": "223573a7bf68aa67ac7fb5188e462e5fde7eb927bbe96cb7a07b124b5c402265",
+      "bytes": 9910,
+      "artifactType": "web-component-source",
+      "variant": "banner",
+      "variantSlug": "vs-alert-banner",
+      "stateHints": [
+        "hover",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-alert-inline.js",
+      "path": "web-component/vs-alert-inline.js",
+      "sha256": "99a4cc8d49ea71a3003eb3b6b9a3233b5778b5b25389659e6204f3bd1c4f3c47",
+      "bytes": 7447,
+      "artifactType": "web-component-source",
+      "variant": "inline",
+      "variantSlug": "vs-alert-inline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-alert-neon.js",
+      "path": "web-component/vs-alert-neon.js",
+      "sha256": "f14d26b3d6293ad2205e887c86a48545de05cefaf3d5904264ae53a008e10f9b",
+      "bytes": 12730,
+      "artifactType": "web-component-source",
+      "variant": "neon",
+      "variantSlug": "vs-alert-neon",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-alert-split.js",
+      "path": "web-component/vs-alert-split.js",
+      "sha256": "c16817ceed6a441235b024983e5d0ae412a812811de1f2312a5c59ccee538317",
+      "bytes": 8868,
+      "artifactType": "web-component-source",
+      "variant": "split",
+      "variantSlug": "vs-alert-split",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-alert-toast.js",
+      "path": "web-component/vs-alert-toast.js",
+      "sha256": "c73aaa41f514687dd76cc1425b7a4a430eeed86ac3860cb7e1430a7adb84fab5",
+      "bytes": 10138,
+      "artifactType": "web-component-source",
+      "variant": "toast",
+      "variantSlug": "vs-alert-toast",
+      "stateHints": [
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-alert.js",
+      "path": "web-component/vs-alert.js",
+      "sha256": "99f7a596467bf9a5cbcbf32f6bd545bd2ebd0e8814430005dacf6d790ace1c57",
+      "bytes": 17677,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-alert",
+      "stateHints": [
+        "dismissed"
+      ]
+    }
+  ]
+}

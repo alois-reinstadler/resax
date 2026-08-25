@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Switch } from './index';
-	let { disabled = false, loading = false }: { disabled?: boolean; loading?: boolean } = $props();
+	import type { SwitchVariant } from './switch.svelte';
+	let { disabled = false, loading = false, variant = 'base', glow = false }: { disabled?: boolean; loading?: boolean; variant?: SwitchVariant; glow?: boolean } = $props();
 	let checked = $state(false); let calls = $state(0);
 </script>
-<Switch bind:checked {disabled} {loading} onCheckedChange={() => calls++} aria-label="Notifications" />
+<Switch bind:checked {disabled} {loading} {variant} {glow} onCheckedChange={() => calls++} aria-label="Notifications" />
 <button onclick={() => checked = true}>Set switch</button><output aria-label="switch value">{String(checked)}</output><output aria-label="switch calls">{calls}</output>

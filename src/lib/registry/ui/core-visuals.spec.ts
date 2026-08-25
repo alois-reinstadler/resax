@@ -14,7 +14,7 @@ describe('core visual components', () => {
 		expect(body).toContain(spinnerSizeClass.mini);
 	});
 
-	it('accepts every scraped spinner name and maps it to a faithful motion primitive', () => {
+	it('renders every scraped spinner as an independent source renderer', () => {
 		const aliases = ['bars', 'bounce', 'comet', 'dots', 'flip', 'grid', 'orbit', 'pulse', 'ring', 'wave'] as const;
 		for (const type of aliases) {
 			const { body } = render(Spinner, { props: { type } });
@@ -22,6 +22,17 @@ describe('core visual components', () => {
 			expect(body).toContain(`rx-spinner--source-${type}`);
 		}
 	});
+
+	it('renders the base arc axes and source overlay layer', () => {
+		const { body } = render(Spinner, { props: { type: 'default', variant: 'dual', thickness: 5, track: false, overlay: true, label: 'Saving' } });
+		expect(body).toContain('rx-spinner--base-dual');
+		expect(body).toContain('rx-spinner--no-track');
+		expect(body).toContain('rx-spinner--overlay');
+		expect(body).toContain('--rx-spinner-thickness:5px');
+		expect(body).toContain('aria-label="Saving"');
+	});
+
+	it('renders every skeleton source variant independently',()=>{for(const variant of ['base','blink','gradient','pulse','shine','wave'] as const){const {body}=render(Skeleton,{props:{variant}});expect(body).toContain(`rx-skeleton--${variant}`)}});
 
 	it('maps skeleton variants and shapes', () => {
 		const { body } = render(Skeleton, { props: { variant: 'shine', shape: 'avatar' } });
@@ -45,6 +56,6 @@ describe('core visual components', () => {
 	it('renders an aria-hidden spacer', () => {
 		const { body } = render(Spacer, { props: { width: '2rem', grow: true } });
 		expect(body).toContain('aria-hidden="true"');
-		expect(body).toContain('width: 2rem');
+		expect(body).toMatch(/width:\s*2rem/);
 	});
 });

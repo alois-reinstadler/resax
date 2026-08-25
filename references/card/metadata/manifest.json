@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Card",
+  "componentKey": "card",
+  "family": "VsCard",
+  "variants": [
+    "vs-card",
+    "vs-card-asset",
+    "vs-card-glow",
+    "vs-card-gradient-border",
+    "vs-card-lift",
+    "vs-card-slider",
+    "vs-card-spotlight",
+    "vs-card-tilt-3d"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsCard.Bn8p5Q3U.js",
+      "path": "compiled/vue/VsCard.Bn8p5Q3U.js",
+      "sha256": "bbfe048d2a12a208ec612b4623e8316cbbb6142ce14d51c29982553eafc60aec",
+      "bytes": 3136,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-card",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCardGlow.Pe4EFrfZ.js",
+      "path": "compiled/vue/VsCardGlow.Pe4EFrfZ.js",
+      "sha256": "6f8f01afea3c8e49a2c9e880e1cb17a959161a53e21a4fee4e8889c1750e0c3b",
+      "bytes": 2353,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-card-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCardGradientBorder.QsELFBCu.js",
+      "path": "compiled/vue/VsCardGradientBorder.QsELFBCu.js",
+      "sha256": "186b0ac965722e0b6beb2734c9d7d7a564022e863104e1e01d1df988e3d5f5e7",
+      "bytes": 2363,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient-border",
+      "variantSlug": "vs-card-gradient-border",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCardLift.DI14e26D.js",
+      "path": "compiled/vue/VsCardLift.DI14e26D.js",
+      "sha256": "5d871262c91c108a9f579c05e60bca2751fbc5d18a7f3dbaf4d78c47bc2dd118",
+      "bytes": 2279,
+      "artifactType": "compiled-vue-island",
+      "variant": "lift",
+      "variantSlug": "vs-card-lift",
+      "stateHints": [
+        "hover",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCardSpotlight.KgRl0MPb.js",
+      "path": "compiled/vue/VsCardSpotlight.KgRl0MPb.js",
+      "sha256": "27cf40428959f2c0d37d436532619147f808a2e88aa9c1a23fe66c889141b5bb",
+      "bytes": 3362,
+      "artifactType": "compiled-vue-island",
+      "variant": "spotlight",
+      "variantSlug": "vs-card-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCardTilt3D.C9fhZ635.js",
+      "path": "compiled/vue/VsCardTilt3D.C9fhZ635.js",
+      "sha256": "37e50ab41391ef19717eb4c688b5399283f5af9c189fcf0abf004214f5b728a3",
+      "bytes": 3431,
+      "artifactType": "compiled-vue-island",
+      "variant": "tilt-3d",
+      "variantSlug": "vs-card-tilt-3d",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card-asset.css",
+      "path": "css/shadow/vs-card-asset.css",
+      "sha256": "74eb96fad4786b6bf7196dd0bcc01b55258c352363d9690f93bab8443dd50b1f",
+      "bytes": 6428,
+      "artifactType": "extracted-shadow-css",
+      "variant": "asset",
+      "variantSlug": "vs-card-asset",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card-glow.css",
+      "path": "css/shadow/vs-card-glow.css",
+      "sha256": "205215be4200a178affa80cf0e5c2841b244b1c2d57d4db27485364c192adf03",
+      "bytes": 4913,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-card-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card-gradient-border.css",
+      "path": "css/shadow/vs-card-gradient-border.css",
+      "sha256": "13065fdb9cacc912e91496034b9497c73a6a0724e4b413bceb23c4c4081cee0b",
+      "bytes": 5118,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient-border",
+      "variantSlug": "vs-card-gradient-border",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card-lift.css",
+      "path": "css/shadow/vs-card-lift.css",
+      "sha256": "919483db17248839433604d6df913407fabe453ea8fad0d41dbd8f092bb0c85d",
+      "bytes": 4596,
+      "artifactType": "extracted-shadow-css",
+      "variant": "lift",
+      "variantSlug": "vs-card-lift",
+      "stateHints": [
+        "hover",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card-slider.css",
+      "path": "css/shadow/vs-card-slider.css",
+      "sha256": "e705ecdb935e0ff2658795eceff6b2f368c37d4ed747cb176ce0c02716ec849c",
+      "bytes": 9116,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slider",
+      "variantSlug": "vs-card-slider",
+      "stateHints": [
+        "active",
+        "hover",
+        "focus",
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card-spotlight.css",
+      "path": "css/shadow/vs-card-spotlight.css",
+      "sha256": "1de6820ee93a76134b1bdf2251f1606b1772fc780f05d3d2e384b184e3d98312",
+      "bytes": 4459,
+      "artifactType": "extracted-shadow-css",
+      "variant": "spotlight",
+      "variantSlug": "vs-card-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card-tilt-3d.css",
+      "path": "css/shadow/vs-card-tilt-3d.css",
+      "sha256": "b9b9e003c93ff35d3902f1ef1ac591b82fbefc85ea7a029d568f3be5f2d0bf97",
+      "bytes": 4729,
+      "artifactType": "extracted-shadow-css",
+      "variant": "tilt-3d",
+      "variantSlug": "vs-card-tilt-3d",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-card.css",
+      "path": "css/shadow/vs-card.css",
+      "sha256": "06d0f1f2e3776579de2ee0f70315cf77aed1ac399161b0fa0e3b888a2e535e96",
+      "bytes": 5304,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-card",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsCard.BK8MJq8-.css",
+      "path": "css/vue-scoped/VsCard.BK8MJq8-.css",
+      "sha256": "f90cd4912ce3be5686c6783654f99e0d3c00a3b5bf013652a739d2f9f2265e9c",
+      "bytes": 4456,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-card",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card-asset.js",
+      "path": "web-component/vs-card-asset.js",
+      "sha256": "9bb7c1594c556d70d122ac8b91f68d48730211635da298165c23ff1d0fe22549",
+      "bytes": 13385,
+      "artifactType": "web-component-source",
+      "variant": "asset",
+      "variantSlug": "vs-card-asset",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card-glow.js",
+      "path": "web-component/vs-card-glow.js",
+      "sha256": "41ba36d43f2f4fd4cafa5dfa876a5dac03cc882ad9e11f7d28e14e202e5ff84c",
+      "bytes": 10259,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-card-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card-gradient-border.js",
+      "path": "web-component/vs-card-gradient-border.js",
+      "sha256": "c36bb5c36ee6790218debaf0693a6100ed21a98425870de96ec9dfa9dbeff668",
+      "bytes": 10320,
+      "artifactType": "web-component-source",
+      "variant": "gradient-border",
+      "variantSlug": "vs-card-gradient-border",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card-lift.js",
+      "path": "web-component/vs-card-lift.js",
+      "sha256": "81e1c9d685fb85d8fd0cb6f9c179ba5bf6e8164beb865003a5da6229e25f1f6b",
+      "bytes": 9914,
+      "artifactType": "web-component-source",
+      "variant": "lift",
+      "variantSlug": "vs-card-lift",
+      "stateHints": [
+        "hover",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card-slider.js",
+      "path": "web-component/vs-card-slider.js",
+      "sha256": "d3d2921c193779c5903f6e9eec4484ee0f275f08d60e3ccdd58b71a86c8afe1b",
+      "bytes": 20541,
+      "artifactType": "web-component-source",
+      "variant": "slider",
+      "variantSlug": "vs-card-slider",
+      "stateHints": [
+        "active",
+        "hover",
+        "focus",
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card-spotlight.js",
+      "path": "web-component/vs-card-spotlight.js",
+      "sha256": "fcc602df296c5eb79b97418683a01b36eecc5c77dfc7babe3aefade75f762d22",
+      "bytes": 10628,
+      "artifactType": "web-component-source",
+      "variant": "spotlight",
+      "variantSlug": "vs-card-spotlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card-tilt-3d.js",
+      "path": "web-component/vs-card-tilt-3d.js",
+      "sha256": "a05b597e4b6be0e0c518f065ead5dc3dda56e8916bd00f14e421cca6493db5cc",
+      "bytes": 11352,
+      "artifactType": "web-component-source",
+      "variant": "tilt-3d",
+      "variantSlug": "vs-card-tilt-3d",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-card.js",
+      "path": "web-component/vs-card.js",
+      "sha256": "ba30609632ea2d70545e3bc640e43643154979de09ab6d85295f0d68826180cd",
+      "bytes": 11464,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-card",
+      "stateHints": []
+    }
+  ]
+}

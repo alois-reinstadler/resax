@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "InlineOverflow",
+  "componentKey": "inline-overflow",
+  "family": "VsInlineOverflow",
+  "variants": [
+    "vs-inline-overflow"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-inline-overflow.css",
+      "path": "css/shadow/vs-inline-overflow.css",
+      "sha256": "4b374fe13fbb829af4f703b6bafedcbf6770cd34c74d2bd9f26e8facf30666a5",
+      "bytes": 5524,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-inline-overflow",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-inline-overflow.js",
+      "path": "web-component/vs-inline-overflow.js",
+      "sha256": "ba9f036eb927f41921f9bd27fe9277a302aae71602a2e5abb7a0f72795e3c42d",
+      "bytes": 16049,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-inline-overflow",
+      "stateHints": [
+        "open"
+      ]
+    }
+  ]
+}

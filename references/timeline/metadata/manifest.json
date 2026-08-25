@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Timeline",
+  "componentKey": "timeline",
+  "family": "VsTimeline",
+  "variants": [
+    "vs-timeline",
+    "vs-timeline-alternating",
+    "vs-timeline-cards",
+    "vs-timeline-compact",
+    "vs-timeline-glow",
+    "vs-timeline-gradient"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsTimeline.xvsrOT5H.js",
+      "path": "compiled/vue/VsTimeline.xvsrOT5H.js",
+      "sha256": "42f711793a831af2aaee490b7bc3018f02523b78d076c8df093226dba482fc62",
+      "bytes": 4155,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-timeline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTimelineAlternating.OIW45R7x.js",
+      "path": "compiled/vue/VsTimelineAlternating.OIW45R7x.js",
+      "sha256": "c035f9c28c6e67e6296f7907d3de1e72acfff9f89501e33e6a4b910e02e18cca",
+      "bytes": 2233,
+      "artifactType": "compiled-vue-island",
+      "variant": "alternating",
+      "variantSlug": "vs-timeline-alternating",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTimelineCards.DZduOFXM.js",
+      "path": "compiled/vue/VsTimelineCards.DZduOFXM.js",
+      "sha256": "d5a6ab075bff5c50b58c02597aec2f153c2b063a7ce2b8f68db237a409136caf",
+      "bytes": 1763,
+      "artifactType": "compiled-vue-island",
+      "variant": "cards",
+      "variantSlug": "vs-timeline-cards",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTimelineCompact.3zWKacDc.js",
+      "path": "compiled/vue/VsTimelineCompact.3zWKacDc.js",
+      "sha256": "e97d6523b7c91c5d82498bc18049ee3c314bcadf0205fd2d32780a757b719805",
+      "bytes": 1649,
+      "artifactType": "compiled-vue-island",
+      "variant": "compact",
+      "variantSlug": "vs-timeline-compact",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTimelineGlow.DppOLSVu.js",
+      "path": "compiled/vue/VsTimelineGlow.DppOLSVu.js",
+      "sha256": "a2c6a3300a788cf69c5fc2ed5c0267342561583d1adf91b322a10ca0807e651d",
+      "bytes": 2281,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-timeline-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTimelineGradient.BTmCsc_d.js",
+      "path": "compiled/vue/VsTimelineGradient.BTmCsc_d.js",
+      "sha256": "b8fbf31656c6c3ab8eee3881004a573cff0a0e15e3e10bd7ce7de7ed9e8c8060",
+      "bytes": 1709,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-timeline-gradient",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-timeline-alternating.css",
+      "path": "css/shadow/vs-timeline-alternating.css",
+      "sha256": "e6b75380b86161c9f596544fce5167ce90a0f11f9a21df8cadfca1427d969c7e",
+      "bytes": 5121,
+      "artifactType": "extracted-shadow-css",
+      "variant": "alternating",
+      "variantSlug": "vs-timeline-alternating",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-timeline-cards.css",
+      "path": "css/shadow/vs-timeline-cards.css",
+      "sha256": "09ced5b18c15bdcdc6085ce9e301ff75d1a167513b2376e2bee69e7a2ea01f54",
+      "bytes": 3795,
+      "artifactType": "extracted-shadow-css",
+      "variant": "cards",
+      "variantSlug": "vs-timeline-cards",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-timeline-compact.css",
+      "path": "css/shadow/vs-timeline-compact.css",
+      "sha256": "77e4cbac97a4b02d2612333b7d87f1dd85c45c3a42be925d1295173ca0d69c90",
+      "bytes": 3034,
+      "artifactType": "extracted-shadow-css",
+      "variant": "compact",
+      "variantSlug": "vs-timeline-compact",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-timeline-glow.css",
+      "path": "css/shadow/vs-timeline-glow.css",
+      "sha256": "7dc345e5185a98eac539b2fd8e914fdc1f6465417db94cf669b2c4c61f17e41a",
+      "bytes": 4028,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-timeline-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-timeline-gradient.css",
+      "path": "css/shadow/vs-timeline-gradient.css",
+      "sha256": "62cac6a53364088ef9148a140d8a43fc50999f13bffd105336eda34f80f76d53",
+      "bytes": 7661,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-timeline-gradient",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-timeline.css",
+      "path": "css/shadow/vs-timeline.css",
+      "sha256": "2b442c058859228d57bdf560f10aecca578b97b643e03f59dcc4431f560e22be",
+      "bytes": 5790,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-timeline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTimeline.BsgFa9hd.css",
+      "path": "css/vue-scoped/VsTimeline.BsgFa9hd.css",
+      "sha256": "8c00a47fa8ee10c8f630f4fde7da3a5af5ab620c46fcbe2e8336cea881012183",
+      "bytes": 5267,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-timeline",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-timeline-alternating.js",
+      "path": "web-component/vs-timeline-alternating.js",
+      "sha256": "68abc74245ba44a43a181ddd5929dd31fd16139cf4550cd4cc49e49afe9bcdda",
+      "bytes": 9927,
+      "artifactType": "web-component-source",
+      "variant": "alternating",
+      "variantSlug": "vs-timeline-alternating",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-timeline-cards.js",
+      "path": "web-component/vs-timeline-cards.js",
+      "sha256": "c7f63f690838c5c2ec2e91b78baffbf734f9cf163f1a36183c7f79905d197c7e",
+      "bytes": 7866,
+      "artifactType": "web-component-source",
+      "variant": "cards",
+      "variantSlug": "vs-timeline-cards",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-timeline-compact.js",
+      "path": "web-component/vs-timeline-compact.js",
+      "sha256": "335b79c5a19632ffaef8b75a2c9e532935a290530f276e7c37d70929445eff9b",
+      "bytes": 6842,
+      "artifactType": "web-component-source",
+      "variant": "compact",
+      "variantSlug": "vs-timeline-compact",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-timeline-glow.js",
+      "path": "web-component/vs-timeline-glow.js",
+      "sha256": "3216c09c617adb8313e46423f835b09c74aa47d0765d3a3b6303705fa3f7396c",
+      "bytes": 8842,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-timeline-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-timeline-gradient.js",
+      "path": "web-component/vs-timeline-gradient.js",
+      "sha256": "3f3c26d316f87ed175a04bdec58cc350db277ceabc0639c2023c2ba968e7623f",
+      "bytes": 14048,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-timeline-gradient",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-timeline.js",
+      "path": "web-component/vs-timeline.js",
+      "sha256": "81a4abfbc839eaae13cb3953b4ce2062415a4420fa485e0b6fc5aa852fbeabc6",
+      "bytes": 14402,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-timeline",
+      "stateHints": []
+    }
+  ]
+}

@@ -1,9 +1,9 @@
-<script lang="ts">
-	import DemoSection from '../DemoSection.svelte';
-	import { Radio, RadioGroup } from '$lib/registry/ui/radio-group';
-	let plan = $state('pro');
-</script>
-<div class="page-heading"><p class="eyebrow">Component</p><h1>Radio Group</h1><p>Token-colored radio choices with inherited sizing and native arrow-key navigation.</p></div>
-<DemoSection title="Vertical group" source={'<RadioGroup bind:value><Radio value="pro">Pro</Radio></RadioGroup>'}><div data-demo-section="vertical"><RadioGroup bind:value={plan} color="primary"><Radio value="free">Free</Radio><Radio value="pro">Pro</Radio><Radio value="team">Team</Radio></RadioGroup><p>Selected: {plan}</p></div></DemoSection>
-<DemoSection title="Horizontal, inherited color and size"><RadioGroup value="monthly" orientation="horizontal" color="success" size="lg" data-demo-section="context"><Radio value="monthly">Monthly</Radio><Radio value="annual">Annual</Radio><Radio value="legacy" disabled>Legacy</Radio></RadioGroup></DemoSection>
-<DemoSection title="Disabled group"><RadioGroup value="email" disabled color="danger"><Radio value="email">Email</Radio><Radio value="sms">SMS</Radio></RadioGroup></DemoSection>
+<script lang="ts">import DemoSection from'../DemoSection.svelte';import{Radio,RadioGroup}from'$lib/registry/ui/radio-group';let base=$state('pro'),cards=$state('team'),glow=$state('one'),pill=$state('month'),segment=$state('design'),slide=$state('activity');</script>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Radio Group</h1><p>Six source layouts, including persistent spring indicators, lifted cards, and selection glow.</p></div>
+<DemoSection title="Base group"><RadioGroup bind:value={base}><Radio value="free" glow>Free</Radio><Radio value="pro" glow>Pro</Radio><Radio value="team" glow>Team</Radio></RadioGroup><p>Selected: {base}</p></DemoSection>
+<DemoSection title="Cards"><RadioGroup variant="cards" bind:value={cards} orientation="horizontal" color="success"><Radio value="free">Free</Radio><Radio value="pro">Pro</Radio><Radio value="team">Team</Radio></RadioGroup></DemoSection>
+<DemoSection title="Glow"><RadioGroup variant="glow" bind:value={glow} orientation="horizontal"><Radio value="one">One</Radio><Radio value="two">Two</Radio><Radio value="three">Three</Radio></RadioGroup></DemoSection>
+<DemoSection title="Moving pill"><RadioGroup variant="pill" bind:value={pill} orientation="horizontal"><Radio value="month">Monthly</Radio><Radio value="year">Yearly</Radio><Radio value="life">Lifetime</Radio></RadioGroup></DemoSection>
+<DemoSection title="Segment"><RadioGroup variant="segment" bind:value={segment} orientation="horizontal" color="warn"><Radio value="design">Design</Radio><Radio value="code">Code</Radio><Radio value="ship">Ship</Radio></RadioGroup></DemoSection>
+<DemoSection title="Sliding bar"><div class="group-pair"><RadioGroup variant="slide" bind:value={slide}><Radio value="activity">Activity</Radio><Radio value="mentions">Mentions</Radio><Radio value="settings">Settings</Radio></RadioGroup><RadioGroup variant="slide" value="daily" orientation="horizontal" color="danger"><Radio value="daily">Daily</Radio><Radio value="weekly">Weekly</Radio><Radio value="monthly">Monthly</Radio></RadioGroup></div></DemoSection>
+<style>.group-pair{display:flex;align-items:flex-start;gap:3rem;flex-wrap:wrap}</style>

@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Switch",
+  "componentKey": "switch",
+  "family": "VsSwitch",
+  "variants": [
+    "vs-switch",
+    "vs-switch-day-night",
+    "vs-switch-dot",
+    "vs-switch-glow",
+    "vs-switch-label",
+    "vs-switch-liquid",
+    "vs-switch-material"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSwitch.BCNfo0AR.js",
+      "path": "compiled/vue/VsSwitch.BCNfo0AR.js",
+      "sha256": "45a66526477cb4ca56677f2c5f277d1adf4bf5edac3f89c43a266deb87023ad2",
+      "bytes": 5578,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-switch",
+      "stateHints": [
+        "checked",
+        "disabled",
+        "pressed",
+        "loading",
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSwitchDayNight.ClQ6Ywa5.js",
+      "path": "compiled/vue/VsSwitchDayNight.ClQ6Ywa5.js",
+      "sha256": "87de4588c95e792e3b1edb47e69658c28544503c401928f9bc41999d460ddb03",
+      "bytes": 2187,
+      "artifactType": "compiled-vue-island",
+      "variant": "day-night",
+      "variantSlug": "vs-switch-day-night",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSwitchDot.Mtl0OUZG.js",
+      "path": "compiled/vue/VsSwitchDot.Mtl0OUZG.js",
+      "sha256": "51c8f0f188a0e8819150a41138032cbe5ea6eb188a8112ab6d67b9c281c589c2",
+      "bytes": 1940,
+      "artifactType": "compiled-vue-island",
+      "variant": "dot",
+      "variantSlug": "vs-switch-dot",
+      "stateHints": [
+        "hover",
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSwitchGlow.DryC79Rx.js",
+      "path": "compiled/vue/VsSwitchGlow.DryC79Rx.js",
+      "sha256": "af8c3a6605c4a6c8bbc040c63464235a7539e633fa55ce7c8fbbc9136cc2bce8",
+      "bytes": 1918,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-switch-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSwitchLabel.C01uemN2.js",
+      "path": "compiled/vue/VsSwitchLabel.C01uemN2.js",
+      "sha256": "f86c1f8c38d306c1e396883c358ece409c30066ead0bb429a58f2d00272c3997",
+      "bytes": 1903,
+      "artifactType": "compiled-vue-island",
+      "variant": "label",
+      "variantSlug": "vs-switch-label",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSwitchLiquid.DOFSLZqw.js",
+      "path": "compiled/vue/VsSwitchLiquid.DOFSLZqw.js",
+      "sha256": "1d2516bcaee9dc2f5532a2e8cadf7b2135ca79d1dfba8bfd1353dee57a2bb241",
+      "bytes": 2575,
+      "artifactType": "compiled-vue-island",
+      "variant": "liquid",
+      "variantSlug": "vs-switch-liquid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSwitchMaterial.BUHvMiq3.js",
+      "path": "compiled/vue/VsSwitchMaterial.BUHvMiq3.js",
+      "sha256": "8d5c775e2628d94bee045dfd85c03f2654d274a197772604ccc5cfba5e598e89",
+      "bytes": 2289,
+      "artifactType": "compiled-vue-island",
+      "variant": "material",
+      "variantSlug": "vs-switch-material",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-switch-day-night.css",
+      "path": "css/shadow/vs-switch-day-night.css",
+      "sha256": "f0d80dce2a3f480da9086ee564270eaae281a5dd7fdb484797282d396b8678e7",
+      "bytes": 4394,
+      "artifactType": "extracted-shadow-css",
+      "variant": "day-night",
+      "variantSlug": "vs-switch-day-night",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-switch-dot.css",
+      "path": "css/shadow/vs-switch-dot.css",
+      "sha256": "b0c1fcbc8d95d8f8d8d3e818dcfef0cf077f484fdca18c0d6c415a8ec2691897",
+      "bytes": 28,
+      "artifactType": "extracted-shadow-css",
+      "variant": "dot",
+      "variantSlug": "vs-switch-dot",
+      "stateHints": [
+        "hover",
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-switch-glow.css",
+      "path": "css/shadow/vs-switch-glow.css",
+      "sha256": "60341afdbb77e8b1eb7a393b9c7b7511cb8c08c8b5d5b48b4dac636e5dd7a60a",
+      "bytes": 4116,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-switch-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-switch-label.css",
+      "path": "css/shadow/vs-switch-label.css",
+      "sha256": "78053ffc37c46968354a98535a2aea4e342b2a7e0a4d0b1400b3abe52dd1a9ba",
+      "bytes": 2522,
+      "artifactType": "extracted-shadow-css",
+      "variant": "label",
+      "variantSlug": "vs-switch-label",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-switch-liquid.css",
+      "path": "css/shadow/vs-switch-liquid.css",
+      "sha256": "deaff7ab5a89603de42dcbf7b77c985290168fb2a2823bdc17a3a59531aaae8b",
+      "bytes": 3304,
+      "artifactType": "extracted-shadow-css",
+      "variant": "liquid",
+      "variantSlug": "vs-switch-liquid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-switch-material.css",
+      "path": "css/shadow/vs-switch-material.css",
+      "sha256": "5f513b8056dc68aee26fb89e0eacfdab042b8f6ab0dd5e2ead991e13a84bc995",
+      "bytes": 2830,
+      "artifactType": "extracted-shadow-css",
+      "variant": "material",
+      "variantSlug": "vs-switch-material",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-switch.css",
+      "path": "css/shadow/vs-switch.css",
+      "sha256": "7d49dc54e30082e5806fb44311c0ad77642a35edef4de1fb55397e28cf82893d",
+      "bytes": 5191,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-switch",
+      "stateHints": [
+        "checked",
+        "disabled",
+        "pressed",
+        "loading",
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-switch-day-night.js",
+      "path": "web-component/vs-switch-day-night.js",
+      "sha256": "2bf2d231a251184b8fa32866f00cc2d5a5bf74dc5461437c691af172245c02f6",
+      "bytes": 8904,
+      "artifactType": "web-component-source",
+      "variant": "day-night",
+      "variantSlug": "vs-switch-day-night",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-switch-dot.js",
+      "path": "web-component/vs-switch-dot.js",
+      "sha256": "51c8f0f188a0e8819150a41138032cbe5ea6eb188a8112ab6d67b9c281c589c2",
+      "bytes": 1940,
+      "artifactType": "web-component-source",
+      "variant": "dot",
+      "variantSlug": "vs-switch-dot",
+      "stateHints": [
+        "hover",
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-switch-glow.js",
+      "path": "web-component/vs-switch-glow.js",
+      "sha256": "64dbf3dde8fa79f277bfdad54a13e90b5c6ccb47be179dd2697c4cb6a7069440",
+      "bytes": 7060,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-switch-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-switch-label.js",
+      "path": "web-component/vs-switch-label.js",
+      "sha256": "56d76131b2d97136cd8e02ff1abf1963f847060e99e0ddfd2b7485cc6217be81",
+      "bytes": 5318,
+      "artifactType": "web-component-source",
+      "variant": "label",
+      "variantSlug": "vs-switch-label",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-switch-liquid.js",
+      "path": "web-component/vs-switch-liquid.js",
+      "sha256": "f08b46388ab6ea96b765d3f875880be26753c06b63d40372d33bfa0b40edc551",
+      "bytes": 7260,
+      "artifactType": "web-component-source",
+      "variant": "liquid",
+      "variantSlug": "vs-switch-liquid",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-switch-material.js",
+      "path": "web-component/vs-switch-material.js",
+      "sha256": "7643329cae86caed719387f1a1a7ae3e4efdafb815f1a4eb5e678d45d6c93456",
+      "bytes": 6480,
+      "artifactType": "web-component-source",
+      "variant": "material",
+      "variantSlug": "vs-switch-material",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-switch.js",
+      "path": "web-component/vs-switch.js",
+      "sha256": "a96b2bce35abb4cd88239b906161db7eac4d747cdab0effb8ea0edcf86389198",
+      "bytes": 12476,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-switch",
+      "stateHints": [
+        "checked",
+        "disabled",
+        "pressed",
+        "loading",
+        "dragging"
+      ]
+    }
+  ]
+}

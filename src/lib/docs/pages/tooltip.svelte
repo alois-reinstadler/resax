@@ -1,14 +1,9 @@
 <script lang="ts">
-	import DemoSection from '../DemoSection.svelte';
-	import { Tooltip, TooltipProvider } from '$lib/registry/ui/tooltip';
+	import DemoSection from '../DemoSection.svelte';import{Tooltip,TooltipProvider,type TooltipMotion,type TooltipSurface}from'$lib/registry/ui/tooltip';
+	const motions:TooltipMotion[]=['base','fade','blur','glow','scale','slide'];const surfaces:TooltipSurface[]=['solid','fluent','outline','glass'];
 </script>
-<div class="page-heading"><p class="eyebrow">Component</p><h1>Tooltip</h1><p>Focus- and hover-accessible hints with Vuesax surface styles.</p></div>
-<DemoSection title="Variants and placement" source={'<Tooltip content="Helpful detail">...</Tooltip>'}>
-	<div class="demo-row">
-		<Tooltip content="A compact default tooltip">Default</Tooltip>
-		<Tooltip content="Outlined information" variant="border" color="primary" side="bottom">Border</Tooltip>
-		<Tooltip content="Elevated success hint" variant="shadow" color="success" side="right">Shadow</Tooltip>
-	</div>
-</DemoSection>
-<DemoSection title="Provider and delay" source={'<TooltipProvider><Tooltip delayDuration={500} content="Delayed">...</Tooltip></TooltipProvider>'}><TooltipProvider><Tooltip delayDuration={500} content="Appears after 500ms">Delayed tooltip</Tooltip></TooltipProvider></DemoSection>
-<style>.demo-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }</style>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Tooltip</h1><p>Source-faithful tooltip choreography: pop/overshoot, fade, blur, glow flare, anchored scale, and directional slide.</p></div>
+<DemoSection title="Motion variants" source={'<Tooltip variant="glow" content="Accent flare">Glow</Tooltip>'}><div class="demo-row" data-demo-section="motions">{#each motions as motion}<Tooltip content={`${motion} tooltip`} variant={motion} color={motion==='glow'?'primary':'dark'} side={motion==='slide'?'bottom':'top'}><span class="trigger">{motion}</span></Tooltip>{/each}</div></DemoSection>
+<DemoSection title="Surface and radius axes"><div class="demo-row" data-demo-section="surfaces">{#each surfaces as surface}<Tooltip content={`${surface} surface`} {surface} radius={surface==='outline'?'pill':'squircle'}><span class="trigger secondary">{surface}</span></Tooltip>{/each}</div></DemoSection>
+<DemoSection title="Placement and delay" source={'<Tooltip delayDuration={500} side="right" content="Delayed">...</Tooltip>'}><TooltipProvider><Tooltip delayDuration={500} side="right" content="Appears after 500ms"><span class="trigger">Delayed right</span></Tooltip></TooltipProvider><p class="demo-note">Move between triggers to compare each source entrance and arrow pop.</p></DemoSection>
+<style>.demo-row{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}.trigger{display:inline-flex;border:1px solid rgb(var(--rx-border));border-radius:10px;padding:.65rem .9rem;background:rgb(var(--rx-surface));font-weight:650}.secondary{background:rgb(var(--rx-surface-2))}</style>

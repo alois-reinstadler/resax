@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Checkbox",
+  "componentKey": "checkbox",
+  "family": "VsCheckbox",
+  "variants": [
+    "vs-checkbox",
+    "vs-checkbox-bounce",
+    "vs-checkbox-card",
+    "vs-checkbox-fill",
+    "vs-checkbox-flip",
+    "vs-checkbox-neon"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsCheckbox.FShULZ7C.js",
+      "path": "compiled/vue/VsCheckbox.FShULZ7C.js",
+      "sha256": "3e824040944e312bbd21f9f0b4971456dcd11241768eede47ec2ddefe5a42b6f",
+      "bytes": 4765,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-checkbox",
+      "stateHints": [
+        "checked",
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCheckboxBounce.DfnmBRrT.js",
+      "path": "compiled/vue/VsCheckboxBounce.DfnmBRrT.js",
+      "sha256": "49705ab5c257a3551b35ee5cd5ab8f065ae0ad044f7dbe849c0d065c905d3aa9",
+      "bytes": 1870,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-checkbox-bounce",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCheckboxCard.CbzRPQ7C.js",
+      "path": "compiled/vue/VsCheckboxCard.CbzRPQ7C.js",
+      "sha256": "64fe7563548df02bd6aa962ad5e472fd86c9aff37d714d89565e9923b31c0673",
+      "bytes": 1792,
+      "artifactType": "compiled-vue-island",
+      "variant": "card",
+      "variantSlug": "vs-checkbox-card",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCheckboxFill.DxiFc7iv.js",
+      "path": "compiled/vue/VsCheckboxFill.DxiFc7iv.js",
+      "sha256": "7cc9cf3bcfe3caa28f7ec74ebcaf70936c775152b7f97d8b02b8d144ec16833f",
+      "bytes": 1806,
+      "artifactType": "compiled-vue-island",
+      "variant": "fill",
+      "variantSlug": "vs-checkbox-fill",
+      "stateHints": [
+        "checked",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCheckboxFlip.C6YtVmrc.js",
+      "path": "compiled/vue/VsCheckboxFlip.C6YtVmrc.js",
+      "sha256": "a868ac2d7b57caa4292419ad82819e672f235be79c4816df70ad3551b7de9560",
+      "bytes": 1952,
+      "artifactType": "compiled-vue-island",
+      "variant": "flip",
+      "variantSlug": "vs-checkbox-flip",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsCheckboxNeon.BsSeoKKH.js",
+      "path": "compiled/vue/VsCheckboxNeon.BsSeoKKH.js",
+      "sha256": "c81fd293d63f8426d3a405f088d4c8672da07ace8859ed3f8b8e6a98d790424c",
+      "bytes": 1747,
+      "artifactType": "compiled-vue-island",
+      "variant": "neon",
+      "variantSlug": "vs-checkbox-neon",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-checkbox-bounce.css",
+      "path": "css/shadow/vs-checkbox-bounce.css",
+      "sha256": "d1da567b48d9f56cdd1e6ba0622714235df48767b3929daa30c45db7498512e4",
+      "bytes": 3873,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-checkbox-bounce",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-checkbox-card.css",
+      "path": "css/shadow/vs-checkbox-card.css",
+      "sha256": "157e9c06aea369bba3e95611c7ffed4efad250c3c138090b3bb70ea80eb1d1ec",
+      "bytes": 2936,
+      "artifactType": "extracted-shadow-css",
+      "variant": "card",
+      "variantSlug": "vs-checkbox-card",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-checkbox-fill.css",
+      "path": "css/shadow/vs-checkbox-fill.css",
+      "sha256": "a196cb27f082394b48370721d7b7893e9b5fcab33141426f901fc84e9d203be8",
+      "bytes": 2334,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fill",
+      "variantSlug": "vs-checkbox-fill",
+      "stateHints": [
+        "checked",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-checkbox-flip.css",
+      "path": "css/shadow/vs-checkbox-flip.css",
+      "sha256": "5350f018da7465b1da0e21169092330c07eb3b57fbdf2088f4b35b2df8e53c50",
+      "bytes": 2133,
+      "artifactType": "extracted-shadow-css",
+      "variant": "flip",
+      "variantSlug": "vs-checkbox-flip",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-checkbox-neon.css",
+      "path": "css/shadow/vs-checkbox-neon.css",
+      "sha256": "6917e6d2e2d74ccdc9962974bb51a967552920d30c2e0e8ce3de29d280522837",
+      "bytes": 2612,
+      "artifactType": "extracted-shadow-css",
+      "variant": "neon",
+      "variantSlug": "vs-checkbox-neon",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-checkbox.css",
+      "path": "css/shadow/vs-checkbox.css",
+      "sha256": "6e99fe93e03f588cd31cbf6a412cbfaaf886eb23a5664981da2f7d833c3e3ac0",
+      "bytes": 7670,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-checkbox",
+      "stateHints": [
+        "checked",
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-checkbox-bounce.js",
+      "path": "web-component/vs-checkbox-bounce.js",
+      "sha256": "b214ce391b7a81d9534a7a2d0d4ccc68f8266ca0a8d4d43d6f5bc45c61ec3605",
+      "bytes": 8631,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-checkbox-bounce",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-checkbox-card.js",
+      "path": "web-component/vs-checkbox-card.js",
+      "sha256": "43e4a644df85c0183228eb13b28565430cd0b7ba9fc0b840cff17e46c37be37f",
+      "bytes": 7316,
+      "artifactType": "web-component-source",
+      "variant": "card",
+      "variantSlug": "vs-checkbox-card",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-checkbox-fill.js",
+      "path": "web-component/vs-checkbox-fill.js",
+      "sha256": "b472cabd29fd07674f05a705f41874abfb44aa5d91099a08f3dd2f8744259754",
+      "bytes": 6542,
+      "artifactType": "web-component-source",
+      "variant": "fill",
+      "variantSlug": "vs-checkbox-fill",
+      "stateHints": [
+        "checked",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-checkbox-flip.js",
+      "path": "web-component/vs-checkbox-flip.js",
+      "sha256": "74abfcb6bc188150c385f73d0fca9b53b046f7e2569857129d1434da11f39ecf",
+      "bytes": 6463,
+      "artifactType": "web-component-source",
+      "variant": "flip",
+      "variantSlug": "vs-checkbox-flip",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-checkbox-neon.js",
+      "path": "web-component/vs-checkbox-neon.js",
+      "sha256": "988650c9822b6731928814f5b6ddfb2b866aab99db152e2f02ec6b1672e916a3",
+      "bytes": 6817,
+      "artifactType": "web-component-source",
+      "variant": "neon",
+      "variantSlug": "vs-checkbox-neon",
+      "stateHints": [
+        "checked"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-checkbox.js",
+      "path": "web-component/vs-checkbox.js",
+      "sha256": "3f7b85087e0b9d73358ecdaf8b04a0b4ea0895e5660a33b60d7069cdcfda0955",
+      "bytes": 15324,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-checkbox",
+      "stateHints": [
+        "checked",
+        "indeterminate"
+      ]
+    }
+  ]
+}

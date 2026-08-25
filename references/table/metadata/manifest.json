@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Table",
+  "componentKey": "table",
+  "family": "VsTable",
+  "variants": [
+    "vs-table",
+    "vs-table-bordered",
+    "vs-table-cards",
+    "vs-table-glow",
+    "vs-table-minimal",
+    "vs-table-striped"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsTable.D1Dco8bg.js",
+      "path": "compiled/vue/VsTable.D1Dco8bg.js",
+      "sha256": "cdfa6efc270dd53421f171140cf296bcbac14973fd11f8a3dea4c02c30a1b2e1",
+      "bytes": 8641,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-table",
+      "stateHints": [
+        "selected",
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTableBordered.BU3WPFs2.js",
+      "path": "compiled/vue/VsTableBordered.BU3WPFs2.js",
+      "sha256": "144a214d3e13f6c16189568ad365b1dc2a9d94e473d16b233039859c3e206aa1",
+      "bytes": 4325,
+      "artifactType": "compiled-vue-island",
+      "variant": "bordered",
+      "variantSlug": "vs-table-bordered",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTableCards.DiJ7i6NS.js",
+      "path": "compiled/vue/VsTableCards.DiJ7i6NS.js",
+      "sha256": "c030e4a712c3dbb94324d546b3552518ad4f718eee03b988ee4d319d9b0e590a",
+      "bytes": 4322,
+      "artifactType": "compiled-vue-island",
+      "variant": "cards",
+      "variantSlug": "vs-table-cards",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTableGlow.D87puH3v.js",
+      "path": "compiled/vue/VsTableGlow.D87puH3v.js",
+      "sha256": "d790810cfde4067c47bdc9cb5b3c0e9adec4d442f51894165e116c1559fb0fb9",
+      "bytes": 5309,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-table-glow",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTableMinimal.BddI_Yb3.js",
+      "path": "compiled/vue/VsTableMinimal.BddI_Yb3.js",
+      "sha256": "31ea9d64ad7707cdec41a55df767d556d68a569c49a97a394effcf845916e072",
+      "bytes": 4324,
+      "artifactType": "compiled-vue-island",
+      "variant": "minimal",
+      "variantSlug": "vs-table-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTableStriped.B8ONioIn.js",
+      "path": "compiled/vue/VsTableStriped.B8ONioIn.js",
+      "sha256": "d34cdb17778dd02a313057ec627aca9541d56f695b1bf27dfa80f13d464ffdc1",
+      "bytes": 4334,
+      "artifactType": "compiled-vue-island",
+      "variant": "striped",
+      "variantSlug": "vs-table-striped",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-table-bordered.css",
+      "path": "css/shadow/vs-table-bordered.css",
+      "sha256": "896f7f9badbe34bf166c16d1a7309ae3e7e917de5c2dbb0cf9fb9009d5df98da",
+      "bytes": 5945,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bordered",
+      "variantSlug": "vs-table-bordered",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-table-cards.css",
+      "path": "css/shadow/vs-table-cards.css",
+      "sha256": "1d5488f504100efc4641dbf62cde27e6cbde5be638c113d8db7cc23540e72898",
+      "bytes": 6943,
+      "artifactType": "extracted-shadow-css",
+      "variant": "cards",
+      "variantSlug": "vs-table-cards",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-table-glow.css",
+      "path": "css/shadow/vs-table-glow.css",
+      "sha256": "c5c25daf57022ccb7c0f71eeb1c3629fce97fad18bdce5297207b1f54964b2bd",
+      "bytes": 6909,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-table-glow",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-table-minimal.css",
+      "path": "css/shadow/vs-table-minimal.css",
+      "sha256": "1e6114ea1f575bf2c7288ff195ac75db926b2fec3fa60b510864258f3ec4aa59",
+      "bytes": 6333,
+      "artifactType": "extracted-shadow-css",
+      "variant": "minimal",
+      "variantSlug": "vs-table-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-table-striped.css",
+      "path": "css/shadow/vs-table-striped.css",
+      "sha256": "2ec7acd80a223bd5a24a7b6e4d114a9574aa97b075ab3de2bba3165738014861",
+      "bytes": 6616,
+      "artifactType": "extracted-shadow-css",
+      "variant": "striped",
+      "variantSlug": "vs-table-striped",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-table.css",
+      "path": "css/shadow/vs-table.css",
+      "sha256": "f2e92027bc5b05bc2eda5df4ed0d685d66de809bd8057a2e8d076d616b6daacc",
+      "bytes": 15632,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-table",
+      "stateHints": [
+        "selected",
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTable.C_2Ka4RY.css",
+      "path": "css/vue-scoped/VsTable.C_2Ka4RY.css",
+      "sha256": "dba8fc10833dd445e954814275c544d90fa91bd69d6e429ab230f0eb3b5de627",
+      "bytes": 7198,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-table",
+      "stateHints": [
+        "selected",
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-table-bordered.js",
+      "path": "web-component/vs-table-bordered.js",
+      "sha256": "54768155ac39ff0dcfbea600900abc2e60d21bed5b36af018b88edef14fb9b76",
+      "bytes": 13007,
+      "artifactType": "web-component-source",
+      "variant": "bordered",
+      "variantSlug": "vs-table-bordered",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-table-cards.js",
+      "path": "web-component/vs-table-cards.js",
+      "sha256": "5511529f257aaad9f68216dba3b8713574084b7c46f18c7b6d6eab99e04edc51",
+      "bytes": 15384,
+      "artifactType": "web-component-source",
+      "variant": "cards",
+      "variantSlug": "vs-table-cards",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-table-glow.js",
+      "path": "web-component/vs-table-glow.js",
+      "sha256": "4e6ac83128dec2ca92c6fae163d2d4121440486d715d83890fa0d3856acdf6ed",
+      "bytes": 15960,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-table-glow",
+      "stateHints": [
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-table-minimal.js",
+      "path": "web-component/vs-table-minimal.js",
+      "sha256": "1790faa4a2dc2b14a2b62320a3b351b626cf6c3720622e28b4bb3c1b153a8ead",
+      "bytes": 14005,
+      "artifactType": "web-component-source",
+      "variant": "minimal",
+      "variantSlug": "vs-table-minimal",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-table-striped.js",
+      "path": "web-component/vs-table-striped.js",
+      "sha256": "4b22d5cf050be5e180696b1e4a9199e1dc5e47d5ec5e060b9d1573b9be9e168a",
+      "bytes": 14173,
+      "artifactType": "web-component-source",
+      "variant": "striped",
+      "variantSlug": "vs-table-striped",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-table.js",
+      "path": "web-component/vs-table.js",
+      "sha256": "34d69fed7d9581c824045b2a2c5d1bb084bab47567e81fbc3e49a43611be9457",
+      "bytes": 29793,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-table",
+      "stateHints": [
+        "selected",
+        "loading"
+      ]
+    }
+  ]
+}

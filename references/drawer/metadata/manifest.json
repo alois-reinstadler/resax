@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Drawer",
+  "componentKey": "drawer",
+  "family": "VsDrawer",
+  "variants": [
+    "vs-drawer",
+    "vs-drawer-blur",
+    "vs-drawer-bounce",
+    "vs-drawer-glass",
+    "vs-drawer-push",
+    "vs-drawer-slide"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsDrawer.BiokC7nb.js",
+      "path": "compiled/vue/VsDrawer.BiokC7nb.js",
+      "sha256": "ed2c082dba41630dd313d8736789ae496d3203cff0d8008e0eddc135a01f6951",
+      "bytes": 4280,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-drawer",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDrawerBlur.OK_dYuoU.js",
+      "path": "compiled/vue/VsDrawerBlur.OK_dYuoU.js",
+      "sha256": "413245562fa2fc06b519e99ec97e3c2e7c7dd0c05ecdae344493ab3389c3c951",
+      "bytes": 3758,
+      "artifactType": "compiled-vue-island",
+      "variant": "blur",
+      "variantSlug": "vs-drawer-blur",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDrawerBounce.Dzi7xCae.js",
+      "path": "compiled/vue/VsDrawerBounce.Dzi7xCae.js",
+      "sha256": "920d23862455806b5029880c26a74c71afa6e9f87263edc2d00dbe32bbe37daf",
+      "bytes": 3798,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-drawer-bounce",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDrawerGlass.BlKLZ3Ns.js",
+      "path": "compiled/vue/VsDrawerGlass.BlKLZ3Ns.js",
+      "sha256": "db793068f082592133825a2c3b469b48384b1af37057bcf90dd28e8eb9c73d4a",
+      "bytes": 3798,
+      "artifactType": "compiled-vue-island",
+      "variant": "glass",
+      "variantSlug": "vs-drawer-glass",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDrawerPush.BPO8LlhJ.js",
+      "path": "compiled/vue/VsDrawerPush.BPO8LlhJ.js",
+      "sha256": "892e3c61be68f88e7709949eda15969f11c4ad77803617b60d331cc601ff8103",
+      "bytes": 4392,
+      "artifactType": "compiled-vue-island",
+      "variant": "push",
+      "variantSlug": "vs-drawer-push",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDrawerSlide.BejPQn7K.js",
+      "path": "compiled/vue/VsDrawerSlide.BejPQn7K.js",
+      "sha256": "92e60831c6b7d1840ba7c12dab81c50d99a4203ed6832e82a669a6f8a40683db",
+      "bytes": 3812,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-drawer-slide",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-drawer-blur.css",
+      "path": "css/shadow/vs-drawer-blur.css",
+      "sha256": "831c013db1abacfeb0bdc97426387cb979449f34acab56166226d3945ca22d48",
+      "bytes": 4048,
+      "artifactType": "extracted-shadow-css",
+      "variant": "blur",
+      "variantSlug": "vs-drawer-blur",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-drawer-bounce.css",
+      "path": "css/shadow/vs-drawer-bounce.css",
+      "sha256": "1fcb52a0f0150fe52ea2d07ac8a732f08f4e5ae42ad81c3982e772b37dc128e6",
+      "bytes": 5413,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-drawer-bounce",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-drawer-glass.css",
+      "path": "css/shadow/vs-drawer-glass.css",
+      "sha256": "9230474444b63269bd6cf43d3c78f138d40fc8ce027ab6149198f59ade886f18",
+      "bytes": 4139,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glass",
+      "variantSlug": "vs-drawer-glass",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-drawer-push.css",
+      "path": "css/shadow/vs-drawer-push.css",
+      "sha256": "b7a42d6b3b732ccdfbab9b590b7027794b3c1a13821c3cd77404e687aeb99a8d",
+      "bytes": 3700,
+      "artifactType": "extracted-shadow-css",
+      "variant": "push",
+      "variantSlug": "vs-drawer-push",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-drawer-slide.css",
+      "path": "css/shadow/vs-drawer-slide.css",
+      "sha256": "c6ac67376f36b32cfa112babfd371d3c94295da4a70bae051f702051191ff435",
+      "bytes": 3771,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-drawer-slide",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-drawer.css",
+      "path": "css/shadow/vs-drawer.css",
+      "sha256": "d465265850f0a408ad415ad779e552f09a505492ca81e38a023dee024f669433",
+      "bytes": 10540,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-drawer",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDrawer.BlSZ1wf6.css",
+      "path": "css/vue-scoped/VsDrawer.BlSZ1wf6.css",
+      "sha256": "0e076d5abb986180aaf64b65c22ef531e52338c8c5023873af87d8081e5437a4",
+      "bytes": 6384,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-drawer",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDrawerBlur.uCLUNvio.css",
+      "path": "css/vue-scoped/VsDrawerBlur.uCLUNvio.css",
+      "sha256": "1aa0c796898062e7d997c0b1d2a93a05585578d4d0b3c25be9784208faccca77",
+      "bytes": 4492,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "blur",
+      "variantSlug": "vs-drawer-blur",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDrawerBounce.V10AhU9I.css",
+      "path": "css/vue-scoped/VsDrawerBounce.V10AhU9I.css",
+      "sha256": "557499b171819cf976ed41d4b48206a99d0a62ea93c5e1f83c2881a00dc4bd5f",
+      "bytes": 5663,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "bounce",
+      "variantSlug": "vs-drawer-bounce",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDrawerGlass.BAD4Be3I.css",
+      "path": "css/vue-scoped/VsDrawerGlass.BAD4Be3I.css",
+      "sha256": "8877e6622b339b186ee9d6a87aaa695eddd957b214c2b4cd45bfcbeec27daa5a",
+      "bytes": 5122,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glass",
+      "variantSlug": "vs-drawer-glass",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDrawerPush.CepbouTK.css",
+      "path": "css/vue-scoped/VsDrawerPush.CepbouTK.css",
+      "sha256": "0d399912daca38b3136e273b3b7875f94304b5e75e6f6569bb90838eef9704ae",
+      "bytes": 4414,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "push",
+      "variantSlug": "vs-drawer-push",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDrawerSlide.Zn54g-7w.css",
+      "path": "css/vue-scoped/VsDrawerSlide.Zn54g-7w.css",
+      "sha256": "e575370a835531466a7318009b0283c5d4fb7e5aa0c439b4b89048f8b3af5976",
+      "bytes": 4606,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "slide",
+      "variantSlug": "vs-drawer-slide",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-drawer-blur.js",
+      "path": "web-component/vs-drawer-blur.js",
+      "sha256": "863c695c1cacd3a716f044ad0082e768c2d83692475b368f73831460b90ad3f4",
+      "bytes": 13284,
+      "artifactType": "web-component-source",
+      "variant": "blur",
+      "variantSlug": "vs-drawer-blur",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-drawer-bounce.js",
+      "path": "web-component/vs-drawer-bounce.js",
+      "sha256": "9c9be594e4f629b8c391a196ce2df316a88eb3dbdad163d83609665c0a50e84a",
+      "bytes": 13765,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-drawer-bounce",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-drawer-glass.js",
+      "path": "web-component/vs-drawer-glass.js",
+      "sha256": "124457fdd93b584e87c2b3fbf2fd799fa4cf44a0f11bdbb4f39dacc80ce1b240",
+      "bytes": 13284,
+      "artifactType": "web-component-source",
+      "variant": "glass",
+      "variantSlug": "vs-drawer-glass",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-drawer-push.js",
+      "path": "web-component/vs-drawer-push.js",
+      "sha256": "80da7e108b902da0a35fa3567e6e1a675ed1536fb4aaae65ee649b6f78b28ed6",
+      "bytes": 13017,
+      "artifactType": "web-component-source",
+      "variant": "push",
+      "variantSlug": "vs-drawer-push",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-drawer-slide.js",
+      "path": "web-component/vs-drawer-slide.js",
+      "sha256": "6fe411acc047a49d69bc0d5cfc29b01ac063c8b23531b31d5b61b6af50b4a4cb",
+      "bytes": 12198,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-drawer-slide",
+      "stateHints": [
+        "focus",
+        "open",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-drawer.js",
+      "path": "web-component/vs-drawer.js",
+      "sha256": "b728bd1a99e0576e64280d8040c1f39c1fbd99221ffa34cf4ef659dac2191301",
+      "bytes": 23088,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-drawer",
+      "stateHints": [
+        "active",
+        "focus"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Avatar",
+  "componentKey": "avatar",
+  "family": "VsAvatar",
+  "variants": [
+    "vs-avatar",
+    "vs-avatar-glow",
+    "vs-avatar-ring",
+    "vs-avatar-squircle",
+    "vs-avatar-status",
+    "vs-avatar-tilt"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatar.BrnbBm4A.js",
+      "path": "compiled/vue/VsAvatar.BrnbBm4A.js",
+      "sha256": "c5e7d300d0ccc7337f2448c3bad8f5f16685544bab6d65bd97aacf13a61f1ad0",
+      "bytes": 8461,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-avatar",
+      "stateHints": [
+        "pressed",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarGlow.D8N4zXXW.js",
+      "path": "compiled/vue/VsAvatarGlow.D8N4zXXW.js",
+      "sha256": "3c082c3a914e0430564c407b331c26c62310fc921604769ddb7ace9f1a8b57e6",
+      "bytes": 2089,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-avatar-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarRing.CBUKgXKh.js",
+      "path": "compiled/vue/VsAvatarRing.CBUKgXKh.js",
+      "sha256": "ae974266e6c78ded038003982bac3fc095f03aa4ea2321b37c3be848fd796db2",
+      "bytes": 2144,
+      "artifactType": "compiled-vue-island",
+      "variant": "ring",
+      "variantSlug": "vs-avatar-ring",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarSquircle.BXzyAXt8.js",
+      "path": "compiled/vue/VsAvatarSquircle.BXzyAXt8.js",
+      "sha256": "1ceb8b4cdc61bb82021dddd92dd2c9f7eb1e6e79d012d59493ae208f6107596f",
+      "bytes": 2044,
+      "artifactType": "compiled-vue-island",
+      "variant": "squircle",
+      "variantSlug": "vs-avatar-squircle",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarStatus.B67yrQ0q.js",
+      "path": "compiled/vue/VsAvatarStatus.B67yrQ0q.js",
+      "sha256": "b4d45355935534390bf80b4a31955eda86768aa50a3a2d9adffad30f35b348c4",
+      "bytes": 2207,
+      "artifactType": "compiled-vue-island",
+      "variant": "status",
+      "variantSlug": "vs-avatar-status",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarTilt.CHjj4B2V.js",
+      "path": "compiled/vue/VsAvatarTilt.CHjj4B2V.js",
+      "sha256": "812ab7eb97d6a8264fa761c5fdeaa110ffe908cd39379d72746425cb4b5e65ac",
+      "bytes": 3362,
+      "artifactType": "compiled-vue-island",
+      "variant": "tilt",
+      "variantSlug": "vs-avatar-tilt",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-glow.css",
+      "path": "css/shadow/vs-avatar-glow.css",
+      "sha256": "ec814633a45fb913f6d2c5431d14dd481932fa2cbad5dfc55a2138be427aa075",
+      "bytes": 3153,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-avatar-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-ring.css",
+      "path": "css/shadow/vs-avatar-ring.css",
+      "sha256": "c53fe9c29691d01f8b791ff7783e9831cc37d589b260f8373dec84f52f4467c4",
+      "bytes": 3004,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ring",
+      "variantSlug": "vs-avatar-ring",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-squircle.css",
+      "path": "css/shadow/vs-avatar-squircle.css",
+      "sha256": "0cce415b4e4de983de752fa849c4adf4939c4f7891cad0aee4f56f94baed8c75",
+      "bytes": 2538,
+      "artifactType": "extracted-shadow-css",
+      "variant": "squircle",
+      "variantSlug": "vs-avatar-squircle",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-status.css",
+      "path": "css/shadow/vs-avatar-status.css",
+      "sha256": "ef277b2bdfec6a23bc26a84784c4b3e38bf54174e6b4ffff9c2a15b63452ce47",
+      "bytes": 3115,
+      "artifactType": "extracted-shadow-css",
+      "variant": "status",
+      "variantSlug": "vs-avatar-status",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-tilt.css",
+      "path": "css/shadow/vs-avatar-tilt.css",
+      "sha256": "9f99f11cb00f9d9b2858b91f1e0de4e04da85d30e37feeb459e37b9d47ae5df0",
+      "bytes": 2607,
+      "artifactType": "extracted-shadow-css",
+      "variant": "tilt",
+      "variantSlug": "vs-avatar-tilt",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar.css",
+      "path": "css/shadow/vs-avatar.css",
+      "sha256": "c9255a700bb6cdc49649686adf916c5983b9395a7b0abed709a9d5e7da12db66",
+      "bytes": 14322,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-avatar",
+      "stateHints": [
+        "pressed",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-glow.js",
+      "path": "web-component/vs-avatar-glow.js",
+      "sha256": "d46901823cd7c7b75e11fe7aa22121ec4c3c73390c565aad4816499114c58c83",
+      "bytes": 7452,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-avatar-glow",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-ring.js",
+      "path": "web-component/vs-avatar-ring.js",
+      "sha256": "6bbcce3c7c03f78d74f447b0179d594a682d8ed481c13b8e97da3a64a71a1046",
+      "bytes": 7328,
+      "artifactType": "web-component-source",
+      "variant": "ring",
+      "variantSlug": "vs-avatar-ring",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-squircle.js",
+      "path": "web-component/vs-avatar-squircle.js",
+      "sha256": "3196d6de4880b360be2410191b706c5ce52ed8af3299943d82abc76fff80474a",
+      "bytes": 6825,
+      "artifactType": "web-component-source",
+      "variant": "squircle",
+      "variantSlug": "vs-avatar-squircle",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-status.js",
+      "path": "web-component/vs-avatar-status.js",
+      "sha256": "dc98ef0afc9b6e5fb8e02273f58d145b1692f9b699aeaa1e9c748b144fcc7d2e",
+      "bytes": 7948,
+      "artifactType": "web-component-source",
+      "variant": "status",
+      "variantSlug": "vs-avatar-status",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-tilt.js",
+      "path": "web-component/vs-avatar-tilt.js",
+      "sha256": "690c43fbf73d3e8e3e496b016d6f8b365ce6a51010379e074dc3172a2b0eda23",
+      "bytes": 8279,
+      "artifactType": "web-component-source",
+      "variant": "tilt",
+      "variantSlug": "vs-avatar-tilt",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar.js",
+      "path": "web-component/vs-avatar.js",
+      "sha256": "e9202df694a8cb663cee686236759d293a32b7b0270c358afcfd97982cff79f9",
+      "bytes": 30916,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-avatar",
+      "stateHints": [
+        "pressed",
+        "dropping"
+      ]
+    }
+  ]
+}

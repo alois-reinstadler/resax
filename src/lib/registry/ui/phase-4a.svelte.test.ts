@@ -15,6 +15,7 @@ describe('phase 4a navigation interactions', () => {
 	});
 	it('uses roving focus without activating manual tabs until commit', async () => {
 		const view = render(Harness); const overview = view.getByRole('tab', { name: 'Overview' }); overview.focus();
+		const visualIndicator=view.container.querySelector<HTMLElement>('.rx-indicator')!;expect(visualIndicator.hasAttribute('inert')).toBe(true);const visualClones=[...view.container.querySelectorAll<HTMLElement>('.rx-mask-label')];expect(visualClones.every((clone)=>clone.hasAttribute('inert')&&clone.tabIndex===-1)).toBe(true);
 		await fireEvent.keyDown(overview, { key: 'ArrowRight' }); const settings = view.getByRole('tab', { name: 'Settings' });
 		expect(document.activeElement).toBe(settings); expect(view.getByTestId('tab-value').textContent).toBe('one');
 		await fireEvent.keyDown(settings, { key: 'Enter' }); expect(view.getByTestId('tab-value').textContent).toBe('two');

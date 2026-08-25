@@ -5,7 +5,8 @@
 	import type { RxColor } from '$lib/registry/lib/color';
 
 	const colors: RxColor[] = ['primary', 'success', 'danger', 'warn', 'dark'];
-	const variants = ['default', 'flat', 'border', 'gradient', 'shadow', 'relief', 'transparent'] as const;
+	const variants = ['default', 'flat', 'border', 'shadow', 'relief', 'transparent'] as const;
+	const sourceVariants = ['border-draw', 'chrome', 'glitch', 'gooey', 'gradient', 'invert', 'liquid', 'magnetic', 'plasma', 'push', 'shine', 'v2'] as const;
 </script>
 
 <div class="page-heading">
@@ -21,6 +22,32 @@
 		</div>
 	</DemoSection>
 {/each}
+
+<DemoSection title="Source interaction catalog" source={'<Button variant="border-draw">Border draw</Button>'}>
+	<div class="button-demo-row" data-demo-section="source-variants">
+		{#each sourceVariants as variant}<Button {variant} color={variant === 'gooey' ? 'success' : 'primary'}>{variant}</Button>{/each}
+	</div>
+</DemoSection>
+
+<DemoSection title="Chrome field controls" source={'<Button variant="chrome" thickness={4} speed={150} chaos={85} prism={100}>Chrome</Button>'}>
+	<div class="button-demo-row" data-demo-section="chrome-controls">
+		<Button variant="chrome" thickness={4} speed={150} chaos={85} prism={100}>Chrome field</Button>
+		<Button variant="chrome" thickness={2} speed={55} chaos={25} prism={35}>Soft alloy</Button>
+	</div>
+</DemoSection>
+
+<DemoSection title="Spring mechanics" source={'<Button variant="invert" stiffness={260} damping={17} lag={0.45} blur={2} squash={0.05}>Invert</Button>'}>
+	<div class="button-demo-row" data-demo-section="spring-controls">
+		<Button variant="invert" stiffness={260} damping={17} lag={.45} blur={2} squash={.05}>Spring invert</Button>
+		<Button variant="gooey" reach={260} stiffness={220} damping={13} lag={.62} gooStrength={7} squash={.065} filaments={2} droplets={4} gravity={620} drag={3.2} sag={.28}>Full goo</Button>
+	</div>
+</DemoSection>
+
+<DemoSection title="Pointer-origin press and proximity light" source={'<Button>Move near, then press off-center</Button>'}>
+	<div class="button-demo-row button-demo-row--spaced" data-demo-section="pointer-effects">
+		<Button color="primary">Move near me</Button><Button color="success" variant="border">Neighbour light</Button><Button color="danger" variant="magnetic">Magnetic pull</Button>
+	</div>
+</DemoSection>
 
 <DemoSection title="Arbitrary colors" source={'<Button color="#7d33ff">Hex</Button>'}>
 	<div class="button-demo-row" data-demo-section="arbitrary-colors">

@@ -2,3 +2,5 @@
 <div class="page-heading"><p class="eyebrow">Component</p><h1>Upload File</h1><p>Select files and preview consumer-owned upload progress.</p></div>
 <DemoSection title="Drop zone and progress" source={'<Upload bind:files />'}><Upload bind:files accept="image/*,.pdf" multiple maxSize={5000000} maxFiles={6} onFilesAdded={simulate}/></DemoSection>
 <DemoSection title="States"><Upload files={states} label="Drop project assets" color="success" multiple/></DemoSection>
+<DemoSection title="Source variants" source={'<Upload variant="glow" />'}><div class="upload-variants">{#each ['button','compact','dropzone','gallery','glow'] as variant}<Upload variant={variant as 'button'|'compact'|'dropzone'|'gallery'|'glow'} files={variant==='gallery'?states.slice(0,2):[]} label={`${variant} upload`} multiple/>{/each}</div></DemoSection>
+<style>.upload-variants{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem;width:100%}</style>

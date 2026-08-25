@@ -14,7 +14,13 @@ describe('Progress', () => {
 
 	it('omits aria-valuenow when indeterminate', () => {
 		render(Progress);
-		expect(screen.getByRole('progressbar').hasAttribute('aria-valuenow')).toBe(false);
+		const progress = screen.getByRole('progressbar', { name: 'Progress' });
+		expect(progress.hasAttribute('aria-valuenow')).toBe(false);
+	});
+
+	it('preserves an explicit accessible name', () => {
+		render(Progress, { value: 40, 'aria-label': 'Upload progress' });
+		expect(screen.getByRole('progressbar', { name: 'Upload progress' })).toBeTruthy();
 	});
 
 	it('renders the derived filled segment count', () => {
@@ -26,4 +32,5 @@ describe('Progress', () => {
 		const { container } = render(Progress, { value: 40, shape: 'circle' });
 		expect(container.querySelector('svg.rx-progress__ring')).toBeTruthy();
 	});
+	it('maps each source effect and transform-based progress',()=>{for(const variant of ['default','glow','gradient','segments','striped'] as const){const {container,unmount}=render(Progress,{value:50,variant});expect(container.querySelector(`.rx-progress--${variant}`)).toBeTruthy();expect(container.firstElementChild?.getAttribute('style')).toContain('--rx-progress: 0.5');unmount()}});
 });

@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "UploadFile",
+  "componentKey": "upload-file",
+  "family": "VsUploadFile",
+  "variants": [
+    "vs-upload-file",
+    "vs-upload-file-button",
+    "vs-upload-file-compact",
+    "vs-upload-file-dropzone",
+    "vs-upload-file-gallery",
+    "vs-upload-file-glow"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsUploadFile.CYH19v5O.js",
+      "path": "compiled/vue/VsUploadFile.CYH19v5O.js",
+      "sha256": "455a60c0fde05d03762132096eb5f25676548750e6d7d54337150de917cdc62c",
+      "bytes": 11828,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-upload-file",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsUploadFileButton.BGRoiHa0.js",
+      "path": "compiled/vue/VsUploadFileButton.BGRoiHa0.js",
+      "sha256": "da7f279eb2238f5989d7e9d335b14ba4bf98022d2e7356369c6369a3e9b591c1",
+      "bytes": 5376,
+      "artifactType": "compiled-vue-island",
+      "variant": "button",
+      "variantSlug": "vs-upload-file-button",
+      "stateHints": [
+        "selected",
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsUploadFileCompact.FvjmDckY.js",
+      "path": "compiled/vue/VsUploadFileCompact.FvjmDckY.js",
+      "sha256": "da23e2891b30ab246aa4bdd0281f25d86d8f447e70bb26409b43871bab9915ea",
+      "bytes": 4103,
+      "artifactType": "compiled-vue-island",
+      "variant": "compact",
+      "variantSlug": "vs-upload-file-compact",
+      "stateHints": [
+        "dragging",
+        "dropping",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsUploadFileDropzone.C7zHkbIc.js",
+      "path": "compiled/vue/VsUploadFileDropzone.C7zHkbIc.js",
+      "sha256": "464a0091b1582a9af605f373e078c9c96c2a93f12451c076505c11309f42b8fc",
+      "bytes": 5630,
+      "artifactType": "compiled-vue-island",
+      "variant": "dropzone",
+      "variantSlug": "vs-upload-file-dropzone",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsUploadFileGallery.CUIRIR_B.js",
+      "path": "compiled/vue/VsUploadFileGallery.CUIRIR_B.js",
+      "sha256": "d337918e79525168d146b941e9cb225a4a46d917d095da546260bfd2ea7fe62d",
+      "bytes": 5116,
+      "artifactType": "compiled-vue-island",
+      "variant": "gallery",
+      "variantSlug": "vs-upload-file-gallery",
+      "stateHints": [
+        "hover",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsUploadFileGlow.DSMKvrtC.js",
+      "path": "compiled/vue/VsUploadFileGlow.DSMKvrtC.js",
+      "sha256": "101949748845f4970864571a5f39b064912617e12a357f598231be812615f0b5",
+      "bytes": 5520,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-upload-file-glow",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-upload-file-button.css",
+      "path": "css/shadow/vs-upload-file-button.css",
+      "sha256": "61323a79e5d0ad041184c67b15d25803eb378cb1af207ceb4509952ccc3cd317",
+      "bytes": 4074,
+      "artifactType": "extracted-shadow-css",
+      "variant": "button",
+      "variantSlug": "vs-upload-file-button",
+      "stateHints": [
+        "selected",
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-upload-file-compact.css",
+      "path": "css/shadow/vs-upload-file-compact.css",
+      "sha256": "6fad055d214fad709e96db7662ea374818db7cadca34778c501de86c1dfde5a9",
+      "bytes": 3487,
+      "artifactType": "extracted-shadow-css",
+      "variant": "compact",
+      "variantSlug": "vs-upload-file-compact",
+      "stateHints": [
+        "dragging",
+        "dropping",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-upload-file-dropzone.css",
+      "path": "css/shadow/vs-upload-file-dropzone.css",
+      "sha256": "394afaeac4ae8c1154862e5e28318bb66e94d930fda918739aa95501e87624d7",
+      "bytes": 4221,
+      "artifactType": "extracted-shadow-css",
+      "variant": "dropzone",
+      "variantSlug": "vs-upload-file-dropzone",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-upload-file-gallery.css",
+      "path": "css/shadow/vs-upload-file-gallery.css",
+      "sha256": "0363da75c9cac5b5f0420df1b0baec1d9f85bc3ae2b5aa40ef9f3a347d501ce2",
+      "bytes": 4341,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gallery",
+      "variantSlug": "vs-upload-file-gallery",
+      "stateHints": [
+        "hover",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-upload-file-glow.css",
+      "path": "css/shadow/vs-upload-file-glow.css",
+      "sha256": "789f35d1df7005beae6f304aa2333ddadf43f3d0e34ee532aabcc072046c4918",
+      "bytes": 4472,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-upload-file-glow",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-upload-file.css",
+      "path": "css/shadow/vs-upload-file.css",
+      "sha256": "e9d1ab63b273bb189f7e035d3b2b2935b7b272677b592a30f1947cbf18ec2e17",
+      "bytes": 10938,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-upload-file",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsUploadFile.BY2Z7p_q.css",
+      "path": "css/vue-scoped/VsUploadFile.BY2Z7p_q.css",
+      "sha256": "4c10bd3b78106b9f62f8d7306dcb09a665559790a434a63b97882982df57ec07",
+      "bytes": 10176,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-upload-file",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsUploadFileGlow.BMSNEh5G.css",
+      "path": "css/vue-scoped/VsUploadFileGlow.BMSNEh5G.css",
+      "sha256": "ef0aa9f444bfa900b8993526cd88940e82045ab6aba28483a667c78e08dea66a",
+      "bytes": 4184,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-upload-file-glow",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-upload-file-button.js",
+      "path": "web-component/vs-upload-file-button.js",
+      "sha256": "9d01476bef7cd9389d61f15a42bb50986e3093250938152f254a0003c2825582",
+      "bytes": 11446,
+      "artifactType": "web-component-source",
+      "variant": "button",
+      "variantSlug": "vs-upload-file-button",
+      "stateHints": [
+        "selected",
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-upload-file-compact.js",
+      "path": "web-component/vs-upload-file-compact.js",
+      "sha256": "047709c9e336e82423e949e75d2195db07459b7b1286f63843a81fe20795ffa7",
+      "bytes": 10646,
+      "artifactType": "web-component-source",
+      "variant": "compact",
+      "variantSlug": "vs-upload-file-compact",
+      "stateHints": [
+        "dragging",
+        "dropping",
+        "dismissed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-upload-file-dropzone.js",
+      "path": "web-component/vs-upload-file-dropzone.js",
+      "sha256": "ddc2c05732fd52eb038fb89b4079f5f9f19df25a85c88b938f5378df4e39e4a0",
+      "bytes": 12858,
+      "artifactType": "web-component-source",
+      "variant": "dropzone",
+      "variantSlug": "vs-upload-file-dropzone",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-upload-file-gallery.js",
+      "path": "web-component/vs-upload-file-gallery.js",
+      "sha256": "4e869c0c43bc94e2a8d878d287817b6092c6642f4a18645961012aec86f4229c",
+      "bytes": 12418,
+      "artifactType": "web-component-source",
+      "variant": "gallery",
+      "variantSlug": "vs-upload-file-gallery",
+      "stateHints": [
+        "hover",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-upload-file-glow.js",
+      "path": "web-component/vs-upload-file-glow.js",
+      "sha256": "932c9539d06c21150e9fe10314c8f21aedbe3dfb0853ef4a9f454279dabc4cd0",
+      "bytes": 12886,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-upload-file-glow",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-upload-file.js",
+      "path": "web-component/vs-upload-file.js",
+      "sha256": "29b01ecb21ee91ea0e4a1492a3ecfea679e459b4a1aeda9d79cbdc166d4aba37",
+      "bytes": 27054,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-upload-file",
+      "stateHints": [
+        "dragging",
+        "dropping"
+      ]
+    }
+  ]
+}

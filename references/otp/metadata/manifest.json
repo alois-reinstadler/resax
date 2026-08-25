@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Otp",
+  "componentKey": "otp",
+  "family": "VsOtp",
+  "variants": [
+    "vs-otp",
+    "vs-otp-dots",
+    "vs-otp-filled",
+    "vs-otp-flip",
+    "vs-otp-glow",
+    "vs-otp-underline"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsOtp.3cMjbglU.js",
+      "path": "compiled/vue/VsOtp.3cMjbglU.js",
+      "sha256": "9a62f9980d63a796afa8febd9998aadbaad8b6b8e391baf4cce1d3955a88241e",
+      "bytes": 6233,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-otp",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsOtpDots.B79a9CSy.js",
+      "path": "compiled/vue/VsOtpDots.B79a9CSy.js",
+      "sha256": "05b0b6579591f7682a208ce021728ca60a40c6fa727953f7c1f5a4e47ea806c8",
+      "bytes": 3059,
+      "artifactType": "compiled-vue-island",
+      "variant": "dots",
+      "variantSlug": "vs-otp-dots",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsOtpFilled.Cnttez-h.js",
+      "path": "compiled/vue/VsOtpFilled.Cnttez-h.js",
+      "sha256": "ee90ba6d8dde59421defae06149c6bd8618467e3703d3176946f7eaab26ddc9c",
+      "bytes": 3010,
+      "artifactType": "compiled-vue-island",
+      "variant": "filled",
+      "variantSlug": "vs-otp-filled",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsOtpFlip.DSukeA1k.js",
+      "path": "compiled/vue/VsOtpFlip.DSukeA1k.js",
+      "sha256": "16c0602b91a7dade4ab80a220758ea7937917bd7e8c72d3e6d4106c7d3f174c5",
+      "bytes": 3517,
+      "artifactType": "compiled-vue-island",
+      "variant": "flip",
+      "variantSlug": "vs-otp-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsOtpGlow.BrFXDDPV.js",
+      "path": "compiled/vue/VsOtpGlow.BrFXDDPV.js",
+      "sha256": "79ee2f6ae62fa9f47a180826762d9d1ce6e9e0ad31105b761e780f099910aed5",
+      "bytes": 3080,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-otp-glow",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsOtpUnderline.Tf4vVhlH.js",
+      "path": "compiled/vue/VsOtpUnderline.Tf4vVhlH.js",
+      "sha256": "7c2c127f52755832c4bb0be74e08e5e5ca5f3388d93bd6119018c4b5287a54dc",
+      "bytes": 3085,
+      "artifactType": "compiled-vue-island",
+      "variant": "underline",
+      "variantSlug": "vs-otp-underline",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-otp-dots.css",
+      "path": "css/shadow/vs-otp-dots.css",
+      "sha256": "f8bc7b497aa0c572f0e5d7e43d67895c90a9f495f11e7daf767d624bfcd193fb",
+      "bytes": 2213,
+      "artifactType": "extracted-shadow-css",
+      "variant": "dots",
+      "variantSlug": "vs-otp-dots",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-otp-filled.css",
+      "path": "css/shadow/vs-otp-filled.css",
+      "sha256": "68f20df417ee5a9ff09c24ad457e0f993ac4f62ac6ed2780062bf89ebd0c154c",
+      "bytes": 1863,
+      "artifactType": "extracted-shadow-css",
+      "variant": "filled",
+      "variantSlug": "vs-otp-filled",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-otp-flip.css",
+      "path": "css/shadow/vs-otp-flip.css",
+      "sha256": "bf70ac2266952a1ce885b5c14d5d0fb9a0d485ad819b0d135c0e303c892b5af3",
+      "bytes": 1979,
+      "artifactType": "extracted-shadow-css",
+      "variant": "flip",
+      "variantSlug": "vs-otp-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-otp-glow.css",
+      "path": "css/shadow/vs-otp-glow.css",
+      "sha256": "7d740ecf759a2276003f365188287f5ed86d67156498187e32bb4a5b024aea03",
+      "bytes": 2682,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-otp-glow",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-otp-underline.css",
+      "path": "css/shadow/vs-otp-underline.css",
+      "sha256": "f27ba106b48c136e1153074afc5f4a667816c69903c95a339f5ab11e86a6b5fc",
+      "bytes": 1726,
+      "artifactType": "extracted-shadow-css",
+      "variant": "underline",
+      "variantSlug": "vs-otp-underline",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-otp.css",
+      "path": "css/shadow/vs-otp.css",
+      "sha256": "8d3c1ebe856db33f411a03228f8becc9e9a8cf3fbbbfe85d3252481166534f6e",
+      "bytes": 3512,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-otp",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-otp-dots.js",
+      "path": "web-component/vs-otp-dots.js",
+      "sha256": "30e1ef0c475b043e6f18fac5ca973e2bde8427b6650afab8d15bed6779cb6240",
+      "bytes": 8020,
+      "artifactType": "web-component-source",
+      "variant": "dots",
+      "variantSlug": "vs-otp-dots",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-otp-filled.js",
+      "path": "web-component/vs-otp-filled.js",
+      "sha256": "8ff7d17b58fa032aa02f93401e87843e8d3a4f64d15274ff5bd6c7a568fa3506",
+      "bytes": 7550,
+      "artifactType": "web-component-source",
+      "variant": "filled",
+      "variantSlug": "vs-otp-filled",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-otp-flip.js",
+      "path": "web-component/vs-otp-flip.js",
+      "sha256": "5a9890bec2fe979f8bfc443ad82590ed832b54d38271b73165c8916272c82dca",
+      "bytes": 8314,
+      "artifactType": "web-component-source",
+      "variant": "flip",
+      "variantSlug": "vs-otp-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-otp-glow.js",
+      "path": "web-component/vs-otp-glow.js",
+      "sha256": "77f3c131bff481274aca8c28a6fba9df030938b5e51281dc1cb57e7366f37f5a",
+      "bytes": 8697,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-otp-glow",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-otp-underline.js",
+      "path": "web-component/vs-otp-underline.js",
+      "sha256": "b5635c81542da275b3f80f6b8c50b9369475642eb3ad9bf5be1378b593a3a0a8",
+      "bytes": 7795,
+      "artifactType": "web-component-source",
+      "variant": "underline",
+      "variantSlug": "vs-otp-underline",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-otp.js",
+      "path": "web-component/vs-otp.js",
+      "sha256": "6ad2239f575c55a35267046150c62e451f69b4e91124381cf41498deb7320561",
+      "bytes": 10249,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-otp",
+      "stateHints": []
+    }
+  ]
+}

@@ -1,16 +1,8 @@
 <script lang="ts">
-	import DemoSection from '../DemoSection.svelte';
-	import { Dropdown, DropdownGroup, DropdownItem, DropdownSeparator } from '$lib/registry/ui/dropdown';
-	let selection = $state('None');
+	import DemoSection from'../DemoSection.svelte';import{Dropdown,DropdownGroup,DropdownItem,DropdownSeparator,type DropdownVariant}from'$lib/registry/ui/dropdown';
+	const variants:DropdownVariant[]=['base','blur','fold','glow','slide','spring'];let selection=$state('None');
 </script>
-<div class="page-heading"><p class="eyebrow">Component</p><h1>Dropdown</h1><p>Click or hover menus with soft accent bands and accessible menu semantics.</p></div>
-<DemoSection title="Click menu" source={'<Dropdown><DropdownItem>...</DropdownItem></Dropdown>'}>
-	<Dropdown color="primary">
-		{#snippet children()}<span class="trigger">Open actions</span>{/snippet}
-		{#snippet content()}<DropdownGroup label="Workspace"><DropdownItem onSelect={() => selection = 'Profile'}>Profile</DropdownItem><DropdownItem disabled>Unavailable</DropdownItem></DropdownGroup><DropdownSeparator /><DropdownItem danger onSelect={() => selection = 'Delete'}>Delete</DropdownItem>{/snippet}
-	</Dropdown><span>Selected: {selection}</span>
-</DemoSection>
-<DemoSection title="Hover and placement" source={'<Dropdown trigger="hover" placement="right">...</Dropdown>'}>
-	<Dropdown trigger="hover" placement="right" color="success">{#snippet children()}<span class="trigger">Hover actions</span>{/snippet}{#snippet content()}<DropdownItem>Duplicate</DropdownItem><DropdownItem>Archive</DropdownItem>{/snippet}</Dropdown>
-</DemoSection>
-<style>.trigger { border: 0; border-radius: var(--rx-radius); padding: .7rem 1rem; color: rgb(var(--rx-light)); background: rgb(var(--rx-primary)); font-weight: 650; }</style>
+<div class="page-heading"><p class="eyebrow">Component</p><h1>Dropdown</h1><p>Six source menu systems with caret state, acrylic surfaces, staggered rows, folding depth, glow ignition, wipe, and spring motion.</p></div>
+<DemoSection title="Source variants" source={'<Dropdown variant="fold">...</Dropdown>'}><div class="gallery" data-demo-section="variants">{#each variants as variant}<Dropdown {variant} color={variant==='glow'?'primary':'dark'} depth={92} distance={16} bounce={.6}>{#snippet children()}<span class="trigger">{variant}</span>{/snippet}{#snippet content()}<DropdownItem onSelect={()=>selection=`${variant}: Profile`}>Profile</DropdownItem><DropdownItem>Settings</DropdownItem><DropdownItem disabled>Unavailable</DropdownItem><DropdownSeparator/><DropdownItem danger>Delete</DropdownItem>{/snippet}</Dropdown>{/each}</div><output aria-live="polite" aria-atomic="true">Selected: {selection}</output></DemoSection>
+<DemoSection title="Selection, badges, shortcuts, and hover" source={'<DropdownItem value="profile" selected badge="Pro" shortcut="⌘P">Profile</DropdownItem>'}><Dropdown trigger="hover" placement="right" variant="glow" color="success">{#snippet children()}<span class="trigger">Hover actions</span>{/snippet}{#snippet content()}<DropdownGroup label="Workspace"><DropdownItem value="profile" selected badge="Pro">Profile</DropdownItem><DropdownItem value="duplicate" shortcut="⌘D">Duplicate</DropdownItem><DropdownItem value="docs" href="https://vuesax.com" external>Documentation</DropdownItem><DropdownItem value="archive">Archive</DropdownItem></DropdownGroup>{/snippet}</Dropdown><p class="demo-note">The hover bridge keeps the menu open while crossing the source 7px offset. Item props expose the source selected check, badge, shortcut, link, and external marker.</p></DemoSection>
+<style>.gallery{display:flex;flex-wrap:wrap;gap:.8rem}.trigger{display:inline-flex;font-weight:650;text-transform:capitalize}output{display:block;margin-top:1rem;color:rgb(var(--rx-text-secondary))}</style>

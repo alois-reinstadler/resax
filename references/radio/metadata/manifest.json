@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Radio",
+  "componentKey": "radio",
+  "family": "VsRadio",
+  "variants": [
+    "vs-radio",
+    "vs-radio-bounce",
+    "vs-radio-card",
+    "vs-radio-fill",
+    "vs-radio-glow",
+    "vs-radio-ring"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadio.Cid6wtzI.js",
+      "path": "compiled/vue/VsRadio.Cid6wtzI.js",
+      "sha256": "61dc7dc8c56a8e0a42a4e2a09f28def4cc3c42b26d1b1fcd2a7f38fbf85040b5",
+      "bytes": 4303,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-radio",
+      "stateHints": [
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioBounce.7DyqH_t3.js",
+      "path": "compiled/vue/VsRadioBounce.7DyqH_t3.js",
+      "sha256": "028cfce43ab447acf0adeffab7f77949a0ee96c8be81d6c5a1fe27d95760853a",
+      "bytes": 1655,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-radio-bounce",
+      "stateHints": [
+        "selected",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioCard.DhTD4SG2.js",
+      "path": "compiled/vue/VsRadioCard.DhTD4SG2.js",
+      "sha256": "b7b0ab3b4b58d90448b36574469105872de856ae2727d552cd1352f5a63a93b1",
+      "bytes": 1630,
+      "artifactType": "compiled-vue-island",
+      "variant": "card",
+      "variantSlug": "vs-radio-card",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioFill.GJZOXNl5.js",
+      "path": "compiled/vue/VsRadioFill.GJZOXNl5.js",
+      "sha256": "01f5122ca2604bdc8391be6f581dd38a21efc356dc945dda1b3f9d043bf18a5b",
+      "bytes": 1777,
+      "artifactType": "compiled-vue-island",
+      "variant": "fill",
+      "variantSlug": "vs-radio-fill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioGlow.BYFiVXlr.js",
+      "path": "compiled/vue/VsRadioGlow.BYFiVXlr.js",
+      "sha256": "b838a38fc78a91065dbfe13cab5266aeb8a76320a555e05916f1009b9ac951d8",
+      "bytes": 1712,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-radio-glow",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsRadioRing.CXtaa0Xj.js",
+      "path": "compiled/vue/VsRadioRing.CXtaa0Xj.js",
+      "sha256": "2ef8096e1de56dc770932e9d5e4a7d4c43a46cc690ac7f9cb9e8c93244de9f24",
+      "bytes": 1950,
+      "artifactType": "compiled-vue-island",
+      "variant": "ring",
+      "variantSlug": "vs-radio-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-bounce.css",
+      "path": "css/shadow/vs-radio-bounce.css",
+      "sha256": "936a5b315c3a8ff608a3d6b3d0d62723c696ec06db2cd907c1be95da5fa9c07e",
+      "bytes": 2468,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-radio-bounce",
+      "stateHints": [
+        "selected",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-card.css",
+      "path": "css/shadow/vs-radio-card.css",
+      "sha256": "d7664585080e319987350b742b2b397deead0d618c0c866acde225e6d76541b7",
+      "bytes": 2867,
+      "artifactType": "extracted-shadow-css",
+      "variant": "card",
+      "variantSlug": "vs-radio-card",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-fill.css",
+      "path": "css/shadow/vs-radio-fill.css",
+      "sha256": "84d6d778b35728448219ce0e2e7a65bbbc5882d33d91ad31882c1d9d6451cccd",
+      "bytes": 2327,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fill",
+      "variantSlug": "vs-radio-fill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-glow.css",
+      "path": "css/shadow/vs-radio-glow.css",
+      "sha256": "4e8e8fbe427740236b514430f28873f07a34a3530fb9104924d2922ce00a4d35",
+      "bytes": 2831,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-radio-glow",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio-ring.css",
+      "path": "css/shadow/vs-radio-ring.css",
+      "sha256": "011b8b1136861e84e52e605dbc6284d2931ab02da70a5cdf498c013f66c52c94",
+      "bytes": 2278,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ring",
+      "variantSlug": "vs-radio-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-radio.css",
+      "path": "css/shadow/vs-radio.css",
+      "sha256": "6541d99629ca279f8a8881ddf1451ea7607d77eb0d9171629f8b0369fe30cc08",
+      "bytes": 6387,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-radio",
+      "stateHints": [
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsRadio.Cu7XoL06.css",
+      "path": "css/vue-scoped/VsRadio.Cu7XoL06.css",
+      "sha256": "b18abe88415de74035c0ff6f02efeffda67af332f839feb2598132d9dd10c342",
+      "bytes": 5452,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-radio",
+      "stateHints": [
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-bounce.js",
+      "path": "web-component/vs-radio-bounce.js",
+      "sha256": "7a0d01923978b6f54448e5f8d68f26d5f4e4070fad713b09c197735fb67bb1f3",
+      "bytes": 6671,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-radio-bounce",
+      "stateHints": [
+        "selected",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-card.js",
+      "path": "web-component/vs-radio-card.js",
+      "sha256": "b5af36aa3a074689bc7f453584cde06720f0815d263fc46003ed2a6dd01670e3",
+      "bytes": 7263,
+      "artifactType": "web-component-source",
+      "variant": "card",
+      "variantSlug": "vs-radio-card",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-fill.js",
+      "path": "web-component/vs-radio-fill.js",
+      "sha256": "6e55f3e672787ea37b9e99ab19216c3adb292c70ec2f864d42a18b579f00549f",
+      "bytes": 6520,
+      "artifactType": "web-component-source",
+      "variant": "fill",
+      "variantSlug": "vs-radio-fill",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-glow.js",
+      "path": "web-component/vs-radio-glow.js",
+      "sha256": "ed0b2514b9424b89d306242916a594d1abcc63c0540ba6a1e7b8998351e59c44",
+      "bytes": 6902,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-radio-glow",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio-ring.js",
+      "path": "web-component/vs-radio-ring.js",
+      "sha256": "9020ad638814fd340a89a257ab33b1f34deccb17f62a2c9c2351bda45d2d613a",
+      "bytes": 7097,
+      "artifactType": "web-component-source",
+      "variant": "ring",
+      "variantSlug": "vs-radio-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-radio.js",
+      "path": "web-component/vs-radio.js",
+      "sha256": "f44c88dcf2c74a6b9564f0b10cb21218182cdd5e2e058233beb89b1a4d5c179c",
+      "bytes": 13478,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-radio",
+      "stateHints": [
+        "dropping"
+      ]
+    }
+  ]
+}

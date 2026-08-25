@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Badge",
+  "componentKey": "badge",
+  "family": "VsBadge",
+  "variants": [
+    "vs-badge",
+    "vs-badge-glow",
+    "vs-badge-gradient",
+    "vs-badge-pulse",
+    "vs-badge-shimmer",
+    "vs-badge-stripes"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsBadge.DMfdwMq2.js",
+      "path": "compiled/vue/VsBadge.DMfdwMq2.js",
+      "sha256": "0d30ddf0d369fc2e57d72c86c6f00b62cf50ab9f14d5834c786b2e2136b44ff0",
+      "bytes": 2371,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-badge",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBadgeGlow.D5YBRpvI.js",
+      "path": "compiled/vue/VsBadgeGlow.D5YBRpvI.js",
+      "sha256": "c45f88ffd7dec023a888f4afaa62e762fffb9e18e94f8dad86a4845ccc227087",
+      "bytes": 1646,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-badge-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBadgeGradient.DtCc3zcL.js",
+      "path": "compiled/vue/VsBadgeGradient.DtCc3zcL.js",
+      "sha256": "f1a4d773eb1846b4bcae833a061b7d5b77c6b4b69565b1cec0139466642c21b4",
+      "bytes": 1649,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-badge-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBadgePulse.Bn8PyrAc.js",
+      "path": "compiled/vue/VsBadgePulse.Bn8PyrAc.js",
+      "sha256": "2478ad423893563837b95f4f67d9f94f0736d8eb6d36e37051634b5ca7dc92cd",
+      "bytes": 1729,
+      "artifactType": "compiled-vue-island",
+      "variant": "pulse",
+      "variantSlug": "vs-badge-pulse",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBadgeShimmer.Cz1Ms7QI.js",
+      "path": "compiled/vue/VsBadgeShimmer.Cz1Ms7QI.js",
+      "sha256": "2db3e2b98ec548d963d3311dced997db236866d97c8f43d60b9206ab71ccc8de",
+      "bytes": 1755,
+      "artifactType": "compiled-vue-island",
+      "variant": "shimmer",
+      "variantSlug": "vs-badge-shimmer",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsBadgeStripes.CC45svBh.js",
+      "path": "compiled/vue/VsBadgeStripes.CC45svBh.js",
+      "sha256": "e56927a02b7d9d623143e6a26f85f31a0c1d2a0a9a7f2f56394fdaa834a70fcf",
+      "bytes": 1707,
+      "artifactType": "compiled-vue-island",
+      "variant": "stripes",
+      "variantSlug": "vs-badge-stripes",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-badge-glow.css",
+      "path": "css/shadow/vs-badge-glow.css",
+      "sha256": "cd718f0eb4aea028c1ff68acc4fc9c58a1442b405446d798c33495d94897571d",
+      "bytes": 3435,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-badge-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-badge-gradient.css",
+      "path": "css/shadow/vs-badge-gradient.css",
+      "sha256": "1053a844260335d9a62de0357213f1dd9071fe04991f6c434ec7975c443c38e4",
+      "bytes": 3675,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-badge-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-badge-pulse.css",
+      "path": "css/shadow/vs-badge-pulse.css",
+      "sha256": "bc318cbfe2a714655b3e6eb35093fde9f9af8d50ce0b6ca45f322981ba8b6aa0",
+      "bytes": 3843,
+      "artifactType": "extracted-shadow-css",
+      "variant": "pulse",
+      "variantSlug": "vs-badge-pulse",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-badge-shimmer.css",
+      "path": "css/shadow/vs-badge-shimmer.css",
+      "sha256": "36eefac3f67cb671f9dde83892c55a205709a42f54d51b9387d5880ba5d99310",
+      "bytes": 3582,
+      "artifactType": "extracted-shadow-css",
+      "variant": "shimmer",
+      "variantSlug": "vs-badge-shimmer",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-badge-stripes.css",
+      "path": "css/shadow/vs-badge-stripes.css",
+      "sha256": "d98bf8a2aabdaacb83f6e4856bd5358868b4a68e092ad7aa21ec84d302368dfd",
+      "bytes": 4085,
+      "artifactType": "extracted-shadow-css",
+      "variant": "stripes",
+      "variantSlug": "vs-badge-stripes",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-badge.css",
+      "path": "css/shadow/vs-badge.css",
+      "sha256": "c96a2e5c88e2e9b234e4e8c15287ed59976d340a73f36d4c26630a62c0724a7d",
+      "bytes": 6857,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-badge",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-badge-glow.js",
+      "path": "web-component/vs-badge-glow.js",
+      "sha256": "6dfbe839d2a3a49db6d8a9ba7745bfd006113b63d46614026fc2cfb456d6749f",
+      "bytes": 7010,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-badge-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-badge-gradient.js",
+      "path": "web-component/vs-badge-gradient.js",
+      "sha256": "d334dea03c5f9e7a578525bdfd27dfe1ac2570748892630cb067ca92cee1f501",
+      "bytes": 7375,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-badge-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-badge-pulse.js",
+      "path": "web-component/vs-badge-pulse.js",
+      "sha256": "f89d43cf2e559cddfc7bad54de226d0ce253278269e1ef0303a2ab8547134a7f",
+      "bytes": 7603,
+      "artifactType": "web-component-source",
+      "variant": "pulse",
+      "variantSlug": "vs-badge-pulse",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-badge-shimmer.js",
+      "path": "web-component/vs-badge-shimmer.js",
+      "sha256": "4b326814de1be71b3e00da4f8565fe8701b1393199ff051ea9619969273be22d",
+      "bytes": 7366,
+      "artifactType": "web-component-source",
+      "variant": "shimmer",
+      "variantSlug": "vs-badge-shimmer",
+      "stateHints": [
+        "loading"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-badge-stripes.js",
+      "path": "web-component/vs-badge-stripes.js",
+      "sha256": "cb9c4057789272ba7587eb3ebf78589b74be8bc0fbeee84a316ad870ae291e09",
+      "bytes": 7817,
+      "artifactType": "web-component-source",
+      "variant": "stripes",
+      "variantSlug": "vs-badge-stripes",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-badge.js",
+      "path": "web-component/vs-badge.js",
+      "sha256": "8f9e6d2230e5bd331696012346b1f9e98ee90bd089981e1ee0250f992ab3bc0c",
+      "bytes": 14792,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-badge",
+      "stateHints": []
+    }
+  ]
+}

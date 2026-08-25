@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Dropdown",
+  "componentKey": "dropdown",
+  "family": "VsDropdown",
+  "variants": [
+    "vs-dropdown",
+    "vs-dropdown-blur",
+    "vs-dropdown-fold",
+    "vs-dropdown-glow",
+    "vs-dropdown-slide",
+    "vs-dropdown-spring"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsDropdown.kLcydJKc.js",
+      "path": "compiled/vue/VsDropdown.kLcydJKc.js",
+      "sha256": "fb02b47ccbbb59c701f5d5d03cac2dca394c5d96cdc796b75a841aa6c4ac29ad",
+      "bytes": 21082,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-dropdown",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDropdownBlur.DGJvRwmT.js",
+      "path": "compiled/vue/VsDropdownBlur.DGJvRwmT.js",
+      "sha256": "04d442e0a61b28afe5015eb7ab6f1a07d1995887f7b130785a457900a4289fee",
+      "bytes": 6538,
+      "artifactType": "compiled-vue-island",
+      "variant": "blur",
+      "variantSlug": "vs-dropdown-blur",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDropdownFold.DgCAMokI.js",
+      "path": "compiled/vue/VsDropdownFold.DgCAMokI.js",
+      "sha256": "0691edbcb98a96460b2d54bbb5afc2382368fa962bd20d63d47f158c896ed7ca",
+      "bytes": 6711,
+      "artifactType": "compiled-vue-island",
+      "variant": "fold",
+      "variantSlug": "vs-dropdown-fold",
+      "stateHints": [
+        "expanded",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDropdownGlow.CwwgxZ1z.js",
+      "path": "compiled/vue/VsDropdownGlow.CwwgxZ1z.js",
+      "sha256": "c46debc3a683bc5048551b9eee28078100a2242ec1a4f160df835aac0f263c23",
+      "bytes": 6616,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-dropdown-glow",
+      "stateHints": [
+        "active",
+        "open",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDropdownSlide.CvLRK8AU.js",
+      "path": "compiled/vue/VsDropdownSlide.CvLRK8AU.js",
+      "sha256": "1de6109b4c589fbf948f4131a670000ea586d98e0722eacc4933b4874063f78e",
+      "bytes": 6671,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-dropdown-slide",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDropdownSpring.HfXiV7_O.js",
+      "path": "compiled/vue/VsDropdownSpring.HfXiV7_O.js",
+      "sha256": "0890160b4b02ea8891b7a29d079b4dfeffc7a8e464b1228c777004a3659732ad",
+      "bytes": 6860,
+      "artifactType": "compiled-vue-island",
+      "variant": "spring",
+      "variantSlug": "vs-dropdown-spring",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dropdown-blur.css",
+      "path": "css/shadow/vs-dropdown-blur.css",
+      "sha256": "7565bf1eaeb4fe1f74828702ecef36f1eda8f86093345374a411c964d39d1900",
+      "bytes": 5575,
+      "artifactType": "extracted-shadow-css",
+      "variant": "blur",
+      "variantSlug": "vs-dropdown-blur",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dropdown-fold.css",
+      "path": "css/shadow/vs-dropdown-fold.css",
+      "sha256": "0852344485a1b8106269fca25cf9d6ae762994430075d6bbc9a0759e19605ad2",
+      "bytes": 5923,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fold",
+      "variantSlug": "vs-dropdown-fold",
+      "stateHints": [
+        "expanded",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dropdown-glow.css",
+      "path": "css/shadow/vs-dropdown-glow.css",
+      "sha256": "5b30de8369f90d130350bb1c82ceafc8b5476fc51634fded6f596a6da7746494",
+      "bytes": 6524,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-dropdown-glow",
+      "stateHints": [
+        "active",
+        "open",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dropdown-slide.css",
+      "path": "css/shadow/vs-dropdown-slide.css",
+      "sha256": "d9cfd19c1adab974bc86bd2b16414916520fb65f43bd29d4e3d0ffb6a89e1e00",
+      "bytes": 5706,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-dropdown-slide",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dropdown-spring.css",
+      "path": "css/shadow/vs-dropdown-spring.css",
+      "sha256": "ca059bd405ff3a2c3198eb3af9b6b8fac1b7f9438f4da42d602648ab44e5a7af",
+      "bytes": 5553,
+      "artifactType": "extracted-shadow-css",
+      "variant": "spring",
+      "variantSlug": "vs-dropdown-spring",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dropdown.css",
+      "path": "css/shadow/vs-dropdown.css",
+      "sha256": "986f2f0ec3f0d7ab8ef503158168fb200e3779d38f11916f256d8f59a7eff9a3",
+      "bytes": 10193,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-dropdown",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDropdownBlur.xU7ZS-Jb.css",
+      "path": "css/vue-scoped/VsDropdownBlur.xU7ZS-Jb.css",
+      "sha256": "34b17471c8b1c75e12ffef79b681fd872ea8dfca7de125431e6c37c15e556978",
+      "bytes": 5394,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "blur",
+      "variantSlug": "vs-dropdown-blur",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDropdownFold.DpCFgazu.css",
+      "path": "css/vue-scoped/VsDropdownFold.DpCFgazu.css",
+      "sha256": "84df2aac3df446a2be1d2ceaa2466ab0cdc90228a9f8aa16305a8418fbc6dfe1",
+      "bytes": 5750,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "fold",
+      "variantSlug": "vs-dropdown-fold",
+      "stateHints": [
+        "expanded",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDropdownGlow.CHgYLJk_.css",
+      "path": "css/vue-scoped/VsDropdownGlow.CHgYLJk_.css",
+      "sha256": "f5c2e8f42323cfe80d138363cb3ca847f0164353c57bba18f3180a1999806292",
+      "bytes": 6133,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-dropdown-glow",
+      "stateHints": [
+        "active",
+        "open",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDropdownSlide.D6JfKbq5.css",
+      "path": "css/vue-scoped/VsDropdownSlide.D6JfKbq5.css",
+      "sha256": "34a744ae286915ff2d7bc5e2e27ea323825ad2626409f89eb0a32303941191ab",
+      "bytes": 5594,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "slide",
+      "variantSlug": "vs-dropdown-slide",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsDropdownSpring.CJaHB_fI.css",
+      "path": "css/vue-scoped/VsDropdownSpring.CJaHB_fI.css",
+      "sha256": "ab2c40b2e43a3b6e6b12c298a3ecb463d71d5928dde6cb4df747e3a250f366fc",
+      "bytes": 5412,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "spring",
+      "variantSlug": "vs-dropdown-spring",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dropdown-blur.js",
+      "path": "web-component/vs-dropdown-blur.js",
+      "sha256": "a479dbf872bf818f582672fb6a89b47950437f8bbe0feaf3856f915b49cac56a",
+      "bytes": 16084,
+      "artifactType": "web-component-source",
+      "variant": "blur",
+      "variantSlug": "vs-dropdown-blur",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dropdown-fold.js",
+      "path": "web-component/vs-dropdown-fold.js",
+      "sha256": "b9e1a18c1a52906da0c162894a170b2b12c0bec93dc71a36f626e0ffd0fb3454",
+      "bytes": 16650,
+      "artifactType": "web-component-source",
+      "variant": "fold",
+      "variantSlug": "vs-dropdown-fold",
+      "stateHints": [
+        "expanded",
+        "dropping"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dropdown-glow.js",
+      "path": "web-component/vs-dropdown-glow.js",
+      "sha256": "d44503b7d0cd5f77172fa4de3bcecc73d5e5f4014cd70a586a41a9f2e686c8a0",
+      "bytes": 17111,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-dropdown-glow",
+      "stateHints": [
+        "active",
+        "open",
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dropdown-slide.js",
+      "path": "web-component/vs-dropdown-slide.js",
+      "sha256": "c7c93a49703ac36b21a37392999293bbe97ce8e3bdfb88ae70096b0ed2aef31a",
+      "bytes": 16307,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-dropdown-slide",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dropdown-spring.js",
+      "path": "web-component/vs-dropdown-spring.js",
+      "sha256": "2f1a1fc428ff3945b96ca5e55e24f100ef2049ef6f3ddaebe1f18dc8f634996f",
+      "bytes": 16203,
+      "artifactType": "web-component-source",
+      "variant": "spring",
+      "variantSlug": "vs-dropdown-spring",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dropdown.js",
+      "path": "web-component/vs-dropdown.js",
+      "sha256": "b853b51d6b088b4ba2a6033357cd87973c22798599147a80e0510242c4e01232",
+      "bytes": 40885,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-dropdown",
+      "stateHints": [
+        "open"
+      ]
+    }
+  ]
+}

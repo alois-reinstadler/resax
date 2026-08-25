@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Separator",
+  "componentKey": "separator",
+  "family": "VsSeparator",
+  "variants": [
+    "vs-separator",
+    "vs-separator-flow",
+    "vs-separator-glow",
+    "vs-separator-gradient",
+    "vs-separator-icon",
+    "vs-separator-zigzag"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsSeparator.DFFL6W3v.js",
+      "path": "compiled/vue/VsSeparator.DFFL6W3v.js",
+      "sha256": "3fdbb037e5cecc5bcf0afb4dd4a14de586ba4859884a917834832a03ab84fb6d",
+      "bytes": 1130,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-separator",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSeparatorFlow.C1O3Yf4T.js",
+      "path": "compiled/vue/VsSeparatorFlow.C1O3Yf4T.js",
+      "sha256": "8f7f9a131d35e96c6afbdd7c5a3092134078d96dfc2905dd040f5dfa90126aa5",
+      "bytes": 1179,
+      "artifactType": "compiled-vue-island",
+      "variant": "flow",
+      "variantSlug": "vs-separator-flow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSeparatorGlow.CvDmHO6v.js",
+      "path": "compiled/vue/VsSeparatorGlow.CvDmHO6v.js",
+      "sha256": "ae1be4e4c23e4e1a36c40e6832de56fed8e19ee9336fcee501ff0e48fe111577",
+      "bytes": 1179,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-separator-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSeparatorGradient.BTSc9Nev.js",
+      "path": "compiled/vue/VsSeparatorGradient.BTSc9Nev.js",
+      "sha256": "0d8637b7d032275fb94dd787c8afb893611509a68c6b1a756a6cacf9cd966ce5",
+      "bytes": 1181,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-separator-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSeparatorIcon.C3ay7waT.js",
+      "path": "compiled/vue/VsSeparatorIcon.C3ay7waT.js",
+      "sha256": "b648fd3b857326eef278f9ec96d3451108f4623b5d3bc46f70b41ca12faad671",
+      "bytes": 1264,
+      "artifactType": "compiled-vue-island",
+      "variant": "icon",
+      "variantSlug": "vs-separator-icon",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsSeparatorZigzag.l_z0_Lbg.js",
+      "path": "compiled/vue/VsSeparatorZigzag.l_z0_Lbg.js",
+      "sha256": "9d5a2847da37e86ed062e57e3eca6165c54b7c951dd07ed3accdaca6d2d91770",
+      "bytes": 1170,
+      "artifactType": "compiled-vue-island",
+      "variant": "zigzag",
+      "variantSlug": "vs-separator-zigzag",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-separator-flow.css",
+      "path": "css/shadow/vs-separator-flow.css",
+      "sha256": "bbf14f5d0c5f58a132bd1fec2fa39a0dfa8e6120d9697206324b99b0d1ab3e2f",
+      "bytes": 3244,
+      "artifactType": "extracted-shadow-css",
+      "variant": "flow",
+      "variantSlug": "vs-separator-flow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-separator-glow.css",
+      "path": "css/shadow/vs-separator-glow.css",
+      "sha256": "1565e6f766bfd164ca87e908f35d75d88cec7b64b2267773a5fc687ddb637838",
+      "bytes": 3132,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-separator-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-separator-gradient.css",
+      "path": "css/shadow/vs-separator-gradient.css",
+      "sha256": "69ab7bc3ec0bed754958677ee4eedf44e3a5462b45a61588f29781d9e80bf585",
+      "bytes": 3438,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-separator-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-separator-icon.css",
+      "path": "css/shadow/vs-separator-icon.css",
+      "sha256": "d46a8a4164542444e90d6c410e464363b585c9f7bbbf3bc09e9cfdc23baea1bf",
+      "bytes": 2359,
+      "artifactType": "extracted-shadow-css",
+      "variant": "icon",
+      "variantSlug": "vs-separator-icon",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-separator-zigzag.css",
+      "path": "css/shadow/vs-separator-zigzag.css",
+      "sha256": "f434a834ea428430f8ec3c6c4009773aea88c8cdd669a974c1d44b3d4977829d",
+      "bytes": 3590,
+      "artifactType": "extracted-shadow-css",
+      "variant": "zigzag",
+      "variantSlug": "vs-separator-zigzag",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-separator.css",
+      "path": "css/shadow/vs-separator.css",
+      "sha256": "bd7a90ab54dab585554d6f18307475f7f8fa2453ad7f285b66285e392a7af0ed",
+      "bytes": 3791,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-separator",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-separator-flow.js",
+      "path": "web-component/vs-separator-flow.js",
+      "sha256": "d34751a245d15e718bacf821fb2a277077301adff41b36709e4ce822616de2ef",
+      "bytes": 6367,
+      "artifactType": "web-component-source",
+      "variant": "flow",
+      "variantSlug": "vs-separator-flow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-separator-glow.js",
+      "path": "web-component/vs-separator-glow.js",
+      "sha256": "00a1def4502e16cc1ca3e8df2f0cd9bb16b541343867443373709f92cab6eea1",
+      "bytes": 6153,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-separator-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-separator-gradient.js",
+      "path": "web-component/vs-separator-gradient.js",
+      "sha256": "2eeb0c7b16731ec952ad532ec1e283eaf46e8ac4a35e26acc3301539d60c1486",
+      "bytes": 6458,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-separator-gradient",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-separator-icon.js",
+      "path": "web-component/vs-separator-icon.js",
+      "sha256": "d0c67ef4d5487fb63587b812c3f47a694ab32356514d42d72e7481e40484ddad",
+      "bytes": 5598,
+      "artifactType": "web-component-source",
+      "variant": "icon",
+      "variantSlug": "vs-separator-icon",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-separator-zigzag.js",
+      "path": "web-component/vs-separator-zigzag.js",
+      "sha256": "1e1caeed82f4aa16e4bfdc2ad2169f9a8ccc8b3932832e79bdb6559da61252bb",
+      "bytes": 6720,
+      "artifactType": "web-component-source",
+      "variant": "zigzag",
+      "variantSlug": "vs-separator-zigzag",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-separator.js",
+      "path": "web-component/vs-separator.js",
+      "sha256": "22d14fd32cb475736e765f8af7f71e4d20d19dfb423da2ce0ec469c55f496cd8",
+      "bytes": 6785,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-separator",
+      "stateHints": []
+    }
+  ]
+}

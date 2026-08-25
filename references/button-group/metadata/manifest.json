@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "ButtonGroup",
+  "componentKey": "button-group",
+  "family": "VsButtonGroup",
+  "variants": [
+    "vs-button-group"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-button-group.css",
+      "path": "css/shadow/vs-button-group.css",
+      "sha256": "7a036aba35ee22b17affdc777d0598932e3a2c2027f6c0404e4361329337dfcd",
+      "bytes": 1013,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-button-group",
+      "stateHints": [
+        "disabled",
+        "collapsed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-button-group.js",
+      "path": "web-component/vs-button-group.js",
+      "sha256": "b12010e0445f3d0e267dcfe133394984bea10d5986397a6fa9871670d8ab4df9",
+      "bytes": 4836,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-button-group",
+      "stateHints": [
+        "disabled",
+        "collapsed"
+      ]
+    }
+  ]
+}

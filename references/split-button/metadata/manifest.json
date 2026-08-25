@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "SplitButton",
+  "componentKey": "split-button",
+  "family": "VsSplitButton",
+  "variants": [
+    "vs-split-button"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-split-button.css",
+      "path": "css/shadow/vs-split-button.css",
+      "sha256": "b81b93c35315aefdb87b6f6a640dee1ed45bffffbd323cec43e09940ac1f1bb9",
+      "bytes": 6994,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-split-button",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-split-button.js",
+      "path": "web-component/vs-split-button.js",
+      "sha256": "c0de80e9851cb914eb81c6be9e1b6429c674a9aca43878a0849a222ff8ee516c",
+      "bytes": 18867,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-split-button",
+      "stateHints": []
+    }
+  ]
+}

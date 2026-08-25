@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "FileTree",
+  "componentKey": "file-tree",
+  "family": "VsFileTree",
+  "variants": [
+    "vs-file-tree",
+    "vs-file-tree-compact",
+    "vs-file-tree-glow",
+    "vs-file-tree-guides",
+    "vs-file-tree-highlight",
+    "vs-file-tree-reveal"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsFileTree.keq2O9XS.js",
+      "path": "compiled/vue/VsFileTree.keq2O9XS.js",
+      "sha256": "d4e35dbb21480e3fe4e75b359d65cbedde348d9fd57bd017869da840e6c6f90c",
+      "bytes": 4752,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-file-tree",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsFileTreeCompact.D5lfYcmA.js",
+      "path": "compiled/vue/VsFileTreeCompact.D5lfYcmA.js",
+      "sha256": "7441d985418c76e454cd2e31de3a5ad1e517d3909de207ad6cfa195e2a787a0d",
+      "bytes": 6759,
+      "artifactType": "compiled-vue-island",
+      "variant": "compact",
+      "variantSlug": "vs-file-tree-compact",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsFileTreeGlow.jHpI-L56.js",
+      "path": "compiled/vue/VsFileTreeGlow.jHpI-L56.js",
+      "sha256": "cde33066349795ec880be9d9ca451fdec7e65fd5d04d011e5333ea2737f61076",
+      "bytes": 8137,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-file-tree-glow",
+      "stateHints": [
+        "active",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsFileTreeGuides.C1cWQf1Z.js",
+      "path": "compiled/vue/VsFileTreeGuides.C1cWQf1Z.js",
+      "sha256": "656eea571bc54683a1e1d2b2e1b44b35aed98f01904bf6ec41185f617c59298b",
+      "bytes": 7157,
+      "artifactType": "compiled-vue-island",
+      "variant": "guides",
+      "variantSlug": "vs-file-tree-guides",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsFileTreeHighlight.B8LkPDp-.js",
+      "path": "compiled/vue/VsFileTreeHighlight.B8LkPDp-.js",
+      "sha256": "a159eee5b4e2aa1294dee28b28b9b03a15b0c21e2656e4c8074b6154de2053b1",
+      "bytes": 7269,
+      "artifactType": "compiled-vue-island",
+      "variant": "highlight",
+      "variantSlug": "vs-file-tree-highlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsFileTreeNode.d6c4EMH3.js",
+      "path": "compiled/vue/VsFileTreeNode.d6c4EMH3.js",
+      "sha256": "9e748ae5ad533e226e918a544277b201cf9c6cd1a4e1ca3049c56c8e79b8fadf",
+      "bytes": 5861,
+      "artifactType": "compiled-vue-island",
+      "variant": "helper-node",
+      "variantSlug": null,
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsFileTreeReveal.K651AWyv.js",
+      "path": "compiled/vue/VsFileTreeReveal.K651AWyv.js",
+      "sha256": "38419fe60eacfacc7f7cede3f012c3869c55443efc0842522579befe906de8e6",
+      "bytes": 6970,
+      "artifactType": "compiled-vue-island",
+      "variant": "reveal",
+      "variantSlug": "vs-file-tree-reveal",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-file-tree-compact.css",
+      "path": "css/shadow/vs-file-tree-compact.css",
+      "sha256": "02699398dd6fbd2aeee53c67ca92c1838302cba63ab11476811a6124c60e09a4",
+      "bytes": 3208,
+      "artifactType": "extracted-shadow-css",
+      "variant": "compact",
+      "variantSlug": "vs-file-tree-compact",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-file-tree-glow.css",
+      "path": "css/shadow/vs-file-tree-glow.css",
+      "sha256": "99fb88c3f0b1c7b0a9caf09f985381947277abf7d4ebbda0a8c588d76b4c7103",
+      "bytes": 3223,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-file-tree-glow",
+      "stateHints": [
+        "active",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-file-tree-guides.css",
+      "path": "css/shadow/vs-file-tree-guides.css",
+      "sha256": "628db5fab4d85cdbe05deeef6783133a5b08bcc37f3e9225de893e506168be4d",
+      "bytes": 5229,
+      "artifactType": "extracted-shadow-css",
+      "variant": "guides",
+      "variantSlug": "vs-file-tree-guides",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-file-tree-highlight.css",
+      "path": "css/shadow/vs-file-tree-highlight.css",
+      "sha256": "0144d4511c6d42b1d45256bf2ba4d830b2d89259f2436648dfdbf859f7f866f6",
+      "bytes": 5540,
+      "artifactType": "extracted-shadow-css",
+      "variant": "highlight",
+      "variantSlug": "vs-file-tree-highlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-file-tree-reveal.css",
+      "path": "css/shadow/vs-file-tree-reveal.css",
+      "sha256": "3f7dac7a39c4737666801b5b2c818bcc9442e94730dc6b24a4c37126eca55a49",
+      "bytes": 3086,
+      "artifactType": "extracted-shadow-css",
+      "variant": "reveal",
+      "variantSlug": "vs-file-tree-reveal",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-file-tree.css",
+      "path": "css/shadow/vs-file-tree.css",
+      "sha256": "a7c6c088fea4ca4a469c36714720404be7f401c960ec3fb7e6cff786cae78e30",
+      "bytes": 7778,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-file-tree",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-file-tree-compact.js",
+      "path": "web-component/vs-file-tree-compact.js",
+      "sha256": "87b8ed2d512243e6861182271ede37a35b8c0c182da1adc0567b3b4f2b3b49bb",
+      "bytes": 11348,
+      "artifactType": "web-component-source",
+      "variant": "compact",
+      "variantSlug": "vs-file-tree-compact",
+      "stateHints": [
+        "selected"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-file-tree-glow.js",
+      "path": "web-component/vs-file-tree-glow.js",
+      "sha256": "c3509bfb9f2b4712b8d867cd4e23690cd3daee7c48a40a0af28daef37c27b0c8",
+      "bytes": 11796,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-file-tree-glow",
+      "stateHints": [
+        "active",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-file-tree-guides.js",
+      "path": "web-component/vs-file-tree-guides.js",
+      "sha256": "7804a4e5cbd5702b8d9b95c687eed363a51892c3a032c98baae2f4cd104601e4",
+      "bytes": 17412,
+      "artifactType": "web-component-source",
+      "variant": "guides",
+      "variantSlug": "vs-file-tree-guides",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-file-tree-highlight.js",
+      "path": "web-component/vs-file-tree-highlight.js",
+      "sha256": "380015b6369f9634cc73b87c518fb7c0a6d7642dc03153b0475a93a57bb47c8b",
+      "bytes": 17521,
+      "artifactType": "web-component-source",
+      "variant": "highlight",
+      "variantSlug": "vs-file-tree-highlight",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-file-tree-reveal.js",
+      "path": "web-component/vs-file-tree-reveal.js",
+      "sha256": "78a13f69fd38a6d9b9e373e71e359e500f42f4d3711325111f474da924801372",
+      "bytes": 10918,
+      "artifactType": "web-component-source",
+      "variant": "reveal",
+      "variantSlug": "vs-file-tree-reveal",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-file-tree.js",
+      "path": "web-component/vs-file-tree.js",
+      "sha256": "2502ff025d854087d452b540c1c4a3617a82c65456bda6e906eca05ab5b31a4e",
+      "bytes": 19815,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-file-tree",
+      "stateHints": [
+        "hover"
+      ]
+    }
+  ]
+}

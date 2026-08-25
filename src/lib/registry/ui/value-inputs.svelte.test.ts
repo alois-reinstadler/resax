@@ -11,9 +11,9 @@ describe('Slider', () => {
 });
 describe('Rating', () => {
 	it('changes with arrows and rounds halves', async () => { const changed = vi.fn(); render(Rating, { value: 2.2, halves: true, onValueChange: changed }); const group = screen.getByRole('radiogroup'); await fireEvent.keyDown(group, { key: 'ArrowRight' }); expect(changed).toHaveBeenLastCalledWith(2.5); });
-	it('blocks readonly input', async () => { const changed = vi.fn(); render(Rating, { value: 2, readonly: true, onValueChange: changed }); await fireEvent.click(screen.getByLabelText('4 stars')); expect(changed).not.toHaveBeenCalled(); });
+	it('blocks readonly input', async () => { const changed = vi.fn(); render(Rating, { value: 2, readonly: true, onValueChange: changed }); await fireEvent.click(screen.getByLabelText('4 of 5')); expect(changed).not.toHaveBeenCalled(); });
 });
 describe('InputOtp', () => {
-	it('round-trips value and fires completion', async () => { render(InputOtpHarness); await fireEvent.click(screen.getByText('Set code')); expect(document.querySelector('output')?.textContent).toBe('123456'); expect(document.querySelector('[data-completed]')?.textContent).toBe('123456'); expect(screen.getByLabelText('One-time password')).toHaveProperty('value', '123456'); await flushPinInputSync(); });
-	it('masks rendered digits', async () => { const { container } = render(InputOtpHarness, { masked: true }); await fireEvent.click(screen.getByText('Set code')); expect(container.querySelector('.rx-input-otp')?.textContent).not.toContain('123456'); expect(container.querySelector('.rx-input-otp')?.textContent).toContain('•'); await flushPinInputSync(); });
+	it('round-trips value and fires completion', async () => { const { container } = render(InputOtpHarness); await fireEvent.click(screen.getByText('Set code')); expect(document.querySelector('output')?.textContent).toBe('123456'); expect(document.querySelector('[data-completed]')?.textContent).toBe('123456'); expect([...container.querySelectorAll<HTMLInputElement>('.rx-input-otp__cell input')].map((input) => input.value).join('')).toBe('123456'); await flushPinInputSync(); });
+	it('masks rendered digits', async () => { const { container } = render(InputOtpHarness, { masked: true }); await fireEvent.click(screen.getByText('Set code')); expect(container.querySelector('.rx-input-otp')?.textContent).not.toContain('123456'); expect([...container.querySelectorAll<HTMLInputElement>('.rx-input-otp__cell input')].every((input) => input.type === 'password')).toBe(true); await flushPinInputSync(); });
 });

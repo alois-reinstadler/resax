@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Cursor",
+  "componentKey": "cursor",
+  "family": "VsCursor",
+  "variants": [
+    "vs-cursor",
+    "vs-cursor-blend",
+    "vs-cursor-blob",
+    "vs-cursor-glow",
+    "vs-cursor-label",
+    "vs-cursor-magnet",
+    "vs-cursor-reticle"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-cursor-blend.css",
+      "path": "css/shadow/vs-cursor-blend.css",
+      "sha256": "efebba470cee82e74b36ab275d688ce474e0813c0f165f1e7a92d10e1048fb2e",
+      "bytes": 2430,
+      "artifactType": "extracted-shadow-css",
+      "variant": "blend",
+      "variantSlug": "vs-cursor-blend",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-cursor-blob.css",
+      "path": "css/shadow/vs-cursor-blob.css",
+      "sha256": "67f1415308441f238b1527bad5e49b835287bfc774fa08dfad5d54dd0641f11f",
+      "bytes": 970,
+      "artifactType": "extracted-shadow-css",
+      "variant": "blob",
+      "variantSlug": "vs-cursor-blob",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-cursor-glow.css",
+      "path": "css/shadow/vs-cursor-glow.css",
+      "sha256": "1941317084114ab82eb05e81a28a2aaff2875d8f74d40e71fa01fd979d3e2810",
+      "bytes": 1875,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-cursor-glow",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-cursor-label.css",
+      "path": "css/shadow/vs-cursor-label.css",
+      "sha256": "e980984bb85f63a4970dd58914ec9b9c68e56ed87507a6941c62dd4f7cdc7294",
+      "bytes": 1716,
+      "artifactType": "extracted-shadow-css",
+      "variant": "label",
+      "variantSlug": "vs-cursor-label",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-cursor-magnet.css",
+      "path": "css/shadow/vs-cursor-magnet.css",
+      "sha256": "fa4281884aa42a55544ea53495b2020782ddb326aa735d03dec0f48327764825",
+      "bytes": 2547,
+      "artifactType": "extracted-shadow-css",
+      "variant": "magnet",
+      "variantSlug": "vs-cursor-magnet",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-cursor-reticle.css",
+      "path": "css/shadow/vs-cursor-reticle.css",
+      "sha256": "ad3ec4d1e5f559ac5201a27a5ae23acf38d4c9d5786101947899aba438f1d0e1",
+      "bytes": 1994,
+      "artifactType": "extracted-shadow-css",
+      "variant": "reticle",
+      "variantSlug": "vs-cursor-reticle",
+      "stateHints": [
+        "expanded",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-cursor.css",
+      "path": "css/shadow/vs-cursor.css",
+      "sha256": "ebe155c2c1b0c5dfe03da09bff7ae26f53d38f8067a97d6b5841f9d306b375f1",
+      "bytes": 1334,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-cursor",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-cursor-blend.js",
+      "path": "web-component/vs-cursor-blend.js",
+      "sha256": "da8b984ab894a23a18d05e408834ee8021cd21bdc4e6ca77452979b9de9a2fee",
+      "bytes": 9418,
+      "artifactType": "web-component-source",
+      "variant": "blend",
+      "variantSlug": "vs-cursor-blend",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-cursor-blob.js",
+      "path": "web-component/vs-cursor-blob.js",
+      "sha256": "c5de92e2c3200c3686e93e1efb678d8e6c0d54aeef7ef9639c0a823debc71c4c",
+      "bytes": 5571,
+      "artifactType": "web-component-source",
+      "variant": "blob",
+      "variantSlug": "vs-cursor-blob",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-cursor-glow.js",
+      "path": "web-component/vs-cursor-glow.js",
+      "sha256": "06ec4e0d008427d17a3838e58dac9b3e73a9666720fcfe67e34612c536515ba7",
+      "bytes": 8696,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-cursor-glow",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-cursor-label.js",
+      "path": "web-component/vs-cursor-label.js",
+      "sha256": "e0de3402920ebfcade46431612d27d54a69373eab5e79afc4e37e9a8bb2b5072",
+      "bytes": 6822,
+      "artifactType": "web-component-source",
+      "variant": "label",
+      "variantSlug": "vs-cursor-label",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-cursor-magnet.js",
+      "path": "web-component/vs-cursor-magnet.js",
+      "sha256": "1161e2d92cb941e181c3bcf24fa817accf16a23d27087faa556f4481eca065bd",
+      "bytes": 10725,
+      "artifactType": "web-component-source",
+      "variant": "magnet",
+      "variantSlug": "vs-cursor-magnet",
+      "stateHints": [
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-cursor-reticle.js",
+      "path": "web-component/vs-cursor-reticle.js",
+      "sha256": "e09aee5c0811f42f69adb276bf7db3ccd06992ffb776b425e9e097e1305887b8",
+      "bytes": 6908,
+      "artifactType": "web-component-source",
+      "variant": "reticle",
+      "variantSlug": "vs-cursor-reticle",
+      "stateHints": [
+        "expanded",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-cursor.js",
+      "path": "web-component/vs-cursor.js",
+      "sha256": "4564022b6ebe5b4dd806ae64ab6e5b1fb43942bd7113c1e47b25292fcceb4ae6",
+      "bytes": 6260,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-cursor",
+      "stateHints": [
+        "pointer"
+      ]
+    }
+  ]
+}

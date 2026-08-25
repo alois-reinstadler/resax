@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "TickRail",
+  "componentKey": "tick-rail",
+  "family": "VsTickRail",
+  "variants": [
+    "vs-tick-rail"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tick-rail.css",
+      "path": "css/shadow/vs-tick-rail.css",
+      "sha256": "7e0f19d7c4b38b551f278f37de586246ff8cd00beb9d0934f24fb698511310c4",
+      "bytes": 8594,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-tick-rail",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tick-rail.js",
+      "path": "web-component/vs-tick-rail.js",
+      "sha256": "9a9575575d5c21c45afeb9ed638fc27e2f0e76eb4b1c8ae22d13747f5ec4914b",
+      "bytes": 23352,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-tick-rail",
+      "stateHints": [
+        "dragging",
+        "pointer"
+      ]
+    }
+  ]
+}

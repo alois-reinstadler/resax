@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Progress",
+  "componentKey": "progress",
+  "family": "VsProgress",
+  "variants": [
+    "vs-progress",
+    "vs-progress-circular",
+    "vs-progress-glow",
+    "vs-progress-gradient",
+    "vs-progress-segments",
+    "vs-progress-striped"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsProgress.BRLuap1j.js",
+      "path": "compiled/vue/VsProgress.BRLuap1j.js",
+      "sha256": "0b828000dcd1322519ba4e53308994123d723309bafd65bfb10e0264010eb59d",
+      "bytes": 2492,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-progress",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsProgressCircular.1M2rFWbN.js",
+      "path": "compiled/vue/VsProgressCircular.1M2rFWbN.js",
+      "sha256": "5dd44563d6efcba0fa72a7524d6fcd6f48a4af0de495d3aff552b7812db814a3",
+      "bytes": 1471,
+      "artifactType": "compiled-vue-island",
+      "variant": "circular",
+      "variantSlug": "vs-progress-circular",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsProgressGlow.RGmyrlAI.js",
+      "path": "compiled/vue/VsProgressGlow.RGmyrlAI.js",
+      "sha256": "85056fb0837436002810ce3aba7fc7b131e3201dec672be78ddb1afc18737e3e",
+      "bytes": 1688,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-progress-glow",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsProgressGradient.CPjKg1jE.js",
+      "path": "compiled/vue/VsProgressGradient.CPjKg1jE.js",
+      "sha256": "76063dd5c3ea4dd7d93c377595ea19b2656b6d3358ef0243c2307329828c691f",
+      "bytes": 1562,
+      "artifactType": "compiled-vue-island",
+      "variant": "gradient",
+      "variantSlug": "vs-progress-gradient",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsProgressSegments.CCDdTjN7.js",
+      "path": "compiled/vue/VsProgressSegments.CCDdTjN7.js",
+      "sha256": "3a4e68c82491eab54ece6a38326c6c828fbbd0692d329bcfb1c30c222c512447",
+      "bytes": 1676,
+      "artifactType": "compiled-vue-island",
+      "variant": "segments",
+      "variantSlug": "vs-progress-segments",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsProgressStriped.4CL2Ds90.js",
+      "path": "compiled/vue/VsProgressStriped.4CL2Ds90.js",
+      "sha256": "fe4679bce331af8fbe6785f4a33c48c35b76ad376093e96585f8c12c6206a27a",
+      "bytes": 1565,
+      "artifactType": "compiled-vue-island",
+      "variant": "striped",
+      "variantSlug": "vs-progress-striped",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-progress-circular.css",
+      "path": "css/shadow/vs-progress-circular.css",
+      "sha256": "d4d07a7d0ee155a7db080ed0da1eed96d7ed39f0db5417dd07be9907e8ce65c3",
+      "bytes": 1842,
+      "artifactType": "extracted-shadow-css",
+      "variant": "circular",
+      "variantSlug": "vs-progress-circular",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-progress-glow.css",
+      "path": "css/shadow/vs-progress-glow.css",
+      "sha256": "7c0626e2f4c8bc9125b852996796641644526186b6d4541f97492ca66680f64e",
+      "bytes": 3318,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-progress-glow",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-progress-gradient.css",
+      "path": "css/shadow/vs-progress-gradient.css",
+      "sha256": "102795e9deece27f71358747822ab3e3c4948cc2fb0432641c4dbae1e356db71",
+      "bytes": 2426,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gradient",
+      "variantSlug": "vs-progress-gradient",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-progress-segments.css",
+      "path": "css/shadow/vs-progress-segments.css",
+      "sha256": "d8e73acc4ad4be006dbaace3311854595ad7f17383cfe92dd3627f84d7bec0c6",
+      "bytes": 2238,
+      "artifactType": "extracted-shadow-css",
+      "variant": "segments",
+      "variantSlug": "vs-progress-segments",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-progress-striped.css",
+      "path": "css/shadow/vs-progress-striped.css",
+      "sha256": "1e22208d6dac523e978a64ff1af28ec833c278070bf09efc988dd7fabfebfabb",
+      "bytes": 2382,
+      "artifactType": "extracted-shadow-css",
+      "variant": "striped",
+      "variantSlug": "vs-progress-striped",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-progress.css",
+      "path": "css/shadow/vs-progress.css",
+      "sha256": "1b66381b720f91d4a4023198ac09f567f09841b7d4bd44302556e5b9ca167eda",
+      "bytes": 5164,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-progress",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-progress-circular.js",
+      "path": "web-component/vs-progress-circular.js",
+      "sha256": "d14c6a9a5de33a532ba40221ee5d5feac1d5152f2619e93b2d9e4bb9f57850bb",
+      "bytes": 6164,
+      "artifactType": "web-component-source",
+      "variant": "circular",
+      "variantSlug": "vs-progress-circular",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-progress-glow.js",
+      "path": "web-component/vs-progress-glow.js",
+      "sha256": "6bb0e931d03c76d4bb9986676a5d6f7a22f9df318098201224f33f4d5056b0d8",
+      "bytes": 7266,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-progress-glow",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-progress-gradient.js",
+      "path": "web-component/vs-progress-gradient.js",
+      "sha256": "b86568dc0ec158cee174d2db69fd06ca720015121b498db82e580472b4d6716d",
+      "bytes": 6140,
+      "artifactType": "web-component-source",
+      "variant": "gradient",
+      "variantSlug": "vs-progress-gradient",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-progress-segments.js",
+      "path": "web-component/vs-progress-segments.js",
+      "sha256": "380efc30710dc3049da8b63e574651a808097e582676a2a3eb2a6a0de2f26cca",
+      "bytes": 6502,
+      "artifactType": "web-component-source",
+      "variant": "segments",
+      "variantSlug": "vs-progress-segments",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-progress-striped.js",
+      "path": "web-component/vs-progress-striped.js",
+      "sha256": "7e242c06e9b61fcbaf0eb9239bba9ba837fa5b04020f16dcef9ebe5639e489ee",
+      "bytes": 6129,
+      "artifactType": "web-component-source",
+      "variant": "striped",
+      "variantSlug": "vs-progress-striped",
+      "stateHints": [
+        "indeterminate"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-progress.js",
+      "path": "web-component/vs-progress.js",
+      "sha256": "7c62babf693cdb461b855dc80ea2ed8d79da9bac27086346aaded5bf6effdd66",
+      "bytes": 10287,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-progress",
+      "stateHints": [
+        "indeterminate"
+      ]
+    }
+  ]
+}

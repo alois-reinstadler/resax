@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "List",
+  "componentKey": "list",
+  "family": "VsList",
+  "variants": [
+    "vs-list",
+    "vs-list-cards",
+    "vs-list-glow",
+    "vs-list-hover",
+    "vs-list-reveal",
+    "vs-list-stripe"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsList.DvZKWm1m.js",
+      "path": "compiled/vue/VsList.DvZKWm1m.js",
+      "sha256": "241a9767140bccab7058ae4bad712433644c31624d86357607df951e7b0de3d7",
+      "bytes": 22052,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-list",
+      "stateHints": [
+        "open",
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsListCards.CEFV-yg8.js",
+      "path": "compiled/vue/VsListCards.CEFV-yg8.js",
+      "sha256": "8c4ec4e5f27b46c6aabb37b63a1ae0d1eab848243d31bdb7fffab10864182069",
+      "bytes": 3374,
+      "artifactType": "compiled-vue-island",
+      "variant": "cards",
+      "variantSlug": "vs-list-cards",
+      "stateHints": [
+        "active",
+        "selected",
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsListGlow.Be2Iyby9.js",
+      "path": "compiled/vue/VsListGlow.Be2Iyby9.js",
+      "sha256": "9040b7431b82c531057f607d626397b0f3ed2f422737701a83b7e9e5e37c3a5f",
+      "bytes": 3419,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-list-glow",
+      "stateHints": [
+        "active",
+        "selected",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsListHover.BXDr_XdQ.js",
+      "path": "compiled/vue/VsListHover.BXDr_XdQ.js",
+      "sha256": "f09d2753ca080234ff13ea474767bb9cd37d82078daa465926daa424314d5f76",
+      "bytes": 2703,
+      "artifactType": "compiled-vue-island",
+      "variant": "hover",
+      "variantSlug": "vs-list-hover",
+      "stateHints": [
+        "active",
+        "selected",
+        "hover",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsListReveal.BgZ1bZbQ.js",
+      "path": "compiled/vue/VsListReveal.BgZ1bZbQ.js",
+      "sha256": "754682ca00f06a0fd0641978022f579b94ae7f4dc1f86694f5b5b3b4d55bf9b2",
+      "bytes": 2184,
+      "artifactType": "compiled-vue-island",
+      "variant": "reveal",
+      "variantSlug": "vs-list-reveal",
+      "stateHints": [
+        "active",
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsListStripe.BNfHIKYG.js",
+      "path": "compiled/vue/VsListStripe.BNfHIKYG.js",
+      "sha256": "dd0f52945292d5ae2ef6c29cd4082811dadae1acc6ddefe9981df3c0ca5e80e3",
+      "bytes": 2615,
+      "artifactType": "compiled-vue-island",
+      "variant": "stripe",
+      "variantSlug": "vs-list-stripe",
+      "stateHints": [
+        "active",
+        "selected",
+        "focus",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-list-cards.css",
+      "path": "css/shadow/vs-list-cards.css",
+      "sha256": "7d8a040c50e3f10913d0efb19dc7eb8a9f848d78a4746a68a8b73f202242bbf0",
+      "bytes": 2711,
+      "artifactType": "extracted-shadow-css",
+      "variant": "cards",
+      "variantSlug": "vs-list-cards",
+      "stateHints": [
+        "active",
+        "selected",
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-list-glow.css",
+      "path": "css/shadow/vs-list-glow.css",
+      "sha256": "50f7febc143e3b8877f4611a3cc6b4894badf8034378e082c9f6dcb649e8b035",
+      "bytes": 2803,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-list-glow",
+      "stateHints": [
+        "active",
+        "selected",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-list-hover.css",
+      "path": "css/shadow/vs-list-hover.css",
+      "sha256": "748d2ea8a14fddeabe3fc9163da4c603d6b3887aba5526275fc0e9d7eeca98b7",
+      "bytes": 2772,
+      "artifactType": "extracted-shadow-css",
+      "variant": "hover",
+      "variantSlug": "vs-list-hover",
+      "stateHints": [
+        "active",
+        "selected",
+        "hover",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-list-reveal.css",
+      "path": "css/shadow/vs-list-reveal.css",
+      "sha256": "74211e02334f6f2243c1231d54c891ed8b45ad7e1bff90b3e4814fc01b8969bd",
+      "bytes": 2726,
+      "artifactType": "extracted-shadow-css",
+      "variant": "reveal",
+      "variantSlug": "vs-list-reveal",
+      "stateHints": [
+        "active",
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-list-stripe.css",
+      "path": "css/shadow/vs-list-stripe.css",
+      "sha256": "97c0d289d1652468fabb0bcdecd93735a6b111daace0de2187d384dcf1b557b5",
+      "bytes": 2787,
+      "artifactType": "extracted-shadow-css",
+      "variant": "stripe",
+      "variantSlug": "vs-list-stripe",
+      "stateHints": [
+        "active",
+        "selected",
+        "focus",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-list.css",
+      "path": "css/shadow/vs-list.css",
+      "sha256": "af1b346ada94e2bb99eec1a20ea785dc57acbb8061545cb51496097170d8821c",
+      "bytes": 6370,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-list",
+      "stateHints": [
+        "open",
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsList.BgtSgC6f.css",
+      "path": "css/vue-scoped/VsList.BgtSgC6f.css",
+      "sha256": "80525da75bd571c4f4fd46caac373bfcc79aa127a2e9ec085f641568b2f8201d",
+      "bytes": 5919,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-list",
+      "stateHints": [
+        "open",
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-list-cards.js",
+      "path": "web-component/vs-list-cards.js",
+      "sha256": "79ad0c3a7db0f98cc86440b314c20a16e4486e31903f20ab493431990c43bcd5",
+      "bytes": 8969,
+      "artifactType": "web-component-source",
+      "variant": "cards",
+      "variantSlug": "vs-list-cards",
+      "stateHints": [
+        "active",
+        "selected",
+        "hover",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-list-glow.js",
+      "path": "web-component/vs-list-glow.js",
+      "sha256": "c7194fe0e3b99e3d2ff6a936e850fa0249e68dd25400bcae54463c87817685b3",
+      "bytes": 8762,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-list-glow",
+      "stateHints": [
+        "active",
+        "selected",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-list-hover.js",
+      "path": "web-component/vs-list-hover.js",
+      "sha256": "3e821245742adb65a46533032dd0551fdcc62bd275fb6fc3da837aa23170654c",
+      "bytes": 8240,
+      "artifactType": "web-component-source",
+      "variant": "hover",
+      "variantSlug": "vs-list-hover",
+      "stateHints": [
+        "active",
+        "selected",
+        "hover",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-list-reveal.js",
+      "path": "web-component/vs-list-reveal.js",
+      "sha256": "5291d1e7436b9f261bdb548735b4ff9962b02fd1b2a4ebaf2e3ced9a8c59d9c8",
+      "bytes": 7566,
+      "artifactType": "web-component-source",
+      "variant": "reveal",
+      "variantSlug": "vs-list-reveal",
+      "stateHints": [
+        "active",
+        "selected",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-list-stripe.js",
+      "path": "web-component/vs-list-stripe.js",
+      "sha256": "ed42e44d7088dad8d87433cbeb56f5bda0fcce34e4fa54d811e47d10b6bea478",
+      "bytes": 7802,
+      "artifactType": "web-component-source",
+      "variant": "stripe",
+      "variantSlug": "vs-list-stripe",
+      "stateHints": [
+        "active",
+        "selected",
+        "focus",
+        "keyboard",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-list.js",
+      "path": "web-component/vs-list.js",
+      "sha256": "2b114f495d54c96ffe727ba0e773d09858a9ffbb655b246a2aa6a78467474316",
+      "bytes": 24010,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-list",
+      "stateHints": [
+        "open",
+        "dragging",
+        "keyboard"
+      ]
+    }
+  ]
+}

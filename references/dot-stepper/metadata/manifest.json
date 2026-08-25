@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "DotStepper",
+  "componentKey": "dot-stepper",
+  "family": "VsDotStepper",
+  "variants": [
+    "vs-dot-stepper",
+    "vs-dot-stepper-bars",
+    "vs-dot-stepper-elastic",
+    "vs-dot-stepper-glow",
+    "vs-dot-stepper-ring",
+    "vs-dot-stepper-worm"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsDotStepper.BKOKsWk1.js",
+      "path": "compiled/vue/VsDotStepper.BKOKsWk1.js",
+      "sha256": "d45b8f662c34a1f8caeb6d6a99eecb13d98394a567bd287da9650e372877a95b",
+      "bytes": 6670,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-dot-stepper",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDotStepperBars.BHBl98pJ.js",
+      "path": "compiled/vue/VsDotStepperBars.BHBl98pJ.js",
+      "sha256": "d1bf2bdac4a9cea0d6eb63e3c0941e517619a260010d343523deff22c32a14e1",
+      "bytes": 3084,
+      "artifactType": "compiled-vue-island",
+      "variant": "bars",
+      "variantSlug": "vs-dot-stepper-bars",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDotStepperElastic.BKDO-Rer.js",
+      "path": "compiled/vue/VsDotStepperElastic.BKDO-Rer.js",
+      "sha256": "0dca65cd474cd29f2d8bf4c304044c6817b72e8f174ff5789f028b7ec1f9bf3f",
+      "bytes": 3129,
+      "artifactType": "compiled-vue-island",
+      "variant": "elastic",
+      "variantSlug": "vs-dot-stepper-elastic",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDotStepperGlow.CeGf9qH9.js",
+      "path": "compiled/vue/VsDotStepperGlow.CeGf9qH9.js",
+      "sha256": "f8902954fa6c43752aa80bd48ce32352a004a07b84529db5f76a18a7981d1c28",
+      "bytes": 3094,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-dot-stepper-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDotStepperRing.CKhaCMMK.js",
+      "path": "compiled/vue/VsDotStepperRing.CKhaCMMK.js",
+      "sha256": "9baa8d79b9ca52b59622f0a99b06c3d4020b0517c9e2ebeb20e2b77bd41f4e4a",
+      "bytes": 3158,
+      "artifactType": "compiled-vue-island",
+      "variant": "ring",
+      "variantSlug": "vs-dot-stepper-ring",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsDotStepperWorm.CwPaU5Uy.js",
+      "path": "compiled/vue/VsDotStepperWorm.CwPaU5Uy.js",
+      "sha256": "b682e1e7535cd74e64740a8da6701d8a032e77b66b67ac0bfc9cfb95016728e2",
+      "bytes": 3963,
+      "artifactType": "compiled-vue-island",
+      "variant": "worm",
+      "variantSlug": "vs-dot-stepper-worm",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dot-stepper-bars.css",
+      "path": "css/shadow/vs-dot-stepper-bars.css",
+      "sha256": "df677101c233f4c323a023a38eb0223c8ce76ee9cbb7ceae02b9798d45935a39",
+      "bytes": 4637,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bars",
+      "variantSlug": "vs-dot-stepper-bars",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dot-stepper-elastic.css",
+      "path": "css/shadow/vs-dot-stepper-elastic.css",
+      "sha256": "4c23ea0fb34f5aebe0d9ac716a1dd85aff0f89877f5505b0ad4a7ee0dabd2b80",
+      "bytes": 4007,
+      "artifactType": "extracted-shadow-css",
+      "variant": "elastic",
+      "variantSlug": "vs-dot-stepper-elastic",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dot-stepper-glow.css",
+      "path": "css/shadow/vs-dot-stepper-glow.css",
+      "sha256": "1f0ec7b4b811654ea055fea37b280ce47fa929c2a4bd9b16ed98f55ad2d759c8",
+      "bytes": 3983,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-dot-stepper-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dot-stepper-ring.css",
+      "path": "css/shadow/vs-dot-stepper-ring.css",
+      "sha256": "e8520bbdae23741114b7c79b385095f46c605cdb77c1e025dcdd411cb5a57ff4",
+      "bytes": 4292,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ring",
+      "variantSlug": "vs-dot-stepper-ring",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dot-stepper-worm.css",
+      "path": "css/shadow/vs-dot-stepper-worm.css",
+      "sha256": "b9676f39715664fe3ef2f3048840ef70e46234217361ed562c8114cf53481d27",
+      "bytes": 3648,
+      "artifactType": "extracted-shadow-css",
+      "variant": "worm",
+      "variantSlug": "vs-dot-stepper-worm",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-dot-stepper.css",
+      "path": "css/shadow/vs-dot-stepper.css",
+      "sha256": "de6fb2ec3981b6dd140a50e834da43959d9daea1620848b373c8f6f806afe4cd",
+      "bytes": 5357,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-dot-stepper",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dot-stepper-bars.js",
+      "path": "web-component/vs-dot-stepper-bars.js",
+      "sha256": "7bd8739d1703a88a9b140b25979cf5019487e6ee4a7eb48cd3bea26d82827749",
+      "bytes": 10310,
+      "artifactType": "web-component-source",
+      "variant": "bars",
+      "variantSlug": "vs-dot-stepper-bars",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dot-stepper-elastic.js",
+      "path": "web-component/vs-dot-stepper-elastic.js",
+      "sha256": "d5ef4881b946c63f736b05cb9dacc479fd5484a59ae91dbf568b814548bd6089",
+      "bytes": 10176,
+      "artifactType": "web-component-source",
+      "variant": "elastic",
+      "variantSlug": "vs-dot-stepper-elastic",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dot-stepper-glow.js",
+      "path": "web-component/vs-dot-stepper-glow.js",
+      "sha256": "fc763a947799598c96a16d032b55c12806720a223fac1b8b9df16c1a193bde15",
+      "bytes": 9585,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-dot-stepper-glow",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dot-stepper-ring.js",
+      "path": "web-component/vs-dot-stepper-ring.js",
+      "sha256": "74123b2d50cdaaf40bbbb08baa491358ff81d8b503b14068e219918fcea7bd6c",
+      "bytes": 9957,
+      "artifactType": "web-component-source",
+      "variant": "ring",
+      "variantSlug": "vs-dot-stepper-ring",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dot-stepper-worm.js",
+      "path": "web-component/vs-dot-stepper-worm.js",
+      "sha256": "ce92d8779992e3adf5930f22e73536fcf6b8bca2e539382c514ed2805856fcec",
+      "bytes": 10239,
+      "artifactType": "web-component-source",
+      "variant": "worm",
+      "variantSlug": "vs-dot-stepper-worm",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-dot-stepper.js",
+      "path": "web-component/vs-dot-stepper.js",
+      "sha256": "fbbab31c9d42b1a91fb5a95b33745a13ee5b008089c42ea9272fdd52184e2a52",
+      "bytes": 14493,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-dot-stepper",
+      "stateHints": [
+        "focus"
+      ]
+    }
+  ]
+}

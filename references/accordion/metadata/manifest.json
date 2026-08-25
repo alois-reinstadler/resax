@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Accordion",
+  "componentKey": "accordion",
+  "family": "VsAccordion",
+  "variants": [
+    "vs-accordion",
+    "vs-accordion-bounce",
+    "vs-accordion-filled",
+    "vs-accordion-ghost",
+    "vs-accordion-glow",
+    "vs-accordion-slide"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsAccordion.DT9xHfbb.js",
+      "path": "compiled/vue/VsAccordion.DT9xHfbb.js",
+      "sha256": "92ecd625f131f2334d613f6dc44e849a6464d28f7fad1404079497860d193a11",
+      "bytes": 5794,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-accordion",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAccordionBounce.D6TrYP8o.js",
+      "path": "compiled/vue/VsAccordionBounce.D6TrYP8o.js",
+      "sha256": "bf6e4f3a42b797e65a2ff4d1aa16e3520596d3ae5a732635c72ecb522b31628f",
+      "bytes": 3231,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-accordion-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAccordionFilled.DNYej6-Z.js",
+      "path": "compiled/vue/VsAccordionFilled.DNYej6-Z.js",
+      "sha256": "0069b77d6ca173f567201f33deaebc69d77f35dae324e2e6e1d74100747d9ce5",
+      "bytes": 3202,
+      "artifactType": "compiled-vue-island",
+      "variant": "filled",
+      "variantSlug": "vs-accordion-filled",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAccordionGhost.xnVpo6sU.js",
+      "path": "compiled/vue/VsAccordionGhost.xnVpo6sU.js",
+      "sha256": "4edda010bb1409005cd4d9d714fcedaa8821f48a8f2b256f6671d46068488df1",
+      "bytes": 3202,
+      "artifactType": "compiled-vue-island",
+      "variant": "ghost",
+      "variantSlug": "vs-accordion-ghost",
+      "stateHints": [
+        "hover",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAccordionGlow.Ch0NdDD2.js",
+      "path": "compiled/vue/VsAccordionGlow.Ch0NdDD2.js",
+      "sha256": "b77d218145942989029371673b59e1d930645c5a7dfe123dca2a66503e6beb76",
+      "bytes": 3200,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-accordion-glow",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAccordionSlide.Cczq49ar.js",
+      "path": "compiled/vue/VsAccordionSlide.Cczq49ar.js",
+      "sha256": "e14c27234d66b64141a6b7921a717a29ecd9c54e482bfa25cef5fd9320a55119",
+      "bytes": 3049,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-accordion-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-accordion-bounce.css",
+      "path": "css/shadow/vs-accordion-bounce.css",
+      "sha256": "be5997dd28dbd35d43ee8f2fe037a994f5cf7ddd3f7c324b694795f4cf950342",
+      "bytes": 5133,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-accordion-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-accordion-filled.css",
+      "path": "css/shadow/vs-accordion-filled.css",
+      "sha256": "ae407cdd2f696be6bde3ef88f8e989a2642a852a3fc0be5c3a1cf39c2b763a16",
+      "bytes": 5223,
+      "artifactType": "extracted-shadow-css",
+      "variant": "filled",
+      "variantSlug": "vs-accordion-filled",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-accordion-ghost.css",
+      "path": "css/shadow/vs-accordion-ghost.css",
+      "sha256": "c42820c41fee07ec7d44b9c0d7fb22c772023030a5b68f126d50d511ed8269c3",
+      "bytes": 5337,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ghost",
+      "variantSlug": "vs-accordion-ghost",
+      "stateHints": [
+        "hover",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-accordion-glow.css",
+      "path": "css/shadow/vs-accordion-glow.css",
+      "sha256": "e52197ef4044bd9cd3f46d73f83bdc2eed6c8cd10631c209e38b325908236fa7",
+      "bytes": 5686,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-accordion-glow",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-accordion-slide.css",
+      "path": "css/shadow/vs-accordion-slide.css",
+      "sha256": "a115cf9fa5afcc0bf64243fc808141aa5d57b99061295760d58e703246350c6c",
+      "bytes": 5679,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-accordion-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-accordion.css",
+      "path": "css/shadow/vs-accordion.css",
+      "sha256": "5ace3cec350e0c275c77b5d6ce1bb965546430f239479c46101e8b642d9e2c94",
+      "bytes": 6211,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-accordion",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAccordion.Dqsi4Qwp.css",
+      "path": "css/vue-scoped/VsAccordion.Dqsi4Qwp.css",
+      "sha256": "4b1f663e2c72130f2b6ac66d1f503a64a936437816ce710e1e4a03e86befa1bd",
+      "bytes": 5410,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-accordion",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAccordionBounce.Di_BEwEO.css",
+      "path": "css/vue-scoped/VsAccordionBounce.Di_BEwEO.css",
+      "sha256": "652c34e7540d6f182ff8f6be963245c0c6a5f75eb442965996782ad5993d3c4f",
+      "bytes": 4715,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "bounce",
+      "variantSlug": "vs-accordion-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAccordionFilled.Co8yUi-U.css",
+      "path": "css/vue-scoped/VsAccordionFilled.Co8yUi-U.css",
+      "sha256": "bcdfb45497a1fc06aedf459c15a39f0e75251eebb42e123b0563b3648c2114e6",
+      "bytes": 4894,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "filled",
+      "variantSlug": "vs-accordion-filled",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAccordionGhost.DnjzsB4j.css",
+      "path": "css/vue-scoped/VsAccordionGhost.DnjzsB4j.css",
+      "sha256": "b24bd2195df94baa820eeef7e8c669848ba7e9a794cb0c3b3f3028c0d0ea7657",
+      "bytes": 4800,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "ghost",
+      "variantSlug": "vs-accordion-ghost",
+      "stateHints": [
+        "hover",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAccordionGlow.U8B4VQGI.css",
+      "path": "css/vue-scoped/VsAccordionGlow.U8B4VQGI.css",
+      "sha256": "38a6d07ed5acb1f7ed0ba6b683387943e381a284da75111b716a6a561ceedf08",
+      "bytes": 5299,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "glow",
+      "variantSlug": "vs-accordion-glow",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAccordionSlide.CclinDY_.css",
+      "path": "css/vue-scoped/VsAccordionSlide.CclinDY_.css",
+      "sha256": "56da5839b3dbe07c7d9d92ebcd64d4c8109974bb3bb79ee7363e065ea8ee3967",
+      "bytes": 5226,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "slide",
+      "variantSlug": "vs-accordion-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-accordion-bounce.js",
+      "path": "web-component/vs-accordion-bounce.js",
+      "sha256": "7451d702f227c6559faa80774e6708196199230e5d41c3949a402bb42967e60b",
+      "bytes": 11387,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-accordion-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-accordion-filled.js",
+      "path": "web-component/vs-accordion-filled.js",
+      "sha256": "016bc7448a466ad16356f6b0bd4606cee3885c212018d7e43a696170e25295ef",
+      "bytes": 11764,
+      "artifactType": "web-component-source",
+      "variant": "filled",
+      "variantSlug": "vs-accordion-filled",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-accordion-ghost.js",
+      "path": "web-component/vs-accordion-ghost.js",
+      "sha256": "9e05d786b097521621485dfb468e75cb672665f2112c39457476e68e095b970b",
+      "bytes": 11864,
+      "artifactType": "web-component-source",
+      "variant": "ghost",
+      "variantSlug": "vs-accordion-ghost",
+      "stateHints": [
+        "hover",
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-accordion-glow.js",
+      "path": "web-component/vs-accordion-glow.js",
+      "sha256": "1f820ca2ca94c0b434d5843021bd6eed4cff8fc32a0ce8a74e4b2508d9222a07",
+      "bytes": 11994,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-accordion-glow",
+      "stateHints": [
+        "open"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-accordion-slide.js",
+      "path": "web-component/vs-accordion-slide.js",
+      "sha256": "5a07428d5895dd2add7db76d48ff4f1152efde8ff21510077403638fbc415b5b",
+      "bytes": 12191,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-accordion-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-accordion.js",
+      "path": "web-component/vs-accordion.js",
+      "sha256": "b330764ba48e9b5e8e4ba41e19fa2dd13e2198d453f88d1222b9bba841ee2191",
+      "bytes": 14032,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-accordion",
+      "stateHints": []
+    }
+  ]
+}

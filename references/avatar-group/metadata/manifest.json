@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "AvatarGroup",
+  "componentKey": "avatar-group",
+  "family": "VsAvatarGroup",
+  "variants": [
+    "vs-avatar-group",
+    "vs-avatar-group-fan",
+    "vs-avatar-group-flip",
+    "vs-avatar-group-grid",
+    "vs-avatar-group-ring",
+    "vs-avatar-group-wave"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarGroup.DanEZcPc.js",
+      "path": "compiled/vue/VsAvatarGroup.DanEZcPc.js",
+      "sha256": "8e6ac50b03ac31cbea88c009989ac4ce77070af9942c26f0be4c34701310c979",
+      "bytes": 3730,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-avatar-group",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarGroupFan.D66Puu4I.js",
+      "path": "compiled/vue/VsAvatarGroupFan.D66Puu4I.js",
+      "sha256": "b2b74ce35b73cf5e1335df0f0b4ddfbeeabe632beeb232d385d2fa3600a3b75b",
+      "bytes": 2359,
+      "artifactType": "compiled-vue-island",
+      "variant": "fan",
+      "variantSlug": "vs-avatar-group-fan",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarGroupFlip.DE_l2abq.js",
+      "path": "compiled/vue/VsAvatarGroupFlip.DE_l2abq.js",
+      "sha256": "18ea3f56941105dc604e081c4c3c6780cab30be86a26ac34f38ff2c09f45acdc",
+      "bytes": 2617,
+      "artifactType": "compiled-vue-island",
+      "variant": "flip",
+      "variantSlug": "vs-avatar-group-flip",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarGroupGrid.CuQYEWeO.js",
+      "path": "compiled/vue/VsAvatarGroupGrid.CuQYEWeO.js",
+      "sha256": "42943d3e0488a9754313a8fb15716f407d280d9682b06267823dbae654c01193",
+      "bytes": 2299,
+      "artifactType": "compiled-vue-island",
+      "variant": "grid",
+      "variantSlug": "vs-avatar-group-grid",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarGroupRing.BQua-h0u.js",
+      "path": "compiled/vue/VsAvatarGroupRing.BQua-h0u.js",
+      "sha256": "c4d16310036309cf70963dc0f28c46c1198a0983d9c59fa5892d91ab50792f4e",
+      "bytes": 2383,
+      "artifactType": "compiled-vue-island",
+      "variant": "ring",
+      "variantSlug": "vs-avatar-group-ring",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsAvatarGroupWave.C8C94gj5.js",
+      "path": "compiled/vue/VsAvatarGroupWave.C8C94gj5.js",
+      "sha256": "827126ddf124bf35eabffbf3155d14d92b5401aa5d404e1920ac986ad1738873",
+      "bytes": 2269,
+      "artifactType": "compiled-vue-island",
+      "variant": "wave",
+      "variantSlug": "vs-avatar-group-wave",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-group-fan.css",
+      "path": "css/shadow/vs-avatar-group-fan.css",
+      "sha256": "999167d2b9f9bc9aed85db2fda56e7d5adebeddf4cc1326821893d27fc3e75fe",
+      "bytes": 2144,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fan",
+      "variantSlug": "vs-avatar-group-fan",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-group-flip.css",
+      "path": "css/shadow/vs-avatar-group-flip.css",
+      "sha256": "687b4cfc036992fc80e8dc7c17bb41a372318b7fe9149bd43a3738f786acd7a0",
+      "bytes": 2499,
+      "artifactType": "extracted-shadow-css",
+      "variant": "flip",
+      "variantSlug": "vs-avatar-group-flip",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-group-grid.css",
+      "path": "css/shadow/vs-avatar-group-grid.css",
+      "sha256": "881253459754d4e00c39651b5900000c8903af9a14ee78d5d8e4a1a60c928b4d",
+      "bytes": 4540,
+      "artifactType": "extracted-shadow-css",
+      "variant": "grid",
+      "variantSlug": "vs-avatar-group-grid",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-group-ring.css",
+      "path": "css/shadow/vs-avatar-group-ring.css",
+      "sha256": "819a88689a4a040b5843af8f0916f2ea6a2df3e600652a99dda2b02ac2ae63af",
+      "bytes": 3078,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ring",
+      "variantSlug": "vs-avatar-group-ring",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-group-wave.css",
+      "path": "css/shadow/vs-avatar-group-wave.css",
+      "sha256": "ec7f0bdaaa143c4beb036785ba2b052d191c3cc6505729c20b12d959b7705429",
+      "bytes": 2441,
+      "artifactType": "extracted-shadow-css",
+      "variant": "wave",
+      "variantSlug": "vs-avatar-group-wave",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-avatar-group.css",
+      "path": "css/shadow/vs-avatar-group.css",
+      "sha256": "f437e224cf640539c6013ceb770405c96b53544f7daabe51c8fc093536e87f68",
+      "bytes": 3789,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-avatar-group",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-group-fan.js",
+      "path": "web-component/vs-avatar-group-fan.js",
+      "sha256": "d9fe94e5be25ae70bf351fa988160e5df1d8e6ec16a7ca1db06cf99a1175a565",
+      "bytes": 6272,
+      "artifactType": "web-component-source",
+      "variant": "fan",
+      "variantSlug": "vs-avatar-group-fan",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-group-flip.js",
+      "path": "web-component/vs-avatar-group-flip.js",
+      "sha256": "3e1382970850a979c8fe407417042277189925e8a4239b8c1183eb6d05603d8c",
+      "bytes": 7975,
+      "artifactType": "web-component-source",
+      "variant": "flip",
+      "variantSlug": "vs-avatar-group-flip",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-group-grid.js",
+      "path": "web-component/vs-avatar-group-grid.js",
+      "sha256": "6f7513eab3fbfe7e10a964e25dada8a8c9ec2f712885d765d3c4b6ce93dffd32",
+      "bytes": 9230,
+      "artifactType": "web-component-source",
+      "variant": "grid",
+      "variantSlug": "vs-avatar-group-grid",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-group-ring.js",
+      "path": "web-component/vs-avatar-group-ring.js",
+      "sha256": "7f0764079b2727f1d568e9ba5190634afbb8f2c5919d46517f3bc8fbcd250905",
+      "bytes": 7472,
+      "artifactType": "web-component-source",
+      "variant": "ring",
+      "variantSlug": "vs-avatar-group-ring",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-group-wave.js",
+      "path": "web-component/vs-avatar-group-wave.js",
+      "sha256": "18726d984f0598abccc58dd0ec5b5d487ea210ac8895999d90c1b1c2520803da",
+      "bytes": 7554,
+      "artifactType": "web-component-source",
+      "variant": "wave",
+      "variantSlug": "vs-avatar-group-wave",
+      "stateHints": [
+        "hover"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-avatar-group.js",
+      "path": "web-component/vs-avatar-group.js",
+      "sha256": "152fb88750dda3f386226285902979f27658007742ff0d4deb3aac344371356a",
+      "bytes": 14856,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-avatar-group",
+      "stateHints": [
+        "hover"
+      ]
+    }
+  ]
+}

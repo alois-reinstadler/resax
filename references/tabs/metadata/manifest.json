@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Tabs",
+  "componentKey": "tabs",
+  "family": "VsTabs",
+  "variants": [
+    "vs-tabs",
+    "vs-tabs-bubble",
+    "vs-tabs-card",
+    "vs-tabs-chrome",
+    "vs-tabs-gooey",
+    "vs-tabs-neon",
+    "vs-tabs-vertical"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsTabs.CQRyQfOH.js",
+      "path": "compiled/vue/VsTabs.CQRyQfOH.js",
+      "sha256": "4ee6f27581a941a75d489cf62033bfab2e4444fe6ee42ea7e0372a4132e8a2ac",
+      "bytes": 6623,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-tabs",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTabsBubble.DYne5eGq.js",
+      "path": "compiled/vue/VsTabsBubble.DYne5eGq.js",
+      "sha256": "1342421f26c460595c32cf371bf969da014b1016fa1919f05575cdb2b514e494",
+      "bytes": 3242,
+      "artifactType": "compiled-vue-island",
+      "variant": "bubble",
+      "variantSlug": "vs-tabs-bubble",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTabsCard.DTQYGr0p.js",
+      "path": "compiled/vue/VsTabsCard.DTQYGr0p.js",
+      "sha256": "321e6d88fe80fc1161656712acb4226923684c9f10c90cf5b9b943823ced8ea1",
+      "bytes": 2317,
+      "artifactType": "compiled-vue-island",
+      "variant": "card",
+      "variantSlug": "vs-tabs-card",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTabsGooey.BIZrMg6D.js",
+      "path": "compiled/vue/VsTabsGooey.BIZrMg6D.js",
+      "sha256": "2f99ce8f3aee9baf71cf62accffd3e830e521e7de742b0ab70c5e54665334179",
+      "bytes": 4213,
+      "artifactType": "compiled-vue-island",
+      "variant": "gooey",
+      "variantSlug": "vs-tabs-gooey",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTabsNeon.BNMhcDi0.js",
+      "path": "compiled/vue/VsTabsNeon.BNMhcDi0.js",
+      "sha256": "d9608fe3162b68b015e6b0d895657fa6ddbc6be98fd9c088822bfd735bc8be9c",
+      "bytes": 3073,
+      "artifactType": "compiled-vue-island",
+      "variant": "neon",
+      "variantSlug": "vs-tabs-neon",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTabsVertical.Uytr8y-q.js",
+      "path": "compiled/vue/VsTabsVertical.Uytr8y-q.js",
+      "sha256": "a234254b134a60b9503a9f8508399a538921f14a7bc3b602859a5c2321652a21",
+      "bytes": 3328,
+      "artifactType": "compiled-vue-island",
+      "variant": "vertical",
+      "variantSlug": "vs-tabs-vertical",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tabs-bubble.css",
+      "path": "css/shadow/vs-tabs-bubble.css",
+      "sha256": "ec1dcbe02df0a45cc51901b9ef72eb04b9b255433153bb42f30911c8e0ca2d3d",
+      "bytes": 3442,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bubble",
+      "variantSlug": "vs-tabs-bubble",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tabs-card.css",
+      "path": "css/shadow/vs-tabs-card.css",
+      "sha256": "62f12c8e01ac5508c9cd43b630a54a2a60384f054e37f39ca4eed6c60052f702",
+      "bytes": 3534,
+      "artifactType": "extracted-shadow-css",
+      "variant": "card",
+      "variantSlug": "vs-tabs-card",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tabs-chrome.css",
+      "path": "css/shadow/vs-tabs-chrome.css",
+      "sha256": "e1c6c8f0879be0711c8f19037ec24e095107f39f772e721ddab0db56cd1373db",
+      "bytes": 6585,
+      "artifactType": "extracted-shadow-css",
+      "variant": "chrome",
+      "variantSlug": "vs-tabs-chrome",
+      "stateHints": [
+        "active",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tabs-gooey.css",
+      "path": "css/shadow/vs-tabs-gooey.css",
+      "sha256": "956429c5dbf389fbadfbbb349586f45e01d03070fe6fbbe320707bf03e80f566",
+      "bytes": 4038,
+      "artifactType": "extracted-shadow-css",
+      "variant": "gooey",
+      "variantSlug": "vs-tabs-gooey",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tabs-neon.css",
+      "path": "css/shadow/vs-tabs-neon.css",
+      "sha256": "9d90c569a79fa158078d4f9a8fe3d02a814137f4a3aa34f8ce2da79ef0d613ec",
+      "bytes": 3507,
+      "artifactType": "extracted-shadow-css",
+      "variant": "neon",
+      "variantSlug": "vs-tabs-neon",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tabs-vertical.css",
+      "path": "css/shadow/vs-tabs-vertical.css",
+      "sha256": "3afaa8a70b0174312f6b52e58a49c0235424d8fe0c0571d23647fdd492e03636",
+      "bytes": 3271,
+      "artifactType": "extracted-shadow-css",
+      "variant": "vertical",
+      "variantSlug": "vs-tabs-vertical",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-tabs.css",
+      "path": "css/shadow/vs-tabs.css",
+      "sha256": "d969d5ec7053e2e39ef3dc77ad33f69e7eb0ca96cfc9690d659281dca1545373",
+      "bytes": 13054,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-tabs",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTabs.Ci5UX5JL.css",
+      "path": "css/vue-scoped/VsTabs.Ci5UX5JL.css",
+      "sha256": "c5625ef69aaedcf807c8e5305e3a27cad20109d1038eedcde34b7c0ae7d3d234",
+      "bytes": 9051,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-tabs",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tabs-bubble.js",
+      "path": "web-component/vs-tabs-bubble.js",
+      "sha256": "e922c0306fbee339d1f1a228be24d7f3e24578dd98138b2cb38598b74b6327e1",
+      "bytes": 9383,
+      "artifactType": "web-component-source",
+      "variant": "bubble",
+      "variantSlug": "vs-tabs-bubble",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tabs-card.js",
+      "path": "web-component/vs-tabs-card.js",
+      "sha256": "8e5fa4806cd20478fdc68ebb686db94a7f68ee0cece863236aca6755b986021b",
+      "bytes": 8213,
+      "artifactType": "web-component-source",
+      "variant": "card",
+      "variantSlug": "vs-tabs-card",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tabs-chrome.js",
+      "path": "web-component/vs-tabs-chrome.js",
+      "sha256": "574e6a113bec7d293508d5b1abdf20addefe88f99a79f61e396327c63e6ecc8a",
+      "bytes": 14967,
+      "artifactType": "web-component-source",
+      "variant": "chrome",
+      "variantSlug": "vs-tabs-chrome",
+      "stateHints": [
+        "active",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tabs-gooey.js",
+      "path": "web-component/vs-tabs-gooey.js",
+      "sha256": "045ab07f095d1225d8c55806d0ce5f956512bc55cd2f474d0d3ba90acecf8d08",
+      "bytes": 10968,
+      "artifactType": "web-component-source",
+      "variant": "gooey",
+      "variantSlug": "vs-tabs-gooey",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tabs-neon.js",
+      "path": "web-component/vs-tabs-neon.js",
+      "sha256": "38dd9fac7df682e7a13740b7c48b651bd3fc5126d5fa391e2246a9a8baf7269f",
+      "bytes": 8995,
+      "artifactType": "web-component-source",
+      "variant": "neon",
+      "variantSlug": "vs-tabs-neon",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tabs-vertical.js",
+      "path": "web-component/vs-tabs-vertical.js",
+      "sha256": "53e3ffd66baec840c3ad5df453a385dd66049b4648cb9396d0ba9f6a3e9615e2",
+      "bytes": 9165,
+      "artifactType": "web-component-source",
+      "variant": "vertical",
+      "variantSlug": "vs-tabs-vertical",
+      "stateHints": [
+        "active"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-tabs.js",
+      "path": "web-component/vs-tabs.js",
+      "sha256": "77f41a8e6916747198930edcc2a4c795c021db52799edbe3dd1d2b1743e8c0ae",
+      "bytes": 22442,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-tabs",
+      "stateHints": []
+    }
+  ]
+}

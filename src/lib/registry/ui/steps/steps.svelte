@@ -12,7 +12,7 @@
  function keydown(e:KeyboardEvent){ if(!clickable) return; const delta=(orientation==='horizontal'?(e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0):(e.key==='ArrowDown'?1:e.key==='ArrowUp'?-1:0)); if(delta){e.preventDefault(); let n=current+delta; while(records[n]?.disabled)n+=delta; if(n>=0&&n<records.length)choose(n);} }
 </script>
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-<ol class="rx-steps rx-steps--{orientation} rx-steps--{variant}" style={styleColor(color) ?? '--rx-color: var(--rx-primary)'} onkeydown={keydown}>{@render children()}</ol>
+<ol class="rx-steps rx-steps--{orientation} rx-steps--{variant}" data-current={current} style={styleColor(color) ?? '--rx-color: var(--rx-primary)'} onkeydown={keydown}>{@render children()}</ol>
 <style>
- .rx-steps{display:flex;list-style:none;margin:0;padding:0;counter-reset:step;gap:.35rem;color:rgb(var(--rx-text))}.rx-steps--vertical{flex-direction:column}.rx-steps--horizontal{align-items:flex-start}.rx-steps--bar{gap:.2rem}.rx-steps--pills{gap:.6rem}.rx-steps--timeline{gap:0}@media(prefers-reduced-motion:reduce){.rx-steps :global(*){transition-duration:0ms!important}}
+ .rx-steps{display:flex;list-style:none;margin:0;padding:0;counter-reset:step;gap:0;color:rgb(var(--rx-text))}.rx-steps--vertical{flex-direction:column}.rx-steps--horizontal{align-items:flex-start}.rx-steps--bar{gap:3px}.rx-steps--pills{gap:8px}.rx-steps--timeline{gap:0}@media(prefers-reduced-motion:reduce){.rx-steps :global(*){animation:none!important;transition-duration:0ms!important}}
 </style>

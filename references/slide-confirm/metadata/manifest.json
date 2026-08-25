@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "SlideConfirm",
+  "componentKey": "slide-confirm",
+  "family": "VsSlideConfirm",
+  "variants": [
+    "vs-slide-confirm"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-slide-confirm.css",
+      "path": "css/shadow/vs-slide-confirm.css",
+      "sha256": "1589ae3ed547f80332c88543c83529eb597ec4a8e59d9f340807ddfe135592d2",
+      "bytes": 4547,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-slide-confirm",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-slide-confirm.js",
+      "path": "web-component/vs-slide-confirm.js",
+      "sha256": "4927207706ec693a004cd0f56fbba61df22d1188f72d7bb0d8cd0c737bf39027",
+      "bytes": 12091,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-slide-confirm",
+      "stateHints": [
+        "dragging",
+        "keyboard"
+      ]
+    }
+  ]
+}

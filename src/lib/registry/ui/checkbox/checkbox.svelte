@@ -2,61 +2,90 @@
 	import type { Snippet } from 'svelte';
 	import type { Checkbox as CheckboxTypes } from 'bits-ui';
 	import type { RxColor } from '$lib/registry/lib/color';
-
+	export type CheckboxVariant = 'base' | 'bounce' | 'card' | 'fill' | 'flip' | 'neon';
+	export type CheckboxRadius = 'none' | 'subtle' | 'rounded' | 'pill' | 'squircle';
 	export interface CheckboxProps extends Omit<CheckboxTypes.RootProps, 'checked' | 'indeterminate' | 'disabled' | 'children' | 'child' | 'color' | 'onCheckedChange'> {
-		checked?: boolean;
-		indeterminate?: boolean;
-		color?: RxColor;
-		size?: 'lg' | 'default' | 'sm';
-		lineThrough?: boolean;
-		disabled?: boolean;
-		children?: Snippet;
+		checked?: boolean; indeterminate?: boolean; color?: RxColor; size?: 'lg' | 'default' | 'sm';
+		variant?: CheckboxVariant; radius?: CheckboxRadius; labelPosition?: 'left' | 'right'; glow?: boolean;
+		lineThrough?: boolean; disabled?: boolean; children?: Snippet; description?: Snippet;
 		onCheckedChange?: (checked: boolean) => void;
 	}
+	type Ripple = { id: number; x: number; y: number; size: number; inner: boolean };
+	type Drop = { id: number; x: number; y: number };
 </script>
 
 <script lang="ts">
 	import { Checkbox as CheckboxPrimitive, Label, useId } from 'bits-ui';
+	import { proximityGlow } from '$lib/registry/attachments/proximity-glow';
 	import { styleColor } from '$lib/registry/lib/color';
-	import { RX_DURATION, RX_EASE } from '$lib/registry/lib/easing';
 	import { checkboxVariants } from './index';
-
-	let { checked = $bindable(false), indeterminate = $bindable(false), color, size = 'default', lineThrough = false,
-		disabled = false, children, onCheckedChange, id = useId(), class: className, style, ...restProps }: CheckboxProps = $props();
-	const classes = $derived(checkboxVariants({ size, class: typeof className === 'string' ? className : undefined }));
-	const inlineStyle = $derived(`${styleColor(color) ?? '--rx-color: var(--rx-primary)'}; --rx-duration: ${RX_DURATION.base}ms; --rx-ease: ${RX_EASE}; ${style ?? ''}`);
+	let { checked = $bindable(false), indeterminate = $bindable(false), color, size = 'default', variant = 'base', radius = 'subtle',
+		labelPosition = 'right', glow = false, lineThrough = false, disabled = false, children, description, onCheckedChange,
+		id = useId(), class: className, style, ...restProps }: CheckboxProps = $props();
+	let pressed = $state(false), pop = $state(false), sequence = 0;
+	let ripples = $state<Ripple[]>([]), drops = $state<Drop[]>([]);
+	let timers: ReturnType<typeof setTimeout>[] = [];
+	const classes = $derived(checkboxVariants({ size, variant, radius, class: typeof className === 'string' ? className : undefined }));
+	const inlineStyle = $derived(`${styleColor(color) ?? '--rx-color: var(--rx-primary)'}; ${style ?? ''}`);
+	const active = $derived(checked || indeterminate);
+	const attachProximity = proximityGlow({ radius: 90, disabled: () => disabled || !glow || variant !== 'base' });
+	const reduced = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+	function changed(next: boolean) { if (!reduced()) { pop = false; requestAnimationFrame(() => requestAnimationFrame(() => pop = true)); } onCheckedChange?.(next); }
+	function down(event: PointerEvent) {
+		if (disabled) return; pressed = true; if (variant !== 'base' || reduced()) return;
+		const node = event.currentTarget as HTMLElement, rect = node.getBoundingClientRect(), x = event.clientX - rect.left, y = event.clientY - rect.top;
+		const diameter = Math.hypot(Math.max(x, rect.width - x), Math.max(y, rect.height - y)) * 2, ids = [++sequence, ++sequence];
+		ripples.push({ id: ids[0], x, y, size: diameter * .8, inner: true }, { id: ids[1], x, y, size: diameter * 1.9, inner: false });
+		timers.push(setTimeout(() => ripples = ripples.filter((ripple) => !ids.includes(ripple.id)), 800));
+	}
+	function release() { pressed = false; }
+	function leave() { release(); }
+	function labelDown(event: PointerEvent) {
+		if (disabled || variant !== 'base' || reduced()) return;
+		const node = event.currentTarget as HTMLElement, rect = node.getBoundingClientRect(), x = event.clientX - rect.left, y = event.clientY - rect.top, id = ++sequence;
+		drops.push({ id, x, y }); timers.push(setTimeout(() => drops = drops.filter((drop) => drop.id !== id), 1900));
+		const clamp = (v: number) => Math.max(-1, Math.min(1, v)), nx = clamp((x / rect.width - .5) * 2), ny = clamp((y / rect.height - .5) * 2), strength = 1 - .2 * Math.min(Math.abs(nx), Math.abs(ny));
+		node.classList.add('rx-checkbox__label--pressing'); node.style.transform = `perspective(420px) rotateX(${(-ny * 12 * strength).toFixed(2)}deg) rotateY(${(nx * 9 * strength).toFixed(2)}deg) scale(.93)`;
+	}
+	function labelUp(event: PointerEvent) { const node = event.currentTarget as HTMLElement; node.classList.remove('rx-checkbox__label--pressing'); node.style.transform = ''; }
+	$effect(() => () => { for (const timer of timers) clearTimeout(timer); });
 </script>
 
-<span class="rx-checkbox-field" class:rx-checkbox-field--struck={lineThrough && checked} class:rx-checkbox-field--disabled={disabled}>
-	<CheckboxPrimitive.Root {...restProps} {id} bind:checked bind:indeterminate {disabled} {onCheckedChange} class={classes} style={inlineStyle}>
-		{#snippet children({ checked: isChecked, indeterminate: isIndeterminate })}
-			<svg class="rx-checkbox__mark" viewBox="0 0 20 20" aria-hidden="true">
-				{#if isIndeterminate}<path class="rx-checkbox__dash" d="M5 10h10" />
-				{:else}<path class:rx-checkbox__path--drawn={isChecked} class="rx-checkbox__path" d="m4.5 10 3.5 3.5 7.5-8" />{/if}
-			</svg>
-		{/snippet}
+<span class="rx-checkbox-field rx-checkbox-field--{variant} rx-checkbox-field--label-{labelPosition}" class:rx-checkbox-field--active={active} class:rx-checkbox-field--pressed={pressed} class:rx-checkbox-field--pop={pop} class:rx-checkbox-field--struck={lineThrough && checked} class:rx-checkbox-field--disabled={disabled} style={inlineStyle}>
+	<CheckboxPrimitive.Root {...restProps} {id} bind:checked bind:indeterminate {disabled} onCheckedChange={changed} class={classes} style={inlineStyle}
+		onpointerdown={down} onpointerup={release} onpointerleave={leave} onpointercancel={release}
+		{@attach attachProximity}
+		onanimationend={(event) => { if (event.animationName === 'rx-checkbox-pop') pop = false; }}>
+		<span class="rx-checkbox__glow" aria-hidden="true"></span>
+		<span class="rx-checkbox__ripples" aria-hidden="true">{#each ripples as ripple (ripple.id)}<span class="rx-checkbox__ripple" class:rx-checkbox__ripple--inner={ripple.inner} style={`left:${ripple.x}px;top:${ripple.y}px;width:${ripple.size}px;height:${ripple.size}px`}></span>{/each}</span>
+		<span class="rx-checkbox__fill" aria-hidden="true"></span><span class="rx-checkbox__neon" aria-hidden="true"></span>
+		{#if variant === 'flip'}
+			<span class="rx-checkbox__flipper" aria-hidden="true"><span class="rx-checkbox__face rx-checkbox__face--front"></span><span class="rx-checkbox__face rx-checkbox__face--back"><svg class="rx-checkbox__mark" viewBox="0 0 24 24"><path class="rx-checkbox__check" d="M5 12.5l4.2 4.2L19 7" /></svg></span></span>
+		{:else}
+			<svg class="rx-checkbox__mark" viewBox="0 0 24 24" aria-hidden="true"><path class="rx-checkbox__check" d="M5 12.5l4.2 4.2L19 7" /><path class="rx-checkbox__dash" d="M6 12h12" /></svg>
+		{/if}
+		<span class="rx-checkbox__ping" aria-hidden="true"></span>
 	</CheckboxPrimitive.Root>
-	{#if children}<Label.Root for={id} class="rx-checkbox__label">{@render children()}</Label.Root>{/if}
+	{#if children || description}<span class="rx-checkbox__body">
+		{#if children}<Label.Root for={id} class="rx-checkbox__label" onpointerdown={labelDown} onpointerup={labelUp} onpointerleave={labelUp} onpointercancel={labelUp}><span class="rx-checkbox__label-copy">{@render children()}</span>{#each drops as drop (drop.id)}<span class="rx-checkbox__drop" style={`--rx-drop-x:${drop.x}px;--rx-drop-y:${drop.y}px`} aria-hidden="true">{@render children()}</span>{/each}</Label.Root>{/if}
+		{#if description}<span class="rx-checkbox__description">{@render description()}</span>{/if}
+	</span>{/if}
 </span>
 
 <style>
 	:global {
-	.rx-checkbox-field { display: inline-flex; align-items: center; gap: .55rem; color: rgb(var(--rx-dark)); }
-	.rx-checkbox-field--disabled { opacity: .55; }
-	.rx-checkbox { display: inline-flex; flex: none; align-items: center; justify-content: center; box-sizing: border-box; padding: 0; border: 2px solid rgb(var(--rx-color) / .45); border-radius: .38em; color: rgb(var(--rx-light)); background: transparent; cursor: pointer; transition: background var(--rx-duration) var(--rx-ease), border-color var(--rx-duration) var(--rx-ease), transform var(--rx-duration) var(--rx-ease); }
-	.rx-checkbox[data-state='checked'], .rx-checkbox[data-state='indeterminate'] { border-color: rgb(var(--rx-color)); background: rgb(var(--rx-color)); }
-	.rx-checkbox:focus-visible { outline: 3px solid rgb(var(--rx-color) / .25); outline-offset: 2px; }
-	.rx-checkbox:active:not(:disabled) { transform: scale(.94); }
-	.rx-checkbox:disabled { cursor: not-allowed; }
-	.rx-checkbox--lg { width: 1.55rem; height: 1.55rem; }
-	.rx-checkbox--default { width: 1.3rem; height: 1.3rem; }
-	.rx-checkbox--sm { width: 1.05rem; height: 1.05rem; }
-	.rx-checkbox__mark { width: 82%; height: 82%; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-	.rx-checkbox__path { stroke-dasharray: 18; stroke-dashoffset: 18; transition: stroke-dashoffset var(--rx-duration) var(--rx-ease); }
-	.rx-checkbox__path--drawn { stroke-dashoffset: 0; }
-	.rx-checkbox__label { cursor: pointer; user-select: none; transition: text-decoration-color var(--rx-duration) var(--rx-ease), opacity var(--rx-duration) var(--rx-ease); }
-	.rx-checkbox-field--struck .rx-checkbox__label { text-decoration: line-through 2px rgb(var(--rx-color)); }
-	.rx-checkbox-field--disabled .rx-checkbox__label { cursor: not-allowed; }
-	@media (prefers-reduced-motion: reduce) { .rx-checkbox, .rx-checkbox__path, .rx-checkbox__label { transition-duration: 0ms; } }
+	.rx-checkbox-field{--rx-box:20px;--rx-fs:14px;--rx-ck-radius:6px;display:inline-flex;align-items:center;gap:9px;color:rgb(var(--rx-text));font-size:var(--rx-fs);cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}.rx-checkbox-field--label-left{flex-direction:row-reverse}.rx-checkbox-field:has(.rx-checkbox--sm){--rx-box:16px;--rx-fs:13px}.rx-checkbox-field:has(.rx-checkbox--lg){--rx-box:24px;--rx-fs:15px}.rx-checkbox-field--disabled{opacity:.45;cursor:not-allowed}
+	.rx-checkbox{position:relative;isolation:isolate;flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--rx-box);height:var(--rx-box);padding:0;border:1.5px solid rgb(var(--rx-border-strong));border-radius:var(--rx-ck-radius);color:rgb(var(--rx-bg));background:rgb(var(--rx-surface));cursor:inherit;outline:none;overflow:visible;transition:border-color 200ms cubic-bezier(.22,1,.36,1),background-color 200ms cubic-bezier(.22,1,.36,1),transform 340ms cubic-bezier(.34,1.7,.5,1)}.rx-checkbox:hover:not(:disabled){border-color:rgb(var(--rx-border-hover))}.rx-checkbox:focus-visible{border-color:rgb(var(--rx-color));box-shadow:0 0 0 3px rgb(var(--rx-color)/.3)}.rx-checkbox:disabled{cursor:not-allowed}.rx-checkbox--radius-none{--rx-ck-radius:0px}.rx-checkbox--radius-subtle{--rx-ck-radius:6px}.rx-checkbox--radius-rounded{--rx-ck-radius:8px}.rx-checkbox--radius-pill{--rx-ck-radius:999px}.rx-checkbox--radius-squircle{--rx-ck-radius:12px}
+	.rx-checkbox-field--pressed .rx-checkbox--variant-base{transform:scale(.82)}.rx-checkbox-field--pop .rx-checkbox--variant-base{animation:rx-checkbox-pop 420ms cubic-bezier(.34,1.7,.5,1)}@keyframes rx-checkbox-pop{0%{scale:.86}45%{scale:1.14}100%{scale:1}}
+	.rx-checkbox[data-state=checked],.rx-checkbox[data-state=indeterminate]{border-color:rgb(var(--rx-color));background:rgb(var(--rx-color))}.rx-checkbox__mark{position:relative;z-index:3;width:78%;height:78%;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}.rx-checkbox__check{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset 300ms cubic-bezier(.65,0,.35,1)}.rx-checkbox__dash{stroke-dasharray:12;stroke-dashoffset:12;transition:stroke-dashoffset 220ms cubic-bezier(.65,0,.35,1)}.rx-checkbox[data-state=checked] .rx-checkbox__check{stroke-dashoffset:0}.rx-checkbox[data-state=indeterminate] .rx-checkbox__dash{stroke-dashoffset:0}
+	.rx-checkbox__body{display:flex;min-width:0;flex-direction:column;gap:2px}.rx-checkbox__label{position:relative;display:inline-block;line-height:1.2;cursor:pointer;transform-origin:center;transition:transform 620ms linear(0,0.013 1.2%,0.05 2.5%,0.193 5.1%,0.704 12.3%,0.9 15.6%,1.04 19.1%,1.106 21.6%,1.143 24.3%,1.15 26%,1.14 28.1%,1.07 33%,1.013 38.2%,0.984 43.9%,0.977 50%,0.986 60%,1.003 75%,1)}.rx-checkbox__label--pressing{transition:transform 120ms cubic-bezier(.4,0,.2,1)}.rx-checkbox-field--struck .rx-checkbox__label-copy{text-decoration:line-through 2px rgb(var(--rx-color))}.rx-checkbox-field--disabled .rx-checkbox__label{cursor:not-allowed}.rx-checkbox__description{color:rgb(var(--rx-text-muted));font-size:calc(var(--rx-fs) - 2px);line-height:1.2}
+	@property --rx-checkbox-drop-radius{syntax:'<length>';inherits:false;initial-value:0px}.rx-checkbox__drop{position:absolute;inset:0;pointer-events:none;white-space:nowrap;--rx-drop-inner:calc(var(--rx-checkbox-drop-radius)*.52);background:radial-gradient(circle at var(--rx-drop-x,50%) var(--rx-drop-y,50%),transparent calc(var(--rx-checkbox-drop-radius) - 17px),rgb(var(--rx-bg)/.12) calc(var(--rx-checkbox-drop-radius) - 13px),rgb(var(--rx-bg)/.55) calc(var(--rx-checkbox-drop-radius) - 6px),rgb(var(--rx-bg)/.98) calc(var(--rx-checkbox-drop-radius) - 1px),rgb(var(--rx-bg)/.62) calc(var(--rx-checkbox-drop-radius) + 4px),rgb(var(--rx-bg)/.14) calc(var(--rx-checkbox-drop-radius) + 11px),transparent calc(var(--rx-checkbox-drop-radius) + 16px)),radial-gradient(circle at var(--rx-drop-x,50%) var(--rx-drop-y,50%),transparent calc(var(--rx-drop-inner) - 12px),rgb(var(--rx-bg)/.3) calc(var(--rx-drop-inner) - 5px),rgb(var(--rx-bg)/.55) var(--rx-drop-inner),rgb(var(--rx-bg)/.12) calc(var(--rx-drop-inner) + 7px),transparent calc(var(--rx-drop-inner) + 12px));background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:rx-checkbox-drop 1820ms cubic-bezier(.16,1,.3,1) forwards}@keyframes rx-checkbox-drop{0%{--rx-checkbox-drop-radius:0px;opacity:.4}12%{opacity:1}100%{--rx-checkbox-drop-radius:150px;opacity:0}}
+	.rx-checkbox__glow{position:absolute;inset:-2px;z-index:1;border-radius:inherit;padding:1.5px;pointer-events:none;background:radial-gradient(28px circle at var(--rx-gx,50%) var(--rx-gy,50%),rgb(var(--rx-color)/.75),rgb(var(--rx-color)/.4) 42%,rgb(var(--rx-color)/.12) 66%,rgb(var(--rx-color)/0) 82%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:calc(var(--rx-glow,0)*.9);transition:opacity 140ms}.rx-checkbox__ripples{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:visible;pointer-events:none}.rx-checkbox__ripple{position:absolute;border-radius:50%;transform:translate(-50%,-50%) scale(0);background:radial-gradient(circle,rgb(var(--rx-color)/.35) 0%,rgb(var(--rx-color)/.18) 42%,rgb(var(--rx-color)/.06) 62%,transparent 78%);opacity:0;animation:rx-checkbox-ripple-scale 620ms cubic-bezier(.22,1,.36,1) forwards,rx-checkbox-ripple-fade 620ms cubic-bezier(.25,.1,.25,1) forwards}.rx-checkbox__ripple--inner{background:radial-gradient(circle,rgb(var(--rx-color)/.6) 0%,rgb(var(--rx-color)/.32) 40%,rgb(var(--rx-color)/.1) 62%,transparent 76%);animation-duration:460ms,460ms}.rx-checkbox__ripple:not(.rx-checkbox__ripple--inner){animation-delay:90ms}@keyframes rx-checkbox-ripple-scale{to{transform:translate(-50%,-50%) scale(1)}}@keyframes rx-checkbox-ripple-fade{from{opacity:.7}to{opacity:0}}
+	.rx-checkbox__fill,.rx-checkbox__neon,.rx-checkbox__ping{position:absolute;pointer-events:none}.rx-checkbox__fill{inset:0;z-index:0;border-radius:50%;background:rgb(var(--rx-color));transform:scale(0);transition:transform 300ms cubic-bezier(.34,1.56,.64,1),border-radius 300ms ease}.rx-checkbox--variant-fill{overflow:hidden;background:rgb(var(--rx-surface))}.rx-checkbox--variant-fill[data-state=checked]{background:rgb(var(--rx-surface))}.rx-checkbox--variant-fill[data-state=checked] .rx-checkbox__fill{transform:scale(1.6);border-radius:4px}.rx-checkbox--variant-fill[data-state=checked] .rx-checkbox__check{transition-delay:120ms}
+	.rx-checkbox__neon{inset:0;z-index:-1;border-radius:inherit;opacity:0;box-shadow:0 0 0 1px rgb(var(--rx-color)/.6),0 0 8px rgb(var(--rx-color)/.55),0 0 18px rgb(var(--rx-color)/.4),inset 0 0 10px rgb(var(--rx-color)/.25);transition:opacity 300ms cubic-bezier(.22,1,.36,1)}.rx-checkbox--variant-neon{color:rgb(var(--rx-color));background:rgb(var(--rx-surface));transition:border-color 240ms cubic-bezier(.22,1,.36,1),box-shadow 300ms cubic-bezier(.22,1,.36,1)}.rx-checkbox--variant-neon[data-state=checked]{background:rgb(var(--rx-surface))}.rx-checkbox--variant-neon[data-state=checked] .rx-checkbox__neon{opacity:1;animation:rx-checkbox-bloom 300ms cubic-bezier(.22,1,.36,1)}.rx-checkbox--variant-neon .rx-checkbox__mark{filter:drop-shadow(0 0 4px rgb(var(--rx-color)/.9))}@keyframes rx-checkbox-bloom{0%{opacity:0}60%,100%{opacity:1}}
+	.rx-checkbox__ping{inset:0;z-index:-1;border:2px solid rgb(var(--rx-color)/.7);border-radius:inherit;opacity:0}.rx-checkbox--variant-bounce[data-state=checked]{animation:rx-checkbox-bounce-pop 420ms cubic-bezier(.34,1.7,.5,1)}.rx-checkbox--variant-bounce[data-state=checked] .rx-checkbox__ping{animation:rx-checkbox-ping 620ms cubic-bezier(.22,1,.36,1)}.rx-checkbox--variant-bounce .rx-checkbox__mark{transform:scale(0)}.rx-checkbox--variant-bounce[data-state=checked] .rx-checkbox__mark{animation:rx-checkbox-mark 460ms cubic-bezier(.34,1.8,.5,1) 60ms forwards}.rx-checkbox--variant-bounce[data-state=checked] .rx-checkbox__check{animation:rx-checkbox-draw 300ms cubic-bezier(.65,0,.35,1) 120ms forwards}@keyframes rx-checkbox-bounce-pop{0%{scale:.86}45%{scale:1.16}100%{scale:1}}@keyframes rx-checkbox-ping{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(2.1)}}@keyframes rx-checkbox-mark{0%{transform:scale(0) rotate(-12deg)}60%{transform:scale(1.22) rotate(4deg)}100%{transform:scale(1) rotate(0)}}@keyframes rx-checkbox-draw{to{stroke-dashoffset:0}}
+	.rx-checkbox--variant-flip{border:0;background:transparent!important;perspective:300px}.rx-checkbox__flipper{position:absolute;inset:0;display:block;transform-style:preserve-3d;transition:transform 460ms cubic-bezier(.34,1.4,.5,1)}.rx-checkbox--variant-flip[data-state=checked] .rx-checkbox__flipper{transform:rotateY(180deg)}.rx-checkbox__face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:6px;backface-visibility:hidden;-webkit-backface-visibility:hidden}.rx-checkbox__face--front{border:1.5px solid rgb(var(--rx-border-strong));background:rgb(var(--rx-surface))}.rx-checkbox__face--back{transform:rotateY(180deg);background:rgb(var(--rx-color));color:rgb(var(--rx-bg))}.rx-checkbox--variant-flip:focus-visible{box-shadow:0 0 0 3px rgb(var(--rx-color)/.3);border-radius:6px}
+	.rx-checkbox-field--card{position:relative;width:260px;max-width:100%;padding:14px;border:1.5px solid rgb(var(--rx-border-strong));border-radius:12px;background:rgb(var(--rx-surface));gap:12px;text-align:left;transition:border-color 220ms cubic-bezier(.22,1,.36,1),background-color 220ms cubic-bezier(.22,1,.36,1),box-shadow 220ms cubic-bezier(.22,1,.36,1),transform 200ms cubic-bezier(.34,1.56,.64,1)}.rx-checkbox-field--card:hover{border-color:rgb(var(--rx-border-hover))}.rx-checkbox-field--card:active{transform:scale(.98)}.rx-checkbox-field--card:focus-within{box-shadow:0 0 0 3px rgb(var(--rx-color)/.3)}.rx-checkbox-field--card.rx-checkbox-field--active{border-color:rgb(var(--rx-color));background:rgb(var(--rx-color)/.08);box-shadow:inset 0 0 0 1px rgb(var(--rx-color)/.4)}.rx-checkbox-field--card .rx-checkbox{order:2;width:22px;height:22px;border-radius:50%;background:transparent;color:rgb(var(--rx-bg))}.rx-checkbox-field--card .rx-checkbox__mark{width:15px;height:15px}.rx-checkbox-field--card .rx-checkbox__glow,.rx-checkbox-field--card .rx-checkbox__fill,.rx-checkbox-field--card .rx-checkbox__neon,.rx-checkbox-field--card .rx-checkbox__ping{display:none}.rx-checkbox-field--card.rx-checkbox-field--active .rx-checkbox{background:rgb(var(--rx-color));animation:rx-checkbox-card-pop 400ms cubic-bezier(.34,1.7,.5,1)}.rx-checkbox-field--card .rx-checkbox__check{transition-delay:100ms}.rx-checkbox-field--card .rx-checkbox__body{flex:1 1 auto}.rx-checkbox-field--card .rx-checkbox__label{font-weight:500}@keyframes rx-checkbox-card-pop{0%{transform:scale(.7)}55%{transform:scale(1.18)}100%{transform:scale(1)}}
+	@media(prefers-reduced-motion:reduce){.rx-checkbox,.rx-checkbox__mark,.rx-checkbox__check,.rx-checkbox__dash,.rx-checkbox__label,.rx-checkbox__fill,.rx-checkbox__neon,.rx-checkbox__flipper,.rx-checkbox-field--card{transition-duration:0ms}.rx-checkbox-field--pop .rx-checkbox,.rx-checkbox--variant-bounce[data-state=checked],.rx-checkbox--variant-bounce[data-state=checked] .rx-checkbox__mark,.rx-checkbox--variant-bounce[data-state=checked] .rx-checkbox__check,.rx-checkbox--variant-neon[data-state=checked] .rx-checkbox__neon,.rx-checkbox-field--card.rx-checkbox-field--active .rx-checkbox{animation:none}.rx-checkbox__ripple,.rx-checkbox__drop,.rx-checkbox__ping{display:none}}
 	}
 </style>

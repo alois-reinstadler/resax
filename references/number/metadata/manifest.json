@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Number",
+  "componentKey": "number",
+  "family": "VsNumber",
+  "variants": [
+    "vs-number",
+    "vs-number-glow",
+    "vs-number-roll-digits",
+    "vs-number-segment",
+    "vs-number-slider",
+    "vs-number-stepper"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsNumber.s4v7ZqC9.js",
+      "path": "compiled/vue/VsNumber.s4v7ZqC9.js",
+      "sha256": "c108e5e6490f0a5694fbe6aa7a90ae8e0102240f3df2dda7d745a662c0931c59",
+      "bytes": 7872,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-number",
+      "stateHints": [
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNumberGlow.BKUTOevQ.js",
+      "path": "compiled/vue/VsNumberGlow.BKUTOevQ.js",
+      "sha256": "467c2bdd62bb29933b78fca0f1df6955f1539c3330d2219aee320c64d45d8a2a",
+      "bytes": 3612,
+      "artifactType": "compiled-vue-island",
+      "variant": "glow",
+      "variantSlug": "vs-number-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNumberRollDigits.C_HE1Icc.js",
+      "path": "compiled/vue/VsNumberRollDigits.C_HE1Icc.js",
+      "sha256": "6eb9fc687c697b332a5cc868b8180a5e2baec90eaac01ed0e1a726c9dd6d6f8e",
+      "bytes": 3788,
+      "artifactType": "compiled-vue-island",
+      "variant": "roll-digits",
+      "variantSlug": "vs-number-roll-digits",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNumberSegment.tJuZTi8e.js",
+      "path": "compiled/vue/VsNumberSegment.tJuZTi8e.js",
+      "sha256": "2811a215c01f0fb01989b112ebb96c9ccaee21adba2053f1f839ba9141111d50",
+      "bytes": 3496,
+      "artifactType": "compiled-vue-island",
+      "variant": "segment",
+      "variantSlug": "vs-number-segment",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNumberSlider.BfSPHRFv.js",
+      "path": "compiled/vue/VsNumberSlider.BfSPHRFv.js",
+      "sha256": "ecab861efcfb2d8bb9c36b3679f6a23ceca715ceefbd7c4aaada981ffafe36ae",
+      "bytes": 4103,
+      "artifactType": "compiled-vue-island",
+      "variant": "slider",
+      "variantSlug": "vs-number-slider",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsNumberStepper.BYO8DzU5.js",
+      "path": "compiled/vue/VsNumberStepper.BYO8DzU5.js",
+      "sha256": "51ede2be3efc04702ab204cda71eaae262139abe4b82d13fc14f26e2e12df621",
+      "bytes": 3789,
+      "artifactType": "compiled-vue-island",
+      "variant": "stepper",
+      "variantSlug": "vs-number-stepper",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-number-glow.css",
+      "path": "css/shadow/vs-number-glow.css",
+      "sha256": "022fbad86136564b3aa6c605923b796287cd36c5676685dafc8c2635f6a960fc",
+      "bytes": 3420,
+      "artifactType": "extracted-shadow-css",
+      "variant": "glow",
+      "variantSlug": "vs-number-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-number-roll-digits.css",
+      "path": "css/shadow/vs-number-roll-digits.css",
+      "sha256": "a4269d82e65b2eea27ac82d529b57172f797476006f0be12668082c12435c874",
+      "bytes": 2981,
+      "artifactType": "extracted-shadow-css",
+      "variant": "roll-digits",
+      "variantSlug": "vs-number-roll-digits",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-number-segment.css",
+      "path": "css/shadow/vs-number-segment.css",
+      "sha256": "b4431a6aeaea19fa8dae7b71105d23e4c9abdf49193eb144c3085f0a6b2e2e8f",
+      "bytes": 3456,
+      "artifactType": "extracted-shadow-css",
+      "variant": "segment",
+      "variantSlug": "vs-number-segment",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-number-slider.css",
+      "path": "css/shadow/vs-number-slider.css",
+      "sha256": "a9dda28ea091680f6e1d85f19276941c1e546c1a9dad475058ac804b56e09d4c",
+      "bytes": 3106,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slider",
+      "variantSlug": "vs-number-slider",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-number-stepper.css",
+      "path": "css/shadow/vs-number-stepper.css",
+      "sha256": "c6c225c6ad9375b9ed46fe1e2ffcc45c2de9641385ce2903727a8229ea9930f0",
+      "bytes": 3934,
+      "artifactType": "extracted-shadow-css",
+      "variant": "stepper",
+      "variantSlug": "vs-number-stepper",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-number.css",
+      "path": "css/shadow/vs-number.css",
+      "sha256": "a4e6076d21e51ee5ee42108fd349f9d34ae1f1f9c75f958ef48edc311c7c4f33",
+      "bytes": 10471,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-number",
+      "stateHints": [
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsNumber.NL7WwxbP.css",
+      "path": "css/vue-scoped/VsNumber.NL7WwxbP.css",
+      "sha256": "aa4ccf3659ac5df9290c58e23484c2f98ad903e5d54ca48888a332e771e512b1",
+      "bytes": 6513,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-number",
+      "stateHints": [
+        "pressed"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-number-glow.js",
+      "path": "web-component/vs-number-glow.js",
+      "sha256": "b8e641a24d9d557a9bc7ab798099d809f868ddd2e8480f2ef2123ebdd4b8d64f",
+      "bytes": 10785,
+      "artifactType": "web-component-source",
+      "variant": "glow",
+      "variantSlug": "vs-number-glow",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-number-roll-digits.js",
+      "path": "web-component/vs-number-roll-digits.js",
+      "sha256": "71aa6ed134bd6637da42f4fa7776f1f6e78f0c3248e9a97fb440dc7ff716d5fe",
+      "bytes": 9801,
+      "artifactType": "web-component-source",
+      "variant": "roll-digits",
+      "variantSlug": "vs-number-roll-digits",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-number-segment.js",
+      "path": "web-component/vs-number-segment.js",
+      "sha256": "e1d8647b98263d26c54cc7c7aa36ff26b0097f139d2892219b90811c2e44a816",
+      "bytes": 10336,
+      "artifactType": "web-component-source",
+      "variant": "segment",
+      "variantSlug": "vs-number-segment",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-number-slider.js",
+      "path": "web-component/vs-number-slider.js",
+      "sha256": "6044915738e9a22f177423bcbe5ed5cb9f211a1dabddabde55705805fce92057",
+      "bytes": 10062,
+      "artifactType": "web-component-source",
+      "variant": "slider",
+      "variantSlug": "vs-number-slider",
+      "stateHints": [
+        "dragging"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-number-stepper.js",
+      "path": "web-component/vs-number-stepper.js",
+      "sha256": "318c53bbcab4f9f79450b2c03dab1241b9b9513af75ab73e9c7318b1ef814626",
+      "bytes": 10558,
+      "artifactType": "web-component-source",
+      "variant": "stepper",
+      "variantSlug": "vs-number-stepper",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-number.js",
+      "path": "web-component/vs-number.js",
+      "sha256": "55dec4950346600346e7980e535d9eae30e9c0df3962742df45582aea5fe077c",
+      "bytes": 21792,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-number",
+      "stateHints": [
+        "pressed"
+      ]
+    }
+  ]
+}

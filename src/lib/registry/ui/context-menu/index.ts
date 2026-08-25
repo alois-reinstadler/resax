@@ -4,7 +4,7 @@ import ContextMenuItem from './context-menu-item.svelte';
 import ContextMenuSeparator from './context-menu-separator.svelte';
 import ContextMenuSub from './context-menu-sub.svelte';
 export { ContextMenu, ContextMenuGroup, ContextMenuItem, ContextMenuSeparator, ContextMenuSub };
-export type { ContextMenuProps } from './context-menu.svelte';
+export type { ContextMenuProps, ContextMenuVariant, ContextMenuSize, ContextMenuRadius } from './context-menu.svelte';
 export type { ContextMenuGroupProps } from './context-menu-group.svelte';
 export type { ContextMenuItemProps } from './context-menu-item.svelte';
 export type { ContextMenuSubProps } from './context-menu-sub.svelte';

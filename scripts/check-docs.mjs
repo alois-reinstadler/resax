@@ -7,7 +7,7 @@ const read = (path) => readFileSync(join(root, path), 'utf8');
 const fail = (message) => { throw new Error(message); };
 const slugify = (name) => name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 
-const families = JSON.parse(read('scrape/vuesax/families.json'));
+const families = JSON.parse(read('references/_shared/metadata/families.json'));
 const registry = JSON.parse(read('registry.json'));
 const migration = read('docs/MIGRATION.md');
 const api = read('docs/API.md');
@@ -26,9 +26,9 @@ for (const label of familyLabels) {
 
 const internalItems = new Set(['rx-button', 'rx-skeleton', 'rx-separator']);
 const publicItems = registry.items.filter((item) => !internalItems.has(item.name));
-if (publicItems.length !== 59) fail(`expected 59 public registry items, found ${publicItems.length}`);
+if (publicItems.length !== 60) fail(`expected 60 public registry items, found ${publicItems.length}`);
 const publicNames = new Set(publicItems.map((item) => item.name));
-const foundationItems = new Set(['theme', 'utils-color', 'utils-easing', 'ripple']);
+const foundationItems = new Set(['theme', 'utils-color', 'utils-easing', 'ripple', 'interactions']);
 const documentedItems = publicItems.filter((item) => !foundationItems.has(item.name));
 
 const pageSlugs = readdirSync(join(root, 'src/lib/docs/pages'))

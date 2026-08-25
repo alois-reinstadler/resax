@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "AskAiButton",
+  "componentKey": "ask-ai-button",
+  "family": "VsAskAiButton",
+  "variants": [
+    "vs-ask-ai-button"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsAskAiButton.B25lmBDp.js",
+      "path": "compiled/vue/VsAskAiButton.B25lmBDp.js",
+      "sha256": "d3e7214488dd59ef7b070ad1f047cd9c1bb17cc91057fddce16554f38cf057d6",
+      "bytes": 4267,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-ask-ai-button",
+      "stateHints": [
+        "hover",
+        "pressed",
+        "loading",
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-ask-ai-button.css",
+      "path": "css/shadow/vs-ask-ai-button.css",
+      "sha256": "75bd9b3c18c90fc313b3e8e0e50193da5cae9d3e317b0ec7b64bec66b8b9eb56",
+      "bytes": 9812,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-ask-ai-button",
+      "stateHints": [
+        "hover",
+        "pressed",
+        "loading",
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsAskAiButton.CeJR2AWM.css",
+      "path": "css/vue-scoped/VsAskAiButton.CeJR2AWM.css",
+      "sha256": "59ec9c5d6dc8a4f08042bbc159b968f7bd3709e6743deb60ecb1093896a13c39",
+      "bytes": 8525,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-ask-ai-button",
+      "stateHints": [
+        "hover",
+        "pressed",
+        "loading",
+        "dragging",
+        "pointer"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-ask-ai-button.js",
+      "path": "web-component/vs-ask-ai-button.js",
+      "sha256": "b42924f2a20c35228eee25bfc518f32370a998ee1611e100ea83b1442532fa0a",
+      "bytes": 15871,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-ask-ai-button",
+      "stateHints": [
+        "hover",
+        "pressed",
+        "loading",
+        "dragging",
+        "pointer"
+      ]
+    }
+  ]
+}

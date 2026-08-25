@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Transform",
+  "componentKey": "transform",
+  "family": "VsTransform",
+  "variants": [
+    "vs-transform",
+    "vs-transform-expand",
+    "vs-transform-fade",
+    "vs-transform-flip",
+    "vs-transform-scale",
+    "vs-transform-slide"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsTransform.B2xN34y0.js",
+      "path": "compiled/vue/VsTransform.B2xN34y0.js",
+      "sha256": "a5f6a650b38e70e7b73a07127639d2daac5b42d1addb04f70fe27431c3fe0d66",
+      "bytes": 19625,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-transform",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTransformExpand.BUpd1wxM.js",
+      "path": "compiled/vue/VsTransformExpand.BUpd1wxM.js",
+      "sha256": "b232b75cec8305e36e0a3d35b078141f9ba516a3ea603360e196fb20f9ef6b93",
+      "bytes": 4017,
+      "artifactType": "compiled-vue-island",
+      "variant": "expand",
+      "variantSlug": "vs-transform-expand",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTransformFade.DFNnbFOX.js",
+      "path": "compiled/vue/VsTransformFade.DFNnbFOX.js",
+      "sha256": "00452a1ff3ea58773a6ef803a71e9075aa11a22d93da1538c02b57d7b7ff4993",
+      "bytes": 3274,
+      "artifactType": "compiled-vue-island",
+      "variant": "fade",
+      "variantSlug": "vs-transform-fade",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTransformFlip.CIO2HXYE.js",
+      "path": "compiled/vue/VsTransformFlip.CIO2HXYE.js",
+      "sha256": "0ea5bbd4b86db90e2575dcdb0f7950f5710dd4d97b38bc7c994f58f499a32ecf",
+      "bytes": 3308,
+      "artifactType": "compiled-vue-island",
+      "variant": "flip",
+      "variantSlug": "vs-transform-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTransformScale.CAt8cbP0.js",
+      "path": "compiled/vue/VsTransformScale.CAt8cbP0.js",
+      "sha256": "57e438d3873e1ae8b0a6e57a5f12941d89e05f1139ac7589c709655e44ee359f",
+      "bytes": 3422,
+      "artifactType": "compiled-vue-island",
+      "variant": "scale",
+      "variantSlug": "vs-transform-scale",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsTransformSlide.CYf7ZaWn.js",
+      "path": "compiled/vue/VsTransformSlide.CYf7ZaWn.js",
+      "sha256": "7663997a0e5af8de64d4f716422b15fe81aab14737d77f2b2b9d83dc18472097",
+      "bytes": 3013,
+      "artifactType": "compiled-vue-island",
+      "variant": "slide",
+      "variantSlug": "vs-transform-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-transform-expand.css",
+      "path": "css/shadow/vs-transform-expand.css",
+      "sha256": "d01a8e27ffbfa7f72909b0739bd0599923e94fae41fe1370ef824aff003a85e1",
+      "bytes": 4559,
+      "artifactType": "extracted-shadow-css",
+      "variant": "expand",
+      "variantSlug": "vs-transform-expand",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-transform-fade.css",
+      "path": "css/shadow/vs-transform-fade.css",
+      "sha256": "c0c858e960f4c008bee6a84686ddac22dbd762493384d13d6fa08e1cd201d3df",
+      "bytes": 3413,
+      "artifactType": "extracted-shadow-css",
+      "variant": "fade",
+      "variantSlug": "vs-transform-fade",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-transform-flip.css",
+      "path": "css/shadow/vs-transform-flip.css",
+      "sha256": "63f01d6ae9e1f61b46f7aa0e1a22a887a95997aa20c999e43084001d6a5c0dd5",
+      "bytes": 4350,
+      "artifactType": "extracted-shadow-css",
+      "variant": "flip",
+      "variantSlug": "vs-transform-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-transform-scale.css",
+      "path": "css/shadow/vs-transform-scale.css",
+      "sha256": "e88e05f80bf3144c38d1aeec51edd50195143211ee3d3c944cdca747838e7cd8",
+      "bytes": 3470,
+      "artifactType": "extracted-shadow-css",
+      "variant": "scale",
+      "variantSlug": "vs-transform-scale",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-transform-slide.css",
+      "path": "css/shadow/vs-transform-slide.css",
+      "sha256": "cb27962ea034859b50158f3000e91e1171e49ebf8b9829e2721be7b93d30b798",
+      "bytes": 6025,
+      "artifactType": "extracted-shadow-css",
+      "variant": "slide",
+      "variantSlug": "vs-transform-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-transform.css",
+      "path": "css/shadow/vs-transform.css",
+      "sha256": "7abcd6fad9045881c5e10d1220fe462dccd182751a9dfece4332dc15c319e1b5",
+      "bytes": 5929,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-transform",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTransformExpand.CrveR61Q.css",
+      "path": "css/vue-scoped/VsTransformExpand.CrveR61Q.css",
+      "sha256": "aeb480e0396733c2b67dee9be1f0a8d5751aa66cffe38238f7f7d44e87519421",
+      "bytes": 4588,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "expand",
+      "variantSlug": "vs-transform-expand",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTransformFade.CGzedJja.css",
+      "path": "css/vue-scoped/VsTransformFade.CGzedJja.css",
+      "sha256": "c90bc9ec1ca1781a4427e9df883a50c03800f8c8cff3e4d44dd103bb02c1b171",
+      "bytes": 5152,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "fade",
+      "variantSlug": "vs-transform-fade",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTransformFlip.DnSW_v3x.css",
+      "path": "css/vue-scoped/VsTransformFlip.DnSW_v3x.css",
+      "sha256": "f2bc109fe1b80128148a7565b799a78f5378cdc49098e248fe5570ae8ae5fcbb",
+      "bytes": 6068,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "flip",
+      "variantSlug": "vs-transform-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTransformScale.BRiUagC-.css",
+      "path": "css/vue-scoped/VsTransformScale.BRiUagC-.css",
+      "sha256": "62eff40aa64a49c4e04ef3d1e891544096c23aafee3e78a8948c35bbb6f61638",
+      "bytes": 5261,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "scale",
+      "variantSlug": "vs-transform-scale",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsTransformSlide.BM-ecgaQ.css",
+      "path": "css/vue-scoped/VsTransformSlide.BM-ecgaQ.css",
+      "sha256": "9be91ad8904ba7ad03b6fba469bb8e8b1dc4a01a32b17647e04e5d2637ef69c0",
+      "bytes": 6192,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "slide",
+      "variantSlug": "vs-transform-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-transform-expand.js",
+      "path": "web-component/vs-transform-expand.js",
+      "sha256": "71b66e5b1b94d21a47b7ded49938dcd8ea8dc38bd2e39d41bdcc28875cd14828",
+      "bytes": 11665,
+      "artifactType": "web-component-source",
+      "variant": "expand",
+      "variantSlug": "vs-transform-expand",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-transform-fade.js",
+      "path": "web-component/vs-transform-fade.js",
+      "sha256": "e168dc4fd05cf0baf21c4880782ce022706ede526cfd5cb08e3c6f9fe7d96b37",
+      "bytes": 12848,
+      "artifactType": "web-component-source",
+      "variant": "fade",
+      "variantSlug": "vs-transform-fade",
+      "stateHints": [
+        "focus"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-transform-flip.js",
+      "path": "web-component/vs-transform-flip.js",
+      "sha256": "2f846e5b3a812e1a5437fab5db6b1622857cc64cebe54fb62b739bc330bdf273",
+      "bytes": 14052,
+      "artifactType": "web-component-source",
+      "variant": "flip",
+      "variantSlug": "vs-transform-flip",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-transform-scale.js",
+      "path": "web-component/vs-transform-scale.js",
+      "sha256": "6ca763d8fb678706882b16c5cdeb842fd843427e8141aa5b59361a3ba3baf3aa",
+      "bytes": 12903,
+      "artifactType": "web-component-source",
+      "variant": "scale",
+      "variantSlug": "vs-transform-scale",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-transform-slide.js",
+      "path": "web-component/vs-transform-slide.js",
+      "sha256": "59894a09b7cd20a0abe66c5e262904e2709f34c56cb21ec0acdc605783e7697d",
+      "bytes": 12015,
+      "artifactType": "web-component-source",
+      "variant": "slide",
+      "variantSlug": "vs-transform-slide",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-transform.js",
+      "path": "web-component/vs-transform.js",
+      "sha256": "fc3deef369ca666b31bf83c5b572706d7b4fd6c4e7d6b8bd083ff7391fa1cb97",
+      "bytes": 28806,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-transform",
+      "stateHints": [
+        "expanded"
+      ]
+    }
+  ]
+}

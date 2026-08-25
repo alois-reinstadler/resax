@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "tier": "restricted-raw-reference",
+    "implementationInput": true,
+    "authorization": "Maintainer directed this port to proceed after the raw-source provenance restriction was explicitly raised on 2026-08-25.",
+    "note": "Authorization is scoped to this Resax port; preserve the original restriction and provenance files."
+  },
+  "component": "Indicator",
+  "componentKey": "indicator",
+  "family": "VsIndicator",
+  "variants": [
+    "vs-indicator",
+    "vs-indicator-bounce",
+    "vs-indicator-odometer",
+    "vs-indicator-ping",
+    "vs-indicator-ring",
+    "vs-indicator-shake"
+  ],
+  "artifacts": [
+    {
+      "originalPath": "scrape/vuesax/islands/VsIndicator.WIOIKZIM.js",
+      "path": "compiled/vue/VsIndicator.WIOIKZIM.js",
+      "sha256": "935f7ed2c4dd909aeeaa662a0c08c00eaa967c9bfd193b2ffdcb26e4b919490c",
+      "bytes": 2495,
+      "artifactType": "compiled-vue-island",
+      "variant": "base",
+      "variantSlug": "vs-indicator",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsIndicatorBounce.D1SFba90.js",
+      "path": "compiled/vue/VsIndicatorBounce.D1SFba90.js",
+      "sha256": "e070cb966af72a3603026867927a62f3258b764bf256d2f6bfcf6a72998b733b",
+      "bytes": 2392,
+      "artifactType": "compiled-vue-island",
+      "variant": "bounce",
+      "variantSlug": "vs-indicator-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsIndicatorOdometer.B6Ay6qhV.js",
+      "path": "compiled/vue/VsIndicatorOdometer.B6Ay6qhV.js",
+      "sha256": "752b720413d41fa5ca87209ce071bd4708f9998f2613e81b5dbcb1859062ade3",
+      "bytes": 3006,
+      "artifactType": "compiled-vue-island",
+      "variant": "odometer",
+      "variantSlug": "vs-indicator-odometer",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsIndicatorPing.Dq192ZeX.js",
+      "path": "compiled/vue/VsIndicatorPing.Dq192ZeX.js",
+      "sha256": "915ffa5896f3e1a7f797f097d1f8e56c31e2f56cd145ca08de8632fcfb1d0eb4",
+      "bytes": 2653,
+      "artifactType": "compiled-vue-island",
+      "variant": "ping",
+      "variantSlug": "vs-indicator-ping",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsIndicatorRing.D4467nT1.js",
+      "path": "compiled/vue/VsIndicatorRing.D4467nT1.js",
+      "sha256": "b84edf87cebaff96422f4ea1d3f1fcfa9c544e34c5db5659bc36a6fa5e5fe644",
+      "bytes": 2552,
+      "artifactType": "compiled-vue-island",
+      "variant": "ring",
+      "variantSlug": "vs-indicator-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/islands/VsIndicatorShake.GtzY9p_1.js",
+      "path": "compiled/vue/VsIndicatorShake.GtzY9p_1.js",
+      "sha256": "035be5ba7a0465991070db06a277c267a58d4be1f06ae522643472fa57f1a84b",
+      "bytes": 2436,
+      "artifactType": "compiled-vue-island",
+      "variant": "shake",
+      "variantSlug": "vs-indicator-shake",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-indicator-bounce.css",
+      "path": "css/shadow/vs-indicator-bounce.css",
+      "sha256": "e0a413f00501d54e63811be644b549935e0c7b92a963b2314e33c90ad4c310a2",
+      "bytes": 4979,
+      "artifactType": "extracted-shadow-css",
+      "variant": "bounce",
+      "variantSlug": "vs-indicator-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-indicator-odometer.css",
+      "path": "css/shadow/vs-indicator-odometer.css",
+      "sha256": "69f7bd36b85623e940daba10264baad4ad04947ce365be5a6929549d6fae602d",
+      "bytes": 4787,
+      "artifactType": "extracted-shadow-css",
+      "variant": "odometer",
+      "variantSlug": "vs-indicator-odometer",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-indicator-ping.css",
+      "path": "css/shadow/vs-indicator-ping.css",
+      "sha256": "4d34fc4e4dc20316af443a63178340beb23d63299e1d0d3ad4d7f76de7cd6f7d",
+      "bytes": 5279,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ping",
+      "variantSlug": "vs-indicator-ping",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-indicator-ring.css",
+      "path": "css/shadow/vs-indicator-ring.css",
+      "sha256": "013eea75868d4013e6b58b48958322dc3e1fde786f18174e1625654667a1e143",
+      "bytes": 5041,
+      "artifactType": "extracted-shadow-css",
+      "variant": "ring",
+      "variantSlug": "vs-indicator-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-indicator-shake.css",
+      "path": "css/shadow/vs-indicator-shake.css",
+      "sha256": "671b20b196845003e137d8c1dedbb9b3e142ba3d531190507f7fba0471e6aee6",
+      "bytes": 4868,
+      "artifactType": "extracted-shadow-css",
+      "variant": "shake",
+      "variantSlug": "vs-indicator-shake",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/shadow-css/vs-indicator.css",
+      "path": "css/shadow/vs-indicator.css",
+      "sha256": "51e4a917c884f038d1087e726cda619894acb66a38ce765dc28c316d18a8047c",
+      "bytes": 6097,
+      "artifactType": "extracted-shadow-css",
+      "variant": "base",
+      "variantSlug": "vs-indicator",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsIndicator.vFSPowkR.css",
+      "path": "css/vue-scoped/VsIndicator.vFSPowkR.css",
+      "sha256": "a72b94427284126ca35df6b4e99cd27dbfe468c489a9ba5fb179a7fc75890eb0",
+      "bytes": 4988,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "base",
+      "variantSlug": "vs-indicator",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsIndicatorBounce.DUcC5RaL.css",
+      "path": "css/vue-scoped/VsIndicatorBounce.DUcC5RaL.css",
+      "sha256": "e0dbc47dca8101f8a0f37cd1a45a7beddf360129960bc25aeae9b61ac0d50c21",
+      "bytes": 4530,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "bounce",
+      "variantSlug": "vs-indicator-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsIndicatorOdometer.Bac1EHlD.css",
+      "path": "css/vue-scoped/VsIndicatorOdometer.Bac1EHlD.css",
+      "sha256": "6f9382b93952364b57718d1850114b716a59180cfac1b60d768d3fb99f3944db",
+      "bytes": 4467,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "odometer",
+      "variantSlug": "vs-indicator-odometer",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsIndicatorPing.BxvTc0CO.css",
+      "path": "css/vue-scoped/VsIndicatorPing.BxvTc0CO.css",
+      "sha256": "079d8dcf0c10ddd4b6d4c632e434061765556ca93caaf607c6407a9257444ac5",
+      "bytes": 4932,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "ping",
+      "variantSlug": "vs-indicator-ping",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsIndicatorRing.DRPY4Kvt.css",
+      "path": "css/vue-scoped/VsIndicatorRing.DRPY4Kvt.css",
+      "sha256": "3e1f6612b81008a6ba7df54499dbfa58a03ef48e69f9e734affb44e041cafb2f",
+      "bytes": 5025,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "ring",
+      "variantSlug": "vs-indicator-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/css/VsIndicatorShake.rqCcKrbI.css",
+      "path": "css/vue-scoped/VsIndicatorShake.rqCcKrbI.css",
+      "sha256": "fff26c2f4a76e36741881c9f9c0c18fe53e6baf16e05d21f1599fdb2f5c1be65",
+      "bytes": 4459,
+      "artifactType": "compiled-vue-scoped-css",
+      "variant": "shake",
+      "variantSlug": "vs-indicator-shake",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-indicator-bounce.js",
+      "path": "web-component/vs-indicator-bounce.js",
+      "sha256": "13dea34d1341682e14a49675e4919e5ec68db0d105e45185caba819757f2a41e",
+      "bytes": 11119,
+      "artifactType": "web-component-source",
+      "variant": "bounce",
+      "variantSlug": "vs-indicator-bounce",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-indicator-odometer.js",
+      "path": "web-component/vs-indicator-odometer.js",
+      "sha256": "958ae38ca90c1378b3b656540154bf6ad753a1e3a7ddddc38a767f1bcb542de9",
+      "bytes": 10847,
+      "artifactType": "web-component-source",
+      "variant": "odometer",
+      "variantSlug": "vs-indicator-odometer",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-indicator-ping.js",
+      "path": "web-component/vs-indicator-ping.js",
+      "sha256": "6ea9797e7524e171929f0863e1ea8876de80ab4d2d240fbeb2de679d7190c35c",
+      "bytes": 11377,
+      "artifactType": "web-component-source",
+      "variant": "ping",
+      "variantSlug": "vs-indicator-ping",
+      "stateHints": [
+        "expanded"
+      ]
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-indicator-ring.js",
+      "path": "web-component/vs-indicator-ring.js",
+      "sha256": "5674cb2e2a1d96907286156512b7c80d1e09d014230b27aed489c090953ac02b",
+      "bytes": 9763,
+      "artifactType": "web-component-source",
+      "variant": "ring",
+      "variantSlug": "vs-indicator-ring",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-indicator-shake.js",
+      "path": "web-component/vs-indicator-shake.js",
+      "sha256": "14371941852a4be3021432325b5ae26399e293a71f97cb465be8a73c3ad56626",
+      "bytes": 11295,
+      "artifactType": "web-component-source",
+      "variant": "shake",
+      "variantSlug": "vs-indicator-shake",
+      "stateHints": []
+    },
+    {
+      "originalPath": "scrape/vuesax/wc/vs-indicator.js",
+      "path": "web-component/vs-indicator.js",
+      "sha256": "fdcf4fe3305503bdcc6199936b0b3433983572550f1577750b9375797901399d",
+      "bytes": 10887,
+      "artifactType": "web-component-source",
+      "variant": "base",
+      "variantSlug": "vs-indicator",
+      "stateHints": []
+    }
+  ]
+}
