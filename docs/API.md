@@ -37,6 +37,8 @@ Exports: `AlertProps`
 ```ts
 interface AlertProps {
 		variant?: 'default' | 'banner' | 'inline' | 'neon' | 'split' | 'toast';
+		appearance?: 'soft' | 'solid' | 'outline';
+		radius?: 'subtle' | 'rounded' | 'pill';
 		color?: RxColor;
 		title?: string | Snippet;
 		icon?: Snippet;
@@ -816,12 +818,29 @@ interface SidebarProps {items:SidebarItem[];active?:string;open?:boolean;collaps
 
 ## skeleton/skeleton.svelte
 
-Exports: `SkeletonVariant`, `SkeletonShape`, `SkeletonProps`
+Exports: `SkeletonVariant`, `SkeletonShape`, `SkeletonSpeed`, `SkeletonAnimation`, `SkeletonProps`
 
 ### SkeletonProps
 
 ```ts
-interface SkeletonProps { variant?: SkeletonVariant; shape?: SkeletonShape; loading?: boolean; duration?: number; index?: number; angle?: number; intensity?: number; glow?: number; direction?: 'ltr' | 'rtl'; children?: Snippet;
+interface SkeletonProps {
+		variant?: SkeletonVariant;
+		shape?: SkeletonShape;
+		loading?: boolean;
+		count?: number;
+		width?: string | number;
+		height?: string | number;
+		radius?: string | number;
+		speed?: SkeletonSpeed;
+		animation?: SkeletonAnimation;
+		duration?: number;
+		index?: number;
+		stagger?: number;
+		angle?: number;
+		intensity?: number;
+		glow?: number;
+		direction?: 'ltr' | 'rtl';
+		children?: Snippet;
 }
 ```
 

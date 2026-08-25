@@ -3,6 +3,12 @@
 Date: 2026-08-25
 Scope: shared theme, color and motion utilities, DOM attachments, cursor/ripple behavior, and the conventions used to translate source variants into Resax APIs. Raw-reference use is authorized by [`references/AUTHORIZATION.md`](../references/AUTHORIZATION.md).
 
+## Closure addendum — 2026-08-25
+
+The architectural gaps below are retained as the initial source-audit record. The shared interactions and all 328 source rows are now covered by the machine-readable ledger and reviewed implementation/test/visual evidence.
+
+The final Button color policy preserves source foregrounds per variant and tone wherever contrast permits. Three deliberate repairs remain: semantic success/danger/warn solid surfaces use invariant `--rx-fixed-dark` ink after first-paint Axe proved the source-light pairs below 4.5:1; base hover changes the color fill without applying the source's whole-element `.85` opacity; and transparent light-mode surfaces use contrast-safe accent/text ink (including border-draw, whose dark-mode hover remains source white). These are accessibility deviations, not substitute effect implementations: pointer fields, masked layers, ripple geometry, and variant choreography remain source-derived. Focused evidence is in `src/lib/registry/ui/button/button.svelte.test.ts`; row-level references and rationale are in `docs/FIDELITY-LEDGER.json`.
+
 ## Verdict
 
 The current gap is architectural, not a matter of tuning one shadow. The source treats glow, hover, press, and motion as behaviors with their own layers, pointer state, timing curves, and variant-specific DOM. The port usually reduces those behaviors to a static `box-shadow`, a centered gradient, or one global duration/easing pair. That changes both the resting style and the interaction signature.

@@ -20,6 +20,7 @@ export type NotifyOptions = {
 	surface?: NotifySurface;
 	roundness?: number;
 	position?: NotifyPosition;
+	target?: HTMLElement;
 	duration?: number;
 	progress?: boolean;
 	closable?: boolean;
@@ -77,6 +78,12 @@ function ensureOutlet() {
 	lazyOutlet = mount(NotificationOutlet, { target: document.body });
 }
 
+function defaultPosition(variant: NotifyVariant): NotifyPosition {
+	if (variant === 'card' || variant === 'glow') return 'top-right';
+	if (variant === 'snackbar') return 'bottom-center';
+	return 'top-center';
+}
+
 export function registerNotificationOutlet() {
 	outletCount += 1;
 	if (outletCount > 1 && lazyOutlet) {
@@ -108,12 +115,13 @@ function createNotification(options: NotifyOptions): NotifyHandle {
 		throw new Error('notify() is client-only and cannot be called during server rendering.');
 	}
 	ensureOutlet();
+	const variant = options.variant ?? 'base';
 	const item: NotificationItem = {
-		id: nextId++, variant: options.variant ?? 'base', surface: options.surface ?? 'solid', roundness: Math.max(0, options.roundness ?? 16), position: options.position ?? 'top-right',
+		id: nextId++, variant, surface: options.surface ?? 'solid', roundness: Math.max(0, options.roundness ?? 16), position: options.position ?? defaultPosition(variant),
 		duration: Math.max(0, options.duration ?? 4000), progress: options.progress ?? false,
-		closable: options.closable ?? true, paused: false, title: options.title, text: options.text,
+		closable: options.closable ?? (variant !== 'base' && variant !== 'default'), paused: false, title: options.title, text: options.text,
 		description: options.description, state: options.state, action: options.action,
-		content: options.content, color: options.color ?? stateColor(options.state), icon: options.icon, onClick: options.onClick, onClose: options.onClose
+		content: options.content, color: options.color ?? stateColor(options.state), icon: options.icon, target: options.target, onClick: options.onClick, onClose: options.onClose
 	};
 	notificationState.items.push(item);
 	schedule(item);

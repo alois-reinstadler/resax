@@ -31,7 +31,11 @@
 	let ripples = $state<Array<{ id: number; x: number; y: number; size: number }>>([]);
 	let monthAnimationId = $state(0);
 	let monthDirection = $state(1);
+	let selectionSettled = $state(true);
 	let frame = 0;
+	let selectionHandoffTimer: ReturnType<typeof setTimeout> | undefined;
+	let selectionHandoffReady = false;
+	let lastSelectionKey: string | undefined;
 	const mode = $derived(requestedMode ?? (variant === 'dots' ? 'multiple' : variant === 'range-fill' ? 'range' : 'single'));
 	const selectionInk = $derived(color === 'success' || color === 'danger' || color === 'warn' ? '0 0 0' : color === 'dark' ? 'var(--rx-dark-contrast-rgb)' : !color || color === 'primary' ? '255 255 255' : 'var(--rx-color-contrast)');
 	const inlineStyle = $derived(`${styleColor(color) ?? '--rx-color: var(--rx-primary)'}; --cal-selection-ink:${selectionInk}`);
@@ -39,11 +43,38 @@
 	const eventCount = (date: DateValue) => Math.min(3, Math.max(0, Number(events?.(date) ?? 0)));
 	function isRange(candidate: CalendarValue | undefined): candidate is { start: DateValue; end: DateValue } { return !!candidate && !Array.isArray(candidate) && 'start' in candidate; }
 	function getSingle(): DateValue | undefined { return value && !Array.isArray(value) && !isRange(value) ? value : undefined; }
-	function setSingle(next: DateValue | undefined) { value = next; onValueChange?.(next); scheduleOverlays(); }
+	function setSingle(next: DateValue | undefined) {
+		const nextKey = next?.toString();
+		if (selectionHandoffReady && nextKey !== lastSelectionKey) {
+			lastSelectionKey = nextKey;
+			scheduleSelectionHandoff(next);
+		}
+		value = next; onValueChange?.(next); scheduleOverlays();
+	}
 	function getMultiple(): DateValue[] { return Array.isArray(value) ? value : []; }
 	function setMultiple(next: DateValue[]) { value = next; onValueChange?.(next); scheduleOverlays(); }
 	function getRange(): DateRange { return isRange(value) ? value : draftRange; }
 	function setRange(next: DateRange) { draftRange = next; if (next.start && next.end) { value = next.start.compare(next.end) <= 0 ? { start: next.start, end: next.end } : { start: next.end, end: next.start }; draftRange = value; onValueChange?.(value); } scheduleOverlays(); }
+	function clearSelectionHandoff() {
+		if (selectionHandoffTimer !== undefined) clearTimeout(selectionHandoffTimer);
+		selectionHandoffTimer = undefined;
+	}
+	function scheduleSelectionHandoff(selected = getSingle()) {
+		clearSelectionHandoff();
+		if (mode !== 'single' || (variant !== 'base' && variant !== 'compact') || !selected) {
+			selectionSettled = false;
+			return;
+		}
+		if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			selectionSettled = true;
+			return;
+		}
+		selectionSettled = false;
+		selectionHandoffTimer = setTimeout(() => {
+			selectionSettled = true;
+			selectionHandoffTimer = undefined;
+		}, variant === 'compact' ? 320 : 400);
+	}
 	function scheduleOverlays() { cancelAnimationFrame(frame); frame = requestAnimationFrame(updateOverlays); }
 	function boxFor(element: Element) { const host = shell.getBoundingClientRect(); const box = element.getBoundingClientRect(); return { x: box.left - host.left, y: box.top - host.top, width: box.width, height: box.height }; }
 	function updateOverlays() {
@@ -79,8 +110,24 @@
 		const box = boxFor(day); ripples = [...ripples.slice(-7), { id: ++rippleId, x: box.x + event.offsetX, y: box.y + event.offsetY, size: Math.max(box.width, box.height) * 2.2 }];
 	}
 	function navigate(direction: -1 | 1) { monthDirection = direction; monthAnimationId += 1; requestAnimationFrame(scheduleOverlays); }
-	onMount(() => { const resize = new ResizeObserver(scheduleOverlays); resize.observe(shell); scheduleOverlays(); return () => { resize.disconnect(); cancelAnimationFrame(frame); }; });
-	$effect(() => { value; variant; if (isRange(value)) draftRange = value; scheduleOverlays(); });
+	onMount(() => { const resize = new ResizeObserver(scheduleOverlays); resize.observe(shell); scheduleOverlays(); return () => { resize.disconnect(); cancelAnimationFrame(frame); clearSelectionHandoff(); }; });
+	$effect(() => {
+		value; variant;
+		if (isRange(value)) draftRange = value;
+		scheduleOverlays();
+		const nextKey = mode === 'single' ? getSingle()?.toString() : undefined;
+		if (!selectionHandoffReady) {
+			selectionHandoffReady = true;
+			lastSelectionKey = nextKey;
+			selectionSettled = Boolean(nextKey && (variant === 'base' || variant === 'compact'));
+		} else if (nextKey !== lastSelectionKey) {
+			lastSelectionKey = nextKey;
+			scheduleSelectionHandoff();
+		} else if (mode !== 'single' || (variant !== 'base' && variant !== 'compact')) {
+			clearSelectionHandoff();
+			selectionSettled = false;
+		}
+	});
 </script>
 
 {#snippet previous(Primitive: typeof CalendarPrimitive | typeof RangeCalendar)}
@@ -108,7 +155,7 @@
 	</div>
 {/snippet}
 
-	<div bind:this={shell} class={`rx-calendar-shell rx-calendar-shell--${variant} rx-calendar-shell--${size} rx-calendar-shell--r-${radius} rx-calendar-shell--mode-${mode}`} class:no-glow={!glow} style={inlineStyle} data-variant={variant} role="group" aria-label="Calendar" onpointermove={pointerMove} onpointerleave={() => { shell?.style.setProperty('--glow', '0'); hover.visible = false; clearRangePreview(); }} onpointerdown={pointerDown}>
+	<div bind:this={shell} class={`rx-calendar-shell rx-calendar-shell--${variant} rx-calendar-shell--${size} rx-calendar-shell--r-${radius} rx-calendar-shell--mode-${mode}`} class:no-glow={!glow} class:rx-calendar-shell--selection-settled={selectionSettled} style={inlineStyle} data-variant={variant} data-selection-settled={selectionSettled} role="group" aria-label="Calendar" onpointermove={pointerMove} onpointerleave={() => { shell?.style.setProperty('--glow', '0'); hover.visible = false; clearRangePreview(); }} onpointerdown={pointerDown}>
 	<span class="rx-calendar__surface-glow" aria-hidden="true"></span>
 	{#if mode === 'range'}
 		<RangeCalendar.Root bind:value={getRange, setRange} {minValue} {maxValue} {disabled} isDateUnavailable={blockedDate} isDateDisabled={blockedDate} {numberOfMonths} weekdayFormat="short" fixedWeeks pagedNavigation={numberOfMonths > 1} class="rx-calendar">
@@ -150,8 +197,10 @@
 	:global(.rx-calendar__day:active:not([data-disabled])) { transform: scale(.9); }
 	:global(.rx-calendar__day[data-today])::after { content: ''; position: absolute; bottom: 5px; left: 50%; z-index: 1; width: 3px; height: 3px; border-radius: 50%; translate: -50% 0; background: currentColor; }
 	:global(.rx-calendar__day[data-selected]), :global(.rx-calendar__day[data-range-start]), :global(.rx-calendar__day[data-range-end]) { z-index: 4; color: rgb(var(--cal-selection-ink)); background: rgb(var(--rx-color)); }
-	/* Keep the destination chip atomic while the separate source motion layer travels into place. */
-	.rx-calendar-shell--mode-single:is(.rx-calendar-shell--base,.rx-calendar-shell--compact) :global(.rx-calendar__day[data-selected]) { background: rgb(var(--rx-color)); }
+	/* The source moving chip is the only visible fill in flight. Once it arrives, an
+	   identical under-chip fill gives contrast tooling an atomic selected-day pair. */
+	.rx-calendar-shell--mode-single:is(.rx-calendar-shell--base,.rx-calendar-shell--compact) :global(.rx-calendar__day[data-selected]) { background: transparent; }
+	.rx-calendar-shell--selection-settled.rx-calendar-shell--mode-single:is(.rx-calendar-shell--base,.rx-calendar-shell--compact) :global(.rx-calendar__day[data-selected]) { background: rgb(var(--rx-color)); }
 	.rx-calendar-shell--mode-single.rx-calendar-shell--minimal :global(.rx-calendar__day[data-selected]) { background: transparent; }
 	:global(.rx-calendar__day[data-range-middle]) { border-radius: 0; color: rgb(var(--rx-text)); background: rgb(var(--rx-color) / .1); }
 	:global(.rx-calendar__day[data-range-preview]) { border-radius: 0; background: rgb(var(--rx-color) / .06); }

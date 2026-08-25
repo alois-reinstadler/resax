@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Chip from './chip.svelte';
-	let { disabled = false }: { disabled?: boolean } = $props();
-	let selected = $state(false);
+	import type { ChipProps } from './chip.svelte';
+	let { disabled = false, color = 'primary', variant = 'bounce', selected = $bindable(false) }:
+		{ disabled?: boolean; color?: string; variant?: ChipProps['variant']; selected?: boolean } = $props();
 </script>
 
-<Chip variant="bounce" selectable bind:selected {disabled}>{#snippet children()}Svelte{/snippet}</Chip>
+<Chip {variant} {color} selectable bind:selected {disabled}>{#snippet children()}Svelte{/snippet}</Chip>
 <output>{selected ? 'selected' : 'idle'}</output>

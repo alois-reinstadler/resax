@@ -6,10 +6,28 @@ import source from './chip.svelte?raw';
 afterEach(cleanup);
 
 describe('Chip source interactions', () => {
-	it('keeps a theme-invariant contrast-safe pair beneath the relative-color accent layer', () => {
-		expect(source).toContain('color:rgb(var(--rx-fixed-light))');
-		expect(source).toContain('background-color:rgb(var(--rx-fixed-dark))');
-		expect(source).toContain('background-image:linear-gradient(hsl(from rgb(var(--rx-color))');
+	it('uses the source soft surface directly instead of a dead capped-color fallback', () => {
+		expect(source).toContain('.rx-chip--default,.rx-chip--bounce,.rx-chip--glow{color:rgb(var(--rx-text));background:rgb(var(--rx-color)/.12);border-color:rgb(var(--rx-color)/.2)}');
+		expect(source).toContain('.rx-chip--default.is-selected,.rx-chip--flat.is-selected,.rx-chip--border.is-selected{color:var(--rx-chip-solid-foreground);background:rgb(var(--rx-color)/.95);border-color:transparent}');
+		expect(source).not.toContain('--rx-chip-capped');
+		expect(source).not.toContain('min(l,');
+	});
+	it('computes distinct semantic color channels while keeping source-soft geometry', () => {
+		const primary = render(Harness, { color: 'primary', variant: 'default' });
+		const primaryChip = screen.getByRole('button', { name: 'Svelte' });
+		const primaryColor = getComputedStyle(primaryChip).getPropertyValue('--rx-color').trim();
+		expect(primaryColor).toBe('var(--rx-primary)');
+		expect(primaryChip.classList).toContain('rx-chip--size-default');
+		primary.unmount();
+
+		const success = render(Harness, { color: 'success', variant: 'default', selected: true });
+		const successChip = screen.getByRole('button', { name: 'Svelte' });
+		const successStyle = getComputedStyle(successChip);
+		expect(successStyle.getPropertyValue('--rx-color').trim()).toBe('var(--rx-success)');
+		expect(successStyle.getPropertyValue('--rx-color').trim()).not.toBe(primaryColor);
+		expect(successStyle.getPropertyValue('--rx-chip-solid-foreground').trim()).toBe('rgb(var(--rx-fixed-dark))');
+		expect(successChip.getAttribute('aria-pressed')).toBe('true');
+		success.unmount();
 	});
 	it('toggles the selected bounce state with pointer and keyboard', async () => {
 		render(Harness);
@@ -18,6 +36,10 @@ describe('Chip source interactions', () => {
 		expect(chip.getAttribute('aria-pressed')).toBe('true');
 		expect(chip.classList.contains('rx-chip--bounce')).toBe(true);
 		expect(chip.classList.contains('is-selected')).toBe(true);
+		await new Promise((resolve) => requestAnimationFrame(resolve));
+		expect(chip.classList.contains('is-bouncing')).toBe(true);
+		await fireEvent.animationEnd(chip, { animationName: 'rx-chip-bounce' });
+		expect(chip.classList.contains('is-bouncing')).toBe(false);
 		await fireEvent.keyDown(chip, { key: ' ' });
 		expect(chip.getAttribute('aria-pressed')).toBe('false');
 	});

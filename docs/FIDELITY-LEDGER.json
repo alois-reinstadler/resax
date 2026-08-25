@@ -429,7 +429,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Alert renderer, with source treatment and radius exposed as additive appearance and radius axes.",
       "mechanisms": [
         "blur-filter",
         "gradient-field",
@@ -504,7 +504,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Alert renderer, with source treatment and radius exposed as additive appearance and radius axes.",
       "mechanisms": [
         "blur-filter",
         "gradient-field",
@@ -579,7 +579,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Alert renderer, with source treatment and radius exposed as additive appearance and radius axes.",
       "mechanisms": [
         "blur-filter",
         "keyframe-motion",
@@ -644,7 +644,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Alert renderer, with source treatment and radius exposed as additive appearance and radius axes.",
       "mechanisms": [
         "blur-filter",
         "conic-field",
@@ -720,7 +720,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Alert renderer, with source treatment and radius exposed as additive appearance and radius axes.",
       "mechanisms": [
         "blur-filter",
         "raf-batching",
@@ -785,7 +785,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Alert renderer, with source treatment and radius exposed as additive appearance and radius axes.",
       "mechanisms": [
         "blur-filter",
         "keyframe-motion",
@@ -2447,7 +2447,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "gradient-field",
         "keyframe-motion",
@@ -2518,7 +2518,26 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/button/css/shadow/vs-button.css",
+            "source": "The source foreground resolver and variant tone tables can use light ink for semantic success or danger solid fills.",
+            "port": "Resax uses invariant rgb(var(--rx-fixed-dark)) ink for success, danger, and warn solid fills while preserving the source variant geometry and choreography.",
+            "reason": "First-paint Axe evidence proves the light-ink pairs fail the project-required 4.5:1 contrast threshold with the Resax semantic palette."
+          },
+          {
+            "reference": "references/button/css/shadow/vs-button.css",
+            "source": "The source primary hover fades the complete button to opacity .85.",
+            "port": "Resax applies the source-derived --rx-color-hover background while leaving foreground opacity unchanged.",
+            "reason": "Fading the whole element reduces text contrast; the background-only treatment retains the source hover change without weakening the foreground."
+          },
+          {
+            "reference": "references/button/css/shadow/vs-button.css",
+            "source": "The source secondary and ghost surfaces are tuned for its dark-first palette and use its fixed text colors.",
+            "port": "The compatible flat, border, and transparent axes use a contrast-safe accent/text mix in light mode and retain the source-like foreground in dark mode.",
+            "reason": "The consolidated Resax API supports both themes, and the source fixed-light treatment does not remain legible on light surfaces."
+          }
+        ],
         "reviewedBy": "/root/buttons_cards",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -2539,7 +2558,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "conic-field",
         "gradient-field",
@@ -2598,7 +2617,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/button/css/shadow/vs-button-border-draw.css",
+            "source": "The source secondary border-draw hover switches its label to fixed white.",
+            "port": "Resax restores fixed-light hover ink in dark mode and uses a contrast-safe accent/text mix in light mode.",
+            "reason": "Fixed white fails contrast on the transparent light-mode surface; the conic draw, timing, and shadow remain literal."
+          }
+        ],
         "reviewedBy": "/root/buttons_cards",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -2619,7 +2645,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "blur-filter",
         "clip-path",
@@ -2714,7 +2740,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "clip-path",
         "keyframe-motion",
@@ -2798,7 +2824,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "keyframe-motion",
         "pointer-position",
@@ -2885,7 +2911,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "blur-filter",
         "keyframe-motion",
@@ -2969,7 +2995,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "clip-path",
         "pointer-position",
@@ -3031,7 +3057,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/button/css/shadow/vs-button-invert.css",
+            "source": "The source foreground resolver and variant tone tables can use light ink for semantic success or danger solid fills.",
+            "port": "Resax uses invariant rgb(var(--rx-fixed-dark)) ink for success, danger, and warn solid fills while preserving the source variant geometry and choreography.",
+            "reason": "First-paint Axe evidence proves the light-ink pairs fail the project-required 4.5:1 contrast threshold with the Resax semantic palette."
+          }
+        ],
         "reviewedBy": "/root/buttons_cards",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -3052,7 +3085,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "keyframe-motion",
         "reduced-motion",
@@ -3124,7 +3157,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "pointer-position",
         "radial-field",
@@ -3183,7 +3216,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/button/css/shadow/vs-button-magnetic.css",
+            "source": "The source foreground resolver and variant tone tables can use light ink for semantic success or danger solid fills.",
+            "port": "Resax uses invariant rgb(var(--rx-fixed-dark)) ink for success, danger, and warn solid fills while preserving the source variant geometry and choreography.",
+            "reason": "First-paint Axe evidence proves the light-ink pairs fail the project-required 4.5:1 contrast threshold with the Resax semantic palette."
+          }
+        ],
         "reviewedBy": "/root/buttons_cards",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -3204,7 +3244,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "blur-filter",
         "gradient-field",
@@ -3303,7 +3343,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "state-hover",
         "state-pressed"
@@ -3350,7 +3390,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/button/css/shadow/vs-button-push.css",
+            "source": "The source foreground resolver and variant tone tables can use light ink for semantic success or danger solid fills.",
+            "port": "Resax uses invariant rgb(var(--rx-fixed-dark)) ink for success, danger, and warn solid fills while preserving the source variant geometry and choreography.",
+            "reason": "First-paint Axe evidence proves the light-ink pairs fail the project-required 4.5:1 contrast threshold with the Resax semantic palette."
+          }
+        ],
         "reviewedBy": "/root/buttons_cards",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -3371,7 +3418,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "gradient-field",
         "keyframe-motion",
@@ -3428,7 +3475,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/button/css/shadow/vs-button-shine.css",
+            "source": "The source foreground resolver and variant tone tables can use light ink for semantic success or danger solid fills.",
+            "port": "Resax uses invariant rgb(var(--rx-fixed-dark)) ink for success, danger, and warn solid fills while preserving the source variant geometry and choreography.",
+            "reason": "First-paint Axe evidence proves the light-ink pairs fail the project-required 4.5:1 contrast threshold with the Resax semantic palette."
+          }
+        ],
         "reviewedBy": "/root/buttons_cards",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -3449,7 +3503,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Button API; source foregrounds are restored where contrast permits and row-level WCAG deviations remain explicit.",
       "mechanisms": [
         "blur-filter",
         "keyframe-motion",
@@ -3512,7 +3566,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/reduced-motion-ask-ai-button-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/button/css/shadow/vs-button-v2.css",
+            "source": "The source foreground resolver and variant tone tables can use light ink for semantic success or danger solid fills.",
+            "port": "Resax uses invariant rgb(var(--rx-fixed-dark)) ink for success, danger, and warn solid fills while preserving the source variant geometry and choreography.",
+            "reason": "First-paint Axe evidence proves the light-ink pairs fail the project-required 4.5:1 contrast threshold with the Resax semantic palette."
+          }
+        ],
         "reviewedBy": "/root/buttons_cards",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -3585,7 +3646,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Calendar renderer; base/compact preserve the moving selection handoff with the documented delayed accessibility underfill.",
       "mechanisms": [
         "blur-filter",
         "gradient-field",
@@ -3649,7 +3710,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/light-calendar-gallery-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/light-calendar-gallery-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/calendar/css/shadow/vs-calendar.css",
+            "source": "In single-selection mode the moving shared selection chip is the only selected-day fill.",
+            "port": "Resax keeps the selected cell transparent during the 400ms chip handoff, then adds an identical per-cell fill after arrival; initial SSR/static output starts filled.",
+            "reason": "The delayed underfill preserves the source motion while keeping selected text and its contrast background atomic for SSR, script-blocked rendering, and accessibility scans."
+          }
+        ],
         "reviewedBy": "/root/rich_inputs",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -3670,7 +3738,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Calendar renderer; base/compact preserve the moving selection handoff with the documented delayed accessibility underfill.",
       "mechanisms": [
         "keyboard-interaction",
         "reduced-motion",
@@ -3710,7 +3778,14 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/light-calendar-gallery-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/light-calendar-gallery-mobile-linux.png"
         ],
-        "deviations": [],
+        "deviations": [
+          {
+            "reference": "references/calendar/css/shadow/vs-calendar-compact.css",
+            "source": "In single-selection mode the moving shared selection chip is the only selected-day fill.",
+            "port": "Resax keeps the selected cell transparent during the 320ms chip handoff, then adds an identical per-cell fill after arrival; initial SSR/static output starts filled.",
+            "reason": "The delayed underfill preserves the source motion while keeping selected text and its contrast background atomic for SSR, script-blocked rendering, and accessibility scans."
+          }
+        ],
         "reviewedBy": "/root/rich_inputs",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -3731,7 +3806,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Calendar renderer; base/compact preserve the moving selection handoff with the documented delayed accessibility underfill.",
       "mechanisms": [
         "keyboard-interaction",
         "keyframe-motion",
@@ -3798,7 +3873,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Calendar renderer; base/compact preserve the moving selection handoff with the documented delayed accessibility underfill.",
       "mechanisms": [
         "keyboard-interaction",
         "keyframe-motion",
@@ -3863,7 +3938,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Calendar renderer; base/compact preserve the moving selection handoff with the documented delayed accessibility underfill.",
       "mechanisms": [
         "keyboard-interaction",
         "reduced-motion",
@@ -3926,7 +4001,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Calendar renderer; base/compact preserve the moving selection handoff with the documented delayed accessibility underfill.",
       "mechanisms": [
         "gradient-field",
         "keyboard-interaction",
@@ -4960,7 +5035,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Chip API, including source soft/selected states, geometry, glyphs, and per-variant hover/click choreography.",
       "mechanisms": [
         "gradient-field",
         "keyframe-motion",
@@ -5032,7 +5107,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Chip API, including source soft/selected states, geometry, glyphs, and per-variant hover/click choreography.",
       "mechanisms": [
         "clip-path",
         "keyframe-motion",
@@ -5097,7 +5172,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Chip API, including source soft/selected states, geometry, glyphs, and per-variant hover/click choreography.",
       "mechanisms": [
         "reduced-motion",
         "state-hover",
@@ -5156,7 +5231,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Chip API, including source soft/selected states, geometry, glyphs, and per-variant hover/click choreography.",
       "mechanisms": [
         "keyframe-motion",
         "reduced-motion",
@@ -5217,7 +5292,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Chip API, including source soft/selected states, geometry, glyphs, and per-variant hover/click choreography.",
       "mechanisms": [
         "gradient-field",
         "keyframe-motion",
@@ -5276,7 +5351,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the consolidated Chip API, including source soft/selected states, geometry, glyphs, and per-variant hover/click choreography.",
       "mechanisms": [
         "conic-field",
         "gradient-field",
@@ -7151,7 +7226,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Dock renderer, including per-variant active ink and separately scoped reduced-motion and coarse-pointer behavior.",
       "mechanisms": [
         "blur-filter",
         "keyboard-interaction",
@@ -7211,6 +7286,12 @@
             "source": "The source requests corner-shape: squircle in this variant.",
             "port": "The port preserves the radius silhouette without the corner-shape declaration.",
             "reason": "Svelte CSS diagnostics reject the unknown declaration and current browser support is incomplete."
+          },
+          {
+            "reference": "references/dock/css/shadow/vs-dock.css",
+            "source": "The source defines a reduced-motion branch but no separate coarse-pointer policy.",
+            "port": "On coarse pointers Resax disables pointer-following item transforms, glass tilt, sheen, and pointer halo while retaining passive Aurora, Neon, and press animations; reduced motion disables all motion separately.",
+            "reason": "Touch input has no continuous hover coordinates, and the Phase 4c accessibility contract requires static pointer geometry without treating touch as a reduced-motion preference."
           }
         ],
         "reviewedBy": "/root/shell_physics",
@@ -7233,7 +7314,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Dock renderer, including per-variant active ink and separately scoped reduced-motion and coarse-pointer behavior.",
       "mechanisms": [
         "blend-compositing",
         "blur-filter",
@@ -7303,6 +7384,12 @@
             "source": "The source requests corner-shape: squircle in this variant.",
             "port": "The port preserves the radius silhouette without the corner-shape declaration.",
             "reason": "Svelte CSS diagnostics reject the unknown declaration and current browser support is incomplete."
+          },
+          {
+            "reference": "references/dock/css/shadow/vs-dock-aurora.css",
+            "source": "The source defines a reduced-motion branch but no separate coarse-pointer policy.",
+            "port": "On coarse pointers Resax disables pointer-following item transforms, glass tilt, sheen, and pointer halo while retaining passive Aurora, Neon, and press animations; reduced motion disables all motion separately.",
+            "reason": "Touch input has no continuous hover coordinates, and the Phase 4c accessibility contract requires static pointer geometry without treating touch as a reduced-motion preference."
           }
         ],
         "reviewedBy": "/root/shell_physics",
@@ -7325,7 +7412,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Dock renderer, including per-variant active ink and separately scoped reduced-motion and coarse-pointer behavior.",
       "mechanisms": [
         "blur-filter",
         "gradient-field",
@@ -7391,6 +7478,12 @@
             "source": "The source requests corner-shape: squircle in this variant.",
             "port": "The port preserves the radius silhouette without the corner-shape declaration.",
             "reason": "Svelte CSS diagnostics reject the unknown declaration and current browser support is incomplete."
+          },
+          {
+            "reference": "references/dock/css/shadow/vs-dock-bounce.css",
+            "source": "The source defines a reduced-motion branch but no separate coarse-pointer policy.",
+            "port": "On coarse pointers Resax disables pointer-following item transforms, glass tilt, sheen, and pointer halo while retaining passive Aurora, Neon, and press animations; reduced motion disables all motion separately.",
+            "reason": "Touch input has no continuous hover coordinates, and the Phase 4c accessibility contract requires static pointer geometry without treating touch as a reduced-motion preference."
           }
         ],
         "reviewedBy": "/root/shell_physics",
@@ -7413,7 +7506,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Dock renderer, including per-variant active ink and separately scoped reduced-motion and coarse-pointer behavior.",
       "mechanisms": [
         "blur-filter",
         "gradient-field",
@@ -7480,6 +7573,12 @@
             "source": "The source requests corner-shape: squircle in this variant.",
             "port": "The port preserves the radius silhouette without the corner-shape declaration.",
             "reason": "Svelte CSS diagnostics reject the unknown declaration and current browser support is incomplete."
+          },
+          {
+            "reference": "references/dock/css/shadow/vs-dock-glass.css",
+            "source": "The source defines a reduced-motion branch but no separate coarse-pointer policy.",
+            "port": "On coarse pointers Resax disables pointer-following item transforms, glass tilt, sheen, and pointer halo while retaining passive Aurora, Neon, and press animations; reduced motion disables all motion separately.",
+            "reason": "Touch input has no continuous hover coordinates, and the Phase 4c accessibility contract requires static pointer geometry without treating touch as a reduced-motion preference."
           }
         ],
         "reviewedBy": "/root/shell_physics",
@@ -7502,7 +7601,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Dock renderer, including per-variant active ink and separately scoped reduced-motion and coarse-pointer behavior.",
       "mechanisms": [
         "blur-filter",
         "keyboard-interaction",
@@ -7565,6 +7664,12 @@
             "source": "The source requests corner-shape: squircle in this variant.",
             "port": "The port preserves the radius silhouette without the corner-shape declaration.",
             "reason": "Svelte CSS diagnostics reject the unknown declaration and current browser support is incomplete."
+          },
+          {
+            "reference": "references/dock/css/shadow/vs-dock-gooey.css",
+            "source": "The source defines a reduced-motion branch but no separate coarse-pointer policy.",
+            "port": "On coarse pointers Resax disables pointer-following item transforms, glass tilt, sheen, and pointer halo while retaining passive Aurora, Neon, and press animations; reduced motion disables all motion separately.",
+            "reason": "Touch input has no continuous hover coordinates, and the Phase 4c accessibility contract requires static pointer geometry without treating touch as a reduced-motion preference."
           }
         ],
         "reviewedBy": "/root/shell_physics",
@@ -7587,7 +7692,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Dock renderer, including per-variant active ink and separately scoped reduced-motion and coarse-pointer behavior.",
       "mechanisms": [
         "blur-filter",
         "keyboard-interaction",
@@ -7651,6 +7756,12 @@
             "source": "The source requests corner-shape: squircle in this variant.",
             "port": "The port preserves the radius silhouette without the corner-shape declaration.",
             "reason": "Svelte CSS diagnostics reject the unknown declaration and current browser support is incomplete."
+          },
+          {
+            "reference": "references/dock/css/shadow/vs-dock-magnet.css",
+            "source": "The source defines a reduced-motion branch but no separate coarse-pointer policy.",
+            "port": "On coarse pointers Resax disables pointer-following item transforms, glass tilt, sheen, and pointer halo while retaining passive Aurora, Neon, and press animations; reduced motion disables all motion separately.",
+            "reason": "Touch input has no continuous hover coordinates, and the Phase 4c accessibility contract requires static pointer geometry without treating touch as a reduced-motion preference."
           }
         ],
         "reviewedBy": "/root/shell_physics",
@@ -7673,7 +7784,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Dock renderer, including per-variant active ink and separately scoped reduced-motion and coarse-pointer behavior.",
       "mechanisms": [
         "blur-filter",
         "keyboard-interaction",
@@ -7736,6 +7847,12 @@
             "source": "The source requests corner-shape: squircle in this variant.",
             "port": "The port preserves the radius silhouette without the corner-shape declaration.",
             "reason": "Svelte CSS diagnostics reject the unknown declaration and current browser support is incomplete."
+          },
+          {
+            "reference": "references/dock/css/shadow/vs-dock-neon.css",
+            "source": "The source defines a reduced-motion branch but no separate coarse-pointer policy.",
+            "port": "On coarse pointers Resax disables pointer-following item transforms, glass tilt, sheen, and pointer halo while retaining passive Aurora, Neon, and press animations; reduced motion disables all motion separately.",
+            "reason": "Touch input has no continuous hover coordinates, and the Phase 4c accessibility contract requires static pointer geometry without treating touch as a reduced-motion preference."
           }
         ],
         "reviewedBy": "/root/shell_physics",
@@ -11768,7 +11885,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the imperative notification composition, including family positions, badge and goo geometry, alignment, and targeted inline flow; registry-contract deviations remain explicit.",
       "mechanisms": [
         "blur-filter",
         "keyframe-motion",
@@ -11791,9 +11908,10 @@
         "references/notification/compiled/vue/VsNotification.BlLiYFIt.js"
       ],
       "implementationPaths": [
-        "src/lib/registry/ui/notification/notify.svelte.ts",
+        "src/lib/registry/ui/notification/index.ts",
+        "src/lib/registry/ui/notification/notification-outlet.svelte",
         "src/lib/registry/ui/notification/notification.svelte",
-        "src/lib/registry/ui/notification/index.ts"
+        "src/lib/registry/ui/notification/notify.svelte.ts"
       ],
       "docsPaths": [
         "src/lib/docs/pages/notification.svelte"
@@ -11834,6 +11952,12 @@
             "source": "The source base notification replaces the active notification at a position.",
             "port": "Resax retains and queues up to six notifications per position.",
             "reason": "This preserves the accepted registry notification API and its existing queue/overflow contract while keeping source presentation and interaction mechanics."
+          },
+          {
+            "reference": "references/notification/css/shadow/vs-notification.css",
+            "source": "The source web component uses its family-specific default lifetime, generally 5000ms and 6000ms for the base family.",
+            "port": "Resax defaults imperative notifications to 4000ms unless the caller supplies duration, with duration=0 remaining sticky.",
+            "reason": "The authoritative notification registry spec mandates a 4000ms default, so source geometry and motion are retained around the project API contract."
           }
         ],
         "reviewedBy": "/root/overlays_feedback",
@@ -11856,7 +11980,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the imperative notification composition, including family positions, badge and goo geometry, alignment, and targeted inline flow; registry-contract deviations remain explicit.",
       "mechanisms": [
         "reduced-motion",
         "resize-measurement",
@@ -11873,9 +11997,10 @@
         "references/notification/compiled/vue/VsNotificationBanner.CItFNcvu.js"
       ],
       "implementationPaths": [
-        "src/lib/registry/ui/notification/notify.svelte.ts",
+        "src/lib/registry/ui/notification/index.ts",
+        "src/lib/registry/ui/notification/notification-outlet.svelte",
         "src/lib/registry/ui/notification/notification.svelte",
-        "src/lib/registry/ui/notification/index.ts"
+        "src/lib/registry/ui/notification/notify.svelte.ts"
       ],
       "docsPaths": [
         "src/lib/docs/pages/notification.svelte"
@@ -11907,9 +12032,9 @@
         "deviations": [
           {
             "reference": "references/notification/css/shadow/vs-notification-banner.css",
-            "source": "The source base notification replaces the active notification at a position.",
-            "port": "Resax retains and queues up to six notifications per position.",
-            "reason": "This preserves the accepted registry notification API and its existing queue/overflow contract while keeping source presentation and interaction mechanics."
+            "source": "The source web component uses its family-specific default lifetime, generally 5000ms and 6000ms for the base family.",
+            "port": "Resax defaults imperative notifications to 4000ms unless the caller supplies duration, with duration=0 remaining sticky.",
+            "reason": "The authoritative notification registry spec mandates a 4000ms default, so source geometry and motion are retained around the project API contract."
           }
         ],
         "reviewedBy": "/root/overlays_feedback",
@@ -11932,7 +12057,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the imperative notification composition, including family positions, badge and goo geometry, alignment, and targeted inline flow; registry-contract deviations remain explicit.",
       "mechanisms": [
         "keyframe-motion",
         "reduced-motion",
@@ -11950,9 +12075,10 @@
         "references/notification/compiled/vue/VsNotificationCard.COlXeHCh.js"
       ],
       "implementationPaths": [
-        "src/lib/registry/ui/notification/notify.svelte.ts",
+        "src/lib/registry/ui/notification/index.ts",
+        "src/lib/registry/ui/notification/notification-outlet.svelte",
         "src/lib/registry/ui/notification/notification.svelte",
-        "src/lib/registry/ui/notification/index.ts"
+        "src/lib/registry/ui/notification/notify.svelte.ts"
       ],
       "docsPaths": [
         "src/lib/docs/pages/notification.svelte"
@@ -11985,9 +12111,9 @@
         "deviations": [
           {
             "reference": "references/notification/css/shadow/vs-notification-card.css",
-            "source": "The source base notification replaces the active notification at a position.",
-            "port": "Resax retains and queues up to six notifications per position.",
-            "reason": "This preserves the accepted registry notification API and its existing queue/overflow contract while keeping source presentation and interaction mechanics."
+            "source": "The source web component uses its family-specific default lifetime, generally 5000ms and 6000ms for the base family.",
+            "port": "Resax defaults imperative notifications to 4000ms unless the caller supplies duration, with duration=0 remaining sticky.",
+            "reason": "The authoritative notification registry spec mandates a 4000ms default, so source geometry and motion are retained around the project API contract."
           }
         ],
         "reviewedBy": "/root/overlays_feedback",
@@ -12010,7 +12136,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the imperative notification composition, including family positions, badge and goo geometry, alignment, and targeted inline flow; registry-contract deviations remain explicit.",
       "mechanisms": [
         "keyframe-motion",
         "reduced-motion",
@@ -12028,9 +12154,10 @@
         "references/notification/compiled/vue/VsNotificationGlow.VWIcP4m7.js"
       ],
       "implementationPaths": [
-        "src/lib/registry/ui/notification/notify.svelte.ts",
+        "src/lib/registry/ui/notification/index.ts",
+        "src/lib/registry/ui/notification/notification-outlet.svelte",
         "src/lib/registry/ui/notification/notification.svelte",
-        "src/lib/registry/ui/notification/index.ts"
+        "src/lib/registry/ui/notification/notify.svelte.ts"
       ],
       "docsPaths": [
         "src/lib/docs/pages/notification.svelte"
@@ -12063,9 +12190,9 @@
         "deviations": [
           {
             "reference": "references/notification/css/shadow/vs-notification-glow.css",
-            "source": "The source base notification replaces the active notification at a position.",
-            "port": "Resax retains and queues up to six notifications per position.",
-            "reason": "This preserves the accepted registry notification API and its existing queue/overflow contract while keeping source presentation and interaction mechanics."
+            "source": "The source web component uses its family-specific default lifetime, generally 5000ms and 6000ms for the base family.",
+            "port": "Resax defaults imperative notifications to 4000ms unless the caller supplies duration, with duration=0 remaining sticky.",
+            "reason": "The authoritative notification registry spec mandates a 4000ms default, so source geometry and motion are retained around the project API contract."
           }
         ],
         "reviewedBy": "/root/overlays_feedback",
@@ -12088,7 +12215,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the imperative notification composition, including family positions, badge and goo geometry, alignment, and targeted inline flow; registry-contract deviations remain explicit.",
       "mechanisms": [
         "raf-batching",
         "reduced-motion",
@@ -12103,9 +12230,10 @@
         "references/notification/compiled/vue/VsNotificationInline.-d6tH3xx.js"
       ],
       "implementationPaths": [
-        "src/lib/registry/ui/notification/notify.svelte.ts",
+        "src/lib/registry/ui/notification/index.ts",
+        "src/lib/registry/ui/notification/notification-outlet.svelte",
         "src/lib/registry/ui/notification/notification.svelte",
-        "src/lib/registry/ui/notification/index.ts"
+        "src/lib/registry/ui/notification/notify.svelte.ts"
       ],
       "docsPaths": [
         "src/lib/docs/pages/notification.svelte"
@@ -12135,9 +12263,15 @@
         "deviations": [
           {
             "reference": "references/notification/css/shadow/vs-notification-inline.css",
-            "source": "The source base notification replaces the active notification at a position.",
-            "port": "Resax retains and queues up to six notifications per position.",
-            "reason": "This preserves the accepted registry notification API and its existing queue/overflow contract while keeping source presentation and interaction mechanics."
+            "source": "The source inline element remains mounted until explicitly dismissed and has no registry-wide auto-dismiss default.",
+            "port": "Resax defaults imperative notifications to 4000ms unless the caller supplies duration, with duration=0 remaining sticky.",
+            "reason": "The authoritative notification registry spec mandates a 4000ms default, so source geometry and motion are retained around the project API contract."
+          },
+          {
+            "reference": "references/notification/css/shadow/vs-notification-inline.css",
+            "source": "The source inline notification is always rendered in normal document flow.",
+            "port": "Passing target renders the notification in flow at that element; omitting target retains the existing fixed notification outlet as a compatibility fallback.",
+            "reason": "The target option restores source behavior without breaking the accepted imperative registry API for existing callers."
           }
         ],
         "reviewedBy": "/root/overlays_feedback",
@@ -12160,7 +12294,7 @@
         }
       },
       "status": "composed",
-      "reason": "Reviewed source mechanics are completely recreated through the documented primitive or orthogonal API composition.",
+      "reason": "Reviewed source mechanics are recreated through the imperative notification composition, including family positions, badge and goo geometry, alignment, and targeted inline flow; registry-contract deviations remain explicit.",
       "mechanisms": [
         "reduced-motion",
         "resize-measurement",
@@ -12177,9 +12311,10 @@
         "references/notification/compiled/vue/VsNotificationSnackbar.BLOUIHIR.js"
       ],
       "implementationPaths": [
-        "src/lib/registry/ui/notification/notify.svelte.ts",
+        "src/lib/registry/ui/notification/index.ts",
+        "src/lib/registry/ui/notification/notification-outlet.svelte",
         "src/lib/registry/ui/notification/notification.svelte",
-        "src/lib/registry/ui/notification/index.ts"
+        "src/lib/registry/ui/notification/notify.svelte.ts"
       ],
       "docsPaths": [
         "src/lib/docs/pages/notification.svelte"
@@ -12208,14 +12343,7 @@
           "tests/e2e/docs-visual.spec.ts-snapshots/light-notification-gallery-desktop-linux.png",
           "tests/e2e/docs-visual.spec.ts-snapshots/light-notification-gallery-mobile-linux.png"
         ],
-        "deviations": [
-          {
-            "reference": "references/notification/css/shadow/vs-notification-snackbar.css",
-            "source": "The source base notification replaces the active notification at a position.",
-            "port": "Resax retains and queues up to six notifications per position.",
-            "reason": "This preserves the accepted registry notification API and its existing queue/overflow contract while keeping source presentation and interaction mechanics."
-          }
-        ],
+        "deviations": [],
         "reviewedBy": "/root/overlays_feedback",
         "reviewedAt": "2026-08-25",
         "visualReviewedBy": "/root/docs_visual",
@@ -17303,7 +17431,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Skeleton renderer, including the source text/count default, shape geometry, speed, animation, and grouped sweep APIs.",
       "mechanisms": [
         "gradient-field",
         "keyframe-motion",
@@ -17332,7 +17460,8 @@
         ],
         "interactionTests": [
           "src/lib/registry/ui/core-visuals.spec.ts",
-          "src/lib/registry/ui/feedback.svelte.test.ts"
+          "src/lib/registry/ui/feedback.svelte.test.ts",
+          "src/lib/registry/ui/skeleton/skeleton.svelte.test.ts"
         ],
         "visualEvidence": [
           "tests/e2e/docs-visual.spec.ts-snapshots/dark-skeleton-gallery-desktop-linux.png",
@@ -17361,7 +17490,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Skeleton renderer, including the source text/count default, shape geometry, speed, animation, and grouped sweep APIs.",
       "mechanisms": [
         "keyframe-motion",
         "reduced-motion",
@@ -17388,7 +17517,8 @@
         ],
         "interactionTests": [
           "src/lib/registry/ui/core-visuals.spec.ts",
-          "src/lib/registry/ui/feedback.svelte.test.ts"
+          "src/lib/registry/ui/feedback.svelte.test.ts",
+          "src/lib/registry/ui/skeleton/skeleton.svelte.test.ts"
         ],
         "visualEvidence": [
           "tests/e2e/docs-visual.spec.ts-snapshots/dark-skeleton-gallery-desktop-linux.png",
@@ -17417,7 +17547,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Skeleton renderer, including the source text/count default, shape geometry, speed, animation, and grouped sweep APIs.",
       "mechanisms": [
         "gradient-field",
         "keyframe-motion",
@@ -17446,7 +17576,8 @@
         ],
         "interactionTests": [
           "src/lib/registry/ui/core-visuals.spec.ts",
-          "src/lib/registry/ui/feedback.svelte.test.ts"
+          "src/lib/registry/ui/feedback.svelte.test.ts",
+          "src/lib/registry/ui/skeleton/skeleton.svelte.test.ts"
         ],
         "visualEvidence": [
           "tests/e2e/docs-visual.spec.ts-snapshots/dark-skeleton-gallery-desktop-linux.png",
@@ -17475,7 +17606,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Skeleton renderer, including the source text/count default, shape geometry, speed, animation, and grouped sweep APIs.",
       "mechanisms": [
         "keyframe-motion",
         "reduced-motion",
@@ -17506,7 +17637,8 @@
         ],
         "interactionTests": [
           "src/lib/registry/ui/core-visuals.spec.ts",
-          "src/lib/registry/ui/feedback.svelte.test.ts"
+          "src/lib/registry/ui/feedback.svelte.test.ts",
+          "src/lib/registry/ui/skeleton/skeleton.svelte.test.ts"
         ],
         "visualEvidence": [
           "tests/e2e/docs-visual.spec.ts-snapshots/dark-skeleton-gallery-desktop-linux.png",
@@ -17535,7 +17667,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Skeleton renderer, including the source text/count default, shape geometry, speed, animation, and grouped sweep APIs.",
       "mechanisms": [
         "gradient-field",
         "keyframe-motion",
@@ -17566,7 +17698,8 @@
         ],
         "interactionTests": [
           "src/lib/registry/ui/core-visuals.spec.ts",
-          "src/lib/registry/ui/feedback.svelte.test.ts"
+          "src/lib/registry/ui/feedback.svelte.test.ts",
+          "src/lib/registry/ui/skeleton/skeleton.svelte.test.ts"
         ],
         "visualEvidence": [
           "tests/e2e/docs-visual.spec.ts-snapshots/dark-skeleton-gallery-desktop-linux.png",
@@ -17595,7 +17728,7 @@
         }
       },
       "status": "literal",
-      "reason": "Reviewed source mechanics are directly implemented by the mapped Svelte renderer.",
+      "reason": "Reviewed source mechanics are directly implemented by the mapped Skeleton renderer, including the source text/count default, shape geometry, speed, animation, and grouped sweep APIs.",
       "mechanisms": [
         "keyframe-motion",
         "reduced-motion",
@@ -17624,7 +17757,8 @@
         ],
         "interactionTests": [
           "src/lib/registry/ui/core-visuals.spec.ts",
-          "src/lib/registry/ui/feedback.svelte.test.ts"
+          "src/lib/registry/ui/feedback.svelte.test.ts",
+          "src/lib/registry/ui/skeleton/skeleton.svelte.test.ts"
         ],
         "visualEvidence": [
           "tests/e2e/docs-visual.spec.ts-snapshots/dark-skeleton-gallery-desktop-linux.png",

@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 import Harness from './button-test-harness.svelte';
 import { buttonVariants } from './index';
+import source from './button.svelte?raw';
 
 describe('Button', () => {
 	it('renders children', () => {
@@ -33,17 +34,28 @@ describe('Button', () => {
 		expect(screen.getByRole('button').getAttribute('style')).toContain('--rx-color: 125 51 255');
 	});
 
-	it.each(['success', 'danger', 'warn'] as const)('uses contrast-safe semantic ink for %s solids', (color) => {
+	it.each(['success', 'danger', 'warn'] as const)('uses invariant WCAG ink for the %s semantic solid', (color) => {
 		render(Harness, { color });
 		const style = screen.getByRole('button').getAttribute('style');
 		expect(style).toContain(`--rx-color-foreground: var(--rx-${color}-foreground)`);
-		expect(style).toContain('--rx-button-foreground: rgb(var(--rx-warn-contrast-rgb))');
+		expect(style).toContain('--rx-button-foreground: rgb(var(--rx-fixed-dark))');
+		expect(style).toContain('--rx-button-liquid-foreground: rgb(var(--rx-fixed-dark))');
 	});
 
-	it.each(['primary', 'dark', '#f0d234'])('keeps the palette foreground for %s solids', (color) => {
+	it.each(['primary', 'dark', '#f0d234'])('keeps the per-palette foreground for %s solids and liquid fills', (color) => {
 		const view = render(Harness, { color });
-		expect(screen.getByRole('button').getAttribute('style')).toContain('--rx-button-foreground: var(--rx-color-foreground');
+		const style = screen.getByRole('button').getAttribute('style');
+		expect(style).toContain('--rx-button-foreground: var(--rx-color-foreground');
+		expect(style).toContain('--rx-button-liquid-foreground: var(--rx-color-foreground');
 		view.unmount();
+	});
+
+	it('keeps contrast channels independent from the warning palette token', () => {
+		expect(source).not.toContain("color === 'success' || color === 'danger' || color === 'warn' ? 'rgb(var(--rx-warn-contrast-rgb))'");
+		expect(source).not.toContain('background:color-mix(in srgb,rgb(var(--rx-color)) 88%,rgb(var(--rx-warn-contrast-rgb)))');
+		expect(source).toContain('.rx-button--magnetic{background:rgb(var(--rx-color));color:var(--rx-button-foreground)');
+		expect(source).toContain('.rx-button--gooey{--rip:0 0 0;background:transparent;color:var(--rx-button-liquid-foreground)');
+		expect(source).toContain('.rx-button--v2{background:rgb(var(--rx-color));color:var(--rx-button-foreground)');
 	});
 
 	it('maps variant and size to stable classes', () => {

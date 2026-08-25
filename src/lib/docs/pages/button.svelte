@@ -26,6 +26,7 @@
 <DemoSection title="Source interaction catalog" source={'<Button variant="border-draw">Border draw</Button>'}>
 	<div class="button-demo-row" data-demo-section="source-variants">
 		{#each sourceVariants as variant}<Button {variant} color={variant === 'gooey' ? 'success' : 'primary'}>{variant}</Button>{/each}
+		<Button variant="v2" color="success">v2 success</Button><Button variant="v2" color="danger">v2 danger</Button><Button variant="v2" color="warn">v2 warn</Button>
 	</div>
 </DemoSection>
 

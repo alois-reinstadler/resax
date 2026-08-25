@@ -5,6 +5,8 @@
 
 	export interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'title' | 'children'> {
 		variant?: 'default' | 'banner' | 'inline' | 'neon' | 'split' | 'toast';
+		appearance?: 'soft' | 'solid' | 'outline';
+		radius?: 'subtle' | 'rounded' | 'pill';
 		color?: RxColor;
 		title?: string | Snippet;
 		icon?: Snippet;
@@ -23,9 +25,9 @@
 	import type { TransitionConfig } from 'svelte/transition';
 	import { alertVariants } from './index';
 
-	let { variant = 'default', color, title, icon, closable = false, open = $bindable(true), dismissAfter, onClose, onOpenChange,
+	let { variant = 'default', appearance = 'soft', radius = 'rounded', color, title, icon, closable = false, open = $bindable(true), dismissAfter, onClose, onOpenChange,
 		children, class: className, style, ...restProps }: AlertProps = $props();
-	const classes = $derived(alertVariants({ variant, class: typeof className === 'string' ? className : undefined }));
+	const classes = $derived(alertVariants({ variant, appearance, radius, class: typeof className === 'string' ? className : undefined }));
 	const inlineStyle = $derived(`${styleColor(color) ?? '--rx-color: var(--rx-primary)'}; --rx-alert-timeout:${Math.max(0,dismissAfter ?? 0)}ms; ${style ?? ''}`);
 	const titleSnippet = $derived(typeof title === 'function' ? title : undefined);
 	const attachNeighbor = $derived(neighborLight({ disabled: () => variant !== 'default' }));
@@ -63,20 +65,22 @@
 	.rx-alert__close:focus-visible { outline: 2px solid rgb(var(--rx-color) / .4); outline-offset: 2px; }
 	.rx-alert__glow{position:absolute;inset:-1px;z-index:1;border-radius:inherit;padding:1px;pointer-events:none;background:radial-gradient(60px circle at var(--gx,50%) var(--gy,50%),rgb(var(--rx-color)/.6),rgb(var(--rx-color)/.42) 30%,rgb(var(--rx-color)/.16) 58%,transparent 82%),radial-gradient(200px circle at var(--gx,50%) var(--gy,50%),rgb(var(--rx-color)/.6),rgb(var(--rx-color)/.27) 42%,rgb(var(--rx-color)/.08) 66%,transparent 85%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:calc(var(--glow,0)*.63);transition:opacity 140ms}.rx-alert__ripples{position:absolute;inset:0;z-index:1;border-radius:inherit;overflow:hidden;pointer-events:none}:global(.rx-alert__ripple){position:absolute;border-radius:50%;transform:translate(-50%,-50%) scale(0);background:radial-gradient(circle,rgb(var(--rx-color)/.38),rgb(var(--rx-color)/.2) 24%,rgb(var(--rx-color)/.09) 44%,rgb(var(--rx-color)/.03) 60%,transparent 76%);animation:rx-alert-rip 780ms cubic-bezier(.22,1,.36,1) forwards,rx-alert-fade 780ms cubic-bezier(.25,.1,.25,1) forwards}
 	.rx-alert--default{--lit-fill:var(--rx-neighbor-fill,none);--lit-ring:var(--rx-neighbor-ring,none);--lit:var(--rx-neighbor-lit,0)}.rx-alert--default::before{content:'';position:absolute;inset:0;z-index:0;border-radius:inherit;pointer-events:none;background:var(--lit-fill);opacity:calc(var(--lit)*.3);transition:opacity 140ms}.rx-alert--default::after{content:'';position:absolute;inset:-1px;z-index:1;border-radius:inherit;padding:1px;pointer-events:none;background:var(--lit-ring);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:var(--lit);transition:opacity 140ms}
+	.rx-alert--default{max-width:440px;padding:13px 14px;gap:11px}.rx-alert--default.rx-alert--subtle{border-radius:8px}.rx-alert--default.rx-alert--rounded{border-radius:12px}.rx-alert--default.rx-alert--pill{border-radius:18px}.rx-alert--default.rx-alert--soft{color:rgb(var(--rx-text));background:rgb(var(--rx-color)/.1);border-color:rgb(var(--rx-color)/.2)}.rx-alert--default.rx-alert--solid{--rx-alert-solid-fg:var(--rx-color-foreground,var(--rx-primary-foreground));color:var(--rx-alert-solid-fg);background:rgb(var(--rx-color)/.92);border-color:transparent}.rx-alert--default.rx-alert--solid[data-rx-color='success'],.rx-alert--default.rx-alert--solid[data-rx-color='danger'],.rx-alert--default.rx-alert--solid[data-rx-color='warn']{--rx-alert-solid-fg:rgb(var(--rx-fixed-dark))}.rx-alert--default.rx-alert--solid .rx-alert__body{color:inherit;opacity:.88}.rx-alert--default.rx-alert--solid .rx-alert__icon{color:inherit}.rx-alert--default.rx-alert--outline{color:rgb(var(--rx-text));background:transparent;border-color:rgb(var(--rx-color)/.45)}
 	.rx-alert--banner { border-radius:0;background:linear-gradient(90deg,rgb(var(--rx-color)/.12),transparent 30%),rgb(var(--rx-surface));box-shadow:inset 3px 0 rgb(var(--rx-color)),0 0 12px rgb(var(--rx-color)/.24) }
 	.rx-alert--inline { align-items:center;width:fit-content;padding:.55rem .8rem;font-size:.875rem }.rx-alert--inline .rx-alert__icon{width:.55rem;height:.55rem;flex-basis:.55rem;border-radius:50%;background:rgb(var(--rx-color));color:transparent}.rx-alert--inline .rx-alert__icon::after{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:rgb(var(--rx-color));animation:rx-alert-ping 1.8s cubic-bezier(.22,1,.36,1) infinite}.rx-alert--inline .rx-alert__icon :global(svg){display:none}
 	.rx-alert--inline .rx-alert__title { display: inline; margin: 0 .35rem 0 0; }
 	.rx-alert--inline .rx-alert__body { display: inline; }
 	.rx-alert--neon {overflow:visible;border:0;color:rgb(var(--rx-color));background:radial-gradient(125% 150% at 0 0,rgb(var(--rx-color)/.18),transparent 62%),rgb(var(--rx-dark));box-shadow:0 16px 40px -24px rgb(var(--rx-dark)),0 0 34px -12px rgb(var(--rx-color)/.75);transition:box-shadow 240ms }.rx-alert--neon:hover{box-shadow:0 16px 40px -24px rgb(var(--rx-dark)),0 0 46px -12px rgb(var(--rx-color)/.9)}.rx-alert__neon-ring{position:absolute;inset:-1px;z-index:-1;border-radius:inherit;padding:1px;background:conic-gradient(from var(--rx-alert-angle),rgb(var(--rx-color)) 0deg,transparent 145deg,rgb(var(--rx-color)/.8) 255deg,transparent 312deg,rgb(var(--rx-color)) 340deg,transparent 350deg,rgb(var(--rx-color)) 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:rx-alert-neon-spin 4.4s linear infinite,rx-alert-neon-breathe 3.4s ease-in-out infinite}
 	.rx-alert--neon .rx-alert__body { color: rgb(var(--rx-light)); }
-	.rx-alert--split { padding: 0; overflow: hidden; }
-	.rx-alert--split .rx-alert__icon { align-self:stretch;flex-basis:3.5rem;color:var(--rx-color-foreground,rgb(var(--rx-light)));background:rgb(var(--rx-color));box-shadow:inset -1px 0 rgb(var(--rx-dark)/.18) }
+	.rx-alert--split {max-width:440px;min-height:66px;padding:0;overflow:hidden;border-radius:14px;background:rgb(var(--rx-surface))}
+	.rx-alert--split .rx-alert__icon { align-self:stretch;flex-basis:54px;color:var(--rx-color-foreground,rgb(var(--rx-light)));background:rgb(var(--rx-color));box-shadow:inset -1px 0 rgb(var(--rx-dark)/.18) }
 	.rx-alert--split[data-rx-color='success'] .rx-alert__icon, .rx-alert--split[data-rx-color='danger'] .rx-alert__icon, .rx-alert--split[data-rx-color='warn'] .rx-alert__icon { color: rgb(var(--rx-alert-on-bright)); }
-	.rx-alert--split .rx-alert__content { padding: 1rem 0; }
+	.rx-alert--split .rx-alert__content {align-self:center;padding:13px 14px}.rx-alert--split .rx-alert__title{color:color-mix(in srgb,rgb(var(--rx-color)) 50%,rgb(var(--rx-text)));font-weight:650}
 	.rx-alert--split .rx-alert__close { margin: .85rem .8rem; }
-	.rx-alert--toast { width:min(100%,28rem);border:0;color:rgb(var(--rx-color));background:rgb(var(--rx-surface));box-shadow:0 20px 48px -16px rgb(var(--rx-dark)/.55),0 2px 8px rgb(var(--rx-dark)/.3) }
+	.rx-alert--toast {width:100%;max-width:400px;padding:14px;gap:12px;border:1px solid rgb(var(--rx-color)/.14);border-radius:16px;color:rgb(var(--rx-color));background:rgb(var(--rx-surface));box-shadow:0 20px 48px -16px rgb(var(--rx-dark)/.55),0 2px 8px rgb(var(--rx-dark)/.3) }
+	.rx-alert--toast .rx-alert__icon{display:inline-flex;flex-basis:34px;width:34px;height:34px;border-radius:999px;color:rgb(var(--rx-color));background:rgb(var(--rx-color)/.18)}.rx-alert--toast .rx-alert__icon :global(svg){width:1.1em;height:1.1em}
 	.rx-alert--toast .rx-alert__title{color:rgb(var(--rx-text))}
-	.rx-alert__timeout{position:absolute;z-index:4;left:0;right:0;bottom:0;height:2px;background:rgb(var(--rx-color));transform-origin:left;animation:rx-alert-timeout var(--rx-alert-timeout) linear forwards}
+	.rx-alert__timeout{position:absolute;z-index:4;left:0;right:0;bottom:0;height:3px;background:rgb(var(--rx-color));transform-origin:left;animation:rx-alert-timeout var(--rx-alert-timeout) linear forwards}
 	.rx-alert--banner:hover .rx-alert__timeout,.rx-alert--toast:hover .rx-alert__timeout{animation-play-state:paused}
 	:global(.dark) .rx-alert { --rx-alert-on-bright: var(--rx-background); }
 	@keyframes rx-alert-rip{to{transform:translate(-50%,-50%) scale(1)}}@keyframes rx-alert-fade{from{opacity:.8}to{opacity:0}}@keyframes rx-alert-ping{0%{opacity:.55;transform:scale(1)}70%,100%{opacity:0;transform:scale(2.6)}}@keyframes rx-alert-neon-spin{to{--rx-alert-angle:360deg;transform:rotate(1turn)}}@keyframes rx-alert-neon-breathe{50%{filter:blur(1.5px);opacity:.72}}@keyframes rx-alert-timeout{to{transform:scaleX(0)}}

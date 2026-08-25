@@ -4,6 +4,18 @@ Date: 2026-08-25
 Scope: source audit only; no implementation changes
 Authorization: `references/AUTHORIZATION.md`
 
+## Closure addendum — 2026-08-25
+
+The P0/P1 findings below record the pre-parity baseline and are retained as source-audit history. The following families have since been re-audited against their organized references and closed:
+
+- **Button:** all 13 source variants now have dedicated renderer mechanics. Invalid unit-bearing relative-HSL caps were removed, arbitrary colors retain their own foreground/hover palette, and source foregrounds are restored wherever they remain accessible. The accepted WCAG deviations are narrow: semantic success/danger/warn solid fills use invariant `rgb(var(--rx-fixed-dark))`; base hover changes only the background instead of fading the whole element to `.85`; light-mode border-draw and the compatible flat/border/transparent axes use contrast-safe ink. Dark border-draw retains the source fixed-light hover. Evidence: `src/lib/registry/ui/button/button.svelte.test.ts` and the Button visual/Axe fixtures.
+- **Chip:** base/default now uses the source `.12` soft tint and `.2` border, selected default reaches `.95`, bounce/glow reach `.9`, fill reaches `.95`, and source hover, glyph, height, click-restarted bounce, fill, glow, gradient, and outline choreography are present. The invalid relative-HSL fallback was removed. There is no retained source deviation. Evidence: `src/lib/registry/ui/chip/chip.svelte.test.ts` and `chip-test-harness.svelte`.
+- **Calendar:** base and compact keep their single moving selection chip. The selected cell is transparent only while the chip travels, then receives an identical fill after the exact `400ms`/`320ms` handoff. SSR/static output starts filled, rapid reselection cancels the prior handoff, and reduced motion settles immediately. This delayed underfill is an accepted accessibility deviation from the source's chip-only fill. Evidence: `src/lib/registry/ui/calendar/calendar.svelte.test.ts`.
+- **Skeleton:** the source API/default is restored: a three-line text skeleton by default, `shape="card"`, `count`, width/height/radius, speed and animation axes, 14px text bones, 120px rectangles, stagger, and one container-wide `100cqw` sweep. Existing compatibility props remain additive. There is no retained source deviation. Evidence: `src/lib/registry/ui/skeleton/skeleton.svelte.test.ts` plus the existing visual-feedback suites.
+- **Alert:** the source's additive base axes are exposed as `appearance="soft|solid|outline"` and `radius="subtle|rounded|pill"`. Base, Split, Toast, and timeout geometry now use the audited 440/400px widths, 13/14px padding, 54/34px icon treatments, accent title, and 3px rail while keeping the already ported motion/glow systems. There is no source-fidelity deviation; the semantic solid foreground follows the same documented WCAG ink policy as Button. Evidence: `src/lib/registry/ui/feedback.svelte.test.ts`.
+
+Accordingly, the priority tables and “Port gap” statements later in this document describe the original audit state, not the final implementation state. Machine-readable final classifications and accepted deviations live in `docs/FIDELITY-LEDGER.json`.
+
 ## Verdict
 
 This lane is not source-faithful. Most components reproduce the component category and a generic Resax skin, but not the defining Vuesax interaction system. The largest gap is not token choice: it is missing DOM layers, state machines, pointer-coordinate variables, composited gradients, and per-variant timing. The current glow treatment is especially inaccurate. A static `box-shadow` or `drop-shadow` is not equivalent to the source's masked, pointer-positioned radial border light.

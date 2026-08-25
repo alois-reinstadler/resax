@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/svelte';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import Harness from './calendar-test-harness.svelte';
 import Calendar from './calendar.svelte';
 import { CalendarDate } from '@internationalized/date';
@@ -7,6 +7,7 @@ import source from './calendar.svelte?raw';
 import datePickerSource from './date-picker.svelte?raw';
 
 describe('Calendar', () => {
+	afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 	it.each(['base','compact','dots','glow','minimal','range-fill'] as const)('renders the source %s surface', (variant) => {
 		const mode = variant === 'range-fill' ? 'range' : variant === 'dots' ? 'multiple' : 'single';
 		const initial = mode === 'range' ? { start: new CalendarDate(2025,6,10), end: new CalendarDate(2025,6,15) } : mode === 'multiple' ? [new CalendarDate(2025,6,15)] : new CalendarDate(2025,6,15);
@@ -55,9 +56,47 @@ describe('Calendar', () => {
 		expect(container.querySelector('[data-range-preview]')).toBeTruthy();
 		expect(datePickerSource).toContain('rx-date-picker-morph-in');
 	});
-	it('keeps selected base and compact day ink on an atomic accent fill while the chip moves', () => {
-		expect(source).toContain('.rx-calendar-shell--mode-single:is(.rx-calendar-shell--base,.rx-calendar-shell--compact)');
-		expect(source).toContain('background: rgb(var(--rx-color));');
+	it.each([['base', 400], ['compact', 320]] as const)('keeps initial %s selection contrast-safe, then uses only the moving chip for %ims after reselection', async (variant, duration) => {
+		vi.useFakeTimers();
+		const { container } = render(Calendar, { variant, value: new CalendarDate(2025, 6, 15) });
+		const shell = container.querySelector<HTMLElement>('.rx-calendar-shell');
+		expect(shell?.dataset.selectionSettled).toBe('true');
+		await fireEvent.click(screen.getByRole('button', { name: /Monday, June 16, 2025/i }));
+		expect(shell?.dataset.selectionSettled).toBe('false');
+		await vi.advanceTimersByTimeAsync(duration - 1);
+		expect(shell?.dataset.selectionSettled).toBe('false');
+		await vi.advanceTimersByTimeAsync(1);
+		expect(shell?.dataset.selectionSettled).toBe('true');
+	});
+	it('cancels the previous handoff when the base selection moves again', async () => {
+		vi.useFakeTimers();
+		const { container } = render(Calendar, { variant: 'base', value: new CalendarDate(2025, 6, 15) });
+		const shell = container.querySelector<HTMLElement>('.rx-calendar-shell');
+		await fireEvent.click(screen.getByRole('button', { name: /Monday, June 16, 2025/i }));
+		await vi.advanceTimersByTimeAsync(200);
+		await fireEvent.click(screen.getByRole('button', { name: /Tuesday, June 17, 2025/i }));
+		await vi.advanceTimersByTimeAsync(399);
+		expect(shell?.dataset.selectionSettled).toBe('false');
+		await vi.advanceTimersByTimeAsync(1);
+		expect(shell?.dataset.selectionSettled).toBe('true');
+	});
+	it('clears an in-flight selection handoff on teardown', async () => {
+		vi.useFakeTimers();
+		const setTimer = vi.spyOn(globalThis, 'setTimeout');
+		const clearTimer = vi.spyOn(globalThis, 'clearTimeout');
+		const { unmount } = render(Calendar, { variant: 'base', value: new CalendarDate(2025, 6, 15) });
+		await fireEvent.click(screen.getByRole('button', { name: /Monday, June 16, 2025/i }));
+		const handoffCall = setTimer.mock.calls.findLastIndex(([, delay]) => delay === 400);
+		expect(handoffCall).toBeGreaterThanOrEqual(0);
+		const handoffTimer = setTimer.mock.results[handoffCall]?.value;
+		unmount();
+		expect(clearTimer).toHaveBeenCalledWith(handoffTimer);
+	});
+	it('hands contrast off immediately after reselection when reduced motion is requested', async () => {
+		vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: true })));
+		const { container } = render(Calendar, { variant: 'compact', value: new CalendarDate(2025, 6, 15) });
+		await fireEvent.click(screen.getByRole('button', { name: /Monday, June 16, 2025/i }));
+		expect(container.querySelector<HTMLElement>('.rx-calendar-shell')?.dataset.selectionSettled).toBe('true');
 	});
 	it('stops persistent overlays, sheen, month motion, and ripples for reduced motion', () => { expect(source).toContain('@media (prefers-reduced-motion: reduce)'); expect(source).toContain('.rx-calendar__ripple { display: none; }'); });
 });

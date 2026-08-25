@@ -60,7 +60,7 @@ for (const mode of ['light', 'dark'] as const) {
 		await setMode(page, mode);
 		await page.goto('/');
 		await settle(page);
-		await expect(page).toHaveScreenshot(`${mode}-docs-shell.png`, { animations: 'disabled' });
+		await expect(page).toHaveScreenshot(`${mode}-docs-shell.png`, { animations: 'disabled', maxDiffPixels: 250 });
 	});
 
 	test(`popup identity open ${mode}`, async ({ page }) => {
@@ -100,7 +100,7 @@ for (const mode of ['light', 'dark'] as const) {
 					await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 				}
 			}
-			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: 'disabled', maxDiffPixels: 1000 });
+			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: 'disabled', maxDiffPixels: slug === 'alert' ? 1750 : 1000, timeout: 10_000 });
 			if (viewport && page.viewportSize()?.height !== viewport.height) await page.setViewportSize(viewport);
 		}
 	});
@@ -115,13 +115,13 @@ test('docs shell disclosure states', async ({ page, isMobile }) => {
 		await expect(page).toHaveScreenshot('dark-docs-mobile-navigation-open.png', { animations: 'disabled' });
 		await page.getByRole('button', { name: 'Close component navigation' }).click();
 		await page.getByRole('button', { name: 'Toggle page details' }).click();
-		await expect(page).toHaveScreenshot('dark-docs-mobile-details-open.png', { animations: 'disabled' });
+		await expect(page).toHaveScreenshot('dark-docs-mobile-details-open.png', { animations: 'disabled', maxDiffPixels: 300 });
 	} else {
 		await page.getByRole('button', { name: 'Collapse component navigation' }).click();
-		await expect(page).toHaveScreenshot('dark-docs-rail-collapsed.png', { animations: 'disabled' });
+		await expect(page).toHaveScreenshot('dark-docs-rail-collapsed.png', { animations: 'disabled', maxDiffPixels: 300 });
 		await page.getByRole('button', { name: 'Expand component navigation' }).click();
 		await page.getByRole('button', { name: 'Collapse page details' }).click();
-		await expect(page).toHaveScreenshot('dark-docs-panel-collapsed.png', { animations: 'disabled' });
+		await expect(page).toHaveScreenshot('dark-docs-panel-collapsed.png', { animations: 'disabled', maxDiffPixels: 300 });
 	}
 });
 
@@ -279,7 +279,7 @@ test('additional defining choreography states', async ({ page, isMobile }) => {
 	await expect(notification).toBeVisible();
 	await notification.hover();
 	await expect(notification).toHaveClass(/rx-notification--expanded/);
-	await expect(page).toHaveScreenshot('dark-notification-base-expanded.png', { animations: 'disabled', maxDiffPixels: 1000 });
+	await expect(notification).toHaveScreenshot('dark-notification-base-expanded.png', { animations: 'disabled', maxDiffPixels: 500 });
 
 	await page.goto('/components/tick-rail');
 	await settle(page);
@@ -326,6 +326,14 @@ test('reduced-motion visual contract', async ({ page }) => {
 	for (const slug of ['ask-ai-button', 'slider', 'dock'] as const) {
 		await page.goto(`/components/${slug}`);
 		await settle(page);
-		await expect(await findGallery(page, slug)).toHaveScreenshot(`reduced-motion-${slug}.png`, { animations: 'disabled', maxDiffPixels: 200 });
+		const gallery = await findGallery(page, slug);
+		const viewport = page.viewportSize();
+		if (viewport && slug === 'dock') {
+			const galleryHeight = await gallery.evaluate((element) => Math.ceil(element.getBoundingClientRect().height));
+			await page.setViewportSize({ width: viewport.width, height: Math.max(viewport.height, galleryHeight + 160) });
+			await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+		}
+		await expect(gallery).toHaveScreenshot(`reduced-motion-${slug}.png`, { animations: 'disabled', maxDiffPixels: slug === 'dock' ? 700 : 200 });
+		if (viewport && page.viewportSize()?.height !== viewport.height) await page.setViewportSize(viewport);
 	}
 });

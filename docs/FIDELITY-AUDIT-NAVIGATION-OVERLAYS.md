@@ -6,6 +6,15 @@ Scope: accordion, tabs, breadcrumb, pagination, steps, dot-stepper, timeline, fi
 
 This is a literal implementation audit, not a clean-room interpretation. Raw-reference use is authorized by `references/AUTHORIZATION.md`. The shadow CSS defines the visual layers and timing; the web-component source defines measurement, pointer, keyboard, resize, and state choreography. The compiled Vue artifacts are a parity cross-check. No component was changed during this audit.
 
+## Closure addendum — 2026-08-25
+
+The P0/P1 findings below are the pre-parity source-audit baseline. Two families affected by the final visual closure have since been re-audited and corrected:
+
+- **Dock:** selected glyphs now use the source per-variant ink (accent for base/Aurora/Bounce/Glass/Magnet and text ink for Gooey/Neon). Reduced motion and coarse-pointer behavior are separate: reduced motion disables Dock motion, while coarse input disables pointer-following transforms, glass tilt, sheen, and pointer halo but retains passive Aurora/Neon motion and press feedback. The source has no coarse-pointer branch, so this is an accepted platform/accessibility deviation required by the Phase 4c touch contract; the existing unsupported-`corner-shape` radius fallback remains documented per variant. Evidence: `src/lib/registry/ui/shell-physics.svelte.test.ts`.
+- **Notification:** the source family positions are restored (base/banner/inline top-center, card/glow top-right, snackbar bottom-center), as are the 22px tinted status badge with 14px glyph, source edge/padding geometry, measured inner content and goo bridge height, alignment, and outlet spacing. Inline notifications render in normal flow when given `target`; omitting it deliberately retains the fixed outlet for backward compatibility. The base keeps its accepted six-item queue instead of source replacement. The registry-wide default remains the spec-mandated `4000ms` (`duration=0` is sticky): this differs from base's 6000ms, Banner/Card/Glow's 5000ms, and Inline's explicit-dismiss lifecycle, while matching Snackbar's 4000ms. Evidence: `src/lib/registry/ui/notification/notification.svelte.test.ts` and `notify.test.ts`.
+
+The later priority map and “Port gap” paragraphs remain useful historical source notes but no longer describe these final implementations. Canonical final status and deviations are recorded in `docs/FIDELITY-LEDGER.json`.
+
 ## Executive finding
 
 The current Svelte port is functionally broad but visually shallow. In most families it maps a source variant name onto a shared DOM and changes only a background, radius, or box-shadow. The source instead treats variants as separate motion systems with distinct layers and, often, distinct geometry and JavaScript. The user's reports about the glow and hover behavior are correct.
