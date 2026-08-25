@@ -133,6 +133,15 @@ for (const mode of ['light', 'dark'] as const) {
 					animation.currentTime = timing.endTime;
 				}));
 			}
+			if (slug === 'timeline') {
+				await gallery.locator('.rx-timeline--glow').evaluate((element) => element.getAnimations({ subtree: true }).forEach((animation) => {
+					const timing = animation.effect?.getComputedTiming();
+					if (!timing || typeof timing.duration !== 'number' || timing.iterations !== Infinity) return;
+					const delay = typeof timing.delay === 'number' ? timing.delay : 0;
+					animation.pause();
+					animation.currentTime = delay + timing.duration * 0.5;
+				}));
+			}
 			const maxDiffPixels = slug === 'alert' ? 2000 : slug === 'skeleton' ? 1350 : slug === 'popup' ? 1400 : 1000;
 			await expect(gallery).toHaveScreenshot(`${mode}-${slug}-gallery.png`, { animations: 'allow', maxDiffPixels, timeout: 10_000 });
 			if (viewport && page.viewportSize()?.height !== viewport.height) await page.setViewportSize(viewport);
